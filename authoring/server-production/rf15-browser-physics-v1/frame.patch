@@ -1,0 +1,8 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -1065,1 +1065,2 @@
+   runtime.syncVisuals(world, presentationState, delta);
++  browserPhysics?.frame(delta, running && !state.complete && !state.failed);
+@@ -1071,1 +1072,0 @@
+-  browserPhysics?.frame(delta, running && !state.complete && !state.failed);

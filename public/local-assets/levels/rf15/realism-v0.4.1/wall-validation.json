@@ -1,0 +1,20 @@
+{
+  "revision": "realism-v0.4.1",
+  "source": "realism-v0.3.2",
+  "removedWallFaces": 216,
+  "wallUnionVolumeM3": 14.364036385535332,
+  "wallWatertight": true,
+  "collisionUnchanged": true,
+  "requiredAssetHashes": {
+    "apple-box": "41acad2d8da6a7b0b3315971b324723cef9a0ac575ac5129bc646441c05f1ed3",
+    "apple-crate": "a5b93d15d0ded2736819979f2dca4702738cd52f481d66967ec9bf043912592b",
+    "pallet-jack": "b65d53222872c5d19f11f01b5854bd7f13b97882e52097dd0e2fa2ba609a8e68",
+    "plane-tree": "725ae2d2094f35dd9abb82b065924c13292a2339a7bb1fed8184c284d91c591f",
+    "platform-scale": "8eb84045dc874568c854b8b23b4b7b146115e937bbd1ab0077d1b0d1dc77a48b",
+    "rf15_collision": "d017c41d00f264a5bd7b8eefdf6f97c82181795d1041f87443c3e9a6d1468967",
+    "rf15_final": "59bc32c23fcbecb9440a03c7e84ea1e4833b628f383c5f021798256707d8b45c",
+    "tail-lift": "1579342d2137e1d0f35832d0758586fd52f53db1ae9681efecda37544a395e9f",
+    "tomato-box": "c851b55d65a7b05bd999835de4c9f43728240a0347fffbf5e67f77e69d58df34",
+    "tomato-crate": "fe09f4552dfa10c1087d00fe8b75746446710af2a7e8de109e27f295af30f60a"
+  }
+}

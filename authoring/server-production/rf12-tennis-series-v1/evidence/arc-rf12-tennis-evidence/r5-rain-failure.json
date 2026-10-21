@@ -1,0 +1,36 @@
+{
+ "revision": "tennis-series-v1",
+ "player": {
+  "x": 5.9,
+  "z": -2,
+  "yaw": 1.5707963267948966
+ },
+ "carried": null,
+ "delivered": [],
+ "weather": {
+  "enabled": true,
+  "seed": 2775601622,
+  "raining": true,
+  "storm": 2,
+  "exposure": 30.0045,
+  "sheltered": false,
+  "remaining": 73.99550000000002
+ },
+ "failed": true,
+ "complete": false,
+ "animation": {
+  "revision": "tennis-series-v1",
+  "phase": "idle",
+  "error": null,
+  "contacts": [],
+  "lastResult": null,
+  "crouch": 0,
+  "bend": 0,
+  "walk": {
+   "stage": "idle",
+   "ready": false,
+   "travel": 0,
+   "waypoints": 0
+  }
+ }
+}

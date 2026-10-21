@@ -1,0 +1,16 @@
+{
+  "prompt": "Photorealistic high-detail game-ready GLB for a normally occupied Chinese urban apartment kitchen. Real-world proportions, physically based materials, restrained daily wear, Y axis up, front facing positive Z, centered bottom-center pivot, one isolated asset only, no robot, person, hands, extra objects, floor slab, wall slab, pedestal, floating parts, readable text, logo, watermark, UI, neon or baked lighting. Create the complete roofless interior shell of an open-plan household kitchen: continuous light gray anti-slip porcelain floor tiles, warm-white glazed wall tiles with narrow grout, 2.8 m walls, a 1.9 m clear south entry opening with a sliding glass door frame, a 1.35 m back-wall window opening with frame and sill, L-shaped warm oak base cabinets, upper cabinets, pale quartz worktop, stainless sink cutout and backsplash. Keep the south door and window visibly open and usable. No appliances or loose task props; this is the architectural environment only. Export GLB.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false,
+  "targetSizeMeters": [
+    8.4,
+    2.8,
+    6.8
+  ]
+}

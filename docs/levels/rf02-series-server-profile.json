@@ -1,0 +1,44 @@
+{
+  "profile": "rf02-series-current-task",
+  "allowedHosts": [
+    "127.0.0.1"
+  ],
+  "allowedRoot": "/path/to/arc-workspace",
+  "projectCandidate": ".",
+  "requiresProjectVerification": true,
+  "projectVerified": true,
+  "sshUser": "chenhaoyuan",
+  "authorizationEvidence": "Latest user request: obvious parking destination, original cart handle ends, forgiving chairs beside tables, visible hand carrying, no shelf repair, different shelves at random 60–90 second intervals; persistent maximum three and deployment authorization.",
+  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
+  "credentials": "Official private credential store; no secrets in project",
+  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
+  "embodiedgenEnvironmentCandidate": null,
+  "previewPortCandidates": [
+    4194
+  ],
+  "executionMode": "automatic-after-initial-scope",
+  "qualityPreset": "high-highpoly",
+  "reportCardinalCost": false,
+  "cardinalExecution": "automatic-within-approved-level",
+  "cardinalBatchApprovalRequired": false,
+  "cardinalMaxRegenerationsPerAsset": 2,
+  "revision": "library-operations-v5",
+  "releaseDirectory": "./authoring/server-production/rf02-usability-v5/release-r7",
+  "taskArtifacts": "./authoring/server-production/rf02-usability-v5",
+  "deployedPort": 4192,
+  "deploymentStatus": "deployed; both final browser completion routes passed; hand animation, native cart ends, forgiving chairs and distinct timed falls verified",
+  "deployedPid": 1232588,
+  "requiredLevelTests": "45/45 passed",
+  "broaderRepositoryTests": "16/19 shared-controls checks pass; 3 pre-existing failures; commit withheld",
+  "userAcceptance": "pending, optional",
+  "performance": {
+    "viewport": [
+      1280,
+      680
+    ],
+    "firstFps": 59.95,
+    "thirdFps": 59.97,
+    "dualFps": 52.89
+  }
+}

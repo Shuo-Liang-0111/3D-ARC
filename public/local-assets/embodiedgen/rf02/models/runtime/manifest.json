@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "rfId": "RF-02",
+  "productionStatus": "visual_complete",
+  "visualReview": "pass",
+  "humanVisualReview": "pending_user_confirmation",
+  "referenceMatch": "pass",
+  "generationPipeline": "RF-04/RF-06 compatible static environment plus independent interactables",
+  "units": "meters",
+  "upAxis": "Y",
+  "layout": {
+    "type": "Chinese municipal public library open-stack reading and circulation hall",
+    "dimensionsMeters": [
+      24.0,
+      3.6,
+      16.0
+    ],
+    "entrance": "south, 2.0m clear opening with dual security gates",
+    "aisles": {
+      "mainClearWidthMeters": 1.5,
+      "stackClearWidthMeters": 1.2
+    },
+    "shelving": "adult open-stack, 3.0m x 0.58m x 1.8m, five usable tiers",
+    "readingFurniture": "2.4m x 1.05m x 0.75m four-seat tables; 0.47m seat height"
+  },
+  "assets": [
+    {
+      "id": "environment",
+      "path": "/local-assets/embodiedgen/rf02/models/runtime/rf02_final.glb",
+      "role": "static_environment",
+      "bytes": 2092292,
+      "sha256": "03e9f5b9b054fb913a4d9921d49caa3626ebcc310cedd51278123031f7e59885",
+      "dimensions": [
+        24.22,
+        3.82,
+        16.22
+      ],
+      "bounds": {
+        "min": [
+          -12.11,
+          -0.18,
+          -8.11
+        ],
+        "max": [
+          12.11,
+          3.64,
+          8.11
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "world_origin",
+      "source": "server_blender_meter_scale_public_library_assembly",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 17,
+      "visualReview": "pass"
+    },
+    {
+      "id": "red_book",
+      "path": "/local-assets/embodiedgen/rf02/models/runtime/interactables/red_book.glb",
+      "role": "interactive_object",
+      "bytes": 23888,
+      "sha256": "da33e2547a0a5b8b94b0c3138f99ee915c9226bfb511ca04d61ff4746a934e98",
+      "dimensions": [
+        0.172,
+        0.041,
+        0.245
+      ],
+      "bounds": {
+        "min": [
+          -0.087,
+          0.0,
+          -0.1225
+        ],
+        "max": [
+          0.085,
+          0.041,
+          0.1225
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_hardcover",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 5,
+      "visualReview": "pass"
+    },
+    {
+      "id": "black_book",
+      "path": "/local-assets/embodiedgen/rf02/models/runtime/interactables/black_book.glb",
+      "role": "interactive_object",
+      "bytes": 23900,
+      "sha256": "23e835bbbd9e4c3396a8681ad28fde520a2ca94d4d90b2aee601371b26eb983a",
+      "dimensions": [
+        0.172,
+        0.041,
+        0.245
+      ],
+      "bounds": {
+        "min": [
+          -0.087,
+          0.0,
+          -0.1225
+        ],
+        "max": [
+          0.085,
+          0.041,
+          0.1225
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_hardcover",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 5,
+      "visualReview": "pass"
+    },
+    {
+      "id": "white_book",
+      "path": "/local-assets/embodiedgen/rf02/models/runtime/interactables/white_book.glb",
+      "role": "interactive_object",
+      "bytes": 23900,
+      "sha256": "936b737278d36020ca929df93ac62c338a8b68c20b59aa2b93220517147ef548",
+      "dimensions": [
+        0.172,
+        0.041,
+        0.245
+      ],
+      "bounds": {
+        "min": [
+          -0.087,
+          0.0,
+          -0.1225
+        ],
+        "max": [
+          0.085,
+          0.041,
+          0.1225
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_hardcover",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 5,
+      "visualReview": "pass"
+    }
+  ],
+  "totalBytes": 2163980
+}

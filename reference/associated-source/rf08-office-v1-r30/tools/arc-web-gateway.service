@@ -1,0 +1,19 @@
+[Unit]
+Description=ARC Three.js and MuJoCo WebSocket gateway
+After=network.target arc-mujoco.service
+Requires=arc-mujoco.service
+
+[Service]
+Type=simple
+WorkingDirectory=.
+ExecStart=/usr/local/bin/node ./server.mjs
+Environment=HOST=127.0.0.1
+Environment=PORT=4176
+Environment=ARC_MUJOCO_WS_URL=ws://127.0.0.1:4186/ws
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

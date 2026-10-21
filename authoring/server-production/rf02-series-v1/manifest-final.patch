@@ -1,0 +1,27 @@
+diff --git a/tools/rf02-series/write-manifest.mjs b/tools/rf02-series/write-manifest.mjs
+--- a/tools/rf02-series/write-manifest.mjs
++++ b/tools/rf02-series/write-manifest.mjs
+@@ -6,0 +7,2 @@
++const releaseRoot = process.argv[2] ?? "dist";
++const publicBase = (process.argv[3] ?? "http://127.0.0.1:4173").replace(/\/$/, "");
+@@ -19 +21 @@
+-  const buildPath = "dist" + publicPath;
++  const buildPath = releaseRoot + publicPath;
+@@ -22,3 +24,2 @@
+-  const served = await fetch("http://127.0.0.1:4173" + publicPath);
+-  const production = await fetch("http://127.0.0.1:4176" + publicPath);
+-  if (!served.ok || !production.ok) throw new Error("Unserved asset " + id);
++  const served = await fetch(publicBase + publicPath);
++  if (!served.ok) throw new Error("Unserved asset " + id);
+@@ -27,2 +28 @@
+-  const productionHash = hash(Buffer.from(await production.arrayBuffer()));
+-  if ([hash(buildBytes), servedHash, productionHash].some((value) => value !== digest)) throw new Error("Byte mismatch: " + id);
++  if ([hash(buildBytes), servedHash].some((value) => value !== digest)) throw new Error("Byte mismatch: " + id);
+@@ -42 +42 @@
+-    sourcePath, runtimePath: sourcePath, buildPath, deployedUrl: "http://127.0.0.1:4173" + publicPath,
++    sourcePath, runtimePath: sourcePath, buildPath, deployedUrl: publicBase + publicPath,
+diff --git a/tools/rf02-series/prepare-browser-qa.mjs b/tools/rf02-series/prepare-browser-qa.mjs
+--- a/tools/rf02-series/prepare-browser-qa.mjs
++++ b/tools/rf02-series/prepare-browser-qa.mjs
+@@ -5,0 +6 @@
++  ["public/rf02-performance-qa.html", "dist/rf02-performance-qa.html"],

@@ -1,0 +1,68 @@
+{
+  "floor": {
+    "taskId": "aigc_4ac985c9553c475a87aee03d6851dad8",
+    "status": "completed",
+    "kind": "image",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "previous": [
+      {
+        "taskId": "aigc_c51fa6dd9afc4c0580d1ebe1b6e0b789",
+        "status": "failed"
+      }
+    ],
+    "attempt": 1,
+    "sourceSha256": "b7d5130b51aab67b57b6c0e2bf38bce17f6620dd5dcdcee0d8b1f7161467a989",
+    "bytes": 1982937,
+    "path": "./production/rf13/realism-v0.3/source/floor.png"
+  },
+  "oak": {
+    "taskId": "aigc_db8e0a3c779f46ffa81f0ea78b0d0507",
+    "status": "failed",
+    "kind": "image",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": "image_generation_failed",
+    "previous": [
+      {
+        "taskId": "aigc_b44fbd401a3d49d19beba86d01789c07",
+        "status": "failed"
+      }
+    ],
+    "attempt": 1
+  },
+  "exam-bed": {
+    "taskId": "aigc_a1cbd118105046af86d54f33d4faa7f4",
+    "status": "completed",
+    "kind": "model3d",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "af5d344f9949d395e2eb797e57feb43f75581613ba588cadc96ff02c9e86312b",
+    "bytes": 56598220,
+    "path": "./production/rf13/realism-v0.3/source/exam-bed.glb"
+  },
+  "chair": {
+    "taskId": "aigc_f5b67d27faca440f9224bee4ad498bdc",
+    "status": "completed",
+    "kind": "model3d",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "2a19576437dbfd08b982680e8c15c8fff25dc80c527db8b454a08020432dc7c6",
+    "bytes": 55195468,
+    "path": "./production/rf13/realism-v0.3/source/chair.glb"
+  },
+  "trolley": {
+    "taskId": "aigc_12ca2ebf038849da8913e578d53db061",
+    "status": "completed",
+    "kind": "model3d",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "148d3cd925bae4475aa9d210245d77b83fa08f71d88be513d8b3282ba7019c21",
+    "bytes": 54737184,
+    "path": "./production/rf13/realism-v0.3/source/trolley.glb"
+  }
+}

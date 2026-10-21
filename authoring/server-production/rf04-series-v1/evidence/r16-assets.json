@@ -1,0 +1,56 @@
+[
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/collision.glb",
+    "bytes": 484908,
+    "sha256": "c426410bbd4ef6bd0efc9046f190a489b654fdf24ef1a4b76e072a590ed208ff",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/home.glb",
+    "bytes": 9292228,
+    "sha256": "c26cbbe3ba67322e1093fc7c066cd93542c2da702e34a2f04c20d86c289149be",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/shirt.glb",
+    "bytes": 346020,
+    "sha256": "b2ab7555b780900afedef1e68e0a419837d865b9034462c28d82c44a88c8e6e6",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/bed.glb",
+    "bytes": 585500,
+    "sha256": "b2fb621495a2c06edc5c690debc3aa8c39aac5afa163affdc47c8239ddabb971",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/towel.glb",
+    "bytes": 823332,
+    "sha256": "2b0541767fba4118a6251dbd96c140700fed989ded6079f7926d43c1947137c2",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/drying-rack.glb",
+    "bytes": 526972,
+    "sha256": "424fe4bebbf8fbd45f42700b051ff294109d9406580c458683dd9b5e5d40c0cb",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/washer.glb",
+    "bytes": 560728,
+    "sha256": "4e12be8ea0efa42871e0d52026fee855e9140d7d8174a936afb85c1ceab50174",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/pants.glb",
+    "bytes": 371064,
+    "sha256": "087cc4c76e6f51b9296d6f1d604c00d438b3fad50ef962544b82ed792597859a",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "local-assets/levels/rf04/architecture-v3/props/wet-bundle.glb",
+    "bytes": 628396,
+    "sha256": "2633b3e0e55730a4256624a0dadac6e5c38b44771e632dd231807c351d65b38c",
+    "sourceBuildHttpMatch": true
+  }
+]

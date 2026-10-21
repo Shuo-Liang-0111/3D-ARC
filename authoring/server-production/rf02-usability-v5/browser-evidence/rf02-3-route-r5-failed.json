@@ -1,0 +1,4206 @@
+{
+  "revision": "library-operations-v5",
+  "error": "Action timed out {\"revision\":\"library-interaction-animation-v2\",\"book\":{\"phase\":\"idle\",\"book\":null,\"player\":{\"x\":3.4032673893391334,\"z\":4.56407443202606,\"yaw\":-1.5824512999973939},\"root\":[3.4032673893391334,-0.00439445419830109,4.56407443202606],\"hand\":[3.577597770009657,0.5797077413974066,4.346722264345744],\"bookPosition\":[0,0,0]},\"phase\":\"idle\",\"gripErrors\":{\"left\":0.862565008095315,\"right\":0.7946416115901553},\"lastResult\":{\"type\":\"unreachable\",\"solverErrors\":{\"left\":0.11287055372407873,\"right\":0.1282465683389297},\"robotPosition\":[3.4032673893391334,-0.010132662419993776,4.56407443202606],\"targets\":{\"left\":[2.85,1.095,4.7299999999999995],\"right\":[2.85,1.095,4.37]}}}",
+  "records": [
+    {
+      "type": "start",
+      "at": "2026-09-19T09:25:09.682Z",
+      "loadMs": 7150.5,
+      "state": {
+        "player": {
+          "x": 0,
+          "z": 7.18,
+          "yaw": 3.141592653589793
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.7,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.76,
+            "z": 0.4,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "minimumProgress": 100,
+        "rewardedActions": {},
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 0,
+          "drops": 0,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 87.56204924637166,
+          "color": null
+        },
+        "motion": "idle",
+        "elapsed": 0,
+        "distanceTravelled": 0,
+        "blockedTime": 0,
+        "interactions": 0,
+        "lastEvent": "library_entered",
+        "revision": "library-operations-v5"
+      },
+      "revision": "library-operations-v5"
+    },
+    {
+      "type": "operation",
+      "target": {
+        "type": "grip",
+        "kind": "chair",
+        "id": "west-north"
+      },
+      "at": "2026-09-19T09:26:14.750Z",
+      "state": {
+        "player": {
+          "x": -5.758079437135692,
+          "z": -0.35976866613841274,
+          "yaw": -0.011942335089710076
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.7,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.76,
+            "z": 0.39999999999999997,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": {
+          "kind": "chair",
+          "id": "west-north",
+          "side": 1,
+          "forward": 0.759737423379161,
+          "lateral": 0.0071527704179728015,
+          "yawOffset": 0.011942335089710076
+        },
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 85.3572918267239,
+        "minimumProgress": 85.3572918267239,
+        "rewardedActions": {},
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 64.80559999997799,
+          "drops": 0,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 87.56204924637166,
+          "color": null
+        },
+        "motion": "idle",
+        "elapsed": 53.08278478317174,
+        "distanceTravelled": 13.945436355502924,
+        "blockedTime": 0,
+        "interactions": 1,
+        "lastEvent": "furniture_gripped",
+        "revision": "library-operations-v5"
+      },
+      "animation": {
+        "revision": "library-interaction-animation-v2",
+        "book": {
+          "phase": "idle",
+          "book": null,
+          "player": {
+            "x": -5.758079437135692,
+            "z": -0.35976866613841274,
+            "yaw": -0.011942335089710076
+          },
+          "root": [
+            -5.758079437135692,
+            -0.00044082130563349864,
+            -0.35976866613841274
+          ],
+          "hand": [
+            -5.945741491456916,
+            0.8471624013416279,
+            0.13346342172910514
+          ],
+          "bookPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        "phase": "push",
+        "gripErrors": {
+          "left": 0.037580402587394236,
+          "right": 0.04875459105748211
+        },
+        "lastResult": {
+          "type": "gripped",
+          "id": "west-north"
+        }
+      }
+    },
+    {
+      "type": "operation",
+      "target": {
+        "type": "push",
+        "kind": "chair",
+        "id": "west-north"
+      },
+      "at": "2026-09-19T09:26:15.891Z",
+      "state": {
+        "player": {
+          "x": -5.770919530611404,
+          "z": 0.7153546626009366,
+          "yaw": -0.011942335089710076
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.7,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": {
+          "kind": "chair",
+          "id": "west-north",
+          "side": 1,
+          "forward": 0.759737423379161,
+          "lateral": 0.0071527704179728015,
+          "yawOffset": 0.011942335089710076
+        },
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 84.22833182672389,
+        "minimumProgress": 84.22833182672389,
+        "rewardedActions": {},
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 65.92389999997813,
+          "drops": 0,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 87.56204924637166,
+          "color": null
+        },
+        "motion": "idle",
+        "elapsed": 54.20108478317183,
+        "distanceTravelled": 15.020636355502942,
+        "blockedTime": 0,
+        "interactions": 1,
+        "lastEvent": "furniture_gripped",
+        "revision": "library-operations-v5"
+      },
+      "animation": {
+        "revision": "library-interaction-animation-v2",
+        "book": {
+          "phase": "idle",
+          "book": null,
+          "player": {
+            "x": -5.770919530611404,
+            "z": 0.7153546626009366,
+            "yaw": -0.011942335089710076
+          },
+          "root": [
+            -5.770919530611404,
+            -0.0004551412260450638,
+            0.7153546626009366
+          ],
+          "hand": [
+            -5.958782270133597,
+            0.847452790011037,
+            1.2084998303601626
+          ],
+          "bookPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        "phase": "push",
+        "gripErrors": {
+          "left": 0.037789501692096744,
+          "right": 0.0487633189698981
+        },
+        "lastResult": {
+          "type": "gripped",
+          "id": "west-north"
+        }
+      }
+    },
+    {
+      "type": "operation",
+      "target": {
+        "type": "release",
+        "kind": "chair",
+        "id": "west-north"
+      },
+      "at": "2026-09-19T09:26:18.930Z",
+      "state": {
+        "player": {
+          "x": -5.770919530611404,
+          "z": 0.7153546626009366,
+          "yaw": -0.011942335089710076
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.7,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 87.22833182672389,
+        "minimumProgress": 84.22833182672389,
+        "rewardedActions": {
+          "restore:west-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 68.9929999999784,
+          "drops": 0,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 87.56204924637166,
+          "color": null
+        },
+        "motion": "idle",
+        "elapsed": 57.236984783172005,
+        "distanceTravelled": 15.020636355502942,
+        "blockedTime": 0,
+        "interactions": 2,
+        "lastEvent": "chair_restored",
+        "revision": "library-operations-v5"
+      },
+      "animation": {
+        "revision": "library-interaction-animation-v2",
+        "book": {
+          "phase": "idle",
+          "book": null,
+          "player": {
+            "x": -5.770919530611404,
+            "z": 0.7153546626009366,
+            "yaw": -0.011942335089710076
+          },
+          "root": [
+            -5.770919530611404,
+            -0.0005437270207189204,
+            0.7153546626009366
+          ],
+          "hand": [
+            -6.000430801081855,
+            0.585263618069233,
+            0.5471742940406875
+          ],
+          "bookPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        "phase": "idle",
+        "gripErrors": {
+          "left": 0.6706360912474356,
+          "right": 0.7543594747005107
+        },
+        "lastResult": {
+          "type": "chair_restored",
+          "id": "west-north"
+        }
+      }
+    },
+    {
+      "type": "dynamic-event",
+      "book": "shelf-black-0",
+      "phase": "falling",
+      "at": "2026-09-19T09:26:37.862Z",
+      "state": {
+        "player": {
+          "x": -0.5208087685757372,
+          "z": 0.737429367163685,
+          "yaw": -0.011942335089710076
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.7,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "falling",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.3335000000000001
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 81.67317666745546,
+        "minimumProgress": 81.67317666745546,
+        "rewardedActions": {
+          "restore:west-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 87.89249999998019,
+          "drops": 1,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 176.70853779463596,
+          "color": "black"
+        },
+        "motion": "moving",
+        "elapsed": 74.81823270558901,
+        "distanceTravelled": 20.31126031671214,
+        "blockedTime": 0,
+        "interactions": 2,
+        "lastEvent": "book_fell",
+        "revision": "library-operations-v5"
+      }
+    },
+    {
+      "type": "dynamic-event",
+      "book": "shelf-black-0",
+      "phase": "ground",
+      "at": "2026-09-19T09:26:38.646Z",
+      "state": {
+        "player": {
+          "x": -0.31082374343133723,
+          "z": 0.7399371979206592,
+          "yaw": -0.011942335089710076
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.75,
+            "y": 0.012,
+            "z": -5.18,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 81.4526766674555,
+        "minimumProgress": 81.4526766674555,
+        "rewardedActions": {
+          "restore:west-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 88.67649999998028,
+          "drops": 1,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 176.70853779463596,
+          "color": "black"
+        },
+        "motion": "moving",
+        "elapsed": 75.51823270558897,
+        "distanceTravelled": 20.521260316712148,
+        "blockedTime": 0,
+        "interactions": 2,
+        "lastEvent": "book_fell",
+        "revision": "library-operations-v5"
+      }
+    },
+    {
+      "type": "operation",
+      "target": {
+        "type": "grip",
+        "kind": "chair",
+        "id": "east-north"
+      },
+      "at": "2026-09-19T09:27:11.250Z",
+      "state": {
+        "player": {
+          "x": 6.140646708544098,
+          "z": -0.33808175391558054,
+          "yaw": 0.010955900116151482
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.75,
+            "y": 0.012,
+            "z": -5.18,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.16,
+            "z": 0.4,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": {
+          "kind": "chair",
+          "id": "east-north",
+          "side": 1,
+          "forward": 0.7382494862237141,
+          "lateral": 0.011265941758186921,
+          "yawOffset": -0.010955900116151482
+        },
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 73.48046879740961,
+        "minimumProgress": 73.48046879740961,
+        "rewardedActions": {
+          "restore:west-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 121.270299999983,
+          "drops": 1,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 176.70853779463596,
+          "color": "black"
+        },
+        "motion": "idle",
+        "elapsed": 106.29793630893981,
+        "distanceTravelled": 28.113839240566534,
+        "blockedTime": 0,
+        "interactions": 3,
+        "lastEvent": "furniture_gripped",
+        "revision": "library-operations-v5"
+      },
+      "animation": {
+        "revision": "library-interaction-animation-v2",
+        "book": {
+          "phase": "idle",
+          "book": null,
+          "player": {
+            "x": 6.140646708544098,
+            "z": -0.33808175391558054,
+            "yaw": 0.010955900116151482
+          },
+          "root": [
+            6.140646708544098,
+            -0.006595104208019009,
+            -0.33808175391558054
+          ],
+          "hand": [
+            5.96061350294564,
+            0.8518794431260284,
+            0.1623151842020515
+          ],
+          "bookPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        "phase": "push",
+        "gripErrors": {
+          "left": 0.03996753851820716,
+          "right": 0.017794982498885874
+        },
+        "lastResult": {
+          "type": "gripped",
+          "id": "east-north"
+        }
+      }
+    },
+    {
+      "type": "operation",
+      "target": {
+        "type": "push",
+        "kind": "chair",
+        "id": "east-north"
+      },
+      "at": "2026-09-19T09:27:12.366Z",
+      "state": {
+        "player": {
+          "x": 6.152134835579346,
+          "z": 0.7104553140687918,
+          "yaw": 0.010955900116151482
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.75,
+            "y": 0.012,
+            "z": -5.18,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.171488127035248,
+            "z": 1.4485370679843723,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": false
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": {
+          "kind": "chair",
+          "id": "east-north",
+          "side": 1,
+          "forward": 0.7382494862237141,
+          "lateral": 0.011265941758186921,
+          "yawOffset": -0.010955900116151482
+        },
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 72.3794387974096,
+        "minimumProgress": 72.3794387974096,
+        "rewardedActions": {
+          "restore:west-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 122.37119999998305,
+          "drops": 1,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 176.70853779463596,
+          "color": "black"
+        },
+        "motion": "idle",
+        "elapsed": 107.39883630893986,
+        "distanceTravelled": 29.16243924056655,
+        "blockedTime": 0,
+        "interactions": 3,
+        "lastEvent": "furniture_gripped",
+        "revision": "library-operations-v5"
+      },
+      "animation": {
+        "revision": "library-interaction-animation-v2",
+        "book": {
+          "phase": "idle",
+          "book": null,
+          "player": {
+            "x": 6.152134835579346,
+            "z": 0.7104553140687918,
+            "yaw": 0.010955900116151482
+          },
+          "root": [
+            6.152134835579346,
+            -0.006936846165734423,
+            0.7104553140687918
+          ],
+          "hand": [
+            5.97301975011827,
+            0.8542563002927294,
+            1.2119687597736788
+          ],
+          "bookPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        "phase": "push",
+        "gripErrors": {
+          "left": 0.04010930817722776,
+          "right": 0.01717471392527014
+        },
+        "lastResult": {
+          "type": "gripped",
+          "id": "east-north"
+        }
+      }
+    },
+    {
+      "type": "operation",
+      "target": {
+        "type": "release",
+        "kind": "chair",
+        "id": "east-north"
+      },
+      "at": "2026-09-19T09:27:15.600Z",
+      "state": {
+        "player": {
+          "x": 6.152134835579346,
+          "z": 0.7104553140687918,
+          "yaw": 0.010955900116151482
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.75,
+            "y": 0.012,
+            "z": -5.18,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.171488127035248,
+            "z": 1.4485370679843723,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 75.3794387974096,
+        "minimumProgress": 72.3794387974096,
+        "rewardedActions": {
+          "restore:west-north": true,
+          "restore:east-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 125.62329999998335,
+          "drops": 1,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 176.70853779463596,
+          "color": "black"
+        },
+        "motion": "idle",
+        "elapsed": 110.60083630894016,
+        "distanceTravelled": 29.16243924056655,
+        "blockedTime": 0,
+        "interactions": 4,
+        "lastEvent": "chair_restored",
+        "revision": "library-operations-v5"
+      },
+      "animation": {
+        "revision": "library-interaction-animation-v2",
+        "book": {
+          "phase": "idle",
+          "book": null,
+          "player": {
+            "x": 6.152134835579346,
+            "z": 0.7104553140687918,
+            "yaw": 0.010955900116151482
+          },
+          "root": [
+            6.152134835579346,
+            -0.00828317417083635,
+            0.7104553140687918
+          ],
+          "hand": [
+            5.931067428589342,
+            0.5762142413405225,
+            0.5385822868114958
+          ],
+          "bookPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        "phase": "idle",
+        "gripErrors": {
+          "left": 0.6757714030603418,
+          "right": 0.7342713461885237
+        },
+        "lastResult": {
+          "type": "chair_restored",
+          "id": "east-north"
+        }
+      }
+    },
+    {
+      "type": "dynamic-event",
+      "book": "shelf-white-0",
+      "phase": "falling",
+      "at": "2026-09-19T09:28:06.688Z",
+      "state": {
+        "player": {
+          "x": 3.4032673893391334,
+          "z": 4.56407443202606,
+          "yaw": -1.5824512999973939
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.75,
+            "y": 0.012,
+            "z": -5.18,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "white-target-shelf",
+            "location": "falling",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.0175
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.171488127035248,
+            "z": 1.4485370679843723,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 67.96435976259575,
+        "minimumProgress": 67.96435976259575,
+        "rewardedActions": {
+          "restore:west-north": true,
+          "restore:east-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 176.71629999998777,
+          "drops": 2,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 251.37871668808276,
+          "color": "white"
+        },
+        "motion": "idle",
+        "elapsed": 145.06655246700504,
+        "distanceTravelled": 36.22441927372334,
+        "blockedTime": 0,
+        "interactions": 4,
+        "lastEvent": "book_fell",
+        "revision": "library-operations-v5"
+      }
+    },
+    {
+      "type": "dynamic-event",
+      "book": "shelf-white-0",
+      "phase": "ground",
+      "at": "2026-09-19T09:28:07.630Z",
+      "state": {
+        "player": {
+          "x": 3.4032673893391334,
+          "z": 4.56407443202606,
+          "yaw": -1.5824512999973939
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "red-reading": {
+            "id": "red-reading",
+            "color": "red",
+            "x": -5.82,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "west-reading-zone",
+            "location": "table"
+          },
+          "black-reading": {
+            "id": "black-reading",
+            "color": "black",
+            "x": 6.22,
+            "z": 2.35,
+            "y": 0.686,
+            "support": "east-reading-zone",
+            "location": "table"
+          },
+          "white-cart": {
+            "id": "white-cart",
+            "color": "white",
+            "x": 2.45,
+            "z": 4.55,
+            "y": 1.01,
+            "support": "return-cart",
+            "location": "table"
+          },
+          "shelf-red-0": {
+            "id": "shelf-red-0",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.75,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 0
+          },
+          "shelf-red-1": {
+            "id": "shelf-red-1",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-red-2": {
+            "id": "shelf-red-2",
+            "color": "red",
+            "x": -10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": -9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "red-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-black-0": {
+            "id": "shelf-black-0",
+            "color": "black",
+            "x": -0.75,
+            "y": 0.012,
+            "z": -5.18,
+            "rotation": 0,
+            "landing": {
+              "x": -0.75,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-black-1": {
+            "id": "shelf-black-1",
+            "color": "black",
+            "x": -0.33999999999999997,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": -0.08999999999999997,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-black-2": {
+            "id": "shelf-black-2",
+            "color": "black",
+            "x": 0.020000000000000018,
+            "y": 1.16,
+            "z": -6.43,
+            "rotation": 0,
+            "landing": {
+              "x": 0.5700000000000001,
+              "y": 0.012,
+              "z": -5.18
+            },
+            "support": "black-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          },
+          "shelf-white-0": {
+            "id": "shelf-white-0",
+            "color": "white",
+            "x": 9.22,
+            "y": 0.012,
+            "z": -1.85,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.85
+            },
+            "support": null,
+            "location": "ground",
+            "background": true,
+            "shelfIndex": 0,
+            "fallen": true,
+            "fallElapsed": 0.95
+          },
+          "shelf-white-1": {
+            "id": "shelf-white-1",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.3900000000000001,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -1.25
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 1
+          },
+          "shelf-white-2": {
+            "id": "shelf-white-2",
+            "color": "white",
+            "x": 10.43,
+            "y": 1.16,
+            "z": -1.03,
+            "rotation": 1.5707963267948966,
+            "landing": {
+              "x": 9.22,
+              "y": 0.012,
+              "z": -0.6500000000000001
+            },
+            "support": "white-target-shelf",
+            "location": "shelved",
+            "background": true,
+            "shelfIndex": 2
+          }
+        },
+        "chairs": {
+          "west-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "west-north",
+            "model": "readingChair",
+            "x": -5.772840093475712,
+            "z": 1.4751233287393493,
+            "home": {
+              "x": -5.76,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          },
+          "east-north": {
+            "halfX": 0.28,
+            "halfZ": 0.265,
+            "yaw": 0,
+            "standOffset": 0.74,
+            "handleBack": 0.22,
+            "handleY": 0.85,
+            "handleHalfWidth": 0.2,
+            "id": "east-north",
+            "model": "readingChair-6",
+            "x": 6.171488127035248,
+            "z": 1.4485370679843723,
+            "home": {
+              "x": 6.16,
+              "z": 1.49,
+              "yaw": 0
+            },
+            "task": true,
+            "modelYaw": -1.5707963267948966,
+            "restored": true
+          }
+        },
+        "cart": {
+          "id": "return-cart",
+          "x": 2.45,
+          "z": 4.55,
+          "yaw": 3.141592653589793,
+          "halfX": 0.45,
+          "halfZ": 0.3,
+          "standOffset": 0.94,
+          "pushYawOffset": 1.5707963267948966,
+          "handleBack": 0.4,
+          "handleY": 1.095,
+          "handleHalfWidth": 0.18,
+          "parking": {
+            "x": 8.65,
+            "z": -3.15,
+            "yaw": 3.141592653589793,
+            "halfX": 0.9,
+            "halfZ": 0.76
+          },
+          "parked": false,
+          "travel": 0
+        },
+        "attachment": null,
+        "carriedBook": null,
+        "carriedItem": null,
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 67.96435976259575,
+        "minimumProgress": 67.96435976259575,
+        "rewardedActions": {
+          "restore:west-north": true,
+          "restore:east-north": true
+        },
+        "incident": {
+          "phase": "scheduled",
+          "elapsed": 177.65049999998786,
+          "drops": 2,
+          "schedule": [
+            {
+              "color": "black",
+              "at": 87.56204924637166
+            },
+            {
+              "color": "white",
+              "at": 176.70853779463596
+            },
+            {
+              "color": "red",
+              "at": 251.37871668808276
+            }
+          ],
+          "nextDrop": 251.37871668808276,
+          "color": "white"
+        },
+        "motion": "idle",
+        "elapsed": 145.06655246700504,
+        "distanceTravelled": 36.22441927372334,
+        "blockedTime": 0,
+        "interactions": 4,
+        "lastEvent": "book_fell",
+        "revision": "library-operations-v5"
+      }
+    }
+  ],
+  "state": {
+    "player": {
+      "x": 3.4032673893391334,
+      "z": 4.56407443202606,
+      "yaw": -1.5824512999973939
+    },
+    "books": {
+      "red": {
+        "id": "red",
+        "color": "red",
+        "x": -0.62,
+        "z": 3.05,
+        "y": 0.677,
+        "support": "return-table",
+        "location": "table"
+      },
+      "black": {
+        "id": "black",
+        "color": "black",
+        "x": 0,
+        "z": 3.05,
+        "y": 0.681,
+        "support": "return-table",
+        "location": "table"
+      },
+      "white": {
+        "id": "white",
+        "color": "white",
+        "x": 0.62,
+        "z": 3.05,
+        "y": 0.677,
+        "support": "return-table",
+        "location": "table"
+      },
+      "red-reading": {
+        "id": "red-reading",
+        "color": "red",
+        "x": -5.82,
+        "z": 2.35,
+        "y": 0.686,
+        "support": "west-reading-zone",
+        "location": "table"
+      },
+      "black-reading": {
+        "id": "black-reading",
+        "color": "black",
+        "x": 6.22,
+        "z": 2.35,
+        "y": 0.686,
+        "support": "east-reading-zone",
+        "location": "table"
+      },
+      "white-cart": {
+        "id": "white-cart",
+        "color": "white",
+        "x": 2.45,
+        "z": 4.55,
+        "y": 1.01,
+        "support": "return-cart",
+        "location": "table"
+      },
+      "shelf-red-0": {
+        "id": "shelf-red-0",
+        "color": "red",
+        "x": -10.43,
+        "y": 1.16,
+        "z": -1.75,
+        "rotation": 1.5707963267948966,
+        "landing": {
+          "x": -9.22,
+          "y": 0.012,
+          "z": -1.85
+        },
+        "support": "red-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 0
+      },
+      "shelf-red-1": {
+        "id": "shelf-red-1",
+        "color": "red",
+        "x": -10.43,
+        "y": 1.16,
+        "z": -1.3900000000000001,
+        "rotation": 1.5707963267948966,
+        "landing": {
+          "x": -9.22,
+          "y": 0.012,
+          "z": -1.25
+        },
+        "support": "red-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 1
+      },
+      "shelf-red-2": {
+        "id": "shelf-red-2",
+        "color": "red",
+        "x": -10.43,
+        "y": 1.16,
+        "z": -1.03,
+        "rotation": 1.5707963267948966,
+        "landing": {
+          "x": -9.22,
+          "y": 0.012,
+          "z": -0.6500000000000001
+        },
+        "support": "red-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 2
+      },
+      "shelf-black-0": {
+        "id": "shelf-black-0",
+        "color": "black",
+        "x": -0.75,
+        "y": 0.012,
+        "z": -5.18,
+        "rotation": 0,
+        "landing": {
+          "x": -0.75,
+          "y": 0.012,
+          "z": -5.18
+        },
+        "support": null,
+        "location": "ground",
+        "background": true,
+        "shelfIndex": 0,
+        "fallen": true,
+        "fallElapsed": 0.95
+      },
+      "shelf-black-1": {
+        "id": "shelf-black-1",
+        "color": "black",
+        "x": -0.33999999999999997,
+        "y": 1.16,
+        "z": -6.43,
+        "rotation": 0,
+        "landing": {
+          "x": -0.08999999999999997,
+          "y": 0.012,
+          "z": -5.18
+        },
+        "support": "black-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 1
+      },
+      "shelf-black-2": {
+        "id": "shelf-black-2",
+        "color": "black",
+        "x": 0.020000000000000018,
+        "y": 1.16,
+        "z": -6.43,
+        "rotation": 0,
+        "landing": {
+          "x": 0.5700000000000001,
+          "y": 0.012,
+          "z": -5.18
+        },
+        "support": "black-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 2
+      },
+      "shelf-white-0": {
+        "id": "shelf-white-0",
+        "color": "white",
+        "x": 9.22,
+        "y": 0.012,
+        "z": -1.85,
+        "rotation": 1.5707963267948966,
+        "landing": {
+          "x": 9.22,
+          "y": 0.012,
+          "z": -1.85
+        },
+        "support": null,
+        "location": "ground",
+        "background": true,
+        "shelfIndex": 0,
+        "fallen": true,
+        "fallElapsed": 0.95
+      },
+      "shelf-white-1": {
+        "id": "shelf-white-1",
+        "color": "white",
+        "x": 10.43,
+        "y": 1.16,
+        "z": -1.3900000000000001,
+        "rotation": 1.5707963267948966,
+        "landing": {
+          "x": 9.22,
+          "y": 0.012,
+          "z": -1.25
+        },
+        "support": "white-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 1
+      },
+      "shelf-white-2": {
+        "id": "shelf-white-2",
+        "color": "white",
+        "x": 10.43,
+        "y": 1.16,
+        "z": -1.03,
+        "rotation": 1.5707963267948966,
+        "landing": {
+          "x": 9.22,
+          "y": 0.012,
+          "z": -0.6500000000000001
+        },
+        "support": "white-target-shelf",
+        "location": "shelved",
+        "background": true,
+        "shelfIndex": 2
+      }
+    },
+    "chairs": {
+      "west-north": {
+        "halfX": 0.28,
+        "halfZ": 0.265,
+        "yaw": 0,
+        "standOffset": 0.74,
+        "handleBack": 0.22,
+        "handleY": 0.85,
+        "handleHalfWidth": 0.2,
+        "id": "west-north",
+        "model": "readingChair",
+        "x": -5.772840093475712,
+        "z": 1.4751233287393493,
+        "home": {
+          "x": -5.76,
+          "z": 1.49,
+          "yaw": 0
+        },
+        "task": true,
+        "modelYaw": -1.5707963267948966,
+        "restored": true
+      },
+      "east-north": {
+        "halfX": 0.28,
+        "halfZ": 0.265,
+        "yaw": 0,
+        "standOffset": 0.74,
+        "handleBack": 0.22,
+        "handleY": 0.85,
+        "handleHalfWidth": 0.2,
+        "id": "east-north",
+        "model": "readingChair-6",
+        "x": 6.171488127035248,
+        "z": 1.4485370679843723,
+        "home": {
+          "x": 6.16,
+          "z": 1.49,
+          "yaw": 0
+        },
+        "task": true,
+        "modelYaw": -1.5707963267948966,
+        "restored": true
+      }
+    },
+    "cart": {
+      "id": "return-cart",
+      "x": 2.45,
+      "z": 4.55,
+      "yaw": 3.141592653589793,
+      "halfX": 0.45,
+      "halfZ": 0.3,
+      "standOffset": 0.94,
+      "pushYawOffset": 1.5707963267948966,
+      "handleBack": 0.4,
+      "handleY": 1.095,
+      "handleHalfWidth": 0.18,
+      "parking": {
+        "x": 8.65,
+        "z": -3.15,
+        "yaw": 3.141592653589793,
+        "halfX": 0.9,
+        "halfZ": 0.76
+      },
+      "parked": false,
+      "travel": 0
+    },
+    "attachment": null,
+    "carriedBook": null,
+    "carriedItem": null,
+    "complete": false,
+    "failed": false,
+    "terminalOpen": false,
+    "progress": 67.96435976259575,
+    "minimumProgress": 67.96435976259575,
+    "rewardedActions": {
+      "restore:west-north": true,
+      "restore:east-north": true
+    },
+    "incident": {
+      "phase": "scheduled",
+      "elapsed": 211.14489999999097,
+      "drops": 2,
+      "schedule": [
+        {
+          "color": "black",
+          "at": 87.56204924637166
+        },
+        {
+          "color": "white",
+          "at": 176.70853779463596
+        },
+        {
+          "color": "red",
+          "at": 251.37871668808276
+        }
+      ],
+      "nextDrop": 251.37871668808276,
+      "color": "white"
+    },
+    "motion": "idle",
+    "elapsed": 145.06655246700504,
+    "distanceTravelled": 36.22441927372334,
+    "blockedTime": 0,
+    "interactions": 4,
+    "lastEvent": "book_fell",
+    "revision": "library-operations-v5"
+  }
+}

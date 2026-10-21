@@ -1,0 +1,17 @@
+{
+  "oil_bottle": {
+    "taskId": "aigc_037c7c5ac70544b590687e5e30e43823",
+    "status": "completed",
+    "downloaded": true
+  },
+  "frying_pan": {
+    "taskId": "aigc_a4b63ddae47b47a59655f30a439f9fbe",
+    "status": "completed",
+    "downloaded": true
+  },
+  "extinguisher": {
+    "taskId": "aigc_4c5680cb6bd6482ab12f0327b9492048",
+    "status": "completed",
+    "downloaded": true
+  }
+}

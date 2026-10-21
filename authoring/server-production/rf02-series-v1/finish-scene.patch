@@ -1,0 +1,63 @@
+diff --git a/game/levels/rf02/level.js b/game/levels/rf02/level.js
+--- a/game/levels/rf02/level.js
++++ b/game/levels/rf02/level.js
+@@ -17,3 +17,3 @@
+-    red: Object.freeze({ x: -0.62, z: 2.75 }),
+-    black: Object.freeze({ x: 0, z: 2.75 }),
+-    white: Object.freeze({ x: 0.62, z: 2.75 }),
++    red: Object.freeze({ x: -0.62, z: 3.05 }),
++    black: Object.freeze({ x: 0, z: 3.05 }),
++    white: Object.freeze({ x: 0.62, z: 3.05 }),
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -20,1 +20,1 @@
+-    id: color, color, ...BASE_LEVEL.books[color], y: 0.78, support: "return-table", location: "table",
++    id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table",
+diff --git a/tools/rf02-series/build-collision.mjs b/tools/rf02-series/build-collision.mjs
+--- a/tools/rf02-series/build-collision.mjs
++++ b/tools/rf02-series/build-collision.mjs
+@@ -33,1 +33,19 @@
+-console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
++console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
++const fixtures = new THREE.Scene();
++const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(24, 16), new THREE.MeshStandardMaterial({ color: 0xe1dfd7, roughness: 0.95 }));
++ceiling.name = "library-ceiling-interior-face";
++ceiling.rotation.x = Math.PI / 2;
++ceiling.position.y = 3.599;
++fixtures.add(ceiling);
++for (const positionX of [-9, -3, 3, 9]) {
++  for (const positionZ of [-4.8, 0.2, 5.2]) {
++    for (const offset of [-0.86, 0.86]) {
++      const suspension = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.07, 8), new THREE.MeshStandardMaterial({ color: 0x6d7171, metalness: 0.65, roughness: 0.5 }));
++      suspension.name = "luminaire-suspension-" + positionX + "-" + positionZ + "-" + offset;
++      suspension.position.set(positionX + offset, 3.565, positionZ);
++      fixtures.add(suspension);
++    }
++  }
++}
++const fixtureBytes = await new GLTFExporter().parseAsync(fixtures, { binary: true });
++fs.writeFileSync(path.join("public", ASSET_ROOT, "ceiling-fixtures.glb"), Buffer.from(fixtureBytes));
+diff --git a/game/levels/rf02/series-scene.js b/game/levels/rf02/series-scene.js
+--- a/game/levels/rf02/series-scene.js
++++ b/game/levels/rf02/series-scene.js
+@@ -34,2 +34,11 @@
+-  world.collisionReady = collisionReady;
+-  world.assetReady = Promise.all([originalReady, collisionReady]).then(([results, collision]) => {
++  world.collisionReady = collisionReady;
++  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(
++    ASSET_ROOT + "/ceiling-fixtures.glb",
++    (gltf) => {
++      world.scene.add(gltf.scene);
++      resolve({ loaded: true, name: "ceiling-fixtures", url: ASSET_ROOT + "/ceiling-fixtures.glb" });
++    },
++    undefined,
++    () => resolve({ loaded: false, name: "ceiling-fixtures" }),
++  ));
++  world.assetReady = Promise.all([originalReady, collisionReady, fixturesReady]).then(([results, collision, fixtures]) => {
+diff --git a/game/levels/rf02/series-scene.js b/game/levels/rf02/series-scene.js
+--- a/game/levels/rf02/series-scene.js
++++ b/game/levels/rf02/series-scene.js
+@@ -45,1 +45,1 @@
+-    return [...results, collision];
++    return [...results, collision, fixtures];

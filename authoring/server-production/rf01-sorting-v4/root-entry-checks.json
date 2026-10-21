@@ -1,0 +1,26 @@
+[
+  {
+    "level": "rf01",
+    "status": 200,
+    "release": "rf01-sorting-v4",
+    "hasHMR": false
+  },
+  {
+    "level": "rf01-2",
+    "status": 200,
+    "release": "rf01-sorting-v4",
+    "hasHMR": false
+  },
+  {
+    "level": "rf01-3",
+    "status": 200,
+    "release": "rf01-sorting-v4",
+    "hasHMR": false
+  },
+  {
+    "level": "rf02",
+    "status": 200,
+    "release": null,
+    "hasHMR": true
+  }
+]

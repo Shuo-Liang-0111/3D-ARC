@@ -1,0 +1,350 @@
+[
+  {
+    "id": "rf01",
+    "count": 24,
+    "release": "rf01-sorting-v4-navigation-v1",
+    "missing": [
+      "rf04-2",
+      "rf04-3",
+      "rf05-2",
+      "rf05-3",
+      "rf06-2",
+      "rf06-3",
+      "rf07-2",
+      "rf07-3",
+      "rf09-2",
+      "rf09-3",
+      "rf12-2",
+      "rf12-3",
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf01-2",
+    "count": 24,
+    "release": "rf01-sorting-v4-navigation-v1",
+    "missing": [
+      "rf04-2",
+      "rf04-3",
+      "rf05-2",
+      "rf05-3",
+      "rf06-2",
+      "rf06-3",
+      "rf07-2",
+      "rf07-3",
+      "rf09-2",
+      "rf09-3",
+      "rf12-2",
+      "rf12-3",
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf01-3",
+    "count": 24,
+    "release": "rf01-sorting-v4-navigation-v1",
+    "missing": [
+      "rf04-2",
+      "rf04-3",
+      "rf05-2",
+      "rf05-3",
+      "rf06-2",
+      "rf06-3",
+      "rf07-2",
+      "rf07-3",
+      "rf09-2",
+      "rf09-3",
+      "rf12-2",
+      "rf12-3",
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf02",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf02-2",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf02-3",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf03",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf04",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf04-2",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf04-3",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf05",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf05-2",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf05-3",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf06",
+    "count": 32,
+    "release": "rf06-series-v1-r16",
+    "missing": [
+      "rf09-2",
+      "rf09-3",
+      "rf12-2",
+      "rf12-3",
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf06-2",
+    "count": 32,
+    "release": "rf06-series-v1-r16",
+    "missing": [
+      "rf09-2",
+      "rf09-3",
+      "rf12-2",
+      "rf12-3",
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf06-3",
+    "count": 32,
+    "release": "rf06-series-v1-r16",
+    "missing": [
+      "rf09-2",
+      "rf09-3",
+      "rf12-2",
+      "rf12-3",
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf07",
+    "count": 36,
+    "release": "rf073-pickup-finish-r1",
+    "missing": [
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf07-2",
+    "count": 36,
+    "release": "rf073-pickup-finish-r1",
+    "missing": [
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf07-3",
+    "count": 36,
+    "release": "rf073-pickup-finish-r1",
+    "missing": [
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf08",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf09",
+    "count": 36,
+    "release": "rf08-office-v1-r28",
+    "missing": [
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf09-2",
+    "count": 36,
+    "release": "rf08-office-v1-r28",
+    "missing": [
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf09-3",
+    "count": 36,
+    "release": "rf08-office-v1-r28",
+    "missing": [
+      "rf13-02",
+      "rf13-03",
+      "rf14-2",
+      "rf14-3"
+    ]
+  },
+  {
+    "id": "rf10",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf11",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf12",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf12-2",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf12-3",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf13",
+    "count": 40,
+    "release": "rf11-clinic-series-v1-r12",
+    "missing": []
+  },
+  {
+    "id": "rf13-02",
+    "count": 40,
+    "release": "rf11-clinic-series-v1-r12",
+    "missing": []
+  },
+  {
+    "id": "rf13-03",
+    "count": 40,
+    "release": "rf11-clinic-series-v1-r12",
+    "missing": []
+  },
+  {
+    "id": "rf14",
+    "count": 40,
+    "release": "rf12-tennis-series-v1-r7",
+    "missing": []
+  },
+  {
+    "id": "rf14-2",
+    "count": 40,
+    "release": "rf12-tennis-series-v1-r7",
+    "missing": []
+  },
+  {
+    "id": "rf14-3",
+    "count": 40,
+    "release": "rf12-tennis-series-v1-r7",
+    "missing": []
+  },
+  {
+    "id": "rf15",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf15-1",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf15-2",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "rf15-3",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "test_zpf",
+    "count": 40,
+    "release": null,
+    "missing": []
+  },
+  {
+    "id": "test_zpf2",
+    "count": 40,
+    "release": null,
+    "missing": []
+  }
+]

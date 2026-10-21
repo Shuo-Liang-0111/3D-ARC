@@ -1,0 +1,478 @@
+{
+  "suite": {
+    "steps": [
+      {
+        "station": "pickup:folder",
+        "expect": "pickup"
+      },
+      {
+        "station": "return:folder",
+        "expect": "return"
+      },
+      {
+        "station": "pickup:tray",
+        "expect": "pickup"
+      },
+      {
+        "station": "return:tray",
+        "expect": "return"
+      },
+      {
+        "station": "pickup:remote",
+        "expect": "pickup"
+      },
+      {
+        "station": "return:remote",
+        "expect": "return"
+      }
+    ],
+    "index": 6,
+    "stage": "next",
+    "results": [
+      {
+        "step": {
+          "station": "pickup:folder",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": -4.156631430664063,
+            "z": 3.3497338336485725,
+            "yaw": 3.010692959690218
+          },
+          "contacts": 0
+        },
+        "result": {
+          "type": "pickup",
+          "item": "folder",
+          "event": "pickup",
+          "error": 0.033980744055004,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "return:folder",
+          "expect": "return"
+        },
+        "before": {
+          "player": {
+            "x": -9.741344560986455,
+            "z": 3.9407798811618933,
+            "yaw": 5.105088062083413
+          },
+          "contacts": 1
+        },
+        "result": {
+          "type": "return",
+          "item": "folder",
+          "event": "return",
+          "error": 0.03285969954947429,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:tray",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": -4.72,
+            "z": -3.560769515458673,
+            "yaw": 2.6179938779914944
+          },
+          "contacts": 2
+        },
+        "result": {
+          "type": "pickup",
+          "item": "tray",
+          "event": "pickup",
+          "error": 0.034008740572513296,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "return:tray",
+          "expect": "return"
+        },
+        "before": {
+          "player": {
+            "x": -1.8105828541230249,
+            "z": 4.060889008453118,
+            "yaw": 0.2617993877991494
+          },
+          "contacts": 3
+        },
+        "result": {
+          "type": "return",
+          "item": "tray",
+          "event": "return",
+          "error": 0.03057382715575866,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:remote",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": 2.8913445609864556,
+            "z": 2.6192201188381077,
+            "yaw": 1.9634954084936205
+          },
+          "contacts": 4
+        },
+        "result": {
+          "type": "pickup",
+          "item": "remote",
+          "event": "pickup",
+          "error": 0.03212362217679345,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "return:remote",
+          "expect": "return"
+        },
+        "before": {
+          "player": {
+            "x": 7.690889008453118,
+            "z": 3.6394171458769753,
+            "yaw": 1.3089969389957472
+          },
+          "contacts": 5
+        },
+        "result": {
+          "type": "return",
+          "item": "remote",
+          "event": "return",
+          "error": 0.034207189415119466,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      }
+    ],
+    "status": "passed",
+    "started": 81537.5,
+    "before": {
+      "player": {
+        "x": 7.690889008453118,
+        "z": 3.6394171458769753,
+        "yaw": 1.3089969389957472
+      },
+      "contacts": 5
+    },
+    "deadline": 175028
+  },
+  "state": {
+    "level": "rf09",
+    "player": {
+      "x": 8.457498346652056,
+      "z": 3.6479595977722665,
+      "yaw": 1.194951411923341
+    },
+    "items": {
+      "folder": {
+        "id": "folder",
+        "type": "folder",
+        "x": -10.85,
+        "y": 0.965,
+        "z": 4.4,
+        "location": "surface",
+        "yaw": 6.136103121308068
+      },
+      "tray": {
+        "id": "tray",
+        "type": "tray",
+        "x": -1.5,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "surface",
+        "yaw": 0.2617993877991494
+      },
+      "remote": {
+        "id": "remote",
+        "type": "remote",
+        "x": 8.85,
+        "y": 0.965,
+        "z": 3.95,
+        "location": "surface",
+        "yaw": 1.194951411923341
+      },
+      "paper": {
+        "id": "paper",
+        "type": "paper",
+        "x": 8.45,
+        "y": 0.965,
+        "z": 4.02,
+        "location": "surface"
+      },
+      "printed": {
+        "id": "printed",
+        "type": "printed",
+        "x": 6.5,
+        "y": 1.02,
+        "z": 5.03,
+        "location": "printer",
+        "available": false
+      },
+      "used": {
+        "id": "used",
+        "type": "used",
+        "x": -4.12,
+        "y": 0.79,
+        "z": -5.65,
+        "location": "surface"
+      },
+      "docs-1": {
+        "id": "docs-1",
+        "type": "documents",
+        "x": -10.3,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-1": {
+        "id": "water-1",
+        "type": "water",
+        "x": -8.99,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-2": {
+        "id": "docs-2",
+        "type": "documents",
+        "x": -9.940000000000001,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-2": {
+        "id": "water-2",
+        "type": "water",
+        "x": -8.82,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-3": {
+        "id": "docs-3",
+        "type": "documents",
+        "x": -9.58,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-3": {
+        "id": "water-3",
+        "type": "water",
+        "x": -8.65,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-4": {
+        "id": "docs-4",
+        "type": "documents",
+        "x": -9.22,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-4": {
+        "id": "water-4",
+        "type": "water",
+        "x": -8.48,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "water-5": {
+        "id": "water-5",
+        "type": "water",
+        "x": 9.22,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      },
+      "water-6": {
+        "id": "water-6",
+        "type": "water",
+        "x": 9.47,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      }
+    },
+    "chairs": {
+      "chair-a": {
+        "id": "chair-a",
+        "x": -3,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": -3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      },
+      "chair-b": {
+        "id": "chair-b",
+        "x": 3,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": 3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      }
+    },
+    "carriedItem": null,
+    "attachment": null,
+    "seats": [
+      {
+        "id": "1",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "2",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "3",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "4",
+        "doc": null,
+        "water": null
+      }
+    ],
+    "returned": {
+      "folder": true,
+      "tray": true,
+      "remote": true
+    },
+    "printer": {
+      "paper": false,
+      "phase": "empty",
+      "time": 0
+    },
+    "requests": [
+      {
+        "id": "print",
+        "status": "active"
+      },
+      {
+        "id": "water",
+        "status": "pending",
+        "count": 0
+      },
+      {
+        "id": "collect",
+        "status": "pending"
+      }
+    ],
+    "progress": 100,
+    "complete": true,
+    "failed": false,
+    "settling": false,
+    "terminalOpen": false,
+    "elapsed": 61.656399999977346,
+    "clock": 60.338699999977244,
+    "interactions": 6,
+    "motion": "idle",
+    "lastEvent": "return"
+  },
+  "snapshot": {
+    "revision": "rf08-office-v1-realism",
+    "phase": "idle",
+    "error": null,
+    "fps": 35.52003552097554,
+    "robotPose": {
+      "position": [
+        8.457498346652056,
+        0,
+        3.6479595977722665
+      ],
+      "rotation": [
+        0,
+        1.1949514119233415,
+        0
+      ]
+    },
+    "lastResult": {
+      "type": "return",
+      "item": "remote",
+      "event": "return",
+      "error": 0.034207189415119466,
+      "revision": "rf08-office-v1-realism"
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "item": "folder",
+        "event": "pickup",
+        "error": 0.033980744055004,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "return",
+        "item": "folder",
+        "event": "return",
+        "error": 0.03285969954947429,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "tray",
+        "event": "pickup",
+        "error": 0.034008740572513296,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "return",
+        "item": "tray",
+        "event": "return",
+        "error": 0.03057382715575866,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "remote",
+        "event": "pickup",
+        "error": 0.03212362217679345,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "return",
+        "item": "remote",
+        "event": "return",
+        "error": 0.034207189415119466,
+        "revision": "rf08-office-v1-realism"
+      }
+    ],
+    "ceiling": false
+  }
+}

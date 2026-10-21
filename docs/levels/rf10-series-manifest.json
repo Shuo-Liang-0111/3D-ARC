@@ -1,0 +1,22 @@
+{
+  "schema": "arc-level-series/v1",
+  "displayLevels": ["RF-10", "RF-10-2", "RF-10-3"],
+  "internalRoutes": ["rf12", "rf12-2", "rf12-3"],
+  "sharedScene": "game/levels/rf12/scene.js",
+  "sharedCollision": "public/local-assets/levels/rf12/models/runtime/rf12_collision.glb",
+  "variants": {
+    "rf12-2": {
+      "difficulty": "simple",
+      "task": "oil_bottle_to_prep_counter",
+      "timer": null,
+      "fireRecovery": false
+    },
+    "rf12-3": {
+      "difficulty": "high",
+      "task": "timed_pan_cooking",
+      "timerSeconds": { "target": 60, "min": 55, "max": 65 },
+      "fireRecovery": true,
+      "extinguisherAsset": "public/local-assets/cardinal/rf03/models/runtime/fire_safety_station.glb"
+    }
+  }
+}

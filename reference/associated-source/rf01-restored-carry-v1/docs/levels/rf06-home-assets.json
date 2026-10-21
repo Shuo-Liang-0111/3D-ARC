@@ -1,0 +1,65 @@
+{
+  "release": "rf06-series-v1-r11",
+  "layoutRevision": "rf06-home-v3",
+  "environmentVersion": "home-v5",
+  "mopVersion": "tools-v1",
+  "sources": {
+    "home": "Blender 4.5.3 exact geometry with reused Cardinal wall/floor images",
+    "valve": "Blender 4.5.3",
+    "mop": "Blender 4.5.3 dimensioned flat mop",
+    "insecticide": "Existing Cardinal pest-v2 asset",
+    "bucket": "Existing Cardinal series-v1 asset",
+    "wrench": "Existing normalized RF-06 tool"
+  },
+  "assets": [
+    {
+      "path": "local-assets/levels/rf06/home-v5/home.glb",
+      "bytes": 5719244,
+      "sha256": "16ba221b480ea1dc6745154e9cfaad28038bd17ea810428a1a369de1cb257ea3",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/levels/rf06/home-v5/collision.glb",
+      "bytes": 30016,
+      "sha256": "f08ff0040c1bdfe824231fe4cb24afa89c67396fad8d34a4ef7a9e6cd61711eb",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/levels/rf06/home-v5/valve.glb",
+      "bytes": 8212,
+      "sha256": "e4bdd74796c67ad69a8adad84387d0fe510a0e0fbe723c7ec9febcaca88ac072",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/levels/rf06/tools-v1/mop.glb",
+      "bytes": 149492,
+      "sha256": "7e5c68f1564b2f667b22af4f793d4ee77e8263083c53752f743da505c9d0b283",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/levels/rf06/pest-v2/insecticide.glb",
+      "bytes": 270316,
+      "sha256": "7b5f904b3c987b23a1d034cd98412123d354b57571491f8f72e64cf2d2366914",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/levels/rf06/series-v1/bucket.glb",
+      "bytes": 304152,
+      "sha256": "46adbffd6999b19e7e151965a9701d2af59afe69472156072d828356de13167e",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/embodiedgen/rf06/models/runtime/interactables/wrench.glb",
+      "bytes": 442936,
+      "sha256": "7213cf5d3b8f3fee6755d809b4766b448143f2af71a8fa0415c518773db7b219",
+      "sourceBuildHttpMatch": true
+    }
+  ],
+  "protectedFilesUnchanged": {
+    "game/unitree-g1-edu2.js": true,
+    "game/operator-controls.js": true,
+    "game/levels/rf06/level.js": true,
+    "game/levels/rf06/engine.js": true,
+    "game/levels/rf06/scene.js": true
+  }
+}

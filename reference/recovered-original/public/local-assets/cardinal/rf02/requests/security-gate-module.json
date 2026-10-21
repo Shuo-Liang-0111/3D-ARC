@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready single electromagnetic article-surveillance security gate pedestal for the entrance of a contemporary Chinese municipal public library. Real-world size approximately 0.30 m wide x 1.56 m high x 0.75 m deep. Slim rounded rectangular dark graphite powder-coated metal frame, inset translucent RF detection panel, concealed wiring channel, weighted floor base, precise service seams and fasteners, subtle contact wear, and no protrusions into the pedestrian aisle. This is one repeatable standard module with symmetrical clean side faces so two copies can form a gate. Y axis up, front facing positive Z, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. Exactly one isolated gate pedestal only. No second gate, room, floor, wall, person, robot, barrier tape, floating parts, animation, alarm glow, neon, outline, arrows, UI, readable text, labels, logo, trademark, or baked lighting. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

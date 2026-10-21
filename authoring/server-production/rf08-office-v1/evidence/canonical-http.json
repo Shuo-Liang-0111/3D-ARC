@@ -1,0 +1,20 @@
+[
+  {
+    "level": "rf09",
+    "release": "rf08-office-v1-r13",
+    "matchesImmutable": true,
+    "devClient": false
+  },
+  {
+    "level": "rf09-2",
+    "release": "rf08-office-v1-r13",
+    "matchesImmutable": true,
+    "devClient": false
+  },
+  {
+    "level": "rf09-3",
+    "release": "rf08-office-v1-r13",
+    "matchesImmutable": true,
+    "devClient": false
+  }
+]

@@ -1,0 +1,25 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { LEVEL } from '../game/levels/rf08/level.js';
+import { createInitialState, getInteraction, interact, isWalkable, updateMovement } from '../game/levels/rf08/engine.js';
+import { OfficePhysics, installOfficePhysics } from '../game/levels/rf08/scan-physics.js';
+const load = (file, Type) => { const buffer = readFileSync('public/office-scan/' + file); return new Type(buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength)); };
+test('RF-08 blocks movement until collision data is installed', () => { const state = createInitialState(); assert.equal(isWalkable(state, state.player.x, state.player.z), false); assert.deepEqual(updateMovement(state, {move: 1}, 0.05).player, state.player); });
+test('RF-08 uses full scan physics and retains free exploration semantics', () => {
+  installOfficePhysics(new OfficePhysics(load('collision-positions.bin', Float32Array), load('collision-indices.bin', Uint32Array)));
+  const state = createInitialState();
+  assert.equal(isWalkable(state, LEVEL.playerStart.x, LEVEL.playerStart.z), true);
+  assert.equal(isWalkable(state, 20, 20), false);
+  assert.equal(isWalkable(state, NaN, 0), false);
+  assert.equal(getInteraction(state), null);
+  assert.equal(interact(state).lastEvent, 'bin_out_of_reach');
+  assert.equal(state.interactions, 0);
+  const moved = updateMovement(state, {move: 1, strafe: 0, turn: 0}, 0.05);
+  assert.ok(moved.player.x < state.player.x);
+  assert.equal(moved.complete, false);
+  let walked = createInitialState();
+  walked.player = {x:-2,z:-1.2,yaw:0};
+  for (let step=0;step<150;step+=1) walked=updateMovement(walked,{move:1},0.05);
+  assert.ok(walked.player.z < 0.5, 'furniture blocks crossing the desk island');
+});

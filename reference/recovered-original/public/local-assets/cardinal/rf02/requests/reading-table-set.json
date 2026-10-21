@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready four-seat public library reading table set for a contemporary Chinese municipal library. Overall real-world footprint approximately 2.65 m wide x 0.92 m high x 2.18 m deep. One rectangular 2.4 m pale oak veneer reading table with softly rounded durable edges, dark powder-coated steel legs, a small flush central power module without readable labels, plus exactly four matching upholstered reading chairs placed naturally at the four seating positions and pushed in enough to keep the footprint compact. Chairs use muted blue-gray commercial fabric, ergonomic backs and slender black steel legs. Treat the table and four chairs as one isolated static composition. Front faces positive Z, Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology, physically based materials, realistic joints and restrained everyday wear. No floor, room, books, lamps, screens, people, robot, hands, extra chairs, readable text, logo, trademark, neon, UI, floating parts, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,207 @@
+[
+  {
+    "file": "assets/GLTFLoader-iAAxM0ql.js",
+    "sha256": "909ccacd53a081b16d52c7a0ef6aad7568801f5b91125b4afdeedc9fc4103b69",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/animation-qa-fv3DHA8b.js",
+    "sha256": "6ae13a6ad811b876acd2fa7ece7739628cf578e2a99a3dbf4495ba079a7219c0",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/g1-articulated-collision-B0mysrhw.js",
+    "sha256": "71e23f2b8bd16a2affbb2421d2d9caca3fc00ea4fafef93245f590a5115ef7ad",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/index-CG_ffLBg.js",
+    "sha256": "6a52bc126f6228aa7448ea80074176ea3f641d9a5e5982a847a56033d235024f",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/index-CZDc2QqC.css",
+    "sha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/interaction-animation-DNkbiT3M.js",
+    "sha256": "79d72f7a8612aa02cfc7087fae77d37e631169dd052eb5e2fde5dc21ec581648",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/interaction-walk-BUtxn5Qg.js",
+    "sha256": "0d5d53d816696e7e89dbfe1155484ffee10cad5aae88cf2abf28d5b7de6d18ec",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/runtime-DGoTDgdh.js",
+    "sha256": "fea2303b4e623581d9d009d1f85de378ae22833c0c31ba3fadf4e0e00548f4ef",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/runtime-DnTjhpgA.js",
+    "sha256": "a0911792316a325bc9838ac3bb417b9d9fb47ca35ecd60bc77187a4ecfd43432",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/series-entry-CT2i7Z-6.js",
+    "sha256": "363fcac5c9d5fd2ffb83411b272acc3df7b22ebe617f4593398a5ad1d9611242",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/series-qa-Bbe4wMBh.js",
+    "sha256": "47fed53c076d1291df41fcbca6a5741c3d99a4796d598802ed1cccaf41b052da",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/series-runtime-CHBje2Ui.js",
+    "sha256": "17bd56fc008bd8c9b9370594fa55fec968bb691fea2f0c1651adf85e4f760227",
+    "httpMatch": true
+  },
+  {
+    "file": "index.html",
+    "sha256": "21be195f0469b41017f644b97a5895e58f444286cdfbc6f985494b5d6ffe3d98",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/bathroom_vanity.glb",
+    "sha256": "126c32fb178cb6c7dfc516a9ee54b92c2fba56a1c3180e0952213b80cf88f99c",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/bedside_table.glb",
+    "sha256": "6b16587fc319d881d5099e2033b1c3a34be8e4c52e6798f99b250a5b189dfef6",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/ceiling_light.glb",
+    "sha256": "727569915d96129e2c867dca36e2e9202f734b3c6977771020b7b6e0b0bc71bd",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/cleaning_cart.glb",
+    "sha256": "e403de942cc977f9fff371a68d80e05cfdedd5e22d1c611dc98fa919a5b7a899",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/curtain_window_module.glb",
+    "sha256": "dabbb62a9074ba444227bf8a724277947732c810477f578dfd54465d663acd02",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/desk_chair.glb",
+    "sha256": "d1c43b2fcab52dc4f8c64dc8658586a2a6e27682451c905a9c54a3fbd4b4904a",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/drinking_cup.glb",
+    "sha256": "29a79b58c4df70ab2562efb388d805f699355934801ab64f02eaf3104b7b4160",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/laundry_basket.glb",
+    "sha256": "3f1c44bfe2905254ec69ab222052156ff7f3454ea0d2d6c1eea61bae5288273e",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/luggage_bench.glb",
+    "sha256": "bdcf803be45632b781e6401d321ec389b412172217d3793feb9bf43403372018",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/paper_trash.glb",
+    "sha256": "c10c9cb465e47aa4a1312c7be1c5984efe272e5b82de2039bb055f4982515298",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/shower_fixture.glb",
+    "sha256": "ef3674e0f9a1273ce333754f899e5661e6413a794cd3d0c0dd9a8fff6aaf899f",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/television_console.glb",
+    "sha256": "13dcf414ab123beacbc772dc033ee30bdbb755a39cde8e8456c77759bc1e7455",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/toilet.glb",
+    "sha256": "db68937de8719e618590027d003d076f6fa11b70c867961be8c0510805fb5414",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/towel.glb",
+    "sha256": "4d6fb7e84c9fb0afc521f4f6c4e2da36e23d38757a186481a232ca9eb7c8ca50",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/trash_bin.glb",
+    "sha256": "4bf6aa942a2bcd6c0b3bfe21935fa7fb8faf7e264538156711aa283c3fa37b2d",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/twin_bed.glb",
+    "sha256": "4eaeefee265012b285561799aa97c516a5a55b01f6da75ed5398972cdd822b87",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/wardrobe.glb",
+    "sha256": "d3e27fe13edd75ca7e0bd0ff056bf31311841a92de8117ac6d51bf8d7afe2388",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/models/runtime/writing_desk.glb",
+    "sha256": "f83434686d5c95cb1090eb633614b6a8ef3425a3bfbeca4b2ceaf5167bb1166c",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+    "sha256": "9adda573e239a007207e68b6dbe16c204196837824b9599974093d79f500bfbb",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/textures/source/bathroom_wall_tile.png",
+    "sha256": "60520a8aaa3fc275d969b7994db545967c3eb72e9c31fd4cb1a1295daec5efee",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/textures/source/guestroom_wood_floor.png",
+    "sha256": "fea6e57ae5133ba92f288f3a87db4f6b5179e4e6c0ce05ecea0b11547689260d",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/cardinal/rf05/textures/source/warm_gray_wall.png",
+    "sha256": "cc359c438c0803144ab378e0cd1cd3778d82f52b5cc421f06ca6b9ca648603be",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/unitree/g1-29dof-dex1-official.glb",
+    "sha256": "bdfbbab13e4f2ca6222cafe47050c84166344ed6ea4a9af3d88a821bdc98bb70",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/unitree/g1/LICENSE",
+    "sha256": "a5d73fc4aca9074e3e6fe0b1a0ba763cf9514b2249b7390ed20fe8d53630bf25",
+    "httpMatch": true
+  },
+  {
+    "file": "local-assets/unitree/g1/g1_29dof_official.glb",
+    "sha256": "4e8e83e42cb7a9d1d93c46eb0da821eb54ebf3596923bee087cf7e614ae367b9",
+    "httpMatch": true
+  },
+  {
+    "file": "vendor/draco/draco_decoder.js",
+    "sha256": "30e4d486fa020737af10e3c56197693e5b904bdc05b8bfa5d7b06751dec6da04",
+    "httpMatch": true
+  },
+  {
+    "file": "vendor/draco/draco_decoder.wasm",
+    "sha256": "c55a594e8ffd18426d36b27fea9618af3df5e173640a3e56d46f09d76f0574f2",
+    "httpMatch": true
+  },
+  {
+    "file": "vendor/draco/draco_wasm_wrapper.js",
+    "sha256": "e8049906ef3f8f75d3456c22a3f31bfdfe5b5b5bd09ccdec613b9e9a49d554d8",
+    "httpMatch": true
+  }
+]

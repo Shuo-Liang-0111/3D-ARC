@@ -1,0 +1,56 @@
+{
+  "game/levels/rf05/scene.js": {
+    "unchanged": true
+  },
+  "game/levels/rf05/engine.js": {
+    "unchanged": true
+  },
+  "game/levels/rf05/runtime.js": {
+    "unchanged": true
+  },
+  "game/movement.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/series-scene.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/level.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/scene.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/vacuum-navigation.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/doorframe-layout.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/engine.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/architecture-layout.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/runtime.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/series-animation.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/series-engine.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/series-layout.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/series-qa.js": {
+    "unchanged": true
+  },
+  "game/levels/rf04/series-runtime.js": {
+    "unchanged": true
+  },
+  "game/app.js": {
+    "onlyObjectiveChanged": true
+  }
+}

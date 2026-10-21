@@ -1,0 +1,9 @@
+{
+  "prompt": "One realistic modern community clinic waiting chair, isolated single chair, 0.60 meters wide, 0.90 meters high, 0.65 meters deep. Teal molded padded vinyl seat and backrest, brushed stainless steel four legs and two slim arms, rubber foot caps, clean commercial healthcare furniture. Front faces positive Z, backrest at negative Z. No floor slab, no room, no people, no text.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

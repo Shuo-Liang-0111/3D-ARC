@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready interior environment for a normally operating Chinese precision manufacturing workshop. Real-world size 24 m wide × 4.2 m high × 16 m deep. Include a clean epoxy resin floor, light-gray insulated sandwich-panel walls, a wide 3.2 m safety door opening centered on the south wall, overhead LED fixtures, restrained yellow floor safety markings, blue-gray steel machine guards and realistic industrial wear. Y axis up, front facing positive Z, origin at floor center. Clean watertight topology, physically based materials, embedded textures, stable semantic node names. One complete static environment only. No robots, no cargo, no floating objects, no people, no UI, no readable text, no logos, no baked lighting, no external textures. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

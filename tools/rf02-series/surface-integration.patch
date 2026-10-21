@@ -1,0 +1,10 @@
+--- a/game/levels/rf02/series-scene.js
++++ b/game/levels/rf02/series-scene.js
+@@ -4,0 +5 @@
++import { LIBRARY_SURFACES } from "./surface-assets.js";
+@@ -33 +34 @@
+-  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/ceiling-fixtures.glb", (gltf) => {
++  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(LIBRARY_SURFACES.ceiling, (gltf) => {
+@@ -35 +36 @@
+-    resolve({ loaded: true, name: "ceiling-fixtures", url: ASSET_ROOT + "/ceiling-fixtures.glb" });
++    resolve({ loaded: true, name: "ceiling-fixtures", url: LIBRARY_SURFACES.ceiling });

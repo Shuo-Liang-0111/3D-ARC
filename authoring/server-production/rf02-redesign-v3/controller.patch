@@ -1,0 +1,1419 @@
+diff --git a/game/levels/rf02/furniture-controller.js b/game/levels/rf02/furniture-controller.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02/furniture-controller.js
+@@ -0,0 +1,218 @@
++import * as THREE from "three";
++import { BrowserArmScript } from "../rf15/browser-arm-script.js";
++import { approachPath } from "../rf15/interaction-walk.js";
++import { BOOKENDS } from "./series-layout.js";
++
++const up = new THREE.Vector3(0, 1, 0);
++const idle = () => ({ move: 0, strafe: 0, turn: 0 });
++const separation = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++
++export function createFurnitureController(world, robot, options) {
++  return new FurnitureController(world, robot, options);
++}
++
++class FurnitureController {
++  constructor(world, robot, options) {
++    this.world = world;
++    this.robot = robot;
++    this.options = options;
++    this.arms = {};
++    if (robot.userData.officialModel && robot.userData.robotProfile?.setJointAngle) {
++      for (const side of ["left", "right"]) this.arms[side] = new BrowserArmScript(robot, side);
++    }
++    this.reset();
++    world.furnitureController = this;
++  }
++
++  reset() {
++    this.action = null;
++    this.path = null;
++    this.pendingCompletion = false;
++    this.step = 0;
++    this.walkBlend = 0;
++    this.previous = { ...this.options.getState().player };
++    this.lastResult = null;
++    for (const arm of Object.values(this.arms)) arm.active = false;
++  }
++
++  get busy() {
++    return Boolean(this.action || this.options.getState().attachment);
++  }
++
++  object(state = this.options.getState()) {
++    const attachment = state.attachment ?? this.action?.selected;
++    return attachment?.kind === "cart" ? state.cart : attachment?.kind === "chair" ? state.chairs[attachment.id] : null;
++  }
++
++  targets() {
++    const object = this.object();
++    if (object) {
++      return Object.fromEntries(["left", "right"].map((side) => {
++        const local = new THREE.Vector3(side === "left" ? object.handleHalfWidth : -object.handleHalfWidth, object.handleY, -object.handleBack);
++        return [side, local.applyAxisAngle(up, object.yaw).add(new THREE.Vector3(object.x, 0, object.z))];
++      }));
++    }
++    const handle = BOOKENDS[this.action.selected.color].handle;
++    return { right: new THREE.Vector3(handle.x, handle.y, handle.z) };
++  }
++
++  interact() {
++    if (this.action) return true;
++    const state = this.options.getState();
++    if (state.attachment) {
++      this.options.stop();
++      this.action = { phase: "release", time: 0, selected: { ...state.attachment } };
++      return true;
++    }
++    const selected = this.options.runtime.getInteraction(state);
++    if (!selected || !["grip", "repair"].includes(selected.type)) return false;
++    const path = approachPath(state, selected.stand, this.options.runtime);
++    if (!path) {
++      this.options.message("操作位置被挡住，请从可通行的一侧靠近");
++      this.options.setState(this.options.runtime.interact(state));
++      return true;
++    }
++    this.options.stop();
++    this.path = path;
++    this.action = { phase: "align", time: 0, selected, index: 0, ready: false, stuck: 0 };
++    this.previous = { ...state.player };
++    return true;
++  }
++
++  motionInput(state, input = {}) {
++    if (!this.action) return state.attachment ? input : null;
++    if (this.action.phase !== "align") return idle();
++    const action = this.action;
++    while (action.index < this.path.length && separation(state.player, this.path[action.index]) < 0.02) action.index += 1;
++    if (action.index < this.path.length) {
++      const point = this.path[action.index], error = angle(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw);
++      if (Math.abs(error) > 0.06) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
++      return { ...idle(), move: Math.min(0.40, separation(state.player, point) * 3) / this.options.runtime.LEVEL.moveSpeed };
++    }
++    const error = angle(action.selected.stand.yaw, state.player.yaw);
++    if (Math.abs(error) > 0.012) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
++    action.ready = true;
++    return idle();
++  }
++
++  commit() {
++    const next = this.options.runtime.interact(this.options.getState());
++    if (next.complete) {
++      this.pendingCompletion = true;
++      next.complete = false;
++      next.settling = true;
++    }
++    this.options.setState(next);
++    return next;
++  }
++
++  beginReach() {
++    const targets = this.targets();
++    this.action.rest = {};
++    for (const [side, target] of Object.entries(targets)) {
++      const arm = this.arms[side];
++      if (!arm) continue;
++      arm.capture();
++      this.action.rest[side] = [...arm.angles];
++      arm.plan(target, null);
++    }
++    const invalid = Object.values(this.arms).some((arm) => arm.active && arm.error > 0.10);
++    if (invalid) {
++      this.options.message("把手超出手臂可达范围，请调整站位");
++      this.beginRecovery();
++      return;
++    }
++    this.action.phase = "reach";
++    this.action.time = 0;
++  }
++
++  beginRecovery() {
++    const action = this.action;
++    for (const [side, arm] of Object.entries(this.arms)) {
++      if (action.rest?.[side]) arm.targetAngles = [...action.rest[side]];
++      else if (this.gripRest?.[side]) arm.targetAngles = [...this.gripRest[side]];
++    }
++    action.phase = "recover";
++    action.time = 0;
++  }
++
++  settled() {
++    return Object.values(this.arms).every((arm) => !arm.active || Math.max(...arm.angles.map((value, index) => Math.abs(value - arm.targetAngles[index]))) < 0.025);
++  }
++
++  drawWalking(dt, moved, turned) {
++    const moving = moved > 0.0001 || turned > 0.001;
++    this.step += (moved + turned * 0.16) * Math.PI * 2 / 0.55;
++    this.walkBlend += THREE.MathUtils.clamp((moving ? 1 : 0) - this.walkBlend, -dt * 4, dt * 4);
++    if (!this.busy || !this.robot.userData.officialModel) return;
++    const model = this.robot.userData.officialModel, set = this.robot.userData.robotProfile.setJointAngle;
++    for (const [side, offset] of [["left", 0], ["right", Math.PI]]) {
++      const wave = Math.sin(this.step + offset), swing = Math.max(0, wave);
++      set(model, side + "_hip_pitch_link", -0.12 + wave * 0.20 * this.walkBlend);
++      set(model, side + "_knee_link", 0.24 + swing * 0.30 * this.walkBlend);
++      set(model, side + "_ankle_pitch_link", -0.12 - wave * 0.12 * this.walkBlend - swing * 0.15 * this.walkBlend);
++    }
++    this.robot.updateMatrixWorld(true);
++  }
++
++  frame(delta, running) {
++    const dt = running ? Math.min(0.05, Math.max(0, delta)) : 0;
++    const state = this.options.getState();
++    const moved = separation(state.player, this.previous), turned = Math.abs(angle(state.player.yaw, this.previous.yaw));
++    this.drawWalking(dt, moved, turned);
++    this.previous = { ...state.player };
++    const action = this.action;
++    if (action && dt > 0) {
++      action.time += dt;
++      if (action.phase === "align") {
++        action.stuck = moved + turned > 0.0001 || action.ready ? 0 : action.stuck + dt;
++        if (action.stuck > 3 || action.time > 25) {
++          this.options.message("靠近动作受阻，已停止");
++          this.action = null;
++        } else if (action.ready) this.beginReach();
++      } else if (action.phase === "reach" && action.time >= 0.8 && this.settled()) {
++        if (action.selected.type === "repair") {
++          action.phase = "repair";
++          action.time = 0;
++        } else {
++          const next = this.commit();
++          this.gripRest = action.rest;
++          this.lastResult = { type: next.attachment ? "gripped" : "blocked", id: action.selected.id };
++          if (next.attachment) this.action = null;
++          else this.beginRecovery();
++        }
++      } else if (action.phase === "repair" && action.time >= 1.4) {
++        this.commit();
++        this.lastResult = { type: "repaired", color: action.selected.color };
++        this.beginRecovery();
++      } else if (action.phase === "release" && action.time >= 0.45) {
++        const next = this.commit();
++        this.lastResult = { type: next.lastEvent, id: action.selected.id };
++        this.beginRecovery();
++      } else if (action.phase === "recover" && action.time >= 0.5 && this.settled()) {
++        for (const arm of Object.values(this.arms)) arm.active = false;
++        this.action = null;
++        if (this.pendingCompletion) {
++          this.options.setState({ ...this.options.getState(), settling: false, complete: true });
++          this.pendingCompletion = false;
++        }
++      }
++    }
++    for (const arm of Object.values(this.arms)) if (arm.active) {
++      arm.update(dt);
++      arm.apply();
++    }
++    if (this.options.getState().attachment || this.action) {
++      const targets = this.targets();
++      this.gripErrors = Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, this.arms[side]?.graspPose().position.distanceTo(target) ?? null]));
++    }
++    if (new URLSearchParams(location.search).get("qa") === "rf02-operations") {
++      document.querySelector("#game-shell").dataset.furnitureAnimation = JSON.stringify(this.snapshot());
++    }
++  }
++
++  snapshot() {
++    return { revision: "library-furniture-animation-v1", phase: this.action?.phase ?? (this.options.getState().attachment ? "push" : "idle"), gripErrors: this.gripErrors, lastResult: this.lastResult };
++  }
++}
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -1,59 +1,59 @@
+-import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
+-import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
+-
+-export { CART, CHAIRS };
+-export const REVISION = FURNISHINGS_REVISION;
+-export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
+-
+-export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
+-  const black = color === "black";
+-  return [color, Object.freeze({
+-    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
+-    z: black ? -6.43 : -1.75,
+-    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
+-  })];
+-})));
+-
+-export const BOOKENDS = Object.freeze({
+-  red: { x: -10.43, y: 1.16, z: -0.53, rotation: Math.PI / 2, stand: { x: -9.42, z: 0.67, yaw: -Math.PI / 2 } },
+-  black: { x: 0.52, y: 1.16, z: -6.43, rotation: 0, stand: { x: 1.82, z: -5.62, yaw: Math.PI } },
+-  white: { x: 10.43, y: 1.16, z: -0.53, rotation: Math.PI / 2, stand: { x: 9.42, z: 0.67, yaw: Math.PI / 2 } },
+-});
+-
+-export function shelfPose(color, id) {
+-  const source = SHELF_BOOKS[color];
+-  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
+-  const slot = shelfIndex * 0.36;
+-  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
+-}
+-
+-export function landingPose(color, index) {
+-  return color === "black"
+-    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
+-    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
+-}
+-
+-export const BOOKS = Object.freeze([
+-  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
+-  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
+-  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
+-  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
+-  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
+-    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
+-    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
+-  }))),
+-]);
+-
+-export function seriesLevel(id) {
+-  return Object.freeze({
+-    ...BASE_LEVEL, id, revision: REVISION,
+-    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
+-    dynamic: id === "rf02-3", interactionRange: 1.30,
+-    progress: Object.freeze({
+-      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.30 : 1.45,
+-      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
+-      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, repairReward: 3, pickupReward: 1, correctBookReward: 1,
+-    }),
+-    fallDuration: 0.95, fallInterval: 12, maximumFalls: 3,
+-  });
+-}
++import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
++import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
++
++export { CART, CHAIRS };
++export const REVISION = FURNISHINGS_REVISION;
++export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
++
++export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
++  const black = color === "black";
++  return [color, Object.freeze({
++    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
++    z: black ? -6.43 : -1.75,
++    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
++  })];
++})));
++
++export const BOOKENDS = Object.freeze({
++  red: { x: -10.26, y: 1.16, z: -1.05, rotation: Math.PI / 2, stand: { x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, handle: { x: -10.26, y: 1.26, z: 0.32 } },
++  black: { x: 0, y: 1.16, z: -6.25, rotation: 0, stand: { x: 1.32, z: -5.65, yaw: Math.PI }, handle: { x: 1.32, y: 1.26, z: -6.25 } },
++  white: { x: 10.26, y: 1.16, z: -1.05, rotation: -Math.PI / 2, stand: { x: 9.65, z: 0.32, yaw: Math.PI / 2 }, handle: { x: 10.26, y: 1.26, z: 0.32 } },
++});
++
++export function shelfPose(color, id) {
++  const source = SHELF_BOOKS[color];
++  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
++  const slot = shelfIndex * 0.36;
++  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
++}
++
++export function landingPose(color, index) {
++  return color === "black"
++    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
++    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
++}
++
++export const BOOKS = Object.freeze([
++  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
++  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
++    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
++    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
++  }))),
++]);
++
++export function seriesLevel(id) {
++  return Object.freeze({
++    ...BASE_LEVEL, id, revision: REVISION,
++    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
++    dynamic: id === "rf02-3", interactionRange: 1.30,
++    progress: Object.freeze({
++      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.30 : 1.45,
++      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
++      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, repairReward: 3, pickupReward: 1, correctBookReward: 1,
++    }),
++    fallDuration: 0.95, fallInterval: 12, maximumFalls: 3,
++  });
++}
+diff --git a/game/levels/rf02/series-engine.js b/game/levels/rf02/series-engine.js
+--- a/game/levels/rf02/series-engine.js
++++ b/game/levels/rf02/series-engine.js
+@@ -1,281 +1,281 @@
+-import { applyRobotMovement } from "../../movement.js";
+-import { BOOK_COLORS } from "./level.js";
+-import { BOOKS, BOOKENDS, CART, CHAIRS, shelfPose, landingPose, seriesLevel } from "./series-layout.js";
+-import { furnitureStand } from "./furnishings-layout.js";
+-
+-const EPSILON = 1e-7;
+-const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
+-const angleError = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
+-const clone = (state) => ({
+-  ...state, player: { ...state.player }, cart: { ...state.cart },
+-  chairs: Object.fromEntries(Object.entries(state.chairs).map(([id, chair]) => [id, { ...chair }])),
+-  books: Object.fromEntries(Object.entries(state.books).map(([id, book]) => [id, { ...book }])),
+-  rewardedActions: { ...state.rewardedActions }, incident: { ...state.incident },
+-  attachment: state.attachment ? { ...state.attachment } : null,
+-});
+-
+-function rectangle(rect) {
+-  return { x: (rect.minX + rect.maxX) / 2, z: (rect.minZ + rect.maxZ) / 2, halfX: (rect.maxX - rect.minX) / 2, halfZ: (rect.maxZ - rect.minZ) / 2, yaw: 0, id: rect.id };
+-}
+-
+-function axes(object) {
+-  return [{ x: Math.cos(object.yaw), z: -Math.sin(object.yaw) }, { x: Math.sin(object.yaw), z: Math.cos(object.yaw) }];
+-}
+-
+-function rectanglesOverlap(left, right) {
+-  const leftAxes = axes(left), rightAxes = axes(right);
+-  const dot = (first, second) => first.x * second.x + first.z * second.z;
+-  return [...leftAxes, ...rightAxes].every((axis) => {
+-    const gap = Math.abs((left.x - right.x) * axis.x + (left.z - right.z) * axis.z);
+-    const reach = left.halfX * Math.abs(dot(axis, leftAxes[0])) + left.halfZ * Math.abs(dot(axis, leftAxes[1]))
+-      + right.halfX * Math.abs(dot(axis, rightAxes[0])) + right.halfZ * Math.abs(dot(axis, rightAxes[1]));
+-    return gap < reach - EPSILON;
+-  });
+-}
+-
+-function circleOverlaps(x, z, radius, object) {
+-  const localX = (x - object.x) * Math.cos(object.yaw) - (z - object.z) * Math.sin(object.yaw);
+-  const localZ = (x - object.x) * Math.sin(object.yaw) + (z - object.z) * Math.cos(object.yaw);
+-  return Math.max(0, Math.abs(localX) - object.halfX) ** 2 + Math.max(0, Math.abs(localZ) - object.halfZ) ** 2 < radius ** 2 - EPSILON;
+-}
+-
+-export function createArchiveEngine(id) {
+-  const LEVEL = seriesLevel(id);
+-  const movingIds = new Set(["return-cart", ...CHAIRS.filter((chair) => chair.task).map((chair) => chair.id)]);
+-  const fixed = LEVEL.staticColliders.filter((rect) => !movingIds.has(rect.id)).map(rectangle);
+-
+-  function createInitialState(options = {}) {
+-    const value = typeof options.random === "function" ? options.random() : Math.random();
+-    const sample = Number.isFinite(value) ? Math.max(0, Math.min(0.999999, value)) : 0;
+-    return {
+-      player: { ...LEVEL.playerStart },
+-      books: Object.fromEntries(BOOKS.map((book) => [book.id, { ...book }])),
+-      chairs: Object.fromEntries(CHAIRS.filter((chair) => chair.task).map((chair) => [chair.id, { ...chair, restored: false }])),
+-      cart: { ...CART, parked: false, travel: 0 }, attachment: null,
+-      carriedBook: null, carriedItem: null, complete: false, failed: false, terminalOpen: false,
+-      progress: 100, minimumProgress: 100, rewardedActions: {},
+-      incident: { color: BOOK_COLORS[Math.floor(sample * 3)], phase: LEVEL.dynamic ? "waiting" : "disabled", elapsed: 0, drops: 0, nextDrop: 0 },
+-      motion: "idle", elapsed: 0, distanceTravelled: 0, blockedTime: 0, interactions: 0,
+-      lastEvent: "library_entered", revision: LEVEL.revision,
+-    };
+-  }
+-
+-  function attachedObject(state) {
+-    return !state.attachment ? null : state.attachment.kind === "cart" ? state.cart : state.chairs[state.attachment.id];
+-  }
+-
+-  function obstacles(state, omitted = null) {
+-    return [...fixed, state.cart, ...Object.values(state.chairs)].filter((object) => object.id !== omitted);
+-  }
+-
+-  function insideBounds(object) {
+-    const bounds = LEVEL.bounds;
+-    const extentX = Math.abs(Math.cos(object.yaw)) * object.halfX + Math.abs(Math.sin(object.yaw)) * object.halfZ;
+-    const extentZ = Math.abs(Math.sin(object.yaw)) * object.halfX + Math.abs(Math.cos(object.yaw)) * object.halfZ;
+-    return object.x - extentX >= bounds.minX && object.x + extentX <= bounds.maxX && object.z - extentZ >= bounds.minZ && object.z + extentZ <= bounds.maxZ;
+-  }
+-
+-  function furniturePose(state, x, z) {
+-    const object = attachedObject(state);
+-    return object ? { ...object,
+-      x: x + Math.sin(state.player.yaw) * state.attachment.forward + Math.cos(state.player.yaw) * state.attachment.lateral,
+-      z: z + Math.cos(state.player.yaw) * state.attachment.forward - Math.sin(state.player.yaw) * state.attachment.lateral,
+-      yaw: state.player.yaw + state.attachment.yawOffset,
+-    } : null;
+-  }
+-
+-  function isWalkable(state, x, z, radius = LEVEL.playerRadius) {
+-    const bounds = LEVEL.bounds;
+-    if (![x, z, radius].every(Number.isFinite) || radius < 0) return false;
+-    if (x - radius < bounds.minX || x + radius > bounds.maxX || z - radius < bounds.minZ || z + radius > bounds.maxZ) return false;
+-    const furniture = furniturePose(state, x, z);
+-    const blocks = obstacles(state, furniture?.id);
+-    if (blocks.some((object) => circleOverlaps(x, z, radius, object))) return false;
+-    return !furniture || (insideBounds(furniture) && !blocks.some((object) => rectanglesOverlap(furniture, object)));
+-  }
+-
+-  function settle(before, next, cost = 0, rewardKey = null, reward = 0) {
+-    if (cost > 0 && before.progress <= cost + EPSILON) {
+-      const failed = clone(before);
+-      Object.assign(failed, { progress: 0, minimumProgress: 0, failed: true, motion: "idle", lastEvent: "progress_depleted", interactions: next.interactions });
+-      return failed;
+-    }
+-    next.progress = before.progress - cost;
+-    next.minimumProgress = Math.min(before.minimumProgress, next.progress);
+-    if (rewardKey && !before.rewardedActions[rewardKey]) {
+-      next.rewardedActions[rewardKey] = true;
+-      next.progress = Math.min(100, next.progress + reward);
+-    }
+-    return next;
+-  }
+-
+-  function completion(state) {
+-    return Object.values(state.chairs).every((chair) => chair.restored) && state.cart.parked && !state.attachment
+-      && (!LEVEL.dynamic || (state.incident.phase === "fixed" && state.incident.drops > 0
+-        && Object.values(state.books).filter((book) => book.fallen).every((book) => book.location === "shelved")));
+-  }
+-
+-  function beginFault(state) {
+-    if (!LEVEL.dynamic || state.incident.phase !== "waiting") return;
+-    state.incident.phase = "loose";
+-    state.incident.drops = 1;
+-    state.incident.nextDrop = LEVEL.fallInterval;
+-    const bookId = "shelf-" + state.incident.color + "-0";
+-    Object.assign(state.books[bookId], { location: "falling", fallen: true, fallElapsed: 0, landing: landingPose(state.incident.color, 0) });
+-  }
+-
+-  function updateMovement(state, input = {}, deltaSeconds = 0) {
+-    if (state.complete || state.failed) return clone(state);
+-    const next = clone(state);
+-    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
+-    const movement = applyRobotMovement(next, state, input, dt, LEVEL, isWalkable);
+-    const travelled = distance(next.player, state.player);
+-    const turnTravel = Math.abs(angleError(next.player.yaw, state.player.yaw));
+-    const furniture = furniturePose(next, next.player.x, next.player.z);
+-    if (furniture) {
+-      if (next.attachment.kind === "cart") {
+-        furniture.travel = state.cart.travel + distance(furniture, state.cart);
+-        next.cart = furniture;
+-        if (furniture.travel >= 1.5) beginFault(next);
+-      } else next.chairs[furniture.id] = furniture;
+-    }
+-    next.elapsed += dt;
+-    next.distanceTravelled += travelled;
+-    const blocked = (movement.translating && travelled < EPSILON) || (state.attachment && movement.turning && turnTravel < EPSILON);
+-    next.blockedTime += blocked ? dt : 0;
+-    next.motion = travelled > EPSILON ? "moving" : turnTravel > EPSILON ? "turning" : state.carriedBook ? "carrying" : "idle";
+-    if (blocked) next.lastEvent = "furniture_path_blocked";
+-    return settle(state, next, travelled * LEVEL.progress.movementDrainPerMeter + (blocked ? dt * LEVEL.progress.blockedDrainPerSecond : 0));
+-  }
+-
+-  function lineClear(state, point, omitted) {
+-    const count = Math.max(1, Math.ceil(distance(state.player, point) / 0.05));
+-    for (let index = 1; index < count; index += 1) {
+-      const blend = index / count;
+-      if (obstacles(state, omitted).some((object) => circleOverlaps(state.player.x + (point.x - state.player.x) * blend, state.player.z + (point.z - state.player.z) * blend, 0.015, object))) return false;
+-    }
+-    return true;
+-  }
+-
+-  function getInteraction(state) {
+-    if (state.complete || state.failed) return null;
+-    if (state.attachment) return { type: "release", ...state.attachment };
+-    const candidates = [];
+-    const offer = (action, point, omitted, range = LEVEL.interactionRange) => {
+-      const separation = distance(state.player, point);
+-      if (separation > range || !lineClear(state, point, omitted)) return;
+-      const angle = Math.abs(angleError(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw));
+-      candidates.push({ ...action, distance: separation, score: separation + angle * 0.10 });
+-    };
+-    if (state.carriedBook) {
+-      for (const color of BOOK_COLORS) offer({ type: "shelf", color }, LEVEL.shelves[color], color + "-target-shelf", 1.55);
+-      if (!candidates.length) return { type: "drop", bookId: state.carriedBook };
+-    } else {
+-      if (!state.cart.parked) offer({ type: "grip", kind: "cart", id: CART.id, stand: furnitureStand(state.cart) }, furnitureStand(state.cart), CART.id);
+-      for (const chair of Object.values(state.chairs)) if (!chair.restored) offer({ type: "grip", kind: "chair", id: chair.id, stand: furnitureStand(chair) }, furnitureStand(chair), chair.id);
+-      if (state.incident.phase === "loose") {
+-        const color = state.incident.color, stand = BOOKENDS[color].stand;
+-        offer({ type: "repair", color, stand }, stand, color + "-target-shelf");
+-      }
+-      for (const book of Object.values(state.books)) if (book.fallen && book.location === "ground") offer({ type: "book", bookId: book.id, color: book.color }, book, null, 1.25);
+-    }
+-    return candidates.sort((left, right) => left.score - right.score)[0] ?? null;
+-  }
+-
+-  function interact(state) {
+-    if (state.complete || state.failed) return clone(state);
+-    const next = clone(state);
+-    next.interactions += 1;
+-    const action = getInteraction(state);
+-    if (!action) {
+-      next.lastEvent = "empty_interaction";
+-      return settle(state, next, LEVEL.progress.errorCost);
+-    }
+-    if (action.type === "grip") {
+-      if (distance(state.player, action.stand) > 0.12 || Math.abs(angleError(action.stand.yaw, state.player.yaw)) > 0.12) {
+-        next.lastEvent = "alignment_required";
+-        return settle(state, next, LEVEL.progress.errorCost);
+-      }
+-      const object = action.kind === "cart" ? state.cart : state.chairs[action.id];
+-      const dx = object.x - state.player.x, dz = object.z - state.player.z;
+-      next.attachment = { kind: action.kind, id: action.id,
+-        forward: dx * Math.sin(state.player.yaw) + dz * Math.cos(state.player.yaw),
+-        lateral: dx * Math.cos(state.player.yaw) - dz * Math.sin(state.player.yaw),
+-        yawOffset: angleError(object.yaw, state.player.yaw),
+-      };
+-      next.lastEvent = "furniture_gripped";
+-      return next;
+-    }
+-    if (action.type === "release") {
+-      const object = attachedObject(next), target = action.kind === "cart" ? CART.parking : object.home;
+-      const placed = distance(object, target) <= (action.kind === "cart" ? 0.20 : 0.10) && Math.abs(angleError(object.yaw, target.yaw)) <= 0.12;
+-      next.attachment = null;
+-      next.lastEvent = placed ? action.kind === "cart" ? "cart_parked" : "chair_restored" : "furniture_released";
+-      if (action.kind === "cart") next.cart.parked = placed;
+-      else next.chairs[action.id].restored = placed;
+-      if (placed) beginFault(next);
+-      next.complete = completion(next);
+-      return settle(state, next, 0, placed ? "restore:" + action.id : null, action.kind === "cart" ? LEVEL.progress.cartReward : LEVEL.progress.chairReward);
+-    }
+-    if (action.type === "repair") {
+-      next.incident.phase = "fixed";
+-      next.lastEvent = "bookend_fixed";
+-      next.complete = completion(next);
+-      return settle(state, next, 0, "repair:" + action.color, LEVEL.progress.repairReward);
+-    }
+-    if (action.type === "book") {
+-      next.books[action.bookId].location = "carried";
+-      next.carriedBook = action.bookId;
+-      next.carriedItem = action.bookId;
+-      next.lastEvent = "crate_collected";
+-      return settle(state, next, state.rewardedActions["pickup:" + action.bookId] ? LEVEL.progress.repeatCost : 0, "pickup:" + action.bookId, LEVEL.progress.pickupReward);
+-    }
+-    if (action.type === "drop") {
+-      const point = { x: state.player.x + Math.sin(state.player.yaw) * 0.60, z: state.player.z + Math.cos(state.player.yaw) * 0.60 };
+-      if (!isWalkable(state, point.x, point.z, 0.15)) {
+-        next.lastEvent = "blocked_drop";
+-        return settle(state, next, LEVEL.progress.errorCost);
+-      }
+-      Object.assign(next.books[state.carriedBook], point, { location: "ground", y: 0.012 });
+-      next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_dropped";
+-      return settle(state, next, LEVEL.progress.repeatCost);
+-    }
+-    const book = next.books[state.carriedBook];
+-    if (book.color !== action.color) {
+-      next.lastEvent = "wrong_shelf";
+-      return settle(state, next, LEVEL.progress.errorCost);
+-    }
+-    Object.assign(book, shelfPose(book.color, book.id), { location: "shelved" });
+-    next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_delivered";
+-    next.complete = completion(next);
+-    return settle(state, next, 0, "return:" + book.id, LEVEL.progress.correctBookReward);
+-  }
+-
+-  function updateEnvironment(state, deltaSeconds = 0) {
+-    if (state.complete || state.failed || !LEVEL.dynamic) return state;
+-    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
+-    const next = clone(state);
+-    if (next.incident.phase === "loose") {
+-      next.incident.elapsed += dt;
+-      if (next.incident.drops < LEVEL.maximumFalls && next.incident.elapsed >= next.incident.nextDrop) {
+-        const index = next.incident.drops;
+-        const bookId = "shelf-" + next.incident.color + "-" + index;
+-        Object.assign(next.books[bookId], { location: "falling", fallen: true, fallElapsed: 0, landing: landingPose(next.incident.color, index) });
+-        next.incident.drops += 1;
+-        next.incident.nextDrop += LEVEL.fallInterval;
+-      }
+-    }
+-    for (const book of Object.values(next.books)) if (book.location === "falling") {
+-      book.fallElapsed = Math.min(LEVEL.fallDuration, (book.fallElapsed ?? 0) + dt);
+-      if (book.fallElapsed >= LEVEL.fallDuration - EPSILON) Object.assign(book, book.landing, { location: "ground", support: null });
+-    }
+-    next.complete = completion(next);
+-    return next;
+-  }
+-
+-  return {
+-    LEVEL, createInitialState, updateMovement, updateEnvironment, isWalkable, getInteraction, interact,
+-    closeTerminal: (state) => ({ ...state, terminalOpen: false }),
+-    getObjective: () => LEVEL.dynamic ? "完成闭馆复位，并修复书架故障、收回全部落书" : "将两把离位椅子归桌，并把还书车停回车位",
+-  };
+-}
++import { applyRobotMovement } from "../../movement.js";
++import { BOOK_COLORS } from "./level.js";
++import { BOOKS, BOOKENDS, CART, CHAIRS, shelfPose, landingPose, seriesLevel } from "./series-layout.js";
++import { furnitureStand } from "./furnishings-layout.js";
++
++const EPSILON = 1e-7;
++const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angleError = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++const clone = (state) => ({
++  ...state, player: { ...state.player }, cart: { ...state.cart },
++  chairs: Object.fromEntries(Object.entries(state.chairs).map(([id, chair]) => [id, { ...chair }])),
++  books: Object.fromEntries(Object.entries(state.books).map(([id, book]) => [id, { ...book }])),
++  rewardedActions: { ...state.rewardedActions }, incident: { ...state.incident },
++  attachment: state.attachment ? { ...state.attachment } : null,
++});
++
++function rectangle(rect) {
++  return { x: (rect.minX + rect.maxX) / 2, z: (rect.minZ + rect.maxZ) / 2, halfX: (rect.maxX - rect.minX) / 2, halfZ: (rect.maxZ - rect.minZ) / 2, yaw: 0, id: rect.id };
++}
++
++function axes(object) {
++  return [{ x: Math.cos(object.yaw), z: -Math.sin(object.yaw) }, { x: Math.sin(object.yaw), z: Math.cos(object.yaw) }];
++}
++
++function rectanglesOverlap(left, right) {
++  const leftAxes = axes(left), rightAxes = axes(right);
++  const dot = (first, second) => first.x * second.x + first.z * second.z;
++  return [...leftAxes, ...rightAxes].every((axis) => {
++    const gap = Math.abs((left.x - right.x) * axis.x + (left.z - right.z) * axis.z);
++    const reach = left.halfX * Math.abs(dot(axis, leftAxes[0])) + left.halfZ * Math.abs(dot(axis, leftAxes[1]))
++      + right.halfX * Math.abs(dot(axis, rightAxes[0])) + right.halfZ * Math.abs(dot(axis, rightAxes[1]));
++    return gap < reach - EPSILON;
++  });
++}
++
++function circleOverlaps(x, z, radius, object) {
++  const localX = (x - object.x) * Math.cos(object.yaw) - (z - object.z) * Math.sin(object.yaw);
++  const localZ = (x - object.x) * Math.sin(object.yaw) + (z - object.z) * Math.cos(object.yaw);
++  return Math.max(0, Math.abs(localX) - object.halfX) ** 2 + Math.max(0, Math.abs(localZ) - object.halfZ) ** 2 < radius ** 2 - EPSILON;
++}
++
++export function createArchiveEngine(id) {
++  const LEVEL = seriesLevel(id);
++  const movingIds = new Set(["return-cart", ...CHAIRS.filter((chair) => chair.task).map((chair) => chair.id)]);
++  const fixed = LEVEL.staticColliders.filter((rect) => !movingIds.has(rect.id)).map(rectangle);
++
++  function createInitialState(options = {}) {
++    const value = typeof options.random === "function" ? options.random() : Math.random();
++    const sample = Number.isFinite(value) ? Math.max(0, Math.min(0.999999, value)) : 0;
++    return {
++      player: { ...LEVEL.playerStart },
++      books: Object.fromEntries(BOOKS.map((book) => [book.id, { ...book }])),
++      chairs: Object.fromEntries(CHAIRS.filter((chair) => chair.task).map((chair) => [chair.id, { ...chair, restored: false }])),
++      cart: { ...CART, parked: false, travel: 0 }, attachment: null,
++      carriedBook: null, carriedItem: null, complete: false, failed: false, terminalOpen: false,
++      progress: 100, minimumProgress: 100, rewardedActions: {},
++      incident: { color: BOOK_COLORS[Math.floor(sample * 3)], phase: LEVEL.dynamic ? "waiting" : "disabled", elapsed: 0, drops: 0, nextDrop: 0 },
++      motion: "idle", elapsed: 0, distanceTravelled: 0, blockedTime: 0, interactions: 0,
++      lastEvent: "library_entered", revision: LEVEL.revision,
++    };
++  }
++
++  function attachedObject(state) {
++    return !state.attachment ? null : state.attachment.kind === "cart" ? state.cart : state.chairs[state.attachment.id];
++  }
++
++  function obstacles(state, omitted = null) {
++    return [...fixed, state.cart, ...Object.values(state.chairs)].filter((object) => object.id !== omitted);
++  }
++
++  function insideBounds(object) {
++    const bounds = LEVEL.bounds;
++    const extentX = Math.abs(Math.cos(object.yaw)) * object.halfX + Math.abs(Math.sin(object.yaw)) * object.halfZ;
++    const extentZ = Math.abs(Math.sin(object.yaw)) * object.halfX + Math.abs(Math.cos(object.yaw)) * object.halfZ;
++    return object.x - extentX >= bounds.minX && object.x + extentX <= bounds.maxX && object.z - extentZ >= bounds.minZ && object.z + extentZ <= bounds.maxZ;
++  }
++
++  function furniturePose(state, x, z) {
++    const object = attachedObject(state);
++    return object ? { ...object,
++      x: x + Math.sin(state.player.yaw) * state.attachment.forward + Math.cos(state.player.yaw) * state.attachment.lateral,
++      z: z + Math.cos(state.player.yaw) * state.attachment.forward - Math.sin(state.player.yaw) * state.attachment.lateral,
++      yaw: state.player.yaw + state.attachment.yawOffset,
++    } : null;
++  }
++
++  function isWalkable(state, x, z, radius = LEVEL.playerRadius) {
++    const bounds = LEVEL.bounds;
++    if (![x, z, radius].every(Number.isFinite) || radius < 0) return false;
++    if (x - radius < bounds.minX || x + radius > bounds.maxX || z - radius < bounds.minZ || z + radius > bounds.maxZ) return false;
++    const furniture = furniturePose(state, x, z);
++    const blocks = obstacles(state, furniture?.id);
++    if (blocks.some((object) => circleOverlaps(x, z, radius, object))) return false;
++    return !furniture || (insideBounds(furniture) && !blocks.some((object) => rectanglesOverlap(furniture, object)));
++  }
++
++  function settle(before, next, cost = 0, rewardKey = null, reward = 0) {
++    if (cost > 0 && before.progress <= cost + EPSILON) {
++      const failed = clone(before);
++      Object.assign(failed, { progress: 0, minimumProgress: 0, failed: true, motion: "idle", lastEvent: "progress_depleted", interactions: next.interactions });
++      return failed;
++    }
++    next.progress = before.progress - cost;
++    next.minimumProgress = Math.min(before.minimumProgress, next.progress);
++    if (rewardKey && !before.rewardedActions[rewardKey]) {
++      next.rewardedActions[rewardKey] = true;
++      next.progress = Math.min(100, next.progress + reward);
++    }
++    return next;
++  }
++
++  function completion(state) {
++    return !state.settling && Object.values(state.chairs).every((chair) => chair.restored) && state.cart.parked && !state.attachment
++      && (!LEVEL.dynamic || (state.incident.phase === "fixed" && state.incident.drops > 0
++        && Object.values(state.books).filter((book) => book.fallen).every((book) => book.location === "shelved")));
++  }
++
++  function beginFault(state) {
++    if (!LEVEL.dynamic || state.incident.phase !== "waiting") return;
++    state.incident.phase = "loose";
++    state.incident.drops = 1;
++    state.incident.nextDrop = LEVEL.fallInterval;
++    const bookId = "shelf-" + state.incident.color + "-0";
++    Object.assign(state.books[bookId], { location: "falling", fallen: true, fallElapsed: 0, landing: landingPose(state.incident.color, 0) });
++  }
++
++  function updateMovement(state, input = {}, deltaSeconds = 0) {
++    if (state.complete || state.failed) return clone(state);
++    const next = clone(state);
++    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
++    const movement = applyRobotMovement(next, state, input, dt, LEVEL, isWalkable);
++    const travelled = distance(next.player, state.player);
++    const turnTravel = Math.abs(angleError(next.player.yaw, state.player.yaw));
++    const furniture = furniturePose(next, next.player.x, next.player.z);
++    if (furniture) {
++      if (next.attachment.kind === "cart") {
++        furniture.travel = state.cart.travel + distance(furniture, state.cart);
++        next.cart = furniture;
++        if (furniture.travel >= 1.5) beginFault(next);
++      } else next.chairs[furniture.id] = furniture;
++    }
++    next.elapsed += dt;
++    next.distanceTravelled += travelled;
++    const blocked = (movement.translating && travelled < EPSILON) || (state.attachment && movement.turning && turnTravel < EPSILON);
++    next.blockedTime += blocked ? dt : 0;
++    next.motion = travelled > EPSILON ? "moving" : turnTravel > EPSILON ? "turning" : state.carriedBook ? "carrying" : "idle";
++    if (blocked) next.lastEvent = "furniture_path_blocked";
++    return settle(state, next, travelled * LEVEL.progress.movementDrainPerMeter + (blocked ? dt * LEVEL.progress.blockedDrainPerSecond : 0));
++  }
++
++  function lineClear(state, point, omitted) {
++    const count = Math.max(1, Math.ceil(distance(state.player, point) / 0.05));
++    for (let index = 1; index < count; index += 1) {
++      const blend = index / count;
++      if (obstacles(state, omitted).some((object) => circleOverlaps(state.player.x + (point.x - state.player.x) * blend, state.player.z + (point.z - state.player.z) * blend, 0.015, object))) return false;
++    }
++    return true;
++  }
++
++  function getInteraction(state) {
++    if (state.complete || state.failed) return null;
++    if (state.attachment) return { type: "release", ...state.attachment };
++    const candidates = [];
++    const offer = (action, point, omitted, range = LEVEL.interactionRange) => {
++      const separation = distance(state.player, point);
++      if (separation > range || !lineClear(state, point, omitted)) return;
++      const angle = Math.abs(angleError(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw));
++      candidates.push({ ...action, distance: separation, score: separation + angle * 0.10 });
++    };
++    if (state.carriedBook) {
++      for (const color of BOOK_COLORS) offer({ type: "shelf", color }, LEVEL.shelves[color], color + "-target-shelf", 1.55);
++      if (!candidates.length) return { type: "drop", bookId: state.carriedBook };
++    } else {
++      if (!state.cart.parked) offer({ type: "grip", kind: "cart", id: CART.id, stand: furnitureStand(state.cart) }, furnitureStand(state.cart), CART.id);
++      for (const chair of Object.values(state.chairs)) if (!chair.restored) offer({ type: "grip", kind: "chair", id: chair.id, stand: furnitureStand(chair) }, furnitureStand(chair), chair.id);
++      if (state.incident.phase === "loose") {
++        const color = state.incident.color, stand = BOOKENDS[color].stand;
++        offer({ type: "repair", color, stand }, stand, color + "-target-shelf");
++      }
++      for (const book of Object.values(state.books)) if (book.fallen && book.location === "ground") offer({ type: "book", bookId: book.id, color: book.color }, book, null, 1.25);
++    }
++    return candidates.sort((left, right) => left.score - right.score)[0] ?? null;
++  }
++
++  function interact(state) {
++    if (state.complete || state.failed) return clone(state);
++    const next = clone(state);
++    next.interactions += 1;
++    const action = getInteraction(state);
++    if (!action) {
++      next.lastEvent = "empty_interaction";
++      return settle(state, next, LEVEL.progress.errorCost);
++    }
++    if (action.type === "grip") {
++      if (distance(state.player, action.stand) > 0.12 || Math.abs(angleError(action.stand.yaw, state.player.yaw)) > 0.12) {
++        next.lastEvent = "alignment_required";
++        return settle(state, next, LEVEL.progress.errorCost);
++      }
++      const object = action.kind === "cart" ? state.cart : state.chairs[action.id];
++      const dx = object.x - state.player.x, dz = object.z - state.player.z;
++      next.attachment = { kind: action.kind, id: action.id,
++        forward: dx * Math.sin(state.player.yaw) + dz * Math.cos(state.player.yaw),
++        lateral: dx * Math.cos(state.player.yaw) - dz * Math.sin(state.player.yaw),
++        yawOffset: angleError(object.yaw, state.player.yaw),
++      };
++      next.lastEvent = "furniture_gripped";
++      return next;
++    }
++    if (action.type === "release") {
++      const object = attachedObject(next), target = action.kind === "cart" ? CART.parking : object.home;
++      const placed = distance(object, target) <= (action.kind === "cart" ? 0.20 : 0.10) && Math.abs(angleError(object.yaw, target.yaw)) <= 0.12;
++      next.attachment = null;
++      next.lastEvent = placed ? action.kind === "cart" ? "cart_parked" : "chair_restored" : "furniture_released";
++      if (action.kind === "cart") next.cart.parked = placed;
++      else next.chairs[action.id].restored = placed;
++      if (placed) beginFault(next);
++      next.complete = completion(next);
++      return settle(state, next, 0, placed ? "restore:" + action.id : null, action.kind === "cart" ? LEVEL.progress.cartReward : LEVEL.progress.chairReward);
++    }
++    if (action.type === "repair") {
++      next.incident.phase = "fixed";
++      next.lastEvent = "bookend_fixed";
++      next.complete = completion(next);
++      return settle(state, next, 0, "repair:" + action.color, LEVEL.progress.repairReward);
++    }
++    if (action.type === "book") {
++      next.books[action.bookId].location = "carried";
++      next.carriedBook = action.bookId;
++      next.carriedItem = action.bookId;
++      next.lastEvent = "crate_collected";
++      return settle(state, next, state.rewardedActions["pickup:" + action.bookId] ? LEVEL.progress.repeatCost : 0, "pickup:" + action.bookId, LEVEL.progress.pickupReward);
++    }
++    if (action.type === "drop") {
++      const point = { x: state.player.x + Math.sin(state.player.yaw) * 0.60, z: state.player.z + Math.cos(state.player.yaw) * 0.60 };
++      if (!isWalkable(state, point.x, point.z, 0.15)) {
++        next.lastEvent = "blocked_drop";
++        return settle(state, next, LEVEL.progress.errorCost);
++      }
++      Object.assign(next.books[state.carriedBook], point, { location: "ground", y: 0.012 });
++      next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_dropped";
++      return settle(state, next, LEVEL.progress.repeatCost);
++    }
++    const book = next.books[state.carriedBook];
++    if (book.color !== action.color) {
++      next.lastEvent = "wrong_shelf";
++      return settle(state, next, LEVEL.progress.errorCost);
++    }
++    Object.assign(book, shelfPose(book.color, book.id), { location: "shelved" });
++    next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_delivered";
++    next.complete = completion(next);
++    return settle(state, next, 0, "return:" + book.id, LEVEL.progress.correctBookReward);
++  }
++
++  function updateEnvironment(state, deltaSeconds = 0) {
++    if (state.complete || state.failed || !LEVEL.dynamic) return state;
++    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
++    const next = clone(state);
++    if (next.incident.phase === "loose") {
++      next.incident.elapsed += dt;
++      if (next.incident.drops < LEVEL.maximumFalls && next.incident.elapsed >= next.incident.nextDrop) {
++        const index = next.incident.drops;
++        const bookId = "shelf-" + next.incident.color + "-" + index;
++        Object.assign(next.books[bookId], { location: "falling", fallen: true, fallElapsed: 0, landing: landingPose(next.incident.color, index) });
++        next.incident.drops += 1;
++        next.incident.nextDrop += LEVEL.fallInterval;
++      }
++    }
++    for (const book of Object.values(next.books)) if (book.location === "falling") {
++      book.fallElapsed = Math.min(LEVEL.fallDuration, (book.fallElapsed ?? 0) + dt);
++      if (book.fallElapsed >= LEVEL.fallDuration - EPSILON) Object.assign(book, book.landing, { location: "ground", support: null });
++    }
++    next.complete = completion(next);
++    return next;
++  }
++
++  return {
++    LEVEL, createInitialState, updateMovement, updateEnvironment, isWalkable, getInteraction, interact,
++    closeTerminal: (state) => ({ ...state, terminalOpen: false }),
++    getObjective: () => LEVEL.dynamic ? "完成闭馆复位，并修复书架故障、收回全部落书" : "将两把离位椅子归桌，并把还书车停回车位",
++  };
++}
+diff --git a/game/levels/rf02/series-runtime.js b/game/levels/rf02/series-runtime.js
+--- a/game/levels/rf02/series-runtime.js
++++ b/game/levels/rf02/series-runtime.js
+@@ -1,50 +1,52 @@
+-import { createArchiveEngine } from "./series-engine.js";
+-import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
+-import { createLibraryCargoModel, setLibraryCargoModel } from "./scene.js";
+-import { ASSET_ROOT } from "./series-layout.js";
+-
+-export function createArchiveRuntime(id) {
+-  const engine = createArchiveEngine(id);
+-  const dynamic = engine.LEVEL.dynamic;
+-  return {
+-    ...engine,
+-    ui: Object.freeze({
+-      id, brand: "PUBLIC LIBRARY ARCHIVES", unit: id.toUpperCase() + " · MUNICIPAL LIBRARY",
+-      systemLabel: "ARCHIVES", cargoLabel: "CARGO", gateLabel: "COLLECTION",
+-      startKicker: "LEVEL " + id.toUpperCase() + " / PUBLIC LIBRARY",
+-      startTitle: dynamic ? "ARCHIVE<br />RECOVERY" : "READING ROOM<br />RETURNS",
+-      startCopy: dynamic ? "完成六本书归架，并将掉落的馆藏书归位" : "找到并归还馆内六本待归架书籍",
+-      completeKicker: "ARCHIVE RESTORED", completeTitle: "館藏整理完成",
+-      completeCopy: dynamic ? "六本待归架书与掉落的馆藏书均已正确归位。" : "六本待归架书均已回到对应馆藏区。",
+-      terminalHeading: "CATALOG TERMINAL",
+-    }),
+-    camera: Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 }),
+-    audio: Object.freeze({ assets: {}, eventSounds: {}, volume: {} }),
+-    eventMessages: Object.freeze({}),
+-    createScene() {
+-      const world = createArchiveScene();
+-      if (dynamic) {
+-        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.flac");
+-        world.bookImpact.volume = 0.65;
+-        world.bookImpact.preload = "auto";
+-        const original = world.assetReady;
+-        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.flac").then((response) => response.ok).catch(() => false)])
+-          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.flac" }]);
+-      }
+-      return world;
+-    },
+-    syncVisuals: syncArchiveVisuals,
+-    createCargoModel: createLibraryCargoModel,
+-    syncRobotCargo(robot, state) {
+-      if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.books[state.carriedBook].color);
+-    },
+-    isCarrying: (state) => Boolean(state.carriedBook),
+-    getTelemetry(state) {
+-      return { system: state.complete ? "RESTORED" : "ACTIVE", systemOnline: state.complete, cargo: state.carriedBook ? state.books[state.carriedBook].color.toUpperCase() + " BOOK" : "EMPTY", gate: state.complete ? "COMPLETE" : "IN PROGRESS" };
+-    },
+-    getProgressSteps: () => [],
+-    getTerminal: () => ({ title: "目录终端", copy: "", rows: [] }),
+-    getSoundPosition: (_before, state) => state.player,
+-    getDebugState: (state) => ({ revision: state.revision, returnedCount: state.returnedCount, incident: state.incident, carriedBook: state.carriedBook, minimumProgress: state.minimumProgress }),
+-  };
+-}
++import { createArchiveEngine } from "./series-engine.js";
++import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
++import { createLibraryCargoModel, setLibraryCargoModel } from "./scene.js";
++import { createFurnitureController } from "./furniture-controller.js";
++import { ASSET_ROOT } from "./series-layout.js";
++
++export function createArchiveRuntime(id) {
++  const engine = createArchiveEngine(id), dynamic = engine.LEVEL.dynamic;
++  return {
++    ...engine,
++    ui: Object.freeze({
++      id, brand: "PUBLIC LIBRARY ARCHIVES", unit: id.toUpperCase() + " · MUNICIPAL LIBRARY",
++      systemLabel: "LIBRARY", cargoLabel: "CARGO", gateLabel: "CLOSING",
++      startKicker: "LEVEL " + id.toUpperCase() + " / PUBLIC LIBRARY",
++      startTitle: dynamic ? "CLOSING<br />PATROL" : "CLOSING<br />RESET",
++      startCopy: engine.getObjective(), completeKicker: "LIBRARY SECURED",
++      completeTitle: dynamic ? "闭馆巡检完成" : "闭馆复位完成",
++      completeCopy: dynamic ? "家具已复位，书挡已固定，全部落书已收回。" : "两把椅子已归桌，还书车已停稳。",
++      terminalHeading: "CATALOG TERMINAL",
++    }),
++    rendering: Object.freeze({ pixelRatioCap: 1 }),
++    camera: Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 }),
++    audio: Object.freeze({ assets: {}, eventSounds: {}, volume: {} }),
++    eventMessages: Object.freeze({}),
++    createInteractionAnimation: createFurnitureController,
++    createScene() {
++      const world = createArchiveScene();
++      if (dynamic) {
++        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.flac");
++        world.bookImpact.volume = 0.65;
++        world.bookImpact.preload = "auto";
++        const original = world.assetReady;
++        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.flac").then((response) => response.ok).catch(() => false)])
++          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.flac" }]);
++      }
++      return world;
++    },
++    syncVisuals: syncArchiveVisuals,
++    createCargoModel: createLibraryCargoModel,
++    syncRobotCargo(robot, state) {
++      if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.books[state.carriedBook].color);
++    },
++    isCarrying: (state) => Boolean(state.carriedBook),
++    getTelemetry(state) {
++      return { system: state.complete ? "SECURED" : "ACTIVE", systemOnline: state.complete, cargo: state.carriedBook ? "BOOK" : state.attachment ? state.attachment.kind.toUpperCase() : "EMPTY", gate: state.complete ? "COMPLETE" : "IN PROGRESS" };
++    },
++    getProgressSteps: () => [],
++    getTerminal: () => ({ title: "目录终端", copy: "", rows: [] }),
++    getSoundPosition: (_before, state) => state.player,
++    getDebugState: (state) => ({ revision: state.revision, chairs: state.chairs, cart: state.cart, incident: state.incident, attachment: state.attachment, carriedBook: state.carriedBook, minimumProgress: state.minimumProgress }),
++  };
++}
+diff --git a/game/levels/rf02-2/runtime.js b/game/levels/rf02-2/runtime.js
+--- a/game/levels/rf02-2/runtime.js
++++ b/game/levels/rf02-2/runtime.js
+@@ -1,9 +1,9 @@
+-import { createArchiveRuntime } from "../rf02/series-runtime.js";
+-
+-const runtime = createArchiveRuntime("rf02-2");
+-export const {
+-  LEVEL, ui, camera, audio, eventMessages, createInitialState, isWalkable, getInteraction,
+-  interact, updateMovement, updateEnvironment, getObjective, closeTerminal, createScene,
+-  syncVisuals, createCargoModel, syncRobotCargo, isCarrying, getTelemetry, getProgressSteps,
+-  getTerminal, getSoundPosition, getDebugState,
+-} = runtime;
++import { createArchiveRuntime } from "../rf02/series-runtime.js";
++
++const runtime = createArchiveRuntime("rf02-2");
++export const {
++  LEVEL, ui, camera, audio, rendering, createInteractionAnimation, eventMessages, createInitialState, isWalkable, getInteraction,
++  interact, updateMovement, updateEnvironment, getObjective, closeTerminal, createScene,
++  syncVisuals, createCargoModel, syncRobotCargo, isCarrying, getTelemetry, getProgressSteps,
++  getTerminal, getSoundPosition, getDebugState,
++} = runtime;
+diff --git a/game/levels/rf02-3/runtime.js b/game/levels/rf02-3/runtime.js
+--- a/game/levels/rf02-3/runtime.js
++++ b/game/levels/rf02-3/runtime.js
+@@ -1,9 +1,9 @@
+-import { createArchiveRuntime } from "../rf02/series-runtime.js";
+-
+-const runtime = createArchiveRuntime("rf02-3");
+-export const {
+-  LEVEL, ui, camera, audio, eventMessages, createInitialState, isWalkable, getInteraction,
+-  interact, updateMovement, updateEnvironment, getObjective, closeTerminal, createScene,
+-  syncVisuals, createCargoModel, syncRobotCargo, isCarrying, getTelemetry, getProgressSteps,
+-  getTerminal, getSoundPosition, getDebugState,
+-} = runtime;
++import { createArchiveRuntime } from "../rf02/series-runtime.js";
++
++const runtime = createArchiveRuntime("rf02-3");
++export const {
++  LEVEL, ui, camera, audio, rendering, createInteractionAnimation, eventMessages, createInitialState, isWalkable, getInteraction,
++  interact, updateMovement, updateEnvironment, getObjective, closeTerminal, createScene,
++  syncVisuals, createCargoModel, syncRobotCargo, isCarrying, getTelemetry, getProgressSteps,
++  getTerminal, getSoundPosition, getDebugState,
++} = runtime;
+diff --git a/game/levels/rf02/runtime.js b/game/levels/rf02/runtime.js
+--- a/game/levels/rf02/runtime.js
++++ b/game/levels/rf02/runtime.js
+@@ -1,114 +1,116 @@
+-import { BOOK_COLORS, LEVEL } from "./level.js";
+-import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
+-import { closeTerminal, colorName, createInitialState, getObjective, interact, updateMovement } from "./engine.js";
+-import {
+-  createLibraryCargoModel,
+-  createLibraryScene,
+-  setLibraryCargoModel,
+-  syncLibraryVisuals,
+-} from "./scene.js";
+-
+-export { LEVEL, closeTerminal, createInitialState, getObjective, interact, updateMovement };
+-
+-export const ui = Object.freeze({
+-  id: "rf02",
+-  brand: "PUBLIC LIBRARY ARCHIVES",
+-  unit: "UNIT R-04 · MUNICIPAL LIBRARY",
+-  systemLabel: "CATALOG STATUS",
+-  cargoLabel: "CARGO",
+-  gateLabel: "SHELVES",
+-  startKicker: "LEVEL RF-02 / PUBLIC LIBRARY",
+-  startTitle: "CHROMATIC<br />ARCHIVES",
+-  startCopy: "从入口防盗检测门进入市级公共图书馆，在中央还书整理台找到红色、黑色和白色三本待归还精装书。一次携带一本，根据对应馆藏书架中已有书脊颜色完成归位。",
+-  completeKicker: "CATALOG RESTORED",
+-  completeTitle: "归位完成",
+-  completeCopy: "三本待归还书籍已进入对应开架馆藏区，目录一致性恢复。",
+-  terminalHeading: "CATALOG TERMINAL / C-02",
+-});
+-
+-export const camera = Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 });
+-
+-export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+-
+-export const eventMessages = Object.freeze({
+-  book_collected_red: "红色精装书已固定在背部载物架 · 任务余量 +30",
+-  book_collected_black: "黑色精装书已固定在背部载物架 · 任务余量 +30",
+-  book_collected_white: "白色精装书已固定在背部载物架 · 任务余量 +30",
+-  book_dropped_red: "红色精装书已放置在地面",
+-  book_dropped_black: "黑色精装书已放置在地面",
+-  book_dropped_white: "白色精装书已放置在地面",
+-  book_shelved_red: "红色精装书归位 · 任务余量 +30",
+-  book_shelved_black: "黑色精装书归位 · 任务余量 +30",
+-  book_shelved_white: "白色精装书归位 · 任务余量 +30",
+-  wrong_shelf: "书籍颜色与该馆藏区不一致",
+-  terminal_closed: "目录终端已关闭",
+-  all_books_shelved: "全部书籍归位，目录一致性恢复",
+-  progress_depleted: "任务余量耗尽，整理行动终止",
+-});
+-
+-export function createScene() {
+-  return createArchiveScene();
+-}
+-
+-export function syncVisuals(world, state) {
+-  syncArchiveVisuals(world, state);
+-}
+-
+-export function createCargoModel() {
+-  return createLibraryCargoModel();
+-}
+-
+-export function syncRobotCargo(robot, state) {
+-  if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.carriedBook);
+-}
+-
+-export function isCarrying(state) {
+-  return Boolean(state.carriedBook);
+-}
+-
+-export function getTelemetry(state) {
+-  const shelved = BOOK_COLORS.filter((color) => state.books[color].location === "shelved").length;
+-  return {
+-    system: state.complete ? "RESTORED" : `${shelved}/3 FILED`,
+-    systemOnline: state.complete,
+-    cargo: state.carriedBook ? `${state.carriedBook.toUpperCase()} BOOK` : "EMPTY",
+-    gate: `${shelved}/3 COMPLETE`,
+-  };
+-}
+-
+-export function getProgressSteps(state) {
+-  return BOOK_COLORS.map((color) => ({
+-    label: `${colorName(color)}书籍`,
+-    done: state.books[color].location === "shelved",
+-    active: state.carriedBook === color,
+-  })).concat({ label: "目录恢复", done: state.complete, active: false });
+-}
+-
+-function bookStatus(state, color) {
+-  const location = state.books[color].location;
+-  return ({ table: "ON RETURN TABLE", ground: "ON FLOOR", carried: "IN TRANSIT", shelved: "SHELVED" })[location];
+-}
+-
+-export function getTerminal(state) {
+-  const shelved = BOOK_COLORS.filter((color) => state.books[color].location === "shelved").length;
+-  return {
+-    title: state.complete ? "馆藏目录一致" : `待归位书籍 ${3 - shelved} 本`,
+-    copy: state.complete
+-      ? "红、黑、白三类馆藏均已核对完成。"
+-      : "将中央还书整理台上的书送到拥有同色书脊的开架书架。错误的馆藏区不会接收书籍。",
+-    rows: BOOK_COLORS.map((color) => [`${color.toUpperCase()} COLLECTION`, bookStatus(state, color)]),
+-  };
+-}
+-
+-export function getSoundPosition(beforeState, state) {
+-  const color = state.carriedBook ?? beforeState.carriedBook;
+-  return color ? (state.books[color] ?? beforeState.books[color]) : state.player;
+-}
+-
+-export function getDebugState(state) {
+-  return {
+-    carriedBook: state.carriedBook,
+-    books: Object.fromEntries(BOOK_COLORS.map((color) => [color, state.books[color].location])),
+-    shelvedCount: BOOK_COLORS.filter((color) => state.books[color].location === "shelved").length,
+-  };
+-}
++import { BOOK_COLORS, LEVEL } from "./level.js";
++import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
++import { closeTerminal, colorName, createInitialState, getObjective, interact, updateMovement } from "./engine.js";
++import {
++  createLibraryCargoModel,
++  createLibraryScene,
++  setLibraryCargoModel,
++  syncLibraryVisuals,
++} from "./scene.js";
++
++export { LEVEL, closeTerminal, createInitialState, getObjective, interact, updateMovement };
++
++export const ui = Object.freeze({
++  id: "rf02",
++  brand: "PUBLIC LIBRARY ARCHIVES",
++  unit: "UNIT R-04 · MUNICIPAL LIBRARY",
++  systemLabel: "CATALOG STATUS",
++  cargoLabel: "CARGO",
++  gateLabel: "SHELVES",
++  startKicker: "LEVEL RF-02 / PUBLIC LIBRARY",
++  startTitle: "CHROMATIC<br />ARCHIVES",
++  startCopy: "从入口防盗检测门进入市级公共图书馆，在中央还书整理台找到红色、黑色和白色三本待归还精装书。一次携带一本，根据对应馆藏书架中已有书脊颜色完成归位。",
++  completeKicker: "CATALOG RESTORED",
++  completeTitle: "归位完成",
++  completeCopy: "三本待归还书籍已进入对应开架馆藏区，目录一致性恢复。",
++  terminalHeading: "CATALOG TERMINAL / C-02",
++});
++
++export const camera = Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 });
++
++export const rendering = Object.freeze({ pixelRatioCap: 1 });
++
++export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
++
++export const eventMessages = Object.freeze({
++  book_collected_red: "红色精装书已固定在背部载物架 · 任务余量 +30",
++  book_collected_black: "黑色精装书已固定在背部载物架 · 任务余量 +30",
++  book_collected_white: "白色精装书已固定在背部载物架 · 任务余量 +30",
++  book_dropped_red: "红色精装书已放置在地面",
++  book_dropped_black: "黑色精装书已放置在地面",
++  book_dropped_white: "白色精装书已放置在地面",
++  book_shelved_red: "红色精装书归位 · 任务余量 +30",
++  book_shelved_black: "黑色精装书归位 · 任务余量 +30",
++  book_shelved_white: "白色精装书归位 · 任务余量 +30",
++  wrong_shelf: "书籍颜色与该馆藏区不一致",
++  terminal_closed: "目录终端已关闭",
++  all_books_shelved: "全部书籍归位，目录一致性恢复",
++  progress_depleted: "任务余量耗尽，整理行动终止",
++});
++
++export function createScene() {
++  return createArchiveScene();
++}
++
++export function syncVisuals(world, state) {
++  syncArchiveVisuals(world, state);
++}
++
++export function createCargoModel() {
++  return createLibraryCargoModel();
++}
++
++export function syncRobotCargo(robot, state) {
++  if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.carriedBook);
++}
++
++export function isCarrying(state) {
++  return Boolean(state.carriedBook);
++}
++
++export function getTelemetry(state) {
++  const shelved = BOOK_COLORS.filter((color) => state.books[color].location === "shelved").length;
++  return {
++    system: state.complete ? "RESTORED" : `${shelved}/3 FILED`,
++    systemOnline: state.complete,
++    cargo: state.carriedBook ? `${state.carriedBook.toUpperCase()} BOOK` : "EMPTY",
++    gate: `${shelved}/3 COMPLETE`,
++  };
++}
++
++export function getProgressSteps(state) {
++  return BOOK_COLORS.map((color) => ({
++    label: `${colorName(color)}书籍`,
++    done: state.books[color].location === "shelved",
++    active: state.carriedBook === color,
++  })).concat({ label: "目录恢复", done: state.complete, active: false });
++}
++
++function bookStatus(state, color) {
++  const location = state.books[color].location;
++  return ({ table: "ON RETURN TABLE", ground: "ON FLOOR", carried: "IN TRANSIT", shelved: "SHELVED" })[location];
++}
++
++export function getTerminal(state) {
++  const shelved = BOOK_COLORS.filter((color) => state.books[color].location === "shelved").length;
++  return {
++    title: state.complete ? "馆藏目录一致" : `待归位书籍 ${3 - shelved} 本`,
++    copy: state.complete
++      ? "红、黑、白三类馆藏均已核对完成。"
++      : "将中央还书整理台上的书送到拥有同色书脊的开架书架。错误的馆藏区不会接收书籍。",
++    rows: BOOK_COLORS.map((color) => [`${color.toUpperCase()} COLLECTION`, bookStatus(state, color)]),
++  };
++}
++
++export function getSoundPosition(beforeState, state) {
++  const color = state.carriedBook ?? beforeState.carriedBook;
++  return color ? (state.books[color] ?? beforeState.books[color]) : state.player;
++}
++
++export function getDebugState(state) {
++  return {
++    carriedBook: state.carriedBook,
++    books: Object.fromEntries(BOOK_COLORS.map((color) => [color, state.books[color].location])),
++    shelvedCount: BOOK_COLORS.filter((color) => state.books[color].location === "shelved").length,
++  };
++}
+diff --git a/game/levels/rf02/level.js b/game/levels/rf02/level.js
+--- a/game/levels/rf02/level.js
++++ b/game/levels/rf02/level.js
+@@ -1,60 +1,60 @@
+-import { G1_LOCOMOTION } from "../../g1-locomotion.js";
+-import { READING_COLLIDERS } from "./furnishings-layout.js";
+-
+-export const BOOK_COLORS = Object.freeze(["red", "black", "white"]);
+-
+-export const LEVEL = Object.freeze({
+-  id: "rf02",
+-  title: "Chromatic Archives",
+-  bounds: Object.freeze({ minX: -11.78, maxX: 11.78, minZ: -7.78, maxZ: 7.78 }),
+-  playerStart: Object.freeze({ x: 0, z: 7.18, yaw: Math.PI }),
+-  interactionRange: 1.85,
+-  playerRadius: 0.42,
+-  ...G1_LOCOMOTION,
+-  terminal: Object.freeze({ x: -9.45, z: 4.45 }),
+-  table: Object.freeze({ x: 0, z: 2.75 }),
+-  books: Object.freeze({
+-    red: Object.freeze({ x: -0.62, z: 3.05 }),
+-    black: Object.freeze({ x: 0, z: 3.05 }),
+-    white: Object.freeze({ x: 0.62, z: 3.05 }),
+-  }),
+-  shelves: Object.freeze({
+-    red: Object.freeze({ x: -9.35, z: -1.05, modelX: -10.72, modelZ: -1.05, rotation: Math.PI / 2 }),
+-    black: Object.freeze({ x: 0, z: -5.35, modelX: 0, modelZ: -6.72, rotation: 0 }),
+-    white: Object.freeze({ x: 9.35, z: -1.05, modelX: 10.72, modelZ: -1.05, rotation: Math.PI / 2 }),
+-  }),
+-  progress: Object.freeze({
+-    initial: 100,
+-    maximum: 100,
+-    movementDrainPerSecond: 2,
+-    pickupReward: 30,
+-    correctBookReward: 30,
+-    allBooksReward: 10,
+-  }),
+-  staticColliders: Object.freeze([
+-    { id: "north-wall", minX: -12.0, maxX: 12.0, minZ: -8.0, maxZ: -7.78 },
+-    { id: "west-wall", minX: -12.0, maxX: -11.78, minZ: -8.0, maxZ: 8.0 },
+-    { id: "east-wall", minX: 11.78, maxX: 12.0, minZ: -8.0, maxZ: 8.0 },
+-    { id: "south-wall-west", minX: -12.0, maxX: -1.0, minZ: 7.78, maxZ: 8.0 },
+-    { id: "south-wall-east", minX: 1.0, maxX: 12.0, minZ: 7.78, maxZ: 8.0 },
+-    { id: "security-gate-west", minX: -1.25, maxX: -0.95, minZ: 6.35, maxZ: 7.10 },
+-    { id: "security-gate-east", minX: 0.95, maxX: 1.25, minZ: 6.35, maxZ: 7.10 },
+-    { id: "circulation-desk", minX: -9.65, maxX: -4.50, minZ: 4.92, maxZ: 5.98 },
+-    { id: "catalog-terminal", minX: -10.78, maxX: -9.92, minZ: 4.05, maxZ: 4.85 },
+-    { id: "return-table", minX: -1.12, maxX: 1.12, minZ: 2.22, maxZ: 3.28 },
+-    { id: "return-cart", minX: 1.95, maxX: 2.95, minZ: 4.20, maxZ: 4.90 },
+-    { id: "red-target-shelf", minX: -11.05, maxX: -10.38, minZ: -2.62, maxZ: 0.52 },
+-    { id: "black-target-shelf", minX: -1.55, maxX: 1.55, minZ: -7.06, maxZ: -6.38 },
+-    { id: "white-target-shelf", minX: 10.38, maxX: 11.05, minZ: -2.62, maxZ: 0.52 },
+-    { id: "west-stack-one", minX: -6.75, maxX: -3.65, minZ: -1.96, maxZ: -1.24 },
+-    { id: "west-stack-two", minX: -6.75, maxX: -3.65, minZ: -5.16, maxZ: -4.44 },
+-    { id: "east-stack-one", minX: 3.65, maxX: 6.75, minZ: -1.96, maxZ: -1.24 },
+-    { id: "east-stack-two", minX: 3.65, maxX: 6.75, minZ: -5.16, maxZ: -4.44 },
+-    ...READING_COLLIDERS,
+-    { id: "waste-sorting-station", minX: 9.85, maxX: 11.45, minZ: 4.82, maxZ: 5.58 },
+-    { id: "northwest-planter", minX: -11.10, maxX: -10.30, minZ: 6.25, maxZ: 7.05 },
+-    { id: "northeast-planter", minX: 10.30, maxX: 11.10, minZ: 6.25, maxZ: 7.05 },
+-    { id: "southwest-planter", minX: -10.10, maxX: -9.30, minZ: -7.20, maxZ: -6.40 },
+-    { id: "southeast-planter", minX: 9.30, maxX: 10.10, minZ: -7.20, maxZ: -6.40 },
+-  ]),
+-});
++import { G1_LOCOMOTION } from "../../g1-locomotion.js";
++import { CART, furnitureRect, READING_COLLIDERS } from "./furnishings-layout.js";
++
++export const BOOK_COLORS = Object.freeze(["red", "black", "white"]);
++
++export const LEVEL = Object.freeze({
++  id: "rf02",
++  title: "Chromatic Archives",
++  bounds: Object.freeze({ minX: -11.78, maxX: 11.78, minZ: -7.78, maxZ: 7.78 }),
++  playerStart: Object.freeze({ x: 0, z: 7.18, yaw: Math.PI }),
++  interactionRange: 1.85,
++  playerRadius: 0.42,
++  ...G1_LOCOMOTION,
++  terminal: Object.freeze({ x: -9.45, z: 4.45 }),
++  table: Object.freeze({ x: 0, z: 2.75 }),
++  books: Object.freeze({
++    red: Object.freeze({ x: -0.62, z: 3.05 }),
++    black: Object.freeze({ x: 0, z: 3.05 }),
++    white: Object.freeze({ x: 0.62, z: 3.05 }),
++  }),
++  shelves: Object.freeze({
++    red: Object.freeze({ x: -9.35, z: -1.05, modelX: -10.72, modelZ: -1.05, rotation: Math.PI / 2 }),
++    black: Object.freeze({ x: 0, z: -5.35, modelX: 0, modelZ: -6.72, rotation: 0 }),
++    white: Object.freeze({ x: 9.35, z: -1.05, modelX: 10.72, modelZ: -1.05, rotation: Math.PI / 2 }),
++  }),
++  progress: Object.freeze({
++    initial: 100,
++    maximum: 100,
++    movementDrainPerSecond: 2,
++    pickupReward: 30,
++    correctBookReward: 30,
++    allBooksReward: 10,
++  }),
++  staticColliders: Object.freeze([
++    { id: "north-wall", minX: -12.0, maxX: 12.0, minZ: -8.0, maxZ: -7.78 },
++    { id: "west-wall", minX: -12.0, maxX: -11.78, minZ: -8.0, maxZ: 8.0 },
++    { id: "east-wall", minX: 11.78, maxX: 12.0, minZ: -8.0, maxZ: 8.0 },
++    { id: "south-wall-west", minX: -12.0, maxX: -1.0, minZ: 7.78, maxZ: 8.0 },
++    { id: "south-wall-east", minX: 1.0, maxX: 12.0, minZ: 7.78, maxZ: 8.0 },
++    { id: "security-gate-west", minX: -1.25, maxX: -0.95, minZ: 6.35, maxZ: 7.10 },
++    { id: "security-gate-east", minX: 0.95, maxX: 1.25, minZ: 6.35, maxZ: 7.10 },
++    { id: "circulation-desk", minX: -9.65, maxX: -4.50, minZ: 4.92, maxZ: 5.98 },
++    { id: "catalog-terminal", minX: -10.78, maxX: -9.92, minZ: 4.05, maxZ: 4.85 },
++    { id: "return-table", minX: -1.12, maxX: 1.12, minZ: 2.22, maxZ: 3.28 },
++    furnitureRect(CART),
++    { id: "red-target-shelf", minX: -11.05, maxX: -10.38, minZ: -2.62, maxZ: 0.52 },
++    { id: "black-target-shelf", minX: -1.55, maxX: 1.55, minZ: -7.06, maxZ: -6.38 },
++    { id: "white-target-shelf", minX: 10.38, maxX: 11.05, minZ: -2.62, maxZ: 0.52 },
++    { id: "west-stack-one", minX: -6.75, maxX: -3.65, minZ: -1.96, maxZ: -1.24 },
++    { id: "west-stack-two", minX: -6.75, maxX: -3.65, minZ: -5.16, maxZ: -4.44 },
++    { id: "east-stack-one", minX: 3.65, maxX: 6.75, minZ: -1.96, maxZ: -1.24 },
++    { id: "east-stack-two", minX: 3.65, maxX: 6.75, minZ: -5.16, maxZ: -4.44 },
++    ...READING_COLLIDERS,
++    { id: "waste-sorting-station", minX: 9.85, maxX: 11.45, minZ: 4.82, maxZ: 5.58 },
++    { id: "northwest-planter", minX: -11.10, maxX: -10.30, minZ: 6.25, maxZ: 7.05 },
++    { id: "northeast-planter", minX: 10.30, maxX: 11.10, minZ: 6.25, maxZ: 7.05 },
++    { id: "southwest-planter", minX: -10.10, maxX: -9.30, minZ: -7.20, maxZ: -6.40 },
++    { id: "southeast-planter", minX: 9.30, maxX: 10.10, minZ: -7.20, maxZ: -6.40 },
++  ]),
++});

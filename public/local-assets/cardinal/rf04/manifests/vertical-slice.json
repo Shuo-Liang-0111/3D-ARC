@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "level": "rf04",
+  "status": "runtime_candidate",
+  "qualityPreset": "high-highpoly",
+  "successfulTokenCost": 5500,
+  "assets": [
+    {
+      "id": "washer",
+      "role": "dynamic-target",
+      "requestFile": "requests/washer-image-to-model.json",
+      "referenceRequestFile": "requests/washer-reference.json",
+      "referenceTaskId": "aigc_2a44fff08fb5424282782fd346df6df3",
+      "sourceImageId": "147ad585f42e41f4ad5e597a0f18c871",
+      "taskId": "aigc_de8c8d0463cb49e289760deafc9ac04f",
+      "taskType": "image_to_model",
+      "modelVersion": "v3.1-20260211",
+      "sourceArtifact": "models/source/washer.highpoly.glb",
+      "sourceSha256": "b93a32dbcd4a5af53821d9ef8b2116eb0d95aadc3cb5261a2e8bd4f0d801ad68",
+      "sourceBytes": 54057768,
+      "sourceVertexCount": 973573,
+      "sourceSizeMeters": [0.7242924273, 0.980422616, 0.7269560695],
+      "runtimeArtifact": "models/runtime/washer.glb",
+      "runtimeSha256": "f0b3f71ec1a923c5f8bc7a3fd1a96f89015ad0c529f8863d2869f794d2698231",
+      "runtimeBytes": 7977084,
+      "runtimeVertexCount": 165204,
+      "targetSizeMeters": [0.6279, 0.85, 0.6303],
+      "modelForwardAxis": "-Z",
+      "pivot": "bottom-center",
+      "placement": {
+        "position": [1.8, 0, -6.2],
+        "rotationY": 3.141592653589793
+      },
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "script": "tools/rf04-optimize-cardinal-washer.py",
+        "decimateRatio": 0.12,
+        "texturesRemoved": true,
+        "reason": "The generated atlas contained unreadable product labels; runtime geometry uses a neutral enamel PBR material and code-driven drum, glass, control, and status overlays."
+      },
+      "review": {
+        "status": "runtime_candidate",
+        "screenshots": [
+          "review/washer-reference.png",
+          "review/washer-highpoly-front.png",
+          "review/washer-runtime-opposite.png"
+        ],
+        "checks": [
+          "isolated object",
+          "front door and drum opening present",
+          "realistic household proportions",
+          "generated labels removed from runtime",
+          "runtime size below nine megabytes"
+        ]
+      }
+    }
+  ],
+  "failedAttempts": [
+    {
+      "taskId": "aigc_ad4db211d9be4ec5838b3877f960d1e5",
+      "taskType": "text_to_model",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed"
+    },
+    {
+      "taskId": "aigc_34b1c1425c7c47429879a73d45cdb6ff",
+      "taskType": "text_to_model",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed"
+    }
+  ]
+}

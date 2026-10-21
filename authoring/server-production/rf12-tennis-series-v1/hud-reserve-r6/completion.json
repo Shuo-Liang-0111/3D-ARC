@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "release": "rf12-tennis-series-v1-r7",
+  "commit": "45896b360801846c75001e0b53ff704db70f1c6b",
+  "tests": {
+    "passed": 22,
+    "failed": 0
+  },
+  "browser": "HUD hidden in dry and rainy scenes; actual pickup and return costs/reward confirmed",
+  "evidence": [
+    "rain-hud.png",
+    "clean-hud-third.png",
+    "return-result.json"
+  ],
+  "scope": "point-based checks; no full-route budget calibration"
+}

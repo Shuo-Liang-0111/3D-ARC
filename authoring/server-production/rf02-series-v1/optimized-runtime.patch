@@ -1,0 +1,57 @@
+diff --git a/game/levels/rf02/scene.js b/game/levels/rf02/scene.js
+--- a/game/levels/rf02/scene.js
++++ b/game/levels/rf02/scene.js
+@@ -247 +247 @@
+-export function createLibraryScene() {
++export function createLibraryScene(assets = ASSETS) {
+@@ -295 +295 @@
+-    return loadAsset(ASSETS[color], loaded, `${color}-book`).then((result) => {
++    return loadAsset(assets[color], loaded, `${color}-book`).then((result) => {
+@@ -301 +301 @@
+-  const environmentPromise = loadAsset(ASSETS.environment, environmentRoot, "staticShell").then((result) => {
++  const environmentPromise = loadAsset(assets.environment, environmentRoot, "staticShell").then((result) => {
+@@ -307 +307 @@
+-  const staticSlicePromises = STATIC_SLICE_KEYS.map((key) => loadAsset(ASSETS[key], staticSliceRoot, key).then((result) => {
++  const staticSlicePromises = STATIC_SLICE_KEYS.map((key) => loadAsset(assets[key], staticSliceRoot, key).then((result) => {
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -3 +3 @@
+-export const REVISION = "shared-library-v1";
++export const REVISION = "shared-library-v2";
+@@ -4,0 +5,12 @@
++export const OPTIMIZED_ASSETS = Object.freeze(Object.fromEntries(Object.entries({
++  returnSortingTable: "return-sorting-table",
++  catalogTerminal: "catalog-terminal",
++  securityGateModule: "security-gate-module",
++  circulationDesk: "circulation-desk",
++  returnCart: "return-cart",
++  indoorPlanter: "indoor-planter",
++  suspendedLinearLight: "suspended-linear-light",
++  readingTable: "reading-table",
++  readingChair: "reading-chair",
++  red: "red-book",
++}).map(([key, name]) => [key, ASSET_ROOT + "/" + name + ".glb"])));
+diff --git a/game/levels/rf02/series-scene.js b/game/levels/rf02/series-scene.js
+--- a/game/levels/rf02/series-scene.js
++++ b/game/levels/rf02/series-scene.js
+@@ -3 +3 @@
+-import { createLibraryScene } from "./scene.js";
++import { ASSETS, createLibraryScene } from "./scene.js";
+@@ -5 +5 @@
+-import { ASSET_ROOT, BOOKS, SHELF_BOOKS, REVISION, shelfPose } from "./series-layout.js";
++import { ASSET_ROOT, BOOKS, SHELF_BOOKS, REVISION, OPTIMIZED_ASSETS, shelfPose } from "./series-layout.js";
+@@ -8 +8 @@
+-  const world = createLibraryScene();
++  const world = createLibraryScene({ ...ASSETS, ...OPTIMIZED_ASSETS });
+diff --git a/tools/rf02-series/write-manifest.mjs b/tools/rf02-series/write-manifest.mjs
+--- a/tools/rf02-series/write-manifest.mjs
++++ b/tools/rf02-series/write-manifest.mjs
+@@ -4 +4 @@
+-import { ASSET_ROOT, BOOKS, REVISION, seriesLevel } from "../../game/levels/rf02/series-layout.js";
++import { ASSET_ROOT, BOOKS, REVISION, OPTIMIZED_ASSETS, seriesLevel } from "../../game/levels/rf02/series-layout.js";
+@@ -13,0 +14 @@
++  ...OPTIMIZED_ASSETS,
+@@ -29 +30 @@
+-  const origin = previous.assets.find((entry) => entry.path === publicPath);
++  const origin = previous.assets.find((entry) => entry.path === (ASSETS[id]?.split("?")[0] ?? publicPath));

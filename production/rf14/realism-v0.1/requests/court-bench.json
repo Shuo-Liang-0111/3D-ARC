@@ -1,0 +1,9 @@
+{
+  "prompt": "One photorealistic outdoor tennis court bench for two adults, 1.85 m wide, 0.65 m deep, 0.88 m tall, seat height 0.46 m. Honey brown horizontal timber slats with fine wood grain and real narrow gaps, dark forest green powder coated steel frame, four sturdy slim legs with foot mounting plates and practical curved armrests. Front faces positive Z; clean maintained contemporary sports club furniture, gentle natural weathering. Isolated single bench, no people, no ground, no scene, no letters or logos, no floating parts. PBR materials, real construction, Y up, bottom center pivot.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

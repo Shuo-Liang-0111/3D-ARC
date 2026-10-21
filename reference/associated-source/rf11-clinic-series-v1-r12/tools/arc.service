@@ -1,0 +1,19 @@
+[Unit]
+Description=ARC 3D production and model proxy
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=.
+ExecStart=./.tooling/node/bin/node ./server.mjs
+ExecStartPost=/bin/bash -c 'for attempt in {1..50}; do /usr/bin/curl --fail --silent --max-time 1 http://127.0.0.1:4176/api/model/config >/dev/null && exit 0; /usr/bin/sleep 0.1; done; exit 1'
+Environment=NODE_ENV=production
+Environment=PORT=4176
+Environment=HOST=0.0.0.0
+Restart=always
+RestartSec=2
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target

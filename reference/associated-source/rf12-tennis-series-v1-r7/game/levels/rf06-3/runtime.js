@@ -1,0 +1,14 @@
+import * as THREE from "three";
+import * as engine from "./engine.js";
+import {createPestScene,syncPestScene,prepareLeakView} from "./scene.js";
+import {createPestAnimation} from "./animation.js";
+export const {LEVEL,REVISION,RULES,CAN,createInitialState,updateMovement,updateEnvironment,isWalkable,getInteraction,interact,closeTerminal,getObjective}=engine;
+export const ui={id:"rf06-3",levelLabel:"RF-06-3",brand:"HOME PEST CONTROL",unit:"RF-06-3 · HOUSEHOLD MAINTENANCE",systemLabel:"PEST CONTROL",cargoLabel:"TOOL",gateLabel:"CLEARED",startKicker:"RF-06-3",startTitle:"PEST<br />CONTROL",startCopy:engine.OBJECTIVE,completeKicker:"PESTS CLEARED",completeTitle:"蟑螂已清理",completeCopy:"两只蟑螂均已消灭。",terminalHeading:"住宅蟑螂清理"};
+export const camera={position:[0,15.5,4.5],lookAt:[0,.3,0],fov:38},rendering={pixelRatioCap:1},audio={assets:{},eventSounds:{},volume:{}};
+export const eventMessages={spray_taken:"已拿起杀虫剂 · 按 F 短喷",roach_killed:"命中，蟑螂已消灭",spray_missed:"已短喷",pests_cleared:"两只蟑螂均已消灭",progress_depleted:"状态余量耗尽"};
+export const createScene=createPestScene,syncVisuals=syncPestScene,prepareView=prepareLeakView,createInteractionAnimation=createPestAnimation;
+export const createCargoModel=()=>new THREE.Group(),syncRobotCargo=r=>{r.userData.rackPayload.visible=false;},isCarrying=s=>s.carriedItem==="spray";
+export const getProgressSteps=()=>[];
+export const getTelemetry=s=>({system:s.complete?"已清理":"清理中",systemOnline:s.complete,cargo:s.carriedItem?"杀虫剂":"空手",gate:s.kills+" / 2"});
+export const getTerminal=()=>({title:"住宅蟑螂清理",copy:engine.OBJECTIVE,rows:[]});
+export const getSoundPosition=(_b,s)=>s.player,getDebugState=s=>({revision:REVISION,canLocation:s.canLocation,shots:s.shots,kills:s.kills,roaches:s.roaches,burst:s.burst});

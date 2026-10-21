@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic compact desktop laser office printer, isolated single object, wide low rectangular white warm ABS plastic body, graphite gray upper scanning lid, realistic open front output recess, small blue LCD and physical buttons on front left, lower front feed tray, fine panel seams, subtle bevels, cooling vents, small feet, clean maintained real corporate office equipment, no branding, no loose paper, no cables, no desk, physically based matte plastic and dark metal materials. Front toward viewer.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "faceLimit": 60000,
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "negativePrompt": "cartoon, toy, pedestal, room, text, logo, flat image, damaged, distorted"
+}

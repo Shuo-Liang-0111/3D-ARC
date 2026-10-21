@@ -1,0 +1,37 @@
+{
+  "lettuce": {
+    "taskId": "aigc_7e022fd2bf3a4ba8943a49c50b2e1d42",
+    "kind": "model3d",
+    "status": "completed"
+  },
+  "bok-choy": {
+    "taskId": "aigc_2bac7a012d6242ddb67b80e5bd8c615c",
+    "kind": "model3d",
+    "status": "completed"
+  },
+  "basket": {
+    "taskId": "aigc_b6f285173bb2478b8384ecf0a3eecc69",
+    "kind": "model3d",
+    "status": "completed"
+  },
+  "plaster": {
+    "taskId": "aigc_9e7e36d14bc342f78b70c169782ee91b",
+    "kind": "image",
+    "status": "completed"
+  },
+  "wood": {
+    "taskId": "aigc_3028bccc8ba045bf8c6f79872901112e",
+    "kind": "image",
+    "status": "completed"
+  },
+  "roof": {
+    "taskId": "aigc_2166155104e3451aa8c1f351611fbc08",
+    "kind": "image",
+    "status": "completed"
+  },
+  "soil": {
+    "taskId": "aigc_1f02d76e7b7440a088fdade7b757d44d",
+    "kind": "image",
+    "status": "completed"
+  }
+}

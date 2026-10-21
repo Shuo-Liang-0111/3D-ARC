@@ -1,0 +1,16 @@
+{
+  "prompt": "Photorealistic high-detail game-ready GLB for a normally occupied contemporary Chinese urban apartment kitchen. Real-world metric proportions, physically based materials, restrained daily wear such as fingerprints, slight water spots and tiny edge scuffs, never stylized or abandoned. Y axis up, front facing positive Z, centered bottom-center pivot, one isolated asset only, clean watertight topology, no environment, no floor slab, no wall slab, no ceiling, no pedestal unless explicitly part of the object, no person, robot, hands, floating parts, extra props, readable text, fake logo, watermark, UI, neon, outline or baked lighting. One stainless-steel Chinese household wall-mounted range hood with a gently sloped canopy, visible grease-filter underside, short chimney, physical push buttons, narrow unlit LED strip, rear mounting plane and realistic seams. Complete object only, front/intake +Z.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false,
+  "targetSizeMeters": [
+    1.8,
+    0.55,
+    0.48
+  ]
+}

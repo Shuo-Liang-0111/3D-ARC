@@ -1,0 +1,54 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "3baa4943b3b89122bad74aa3c7648662b82addb90a198eded2ba14ad6a121000"
+  },
+  {
+    "file": "assets/GLTFLoader-diRaCXBC.js",
+    "sha256": "4d4af928fd835299f915ea26dc841a2d9d846ec7bb9912181d26126136d7c5c6"
+  },
+  {
+    "file": "assets/animation-qa-DnPF_KcI.js",
+    "sha256": "b7552cdfdd251246ca49ec7548ec77364e3748b5055ba21488e1cb9231d54de8"
+  },
+  {
+    "file": "assets/g1-articulated-collision-BPpGyAFc.js",
+    "sha256": "00a4a1cdbb1a8d2d7c81d55f8ad579e8b6047ba76084576e82612b4deabfc6b4"
+  },
+  {
+    "file": "assets/index-2Cr5y_8F.js",
+    "sha256": "420bd187c236c7390e65c519f996627d3bf25a2cbd3c2d79cf45d5e6e7c18888"
+  },
+  {
+    "file": "assets/index-CZDc2QqC.css",
+    "sha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5"
+  },
+  {
+    "file": "assets/interaction-animation-5-EOG3BD.js",
+    "sha256": "01510b741a39b67a2f4002a999f3a4f2100fd96eb9b4a4e7080b51a641ed2cbb"
+  },
+  {
+    "file": "assets/interaction-walk-BoRqU2kV.js",
+    "sha256": "45263475da5d0e7daf6846c7f04605fdfc10bb9f8d5d8941b837e37bd99790fc"
+  },
+  {
+    "file": "assets/runtime-BaqjpIRb.js",
+    "sha256": "8feef6084d8c4c30a24fe2342bb2141e8e8ddb66cfaaa9c0c0ca028d2b03d781"
+  },
+  {
+    "file": "assets/runtime-BjtZt11c.js",
+    "sha256": "6530e07bddfdd00a2e67f00b513f502964163d78c374aace2bec4fde47886f92"
+  },
+  {
+    "file": "assets/series-entry-BV241hDB.js",
+    "sha256": "b3eb351df74db4fcd1b04b73b6bc86432dc6f1617ca67410e57624a43cb089da"
+  },
+  {
+    "file": "assets/series-qa-COlpeiro.js",
+    "sha256": "304fc3cea8f018256d24c2184f3bd09ee0db0d107c84483588e560dd1a62bc72"
+  },
+  {
+    "file": "assets/series-runtime-4r8O3CBN.js",
+    "sha256": "da7d473bafb1ab5c55cd3424bd3aeb48ac3ec4ea6e19fea9abff717d92799886"
+  }
+]

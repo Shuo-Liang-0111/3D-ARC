@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="plane-tree"><link name="base"><visual><geometry><mesh filename="mesh/plane-tree.glb" /></geometry></visual><collision><geometry><mesh filename="mesh/plane-tree_collision.obj" /></geometry></collision><extra_info><min_height>7.0000</min_height><max_height>7.0000</max_height><real_height>7.0000</real_height></extra_info></link></robot>

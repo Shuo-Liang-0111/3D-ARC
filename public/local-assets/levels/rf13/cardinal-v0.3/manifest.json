@@ -1,0 +1,19 @@
+{
+  "levelId": "rf13",
+  "revision": "cardinal-v0.3",
+  "provider": "Cardinal+Blender",
+  "environment": "environment.glb",
+  "collision": "collision.glb",
+  "interactive": [
+    "gloves",
+    "gauze",
+    "dressings",
+    "forms",
+    "empty-box",
+    "opening-terminal",
+    "chair",
+    "trolley"
+  ],
+  "collisionAuthority": "cardinal-v0.2/collision.glb",
+  "visualStatus": "candidate-pending-final-approval"
+}

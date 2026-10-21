@@ -1,0 +1,22 @@
+--- /dev/null
++++ b/tools/rf02-series/hand-probe.mjs
+@@ -0,0 +1,19 @@
++import * as THREE from "three";
++import { loadUnitreeG1Dex1Model, setUnitreeG1Dex1JointAngle } from "../../game/unitree-g1-dex1-model.js";
++import { BrowserArmScript } from "../../game/levels/rf15/browser-arm-script.js";
++globalThis.ProgressEvent = class ProgressEvent { constructor(type, values) { Object.assign(this, values); this.type = type; } };
++const model = await loadUnitreeG1Dex1Model({url:"http://localhost:4194/local-assets/unitree/g1/g1_29dof_official.glb",groundY:0});
++const robot = new THREE.Group();
++robot.add(model); robot.userData.officialModel = model;
++const feet = ["left","right"].map(side=>model.getObjectByName(side+"_ankle_roll_link"));
++const center = ()=>feet.reduce((sum,foot)=>sum.add(foot.getWorldPosition(new THREE.Vector3())),new THREE.Vector3()).multiplyScalar(.5);
++const reset = ()=>{ model.traverse(object=>{const rest=model.userData.restPose.get(object.name);if(rest)object.quaternion.copy(rest);}); robot.position.set(0,0,0);robot.rotation.set(0,0,0);robot.updateMatrixWorld(true); };
++const cases=[];
++for(const height of [.706,.037,1.185]) for(const radius of [.5,.66,.84]) for(const crouch of height<.1?[.9,1]:[0,.2,.38]) for(const rootPitch of [0,.25,.5]) for(const torsoPitch of [.5,.8,1.1]) {
++reset();const before=center();const knee=crouch*2.7,ankle=-crouch*.87;
++for(const side of ["left","right"]){setUnitreeG1Dex1JointAngle(model,side+"_hip_pitch_link",-knee-ankle);setUnitreeG1Dex1JointAngle(model,side+"_knee_link",knee);setUnitreeG1Dex1JointAngle(model,side+"_ankle_pitch_link",ankle);}
++robot.rotation.x=rootPitch;setUnitreeG1Dex1JointAngle(model,"torso_link",torsoPitch);robot.updateMatrixWorld(true);robot.position.add(before.sub(center()));robot.updateMatrixWorld(true);
++const arm=new BrowserArmScript(robot,"right");arm.capture();const target=new THREE.Vector3(-.15,height,radius);const error=arm.plan(target,null);
++cases.push({height,radius,crouch,rootPitch,torsoPitch,error});
++}
++for(const height of [.706,.037,1.185]) for(const radius of [.5,.66,.84]) console.log(JSON.stringify(cases.filter(item=>item.height===height&&item.radius===radius).sort((left,right)=>left.error-right.error).slice(0,4)));

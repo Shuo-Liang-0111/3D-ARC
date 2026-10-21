@@ -1,0 +1,1 @@
+<robot name="ball-hopper"><link name="base"><visual><geometry><mesh filename="mesh/ball-hopper.glb"/></geometry></visual><collision><geometry><mesh filename="mesh/ball-hopper_collision.obj"/></geometry></collision></link></robot>

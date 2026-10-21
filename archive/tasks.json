@@ -1,0 +1,1962 @@
+[
+  {
+    "websiteLabel": "RF-01",
+    "levelId": "rf01",
+    "name": "工业园区",
+    "family": "rf01",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf01",
+    "httpStatus": 200,
+    "activeRelease": "rf01-restored-carry-v1",
+    "currentEditableEntry": "game/levels/rf01/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/rf01-yard-layout.js",
+      "game/g1-locomotion.js",
+      "game/level.js",
+      "game/rf01-collision-proxies.js",
+      "game/levels/rf03/level.js",
+      "game/rf01-sorting-layout.js",
+      "game/rf01-shared-level.js",
+      "game/levels/rf01/level.js",
+      "game/rf01-shared-runtime.js",
+      "game/rf01-workshop-rules.js",
+      "game/movement.js",
+      "game/rf01-shared-engine.js",
+      "game/levels/rf01/engine.js",
+      "game/rf01-workshop.js",
+      "game/unitree-g1-dex1-model.js",
+      "game/unitree-r1-edu.js",
+      "game/rapier-runtime.js",
+      "game/g1-articulated-collision.js",
+      "game/robot.js",
+      "game/rf01-environment.js",
+      "game/rf01-production-assets.js",
+      "game/scene.js",
+      "game/rf01-battery.js",
+      "game/rf01-sorting-assets.js",
+      "game/rf01-sorting-scene.js",
+      "game/rf01-shared-scene.js",
+      "game/levels/rf01/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf03/level.js",
+      "game/rf01-shared-level.js",
+      "game/levels/rf01/level.js",
+      "game/rf01-shared-runtime.js",
+      "game/rf01-workshop-rules.js",
+      "game/rf01-shared-engine.js",
+      "game/levels/rf01/engine.js",
+      "game/rapier-runtime.js",
+      "game/levels/rf01/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/rf01-sorting-layout.js",
+      "game/g1-articulated-collision.js",
+      "game/scene.js",
+      "game/rf01-sorting-scene.js",
+      "game/rf01-shared-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf01",
+      "public/local-assets/embodiedgen/rf01",
+      "public/local-assets/polyhaven/rf01"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-01-2",
+    "levelId": "rf01-2",
+    "name": "厂房照明",
+    "family": "rf01",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf01-2",
+    "httpStatus": 200,
+    "activeRelease": "rf01-restored-carry-v1",
+    "currentEditableEntry": "game/levels/rf01-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/rf01-yard-layout.js",
+      "game/g1-locomotion.js",
+      "game/level.js",
+      "game/rf01-collision-proxies.js",
+      "game/levels/rf03/level.js",
+      "game/rf01-sorting-layout.js",
+      "game/rf01-shared-level.js",
+      "game/levels/rf01-2/level.js",
+      "game/rf01-shared-runtime.js",
+      "game/rf01-workshop-rules.js",
+      "game/movement.js",
+      "game/rf01-shared-engine.js",
+      "game/levels/rf01-2/engine.js",
+      "game/rf01-workshop.js",
+      "game/unitree-g1-dex1-model.js",
+      "game/unitree-r1-edu.js",
+      "game/rapier-runtime.js",
+      "game/g1-articulated-collision.js",
+      "game/robot.js",
+      "game/rf01-environment.js",
+      "game/rf01-production-assets.js",
+      "game/scene.js",
+      "game/rf01-battery.js",
+      "game/rf01-sorting-assets.js",
+      "game/rf01-sorting-scene.js",
+      "game/rf01-shared-scene.js",
+      "game/levels/rf01-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf03/level.js",
+      "game/rf01-shared-level.js",
+      "game/levels/rf01-2/level.js",
+      "game/rf01-shared-runtime.js",
+      "game/rf01-workshop-rules.js",
+      "game/rf01-shared-engine.js",
+      "game/levels/rf01-2/engine.js",
+      "game/rapier-runtime.js",
+      "game/levels/rf01-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/rf01-sorting-layout.js",
+      "game/g1-articulated-collision.js",
+      "game/scene.js",
+      "game/rf01-sorting-scene.js",
+      "game/rf01-shared-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf01",
+      "public/local-assets/embodiedgen/rf01",
+      "public/local-assets/polyhaven/rf01"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-01-3",
+    "levelId": "rf01-3",
+    "name": "厂房快递分拣",
+    "family": "rf01",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf01-3",
+    "httpStatus": 200,
+    "activeRelease": "rf01-restored-carry-v1",
+    "currentEditableEntry": "game/levels/rf01-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/rf01-yard-layout.js",
+      "game/g1-locomotion.js",
+      "game/level.js",
+      "game/rf01-collision-proxies.js",
+      "game/levels/rf03/level.js",
+      "game/rf01-sorting-layout.js",
+      "game/rf01-shared-level.js",
+      "game/levels/rf01-3/level.js",
+      "game/rf01-shared-runtime.js",
+      "game/rf01-workshop-rules.js",
+      "game/movement.js",
+      "game/rf01-shared-engine.js",
+      "game/levels/rf01-3/engine.js",
+      "game/rf01-workshop.js",
+      "game/unitree-g1-dex1-model.js",
+      "game/unitree-r1-edu.js",
+      "game/rapier-runtime.js",
+      "game/g1-articulated-collision.js",
+      "game/robot.js",
+      "game/rf01-environment.js",
+      "game/rf01-production-assets.js",
+      "game/scene.js",
+      "game/rf01-battery.js",
+      "game/rf01-sorting-assets.js",
+      "game/rf01-sorting-scene.js",
+      "game/rf01-shared-scene.js",
+      "game/levels/rf01-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf03/level.js",
+      "game/rf01-shared-level.js",
+      "game/levels/rf01-3/level.js",
+      "game/rf01-shared-runtime.js",
+      "game/rf01-workshop-rules.js",
+      "game/rf01-shared-engine.js",
+      "game/levels/rf01-3/engine.js",
+      "game/rapier-runtime.js",
+      "game/levels/rf01-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/rf01-sorting-layout.js",
+      "game/g1-articulated-collision.js",
+      "game/scene.js",
+      "game/rf01-sorting-scene.js",
+      "game/rf01-shared-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf01",
+      "public/local-assets/embodiedgen/rf01",
+      "public/local-assets/polyhaven/rf01"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-02",
+    "levelId": "rf02",
+    "name": "图书馆归档",
+    "family": "rf02",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf02",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf02/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/levels/rf02/furnishings-layout.js",
+      "game/levels/rf02/level.js",
+      "game/levels/rf02/surface-assets.js",
+      "game/levels/rf02/lighting.js",
+      "game/levels/rf02/scene.js",
+      "game/levels/rf02/series-layout.js",
+      "game/levels/rf02/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf02/book-controller.js",
+      "game/levels/rf02/furniture-controller.js",
+      "game/movement.js",
+      "game/levels/rf02/engine.js",
+      "game/levels/rf02/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf02/level.js",
+      "game/levels/rf02/engine.js",
+      "game/levels/rf02/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf02/furnishings-layout.js",
+      "game/levels/rf02/scene.js",
+      "game/levels/rf02/series-layout.js",
+      "game/levels/rf02/series-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf02",
+      "public/local-assets/embodiedgen/rf02"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-02-2",
+    "levelId": "rf02-2",
+    "name": "闭馆复位",
+    "family": "rf02",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf02-2",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf02-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf02/furnishings-layout.js",
+      "game/levels/rf02/level.js",
+      "game/levels/rf02/series-layout.js",
+      "game/levels/rf02/series-engine.js",
+      "game/levels/rf02/surface-assets.js",
+      "game/levels/rf02/lighting.js",
+      "game/levels/rf02/scene.js",
+      "game/levels/rf02/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf02/book-controller.js",
+      "game/levels/rf02/furniture-controller.js",
+      "game/levels/rf02/series-runtime.js",
+      "game/levels/rf02-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf02/level.js",
+      "game/levels/rf02/series-engine.js",
+      "game/levels/rf02/series-runtime.js",
+      "game/levels/rf02-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf02/furnishings-layout.js",
+      "game/levels/rf02/series-layout.js",
+      "game/levels/rf02/scene.js",
+      "game/levels/rf02/series-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf02",
+      "public/local-assets/embodiedgen/rf02"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-02-3",
+    "levelId": "rf02-3",
+    "name": "动态巡检",
+    "family": "rf02",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf02-3",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf02-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf02/furnishings-layout.js",
+      "game/levels/rf02/level.js",
+      "game/levels/rf02/series-layout.js",
+      "game/levels/rf02/series-engine.js",
+      "game/levels/rf02/surface-assets.js",
+      "game/levels/rf02/lighting.js",
+      "game/levels/rf02/scene.js",
+      "game/levels/rf02/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf02/book-controller.js",
+      "game/levels/rf02/furniture-controller.js",
+      "game/levels/rf02/series-runtime.js",
+      "game/levels/rf02-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf02/level.js",
+      "game/levels/rf02/series-engine.js",
+      "game/levels/rf02/series-runtime.js",
+      "game/levels/rf02-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf02/furnishings-layout.js",
+      "game/levels/rf02/series-layout.js",
+      "game/levels/rf02/scene.js",
+      "game/levels/rf02/series-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf02",
+      "public/local-assets/embodiedgen/rf02"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-03",
+    "levelId": "rf03",
+    "name": "快递分拣线",
+    "family": "rf03",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf03",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf03/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/levels/rf03/level.js",
+      "game/movement.js",
+      "game/levels/rf03/engine.js",
+      "game/levels/rf03/scene.js",
+      "game/levels/rf03/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf03/level.js",
+      "game/levels/rf03/engine.js",
+      "game/levels/rf03/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf03/scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf03",
+      "public/local-assets/polyhaven/rf01"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-04",
+    "levelId": "rf04",
+    "name": "家庭洗衣",
+    "family": "rf04",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf04",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf04/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf04/doorframe-layout.js",
+      "game/levels/rf04/architecture-layout.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf04/level.js",
+      "game/levels/rf04/series-layout.js",
+      "game/levels/rf04/vacuum-navigation.js",
+      "game/movement.js",
+      "game/levels/rf04/engine.js",
+      "game/levels/rf04/series-engine.js",
+      "game/levels/rf04/scene.js",
+      "game/levels/rf04/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf04/series-qa.js",
+      "game/levels/rf04/series-animation.js",
+      "game/levels/rf04/series-runtime.js",
+      "game/levels/rf04/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf04/level.js",
+      "game/levels/rf04/engine.js",
+      "game/levels/rf04/series-engine.js",
+      "game/levels/rf04/series-runtime.js",
+      "game/levels/rf04/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf04/doorframe-layout.js",
+      "game/levels/rf04/architecture-layout.js",
+      "game/levels/rf04/series-layout.js",
+      "game/levels/rf04/scene.js",
+      "game/levels/rf04/series-scene.js",
+      "game/levels/rf04/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf04",
+      "public/local-assets/embodiedgen/rf04",
+      "public/local-assets/levels/rf04"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-04-2",
+    "levelId": "rf04-2",
+    "name": "衣物收纳",
+    "family": "rf04",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf04-2",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf04-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf04/doorframe-layout.js",
+      "game/levels/rf04/architecture-layout.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf04/level.js",
+      "game/levels/rf04/series-layout.js",
+      "game/levels/rf04/vacuum-navigation.js",
+      "game/movement.js",
+      "game/levels/rf04/engine.js",
+      "game/levels/rf04/series-engine.js",
+      "game/levels/rf04/scene.js",
+      "game/levels/rf04/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf04/series-qa.js",
+      "game/levels/rf04/series-animation.js",
+      "game/levels/rf04/series-runtime.js",
+      "game/levels/rf04-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf04/level.js",
+      "game/levels/rf04/engine.js",
+      "game/levels/rf04/series-engine.js",
+      "game/levels/rf04/series-runtime.js",
+      "game/levels/rf04-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf04/doorframe-layout.js",
+      "game/levels/rf04/architecture-layout.js",
+      "game/levels/rf04/series-layout.js",
+      "game/levels/rf04/scene.js",
+      "game/levels/rf04/series-scene.js",
+      "game/levels/rf04/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf04",
+      "public/local-assets/embodiedgen/rf04",
+      "public/local-assets/levels/rf04"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-04-3",
+    "levelId": "rf04-3",
+    "name": "家务与扫地机器人",
+    "family": "rf04",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf04-3",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf04-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf04/doorframe-layout.js",
+      "game/levels/rf04/architecture-layout.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf04/level.js",
+      "game/levels/rf04/series-layout.js",
+      "game/levels/rf04/vacuum-navigation.js",
+      "game/movement.js",
+      "game/levels/rf04/engine.js",
+      "game/levels/rf04/series-engine.js",
+      "game/levels/rf04/scene.js",
+      "game/levels/rf04/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf04/series-qa.js",
+      "game/levels/rf04/series-animation.js",
+      "game/levels/rf04/series-runtime.js",
+      "game/levels/rf04-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf04/level.js",
+      "game/levels/rf04/engine.js",
+      "game/levels/rf04/series-engine.js",
+      "game/levels/rf04/series-runtime.js",
+      "game/levels/rf04-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf04/doorframe-layout.js",
+      "game/levels/rf04/architecture-layout.js",
+      "game/levels/rf04/series-layout.js",
+      "game/levels/rf04/scene.js",
+      "game/levels/rf04/series-scene.js",
+      "game/levels/rf04/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf04",
+      "public/local-assets/embodiedgen/rf04",
+      "public/local-assets/levels/rf04"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-05",
+    "levelId": "rf05",
+    "name": "酒店整理",
+    "family": "rf05",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf05",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf05/series-entry.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf05/series-wind.js",
+      "game/environment-seed.js",
+      "game/levels/rf05/series-tissues.js",
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf05/level.js",
+      "game/levels/rf05/series-layout.js",
+      "game/levels/rf05/series-engine.js",
+      "game/levels/rf05/series-tissue-scene.js",
+      "game/levels/rf05/series-wind-scene.js",
+      "game/levels/rf05/scene.js",
+      "game/levels/rf05/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf05/series-qa.js",
+      "game/levels/rf05/series-animation.js",
+      "game/levels/rf05/series-runtime.js",
+      "game/levels/rf05/series-entry.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf05/level.js",
+      "game/levels/rf05/series-engine.js",
+      "game/levels/rf05/series-runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf05/series-layout.js",
+      "game/levels/rf05/series-tissue-scene.js",
+      "game/levels/rf05/series-wind-scene.js",
+      "game/levels/rf05/scene.js",
+      "game/levels/rf05/series-scene.js",
+      "game/levels/rf05/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf05"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-05-2",
+    "levelId": "rf05-2",
+    "name": "客房补给",
+    "family": "rf05",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf05-2",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf05-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf05/series-wind.js",
+      "game/environment-seed.js",
+      "game/levels/rf05/series-tissues.js",
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf05/level.js",
+      "game/levels/rf05/series-layout.js",
+      "game/levels/rf05/series-engine.js",
+      "game/levels/rf05/series-tissue-scene.js",
+      "game/levels/rf05/series-wind-scene.js",
+      "game/levels/rf05/scene.js",
+      "game/levels/rf05/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf05/series-qa.js",
+      "game/levels/rf05/series-animation.js",
+      "game/levels/rf05/series-runtime.js",
+      "game/levels/rf05-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf05/level.js",
+      "game/levels/rf05/series-engine.js",
+      "game/levels/rf05/series-runtime.js",
+      "game/levels/rf05-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf05/series-layout.js",
+      "game/levels/rf05/series-tissue-scene.js",
+      "game/levels/rf05/series-wind-scene.js",
+      "game/levels/rf05/scene.js",
+      "game/levels/rf05/series-scene.js",
+      "game/levels/rf05/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf05"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-05-3",
+    "levelId": "rf05-3",
+    "name": "动态客房服务",
+    "family": "rf05",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf05-3",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf05-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf05/series-wind.js",
+      "game/environment-seed.js",
+      "game/levels/rf05/series-tissues.js",
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf05/level.js",
+      "game/levels/rf05/series-layout.js",
+      "game/levels/rf05/series-engine.js",
+      "game/levels/rf05/series-tissue-scene.js",
+      "game/levels/rf05/series-wind-scene.js",
+      "game/levels/rf05/scene.js",
+      "game/levels/rf05/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf05/series-qa.js",
+      "game/levels/rf05/series-animation.js",
+      "game/levels/rf05/series-runtime.js",
+      "game/levels/rf05-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf05/level.js",
+      "game/levels/rf05/series-engine.js",
+      "game/levels/rf05/series-runtime.js",
+      "game/levels/rf05-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf05/series-layout.js",
+      "game/levels/rf05/series-tissue-scene.js",
+      "game/levels/rf05/series-wind-scene.js",
+      "game/levels/rf05/scene.js",
+      "game/levels/rf05/series-scene.js",
+      "game/levels/rf05/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf05"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-06",
+    "levelId": "rf06",
+    "name": "家庭漏水",
+    "family": "rf06",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf06",
+    "httpStatus": 200,
+    "activeRelease": "rf06-series-v1-r16",
+    "currentEditableEntry": "game/levels/rf06/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf06/wrench-grip.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf06/level.js",
+      "game/levels/rf06/home-layout.js",
+      "game/movement.js",
+      "game/levels/rf06/engine.js",
+      "game/levels/rf06/series-collision.js",
+      "game/levels/rf06/series-engine.js",
+      "game/levels/rf06/flood-field.js",
+      "game/levels/rf06/home-water.js",
+      "game/levels/rf06/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf06/series-qa.js",
+      "game/levels/rf06/series-animation.js",
+      "game/levels/rf06/series-runtime.js",
+      "game/levels/rf06/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf06/level.js",
+      "game/levels/rf06/engine.js",
+      "game/levels/rf06/series-engine.js",
+      "game/levels/rf06/series-runtime.js",
+      "game/levels/rf06/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf06/home-layout.js",
+      "game/levels/rf06/series-collision.js",
+      "game/levels/rf06/series-scene.js",
+      "game/levels/rf06/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf06",
+      "public/local-assets/levels/rf06"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-06-2",
+    "levelId": "rf06-2",
+    "name": "积水扩散",
+    "family": "rf06",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf06-2",
+    "httpStatus": 200,
+    "activeRelease": "rf06-series-v1-r16",
+    "currentEditableEntry": "game/levels/rf06-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf06/wrench-grip.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf06/level.js",
+      "game/levels/rf06/home-layout.js",
+      "game/movement.js",
+      "game/levels/rf06/engine.js",
+      "game/levels/rf06/series-collision.js",
+      "game/levels/rf06/series-engine.js",
+      "game/levels/rf06/flood-field.js",
+      "game/levels/rf06/home-water.js",
+      "game/levels/rf06/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf06/series-qa.js",
+      "game/levels/rf06/series-animation.js",
+      "game/levels/rf06/series-runtime.js",
+      "game/levels/rf06-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf06/level.js",
+      "game/levels/rf06/engine.js",
+      "game/levels/rf06/series-engine.js",
+      "game/levels/rf06/series-runtime.js",
+      "game/levels/rf06-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf06/home-layout.js",
+      "game/levels/rf06/series-collision.js",
+      "game/levels/rf06/series-scene.js",
+      "game/levels/rf06/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf06",
+      "public/local-assets/levels/rf06"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-06-3",
+    "levelId": "rf06-3",
+    "name": "蟑螂清理",
+    "family": "rf06",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf06-3",
+    "httpStatus": 200,
+    "activeRelease": "rf06-series-v1-r16",
+    "currentEditableEntry": "game/levels/rf06-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/levels/rf06/level.js",
+      "game/levels/rf06/home-layout.js",
+      "game/movement.js",
+      "game/levels/rf06/engine.js",
+      "game/levels/rf06/series-collision.js",
+      "game/mujoco-client.js",
+      "game/levels/rf06-3/engine.js",
+      "game/levels/rf06/flood-field.js",
+      "game/levels/rf06/home-water.js",
+      "game/levels/rf06/series-scene.js",
+      "game/levels/rf06-3/scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf06/wrench-grip.js",
+      "game/levels/rf06/series-engine.js",
+      "game/levels/rf06/series-qa.js",
+      "game/levels/rf06/series-animation.js",
+      "game/levels/rf06-3/qa.js",
+      "game/levels/rf06-3/animation.js",
+      "game/levels/rf06-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf06/level.js",
+      "game/levels/rf06/engine.js",
+      "game/levels/rf06-3/engine.js",
+      "game/levels/rf06/series-engine.js",
+      "game/levels/rf06-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf06/home-layout.js",
+      "game/levels/rf06/series-collision.js",
+      "game/levels/rf06/series-scene.js",
+      "game/levels/rf06-3/scene.js",
+      "game/levels/rf06/series-animation.js",
+      "game/levels/rf06-3/animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf06",
+      "public/local-assets/levels/rf06"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-07",
+    "levelId": "rf07",
+    "name": "冷链转运",
+    "family": "rf07",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf07",
+    "httpStatus": 200,
+    "activeRelease": "rf073-pickup-finish-r1",
+    "currentEditableEntry": "game/levels/rf07/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf07/fixture-layout.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf07/level.js",
+      "game/movement.js",
+      "game/levels/rf07/series-engine.js",
+      "game/levels/rf07/cardinal-assets.js",
+      "game/levels/rf07/surfaces.js",
+      "game/levels/rf07/scene.js",
+      "game/levels/rf07/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf07/series-qa.js",
+      "game/levels/rf07/series-animation.js",
+      "game/levels/rf07/series-runtime.js",
+      "game/levels/rf07/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf07/level.js",
+      "game/levels/rf07/series-engine.js",
+      "game/levels/rf07/series-runtime.js",
+      "game/levels/rf07/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf07/fixture-layout.js",
+      "game/levels/rf07/scene.js",
+      "game/levels/rf07/series-scene.js",
+      "game/levels/rf07/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf07",
+      "public/local-assets/embodiedgen/rf07",
+      "public/local-assets/levels/rf07"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-07-2",
+    "levelId": "rf07-2",
+    "name": "冷藏巡检",
+    "family": "rf07",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf07-2",
+    "httpStatus": 200,
+    "activeRelease": "rf073-pickup-finish-r1",
+    "currentEditableEntry": "game/levels/rf07-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf07/fixture-layout.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf07/level.js",
+      "game/movement.js",
+      "game/levels/rf07/series-engine.js",
+      "game/levels/rf07/cardinal-assets.js",
+      "game/levels/rf07/surfaces.js",
+      "game/levels/rf07/scene.js",
+      "game/levels/rf07/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf07/series-qa.js",
+      "game/levels/rf07/series-animation.js",
+      "game/levels/rf07/series-runtime.js",
+      "game/levels/rf07-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf07/level.js",
+      "game/levels/rf07/series-engine.js",
+      "game/levels/rf07/series-runtime.js",
+      "game/levels/rf07-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf07/fixture-layout.js",
+      "game/levels/rf07/scene.js",
+      "game/levels/rf07/series-scene.js",
+      "game/levels/rf07/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf07",
+      "public/local-assets/embodiedgen/rf07",
+      "public/local-assets/levels/rf07"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-07-3",
+    "levelId": "rf07-3",
+    "name": "泄漏应急",
+    "family": "rf07",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf07-3",
+    "httpStatus": 200,
+    "activeRelease": "rf073-pickup-finish-r1",
+    "currentEditableEntry": "game/levels/rf07-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf07/fixture-layout.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf07/level.js",
+      "game/movement.js",
+      "game/levels/rf07/series-engine.js",
+      "game/levels/rf07/cardinal-assets.js",
+      "game/levels/rf07/surfaces.js",
+      "game/levels/rf07/scene.js",
+      "game/levels/rf07/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf07/series-qa.js",
+      "game/levels/rf07/series-animation.js",
+      "game/levels/rf07/series-runtime.js",
+      "game/levels/rf07-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf07/level.js",
+      "game/levels/rf07/series-engine.js",
+      "game/levels/rf07/series-runtime.js",
+      "game/levels/rf07-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf07/fixture-layout.js",
+      "game/levels/rf07/scene.js",
+      "game/levels/rf07/series-scene.js",
+      "game/levels/rf07/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf07",
+      "public/local-assets/embodiedgen/rf07",
+      "public/local-assets/levels/rf07"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-08",
+    "levelId": "rf09",
+    "name": "会议准备",
+    "family": "rf09",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf09",
+    "httpStatus": 200,
+    "activeRelease": "rf08-office-v1-r30",
+    "currentEditableEntry": "game/levels/rf09/office-entry.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf09/level.js",
+      "game/levels/rf09/office-layout.js",
+      "game/levels/rf09/office-engine.js",
+      "game/levels/rf09/office-clock.js",
+      "game/levels/rf09/office-phone.js",
+      "game/levels/rf09/cardinal-assets.js",
+      "game/levels/rf09/surfaces.js",
+      "game/levels/rf09/office-architecture.js",
+      "game/levels/rf09/scene.js",
+      "game/levels/rf09/office-scene.js",
+      "game/mujoco-client.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf09/office-qa.js",
+      "game/levels/rf09/office-animation.js",
+      "game/levels/rf09/office-runtime.js",
+      "game/levels/rf09/office-entry.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf09/level.js",
+      "game/levels/rf09/office-engine.js",
+      "game/levels/rf09/office-runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf09/office-layout.js",
+      "game/levels/rf09/scene.js",
+      "game/levels/rf09/office-scene.js",
+      "game/levels/rf09/office-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf09",
+      "public/local-assets/levels/rf09"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-08-2",
+    "levelId": "rf09-2",
+    "name": "通道整理",
+    "family": "rf09",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf09-2",
+    "httpStatus": 200,
+    "activeRelease": "rf08-office-v1-r30",
+    "currentEditableEntry": "game/levels/rf09-2/office-entry.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf09/level.js",
+      "game/levels/rf09/office-layout.js",
+      "game/levels/rf09/office-engine.js",
+      "game/levels/rf09/office-clock.js",
+      "game/levels/rf09/office-phone.js",
+      "game/levels/rf09/cardinal-assets.js",
+      "game/levels/rf09/surfaces.js",
+      "game/levels/rf09/office-architecture.js",
+      "game/levels/rf09/scene.js",
+      "game/levels/rf09/office-scene.js",
+      "game/mujoco-client.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf09/office-qa.js",
+      "game/levels/rf09/office-animation.js",
+      "game/levels/rf09/office-runtime.js",
+      "game/levels/rf09-2/office-entry.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf09/level.js",
+      "game/levels/rf09/office-engine.js",
+      "game/levels/rf09/office-runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf09/office-layout.js",
+      "game/levels/rf09/scene.js",
+      "game/levels/rf09/office-scene.js",
+      "game/levels/rf09/office-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf09",
+      "public/local-assets/levels/rf09"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-08-3",
+    "levelId": "rf09-3",
+    "name": "会务来电",
+    "family": "rf09",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf09-3",
+    "httpStatus": 200,
+    "activeRelease": "rf08-office-v1-r30",
+    "currentEditableEntry": "game/levels/rf09-3/office-entry.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf09/level.js",
+      "game/levels/rf09/office-layout.js",
+      "game/levels/rf09/office-engine.js",
+      "game/levels/rf09/office-clock.js",
+      "game/levels/rf09/office-phone.js",
+      "game/levels/rf09/cardinal-assets.js",
+      "game/levels/rf09/surfaces.js",
+      "game/levels/rf09/office-architecture.js",
+      "game/levels/rf09/scene.js",
+      "game/levels/rf09/office-scene.js",
+      "game/mujoco-client.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf09/office-qa.js",
+      "game/levels/rf09/office-animation.js",
+      "game/levels/rf09/office-runtime.js",
+      "game/levels/rf09-3/office-entry.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf09/level.js",
+      "game/levels/rf09/office-engine.js",
+      "game/levels/rf09/office-runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf09/office-layout.js",
+      "game/levels/rf09/scene.js",
+      "game/levels/rf09/office-scene.js",
+      "game/levels/rf09/office-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf09",
+      "public/local-assets/levels/rf09"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-09",
+    "levelId": "rf11",
+    "name": "双机器人协作搬运",
+    "family": "rf11",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf11",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf11/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf11/level.js",
+      "game/levels/rf11/engine.js",
+      "game/levels/rf11/scene.js",
+      "game/levels/rf11/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf11/level.js",
+      "game/levels/rf11/engine.js",
+      "game/levels/rf11/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf11/scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf11",
+      "public/local-assets/cardinal/rf03",
+      "public/local-assets/polyhaven/rf01"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-10",
+    "levelId": "rf12",
+    "name": "中国家庭厨房",
+    "family": "rf12",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf12",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf12/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf12/interaction-layout.js",
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf12/level.js",
+      "game/levels/rf12-3/level.js",
+      "game/levels/rf12-3/engine.js",
+      "game/levels/rf12/kettle-effects.js",
+      "game/levels/rf12/scene.js",
+      "game/levels/rf12/view-layers.js",
+      "game/levels/rf12/variants-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf12/interaction-qa.js",
+      "game/levels/rf12/interaction-animation.js",
+      "game/levels/rf12/engine.js",
+      "game/levels/rf12/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf12/level.js",
+      "game/levels/rf12-3/level.js",
+      "game/levels/rf12-3/engine.js",
+      "game/levels/rf12/engine.js",
+      "game/levels/rf12/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf12/interaction-layout.js",
+      "game/levels/rf12/scene.js",
+      "game/levels/rf12/variants-scene.js",
+      "game/levels/rf12/interaction-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf12-v2",
+      "public/local-assets/levels/rf12"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-10-2",
+    "levelId": "rf12-2",
+    "name": "简易备餐归位",
+    "family": "rf12",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf12-2",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf12-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf12/interaction-layout.js",
+      "game/levels/rf12/interaction-qa.js",
+      "game/levels/rf12/interaction-animation.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf12/level.js",
+      "game/levels/rf12-2/level.js",
+      "game/movement.js",
+      "game/levels/rf12-2/engine.js",
+      "game/levels/rf12-3/level.js",
+      "game/levels/rf12-3/engine.js",
+      "game/levels/rf12/kettle-effects.js",
+      "game/levels/rf12/scene.js",
+      "game/levels/rf12/view-layers.js",
+      "game/levels/rf12/variants-scene.js",
+      "game/levels/rf12-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf12/level.js",
+      "game/levels/rf12-2/level.js",
+      "game/levels/rf12-2/engine.js",
+      "game/levels/rf12-3/level.js",
+      "game/levels/rf12-3/engine.js",
+      "game/levels/rf12-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf12/interaction-layout.js",
+      "game/levels/rf12/interaction-animation.js",
+      "game/levels/rf12/scene.js",
+      "game/levels/rf12/variants-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf12-v2",
+      "public/local-assets/levels/rf12"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-10-3",
+    "levelId": "rf12-3",
+    "name": "烧水计时灭火",
+    "family": "rf12",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf12-3",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf12-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf12/interaction-layout.js",
+      "game/levels/rf12/interaction-qa.js",
+      "game/levels/rf12/interaction-animation.js",
+      "game/g1-locomotion.js",
+      "game/levels/rf12/level.js",
+      "game/levels/rf12-3/level.js",
+      "game/movement.js",
+      "game/levels/rf12-3/engine.js",
+      "game/levels/rf12/kettle-effects.js",
+      "game/levels/rf12/scene.js",
+      "game/levels/rf12/view-layers.js",
+      "game/levels/rf12/variants-scene.js",
+      "game/levels/rf12-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/levels/rf12/level.js",
+      "game/levels/rf12-3/level.js",
+      "game/levels/rf12-3/engine.js",
+      "game/levels/rf12-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/levels/rf12/interaction-layout.js",
+      "game/levels/rf12/interaction-animation.js",
+      "game/levels/rf12/scene.js",
+      "game/levels/rf12/variants-scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/cardinal/rf12-v2",
+      "public/local-assets/levels/rf12"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-11",
+    "levelId": "rf13",
+    "name": "社区诊所开诊",
+    "family": "rf13",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf13",
+    "httpStatus": 200,
+    "activeRelease": "rf11-clinic-series-v1-r12",
+    "currentEditableEntry": "game/levels/rf13/series-entry.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf13/furnishings.js",
+      "game/levels/rf13/level.js",
+      "game/movement.js",
+      "game/levels/rf13/engine.js",
+      "game/levels/rf13/series-engine.js",
+      "game/levels/rf13/review-metrics.js",
+      "game/levels/rf13/scene.js",
+      "game/levels/rf13/series-scene.js",
+      "game/mujoco-client.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf13/series-qa.js",
+      "game/levels/rf13/series-animation.js",
+      "game/levels/rf13/series-runtime.js",
+      "game/levels/rf13/series-entry.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf13/level.js",
+      "game/levels/rf13/engine.js",
+      "game/levels/rf13/series-engine.js",
+      "game/levels/rf13/series-runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf13/scene.js",
+      "game/levels/rf13/series-scene.js",
+      "game/levels/rf13/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf13"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-11-02",
+    "levelId": "rf13-02",
+    "name": "基础补给 · 低等",
+    "family": "rf13",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf13-02",
+    "httpStatus": 200,
+    "activeRelease": "rf11-clinic-series-v1-r12",
+    "currentEditableEntry": "game/levels/rf13-02/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf13/furnishings.js",
+      "game/levels/rf13/level.js",
+      "game/movement.js",
+      "game/levels/rf13/engine.js",
+      "game/levels/rf13/series-engine.js",
+      "game/levels/rf13/review-metrics.js",
+      "game/levels/rf13/scene.js",
+      "game/levels/rf13/series-scene.js",
+      "game/mujoco-client.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf13/series-qa.js",
+      "game/levels/rf13/series-animation.js",
+      "game/levels/rf13/series-runtime.js",
+      "game/levels/rf13-02/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf13/level.js",
+      "game/levels/rf13/engine.js",
+      "game/levels/rf13/series-engine.js",
+      "game/levels/rf13/series-runtime.js",
+      "game/levels/rf13-02/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf13/scene.js",
+      "game/levels/rf13/series-scene.js",
+      "game/levels/rf13/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf13"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-11-03",
+    "levelId": "rf13-03",
+    "name": "动态诊间服务 · 高等",
+    "family": "rf13",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf13-03",
+    "httpStatus": 200,
+    "activeRelease": "rf11-clinic-series-v1-r12",
+    "currentEditableEntry": "game/levels/rf13-03/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf13/furnishings.js",
+      "game/levels/rf13/level.js",
+      "game/movement.js",
+      "game/levels/rf13/engine.js",
+      "game/levels/rf13/series-engine.js",
+      "game/levels/rf13/review-metrics.js",
+      "game/levels/rf13/scene.js",
+      "game/levels/rf13/series-scene.js",
+      "game/mujoco-client.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf13/series-qa.js",
+      "game/levels/rf13/series-animation.js",
+      "game/levels/rf13/series-runtime.js",
+      "game/levels/rf13-03/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf13/level.js",
+      "game/levels/rf13/engine.js",
+      "game/levels/rf13/series-engine.js",
+      "game/levels/rf13/series-runtime.js",
+      "game/levels/rf13-03/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf13/scene.js",
+      "game/levels/rf13/series-scene.js",
+      "game/levels/rf13/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf13"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-12",
+    "levelId": "rf14",
+    "name": "网球场捡球归筐",
+    "family": "rf14",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf14",
+    "httpStatus": 200,
+    "activeRelease": "rf12-tennis-series-v1-r7",
+    "currentEditableEntry": "game/levels/rf14/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf14/level.js",
+      "game/levels/rf14/series-layout.js",
+      "game/levels/rf14/series-engine.js",
+      "game/levels/rf14/series-hud.css",
+      "game/levels/rf14/review-metrics.js",
+      "game/levels/rf14/scene.js",
+      "game/levels/rf14/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf14/series-qa.js",
+      "game/levels/rf14/series-animation.js",
+      "game/levels/rf14/series-runtime.js",
+      "game/levels/rf14/series-base-runtime.js",
+      "game/levels/rf14/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf14/level.js",
+      "game/levels/rf14/series-engine.js",
+      "game/levels/rf14/series-runtime.js",
+      "game/levels/rf14/series-base-runtime.js",
+      "game/levels/rf14/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf14/series-layout.js",
+      "game/levels/rf14/scene.js",
+      "game/levels/rf14/series-scene.js",
+      "game/levels/rf14/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf14"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-12-2",
+    "levelId": "rf14-2",
+    "name": "网球分类归筐",
+    "family": "rf14",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf14-2",
+    "httpStatus": 200,
+    "activeRelease": "rf12-tennis-series-v1-r7",
+    "currentEditableEntry": "game/levels/rf14-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf14/level.js",
+      "game/levels/rf14/series-layout.js",
+      "game/levels/rf14/series-engine.js",
+      "game/levels/rf14/series-hud.css",
+      "game/levels/rf14/review-metrics.js",
+      "game/levels/rf14/scene.js",
+      "game/levels/rf14/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf14/series-qa.js",
+      "game/levels/rf14/series-animation.js",
+      "game/levels/rf14/series-runtime.js",
+      "game/levels/rf14-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf14/level.js",
+      "game/levels/rf14/series-engine.js",
+      "game/levels/rf14/series-runtime.js",
+      "game/levels/rf14-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf14/series-layout.js",
+      "game/levels/rf14/scene.js",
+      "game/levels/rf14/series-scene.js",
+      "game/levels/rf14/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf14"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-12-3",
+    "levelId": "rf14-3",
+    "name": "雨中分类与避雨",
+    "family": "rf14",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf14-3",
+    "httpStatus": 200,
+    "activeRelease": "rf12-tennis-series-v1-r7",
+    "currentEditableEntry": "game/levels/rf14-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/movement.js",
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf14/level.js",
+      "game/levels/rf14/series-layout.js",
+      "game/levels/rf14/series-engine.js",
+      "game/levels/rf14/series-hud.css",
+      "game/levels/rf14/review-metrics.js",
+      "game/levels/rf14/scene.js",
+      "game/levels/rf14/series-scene.js",
+      "game/levels/rf15/browser-arm-script.js",
+      "game/levels/rf15/interaction-walk.js",
+      "game/levels/rf14/series-qa.js",
+      "game/levels/rf14/series-animation.js",
+      "game/levels/rf14/series-runtime.js",
+      "game/levels/rf14-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf14/level.js",
+      "game/levels/rf14/series-engine.js",
+      "game/levels/rf14/series-runtime.js",
+      "game/levels/rf14-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf14/series-layout.js",
+      "game/levels/rf14/scene.js",
+      "game/levels/rf14/series-scene.js",
+      "game/levels/rf14/series-animation.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf14"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Frozen human-entry bundle retained; current editable modules and associated historical sources are indexed separately. Exact rebuild equivalence unverified."
+  },
+  {
+    "websiteLabel": "RF-13",
+    "levelId": "rf15",
+    "name": "农产品冷链装运",
+    "family": "rf15",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf15",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf15/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/movement.js",
+      "game/levels/rf15/engine.js",
+      "game/levels/rf15/qa.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15/engine.js",
+      "game/levels/rf15/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf15/scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf15"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-13-1",
+    "levelId": "rf15-1",
+    "name": "手推车归位",
+    "family": "rf15",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf15-1",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf15-1/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15/field-layout.js",
+      "game/levels/rf15-1/level.js",
+      "game/movement.js",
+      "game/levels/rf15/tool-room-layout.js",
+      "game/levels/rf15/cart-layout.js",
+      "game/levels/rf15/interaction-stance.js",
+      "game/levels/rf15/orange-task.js",
+      "game/levels/rf15/variant-engine.js",
+      "game/levels/rf15-1/engine.js",
+      "game/levels/rf15/cart-parking.js",
+      "game/levels/rf15/orange-scene.js",
+      "game/levels/rf15/qa.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/tool-room-qa.js",
+      "game/levels/rf15/tool-room-scene.js",
+      "game/levels/rf15/field-qa.js",
+      "game/levels/rf15/field-scene.js",
+      "game/levels/rf15/shared-variant-scene.js",
+      "game/levels/rf15-1/scene.js",
+      "game/levels/rf15-1/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15-1/level.js",
+      "game/levels/rf15/variant-engine.js",
+      "game/levels/rf15-1/engine.js",
+      "game/levels/rf15-1/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf15/field-layout.js",
+      "game/levels/rf15/tool-room-layout.js",
+      "game/levels/rf15/cart-layout.js",
+      "game/levels/rf15/orange-scene.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/tool-room-scene.js",
+      "game/levels/rf15/field-scene.js",
+      "game/levels/rf15/shared-variant-scene.js",
+      "game/levels/rf15-1/scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf15"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-13-2",
+    "levelId": "rf15-2",
+    "name": "田间收割入筐",
+    "family": "rf15",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf15-2",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf15-2/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15/field-layout.js",
+      "game/levels/rf15-2/level.js",
+      "game/movement.js",
+      "game/levels/rf15/tool-room-layout.js",
+      "game/levels/rf15/cart-layout.js",
+      "game/levels/rf15/interaction-stance.js",
+      "game/levels/rf15/orange-task.js",
+      "game/levels/rf15/variant-engine.js",
+      "game/levels/rf15-2/engine.js",
+      "game/levels/rf15/cart-parking.js",
+      "game/levels/rf15/orange-scene.js",
+      "game/levels/rf15/qa.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/tool-room-qa.js",
+      "game/levels/rf15/tool-room-scene.js",
+      "game/levels/rf15/field-qa.js",
+      "game/levels/rf15/field-scene.js",
+      "game/levels/rf15/shared-variant-scene.js",
+      "game/levels/rf15-2/scene.js",
+      "game/levels/rf15-2/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15-2/level.js",
+      "game/levels/rf15/variant-engine.js",
+      "game/levels/rf15-2/engine.js",
+      "game/levels/rf15-2/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf15/field-layout.js",
+      "game/levels/rf15/tool-room-layout.js",
+      "game/levels/rf15/cart-layout.js",
+      "game/levels/rf15/orange-scene.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/tool-room-scene.js",
+      "game/levels/rf15/field-scene.js",
+      "game/levels/rf15/shared-variant-scene.js",
+      "game/levels/rf15-2/scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf15"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  },
+  {
+    "websiteLabel": "RF-13-3",
+    "levelId": "rf15-3",
+    "name": "动态称重装车",
+    "family": "rf15",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf15-3",
+    "httpStatus": 200,
+    "activeRelease": "current-source",
+    "currentEditableEntry": "game/levels/rf15-3/runtime.js",
+    "sourceResolutionPassed": true,
+    "sourceFiles": [
+      "game/g1-locomotion.js",
+      "game/rf01-yard-layout.js",
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15/field-layout.js",
+      "game/levels/rf15-3/level.js",
+      "game/movement.js",
+      "game/levels/rf15/tool-room-layout.js",
+      "game/levels/rf15/cart-layout.js",
+      "game/levels/rf15/interaction-stance.js",
+      "game/levels/rf15/orange-task.js",
+      "game/levels/rf15/variant-engine.js",
+      "game/levels/rf15-3/engine.js",
+      "game/levels/rf15/cart-parking.js",
+      "game/levels/rf15/orange-scene.js",
+      "game/levels/rf15/qa.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/tool-room-qa.js",
+      "game/levels/rf15/tool-room-scene.js",
+      "game/levels/rf15/field-qa.js",
+      "game/levels/rf15/field-scene.js",
+      "game/levels/rf15/shared-variant-scene.js",
+      "game/levels/rf15-3/scene.js",
+      "game/levels/rf15-3/runtime.js"
+    ],
+    "rulesAndState": [
+      "game/level.js",
+      "game/levels/rf15/level.js",
+      "game/levels/rf15-3/level.js",
+      "game/levels/rf15/variant-engine.js",
+      "game/levels/rf15-3/engine.js",
+      "game/levels/rf15-3/runtime.js"
+    ],
+    "sceneAndLayout": [
+      "game/rf01-yard-layout.js",
+      "game/levels/rf15/field-layout.js",
+      "game/levels/rf15/tool-room-layout.js",
+      "game/levels/rf15/cart-layout.js",
+      "game/levels/rf15/orange-scene.js",
+      "game/levels/rf15/scene.js",
+      "game/levels/rf15/tool-room-scene.js",
+      "game/levels/rf15/field-scene.js",
+      "game/levels/rf15/shared-variant-scene.js",
+      "game/levels/rf15-3/scene.js"
+    ],
+    "assetDirectories": [
+      "public/local-assets/levels/rf15"
+    ],
+    "sharedAssets": [
+      "public/local-assets/unitree",
+      "public/local-assets/shadow-hand",
+      "public/vendor"
+    ],
+    "versionNote": "Live current source"
+  }
+]

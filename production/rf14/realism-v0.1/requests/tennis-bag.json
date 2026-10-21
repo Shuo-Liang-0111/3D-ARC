@@ -1,0 +1,9 @@
+{
+  "prompt": "One photorealistic premium tennis racket sports duffel bag, navy blue woven nylon with cream piping, black carrying handles, realistic zippers, reinforced seams, shoulder strap resting along bag body. Horizontally resting flat on its bottom, 0.72 m long, 0.30 m deep, 0.27 m high. Slightly curved racket bag silhouette. Restrained clean everyday use, fine fabric weave and soft folds. Isolated single object, no floor, no room, no people, no text, no logos, no floating accessories. PBR materials, bottom center pivot, meters, Y up.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "bd7f53596483cbfc918f63503ad5201fa4cd341b45abc61267f73bf9eab62be9",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/GLTFLoader-iAAxM0ql.js",
+    "sha256": "909ccacd53a081b16d52c7a0ef6aad7568801f5b91125b4afdeedc9fc4103b69",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/animation-qa-fv3DHA8b.js",
+    "sha256": "6ae13a6ad811b876acd2fa7ece7739628cf578e2a99a3dbf4495ba079a7219c0",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/g1-articulated-collision-B0mysrhw.js",
+    "sha256": "71e23f2b8bd16a2affbb2421d2d9caca3fc00ea4fafef93245f590a5115ef7ad",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/index-CZDc2QqC.css",
+    "sha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/index-DurqAhl4.js",
+    "sha256": "1420707799e82321ab625f3b8c45dfb14cfb6b154492f92041719eae6820cf1d",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/interaction-animation-DNkbiT3M.js",
+    "sha256": "79d72f7a8612aa02cfc7087fae77d37e631169dd052eb5e2fde5dc21ec581648",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/interaction-walk-BUtxn5Qg.js",
+    "sha256": "0d5d53d816696e7e89dbfe1155484ffee10cad5aae88cf2abf28d5b7de6d18ec",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/runtime-B1LKdtge.js",
+    "sha256": "3f2eaaa474ff0a65d2b565eb6521f456f3768ec4e4e62eae9d49adc52d90260b",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/runtime-hAoOCZfv.js",
+    "sha256": "da99579da25252c8aff6004970a781a891374d23aacd3dd4e4055805f7423592",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/series-entry-DtOvXfYF.js",
+    "sha256": "fccf5de24861c41bde58272cedb887c186d727deeecb773ab88d979b7431ceb0",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/series-qa-JA8MttQF.js",
+    "sha256": "c12df87a7c866e8158f315034d5677fa8b20b7d3c3c2ca0955552e5ea09d48d5",
+    "httpMatch": true
+  },
+  {
+    "file": "assets/series-runtime-ME-90NLk.js",
+    "sha256": "96b26970fd77aa5d64dde86c332445b8e499280d437b9f9e7a6edb500aae486c",
+    "httpMatch": true
+  }
+]

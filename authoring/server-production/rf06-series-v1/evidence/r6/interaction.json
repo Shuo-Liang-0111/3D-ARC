@@ -1,0 +1,164 @@
+{
+  "state": {
+    "player": {
+      "x": 4.389093403160998,
+      "z": 1.4951688349865868,
+      "yaw": 1.9634954084936205
+    },
+    "items": {
+      "wrench": {
+        "type": "wrench",
+        "location": "room",
+        "x": 4.58,
+        "z": 1.72,
+        "home": "tool-rack"
+      },
+      "bucket": {
+        "type": "bucket",
+        "location": "room",
+        "x": 3.78,
+        "z": 2.56,
+        "home": "utility-room"
+      },
+      "mop": {
+        "type": "mop",
+        "location": "room",
+        "x": 4.58,
+        "z": 2.22,
+        "home": "tool-rack"
+      }
+    },
+    "rewardedPickups": {
+      "wrench": false,
+      "bucket": false,
+      "mop": false
+    },
+    "carriedItem": "spray",
+    "valveClosed": true,
+    "bucketPlaced": false,
+    "puddleClean": true,
+    "returned": {
+      "wrench": false,
+      "mop": false
+    },
+    "complete": false,
+    "failed": false,
+    "progress": 100,
+    "motion": "carrying",
+    "elapsed": 4.499999999999992,
+    "interactions": 2,
+    "lastEvent": "spray_missed",
+    "revision": "rf06-pest-v2",
+    "mode": 1,
+    "water": 0,
+    "canLocation": "held",
+    "roaches": [
+      {
+        "id": "roach-1",
+        "x": -2.51472080604159,
+        "z": 1.4742876710992094,
+        "yaw": 2.141726138281394,
+        "rng": 1166137517,
+        "alive": true,
+        "untilDecision": 0.14999999999999952,
+        "decisions": 14,
+        "forwardDecisions": 10,
+        "travel": 10.15199999999998,
+        "collisions": 3,
+        "elapsed": 5.09999999999999
+      },
+      {
+        "id": "roach-2",
+        "x": 5.031970844265274,
+        "z": -0.18870828137353807,
+        "yaw": -0.46301068732541806,
+        "rng": 76620659,
+        "alive": true,
+        "untilDecision": 0.14999999999999952,
+        "decisions": 14,
+        "forwardDecisions": 9,
+        "travel": 10.19999999999998,
+        "collisions": 0,
+        "elapsed": 5.09999999999999
+      }
+    ],
+    "burst": null,
+    "cooldown": 0.16660000000000585,
+    "shots": 1,
+    "kills": 0,
+    "pendingComplete": false
+  },
+  "snapshot": {
+    "fps": 3.3395950740972657,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "spray",
+      "hit": 0,
+      "duration": 0.18,
+      "nozzle": {
+        "origin": {
+          "x": 4.900355418576008,
+          "y": 0.9468305987618525,
+          "z": 1.456139364082428
+        },
+        "direction": {
+          "x": 0.7354855276433113,
+          "y": -0.6051864057360397,
+          "z": -0.304648080478991
+        }
+      }
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "event": "spray_taken",
+        "error": 0.024398395021030708,
+        "revision": "rf06-series-v1"
+      },
+      {
+        "type": "spray",
+        "hit": 0,
+        "duration": 0.18,
+        "nozzle": {
+          "origin": {
+            "x": 4.900355418576008,
+            "y": 0.9468305987618525,
+            "z": 1.456139364082428
+          },
+          "direction": {
+            "x": 0.7354855276433113,
+            "y": -0.6051864057360397,
+            "z": -0.304648080478991
+          }
+        }
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.001916842512323517,
+          "position": [
+            4.225091051087974,
+            0.03630072061976805,
+            1.3954770103102372
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0016843479356625053,
+          "position": [
+            4.282536775114931,
+            0.036336354499843425,
+            1.7030560430022816
+          ]
+        }
+      ]
+    }
+  }
+}

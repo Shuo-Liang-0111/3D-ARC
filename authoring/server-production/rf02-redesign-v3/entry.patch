@@ -1,0 +1,54 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -94,2 +94,2 @@
+-  "rf02-2": "找到并归还馆内六本待归架书籍",
+-  "rf02-3": "完成六本书归架，并将掉落的馆藏书归位",
++  "rf02-2": "将两把离位椅子归桌，并把还书车停回车位",
++  "rf02-3": "完成闭馆复位，并修复书架故障、收回全部落书",
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -212,1 +212,1 @@
+-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
++renderer.setPixelRatio(Math.min(window.devicePixelRatio, runtime.rendering?.pixelRatioCap ?? 2));
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -1120,1 +1120,1 @@
+-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
++  renderer.setPixelRatio(Math.min(window.devicePixelRatio, runtime.rendering?.pixelRatioCap ?? 2));
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -382,1 +382,9 @@
+-const browserPhysicsReady = robotId === "g1" && controlModeId === "velocity" && ["rf15-1", "rf15-2", "rf15-3"].includes(levelId)
++const browserPhysicsReady = runtime.createInteractionAnimation && controlModeId === "velocity"
++  ? Promise.all([robot.userData.assetReady, world.assetReady]).then(async () => {
++    browserPhysics = await runtime.createInteractionAnimation(world, robot, {
++      runtime, getState: () => state, setState: (next) => { state = next; },
++      stop: releaseAllControls, message: showToast,
++    });
++    return { loaded: true };
++  })
++  : robotId === "g1" && controlModeId === "velocity" && ["rf15-1", "rf15-2", "rf15-3"].includes(levelId)
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -961,3 +961,5 @@
+-    const handled = browserPhysics.interact();
+-    updateInterface();
+-    return handled;
++    const handled = browserPhysics.interact();
++    if (handled !== false) {
++      updateInterface();
++      return handled;
++    }
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -151,2 +151,2 @@
+-            <a data-level-option="rf02-2" href="/?mode=play&amp;level=rf02-2"><span>RF-02-2</span><strong>分散还书</strong></a>
+-            <a data-level-option="rf02-3" href="/?mode=play&amp;level=rf02-3"><span>RF-02-3</span><strong>动态馆藏恢复</strong></a>
++            <a data-level-option="rf02-2" href="/?mode=play&amp;level=rf02-2"><span>RF-02-2</span><strong>闭馆复位</strong></a>
++            <a data-level-option="rf02-3" href="/?mode=play&amp;level=rf02-3"><span>RF-02-3</span><strong>动态巡检</strong></a>

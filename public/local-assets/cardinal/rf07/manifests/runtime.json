@@ -1,0 +1,657 @@
+{
+  "level": "RF-07",
+  "assets": {
+    "dry_reagent_cabinet": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/dry_reagent_cabinet.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/dry_reagent_cabinet.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        2.2,
+        2.2,
+        0.78
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.23248,
+          -0.32148,
+          -0.49036
+        ],
+        "max": [
+          0.2316,
+          0.32152,
+          0.48958
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.09996,
+          -0.39,
+          0.0
+        ],
+        "max": [
+          1.10002,
+          0.38999,
+          2.20002
+        ]
+      },
+      "sourceFaces": 1893015,
+      "runtimeFaces": 200000,
+      "runtimeBytes": 8298208,
+      "runtimeSha256": "196170bf8cc8946e7373d8e2d46ad11c9fc7284454885857c1fd5a8ed1a30076",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 200000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/dry_reagent_cabinet/front.png",
+          "public/local-assets/cardinal/rf07/review/source/dry_reagent_cabinet/right.png",
+          "public/local-assets/cardinal/rf07/review/source/dry_reagent_cabinet/back.png",
+          "public/local-assets/cardinal/rf07/review/source/dry_reagent_cabinet/left.png"
+        ]
+      }
+    },
+    "cold_chain_packing_island": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/cold_chain_packing_island.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/cold_chain_packing_island.glb",
+      "frontCorrection": "front",
+      "targetSizeMeters": [
+        4.8,
+        1.72,
+        1.6
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.48963,
+          -0.16675,
+          -0.29076
+        ],
+        "max": [
+          0.48963,
+          0.17002,
+          0.29079
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -2.40001,
+          -0.80002,
+          -1e-05
+        ],
+        "max": [
+          2.39999,
+          0.79993,
+          1.72005
+        ]
+      },
+      "sourceFaces": 1892715,
+      "runtimeFaces": 239998,
+      "runtimeBytes": 9469300,
+      "runtimeSha256": "8f0a110baac31592cc663abd45b82a3c29404f50f91e7bb01cd808377272d68c",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 240000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/cold_chain_packing_island/front.png",
+          "public/local-assets/cardinal/rf07/review/source/cold_chain_packing_island/right.png",
+          "public/local-assets/cardinal/rf07/review/source/cold_chain_packing_island/back.png",
+          "public/local-assets/cardinal/rf07/review/source/cold_chain_packing_island/left.png"
+        ]
+      }
+    },
+    "medical_waste_bin": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/medical_waste_bin.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/medical_waste_bin.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        0.42,
+        0.8,
+        0.36
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.32299,
+          -0.30786,
+          -0.49032
+        ],
+        "max": [
+          0.32318,
+          0.386,
+          0.4381
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.21,
+          -0.18001,
+          6e-05
+        ],
+        "max": [
+          0.21,
+          0.18,
+          0.80003
+        ]
+      },
+      "sourceFaces": 1932981,
+      "runtimeFaces": 139999,
+      "runtimeBytes": 5783880,
+      "runtimeSha256": "8a853cada2bcb550f911472f83a0e7a00789b4b615f84372d4c1bad4b69cf681",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 140000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/medical_waste_bin/front.png",
+          "public/local-assets/cardinal/rf07/review/source/medical_waste_bin/right.png",
+          "public/local-assets/cardinal/rf07/review/source/medical_waste_bin/back.png",
+          "public/local-assets/cardinal/rf07/review/source/medical_waste_bin/left.png"
+        ]
+      }
+    },
+    "receiving_bench_equipment_bank": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/receiving_bench_equipment_bank.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/receiving_bench_equipment_bank.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        7.9,
+        1.75,
+        1.0
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.16935,
+          -0.48937,
+          -0.32048
+        ],
+        "max": [
+          0.16878,
+          0.48963,
+          0.32146
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -3.94998,
+          -0.5001,
+          0.0
+        ],
+        "max": [
+          3.95001,
+          0.50004,
+          1.75001
+        ]
+      },
+      "sourceFaces": 1936028,
+      "runtimeFaces": 259999,
+      "runtimeBytes": 10173388,
+      "runtimeSha256": "1b071466ea6fc7c1ac257982ff45a172d7b3fcfbd64812ad8dc2ca6a4704a60c",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 260000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/receiving_bench_equipment_bank/front.png",
+          "public/local-assets/cardinal/rf07/review/source/receiving_bench_equipment_bank/right.png",
+          "public/local-assets/cardinal/rf07/review/source/receiving_bench_equipment_bank/back.png",
+          "public/local-assets/cardinal/rf07/review/source/receiving_bench_equipment_bank/left.png"
+        ]
+      }
+    },
+    "specimen_transfer_cart": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/specimen_transfer_cart.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/specimen_transfer_cart.glb",
+      "frontCorrection": "front",
+      "targetSizeMeters": [
+        1.05,
+        1.15,
+        0.58
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.20782,
+          -0.37501,
+          -0.48976
+        ],
+        "max": [
+          0.20788,
+          0.37187,
+          0.48985
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.52504,
+          -0.28998,
+          5e-05
+        ],
+        "max": [
+          0.52487,
+          0.29,
+          1.14994
+        ]
+      },
+      "sourceFaces": 1871552,
+      "runtimeFaces": 179999,
+      "runtimeBytes": 7589268,
+      "runtimeSha256": "05d857fd32a2d7f0d6c390302271785c0ed3cff4ed10e2c186348dd5cef68af9",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 180000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/specimen_transfer_cart/front.png",
+          "public/local-assets/cardinal/rf07/review/source/specimen_transfer_cart/right.png",
+          "public/local-assets/cardinal/rf07/review/source/specimen_transfer_cart/back.png",
+          "public/local-assets/cardinal/rf07/review/source/specimen_transfer_cart/left.png"
+        ]
+      }
+    },
+    "ppe_locker_bank": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/ppe_locker_bank.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/ppe_locker_bank.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        2.8,
+        2.1,
+        0.82
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.19789,
+          -0.48959,
+          -0.48998
+        ],
+        "max": [
+          0.19333,
+          0.48883,
+          0.49054
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.40003,
+          -0.41007,
+          5e-05
+        ],
+        "max": [
+          1.4,
+          0.40997,
+          2.09998
+        ]
+      },
+      "sourceFaces": 1965203,
+      "runtimeFaces": 200000,
+      "runtimeBytes": 7845320,
+      "runtimeSha256": "df90f869a51364c09c4f8f0f3ab4773d704c4ade88d1cab39244b8392bfaf0a6",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 200000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/ppe_locker_bank/front.png",
+          "public/local-assets/cardinal/rf07/review/source/ppe_locker_bank/right.png",
+          "public/local-assets/cardinal/rf07/review/source/ppe_locker_bank/back.png",
+          "public/local-assets/cardinal/rf07/review/source/ppe_locker_bank/left.png"
+        ]
+      }
+    },
+    "medical_refrigerator": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/medical_refrigerator.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/medical_refrigerator.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        0.76,
+        1.98,
+        0.82
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.23831,
+          -0.19072,
+          -0.49001
+        ],
+        "max": [
+          0.23923,
+          0.18518,
+          0.40177
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.38,
+          -0.41,
+          1e-05
+        ],
+        "max": [
+          0.38003,
+          0.40998,
+          1.98003
+        ]
+      },
+      "sourceFaces": 1911521,
+      "runtimeFaces": 180000,
+      "runtimeBytes": 8004732,
+      "runtimeSha256": "15bc490b75acdca1d772c4fbd3e73dbe0447e482f951e974fe60462220432799",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 180000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/medical_refrigerator/front.png",
+          "public/local-assets/cardinal/rf07/review/source/medical_refrigerator/right.png",
+          "public/local-assets/cardinal/rf07/review/source/medical_refrigerator/back.png",
+          "public/local-assets/cardinal/rf07/review/source/medical_refrigerator/left.png"
+        ]
+      }
+    },
+    "class_ii_a2_bsc": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/class_ii_a2_bsc.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/class_ii_a2_bsc.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        1.5,
+        2.18,
+        0.78
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.26191,
+          -0.34273,
+          -0.48965
+        ],
+        "max": [
+          0.10273,
+          0.34281,
+          0.49005
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.75002,
+          -0.39003,
+          -1e-05
+        ],
+        "max": [
+          0.75004,
+          0.39002,
+          2.18
+        ]
+      },
+      "sourceFaces": 1939434,
+      "runtimeFaces": 219999,
+      "runtimeBytes": 8976412,
+      "runtimeSha256": "7108dabae55c0b567f433d166391321db55da97e819eef6dc2dd08e34ab6ab03",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 220000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/class_ii_a2_bsc/front.png",
+          "public/local-assets/cardinal/rf07/review/source/class_ii_a2_bsc/right.png",
+          "public/local-assets/cardinal/rf07/review/source/class_ii_a2_bsc/back.png",
+          "public/local-assets/cardinal/rf07/review/source/class_ii_a2_bsc/left.png"
+        ]
+      }
+    },
+    "handwash_eyewash_station": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/handwash_eyewash_station.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/handwash_eyewash_station.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        2.65,
+        1.8,
+        1.42
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.24762,
+          -0.28919,
+          -0.48961
+        ],
+        "max": [
+          0.24759,
+          0.28915,
+          0.48964
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.325,
+          -0.71,
+          -1e-05
+        ],
+        "max": [
+          1.32501,
+          0.71,
+          1.79999
+        ]
+      },
+      "sourceFaces": 1919214,
+      "runtimeFaces": 219999,
+      "runtimeBytes": 9125644,
+      "runtimeSha256": "bf0f2b805b3d8acf5ddf736e51f9592da702569db42540cf6164b750259863db",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 220000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/handwash_eyewash_station/front.png",
+          "public/local-assets/cardinal/rf07/review/source/handwash_eyewash_station/right.png",
+          "public/local-assets/cardinal/rf07/review/source/handwash_eyewash_station/back.png",
+          "public/local-assets/cardinal/rf07/review/source/handwash_eyewash_station/left.png"
+        ]
+      }
+    },
+    "p650_transport_case": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/p650_transport_case.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/p650_transport_case.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        0.62,
+        0.468,
+        0.505
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.34132,
+          -0.48926,
+          -0.35169
+        ],
+        "max": [
+          0.33992,
+          0.48943,
+          0.35162
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.31,
+          -0.25249,
+          1e-05
+        ],
+        "max": [
+          0.30998,
+          0.25252,
+          0.46801
+        ]
+      },
+      "sourceFaces": 1950818,
+      "runtimeFaces": 160000,
+      "runtimeBytes": 6901532,
+      "runtimeSha256": "71c4da269aeba0feeb26ca32b899f3cf51aaa4a9cb981056beeac3862511adbb",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 160000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/p650_transport_case/front.png",
+          "public/local-assets/cardinal/rf07/review/source/p650_transport_case/right.png",
+          "public/local-assets/cardinal/rf07/review/source/p650_transport_case/back.png",
+          "public/local-assets/cardinal/rf07/review/source/p650_transport_case/left.png"
+        ]
+      }
+    },
+    "pcm_cooling_plate": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/pcm_cooling_plate.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/pcm_cooling_plate.glb",
+      "frontCorrection": "front",
+      "targetSizeMeters": [
+        0.19,
+        0.046,
+        0.13
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.4902,
+          -0.41967,
+          -0.0638
+        ],
+        "max": [
+          0.49049,
+          0.41967,
+          0.0639
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.095,
+          -0.065,
+          -0.0
+        ],
+        "max": [
+          0.095,
+          0.065,
+          0.046
+        ]
+      },
+      "sourceFaces": 1911242,
+      "runtimeFaces": 100000,
+      "runtimeBytes": 4644612,
+      "runtimeSha256": "615b1aef4ef0017baa704bf2b5eb13c93d7b7adcc422aa7ac95adf0a05a5f27f",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.2.0",
+        "targetFaces": 100000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/pcm_cooling_plate/front.png",
+          "public/local-assets/cardinal/rf07/review/source/pcm_cooling_plate/right.png",
+          "public/local-assets/cardinal/rf07/review/source/pcm_cooling_plate/back.png",
+          "public/local-assets/cardinal/rf07/review/source/pcm_cooling_plate/left.png"
+        ]
+      }
+    },
+    "secondary_specimen_carrier": {
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/secondary_specimen_carrier.highpoly.glb",
+      "runtimeArtifact": "public/local-assets/cardinal/rf07/models/runtime/secondary_specimen_carrier.glb",
+      "frontCorrection": "right",
+      "targetSizeMeters": [
+        0.18,
+        0.159,
+        0.11
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.47542,
+          -0.48965,
+          -0.2751
+        ],
+        "max": [
+          0.47546,
+          0.48902,
+          0.27533
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.09,
+          -0.055,
+          1e-05
+        ],
+        "max": [
+          0.09,
+          0.05501,
+          0.159
+        ]
+      },
+      "sourceFaces": 1796197,
+      "runtimeFaces": 139999,
+      "runtimeBytes": 6193060,
+      "runtimeSha256": "a5078c9209da42ed96107ffc8ce218bb3a5d3a812cfa0b0558ff67537f20e6a4",
+      "pivot": "bottom-center",
+      "frontAxis": "+Z",
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 140000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf07/review/source/secondary_specimen_carrier/front.png",
+          "public/local-assets/cardinal/rf07/review/source/secondary_specimen_carrier/right.png",
+          "public/local-assets/cardinal/rf07/review/source/secondary_specimen_carrier/back.png",
+          "public/local-assets/cardinal/rf07/review/source/secondary_specimen_carrier/left.png"
+        ]
+      }
+    }
+  },
+  "schemaVersion": 1,
+  "productionStatus": "runtime_candidate",
+  "units": "meters",
+  "upAxis": "Y"
+}

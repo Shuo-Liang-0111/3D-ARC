@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="windscreen"><link name="base"><visual><geometry><mesh filename="mesh/windscreen.glb" /></geometry></visual><collision><geometry><mesh filename="mesh/windscreen_collision.obj" /></geometry></collision><extra_info><min_height>32.9388</min_height><max_height>32.9388</max_height><real_height>32.9388</real_height></extra_info></link></robot>

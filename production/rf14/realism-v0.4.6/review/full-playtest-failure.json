@@ -1,0 +1,7 @@
+{
+  "error": "TimeoutError: Waiting failed: 120000ms exceeded",
+  "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'image')"
+  ],
+  "checkpoints": []
+}

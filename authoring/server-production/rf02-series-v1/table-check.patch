@@ -1,0 +1,13 @@
+diff --git a/tools/rf02-series/audit-supports.py b/tools/rf02-series/audit-supports.py
+--- a/tools/rf02-series/audit-supports.py
++++ b/tools/rf02-series/audit-supports.py
+@@ -23,1 +23,2 @@
+-            ray_origin = Vector((sample_x + offset_x, -offset_z, 5))
++            sample_z = offset_z + (0.30 if name == "return-sorting-table" else 0)
++            ray_origin = Vector((sample_x + offset_x, -sample_z, 5))
+diff --git a/tools/rf02-series/audit-supports.py b/tools/rf02-series/audit-supports.py
+--- a/tools/rf02-series/audit-supports.py
++++ b/tools/rf02-series/audit-supports.py
+@@ -25,1 +25,1 @@
+-            support_samples.append({"x": sample_x + offset_x, "z": offset_z, "y": location.z if hit else None})
++            support_samples.append({"x": sample_x + offset_x, "z": sample_z, "y": location.z if hit else None})

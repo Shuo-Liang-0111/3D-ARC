@@ -1,0 +1,32 @@
+[
+  {
+    "release": "rf01-sorting-build-v4-navigation-v1",
+    "count": 40,
+    "gameplayScriptsUnchanged": true
+  },
+  {
+    "release": "rf06-series-v1-r16",
+    "count": 40,
+    "gameplayScriptsUnchanged": true
+  },
+  {
+    "release": "rf073-pickup-finish-r1",
+    "count": 40,
+    "gameplayScriptsUnchanged": true
+  },
+  {
+    "release": "rf08-office-v1-r28",
+    "count": 40,
+    "gameplayScriptsUnchanged": true
+  },
+  {
+    "release": "rf11-clinic-series-v1-r12",
+    "count": 40,
+    "gameplayScriptsUnchanged": true
+  },
+  {
+    "release": "rf12-tennis-series-v1-r7",
+    "count": 40,
+    "gameplayScriptsUnchanged": true
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "costs": [
+    {
+      "operation": "cardinal_image_standard",
+      "tokens": 200
+    },
+    {
+      "operation": "cardinal_image_advanced",
+      "tokens": 300
+    },
+    {
+      "operation": "cardinal_model3d_text",
+      "tokens": 4200
+    },
+    {
+      "operation": "cardinal_model3d_image",
+      "tokens": 5200
+    },
+    {
+      "operation": "cardinal_model3d_rig_check",
+      "tokens": 600
+    },
+    {
+      "operation": "cardinal_model3d_rig",
+      "tokens": 2600
+    },
+    {
+      "operation": "cardinal_model3d_retarget",
+      "tokens": 1100
+    },
+    {
+      "operation": "cardinal_animation_generation",
+      "tokens": 300
+    },
+    {
+      "operation": "cardinal_music_generation",
+      "tokens": 1500
+    },
+    {
+      "operation": "cardinal_sound_effect_generation",
+      "tokens": 200
+    },
+    {
+      "operation": "cardinal_voice_t2a_turbo",
+      "tokens": 2900
+    },
+    {
+      "operation": "cardinal_voice_t2a_hd",
+      "tokens": 5000
+    }
+  ]
+}

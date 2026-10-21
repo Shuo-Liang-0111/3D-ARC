@@ -1,0 +1,9 @@
+{
+  "game/robot.js": true,
+  "game/unitree-g1-edu2.js": true,
+  "game/unitree-r1-edu.js": true,
+  "game/level.js": true,
+  "game/operator-controls.js": true,
+  "game/third-person-view-controls.js": true,
+  "game/view-mode.js": true
+}

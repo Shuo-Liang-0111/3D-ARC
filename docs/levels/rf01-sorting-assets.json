@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 2,
+  "levelId": "rf01-3",
+  "sharedLevels": [
+    "rf01",
+    "rf01-2",
+    "rf01-3"
+  ],
+  "revision": "rf01-sorting-v1",
+  "units": "meters",
+  "upAxis": "Y",
+  "assets": [
+    {
+      "id": "automaticInfeed",
+      "provider": "Cardinal RF-03 reuse with mesh simplification",
+      "sourcePath": "public/local-assets/cardinal/rf03/models/runtime/automatic_infeed_machine.glb",
+      "runtimePath": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/automatic_infeed_machine.glb",
+      "sourceSha256": "9faf4c418b793f8ba53f4f7f517f60ac26ee11cffa68917920e67a87c728c1cc",
+      "runtimeSha256": "4c061dd4d3c57ec7fa0ee6c59bf6ce8da6b71e9649140244d774168f6de55713",
+      "bytes": 768824,
+      "bounds": {
+        "min": [
+          -1.247580209821324,
+          2.1878194490954073e-05,
+          -0.8999399226465654
+        ],
+        "max": [
+          1.2485922422709184,
+          2.039843778251756,
+          0.8995312973417998
+        ]
+      },
+      "size": [
+        2.4961724520922424,
+        2.039821900057265,
+        1.7994712199883653
+      ],
+      "textures": 3,
+      "servedMatches": true,
+      "buildPath": "dist/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/automatic_infeed_machine.glb",
+      "buildMatches": true,
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/automatic_infeed_machine.glb"
+    },
+    {
+      "id": "beltConveyor",
+      "provider": "Cardinal RF-03 reuse with mesh simplification",
+      "sourcePath": "public/local-assets/cardinal/rf03/models/runtime/belt_conveyor_module.glb",
+      "runtimePath": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/belt_conveyor_module.glb",
+      "sourceSha256": "0a79a91f9d7dfa69bca96695afb4191d9a5b8f20b9b2574048f0e7e51fa4fc46",
+      "runtimeSha256": "8973ed439cb409dda9caab05b26c0666548203b1a0f9558435d746ff24cf698a",
+      "bytes": 735108,
+      "bounds": {
+        "min": [
+          -0.9999038948497736,
+          4.188775047786475e-05,
+          -0.5500418566603306
+        ],
+        "max": [
+          0.999958638289776,
+          1.019965376698556,
+          0.5498211736079966
+        ]
+      },
+      "size": [
+        1.9998625331395496,
+        1.019923488948078,
+        1.0998630302683272
+      ],
+      "textures": 3,
+      "servedMatches": true,
+      "buildPath": "dist/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/belt_conveyor_module.glb",
+      "buildMatches": true,
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/belt_conveyor_module.glb"
+    },
+    {
+      "id": "dwsGantry",
+      "provider": "Cardinal RF-03 reuse with mesh simplification",
+      "sourcePath": "public/local-assets/cardinal/rf03/models/runtime/dws_scanner_gantry.glb",
+      "runtimePath": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/dws_scanner_gantry.glb",
+      "sourceSha256": "c0e7aaf29a78a7dfd7b7491920a58fc3d2e23eb06d2b7d71599050c1d9948258",
+      "runtimeSha256": "9aa0818060dcef70ce5039e899760e171bf382b39a06920e092c7ef5da87be97",
+      "bytes": 496296,
+      "bounds": {
+        "min": [
+          -0.6591385011007797,
+          9.817789688781886e-06,
+          -0.8898255012933175
+        ],
+        "max": [
+          0.659643837289103,
+          2.849989052730082,
+          0.8899228178797365
+        ]
+      },
+      "size": [
+        1.3187823383898827,
+        2.849979234940393,
+        1.7797483191730539
+      ],
+      "textures": 3,
+      "servedMatches": true,
+      "buildPath": "dist/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/dws_scanner_gantry.glb",
+      "buildMatches": true,
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/dws_scanner_gantry.glb"
+    },
+    {
+      "id": "routeCage",
+      "provider": "Cardinal RF-03 reuse with mesh simplification",
+      "sourcePath": "public/local-assets/cardinal/rf03/models/runtime/route_roll_cage.glb",
+      "runtimePath": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/route_roll_cage.glb",
+      "sourceSha256": "e4caa2fb620d673fd2e10aa80536a45aaa1469b20bfe5e9202844bc0d29339a2",
+      "runtimeSha256": "a7311d7ffc4d1839b94ee8df79921bc4b927cf9dbdc2cba4f99cc98f4e6dd058",
+      "bytes": 849964,
+      "bounds": {
+        "min": [
+          -0.5597691203933065,
+          0.0004214913362688977,
+          -0.40946727945690076
+        ],
+        "max": [
+          0.5597888019335492,
+          1.719832949647616,
+          0.4097299747060231
+        ]
+      },
+      "size": [
+        1.1195579223268557,
+        1.7194114583113471,
+        0.8191972541629239
+      ],
+      "textures": 3,
+      "servedMatches": true,
+      "buildPath": "dist/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/route_roll_cage.glb",
+      "buildMatches": true,
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/route_roll_cage.glb"
+    },
+    {
+      "id": "parcel",
+      "provider": "Cardinal RF-03 reuse with mesh simplification",
+      "sourcePath": "public/local-assets/cardinal/rf03/models/runtime/corrugated_parcel.glb",
+      "runtimePath": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/corrugated_parcel.glb",
+      "sourceSha256": "4a538f95595a0e1f2f648777586ee8d5b03a4ee3b11a24ad3dcb26383ed93bea",
+      "runtimeSha256": "7535dfd1d56b6a06ecd9f6ae14548bf340036e568443c4ad6c4a6ea154ae85e6",
+      "bytes": 290964,
+      "bounds": {
+        "min": [
+          -0.2599877119568827,
+          4.175413394785776e-06,
+          -0.18999880041583533
+        ],
+        "max": [
+          0.2598684056540813,
+          0.31989696996324823,
+          0.18988106561879373
+        ]
+      },
+      "size": [
+        0.519856117610964,
+        0.3198927945498534,
+        0.3798798660346291
+      ],
+      "textures": 3,
+      "servedMatches": true,
+      "buildPath": "dist/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/corrugated_parcel.glb",
+      "buildMatches": true,
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/corrugated_parcel.glb"
+    }
+  ],
+  "instances": [
+    {
+      "id": "sorting-infeed",
+      "asset": "automaticInfeed",
+      "position": [
+        -3.25,
+        0.04,
+        -5.5
+      ],
+      "size": [
+        2.5,
+        2.04,
+        1.8
+      ],
+      "measuredWorldBounds": {
+        "min": [
+          -4.497580209821324,
+          0.040021878194490955,
+          -6.399939922646565
+        ],
+        "max": [
+          -2.0014077577290816,
+          2.079843778251756,
+          -4.6004687026582
+        ]
+      }
+    },
+    {
+      "id": "sorting-belt-west",
+      "asset": "beltConveyor",
+      "position": [
+        -1,
+        0.04,
+        -5.5
+      ],
+      "size": [
+        2,
+        1.02,
+        1.1
+      ],
+      "measuredWorldBounds": {
+        "min": [
+          -1.9999038948497736,
+          0.040041887750477866,
+          -6.0500418566603305
+        ],
+        "max": [
+          -4.136171022395274e-05,
+          1.059965376698556,
+          -4.950178826392003
+        ]
+      }
+    },
+    {
+      "id": "sorting-belt-east",
+      "asset": "beltConveyor",
+      "position": [
+        1,
+        0.04,
+        -5.5
+      ],
+      "size": [
+        2,
+        1.02,
+        1.1
+      ],
+      "measuredWorldBounds": {
+        "min": [
+          9.610515022639987e-05,
+          0.040041887750477866,
+          -6.0500418566603305
+        ],
+        "max": [
+          1.999958638289776,
+          1.059965376698556,
+          -4.950178826392003
+        ]
+      }
+    },
+    {
+      "id": "sorting-scanner",
+      "asset": "dwsGantry",
+      "position": [
+        -1,
+        0.04,
+        -5.5
+      ],
+      "size": [
+        1.32,
+        2.85,
+        1.78
+      ],
+      "measuredWorldBounds": {
+        "min": [
+          -1.6591385011007795,
+          0.04000981778968878,
+          -6.389825501293317
+        ],
+        "max": [
+          -0.34035616271089697,
+          2.889989052730082,
+          -4.610077182120263
+        ]
+      }
+    },
+    {
+      "id": "sorting-cage-red",
+      "asset": "routeCage",
+      "position": [
+        -3.55,
+        0.04,
+        -2.45
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.82,
+        1.72,
+        1.12
+      ],
+      "deckTop": 0.35
+    },
+    {
+      "id": "sorting-parcel-red",
+      "asset": "parcel",
+      "targetSize": [
+        0.52,
+        0.32,
+        0.38
+      ],
+      "nonUniformScaleReason": "RF-03 parcel size variants; rectangular corrugated cartons"
+    },
+    {
+      "id": "sorting-cage-yellow",
+      "asset": "routeCage",
+      "position": [
+        -2.05,
+        0.04,
+        -2.45
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.82,
+        1.72,
+        1.12
+      ],
+      "deckTop": 0.35
+    },
+    {
+      "id": "sorting-parcel-yellow",
+      "asset": "parcel",
+      "targetSize": [
+        0.44,
+        0.26,
+        0.32
+      ],
+      "nonUniformScaleReason": "RF-03 parcel size variants; rectangular corrugated cartons"
+    },
+    {
+      "id": "sorting-cage-blue",
+      "asset": "routeCage",
+      "position": [
+        -0.5499999999999998,
+        0.04,
+        -2.45
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.82,
+        1.72,
+        1.12
+      ],
+      "deckTop": 0.35
+    },
+    {
+      "id": "sorting-parcel-blue",
+      "asset": "parcel",
+      "targetSize": [
+        0.58,
+        0.38,
+        0.42
+      ],
+      "nonUniformScaleReason": "RF-03 parcel size variants; rectangular corrugated cartons"
+    }
+  ],
+  "collisionBoxes": [
+    {
+      "id": "sorting-infeed",
+      "minX": -4.5,
+      "maxX": -2,
+      "minZ": -6.4,
+      "maxZ": -4.6
+    },
+    {
+      "id": "sorting-conveyor",
+      "minX": -2,
+      "maxX": 2,
+      "minZ": -6.05,
+      "maxZ": -4.95
+    },
+    {
+      "id": "sorting-scanner-south-foot",
+      "minX": -1.66,
+      "maxX": -0.34,
+      "minZ": -4.74,
+      "maxZ": -4.61
+    },
+    {
+      "id": "sorting-scanner-north-foot",
+      "minX": -1.66,
+      "maxX": -0.34,
+      "minZ": -6.39,
+      "maxZ": -6.26
+    },
+    {
+      "id": "sorting-cage-red",
+      "minX": -3.96,
+      "maxX": -3.1399999999999997,
+      "minZ": -3.0100000000000002,
+      "maxZ": -1.8900000000000001
+    },
+    {
+      "id": "sorting-cage-yellow",
+      "minX": -2.46,
+      "maxX": -1.64,
+      "minZ": -3.0100000000000002,
+      "maxZ": -1.8900000000000001
+    },
+    {
+      "id": "sorting-cage-blue",
+      "minX": -0.9599999999999997,
+      "maxX": -0.13999999999999985,
+      "minZ": -3.0100000000000002,
+      "maxZ": -1.8900000000000001
+    }
+  ],
+  "pathChecks": [],
+  "stage": "deployed",
+  "scopeAuthorization": {
+    "status": "authorized",
+    "revision": "rf01-sorting-v1",
+    "evidence": "User request and confirmed sorting/power/lighting/final-objective choices on 2026-09-19"
+  },
+  "internalGates": {
+    "graybox": {
+      "status": "passed",
+      "evidence": [
+        "tests/rf01-shared-yard.test.mjs",
+        "tests/rf01-sorting.test.mjs"
+      ]
+    },
+    "verticalSlice": {
+      "status": "passed",
+      "evidence": [
+        "tools/rf01-sorting-audit.mjs",
+        "shared preview inspected"
+      ]
+    },
+    "final": {
+      "status": "passed",
+      "evidence": [
+        "data/recordings/1789806711299-rf01-sorting-v1-qa.json",
+        "public/rf01-sorting-evidence/1789806711299/evidence.json",
+        "public/rf01-sorting-evidence/1789806711299/reset.json",
+        "52 related tests passed; build and runtime/built/served asset hashes verified"
+      ]
+    },
+    "performance": {
+      "status": "partial",
+      "firstPerson1280x820": "31–46 FPS observed; saved completion sample 37.3 FPS",
+      "dualView1280x820": "approximately 23 FPS",
+      "target1080p": "not verified"
+    }
+  },
+  "generationTasks": [],
+  "optimization": "tools/rf01-sorting-optimize.mjs; original Cardinal RF-03 sources unchanged",
+  "deployment": {
+    "revision": "rf01-sorting-v1",
+    "url": "http://127.0.0.1:4173/?mode=play&level=rf01-3",
+    "previousRevision": "rf01-shared-v4"
+  },
+  "userAcceptance": {
+    "required": false,
+    "status": "not_requested"
+  },
+  "nextAction": "User playtesting is optional; 1080p and dual-view performance remain recorded limitations",
+  "runtimeTriangleBudget": {
+    "sourceInstances": 1491490,
+    "optimizedInstances": 443722,
+    "reductionPercent": 70.2
+  },
+  "measurements": {
+    "beltSupportWorldY": 0.987424,
+    "parcelBeltBottomY": 0.9875,
+    "cageDeckTopY": 0.35,
+    "carryAisleZ": -4.1,
+    "engineRouteMeters": 71.28495562698633,
+    "normalFinalReserve": 49.715044373003515,
+    "normalMinimumReserve": 46.715044373003515,
+    "threeMistakesFinalReserve": 34.71504437300924,
+    "threeMistakesMinimumReserve": 31.715044373009242,
+    "browserRouteMeters": 72.75550210008593,
+    "browserFinalReserve": 53.67933398187599,
+    "browserMinimumReserve": 50.67933398187599
+  }
+}

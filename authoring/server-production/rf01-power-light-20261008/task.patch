@@ -1,0 +1,234 @@
+diff --git a/game/rf01-shared-engine.js b/game/rf01-shared-engine.js
+index 6f71550..883f2f9 100644
+--- a/game/rf01-shared-engine.js
++++ b/game/rf01-shared-engine.js
+@@ -1,3 +1,4 @@
++import { hasWorkshopDoorPower, isWorkshopParcelVisible } from "./rf01-workshop-rules.js";
+ import { applyRobotMovement } from "./movement.js";
+ import { DOOR_COLLIDER } from "./level.js";
+ import { WORKSHOP, DISPATCH, DYNAMIC_DEVICE } from "./rf01-shared-level.js";
+@@ -166,7 +167,7 @@ export function createParkEngine(LEVEL) {
+     const inside = isInside(state.player);
+     const control = inside ? WORKSHOP.innerDoorControl : WORKSHOP.doorControl;
+     if ((inside || state.player.z > -1.3) && facing(state, control, LEVEL.interactionRange)) {
+-      return { type: "shutter", label: state.shutterPhase === "opening" ? "卷帘门上升中" : "开启卷帘门（十秒后自动关闭）" };
++      return { type: "shutter", label: !hasWorkshopDoorPower(LEVEL.id, state) ? "卷帘门未通电" : state.shutterPhase === "opening" ? "卷帘门上升中" : "开启卷帘门（十秒后自动关闭）" };
+     }
+     if (inside && state.enteredWorkshop && facing(state, WORKSHOP.lightSwitch, LEVEL.interactionRange)) return { type: "lights", label: state.lightsOn ? "关闭照明" : "开启照明" };
+     if (LEVEL.id === "rf01-3" && inside && facing(state, DYNAMIC_DEVICE.control, LEVEL.interactionRange)) return { type: "dynamic-control", label: "操作控制盒" };
+@@ -184,7 +185,8 @@ export function createParkEngine(LEVEL) {
+     }
+     if (facing(state, LEVEL.door, 1.8)) candidates.push({ type: "door", target: LEVEL.door });
+     if (facing(state, LEVEL.terminal, 1.8)) candidates.push({ type: "terminal", target: LEVEL.terminal });
+-    const nearest = candidates.sort((first, second) => distance(state.player, first.target) - distance(state.player, second.target))[0];
++    const nearest = candidates.filter(candidate => candidate.type !== "parcel" || isWorkshopParcelVisible(state, candidate.target))
++      .sort((first, second) => distance(state.player, first.target) - distance(state.player, second.target))[0];
+     if (nearest) return { ...nearest, label: ({ battery: "拿取能源模块", slot: "接入电源", crate: "拿取货箱", door: "操作园区大门", terminal: "操作门岗终端" })[nearest.type] };
+     if (state.battery.location === "carried") return { type: "drop", label: "放下能源模块" };
+     return null;
+@@ -203,7 +205,7 @@ export function createParkEngine(LEVEL) {
+     const action = getInteraction(state);
+     let cost = LEVEL.progress.error, milestone;
+     next.lastEvent = "invalid_interaction";
+-    if (action?.type === "shutter" && state.shutterPhase !== "opening" && state.shutterPhase !== "open") {
++    if (action?.type === "shutter" && hasWorkshopDoorPower(LEVEL.id, state) && state.shutterPhase !== "opening" && state.shutterPhase !== "open") {
+       next.shutterRequested = true; next.shutterPhase = "opening"; next.lastEvent = "shutter_opening"; milestone = "shutter"; cost = 0;
+     } else if (action?.type === "lights") {
+       next.lightsOn = !state.lightsOn; next.lastEvent = next.lightsOn ? "workshop_lit" : "workshop_dark"; milestone = next.lightsOn ? "lights" : null; cost = 0;
+diff --git a/game/rf01-shared-scene.js b/game/rf01-shared-scene.js
+index 58e02d2..008b6f3 100644
+--- a/game/rf01-shared-scene.js
++++ b/game/rf01-shared-scene.js
+@@ -1,3 +1,4 @@
++import { isWorkshopParcelVisible } from "./rf01-workshop-rules.js";
+ import * as THREE from "three";
+ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+ import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+@@ -12,6 +13,7 @@ export function createScene() {
+   const world = createFacilityScene();
+   const ready = world.assetReady;
+   world.assetReady = ready.then((results) => {
++    Object.values(world.sorting?.parcels ?? {}).forEach(model => { model.visible = false; });
+     fitRF01Battery(world.battery);
+     world.crates = world.productionAssets.children.filter(child => child.name === "rf01-cardinal-cargoCrate");
+     applyWorkshopAmbientOcclusion(world.scene);
+@@ -60,6 +62,11 @@ export function syncVisuals(world,state,delta) {
+     syncWorkshopShutter(world.workshop,state.shutterLift);
+     setWorkshopLighting(world.workshop,state.lightsOn);
+   }
++  if (world.sorting) {
++    for (const [type, model] of Object.entries(world.sorting.parcels)) {
++      model.visible = isWorkshopParcelVisible(state, state.parcels[type]);
++    }
++  }
+   world.crates?.forEach((model,index) => {
+     const crate = state.crates[index];
+     model.visible = crate.location !== "carried";
+diff --git a/game/rf01-workshop-rules.js b/game/rf01-workshop-rules.js
+new file mode 100644
+index 0000000..5ed5b4b
+--- /dev/null
++++ b/game/rf01-workshop-rules.js
+@@ -0,0 +1,15 @@
++import { WORKSHOP } from "./rf01-shared-level.js";
++
++export function hasWorkshopDoorPower(levelId, state) {
++  return !["rf01-2", "rf01-3"].includes(levelId) || state.powered;
++}
++
++// Only parcels inside the workshop depend on room lighting.
++// Carried parcels are rendered separately by the robot cargo layer.
++export function isWorkshopParcelVisible(state, parcel) {
++  if (parcel.location === "carried") return false;
++  if (parcel.location === "conveyor" && parcel.onBelt === false) return false;
++  const inside = parcel.x > WORKSHOP.inside.minX && parcel.x < WORKSHOP.inside.maxX
++    && parcel.z > WORKSHOP.inside.minZ && parcel.z < WORKSHOP.inside.maxZ;
++  return state.lightsOn || !inside;
++}
+diff --git a/tests/rf01-2-lighting.test.mjs b/tests/rf01-2-lighting.test.mjs
+index 22519a6..bdae5ce 100644
+--- a/tests/rf01-2-lighting.test.mjs
++++ b/tests/rf01-2-lighting.test.mjs
+@@ -22,7 +22,8 @@ function walkTo(initial, x, z) {
+ }
+ 
+ function openDoor(initial) {
+-  let state = walkTo(initial, -.68, 0);
++  // This existing door/lighting fixture starts after power installation.
++  let state = walkTo({ ...initial, powered: true, battery: { location: "slotted", ...LEVEL.powerSlot } }, -.68, 0);
+   assert.equal(getInteraction(state)?.type, "shutter");
+   state = interact(state);
+   for (let frame = 0; frame < 160; frame += 1) state = updateEnvironment(state, .02);
+@@ -107,6 +108,8 @@ test("reward is first-time only and reset clears all milestones", () => {
+ test("successful low-reserve operations reward once and cap at initial maximum", () => {
+   let state = createInitialState();
+   state.player = { x: -.68, z: 0, yaw: Math.PI };
++  state.powered = true;
++  state.battery = { location: "slotted", ...LEVEL.powerSlot };
+   state.progress = .2;
+   assert.ok(interact(state).progress > .2);
+   state.progress = 99;
+diff --git a/tests/rf01-workshop-power-light.test.mjs b/tests/rf01-workshop-power-light.test.mjs
+new file mode 100644
+index 0000000..58ceb1f
+--- /dev/null
++++ b/tests/rf01-workshop-power-light.test.mjs
+@@ -0,0 +1,118 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import * as THREE from "three";
++import { createParkEngine } from "../game/rf01-shared-engine.js";
++import { levelFor, WORKSHOP } from "../game/rf01-shared-level.js";
++import { syncVisuals } from "../game/rf01-shared-scene.js";
++
++function at(state, target, zOffset = 1.1) {
++  return { ...state, player: { x: target.x, z: target.z + zOffset, yaw: zOffset > 0 ? Math.PI : 0 } };
++}
++function connectBattery(engine, level, state) {
++  state = engine.interact(at(state, level.batteryStart));
++  assert.equal(state.battery.location, "carried");
++  state = engine.interact(at(state, level.powerSlot));
++  assert.equal(state.powered, true);
++  assert.equal(state.battery.location, "slotted");
++  return state;
++}
++for (const id of ["rf01-2", "rf01-3"]) {
++  test(id + " requires connected battery for both workshop controls", () => {
++    const level = levelFor(id), engine = createParkEngine(level);
++    let state = engine.createInitialState();
++    for (const [control, offset] of [[WORKSHOP.doorControl, 1.1], [WORKSHOP.innerDoorControl, -1.1]]) {
++      const attempt = at(state, control, offset);
++      assert.equal(engine.getInteraction(attempt)?.type, "shutter");
++      const rejected = engine.interact(attempt);
++      assert.equal(rejected.shutterRequested, false);
++      assert.equal(rejected.shutterPhase, "closed");
++      assert.equal(rejected.rewardedMilestones.shutter, undefined);
++      assert.equal(engine.updateEnvironment(rejected, .1).shutterLift, 0);
++    }
++    const held = engine.interact(at(state, level.batteryStart));
++    assert.equal(held.battery.location, "carried");
++    assert.equal(engine.interact(at(held, WORKSHOP.doorControl)).shutterPhase, "closed");
++    state = connectBattery(engine, level, state);
++    for (const [control, offset] of [[WORKSHOP.doorControl, 1.1], [WORKSHOP.innerDoorControl, -1.1]]) {
++      let opened = engine.interact(at(state, control, offset));
++      assert.equal(opened.shutterPhase, "opening");
++      for (let i = 0; i < 32; i++) opened = engine.updateEnvironment(opened, .1);
++      assert.equal(opened.shutterLift, WORKSHOP.height);
++      assert.equal(engine.isWalkable(opened, 1.6, -1.4), true);
++    }
++    assert.equal(engine.interact(at(engine.createInitialState(), WORKSHOP.doorControl)).shutterPhase, "closed");
++  });
++}
++test("RF-01 keeps its existing unpowered workshop-door behavior", () => {
++  const engine = createParkEngine(levelFor("rf01"));
++  assert.equal(engine.interact(at(engine.createInitialState(), WORKSHOP.doorControl)).shutterPhase, "opening");
++});
++
++function visualWorld(state) {
++  const material = () => new THREE.MeshStandardMaterial();
++  return {
++    doorPanel: new THREE.Group(), doorOpenX: 2, doorClosedX: 0,
++    doorLampMaterial: material(), slotGlowMaterial: material(), terminalScreenMaterial: material(),
++    exitMaterial: material(), beacon: { intensity: 0 }, battery: new THREE.Group(),
++    crates: state.crates.map(() => new THREE.Group()),
++    sorting: {
++      indicatorMaterial: material(), beltTexture: { offset: { x: 0 } }, rollers: [], rollerRadius: .075,
++      parcels: Object.fromEntries(Object.keys(state.parcels).map(type => [type, new THREE.Group()])),
++    },
++  };
++}
++test("actual shared scene sync hides indoor parcels until lighting and preserves exterior boxes", () => {
++  const engine = createParkEngine(levelFor("rf01-3"));
++  let state = engine.createInitialState(), world = visualWorld(state);
++  const positions = structuredClone(state.parcels);
++  for (const powered of [false, true]) {
++    state.powered = powered;
++    syncVisuals(world, state, 0);
++    assert.ok(Object.values(world.sorting.parcels).every(model => !model.visible));
++    assert.ok(world.crates.every(model => model.visible));
++  }
++  state.enteredWorkshop = true;
++  state = engine.interact(at(state, WORKSHOP.lightSwitch, .88));
++  assert.equal(state.lightsOn, true);
++  syncVisuals(world, state, 0);
++  assert.ok(Object.values(world.sorting.parcels).some(model => model.visible));
++  for (const [type, parcel] of Object.entries(state.parcels)) {
++    assert.equal(world.sorting.parcels[type].visible, parcel.onBelt !== false);
++  }
++  assert.deepEqual(state.parcels, positions);
++  state = engine.interact(state);
++  assert.equal(state.lightsOn, false);
++  syncVisuals(world, state, 0);
++  assert.ok(Object.values(world.sorting.parcels).every(model => !model.visible));
++  const types = Object.keys(state.parcels);
++  state.parcels[types[0]] = { ...state.parcels[types[0]], location: "ground", x: 3, z: 2 };
++  state.parcels[types[1]].location = "carried";
++  state.parcels[types[2]].location = "sorted";
++  state.lightsOn = true;
++  syncVisuals(world, state, 0);
++  assert.equal(world.sorting.parcels[types[0]].visible, true);
++  assert.equal(world.sorting.parcels[types[1]].visible, false);
++  assert.equal(world.sorting.parcels[types[2]].visible, true);
++  state.lightsOn = false;
++  syncVisuals(world, state, 0);
++  assert.equal(world.sorting.parcels[types[0]].visible, true);
++  assert.equal(world.sorting.parcels[types[2]].visible, false);
++  state = engine.createInitialState();
++  syncVisuals(world, state, 0);
++  assert.ok(Object.values(world.sorting.parcels).every(model => !model.visible));
++});
++
++test("hidden indoor parcels cannot be targeted; lighting restores existing pickup", () => {
++  const engine = createParkEngine(levelFor("rf01-3"));
++  let state = engine.createInitialState();
++  state.powered = true; state.enteredWorkshop = true;
++  for (const parcel of Object.values(state.parcels)) parcel.onBelt = false;
++  const type = Object.keys(state.parcels)[0];
++  Object.assign(state.parcels[type], { x: .6, onBelt: true });
++  state.player = { x: .6, z: -4.2, yaw: Math.PI };
++  assert.notEqual(engine.getInteraction(state)?.type, "parcel");
++  assert.equal(engine.interact(state).carriedItem, null);
++  state.lightsOn = true;
++  assert.equal(engine.getInteraction(state)?.type, "parcel");
++  assert.equal(engine.interact(state).carriedItem, "parcel-" + type);
++});

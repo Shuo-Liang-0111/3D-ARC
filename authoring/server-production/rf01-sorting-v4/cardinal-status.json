@@ -1,0 +1,33 @@
+{
+  "artifactUrl": "/api/aigc/v1/artifacts/aigc_9a3e3bdc951143c785a9da9d6d2cb7fe",
+  "createdAt": "2026-09-19T10:08:35.978953Z",
+  "downloadUrl": "/api/aigc/v1/artifacts/aigc_9a3e3bdc951143c785a9da9d6d2cb7fe",
+  "error": null,
+  "errorCode": null,
+  "errorReason": null,
+  "estimatedWaitSeconds": 0,
+  "finishedAt": "2026-09-19T10:11:07.641043Z",
+  "id": "aigc_9a3e3bdc951143c785a9da9d6d2cb7fe",
+  "normalizations": [],
+  "normalizedInput": {
+    "enableImageAutofix": false,
+    "enablePbr": true,
+    "faceLimit": 100000,
+    "geometryQuality": "detailed",
+    "outputFormat": "glb",
+    "qualityPreset": "high-highpoly",
+    "taskType": "text_to_model",
+    "texture": true,
+    "textureResolution": null
+  },
+  "progress": 100,
+  "queuePosition": 0,
+  "queueReason": null,
+  "requestId": "aigc_9a3e3bdc951143c785a9da9d6d2cb7fe",
+  "retryAfterSeconds": null,
+  "startedAt": "2026-09-19T10:08:36.326495Z",
+  "status": "completed",
+  "taskId": "aigc_9a3e3bdc951143c785a9da9d6d2cb7fe",
+  "type": "model3d",
+  "updatedAt": "2026-09-19T10:11:07.641043Z"
+}

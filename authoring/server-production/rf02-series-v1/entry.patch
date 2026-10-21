@@ -1,0 +1,55 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -40,1 +40,1 @@
+-const levelId = ["rf01", "rf01-2", "rf01-3", "rf02", "rf03", "rf04", "rf05", "rf06", "rf07", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "rf14", "rf15", "rf15-1", "rf15-2", "rf15-3", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
++const levelId = ["rf01", "rf01-2", "rf01-3", "rf02", "rf02-2", "rf02-3", "rf03", "rf04", "rf05", "rf06", "rf07", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "rf14", "rf15", "rf15-1", "rf15-2", "rf15-3", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -65,1 +65,3 @@
+-  rf02: () => import("/game/levels/rf02/runtime.js"),
++  rf02: () => import("/game/levels/rf02/runtime.js"),
++  "rf02-2": () => import("/game/levels/rf02-2/runtime.js"),
++  "rf02-3": () => import("/game/levels/rf02-3/runtime.js"),
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -91,1 +91,3 @@
+-  rf02: "完成馆藏归位",
++  rf02: "完成馆藏归位",
++  "rf02-2": "找到并归还馆内六本待归架书籍",
++  "rf02-3": "完成六本书归架，并将掉落的馆藏书归位",
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -214,1 +214,1 @@
+-renderer.toneMappingExposure = levelId === "rf02" ? 1.15 : levelId === "rf03" ? 1.22 : levelId === "rf04" ? 1.12 : 1.3;
++renderer.toneMappingExposure = ["rf02", "rf02-2", "rf02-3"].includes(levelId) ? 1.15 : levelId === "rf03" ? 1.22 : levelId === "rf04" ? 1.12 : 1.3;
+diff --git a/game/levels/rf02/runtime.js b/game/levels/rf02/runtime.js
+--- a/game/levels/rf02/runtime.js
++++ b/game/levels/rf02/runtime.js
+@@ -1,1 +1,2 @@
+-import { BOOK_COLORS, LEVEL } from "./level.js";
++import { BOOK_COLORS, LEVEL } from "./level.js";
++import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
+diff --git a/game/levels/rf02/runtime.js b/game/levels/rf02/runtime.js
+--- a/game/levels/rf02/runtime.js
++++ b/game/levels/rf02/runtime.js
+@@ -56,1 +56,1 @@
+-  return createLibraryScene();
++  return createArchiveScene();
+diff --git a/game/levels/rf02/runtime.js b/game/levels/rf02/runtime.js
+--- a/game/levels/rf02/runtime.js
++++ b/game/levels/rf02/runtime.js
+@@ -60,1 +60,1 @@
+-  syncLibraryVisuals(world, state);
++  syncArchiveVisuals(world, state);
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -150,1 +150,3 @@
+-            <a data-level-option="rf02" href="/?mode=play&amp;level=rf02"><span>RF-02</span><strong>图书馆归档</strong></a>
++            <a data-level-option="rf02" href="/?mode=play&amp;level=rf02"><span>RF-02</span><strong>图书馆归档</strong></a>
++            <a data-level-option="rf02-2" href="/?mode=play&amp;level=rf02-2"><span>RF-02-2</span><strong>分散还书</strong></a>
++            <a data-level-option="rf02-3" href="/?mode=play&amp;level=rf02-3"><span>RF-02-3</span><strong>动态馆藏恢复</strong></a>

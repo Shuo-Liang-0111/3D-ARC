@@ -1,0 +1,42 @@
+{
+  "revision": "rf01-shared-v3",
+  "modules": [
+    {
+      "path": "game/rf01-shared-level.js",
+      "sha256": "100af53d6e0eae7c0a8a07223998fa7eaeb25e8c87d90e2ac7d6defa804b10f3",
+      "httpMatch": true
+    },
+    {
+      "path": "game/rf01-shared-engine.js",
+      "sha256": "369a8c6e7f398e37b816f99a6ea351876d38287fbefbedbe97d82176084a8ee7",
+      "httpMatch": true
+    },
+    {
+      "path": "game/rf01-shared-scene.js",
+      "sha256": "48106a0bcd099ad13235bdc8e4483cecbc4e460f32dbdf6e87e0a657630ddf15",
+      "httpMatch": true
+    },
+    {
+      "path": "game/rf01-shared-runtime.js",
+      "sha256": "8f0eea027b0412fd48cdafabded98e3c3b56e0afcc938d3d663e0ef739359056",
+      "httpMatch": true
+    },
+    {
+      "path": "game/rf01-workshop.js",
+      "sha256": "9941501ac48cae3a78517cf5413c67ca4e5603aaa8cc534919eae66e7920f9f7",
+      "httpMatch": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "local-assets/cardinal/rf01/models/runtime/workshop-v2-fit/door-control.glb",
+      "sha256": "fd238179d9ae124c08ddb07151ff45b990fcf15f98bd463c1df71477575b2b62",
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "path": "local-assets/cardinal/rf01/models/runtime/workshop-v2-fit/light-switch.glb",
+      "sha256": "2fe0c7f13a8895135b8b5a397635dd74bd95b560d0e0f783bdeb04fff8640512",
+      "sourceBuildHttpMatch": true
+    }
+  ]
+}

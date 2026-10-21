@@ -1,0 +1,137 @@
+{
+  "revision": "rf07-series-v1",
+  "generatedTasks": [],
+  "assets": [
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/medical_waste_bin.glb",
+      "sha256": "8a853cada2bcb550f911472f83a0e7a00789b4b615f84372d4c1bad4b69cf681",
+      "bytes": 5783880,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/specimen_transfer_cart.glb",
+      "sha256": "05d857fd32a2d7f0d6c390302271785c0ed3cff4ed10e2c186348dd5cef68af9",
+      "bytes": 7589268,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/class_ii_a2_bsc.glb",
+      "sha256": "7108dabae55c0b567f433d166391321db55da97e819eef6dc2dd08e34ab6ab03",
+      "bytes": 8976412,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/p650_transport_case.glb",
+      "sha256": "71c4da269aeba0feeb26ca32b899f3cf51aaa4a9cb981056beeac3862511adbb",
+      "bytes": 6901532,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/dry_reagent_cabinet.glb",
+      "sha256": "196170bf8cc8946e7373d8e2d46ad11c9fc7284454885857c1fd5a8ed1a30076",
+      "bytes": 8298208,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/handwash_eyewash_station.glb",
+      "sha256": "bf0f2b805b3d8acf5ddf736e51f9592da702569db42540cf6164b750259863db",
+      "bytes": 9125644,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/secondary_specimen_carrier.glb",
+      "sha256": "a5078c9209da42ed96107ffc8ce218bb3a5d3a812cfa0b0558ff67537f20e6a4",
+      "bytes": 6193060,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/ppe_locker_bank.glb",
+      "sha256": "df90f869a51364c09c4f8f0f3ab4773d704c4ade88d1cab39244b8392bfaf0a6",
+      "bytes": 7845320,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/medical_refrigerator.glb",
+      "sha256": "15bc490b75acdca1d772c4fbd3e73dbe0447e482f951e974fe60462220432799",
+      "bytes": 8004732,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/receiving_bench_equipment_bank.glb",
+      "sha256": "1b071466ea6fc7c1ac257982ff45a172d7b3fcfbd64812ad8dc2ca6a4704a60c",
+      "bytes": 10173388,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/cold_chain_packing_island.glb",
+      "sha256": "8f0a110baac31592cc663abd45b82a3c29404f50f91e7bb01cd808377272d68c",
+      "bytes": 9469300,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/models/runtime/pcm_cooling_plate.glb",
+      "sha256": "615b1aef4ef0017baa704bf2b5eb13c93d7b7adcc422aa7ac95adf0a05a5f27f",
+      "bytes": 4644612,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-ao.webp",
+      "sha256": "5ab0854655b32b9d0f6adc6184706adccf0e048f35241829ded91c948367b6ba",
+      "bytes": 36548,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-roughness.webp",
+      "sha256": "5fc0619555111c972e56cb70f74b946cf6170a26440861a6fa75df55ab28701f",
+      "bytes": 46522,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-basecolor.webp",
+      "sha256": "d6ba61d0cdd58fb9adb8538ab5bd84b749bcabb9330a2ae180fde0694145f0e5",
+      "bytes": 325330,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-normal.webp",
+      "sha256": "2caa5847c0fe6bd167369e9aee18296ce1a7e706ef2a36c8a5a09ffc1546c398",
+      "bytes": 238662,
+      "provider": "Cardinal (reused)",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf07/models/runtime/rf07_realistic_bsl2_lab.glb",
+      "sha256": "792008e99074b7432d48cd13c6fa22b708a867cd4887905af6063d147dc209e1",
+      "bytes": 2774936,
+      "provider": "Existing RF-07 environment",
+      "review": "reused; shared first/third-person scene reviewed"
+    },
+    {
+      "path": "public/local-assets/levels/rf07/series-v1/medical_refrigerator.glb",
+      "sha256": "9a5b9ccd749fb5b6c3b596008c1f89c39e3eb7aee14dfe798ac84cd5781173c3",
+      "bytes": 7950188,
+      "provider": "Blender refinement of existing Cardinal medical refrigerator",
+      "sourceScript": "tools/rf07-series/hinge-cabinet.py",
+      "review": "passed"
+    }
+  ],
+  "sharedArchitecture": "game/levels/rf07/series-scene.js",
+  "collisionSource": "game/levels/rf07/series-engine.js",
+  "deploymentRevision": "rf07-series-v1-r2",
+  "onlineVerification": "./authoring/server-production/rf07-series-v1/asset-verification.json"
+}

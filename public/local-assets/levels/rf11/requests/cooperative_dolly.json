@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic isolated industrial cooperative transport dolly for two humanoid robots carrying a precision machine case. Real-world size 1.8 m wide × 0.16 m high × 1.1 m deep. Low welded steel platform with four locking swivel casters, two padded side push bars, recessed anti-slip deck and yellow-black safety edge, engineered symmetric front and rear. Bottom-center pivot, Y axis up, front facing positive Z. Clean watertight topology, physically based embedded PBR materials. One isolated object only. No floor, wall, robot, hands, cargo case, floating parts, animation, text, logo, arrows, UI or baked lighting. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,9 @@
+{
+  "credential": {
+    "configured": true,
+    "source": "local-store"
+  },
+  "ready": false,
+  "runtime": "ready",
+  "service": "unreachable"
+}

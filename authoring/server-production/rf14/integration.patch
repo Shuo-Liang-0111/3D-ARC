@@ -1,0 +1,18 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -31,1 +31,1 @@
+-const levelId = ["rf01", "rf02", "rf03", "rf04", "rf05", "rf06", "rf07", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
++const levelId = ["rf01", "rf02", "rf03", "rf04", "rf05", "rf06", "rf07", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "rf14", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
+@@ -60,1 +60,2 @@
+   rf13: () => import("/game/levels/rf13/runtime.js"),
++  rf14: () => import("/game/levels/rf14/runtime.js"),
+@@ -80,1 +81,2 @@
+   rf13: "完成社区诊所开诊任务",
++  rf14: "收集网球并全部归筐",
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -159,1 +159,2 @@
+             <a data-level-option="rf13" href="/?mode=play&amp;level=rf13"><span>RF-13</span><strong>社区诊所开诊</strong></a>
++            <a data-level-option="rf14" href="/?mode=play&amp;level=rf14"><span>RF-14</span><strong>网球场捡球归筐</strong></a>

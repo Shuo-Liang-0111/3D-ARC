@@ -1,0 +1,25 @@
+{
+  "source": "precise authored Blender geometry; Cardinal submission returned connection error without task ID, not resubmitted",
+  "units": "m",
+  "supportY": 0.72,
+  "interactionPoints": {
+    "load": [
+      6.5,
+      0.79,
+      4.9
+    ],
+    "button": [
+      6.28,
+      1.02,
+      4.95
+    ],
+    "output": [
+      6.5,
+      1.02,
+      5.03
+    ]
+  },
+  "pbrTexturesEmbedded": 1,
+  "runtimeBytes": 634940,
+  "sha256": "532afa623b53aea6e1c90eb827b4b6fbc8cbba45b41bf31131617edb0c5f2837"
+}

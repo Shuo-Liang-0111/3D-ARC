@@ -1,0 +1,80 @@
+--- a/game/app.js
++++ b/game/app.js
+@@ -37,12 +37,13 @@
+ 
+ const searchParams = new URLSearchParams(window.location.search);
+ const requestedLevel = searchParams.get("level");
+-const levelId = ["rf01", "rf01-2", "rf01-3", "rf02", "rf02-2", "rf02-3", "rf03", "rf04", "rf04-2", "rf04-3", "rf05", "rf05-2", "rf05-3", "rf06", "rf06-2", "rf06-3", "rf07", "rf07-2", "rf07-3", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "rf14", "rf15", "rf15-1", "rf15-2", "rf15-3", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
++const levelId = ["rf01", "rf01-2", "rf01-3", "rf02", "rf02-2", "rf02-3", "rf03", "rf04", "rf04-2", "rf04-3", "rf05", "rf05-2", "rf05-3", "rf06", "rf06-2", "rf06-3", "rf07", "rf07-2", "rf07-3", "rf08", "rf09", "rf09-2", "rf09-3", "rf10", "rf11", "rf12", "rf13", "rf14", "rf15", "rf15-1", "rf15-2", "rf15-3", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
++const isOfficeSeries = ["rf09", "rf09-2", "rf09-3"].includes(levelId);
+ const isCooperativeLevel = levelId === "rf11";
+-const robotProfile = getRobotProfile(isCooperativeLevel ? "g1" : searchParams.get("robot"));
++const robotProfile = getRobotProfile(isCooperativeLevel || isOfficeSeries ? "g1" : searchParams.get("robot"));
+ const robotId = robotProfile.id;
+ const requestedControlMode = searchParams.get("control");
+-const controlModeId = robotId === "g1" && !isCooperativeLevel && requestedControlMode === "joint"
++const controlModeId = robotId === "g1" && !isCooperativeLevel && !isOfficeSeries && requestedControlMode === "joint"
+   ? "joint"
+   : "velocity";
+ const mujocoControlMode = MUJOCO_CONTROL_MODES[controlModeId];
+@@ -79,7 +80,9 @@
+   "rf07-2": () => import("/game/levels/rf07-2/runtime.js"),
+   "rf07-3": () => import("/game/levels/rf07-3/runtime.js"),
+   rf08: () => import("/game/levels/rf08/runtime.js"),
+-  rf09: () => import("/game/levels/rf09/runtime.js?v=20260826"),
++  rf09: () => import("/game/levels/rf09/office-entry.js"),
++  "rf09-2": () => import("/game/levels/rf09-2/office-entry.js"),
++  "rf09-3": () => import("/game/levels/rf09-3/office-entry.js"),
+   rf10: () => import("/game/levels/rf10/runtime.js"),
+   rf11: () => import("/game/levels/rf11/runtime.js"),
+   rf12: () => import("/game/levels/rf12/runtime.js"),
+@@ -115,7 +118,9 @@
+   "rf07-2": "启动全部三台冷藏柜",
+   "rf07-3": "完成冷链转运并处置泄漏报警",
+   rf08: "自由探索实景办公室",
+-  rf09: "启动会议演示",
++  rf09: "将三件办公物品归还正确位置",
++  "rf09-2": "布置四个会议席位并完成就绪检查",
++  "rf09-3": "完成打印配送、饮水补给与资料回收",
+   rf10: "自由探索会议室重建场景",
+   rf11: "完成双机器人协作搬运",
+   rf12: "完成家庭厨房安全任务",
+@@ -188,6 +193,7 @@
+     link.classList.toggle("selected", selected);
+     if (selected) link.setAttribute("aria-current", "page");
+     const nextUrl = new URL(window.location.href);
++    if (isOfficeSeries) nextUrl.pathname = "/";
+     nextUrl.search = "";
+     nextUrl.searchParams.set("mode", pageMode === "agent" ? "agent" : "play");
+     nextUrl.searchParams.set("level", link.dataset.levelOption);
+@@ -200,11 +206,12 @@
+   gameShell.dataset.controlMode = controlModeId;
+   robotOptions.forEach((button) => {
+     const selected = button.dataset.robotOption === robotId;
++    button.disabled = isOfficeSeries && button.dataset.robotOption !== "g1";
+     button.classList.toggle("selected", selected);
+     button.setAttribute("aria-pressed", String(selected));
+   });
+   controlModeOptions.forEach((button) => {
+-    const available = button.dataset.controlOption !== "joint" || (robotId === "g1" && !isCooperativeLevel);
++    const available = button.dataset.controlOption !== "joint" || (robotId === "g1" && !isCooperativeLevel && !isOfficeSeries);
+     const selected = button.dataset.controlOption === controlModeId;
+     button.disabled = !available;
+     button.classList.toggle("selected", selected);
+@@ -286,7 +293,7 @@
+ }
+ const secondRobot = isCooperativeLevel ? createR1PartnerRobot() : null;
+ const robotGroundY = runtime.getRobotGroundY?.() ?? 0;
+-const mujocoEnabled = robotId === "g1" && !isCooperativeLevel;
++const mujocoEnabled = robotId === "g1" && !isCooperativeLevel && !isOfficeSeries;
+ let mujocoOnline = false;
+ let latestMujocoState = null;
+ let lastMujocoMotionAnchor = null;
+@@ -1149,6 +1156,7 @@
+     event.preventDefault();
+     event.stopPropagation();
+     const nextUrl = new URL(window.location.href);
++    if (isOfficeSeries) nextUrl.pathname = "/";
+     nextUrl.search = "";
+     nextUrl.searchParams.set("mode", pageMode === "agent" ? "agent" : "play");
+     nextUrl.searchParams.set("level", link.dataset.levelOption);

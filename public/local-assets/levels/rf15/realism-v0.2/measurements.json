@@ -1,0 +1,35 @@
+{
+  "tomato-crate": {
+    "size": [
+      0.5900000333786011,
+      0.4496132433414459,
+      0.8437097072601318
+    ],
+    "provider": "Cardinal",
+    "sourceSha256": "7a34190866e437719f182262443e644f1ef5224fff0fbcf8ad6b411733d809f2",
+    "scale": 0.8617703438237821,
+    "front": "pending visual inspection"
+  },
+  "apple-crate": {
+    "size": [
+      0.5900000333786011,
+      0.6109071969985962,
+      0.45133405923843384
+    ],
+    "provider": "Cardinal",
+    "sourceSha256": "5098cdb6d4d5eb0974684a008068a95f26c6c84da39288723d0d11015ecd25b5",
+    "scale": 0.6233224673653366,
+    "front": "pending visual inspection"
+  },
+  "platform-scale": {
+    "size": [
+      0.6200000047683716,
+      0.8616164326667786,
+      0.5271407961845398
+    ],
+    "provider": "Cardinal",
+    "sourceSha256": "19737a62396463d1d187271782c7db98f170adcd206b7df7e8e3953b6cd7f2cb",
+    "scale": 0.8796391321707642,
+    "front": "pending visual inspection"
+  }
+}

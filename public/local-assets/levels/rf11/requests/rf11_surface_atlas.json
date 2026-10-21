@@ -1,0 +1,9 @@
+{
+  "prompt": "Square two-panel photorealistic industrial material reference atlas with a perfectly straight vertical split and no gap. LEFT HALF: seamless orthographic top view of matte medium-gray epoxy resin factory floor, subtle fine aggregate, restrained roller marks, faint tire scuffs and realistic roughness variation, evenly lit. RIGHT HALF: seamless orthographic front view of warm light-gray insulated metal sandwich wall panels, narrow vertical seams, subtle powder-coat texture, restrained lower-wall wear, evenly lit. Both halves flat and tileable, no perspective, no objects, no room, no shadows, no text, no logo, no border, no watermark.",
+  "taskType": "image",
+  "operation": "generate",
+  "aspectRatio": "1:1",
+  "resolution": "2k",
+  "quality": "advanced",
+  "outputFormat": "png"
+}

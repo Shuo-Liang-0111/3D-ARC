@@ -1,0 +1,46 @@
+[
+  {
+    "path": "game/unitree-g1-dex1-model.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/robot-action.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/g1-edu2-preview.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/g1-locomotion.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/dexterous-hand.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/g1-articulated-collision.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/mujoco-client.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/unitree-g1-edu2.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/robot.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/unitree-r1-edu.js",
+    "unchanged": true
+  },
+  {
+    "path": "game/movement.js",
+    "unchanged": true
+  }
+]

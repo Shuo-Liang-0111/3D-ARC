@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world office asset. Simple enclosed administrative office supply cabinet bank, 3.10 m wide x 2.35 m high x 1.30 m deep. One rectangular warm-gray powder-coated steel carcass, six closed flush doors, realistic hinges, vertical handles and one continuous recessed toe kick. No open shelves and no contents. Cabinet doors face positive Z and the continuous base rests on one ground plane. Target dimensions approximately 3.1 m x 2.35 m x 1.3 m. Y axis up, front facing positive Z, metric scale, centered at world origin, bottom-center pivot. One isolated photorealistic game-ready object only. Real construction, believable thickness, manufactured edge radii, fasteners and physically based materials. All supporting feet or the flat base must share one ground plane. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

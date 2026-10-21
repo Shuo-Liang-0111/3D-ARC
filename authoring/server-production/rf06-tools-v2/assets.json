@@ -1,0 +1,38 @@
+{
+  "release": "rf06-series-v1-r16",
+  "environment": "home-v7",
+  "protectedFilesUnchanged": {
+    "game/unitree-g1-edu2.js": true,
+    "game/operator-controls.js": true,
+    "game/scene.js": true,
+    "game/levels/rf06/engine.js": true,
+    "game/levels/rf06/scene.js": true
+  },
+  "appJs": "Concurrent external change detected; file untouched and not included in this task commit.",
+  "assets": [
+    {
+      "asset": "local-assets/levels/rf06/home-v7/home.glb",
+      "sha256": "d7468e17103b14d1dbe5d476e3c1ed54aef3b9af65845ee0a1cb09664654d4c9",
+      "bytes": 5731524,
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "asset": "local-assets/levels/rf06/home-v7/collision.glb",
+      "sha256": "ef602a128c51bd6be4d279180d1575b1bf7ec67bd39e60662fa5dd03305abe6a",
+      "bytes": 30016,
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "asset": "local-assets/levels/rf06/home-v7/valve.glb",
+      "sha256": "345f62351366366bf40aab82d29766e7d2021d9da09760e7e1cdd3ff05d29b92",
+      "bytes": 8212,
+      "sourceBuildHttpMatch": true
+    },
+    {
+      "asset": "local-assets/embodiedgen/rf06/models/runtime/interactables/wrench.glb",
+      "sha256": "7213cf5d3b8f3fee6755d809b4766b448143f2af71a8fa0415c518773db7b219",
+      "bytes": 442936,
+      "sourceBuildHttpMatch": true
+    }
+  ]
+}

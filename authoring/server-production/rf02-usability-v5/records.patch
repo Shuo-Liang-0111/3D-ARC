@@ -1,0 +1,812 @@
+--- a/game/levels/rf02/series-engine.js
++++ b/game/levels/rf02/series-engine.js
+@@ -1,289 +1,289 @@
+-import { applyRobotMovement } from "../../movement.js";
+-import { BOOK_COLORS } from "./level.js";
+-import { BOOKS, CART, CHAIRS, shelfPose, landingPose, seriesLevel } from "./series-layout.js";
+-import { furnitureStand } from "./furnishings-layout.js";
+-
+-const EPSILON = 1e-7;
+-const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
+-const angleError = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
+-const clone = (state) => ({
+-  ...state, player: { ...state.player }, cart: { ...state.cart },
+-  chairs: Object.fromEntries(Object.entries(state.chairs).map(([id, chair]) => [id, { ...chair }])),
+-  books: Object.fromEntries(Object.entries(state.books).map(([id, book]) => [id, { ...book }])),
+-  rewardedActions: { ...state.rewardedActions }, incident: { ...state.incident },
+-  attachment: state.attachment ? { ...state.attachment } : null,
+-});
+-
+-function rectangle(rect) {
+-  return { x: (rect.minX + rect.maxX) / 2, z: (rect.minZ + rect.maxZ) / 2, halfX: (rect.maxX - rect.minX) / 2, halfZ: (rect.maxZ - rect.minZ) / 2, yaw: 0, id: rect.id };
+-}
+-
+-function axes(object) {
+-  return [{ x: Math.cos(object.yaw), z: -Math.sin(object.yaw) }, { x: Math.sin(object.yaw), z: Math.cos(object.yaw) }];
+-}
+-
+-function rectanglesOverlap(left, right) {
+-  const leftAxes = axes(left), rightAxes = axes(right);
+-  const dot = (first, second) => first.x * second.x + first.z * second.z;
+-  return [...leftAxes, ...rightAxes].every((axis) => {
+-    const gap = Math.abs((left.x - right.x) * axis.x + (left.z - right.z) * axis.z);
+-    const reach = left.halfX * Math.abs(dot(axis, leftAxes[0])) + left.halfZ * Math.abs(dot(axis, leftAxes[1]))
+-      + right.halfX * Math.abs(dot(axis, rightAxes[0])) + right.halfZ * Math.abs(dot(axis, rightAxes[1]));
+-    return gap < reach - EPSILON;
+-  });
+-}
+-
+-function circleOverlaps(x, z, radius, object) {
+-  const localX = (x - object.x) * Math.cos(object.yaw) - (z - object.z) * Math.sin(object.yaw);
+-  const localZ = (x - object.x) * Math.sin(object.yaw) + (z - object.z) * Math.cos(object.yaw);
+-  return Math.max(0, Math.abs(localX) - object.halfX) ** 2 + Math.max(0, Math.abs(localZ) - object.halfZ) ** 2 < radius ** 2 - EPSILON;
+-}
+-
+-export function createArchiveEngine(id) {
+-  const LEVEL = seriesLevel(id);
+-  const movingIds = new Set(["return-cart", ...CHAIRS.filter((chair) => chair.task).map((chair) => chair.id)]);
+-  const fixed = LEVEL.staticColliders.filter((rect) => !movingIds.has(rect.id)).map(rectangle);
+-
+-  function createInitialState(options = {}) {
+-    const random = () => {
+-      const value = typeof options.random === "function" ? options.random() : Math.random();
+-      return Number.isFinite(value) ? Math.max(0, Math.min(0.999999, value)) : 0;
+-    };
+-    const colors = [...BOOK_COLORS];
+-    for (let index = colors.length - 1; index > 0; index -= 1) {
+-      const selected = Math.floor(random() * (index + 1));
+-      [colors[index], colors[selected]] = [colors[selected], colors[index]];
+-    }
+-    let time = 0;
+-    const schedule = colors.map((color) => ({ color, at: time += LEVEL.fallIntervalMin + random() * (LEVEL.fallIntervalMax - LEVEL.fallIntervalMin) }));
+-    return {
+-      player: { ...LEVEL.playerStart },
+-      books: Object.fromEntries(BOOKS.map((book) => [book.id, { ...book }])),
+-      chairs: Object.fromEntries(CHAIRS.filter((chair) => chair.task).map((chair) => [chair.id, { ...chair, restored: false }])),
+-      cart: { ...CART, parked: false, travel: 0 }, attachment: null,
+-      carriedBook: null, carriedItem: null, complete: false, failed: false, terminalOpen: false,
+-      progress: 100, minimumProgress: 100, rewardedActions: {},
+-      incident: { phase: LEVEL.dynamic ? "scheduled" : "disabled", elapsed: 0, drops: 0, schedule, nextDrop: schedule[0].at, color: null },
+-      motion: "idle", elapsed: 0, distanceTravelled: 0, blockedTime: 0, interactions: 0,
+-      lastEvent: "library_entered", revision: LEVEL.revision,
+-    };
+-  }
+-
+-  function attachedObject(state) {
+-    return !state.attachment ? null : state.attachment.kind === "cart" ? state.cart : state.chairs[state.attachment.id];
+-  }
+-
+-  function obstacles(state, omitted = null) {
+-    return [...fixed, state.cart, ...Object.values(state.chairs)].filter((object) => object.id !== omitted);
+-  }
+-
+-  function insideBounds(object) {
+-    const bounds = LEVEL.bounds;
+-    const extentX = Math.abs(Math.cos(object.yaw)) * object.halfX + Math.abs(Math.sin(object.yaw)) * object.halfZ;
+-    const extentZ = Math.abs(Math.sin(object.yaw)) * object.halfX + Math.abs(Math.cos(object.yaw)) * object.halfZ;
+-    return object.x - extentX >= bounds.minX && object.x + extentX <= bounds.maxX && object.z - extentZ >= bounds.minZ && object.z + extentZ <= bounds.maxZ;
+-  }
+-
+-  function furniturePose(state, x, z) {
+-    const object = attachedObject(state);
+-    return object ? { ...object,
+-      x: x + Math.sin(state.player.yaw) * state.attachment.forward + Math.cos(state.player.yaw) * state.attachment.lateral,
+-      z: z + Math.cos(state.player.yaw) * state.attachment.forward - Math.sin(state.player.yaw) * state.attachment.lateral,
+-      yaw: state.player.yaw + state.attachment.yawOffset,
+-    } : null;
+-  }
+-
+-  function isWalkable(state, x, z, radius = LEVEL.playerRadius) {
+-    const bounds = LEVEL.bounds;
+-    if (![x, z, radius].every(Number.isFinite) || radius < 0) return false;
+-    if (x - radius < bounds.minX || x + radius > bounds.maxX || z - radius < bounds.minZ || z + radius > bounds.maxZ) return false;
+-    const furniture = furniturePose(state, x, z);
+-    const blocks = obstacles(state, furniture?.id);
+-    if (blocks.some((object) => circleOverlaps(x, z, radius, object))) return false;
+-    return !furniture || (insideBounds(furniture) && !blocks.some((object) => rectanglesOverlap(furniture, object)));
+-  }
+-
+-  function settle(before, next, cost = 0, rewardKey = null, reward = 0) {
+-    if (cost > 0 && before.progress <= cost + EPSILON) {
+-      const failed = clone(before);
+-      Object.assign(failed, { progress: 0, minimumProgress: 0, failed: true, motion: "idle", lastEvent: "progress_depleted", interactions: next.interactions });
+-      return failed;
+-    }
+-    next.progress = before.progress - cost;
+-    next.minimumProgress = Math.min(before.minimumProgress, next.progress);
+-    if (rewardKey && !before.rewardedActions[rewardKey]) {
+-      next.rewardedActions[rewardKey] = true;
+-      next.progress = Math.min(100, next.progress + reward);
+-    }
+-    return next;
+-  }
+-
+-  function chairBesideTable(chair) {
+-    const table = fixed.find((object) => object.id === (chair.id.startsWith("west") ? "west-reading-zone" : "east-reading-zone"));
+-    const extentX = Math.abs(Math.cos(chair.yaw)) * chair.halfX + Math.abs(Math.sin(chair.yaw)) * chair.halfZ;
+-    const extentZ = Math.abs(Math.sin(chair.yaw)) * chair.halfX + Math.abs(Math.cos(chair.yaw)) * chair.halfZ;
+-    const gapX = Math.max(0, Math.abs(chair.x - table.x) - table.halfX - extentX);
+-    const gapZ = Math.max(0, Math.abs(chair.z - table.z) - table.halfZ - extentZ);
+-    return Math.hypot(gapX, gapZ) <= 0.38 && !rectanglesOverlap(chair, table);
+-  }
+-
+-  function completion(state) {
+-    return !state.settling && Object.values(state.chairs).every((chair) => chair.restored) && state.cart.parked && !state.attachment
+-      && (!LEVEL.dynamic || (state.incident.drops === LEVEL.maximumFalls
+-        && Object.values(state.books).filter((book) => book.fallen).every((book) => book.location === "shelved")));
+-  }
+-
+-  function updateMovement(state, input = {}, deltaSeconds = 0) {
+-    if (state.complete || state.failed) return clone(state);
+-    const next = clone(state);
+-    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
+-    const movement = applyRobotMovement(next, state, input, dt, LEVEL, isWalkable);
+-    const travelled = distance(next.player, state.player);
+-    const turnTravel = Math.abs(angleError(next.player.yaw, state.player.yaw));
+-    const furniture = furniturePose(next, next.player.x, next.player.z);
+-    if (furniture) {
+-      if (next.attachment.kind === "cart") {
+-        furniture.travel = state.cart.travel + distance(furniture, state.cart);
+-        next.cart = furniture;
+-        for (const book of Object.values(next.books)) if (book.location === "table" && book.support === CART.id) Object.assign(book, { x: furniture.x, z: furniture.z });
+-      } else next.chairs[furniture.id] = furniture;
+-    }
+-    next.elapsed += dt;
+-    next.distanceTravelled += travelled;
+-    const blocked = (movement.translating && travelled < EPSILON) || (state.attachment && movement.turning && turnTravel < EPSILON);
+-    next.blockedTime += blocked ? dt : 0;
+-    next.motion = travelled > EPSILON ? "moving" : turnTravel > EPSILON ? "turning" : state.carriedBook ? "carrying" : "idle";
+-    if (blocked) next.lastEvent = "furniture_path_blocked";
+-    return settle(state, next, travelled * LEVEL.progress.movementDrainPerMeter + (blocked ? dt * LEVEL.progress.blockedDrainPerSecond : 0));
+-  }
+-
+-  function lineClear(state, point, omitted) {
+-    const count = Math.max(1, Math.ceil(distance(state.player, point) / 0.05));
+-    for (let index = 1; index < count; index += 1) {
+-      const blend = index / count;
+-      if (obstacles(state, omitted).some((object) => circleOverlaps(state.player.x + (point.x - state.player.x) * blend, state.player.z + (point.z - state.player.z) * blend, 0.015, object))) return false;
+-    }
+-    return true;
+-  }
+-
+-  function getInteraction(state, preferred = null) {
+-    if (state.complete || state.failed) return null;
+-    if (state.attachment) return { type: "release", ...state.attachment };
+-    const candidates = [];
+-    const offer = (action, point, omitted, range = LEVEL.interactionRange) => {
+-      const separation = distance(state.player, point);
+-      if (separation > range || !lineClear(state, point, omitted)) return;
+-      const angle = Math.abs(angleError(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw));
+-      candidates.push({ ...action, distance: separation, score: separation + angle * 0.10 });
+-    };
+-    if (state.carriedBook) {
+-      for (const color of BOOK_COLORS) offer({ type: "shelf", color }, LEVEL.shelves[color], color + "-target-shelf", 1.55);
+-      if (!candidates.length) return { type: "drop", bookId: state.carriedBook };
+-    } else {
+-      if (!state.cart.parked) for (const side of [1, -1]) {
+-        const stand = furnitureStand(state.cart, side);
+-        if (isWalkable(state, stand.x, stand.z)) offer({ type: "grip", kind: "cart", id: CART.id, side, stand }, stand, CART.id);
+-      }
+-      for (const chair of Object.values(state.chairs)) if (!chair.restored) offer({ type: "grip", kind: "chair", id: chair.id, stand: furnitureStand(chair) }, furnitureStand(chair), chair.id);
+-      for (const book of Object.values(state.books)) if (["table", "ground"].includes(book.location)) offer({ type: "book", bookId: book.id, color: book.color }, book, book.support, 1.25);
+-    }
+-    if (preferred && typeof preferred === "object") return candidates.find((candidate) => candidate.type === preferred.type && (!preferred.bookId || candidate.bookId === preferred.bookId) && (!preferred.color || candidate.color === preferred.color)) ?? null;
+-    return candidates.sort((left, right) => left.score - right.score)[0] ?? null;
+-  }
+-
+-  function interact(state, preferred = null) {
+-    if (state.complete || state.failed) return clone(state);
+-    const next = clone(state);
+-    next.interactions += 1;
+-    const action = getInteraction(state, preferred);
+-    if (!action) {
+-      next.lastEvent = "empty_interaction";
+-      return settle(state, next, LEVEL.progress.errorCost);
+-    }
+-    if (action.type === "grip") {
+-      if (distance(state.player, action.stand) > 0.12 || Math.abs(angleError(action.stand.yaw, state.player.yaw)) > 0.12) {
+-        next.lastEvent = "alignment_required";
+-        return settle(state, next, LEVEL.progress.errorCost);
+-      }
+-      const object = action.kind === "cart" ? state.cart : state.chairs[action.id];
+-      const dx = object.x - state.player.x, dz = object.z - state.player.z;
+-      next.attachment = { kind: action.kind, id: action.id, side: action.side ?? 1,
+-        forward: dx * Math.sin(state.player.yaw) + dz * Math.cos(state.player.yaw),
+-        lateral: dx * Math.cos(state.player.yaw) - dz * Math.sin(state.player.yaw),
+-        yawOffset: angleError(object.yaw, state.player.yaw),
+-      };
+-      next.lastEvent = "furniture_gripped";
+-      return next;
+-    }
+-    if (action.type === "release") {
+-      const object = attachedObject(next), target = action.kind === "cart" ? CART.parking : object.home;
+-      const cosine = Math.abs(Math.cos(object.yaw)), sine = Math.abs(Math.sin(object.yaw));
+-      const extentX = cosine * object.halfX + sine * object.halfZ, extentZ = sine * object.halfX + cosine * object.halfZ;
+-      const placed = action.kind === "cart"
+-        ? Math.abs(object.x - target.x) <= target.halfX - extentX && Math.abs(object.z - target.z) <= target.halfZ - extentZ
+-        : chairBesideTable(object);
+-      next.attachment = null;
+-      next.lastEvent = placed ? action.kind === "cart" ? "cart_parked" : "chair_restored" : "furniture_released";
+-      if (action.kind === "cart") next.cart.parked = placed;
+-      else next.chairs[action.id].restored = placed;
+-      next.complete = completion(next);
+-      return settle(state, next, 0, placed ? "restore:" + action.id : null, action.kind === "cart" ? LEVEL.progress.cartReward : LEVEL.progress.chairReward);
+-    }
+-    if (action.type === "book") {
+-      next.books[action.bookId].location = "carried";
+-      next.books[action.bookId].support = null;
+-      next.carriedBook = action.bookId;
+-      next.carriedItem = action.bookId;
+-      next.lastEvent = "crate_collected";
+-      return settle(state, next, state.rewardedActions["pickup:" + action.bookId] ? LEVEL.progress.repeatCost : 0, "pickup:" + action.bookId, LEVEL.progress.pickupReward);
+-    }
+-    if (action.type === "drop") {
+-      const point = { x: state.player.x + Math.sin(state.player.yaw) * 0.60, z: state.player.z + Math.cos(state.player.yaw) * 0.60 };
+-      if (!isWalkable(state, point.x, point.z, 0.15)) {
+-        next.lastEvent = "blocked_drop";
+-        return settle(state, next, LEVEL.progress.errorCost);
+-      }
+-      Object.assign(next.books[state.carriedBook], point, { location: "ground", y: 0.012 });
+-      next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_dropped";
+-      return settle(state, next, LEVEL.progress.repeatCost);
+-    }
+-    const book = next.books[state.carriedBook];
+-    if (book.color !== action.color) {
+-      next.lastEvent = "wrong_shelf";
+-      return settle(state, next, LEVEL.progress.errorCost);
+-    }
+-    Object.assign(book, shelfPose(book.color, book.id), { location: "shelved" });
+-    next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_delivered";
+-    next.complete = completion(next);
+-    return settle(state, next, 0, "return:" + book.id, LEVEL.progress.correctBookReward);
+-  }
+-
+-  function updateEnvironment(state, deltaSeconds = 0) {
+-    if (state.complete || state.failed || !LEVEL.dynamic) return state;
+-    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
+-    const next = clone(state);
+-    next.incident.elapsed += dt;
+-    if (next.incident.drops < LEVEL.maximumFalls && next.incident.elapsed + EPSILON >= next.incident.nextDrop) {
+-      const event = next.incident.schedule[next.incident.drops];
+-      const bookId = "shelf-" + event.color + "-0";
+-      Object.assign(next.books[bookId], { location: "falling", fallen: true, fallElapsed: 0, landing: landingPose(event.color, 0) });
+-      next.incident.color = event.color;
+-      next.incident.drops += 1;
+-      next.incident.nextDrop = next.incident.schedule[next.incident.drops]?.at ?? null;
+-      next.incident.phase = next.incident.drops === LEVEL.maximumFalls ? "finished" : "scheduled";
+-      next.lastEvent = "book_fell";
+-    }
+-    for (const book of Object.values(next.books)) if (book.location === "falling") {
+-      book.fallElapsed = Math.min(LEVEL.fallDuration, (book.fallElapsed ?? 0) + dt);
+-      if (book.fallElapsed >= LEVEL.fallDuration - EPSILON) Object.assign(book, book.landing, { location: "ground", support: null });
+-    }
+-    next.complete = completion(next);
+-    return next;
+-  }
+-
+-  return {
+-    LEVEL, createInitialState, updateMovement, updateEnvironment, isWalkable, getInteraction, interact, chairBesideTable,
+-    closeTerminal: (state) => ({ ...state, terminalOpen: false }),
+-    getObjective: () => LEVEL.dynamic ? "椅子推到桌边，还书车停入右侧黄色停车区，并归还三本随机落书" : "将两把椅子推到桌边，还书车停入右侧墙边的黄色停车区",
+-  };
+-}
++import { applyRobotMovement } from "../../movement.js";
++import { BOOK_COLORS } from "./level.js";
++import { BOOKS, CART, CHAIRS, shelfPose, landingPose, seriesLevel } from "./series-layout.js";
++import { furnitureStand } from "./furnishings-layout.js";
++
++const EPSILON = 1e-7;
++const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angleError = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++const clone = (state) => ({
++  ...state, player: { ...state.player }, cart: { ...state.cart },
++  chairs: Object.fromEntries(Object.entries(state.chairs).map(([id, chair]) => [id, { ...chair }])),
++  books: Object.fromEntries(Object.entries(state.books).map(([id, book]) => [id, { ...book }])),
++  rewardedActions: { ...state.rewardedActions }, incident: { ...state.incident },
++  attachment: state.attachment ? { ...state.attachment } : null,
++});
++
++function rectangle(rect) {
++  return { x: (rect.minX + rect.maxX) / 2, z: (rect.minZ + rect.maxZ) / 2, halfX: (rect.maxX - rect.minX) / 2, halfZ: (rect.maxZ - rect.minZ) / 2, yaw: 0, id: rect.id };
++}
++
++function axes(object) {
++  return [{ x: Math.cos(object.yaw), z: -Math.sin(object.yaw) }, { x: Math.sin(object.yaw), z: Math.cos(object.yaw) }];
++}
++
++function rectanglesOverlap(left, right) {
++  const leftAxes = axes(left), rightAxes = axes(right);
++  const dot = (first, second) => first.x * second.x + first.z * second.z;
++  return [...leftAxes, ...rightAxes].every((axis) => {
++    const gap = Math.abs((left.x - right.x) * axis.x + (left.z - right.z) * axis.z);
++    const reach = left.halfX * Math.abs(dot(axis, leftAxes[0])) + left.halfZ * Math.abs(dot(axis, leftAxes[1]))
++      + right.halfX * Math.abs(dot(axis, rightAxes[0])) + right.halfZ * Math.abs(dot(axis, rightAxes[1]));
++    return gap < reach - EPSILON;
++  });
++}
++
++function circleOverlaps(x, z, radius, object) {
++  const localX = (x - object.x) * Math.cos(object.yaw) - (z - object.z) * Math.sin(object.yaw);
++  const localZ = (x - object.x) * Math.sin(object.yaw) + (z - object.z) * Math.cos(object.yaw);
++  return Math.max(0, Math.abs(localX) - object.halfX) ** 2 + Math.max(0, Math.abs(localZ) - object.halfZ) ** 2 < radius ** 2 - EPSILON;
++}
++
++export function createArchiveEngine(id) {
++  const LEVEL = seriesLevel(id);
++  const movingIds = new Set(["return-cart", ...CHAIRS.filter((chair) => chair.task).map((chair) => chair.id)]);
++  const fixed = LEVEL.staticColliders.filter((rect) => !movingIds.has(rect.id)).map(rectangle);
++
++  function createInitialState(options = {}) {
++    const random = () => {
++      const value = typeof options.random === "function" ? options.random() : Math.random();
++      return Number.isFinite(value) ? Math.max(0, Math.min(0.999999, value)) : 0;
++    };
++    const colors = [...BOOK_COLORS];
++    for (let index = colors.length - 1; index > 0; index -= 1) {
++      const selected = Math.floor(random() * (index + 1));
++      [colors[index], colors[selected]] = [colors[selected], colors[index]];
++    }
++    let time = 0;
++    const schedule = colors.map((color) => ({ color, at: time += LEVEL.fallIntervalMin + random() * (LEVEL.fallIntervalMax - LEVEL.fallIntervalMin) }));
++    return {
++      player: { ...LEVEL.playerStart },
++      books: Object.fromEntries(BOOKS.map((book) => [book.id, { ...book }])),
++      chairs: Object.fromEntries(CHAIRS.filter((chair) => chair.task).map((chair) => [chair.id, { ...chair, restored: false }])),
++      cart: { ...CART, parked: false, travel: 0 }, attachment: null,
++      carriedBook: null, carriedItem: null, complete: false, failed: false, terminalOpen: false,
++      progress: 100, minimumProgress: 100, rewardedActions: {},
++      incident: { phase: LEVEL.dynamic ? "scheduled" : "disabled", elapsed: 0, drops: 0, schedule, nextDrop: schedule[0].at, color: null },
++      motion: "idle", elapsed: 0, distanceTravelled: 0, blockedTime: 0, interactions: 0,
++      lastEvent: "library_entered", revision: LEVEL.revision,
++    };
++  }
++
++  function attachedObject(state) {
++    return !state.attachment ? null : state.attachment.kind === "cart" ? state.cart : state.chairs[state.attachment.id];
++  }
++
++  function obstacles(state, omitted = null) {
++    return [...fixed, state.cart, ...Object.values(state.chairs)].filter((object) => object.id !== omitted);
++  }
++
++  function insideBounds(object) {
++    const bounds = LEVEL.bounds;
++    const extentX = Math.abs(Math.cos(object.yaw)) * object.halfX + Math.abs(Math.sin(object.yaw)) * object.halfZ;
++    const extentZ = Math.abs(Math.sin(object.yaw)) * object.halfX + Math.abs(Math.cos(object.yaw)) * object.halfZ;
++    return object.x - extentX >= bounds.minX && object.x + extentX <= bounds.maxX && object.z - extentZ >= bounds.minZ && object.z + extentZ <= bounds.maxZ;
++  }
++
++  function furniturePose(state, x, z) {
++    const object = attachedObject(state);
++    return object ? { ...object,
++      x: x + Math.sin(state.player.yaw) * state.attachment.forward + Math.cos(state.player.yaw) * state.attachment.lateral,
++      z: z + Math.cos(state.player.yaw) * state.attachment.forward - Math.sin(state.player.yaw) * state.attachment.lateral,
++      yaw: state.player.yaw + state.attachment.yawOffset,
++    } : null;
++  }
++
++  function isWalkable(state, x, z, radius = LEVEL.playerRadius) {
++    const bounds = LEVEL.bounds;
++    if (![x, z, radius].every(Number.isFinite) || radius < 0) return false;
++    if (x - radius < bounds.minX || x + radius > bounds.maxX || z - radius < bounds.minZ || z + radius > bounds.maxZ) return false;
++    const furniture = furniturePose(state, x, z);
++    const blocks = obstacles(state, furniture?.id);
++    if (blocks.some((object) => circleOverlaps(x, z, radius, object))) return false;
++    return !furniture || (insideBounds(furniture) && !blocks.some((object) => rectanglesOverlap(furniture, object)));
++  }
++
++  function settle(before, next, cost = 0, rewardKey = null, reward = 0) {
++    if (cost > 0 && before.progress <= cost + EPSILON) {
++      const failed = clone(before);
++      Object.assign(failed, { progress: 0, minimumProgress: 0, failed: true, motion: "idle", lastEvent: "progress_depleted", interactions: next.interactions });
++      return failed;
++    }
++    next.progress = before.progress - cost;
++    next.minimumProgress = Math.min(before.minimumProgress, next.progress);
++    if (rewardKey && !before.rewardedActions[rewardKey]) {
++      next.rewardedActions[rewardKey] = true;
++      next.progress = Math.min(100, next.progress + reward);
++    }
++    return next;
++  }
++
++  function chairBesideTable(chair) {
++    const table = fixed.find((object) => object.id === (chair.id.startsWith("west") ? "west-reading-zone" : "east-reading-zone"));
++    const extentX = Math.abs(Math.cos(chair.yaw)) * chair.halfX + Math.abs(Math.sin(chair.yaw)) * chair.halfZ;
++    const extentZ = Math.abs(Math.sin(chair.yaw)) * chair.halfX + Math.abs(Math.cos(chair.yaw)) * chair.halfZ;
++    const gapX = Math.max(0, Math.abs(chair.x - table.x) - table.halfX - extentX);
++    const gapZ = Math.max(0, Math.abs(chair.z - table.z) - table.halfZ - extentZ);
++    return Math.hypot(gapX, gapZ) <= 0.38 && !rectanglesOverlap(chair, table);
++  }
++
++  function completion(state) {
++    return !state.settling && Object.values(state.chairs).every((chair) => chair.restored) && state.cart.parked && !state.attachment
++      && (!LEVEL.dynamic || (state.incident.drops === LEVEL.maximumFalls
++        && Object.values(state.books).filter((book) => book.fallen).every((book) => book.location === "shelved")));
++  }
++
++  function updateMovement(state, input = {}, deltaSeconds = 0) {
++    if (state.complete || state.failed) return clone(state);
++    const next = clone(state);
++    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
++    const movement = applyRobotMovement(next, state, input, dt, LEVEL, isWalkable);
++    const travelled = distance(next.player, state.player);
++    const turnTravel = Math.abs(angleError(next.player.yaw, state.player.yaw));
++    const furniture = furniturePose(next, next.player.x, next.player.z);
++    if (furniture) {
++      if (next.attachment.kind === "cart") {
++        furniture.travel = state.cart.travel + distance(furniture, state.cart);
++        next.cart = furniture;
++        for (const book of Object.values(next.books)) if (book.location === "table" && book.support === CART.id) Object.assign(book, { x: furniture.x, z: furniture.z });
++      } else next.chairs[furniture.id] = furniture;
++    }
++    next.elapsed += dt;
++    next.distanceTravelled += travelled;
++    const blocked = (movement.translating && travelled < EPSILON) || (state.attachment && movement.turning && turnTravel < EPSILON);
++    next.blockedTime += blocked ? dt : 0;
++    next.motion = travelled > EPSILON ? "moving" : turnTravel > EPSILON ? "turning" : state.carriedBook ? "carrying" : "idle";
++    if (blocked) next.lastEvent = "furniture_path_blocked";
++    return settle(state, next, travelled * LEVEL.progress.movementDrainPerMeter + (blocked ? dt * LEVEL.progress.blockedDrainPerSecond : 0));
++  }
++
++  function lineClear(state, point, omitted) {
++    const count = Math.max(1, Math.ceil(distance(state.player, point) / 0.05));
++    for (let index = 1; index < count; index += 1) {
++      const blend = index / count;
++      if (obstacles(state, omitted).some((object) => circleOverlaps(state.player.x + (point.x - state.player.x) * blend, state.player.z + (point.z - state.player.z) * blend, 0.015, object))) return false;
++    }
++    return true;
++  }
++
++  function getInteraction(state, preferred = null) {
++    if (state.complete || state.failed) return null;
++    if (state.attachment) return { type: "release", ...state.attachment };
++    const candidates = [];
++    const offer = (action, point, omitted, range = LEVEL.interactionRange) => {
++      const separation = distance(state.player, point);
++      if (separation > range || !lineClear(state, point, omitted)) return;
++      const angle = Math.abs(angleError(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw));
++      candidates.push({ ...action, distance: separation, score: separation + angle * 0.10 });
++    };
++    if (state.carriedBook) {
++      for (const color of BOOK_COLORS) offer({ type: "shelf", color }, LEVEL.shelves[color], color + "-target-shelf", 1.55);
++      if (!candidates.length) return preferred && typeof preferred === "object" && preferred.type !== "drop" ? null : { type: "drop", bookId: state.carriedBook };
++    } else {
++      if (!state.cart.parked) for (const side of [1, -1]) {
++        const stand = furnitureStand(state.cart, side);
++        if (isWalkable(state, stand.x, stand.z)) offer({ type: "grip", kind: "cart", id: CART.id, side, stand }, stand, CART.id);
++      }
++      for (const chair of Object.values(state.chairs)) if (!chair.restored) offer({ type: "grip", kind: "chair", id: chair.id, stand: furnitureStand(chair) }, furnitureStand(chair), chair.id);
++      for (const book of Object.values(state.books)) if (["table", "ground"].includes(book.location)) offer({ type: "book", bookId: book.id, color: book.color }, book, book.support, 1.25);
++    }
++    if (preferred && typeof preferred === "object") return candidates.find((candidate) => candidate.type === preferred.type && (!preferred.bookId || candidate.bookId === preferred.bookId) && (!preferred.color || candidate.color === preferred.color)) ?? null;
++    return candidates.sort((left, right) => left.score - right.score)[0] ?? null;
++  }
++
++  function interact(state, preferred = null) {
++    if (state.complete || state.failed) return clone(state);
++    const next = clone(state);
++    next.interactions += 1;
++    const action = getInteraction(state, preferred);
++    if (!action) {
++      next.lastEvent = "empty_interaction";
++      return settle(state, next, LEVEL.progress.errorCost);
++    }
++    if (action.type === "grip") {
++      if (distance(state.player, action.stand) > 0.12 || Math.abs(angleError(action.stand.yaw, state.player.yaw)) > 0.12) {
++        next.lastEvent = "alignment_required";
++        return settle(state, next, LEVEL.progress.errorCost);
++      }
++      const object = action.kind === "cart" ? state.cart : state.chairs[action.id];
++      const dx = object.x - state.player.x, dz = object.z - state.player.z;
++      next.attachment = { kind: action.kind, id: action.id, side: action.side ?? 1,
++        forward: dx * Math.sin(state.player.yaw) + dz * Math.cos(state.player.yaw),
++        lateral: dx * Math.cos(state.player.yaw) - dz * Math.sin(state.player.yaw),
++        yawOffset: angleError(object.yaw, state.player.yaw),
++      };
++      next.lastEvent = "furniture_gripped";
++      return next;
++    }
++    if (action.type === "release") {
++      const object = attachedObject(next), target = action.kind === "cart" ? CART.parking : object.home;
++      const cosine = Math.abs(Math.cos(object.yaw)), sine = Math.abs(Math.sin(object.yaw));
++      const extentX = cosine * object.halfX + sine * object.halfZ, extentZ = sine * object.halfX + cosine * object.halfZ;
++      const placed = action.kind === "cart"
++        ? Math.abs(object.x - target.x) <= target.halfX - extentX && Math.abs(object.z - target.z) <= target.halfZ - extentZ
++        : chairBesideTable(object);
++      next.attachment = null;
++      next.lastEvent = placed ? action.kind === "cart" ? "cart_parked" : "chair_restored" : "furniture_released";
++      if (action.kind === "cart") next.cart.parked = placed;
++      else next.chairs[action.id].restored = placed;
++      next.complete = completion(next);
++      return settle(state, next, 0, placed ? "restore:" + action.id : null, action.kind === "cart" ? LEVEL.progress.cartReward : LEVEL.progress.chairReward);
++    }
++    if (action.type === "book") {
++      next.books[action.bookId].location = "carried";
++      next.books[action.bookId].support = null;
++      next.carriedBook = action.bookId;
++      next.carriedItem = action.bookId;
++      next.lastEvent = "crate_collected";
++      return settle(state, next, state.rewardedActions["pickup:" + action.bookId] ? LEVEL.progress.repeatCost : 0, "pickup:" + action.bookId, LEVEL.progress.pickupReward);
++    }
++    if (action.type === "drop") {
++      const point = { x: state.player.x + Math.sin(state.player.yaw) * 0.60, z: state.player.z + Math.cos(state.player.yaw) * 0.60 };
++      if (!isWalkable(state, point.x, point.z, 0.15)) {
++        next.lastEvent = "blocked_drop";
++        return settle(state, next, LEVEL.progress.errorCost);
++      }
++      Object.assign(next.books[state.carriedBook], point, { location: "ground", y: 0.012 });
++      next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_dropped";
++      return settle(state, next, LEVEL.progress.repeatCost);
++    }
++    const book = next.books[state.carriedBook];
++    if (book.color !== action.color) {
++      next.lastEvent = "wrong_shelf";
++      return settle(state, next, LEVEL.progress.errorCost);
++    }
++    Object.assign(book, shelfPose(book.color, book.id), { location: "shelved" });
++    next.carriedBook = null; next.carriedItem = null; next.lastEvent = "crate_delivered";
++    next.complete = completion(next);
++    return settle(state, next, 0, "return:" + book.id, LEVEL.progress.correctBookReward);
++  }
++
++  function updateEnvironment(state, deltaSeconds = 0) {
++    if (state.complete || state.failed || !LEVEL.dynamic) return state;
++    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
++    const next = clone(state);
++    next.incident.elapsed += dt;
++    if (next.incident.drops < LEVEL.maximumFalls && next.incident.elapsed + EPSILON >= next.incident.nextDrop) {
++      const event = next.incident.schedule[next.incident.drops];
++      const bookId = "shelf-" + event.color + "-0";
++      Object.assign(next.books[bookId], { location: "falling", fallen: true, fallElapsed: 0, landing: landingPose(event.color, 0) });
++      next.incident.color = event.color;
++      next.incident.drops += 1;
++      next.incident.nextDrop = next.incident.schedule[next.incident.drops]?.at ?? null;
++      next.incident.phase = next.incident.drops === LEVEL.maximumFalls ? "finished" : "scheduled";
++      next.lastEvent = "book_fell";
++    }
++    for (const book of Object.values(next.books)) if (book.location === "falling") {
++      book.fallElapsed = Math.min(LEVEL.fallDuration, (book.fallElapsed ?? 0) + dt);
++      if (book.fallElapsed >= LEVEL.fallDuration - EPSILON) Object.assign(book, book.landing, { location: "ground", support: null });
++    }
++    next.complete = completion(next);
++    return next;
++  }
++
++  return {
++    LEVEL, createInitialState, updateMovement, updateEnvironment, isWalkable, getInteraction, interact, chairBesideTable,
++    closeTerminal: (state) => ({ ...state, terminalOpen: false }),
++    getObjective: () => LEVEL.dynamic ? "椅子推到桌边，还书车停入右侧黄色停车区，并归还三本随机落书" : "将两把椅子推到桌边，还书车停入右侧墙边的黄色停车区",
++  };
++}
+--- a/docs/levels/rf02-series-production-plan.md
++++ b/docs/levels/rf02-series-production-plan.md
+@@ -1,45 +1,33 @@
+-# RF-02 series / library-operations-v4
+-
+-## Approved redesign
+-
+-The previous six-book sorting variants were rejected as too similar to RF-02. The user selected closing reset followed by dynamic patrol: chairs and cart first, then a failed retaining bookend with recurring falls, at most three books, without a global countdown. This supersedes shared-library-v1 gameplay.
+-
+-- RF-02 keeps its original three-book color-sorting objective and reserve rules.
+-- RF-02-2 requires pushing two displaced reading chairs back to their tables and manually parking the return cart inside the permanent yellow bay, with the correct orientation.
+-- RF-02-3 adds a random shelf fault activated independently after eight simulation seconds, or earlier by the first restored chair or 1.5 m of cart travel. One book begins falling immediately; an unrepaired bookend releases another every 12 simulation seconds, capped at three. Repair stops future falls; every already-fallen book must be returned.
+-- Shared scene: the same library, eight reading chairs, return cart, fifteen books, retaining rails and parking bay appear in all three levels. Mission state changes their poses and completion conditions.
+-- No directory clues, route markers, target highlighting or step navigation. Final objectives and interaction/result feedback remain.
+-- F near the original chair back or either end of the cart initiates a short collision-aware walking/turning approach and arm animation. The player uses the existing movement/turning controls to push, and F to release. No object or robot teleportation.
+-- Repair uses the existing arm joints to touch the physical retaining-rail lever. Robot models, bones, dimensions, initial poses, shared camera/FOV, controls and shared movement remain frozen.
+-
+-## Task target and authorization
+-
+-Authoritative host: 127.0.0.1. Account: chenhaoyuan. Project: .. All runtime, downloads, assets, releases and production evidence stay under /path/to/arc-workspace. Mac is a control surface.
+-
+-Task artifacts: ./authoring/server-production/rf02-fixes-v4. Candidate previews use 4194. Final deployment replaces the task-owned 4192 service only after verification; the prior fixed release remains available for rollback. Preserve other services and unrelated working-tree changes. Credentials stay in the official private store; no costs or secrets in task records. User authorizes generation, necessary scene improvements and deployment. Task-only commit after successful checks; no push.
+-
+-## Scene and interaction production
+-
+-Retain the 24 × 16 m library and existing Cardinal/EmbodiedGen models. Reuse verified book-impact audio. Export retaining rails, ceiling fixtures and authoritative collision geometry from the shared layout, with textures and models unchanged. Separate moving furniture roots and collision transforms use the same state.
+-
+-Measured chair dimensions are approximately 0.520 × 0.550 × 0.880 m. Footprints use 0.28/0.265 m half extents. Collision-aware approach stands 0.74 m behind chair centers and 0.78 m from either end of the cart. Arms contact existing surfaces; a temporary torso lean is animated and restored on release. All added handles have been removed from the shared GLB. Robot geometry and shared envelope are unchanged.
+-
+-Original return-desk book row uses measured clear support at 0.677/0.681 m and z=3.05. Reading-table and cart books use 0.686/1.01 m. Both new levels allow all six tabletop books to be picked up and returned, without making this an additional completion objective. The cart book follows its authoritative moving support until picked up. All variants share exact collision layouts, including individual chairs and table footprints.
+-
+-## Reserve and verification
+-
+-Initial/maximum reserve is 100. Idle and free rotation have no cost; translation charges actual distance; blocked pushing and invalid interactions cost reserve. First successful task rewards are deduplicated and capped. Failure is atomic, completion/failure freeze state, reset clears progress and rewards.
+-
+-| Rule | RF-02-2 | RF-02-3 |
+-| --- | ---: | ---: |
+-| Movement points/m | 1.45 | 1.38 |
+-| Blocked movement points/s | 1 | 1.4 |
+-| Invalid interaction | 3 | 5 |
+-| Chair reward | 5 | 3 |
+-| Cart reward | 8 | 5 |
+-| Repair reward | — | 3 |
+-| Fallen-book first pickup/return | — | 1 / 1 |
+-
+-RF-02-3 combines longer routes, interruption and higher mistake penalties. All random branches and two-error paths must complete with positive minimum reserve. The acceptance record reports measured endpoints, minima and browser results separately.
+-
+-Required checks: original RF-02 regression; both full engine routes and all random fault branches; furniture collision/orientation/no-snap behavior; recurring/capped falls and repair interruption; reward deduplication, errors, failure/reset; real browser routes, keyboard regressions for pickup and cart movement, first/third/dual screenshots and arm/object contact; source/build/HTTP asset hashes; protected-file hashes; production build. Desktop target is 1080p/30 FPS, with actual viewport and measured limitations recorded truthfully.
++# RF-02 series / library-operations-v5
++
++## Current authorized behavior
++
++The latest user request supersedes the bookend-fault and precise furniture-placement rules.
++
++- RF-02 retains its original three-book sorting objective.
++- RF-02-2 requires moving two displaced chairs beside their associated reading tables and manually parking the return cart inside the yellow bay.
++- RF-02-3 adds three automatic book falls, each from a different randomly ordered color shelf. Each interval is randomly 60–90 simulation seconds, including the first interval. No shelf repair and no global countdown. All three fallen books must be returned.
++- All three levels share the same library, original chairs/cart, fifteen books and parking signage. No added furniture handles or repair fixtures.
++- The cart is approached at either original handle end (initial world-X ends), with two hands on that handle. Nearby F initiates collision-aware alignment; the player controls pushing and presses F to release.
++- A chair is restored when its non-overlapping footprint is within 0.38 m of its table. There is no exact chair heading or home-position requirement.
++- Cart parking accepts any heading whose rotated footprint fits inside the 1.8 × 1.52 m marked bay at (8.65, -3.15). Floor and wall labels identify the destination.
++- Both new levels animate reaching, lifting, hand carrying and placing books. Ground pickup uses a crouch. Original model geometry, bones, dimensions, rest pose, camera/FOV and shared control/kinematics/envelope remain frozen.
++- No directory clues or step navigation. Final objectives, permanent parking signage and necessary interaction feedback remain.
++
++## Deployment scope
++
++Authoritative host: 127.0.0.1; account: chenhaoyuan; project: .. Runtime, assets, releases and production evidence remain under /path/to/arc-workspace. Mac is a control/evidence surface.
++
++Task artifacts: ./authoring/server-production/rf02-usability-v5. Preview 4194; deploy to task-owned 4192 after verification. Preserve unrelated changes and services. The v4 fixed release remains available for rollback. Credentials stay outside project files. Do not report Cardinal cost. Existing scene assets are reused; no new generated asset is needed.
++
++## Geometry and validation
++
++Retain the 24 × 16 m library and Cardinal/EmbodiedGen models. The native cart measures approximately 0.86 × 0.54 × 1.12 m; robot stands 0.94 m from its center along the handle axis. Moving objects and collision transforms share authoritative state. Parking and collision GLBs use versioned directories.
++
++Required checks: original RF-02 regression; six tabletop books in both variants; both native cart ends; relaxed chair placement; rotated parking bounds; autonomous 60–90 second intervals, distinct shelves and maximum three; full clean/two-error engine routes; real browser interactions, carrying and full routes; protected-file and source/build/HTTP hashes; production build. Failures and candidate evidence remain distinct from deployment and user acceptance.
++
++## Reserve
++
++Initial/maximum 100. RF-02-2 movement 1.45 points/m, invalid interaction 3, chair reward 5, cart reward 8. RF-02-3 movement 1.05 points/m, invalid interaction 5, chair reward 3, cart reward 5. First pickup/return reward 1 each. Blocked movement costs 1/1.4 points/s; repeats cost 1. Rewards are deduplicated and capped. Idle and free turn cost zero. Failure is atomic; terminal states freeze; reset clears rewards.
++
++RF-02-3 requires longer routes across all three shelves and has higher mistake penalties. Engine and browser endpoint/minimum reserve must remain positive and are recorded independently.
+--- a/docs/levels/rf02-series-acceptance.md
++++ b/docs/levels/rf02-series-acceptance.md
+@@ -1,57 +1,19 @@
+-# RF-02 fixes — library-operations-v4
+-
+-Status: completed. Fixed release: ./authoring/server-production/rf02-fixes-v4/release-r1, deployed on port 4192 (PID 625510). Both browser completion routes passed; optional user acceptance is pending. This report supersedes v3 claims about tabletop interaction and normal keyboard coverage.
+-
+-## Requested behavior and implementation
+-
+-- Removed every generated chair/cart handle from the shared closing-fixtures GLB and its scene bindings. All three levels retain the same furniture models.
+-- Chairs use their existing backs. The cart accepts approach from both ends. Collision-aware walking, runtime torso/arm animation, keyboard pushing and F release use the original surfaces.
+-- All six tabletop books are selectable in both variants. Visibility checks omit only the supporting surface; intervening obstacles still block selection. Cart-book coordinates follow the cart in authoritative state; pickup clears the support.
+-- RF-02-3 independently develops a randomly selected shelf fault after eight simulation seconds. Furniture work may trigger it earlier. The first book falls immediately; another falls every twelve seconds until repair or a total of three. No countdown or navigation clues were added.
+-- STOP now cancels and recovers furniture actions without calling a missing controller method.
+-
+-## Verification
+-
+-46/46 original-library and series tests pass. Coverage includes all six tabletop pickup routes in both levels; both cart ends; carried cart-book detachment; absent added handles; autonomous fault timing; all three random shelf branches; recurring/capped falls; repair interruption; full routes with zero/two errors; collision, orientation, rewards, reset and failure freezing. Production build passes with the pre-existing bundle-size warning.
+-
+-Nine robot/shared-control/camera hashes match the protected baseline. All 17 resources (4,854,347 bytes) match source/build/HTTP on deployed port 4192.
+-
+-Browser evidence uses the fixed candidate release and the ordinary F handler. RF-02-2 keyboard-only regression picked up the desk book and pushed the cart from the front by 0.909 m. Its complete route restored both chairs and parked the cart: transit uses the supported agent movement API, while furniture pushing and every interaction use normal keyboard events. First-person screenshots show hands at the existing chair back and cart frame. Chair contact errors were 0.007–0.043 m; cart rear contact errors approximately 0.021–0.023 m.
+-
+-RF-02-3 keyboard diagnosis successfully picked up a desk book and recorded falling/ground transitions for three books without furniture work. Its automated navigation later stalled in the narrow passage beside the cart; this diagnostic is retained as a failure, not represented as a complete keyboard route. The separate full route passed: both chairs restored, cart parked, red shelf repaired, and all three fallen books recovered. It recorded 16 operations, final reserve 18.293, minimum 11.982, and 73.701 m of movement. RF-02-2 recorded nine operations, final reserve 44.223, minimum 36.223, and 50.881 m.
+-
+-## Reserve
+-
+-Initial/maximum reserve 100. RF-02-2 movement 1.45 points/m, error 3, chair reward 5, cart reward 8. RF-02-3 movement 1.38 points/m, error 5, chair reward 3, cart reward 5, repair 3, first pickup/return 1 each. Idle/free turn cost zero; blocked movement and repeated actions are charged. Rewards are deduplicated.
+-
+-Measured engine routes:
+-| Level / fault | Clean final / minimum | Two-error final / minimum |
+-| --- | --- | --- |
+-| RF-02-2 | 44.47 / 36.47 | 38.47 / 30.47 |
+-| RF-02-3 red | 18.26 / 12.24 | 8.26 / 2.24 |
+-| RF-02-3 black | 32.60 / 26.52 | 22.60 / 16.52 |
+-| RF-02-3 white | 42.12 / 36.02 | 32.12 / 26.02 |
+-
+-## Scope, evidence and limitations
+-
+-Authoritative project: . on user-selected 127.0.0.1. Task artifacts and evidence: ./authoring/server-production/rf02-fixes-v4. No credentials, runtime environments, assets, builds or logs are committed. The Mac remains a control/evidence surface.
+-
+-The broader shared-controls test still has three pre-existing failures: RF-08 strafe, RF-08 turn, and an exact-source-string F-key assertion. They are outside this change; per repository instructions no commit is made while verification has failures. No push.
+-
+-The v3 release remains available at ./authoring/server-production/rf02-redesign-v3/release-r3 for rollback. Previous v3 screenshots and performance measurements are historical, not current v4 evidence. User acceptance of this corrected version has not yet been received.
+-
+-## Delivery and reproduction
+-
+-Both deployed pages expose revision library-operations-v4. A fresh deployed RF-02-3 session remained stationary at the entrance with reserve 100 and independently reached three ground books; evidence is deployed-autonomous-falls.json. Deployed first/third/dual screenshots were inspected. Production asset hashes match the reviewed candidate. Formal first-person evidence: chair-contact-first.png, cart-contact-first.jpg and route-after-repair-.jpg. Completion evidence: rf02-2-complete.png and rf02-3-complete.png. Full reports: rf02-2-full-route.json and rf02-3-full-route.json. The keyboard diagnostic with its navigation failure remains separately labelled.
+-
+-Reproduce:
+-- node --test tests/rf02-library.test.mjs tests/rf02-series.test.mjs
+-- node tools/rf02-series/measure-routes.mjs <task-directory>/routes.json
+-- npm run build -- --outDir <new-release-directory>
+-- Copy dist/local-assets, dist/vendor and dist/agent-kit into the new release; the existing build plugin writes those assets to dist.
+-- node tools/rf02-series/prepare-browser-qa.mjs <new-release-directory>
+-- node tools/rf02-series/write-manifest.mjs <release-directory> http://127.0.0.1:4192
+-
+-Playable URLs:
+-- http://127.0.0.1:4192/?mode=play&level=rf02-2&view=third&robot=g1&control=velocity
+-- http://127.0.0.1:4192/?mode=play&level=rf02-3&view=third&robot=g1&control=velocity
++# RF-02 usability / library-operations-v5
++
++Status: in progress. The deployed version remains v4 on port 4192 until the v5 browser checks pass. Candidate builds and evidence are under ./authoring/server-production/rf02-usability-v5. Optional user acceptance is pending.
++
++The latest request adds parking labels, correct native handle-end positioning, forgiving chair placement and visible hand-held book animation; removes shelf repair; and schedules three falls from distinct shelves, each after a random 60–90 second interval.
++
++## Verified so far
++
++- 41/41 original-library and series state tests pass, including all tabletop selection routes, native cart ends, chair tolerance, parking, blocked pushing, reward/reset/failure and dynamic timing.
++- Nine protected robot/shared-control/camera files match the baseline.
++- Builds r1/r2 pass with the existing bundle-size warning.
++- Candidate r1 RF-02-2 browser route completes: 48.910 m, final reserve 47.081, minimum 39.081. Furniture pushing and interactions use keyboard events; transit uses the supported movement API.
++- The first book-animation candidate failed reaching the center tabletop book. Its failed report is retained; runtime posture is being corrected and revalidated. No claim of completed book-animation acceptance.
++
++## Outstanding
++
++Validate the corrected hand animation for tabletop/ground pickup, carrying and placement; full RF-02-3 route with real-time falls; final screenshots; asset hashes; authorized deployment and final task record. Prior v4 screenshots are historical evidence.
++
++The wider repository previously had three unrelated shared-controls test failures. Task-only commit is conditional on the applicable verification policy; no automatic push is authorized.
+--- a/docs/levels/rf02-series-server-profile.json
++++ b/docs/levels/rf02-series-server-profile.json
+@@ -1,34 +1,34 @@
+-{
+-  "profile": "rf02-series-current-task",
+-  "allowedHosts": [
+-    "127.0.0.1"
+-  ],
+-  "allowedRoot": "/path/to/arc-workspace",
+-  "projectCandidate": ".",
+-  "requiresProjectVerification": true,
+-  "projectVerified": true,
+-  "sshUser": "chenhaoyuan",
+-  "authorizationEvidence": "User selected closing reset then dynamic patrol, recurring falls capped at three with no global countdown, and authorized shared-scene improvements and deployment on this host. Latest request removes added chair/cart handles, restores tabletop pickup and fixes autonomous book falls.",
+-  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
+-  "credentials": "Official private credential store; no secrets in project",
+-  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+-  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
+-  "embodiedgenEnvironmentCandidate": null,
+-  "previewPortCandidates": [
+-    4194
+-  ],
+-  "executionMode": "automatic-after-initial-scope",
+-  "qualityPreset": "high-highpoly",
+-  "reportCardinalCost": false,
+-  "cardinalExecution": "automatic-within-approved-level",
+-  "cardinalBatchApprovalRequired": false,
+-  "cardinalMaxRegenerationsPerAsset": 2,
+-  "revision": "library-operations-v4",
+-  "releaseDirectory": "./authoring/server-production/rf02-fixes-v4/release-r1",
+-  "taskArtifacts": "./authoring/server-production/rf02-fixes-v4",
+-  "deployedPort": 4192,
+-  "deploymentStatus": "deployed; both browser completion routes passed; tabletop and keyboard cart regression verified",
+-  "deployedPid": 625510,
+-  "requiredLevelTests": "46/46 passed",
+-  "broaderRepositoryTests": "3 unrelated failures; commit withheld"
+-}
++{
++  "profile": "rf02-series-current-task",
++  "allowedHosts": [
++    "127.0.0.1"
++  ],
++  "allowedRoot": "/path/to/arc-workspace",
++  "projectCandidate": ".",
++  "requiresProjectVerification": true,
++  "projectVerified": true,
++  "sshUser": "chenhaoyuan",
++  "authorizationEvidence": "Latest user request: obvious parking destination, original cart handle ends, forgiving chairs beside tables, visible hand carrying, no shelf repair, different shelves at random 60–90 second intervals; persistent maximum three and deployment authorization.",
++  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
++  "credentials": "Official private credential store; no secrets in project",
++  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
++  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
++  "embodiedgenEnvironmentCandidate": null,
++  "previewPortCandidates": [
++    4194
++  ],
++  "executionMode": "automatic-after-initial-scope",
++  "qualityPreset": "high-highpoly",
++  "reportCardinalCost": false,
++  "cardinalExecution": "automatic-within-approved-level",
++  "cardinalBatchApprovalRequired": false,
++  "cardinalMaxRegenerationsPerAsset": 2,
++  "revision": "library-operations-v5",
++  "releaseDirectory": "./authoring/server-production/rf02-usability-v5/release-r2",
++  "taskArtifacts": "./authoring/server-production/rf02-usability-v5",
++  "deployedPort": 4192,
++  "deploymentStatus": "candidate; v4 remains deployed",
++  "deployedPid": 625510,
++  "requiredLevelTests": "41/41 passed",
++  "broaderRepositoryTests": "3 unrelated failures; commit withheld"
++}

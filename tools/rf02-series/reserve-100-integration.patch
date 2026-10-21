@@ -1,0 +1,24 @@
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -44,7 +44,7 @@
+     title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
+     dynamic: id === "rf02-3", interactionRange: 1.30,
+     progress: Object.freeze({
+-      initial: id === "rf02-2" ? 50 : 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 0.98 : 1.45,
++      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 0.98 : 1.45,
+       blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
+       repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, pickupReward: 1, correctBookReward: 1,
+     }),
+--- a/tests/rf02-series.test.mjs
++++ b/tests/rf02-series.test.mjs
+@@ -194,8 +194,8 @@
+   assert.ok(gltf.nodes.every(node => !/^(cart-handle|chair-handle|bookend-|rail-|latch-)/.test(node.name ?? "")));
+ });
+ 
+-test("RF-02-2 starts and resets at 50 while RF-02-3 retains 100", () => {
+-  for (const [id, initial] of [["rf02-2", 50], ["rf02-3", 100]]) {
++test("RF-02-2 starts and resets at 100 while RF-02-3 retains 100", () => {
++  for (const [id, initial] of [["rf02-2", 100], ["rf02-3", 100]]) {
+     const engine = createArchiveEngine(id);
+     const state = engine.createInitialState();
+     assert.equal(state.progress, initial);

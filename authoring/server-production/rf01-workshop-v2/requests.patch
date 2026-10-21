@@ -1,0 +1,12 @@
+diff --git a/door-control.json b/door-control.json
+new file mode 100644
+--- /dev/null
++++ b/door-control.json
+@@ -0,0 +1,1 @@
++{"prompt":"Photorealistic industrial roller shutter wall mounted push button station, single compact vertical rectangular weatherproof cast aluminium enclosure, rounded machined edges, four captive steel screws, dark rubber perimeter gasket, green circular raised OPEN pushbutton above a red circular STOP pushbutton, small engraved arrow plates, bottom metal cable gland, subtle factory dust and worn gray powder coated paint. Complete standalone object with flat back ready to mount on wall. Front controls face positive Z, vertical Y up. No wall, no floor, no surrounding scene, no wires extending beyond housing. Realistic PBR textured mechanical product asset.","taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","enablePbr":true,"texture":true,"pivotToCenterBottom":true}
+diff --git a/light-switch.json b/light-switch.json
+new file mode 100644
+--- /dev/null
++++ b/light-switch.json
+@@ -0,0 +1,1 @@
++{"prompt":"Photorealistic industrial factory wall mounted weatherproof lighting switch, compact square gray cast metal junction enclosure with rounded corners, four stainless captive screws and black rubber gasket, one large ivory rocker switch in a raised black protective bezel, tiny green status lens above rocker, short bottom cable gland, subtle wear and brushed metal details. Complete standalone device with flat rear mounting plate. Front rocker faces positive Z, vertical Y up. No wall, no floor, no surrounding scene, no long cables, no extra objects. Realistic PBR textured industrial electrical product asset.","taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","enablePbr":true,"texture":true,"pivotToCenterBottom":true}

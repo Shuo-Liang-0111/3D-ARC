@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "level": "rf05",
+  "qualityPreset": "high-highpoly",
+  "operation": "cardinal_model3d_image",
+  "referenceTokenCostPerAsset": 300,
+  "tokenCostPerAsset": 5200,
+  "surfaceTokenCostPerAsset": 300,
+  "authorizedWithoutFurtherCostReports": true,
+  "assets": {
+    "twin_bed": {
+      "role": "static",
+      "referenceRequestFile": "requests/twin_bed_reference.json",
+      "targetSizeMeters": [
+        1.86,
+        0.68,
+        2.65
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/twin_bed.highpoly.glb",
+      "runtimeArtifact": "models/runtime/twin_bed.glb",
+      "reference": {
+        "taskId": "aigc_2b86be87bc8d430081792e4a0d3bb947",
+        "status": "uploaded",
+        "artifact": "references/twin_bed.png",
+        "sourceImageId": "0746651de0c84686b5b9dcfa31e39a73"
+      },
+      "imageModelRequestFile": "requests/twin_bed_image_to_model.json",
+      "taskId": "aigc_871fabe5dace493caa956c058027fe89",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 54504972,
+      "sourceSha256": "b7d6a80f3c3a665b5fc41c032630fb4fdf98800e1f68f163a24ba1668172bab7",
+      "runtimeBytes": 1259528,
+      "runtimeSha256": "4eaeefee265012b285561799aa97c516a5a55b01f6da75ed5398972cdd822b87"
+    },
+    "bedside_table": {
+      "role": "static",
+      "referenceRequestFile": "requests/bedside_table_reference.json",
+      "targetSizeMeters": [
+        0.55,
+        0.55,
+        0.45
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/bedside_table.highpoly.glb",
+      "runtimeArtifact": "models/runtime/bedside_table.glb",
+      "reference": {
+        "taskId": "aigc_a096e979f3474a75bdd8c6297c68aa1b",
+        "status": "uploaded",
+        "artifact": "references/bedside_table.png",
+        "sourceImageId": "cb2efc3f642e4c5ead665ea6b6943773"
+      },
+      "imageModelRequestFile": "requests/bedside_table_image_to_model.json",
+      "taskId": "aigc_40d8959ff447409db4f29b5c99cf06ba",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55206956,
+      "sourceSha256": "ccf243bc61f17c62c067e806a8207dbef6e23c184dca8e5917d34b78ff0a86b7",
+      "runtimeBytes": 1138332,
+      "runtimeSha256": "6b16587fc319d881d5099e2033b1c3a34be8e4c52e6798f99b250a5b189dfef6"
+    },
+    "writing_desk": {
+      "role": "static",
+      "referenceRequestFile": "requests/writing_desk_reference.json",
+      "targetSizeMeters": [
+        1.6,
+        0.76,
+        0.62
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/writing_desk.highpoly.glb",
+      "runtimeArtifact": "models/runtime/writing_desk.glb",
+      "reference": {
+        "taskId": "aigc_1a7c605931124cf699abbbeebed1510e",
+        "status": "uploaded",
+        "artifact": "references/writing_desk.png",
+        "sourceImageId": "8567767f39124884b3cbf538b37ef4cf"
+      },
+      "imageModelRequestFile": "requests/writing_desk_image_to_model.json",
+      "taskId": "aigc_dbdb2d20d66a494290d65e917af6ed9a",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55651380,
+      "sourceSha256": "0ac27b81ac77539f4ec9cba350c5328b8d15a371d3cbdf32c438022c509f2212",
+      "runtimeBytes": 1001508,
+      "runtimeSha256": "f83434686d5c95cb1090eb633614b6a8ef3425a3bfbeca4b2ceaf5167bb1166c"
+    },
+    "desk_chair": {
+      "role": "static",
+      "referenceRequestFile": "requests/desk_chair_reference.json",
+      "targetSizeMeters": [
+        0.58,
+        0.9,
+        0.58
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/desk_chair.highpoly.glb",
+      "runtimeArtifact": "models/runtime/desk_chair.glb",
+      "reference": {
+        "taskId": "aigc_5020cb36d66e4c0b8fcf3fa4d79fa7f1",
+        "status": "uploaded",
+        "artifact": "references/desk_chair.png",
+        "sourceImageId": "f884da160892405b86396c700ff01730"
+      },
+      "imageModelRequestFile": "requests/desk_chair_image_to_model.json",
+      "taskId": "aigc_f9629422a85a4aa9812f75ccbdf029ae",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56454392,
+      "sourceSha256": "2efb8c435ad8d94d574116a08433b5457275726716d472814e11316c0c8bd0df",
+      "runtimeBytes": 1338376,
+      "runtimeSha256": "d1c43b2fcab52dc4f8c64dc8658586a2a6e27682451c905a9c54a3fbd4b4904a"
+    },
+    "television_console": {
+      "role": "static",
+      "referenceRequestFile": "requests/television_console_reference.json",
+      "targetSizeMeters": [
+        1.7,
+        1.25,
+        0.45
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/television_console.highpoly.glb",
+      "runtimeArtifact": "models/runtime/television_console.glb",
+      "reference": {
+        "taskId": "aigc_325b7c1eea0f4868967d01c4bad3ff9c",
+        "status": "uploaded",
+        "artifact": "references/television_console.png",
+        "sourceImageId": "d607acda626f476faf7c4c59f7893ba4"
+      },
+      "imageModelRequestFile": "requests/television_console_image_to_model.json",
+      "taskId": "aigc_cc76cc60e6b346ad85e8eda814905ef1",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56570412,
+      "sourceSha256": "2d1e1d3d7dc96bcd057efaa686d017c3411cc78ed8245d7e6d4f60f2f5969d6b",
+      "runtimeBytes": 1065488,
+      "runtimeSha256": "13dcf414ab123beacbc772dc033ee30bdbb755a39cde8e8456c77759bc1e7455"
+    },
+    "wardrobe": {
+      "role": "static",
+      "referenceRequestFile": "requests/wardrobe_reference.json",
+      "targetSizeMeters": [
+        1.55,
+        2.55,
+        0.72
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/wardrobe.highpoly.glb",
+      "runtimeArtifact": "models/runtime/wardrobe.glb",
+      "reference": {
+        "taskId": "aigc_cd4cd1afa7da4cb99aea47aaf2118a81",
+        "status": "uploaded",
+        "artifact": "references/wardrobe.png",
+        "sourceImageId": "3fa6660af2994c858c4721719c8a36ed"
+      },
+      "imageModelRequestFile": "requests/wardrobe_image_to_model.json",
+      "taskId": "aigc_16ee3bfa1b304ca180361664d649f952",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56811988,
+      "sourceSha256": "e8328b219b80b9e24fe0ec79441801679ca82a2bcacbc6f35af050c38121cefd",
+      "runtimeBytes": 828128,
+      "runtimeSha256": "d3e27fe13edd75ca7e0bd0ff056bf31311841a92de8117ac6d51bf8d7afe2388"
+    },
+    "luggage_bench": {
+      "role": "static",
+      "referenceRequestFile": "requests/luggage_bench_reference.json",
+      "targetSizeMeters": [
+        1.5,
+        0.52,
+        0.62
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/luggage_bench.highpoly.glb",
+      "runtimeArtifact": "models/runtime/luggage_bench.glb",
+      "reference": {
+        "taskId": "aigc_b9d22462368a4f478b9f55a3070eeef4",
+        "status": "uploaded",
+        "artifact": "references/luggage_bench.png",
+        "sourceImageId": "d8f0e7689015462cb9b9e987cc3aac3a"
+      },
+      "imageModelRequestFile": "requests/luggage_bench_image_to_model.json",
+      "taskId": "aigc_6ea1c4844b2d47e2924640c2c2281559",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56041548,
+      "sourceSha256": "f614582c2155cd158356e315982f58a33f05dbb6b6c3d3879a64db9ce2b2829f",
+      "runtimeBytes": 1355096,
+      "runtimeSha256": "bdcf803be45632b781e6401d321ec389b412172217d3793feb9bf43403372018"
+    },
+    "curtain_window_module": {
+      "role": "static",
+      "referenceRequestFile": "requests/curtain_window_module_reference.json",
+      "targetSizeMeters": [
+        2.6,
+        2.5,
+        0.25
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/curtain_window_module.highpoly.glb",
+      "runtimeArtifact": "models/runtime/curtain_window_module.glb",
+      "reference": {
+        "taskId": "aigc_17b763f791ab4829b9d6f44dd8ae25e4",
+        "status": "uploaded",
+        "artifact": "references/curtain_window_module.png",
+        "sourceImageId": "e1ea5d389a1648cfb913c6e1b8f092cb"
+      },
+      "imageModelRequestFile": "requests/curtain_window_module_image_to_model.json",
+      "taskId": "aigc_2e4e8659576d4baf9f3c1ae39eace4cf",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 58741524,
+      "sourceSha256": "948539ea45099fb791e6cf43fb8a17263828b075748818920bd7440310d8329e",
+      "runtimeBytes": 1737328,
+      "runtimeSha256": "dabbb62a9074ba444227bf8a724277947732c810477f578dfd54465d663acd02"
+    },
+    "bathroom_vanity": {
+      "role": "static",
+      "referenceRequestFile": "requests/bathroom_vanity_reference.json",
+      "targetSizeMeters": [
+        1.2,
+        0.85,
+        0.55
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/bathroom_vanity.highpoly.glb",
+      "runtimeArtifact": "models/runtime/bathroom_vanity.glb",
+      "reference": {
+        "taskId": "aigc_7f61cb7569284859bff7c16ca7eea724",
+        "status": "uploaded",
+        "artifact": "references/bathroom_vanity.png",
+        "sourceImageId": "c9d6feb50cb94a6a96e22abbabb46ad6"
+      },
+      "imageModelRequestFile": "requests/bathroom_vanity_image_to_model.json",
+      "taskId": "aigc_0ad46b1b8f034a87bba5c94206b3ed34",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56187864,
+      "sourceSha256": "62fcde043391b74a92e5c254fc8efdeab9c8a8b05b12f12e73f85c59419f15f4",
+      "runtimeBytes": 1140576,
+      "runtimeSha256": "126c32fb178cb6c7dfc516a9ee54b92c2fba56a1c3180e0952213b80cf88f99c"
+    },
+    "toilet": {
+      "role": "static",
+      "referenceRequestFile": "requests/toilet_reference.json",
+      "targetSizeMeters": [
+        0.42,
+        0.78,
+        0.7
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/toilet.highpoly.glb",
+      "runtimeArtifact": "models/runtime/toilet.glb",
+      "reference": {
+        "taskId": "aigc_e34ff0de6bf14d41bf0e6a7672876261",
+        "status": "uploaded",
+        "artifact": "references/toilet.png",
+        "sourceImageId": "3664602769a64be9a5518b633352574b"
+      },
+      "imageModelRequestFile": "requests/toilet_image_to_model.json",
+      "taskId": "aigc_9f7658750ccd4a1faa1a397da13503c6",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55944176,
+      "sourceSha256": "69e9517d1f191e593449e4089582d0fe44aa84134e959c30ce789354a34ee157",
+      "runtimeBytes": 1423672,
+      "runtimeSha256": "db68937de8719e618590027d003d076f6fa11b70c867961be8c0510805fb5414"
+    },
+    "shower_fixture": {
+      "role": "static",
+      "referenceRequestFile": "requests/shower_fixture_reference.json",
+      "targetSizeMeters": [
+        0.32,
+        2.1,
+        0.22
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/shower_fixture.highpoly.glb",
+      "runtimeArtifact": "models/runtime/shower_fixture.glb",
+      "reference": {
+        "taskId": "aigc_835f5818197143e0865426258e40ba9d",
+        "status": "uploaded",
+        "artifact": "references/shower_fixture.png",
+        "sourceImageId": "21e28524d1b140079b2f6cf60b3df9a5"
+      },
+      "imageModelRequestFile": "requests/shower_fixture_image_to_model.json",
+      "taskId": "aigc_8d42864c291b436d8011a7c6bc4ef3c9",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56482284,
+      "sourceSha256": "4010c4f7757b388b548fcc6a842c3fe28e19426cdb720b1a72a0ee018dfc08cb",
+      "runtimeBytes": 1750464,
+      "runtimeSha256": "ef3674e0f9a1273ce333754f899e5661e6413a794cd3d0c0dd9a8fff6aaf899f"
+    },
+    "ceiling_light": {
+      "role": "static",
+      "referenceRequestFile": "requests/ceiling_light_reference.json",
+      "targetSizeMeters": [
+        0.8,
+        0.1,
+        0.8
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/ceiling_light.highpoly.glb",
+      "runtimeArtifact": "models/runtime/ceiling_light.glb",
+      "reference": {
+        "taskId": "aigc_856d528908664462983cc55f3ca3f18e",
+        "status": "uploaded",
+        "artifact": "references/ceiling_light.png",
+        "sourceImageId": "1afb46ff66d640e091bf52bbd7e2c732"
+      },
+      "imageModelRequestFile": "requests/ceiling_light_image_to_model.json",
+      "taskId": "aigc_bbab8780dc2e4907bab90aa0578d35d3",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55864752,
+      "sourceSha256": "a09d3ed3deba4910d39dd8797b5b8af6c7802f090751c44795a2eb4cda74ace7",
+      "runtimeBytes": 1006832,
+      "runtimeSha256": "727569915d96129e2c867dca36e2e9202f734b3c6977771020b7b6e0b0bc71bd"
+    },
+    "towel": {
+      "role": "interactive",
+      "referenceRequestFile": "requests/towel_reference.json",
+      "targetSizeMeters": [
+        0.68,
+        0.14,
+        0.45
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/towel.highpoly.glb",
+      "runtimeArtifact": "models/runtime/towel.glb",
+      "reference": {
+        "taskId": "aigc_b744d0226c98413f814e229d5ec1405d",
+        "status": "uploaded",
+        "artifact": "references/towel.png",
+        "sourceImageId": "0aac40e96d25454f99f52b2fdf264e8c"
+      },
+      "imageModelRequestFile": "requests/towel_image_to_model.json",
+      "taskId": "aigc_04a2105427e24837988d6e5344f73386",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55385732,
+      "sourceSha256": "be7df6389b735d5b332eb163c312905154b11d1918bfe7c4b8ab4134374d208f",
+      "runtimeBytes": 1904584,
+      "runtimeSha256": "4d6fb7e84c9fb0afc521f4f6c4e2da36e23d38757a186481a232ca9eb7c8ca50"
+    },
+    "drinking_cup": {
+      "role": "interactive",
+      "referenceRequestFile": "requests/drinking_cup_reference.json",
+      "targetSizeMeters": [
+        0.11,
+        0.12,
+        0.11
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/drinking_cup.highpoly.glb",
+      "runtimeArtifact": "models/runtime/drinking_cup.glb",
+      "reference": {
+        "taskId": "aigc_2dc92fe9f81d4d1dbbd721b7212f5204",
+        "status": "uploaded",
+        "artifact": "references/drinking_cup.png",
+        "sourceImageId": "08c95120b25c4359bb3b8f699052a173"
+      },
+      "imageModelRequestFile": "requests/drinking_cup_image_to_model.json",
+      "taskId": "aigc_4f887f6a6e4e40098d527fd0ac38f0f9",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55327220,
+      "sourceSha256": "f64d739763d65ecb890e6d411a72d25b1999637b058b318a36a110b458b29c68",
+      "runtimeBytes": 1951756,
+      "runtimeSha256": "29a79b58c4df70ab2562efb388d805f699355934801ab64f02eaf3104b7b4160"
+    },
+    "paper_trash": {
+      "role": "interactive",
+      "referenceRequestFile": "requests/paper_trash_reference.json",
+      "targetSizeMeters": [
+        0.16,
+        0.18,
+        0.16
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/paper_trash.highpoly.glb",
+      "runtimeArtifact": "models/runtime/paper_trash.glb",
+      "reference": {
+        "taskId": "aigc_f58e89031979444abcd23966bee13081",
+        "status": "uploaded",
+        "artifact": "references/paper_trash.png",
+        "sourceImageId": "864e1a975caa48768970158a0a9e2f02"
+      },
+      "imageModelRequestFile": "requests/paper_trash_image_to_model.json",
+      "taskId": "aigc_72d72149413344de88cc4c98df958abd",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55748476,
+      "sourceSha256": "5aae005ab66dcd2c3d5da1c22f82e678814bdaeaf73cacdca445a2f671b833cc",
+      "runtimeBytes": 2172056,
+      "runtimeSha256": "c10c9cb465e47aa4a1312c7be1c5984efe272e5b82de2039bb055f4982515298"
+    },
+    "laundry_basket": {
+      "role": "target",
+      "referenceRequestFile": "requests/laundry_basket_reference.json",
+      "targetSizeMeters": [
+        0.72,
+        0.62,
+        0.72
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/laundry_basket.highpoly.glb",
+      "runtimeArtifact": "models/runtime/laundry_basket.glb",
+      "reference": {
+        "taskId": "aigc_779db6dcf8784afa89600bd5242d1414",
+        "status": "uploaded",
+        "artifact": "references/laundry_basket.png",
+        "sourceImageId": "be904e088b5740d8a56fa94a6f81dbcc"
+      },
+      "imageModelRequestFile": "requests/laundry_basket_image_to_model.json",
+      "taskId": "aigc_9e0e88dcc55440438f2f2d95661b26d7",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 56163536,
+      "sourceSha256": "79d442271a1dbd2366c964c3c00d2cff1549cf7fc579637fe4e49d686f290734",
+      "runtimeBytes": 2323804,
+      "runtimeSha256": "3f1c44bfe2905254ec69ab222052156ff7f3454ea0d2d6c1eea61bae5288273e"
+    },
+    "cleaning_cart": {
+      "role": "target",
+      "referenceRequestFile": "requests/cleaning_cart_reference.json",
+      "targetSizeMeters": [
+        0.95,
+        1.05,
+        0.55
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/cleaning_cart.highpoly.glb",
+      "runtimeArtifact": "models/runtime/cleaning_cart.glb",
+      "reference": {
+        "taskId": "aigc_724193f0f5194f4fa8d73b8fb9fd7966",
+        "status": "uploaded",
+        "artifact": "references/cleaning_cart.png",
+        "sourceImageId": "6d8e1b9b901b4be0922010501aedab6c"
+      },
+      "imageModelRequestFile": "requests/cleaning_cart_image_to_model.json",
+      "taskId": "aigc_24731ab551b24935a99b9742e1afef16",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55222304,
+      "sourceSha256": "72c525ca2b28cf07d95b441e7c13fd61a355661dac3456b8ab25d49211a1da04",
+      "runtimeBytes": 1645240,
+      "runtimeSha256": "e403de942cc977f9fff371a68d80e05cfdedd5e22d1c611dc98fa919a5b7a899"
+    },
+    "trash_bin": {
+      "role": "target",
+      "referenceRequestFile": "requests/trash_bin_reference.json",
+      "targetSizeMeters": [
+        0.54,
+        0.62,
+        0.54
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/trash_bin.highpoly.glb",
+      "runtimeArtifact": "models/runtime/trash_bin.glb",
+      "reference": {
+        "taskId": "aigc_e4385de19a5e44b784feffd719093caa",
+        "status": "uploaded",
+        "artifact": "references/trash_bin.png",
+        "sourceImageId": "5b4c5dcf6a8d4b42ae1b22fdf5a4cc9a"
+      },
+      "imageModelRequestFile": "requests/trash_bin_image_to_model.json",
+      "taskId": "aigc_cea13c881daf4001b7b4692b043175ee",
+      "taskType": "image_to_model",
+      "status": "downloaded",
+      "sourceBytes": 55725120,
+      "sourceSha256": "00ba27fbc90ab02e7a3f3ed97eea4661c51c3451a69520d1383c340872810ce4",
+      "runtimeBytes": 1731544,
+      "runtimeSha256": "4bf6aa942a2bcd6c0b3bfe21935fa7fb8faf7e264538156711aa283c3fa37b2d"
+    }
+  },
+  "surfaces": {
+    "guestroom_wood_floor": {
+      "requestFile": "requests/guestroom_wood_floor.json",
+      "artifact": "textures/source/guestroom_wood_floor.png",
+      "taskId": "aigc_378389aa87d642a3b8b4e71283fd1c62",
+      "status": "downloaded",
+      "surfaceBytes": 4942835,
+      "surfaceSha256": "fea6e57ae5133ba92f288f3a87db4f6b5179e4e6c0ce05ecea0b11547689260d"
+    },
+    "warm_gray_wall": {
+      "requestFile": "requests/warm_gray_wall.json",
+      "artifact": "textures/source/warm_gray_wall.png",
+      "taskId": "aigc_155eabf6ed2e4cca8ff54d88e871856b",
+      "status": "downloaded",
+      "surfaceBytes": 5556821,
+      "surfaceSha256": "cc359c438c0803144ab378e0cd1cd3778d82f52b5cc421f06ca6b9ca648603be"
+    },
+    "bathroom_floor_tile": {
+      "requestFile": "requests/bathroom_floor_tile.json",
+      "artifact": "textures/source/bathroom_floor_tile.png",
+      "taskId": "aigc_8f567a64028d41818ffc0de86b0aee45",
+      "status": "downloaded",
+      "surfaceBytes": 8932523,
+      "surfaceSha256": "9adda573e239a007207e68b6dbe16c204196837824b9599974093d79f500bfbb"
+    },
+    "bathroom_wall_tile": {
+      "requestFile": "requests/bathroom_wall_tile.json",
+      "artifact": "textures/source/bathroom_wall_tile.png",
+      "taskId": "aigc_7a595d5894a34c7b814aaeb84f54a452",
+      "status": "downloaded",
+      "surfaceBytes": 4907810,
+      "surfaceSha256": "60520a8aaa3fc275d969b7994db545967c3eb72e9c31fd4cb1a1295daec5efee"
+    }
+  }
+}

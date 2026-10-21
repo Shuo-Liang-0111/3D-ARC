@@ -1,0 +1,67 @@
+[
+  {
+    "id": "opening-terminal",
+    "matches": true,
+    "bytes": 5155208
+  },
+  {
+    "id": "chair",
+    "matches": true,
+    "bytes": 4747924
+  },
+  {
+    "id": "collision",
+    "matches": true,
+    "bytes": 63152
+  },
+  {
+    "id": "environment",
+    "matches": true,
+    "bytes": 22081348
+  },
+  {
+    "id": "forms",
+    "matches": true,
+    "bytes": 5259292
+  },
+  {
+    "id": "empty-box",
+    "matches": true,
+    "bytes": 5336172
+  },
+  {
+    "id": "diagnostic-panel-fitted",
+    "matches": true,
+    "bytes": 1699540
+  },
+  {
+    "id": "clinical-basin-fitted",
+    "matches": true,
+    "bytes": 1469036
+  },
+  {
+    "id": "gloves",
+    "matches": true,
+    "bytes": 5000760
+  },
+  {
+    "id": "trolley",
+    "matches": true,
+    "bytes": 168752
+  },
+  {
+    "id": "gauze",
+    "matches": true,
+    "bytes": 5391056
+  },
+  {
+    "id": "dressings",
+    "matches": true,
+    "bytes": 5250636
+  },
+  {
+    "id": "request-chime",
+    "matches": true,
+    "bytes": 91467
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "level": "rf13",
+    "release": "rf11-clinic-series-v1-r12",
+    "htmlSha256": "a8cb3eb4e91205f0fc9ee8ced9115830e044a4492c26f7e42a71eb8eed71557e"
+  },
+  {
+    "level": "rf13-02",
+    "release": "rf11-clinic-series-v1-r12",
+    "htmlSha256": "a8cb3eb4e91205f0fc9ee8ced9115830e044a4492c26f7e42a71eb8eed71557e"
+  },
+  {
+    "level": "rf13-03",
+    "release": "rf11-clinic-series-v1-r12",
+    "htmlSha256": "a8cb3eb4e91205f0fc9ee8ced9115830e044a4492c26f7e42a71eb8eed71557e"
+  }
+]

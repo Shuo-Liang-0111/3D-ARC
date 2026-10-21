@@ -1,0 +1,108 @@
+{
+  "revision": "clinic-series-v1-r12",
+  "phase": "idle",
+  "error": null,
+  "holdError": null,
+  "fps": 59.86032590463676,
+  "robotPose": {
+    "position": [
+      0,
+      -0.0027177469367866136,
+      4.1
+    ],
+    "rotation": [
+      -3.141592653589793,
+      1.2246467991473532e-16,
+      -3.141592653589793
+    ]
+  },
+  "lastResult": null,
+  "contacts": [],
+  "ceiling": false,
+  "player": {
+    "x": 0,
+    "z": 4.1,
+    "yaw": 3.141592653589793
+  },
+  "progress": 100,
+  "clock": 201.01600000004754,
+  "requests": [
+    {
+      "station": "exam-b",
+      "item": "gauze",
+      "kind": "supply",
+      "wave": 1,
+      "id": "request-1",
+      "status": "completed",
+      "urgent": false,
+      "issuedAt": 200,
+      "completedAt": null
+    },
+    {
+      "station": "front-desk",
+      "item": "forms",
+      "kind": "supply",
+      "wave": 1,
+      "id": "request-2",
+      "status": "completed",
+      "urgent": false,
+      "issuedAt": 200,
+      "completedAt": null
+    },
+    {
+      "station": "front-desk",
+      "item": "empty-front-desk",
+      "kind": "return",
+      "wave": 2,
+      "id": "request-3",
+      "status": "completed",
+      "urgent": false,
+      "issuedAt": 200,
+      "completedAt": null
+    },
+    {
+      "station": "exam-b",
+      "item": "empty-exam-b",
+      "kind": "return",
+      "wave": 2,
+      "id": "request-4",
+      "status": "completed",
+      "urgent": false,
+      "issuedAt": 200,
+      "completedAt": null
+    },
+    {
+      "station": "treatment",
+      "item": "dressings",
+      "kind": "supply",
+      "wave": 3,
+      "id": "request-5",
+      "status": "active",
+      "urgent": true,
+      "issuedAt": 81,
+      "completedAt": null
+    },
+    {
+      "station": "exam-a",
+      "item": "gloves",
+      "kind": "supply",
+      "wave": 3,
+      "id": "request-6",
+      "status": "active",
+      "urgent": false,
+      "issuedAt": 200,
+      "completedAt": null
+    }
+  ],
+  "carried": null,
+  "done": 4,
+  "failed": true,
+  "complete": false,
+  "fixture": "urgent deadline boundary; earlier requests are fixture state, not playthrough",
+  "walk": {
+    "stage": "idle",
+    "ready": false,
+    "travel": 0,
+    "waypoints": 0
+  }
+}

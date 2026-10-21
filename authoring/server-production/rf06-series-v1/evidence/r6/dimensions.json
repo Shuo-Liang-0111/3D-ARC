@@ -1,0 +1,138 @@
+{
+  "feet": [
+    {
+      "name": "left_ankle_roll_link",
+      "size": [
+        0.07621701548268955,
+        0.05929407815916181,
+        0.20845579056093566
+      ]
+    },
+    {
+      "name": "left_ankle_roll_link__visual_0",
+      "size": [
+        0.07621701548268955,
+        0.05929407815916181,
+        0.20845579056093566
+      ]
+    },
+    {
+      "name": "right_ankle_roll_link",
+      "size": [
+        0.07624067078655727,
+        0.059400693218191025,
+        0.20846469318519834
+      ]
+    },
+    {
+      "name": "right_ankle_roll_link__visual_0",
+      "size": [
+        0.07624067078655727,
+        0.059400693218191025,
+        0.20846469318519834
+      ]
+    }
+  ],
+  "state": {
+    "player": {
+      "x": 3.35,
+      "z": -2.45,
+      "yaw": 0
+    },
+    "items": {
+      "wrench": {
+        "type": "wrench",
+        "location": "room",
+        "x": 4.58,
+        "z": 1.72,
+        "home": "tool-rack"
+      },
+      "bucket": {
+        "type": "bucket",
+        "location": "room",
+        "x": 3.78,
+        "z": 2.56,
+        "home": "utility-room"
+      },
+      "mop": {
+        "type": "mop",
+        "location": "room",
+        "x": 4.58,
+        "z": 2.22,
+        "home": "tool-rack"
+      }
+    },
+    "rewardedPickups": {
+      "wrench": false,
+      "bucket": false,
+      "mop": false
+    },
+    "carriedItem": null,
+    "valveClosed": true,
+    "bucketPlaced": false,
+    "puddleClean": true,
+    "returned": {
+      "wrench": false,
+      "mop": false
+    },
+    "complete": false,
+    "failed": false,
+    "progress": 100,
+    "motion": "idle",
+    "elapsed": 0,
+    "interactions": 0,
+    "lastEvent": "pest_started",
+    "revision": "rf06-pest-v2",
+    "mode": 1,
+    "water": 0,
+    "canLocation": "shelf",
+    "roaches": [
+      {
+        "id": "roach-1",
+        "x": -1.8951174091152665,
+        "z": 2.0241813835208853,
+        "yaw": 1,
+        "rng": 3317496417,
+        "alive": true,
+        "untilDecision": 0.049999999999999725,
+        "decisions": 0,
+        "forwardDecisions": 0,
+        "travel": 0.6000000000000004,
+        "collisions": 0,
+        "elapsed": 0.3000000000000002
+      },
+      {
+        "id": "roach-2",
+        "x": 1.4451174091152603,
+        "z": 0.4241813835208837,
+        "yaw": -1,
+        "rng": 3730852275,
+        "alive": true,
+        "untilDecision": 0.049999999999999725,
+        "decisions": 0,
+        "forwardDecisions": 0,
+        "travel": 0.6000000000000004,
+        "collisions": 0,
+        "elapsed": 0.3000000000000002
+      }
+    ],
+    "burst": null,
+    "cooldown": 0,
+    "shots": 0,
+    "kills": 0,
+    "pendingComplete": false
+  },
+  "snapshot": {
+    "fps": 0.9490817633080135,
+    "phase": "idle",
+    "error": null,
+    "lastResult": null,
+    "contacts": [],
+    "walk": {
+      "stage": "idle",
+      "ready": false,
+      "travel": 0,
+      "waypoints": 0
+    }
+  }
+}

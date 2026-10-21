@@ -1,0 +1,32 @@
+{
+  "level": "rf15",
+  "revision": "realism-v0.2.8",
+  "walls": [
+    {
+      "id": "west-wall",
+      "size": [
+        0.2,
+        3.8,
+        9
+      ],
+      "position": [
+        -8.5,
+        1.9,
+        -2.4
+      ]
+    },
+    {
+      "id": "north-wall",
+      "size": [
+        10.1,
+        3.8,
+        0.2
+      ],
+      "position": [
+        -3.55,
+        1.9,
+        -6.7
+      ]
+    }
+  ]
+}

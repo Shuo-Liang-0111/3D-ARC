@@ -1,0 +1,11 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "faceLimit": 100000,
+  "pivotToCenterBottom": true,
+  "prompt": "One compact automatic parcel infeed machine for a realistic small logistics workshop. Standalone short industrial feeder, approximately 1.2 meters long, 0.85 meters wide, 1.1 meters tall. A squat light-gray powder-coated steel cabinet base with access panels, ventilation slots, bolts, four sturdy leveling feet, a small emergency-stop control on one side, narrow yellow safety edges. The upper half has a short horizontal black rubber feeding belt and low brushed-steel side guides, the parcel discharge surface is 0.70 meters above the floor. Belt runs left to right along the long axis with a clear low open outlet on the right end, designed to connect flush to another conveyor. Compact functional proportions, detailed motor housing under the belt, believable industrial hardware, mildly worn PBR metallic materials. A single isolated machine, complete geometry, no room, no background geometry, no extra conveyor line, no scanner arch, no boxes, no people, no text or logos.",
+  "negativePrompt": "large machine, tall tower, giant hopper, long conveyor, gantry, room, walls, floor plane, parcels, humans, wheels, floating pieces, solid blocked outlet, cartoon, lowpoly, text, logo"
+}

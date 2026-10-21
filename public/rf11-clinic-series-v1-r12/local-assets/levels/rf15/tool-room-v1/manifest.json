@@ -1,0 +1,11 @@
+{
+  "revision": "tool-room-v1",
+  "source": "Blender precise reconstruction; existing RF15 embedded PBR texture reuse",
+  "files": {
+    "harvest-knife.glb": "82bcf0a13072333d27ba0e5f971e41ca61d90dfdf23f4c41c8c29ae1c8749c4d",
+    "hand-trowel.glb": "b8c40e8b10b47e4f501915716363cb4fe57da6f7388974bc5c78a52d5fa774c6",
+    "door.glb": "deb786d7a7854f8510b88e364a5ce40392b99d9dbc2f51f764ff37b5d8f57166",
+    "room.glb": "fd81f02bae0d333157b7d0bdeea371098d63f9e84a8339e8f4d30084c8a8dfdd",
+    "sprayer.glb": "05d40dee240a795ae2f2abe2f2ce35e2777ae7b67c495af147ccbc915767144a"
+  }
+}

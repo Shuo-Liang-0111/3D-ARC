@@ -1,0 +1,8 @@
+{
+  "release": "rf01-cargo-actions-v1",
+  "commit": "6c1793a1780d9aa5f118b7a030565e8152cc5d28",
+  "tests": 43,
+  "animationActions": 11,
+  "httpDependencies": 27,
+  "url": "http://127.0.0.1:4173/?mode=play&level=rf01-3&view=third&robot=g1&control=velocity"
+}

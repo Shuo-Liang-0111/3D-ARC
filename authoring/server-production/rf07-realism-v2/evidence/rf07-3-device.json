@@ -1,0 +1,122 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": -0.6794409239356302,
+      "z": -6.286074741588378,
+      "yaw": 3.3863600871992823
+    },
+    "samples": {
+      "sampleA": {
+        "location": "storage",
+        "x": -9.25,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleB": {
+        "location": "storage",
+        "x": -7.35,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleC": {
+        "location": "storage",
+        "x": -5.45,
+        "y": 0.9553,
+        "z": -6.77
+      }
+    },
+    "caseSamples": [],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.921,
+      "z": 1.6
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.921,
+      "z": 1.7
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.068,
+      "z": -2.22
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "prep-room",
+    "casePhase": "loading",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "device",
+      "device": "bsc-02",
+      "status": "resolved",
+      "triggerAt": 0,
+      "startedAt": 0
+    },
+    "clock": 14.256,
+    "clockStamp": 23431,
+    "elapsed": 9.133099999999995,
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 1,
+    "lastEvent": "device-off",
+    "rewards": [
+      "alarm"
+    ],
+    "delivered": false,
+    "doorOpen": false
+  },
+  "animation": {
+    "fps": 14.266738821626982,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "device-off",
+      "event": "device-off",
+      "error": 0.008020793198894536,
+      "revision": "rf07-realism-v2"
+    },
+    "contacts": [
+      {
+        "type": "device-off",
+        "event": "device-off",
+        "error": 0.008020793198894536,
+        "revision": "rf07-realism-v2"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.6029187567728922,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.0019955602342740793,
+          "position": [
+            -0.7616550527573621,
+            0.035352444142830786,
+            -6.101633154348805
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.000922935340033157,
+          "position": [
+            -0.518443231658293,
+            0.035364748650036706,
+            -6.156034170963521
+          ]
+        }
+      ]
+    }
+  }
+}

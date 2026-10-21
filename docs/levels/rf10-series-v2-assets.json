@@ -1,0 +1,110 @@
+{
+  "version": "rf10-series-v2",
+  "displayLevels": [
+    "RF-10",
+    "RF-10-2",
+    "RF-10-3"
+  ],
+  "routes": [
+    "rf12",
+    "rf12-2",
+    "rf12-3"
+  ],
+  "scene": "shared rf12 kitchen and interaction-layout.js",
+  "ceiling": "first only; includes existing fixtures",
+  "assets": [
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/oil_bottle.glb",
+      "bytes": 444576,
+      "sha256": "61c730b926e56a905b75531273865a3e3ddc8cd05f5ea39371ddac6f61a8df06",
+      "images": 3,
+      "source": "Cardinal",
+      "task": {
+        "taskId": "aigc_037c7c5ac70544b590687e5e30e43823",
+        "status": "completed",
+        "downloaded": true
+      }
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/frying_pan.glb",
+      "bytes": 435108,
+      "sha256": "b47efba1daf5bcd046cbbb7ae205ea5325ba77db43a70cc1a6d5654c3ee49436",
+      "images": 3,
+      "source": "Cardinal",
+      "task": {
+        "taskId": "aigc_a4b63ddae47b47a59655f30a439f9fbe",
+        "status": "completed",
+        "downloaded": true
+      }
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/extinguisher.glb",
+      "bytes": 624040,
+      "sha256": "08322059f794b9fa7bf88cf39981078cab8c1bbe104e08069fe8542624c4bc9a",
+      "images": 3,
+      "source": "Cardinal",
+      "task": {
+        "taskId": "aigc_4c5680cb6bd6482ab12f0327b9492048",
+        "status": "completed",
+        "downloaded": true
+      }
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/stove-precision.glb",
+      "bytes": 1150936,
+      "sha256": "7551da040cfde492816677a6d8430c8b882a64109593d66d0b6fdc6b686ce11c",
+      "images": 0,
+      "source": "Blender precision geometry",
+      "task": null
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/gas-knob-precision.glb",
+      "bytes": 65180,
+      "sha256": "941c67753b8c95a38cdcab2b7aa396212d6b8740a424a7baf8ada784324af163",
+      "images": 0,
+      "source": "Blender precision geometry",
+      "task": null
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/gas_valve.glb",
+      "bytes": 506436,
+      "sha256": "852dc5231a229eb33a725b7051645d60e5db37839a20ddc99c372850f992807f",
+      "images": 3,
+      "source": "reused Cardinal, optimized",
+      "task": null
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/kitchen_sink_repaired.glb",
+      "bytes": 867344,
+      "sha256": "2d293c186cc7f93e7639e804d8f1dc0a3d659e16eb21708351e18bcd4249fc25",
+      "images": 3,
+      "source": "reused Cardinal, optimized",
+      "task": null
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/refrigerator.glb",
+      "bytes": 616468,
+      "sha256": "76600e3cb85dd0d049a9553b8144f8eb50c7458f5e3d615ebac9bdaec9636229",
+      "images": 3,
+      "source": "reused Cardinal, optimized",
+      "task": null
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/safety_terminal.glb",
+      "bytes": 462304,
+      "sha256": "ed64b2d47b9f9d9b8d2dd2933ca43a9ffb06970e01d632bec43e1bc2cfe78b12",
+      "images": 3,
+      "source": "reused Cardinal, optimized",
+      "task": null
+    },
+    {
+      "file": "public/local-assets/levels/rf12/interaction-v2/wet_cloth.glb",
+      "bytes": 567444,
+      "sha256": "07a47270e722ae7f9d120dcfab03ce540aaa7014b71a268ccc09fcdb3929f305",
+      "images": 3,
+      "source": "reused Cardinal, optimized",
+      "task": null
+    }
+  ],
+  "acceptance": "passed"
+}

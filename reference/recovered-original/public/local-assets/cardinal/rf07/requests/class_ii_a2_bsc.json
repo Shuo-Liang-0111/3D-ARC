@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world laboratory equipment asset. Class II A2 biological safety cabinet for an operating Chinese BSL-2 lab, 1.50 m wide x 2.18 m high x 0.78 m deep. White powder-coated steel body, stainless work surface, front sash glass, intake grille, control panel, rear service depth, leveling feet; front opening must remain clear. Target dimensions approximately 1.5 m x 2.18 m x 0.78 m. Y-up, metric scale, front facing positive Z, centered bottom pivot. One isolated game-ready object only. Clean watertight topology, real thickness, beveled manufactured edges, physically based materials with base color, normal, roughness, metallic and AO. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

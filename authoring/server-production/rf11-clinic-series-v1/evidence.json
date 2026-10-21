@@ -1,0 +1,148 @@
+{
+  "revision": "clinic-series-v1-r12",
+  "assetRevision": "realism-v0.4.3 with clinic-series-v1 chime",
+  "levels": {
+    "RF-11-02": "rf13-02",
+    "RF-11": "rf13",
+    "RF-11-03": "rf13-03"
+  },
+  "scope": "Internal-coordinate fixed-position setup, real F animations, local movement/collision; not route navigation or reserve calibration",
+  "unitTests": 16,
+  "visualChecks": [
+    {
+      "version": "r3",
+      "view": "first",
+      "result": "ceiling and complete room visible"
+    },
+    {
+      "version": "r4",
+      "view": "third",
+      "result": "ceiling hidden, identical architecture"
+    },
+    {
+      "version": "r6",
+      "view": "first",
+      "result": "returned empty box supported on counter; same box geometry"
+    },
+    {
+      "version": "r6",
+      "view": "first",
+      "result": "two hand carry visible"
+    }
+  ],
+  "animationChecks": [
+    {
+      "version": "r4",
+      "action": "trolley",
+      "maxContactErrorMeters": 0.00124,
+      "walkMeters": 1.8505
+    },
+    {
+      "version": "r4",
+      "action": "chair",
+      "maxContactErrorMeters": 0.00853,
+      "walkMeters": 0.9498
+    },
+    {
+      "version": "r6",
+      "action": "gloves pickup",
+      "maxContactErrorMeters": 0.02952
+    },
+    {
+      "version": "r6",
+      "action": "delivery",
+      "maxContactErrorMeters": 0.0345
+    },
+    {
+      "version": "r6",
+      "action": "empty pickup",
+      "maxContactErrorMeters": 0.03345
+    },
+    {
+      "version": "r6",
+      "action": "empty return",
+      "maxContactErrorMeters": 0.03224
+    },
+    {
+      "version": "r7",
+      "action": "floor drop",
+      "maxContactErrorMeters": 0.03374
+    },
+    {
+      "version": "r2",
+      "action": "terminal and completion",
+      "maxContactErrorMeters": 0.03233
+    }
+  ],
+  "dynamicChecks": {
+    "randomSeeds": [
+      1,
+      9,
+      1024
+    ],
+    "requests": 6,
+    "maxActive": 2,
+    "urgentLimitSeconds": 120,
+    "countdownVisible": false,
+    "unitDeadlineBoundary": "119.999 alive, 120.000 failed (ordinary and urgent)",
+    "browserDeadline": "r12 fixture at 119s elapsed; real clock failure observed; ordinary request also naturally failed on r10",
+    "requestLimitSeconds": 120,
+    "minRequestIntervalSeconds": 60,
+    "browserIssueTimesSeconds": [
+      4.023900000023844,
+      64.0424000000242
+    ]
+  },
+  "performance": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "browser": "Codex in-app browser",
+    "observedStableFps": [
+      36,
+      60
+    ],
+    "note": "No 1080p claim; multiple test tabs occasionally reduced FPS; initialization excluded."
+  },
+  "status": "completed",
+  "userAcceptance": "not requested",
+  "latestChecks": {
+    "reserve": {
+      "movementPerSecond": 1.5,
+      "interactionCost": 5,
+      "browserMoveSeconds": 1.2018,
+      "before": 100,
+      "after": 98.1973
+    },
+    "hudRequestPanelAbsent": true,
+    "lampBaseY": 0.9,
+    "lampLocation": [
+      4.3,
+      1.4,
+      2.31
+    ],
+    "pickup": {
+      "version": "r12",
+      "contactError": 0.03164897104109561,
+      "holdError": 0.006013257663083156,
+      "reserveAfter": 93.94925000000005
+    },
+    "wallCollision": {
+      "version": "r12",
+      "startX": -6,
+      "endX": -6.4,
+      "carried": "gloves"
+    },
+    "screenshots": [
+      "r12-first-lamp.png",
+      "r12-third.png",
+      "r12-pickup.png",
+      "r12-timeout.png"
+    ],
+    "publicEvidence": "/rf11-clinic-evidence-r12/index.html",
+    "httpAssetsVerified": 13,
+    "protectedFilesMatch": 7
+  },
+  "commit": "1c025549c42b7230966e12d8a5f219d90a13839b"
+}

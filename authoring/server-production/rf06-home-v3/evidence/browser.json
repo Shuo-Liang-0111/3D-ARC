@@ -1,0 +1,117 @@
+{
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "release": "rf06-series-v1-r11",
+  "assets": {
+    "level": "rf06-2",
+    "viewMode": "third",
+    "controlMode": "velocity",
+    "pageMode": "play",
+    "robotAssetState": "ready",
+    "thirdViewSelected": "false",
+    "thirdViewHovered": "false",
+    "thirdViewDragging": "false",
+    "playerX": "-0.70",
+    "playerZ": "1.75",
+    "complete": "false",
+    "failed": "false",
+    "progress": "100",
+    "robotAction": "idle",
+    "robotActionEvent": "",
+    "robotActionGesture": "idle",
+    "robotActionActive": "false",
+    "robotActionProgress": "1.000",
+    "robotActionContact": "true",
+    "player": "{\"x\":-0.7,\"z\":1.75,\"yaw\":-1.5707963267948966}",
+    "items": "{\"wrench\":{\"type\":\"wrench\",\"location\":\"room\",\"x\":4.58,\"z\":1.72,\"home\":\"tool-rack\",\"supportY\":0.82},\"bucket\":{\"type\":\"bucket\",\"location\":\"room\",\"x\":3.85,\"z\":2.55,\"home\":\"utility-room\"},\"mop\":{\"type\":\"mop\",\"location\":\"room\",\"x\":4.58,\"z\":2.22,\"home\":\"tool-rack\"}}",
+    "rewardedPickups": "{\"wrench\":false,\"bucket\":false,\"mop\":false}",
+    "carriedItem": "null",
+    "valveClosed": "false",
+    "bucketPlaced": "false",
+    "puddleClean": "false",
+    "returned": "{\"wrench\":false,\"mop\":false}",
+    "motion": "idle",
+    "elapsed": "0",
+    "interactions": "0",
+    "lastEvent": "water_leak_started",
+    "mode": "2",
+    "residual": "0",
+    "water": "32.00799999999736",
+    "totalLeaked": "29.007999999997693",
+    "cleanedWater": "0",
+    "rewards": "{}",
+    "settling": "false",
+    "revision": "rf06-home-v3",
+    "environmentMapLoaded": "false",
+    "cardinalAssetsLoaded": "7",
+    "cardinalAssetsTotal": "7",
+    "robotModelLoaded": "true",
+    "firstPersonRobotLoaded": "true",
+    "robotAssetError": "",
+    "collisionProxyLoaded": "true",
+    "cargoAssetLoaded": "true",
+    "requiredAssetsReady": "true",
+    "mujocoStatus": "online"
+  },
+  "state": {
+    "player": {
+      "x": -0.7,
+      "z": 1.75,
+      "yaw": -1.5707963267948966
+    },
+    "items": {
+      "wrench": {
+        "type": "wrench",
+        "location": "room",
+        "x": 4.58,
+        "z": 1.72,
+        "home": "tool-rack",
+        "supportY": 0.82
+      },
+      "bucket": {
+        "type": "bucket",
+        "location": "room",
+        "x": 3.85,
+        "z": 2.55,
+        "home": "utility-room"
+      },
+      "mop": {
+        "type": "mop",
+        "location": "room",
+        "x": 4.58,
+        "z": 2.22,
+        "home": "tool-rack"
+      }
+    },
+    "rewardedPickups": {
+      "wrench": false,
+      "bucket": false,
+      "mop": false
+    },
+    "carriedItem": null,
+    "valveClosed": false,
+    "bucketPlaced": false,
+    "puddleClean": false,
+    "returned": {
+      "wrench": false,
+      "mop": false
+    },
+    "complete": false,
+    "failed": false,
+    "progress": 100,
+    "motion": "idle",
+    "elapsed": 0,
+    "interactions": 0,
+    "lastEvent": "water_leak_started",
+    "mode": 2,
+    "residual": 0,
+    "water": 32.00799999999736,
+    "totalLeaked": 29.007999999997693,
+    "cleanedWater": 0,
+    "rewards": {},
+    "settling": false,
+    "revision": "rf06-home-v3"
+  },
+  "simulatedEnvironmentSeconds": 180
+}

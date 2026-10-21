@@ -1,0 +1,11 @@
+{
+  "sourceImageId": "5bc26c2c49c0452894f29b3b39c71c56",
+  "taskType": "image_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

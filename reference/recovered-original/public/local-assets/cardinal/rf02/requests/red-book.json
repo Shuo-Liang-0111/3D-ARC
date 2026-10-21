@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready single closed hardcover library book for a contemporary Chinese municipal public library. Real-world size approximately 0.172 m wide x 0.041 m high x 0.245 m deep. The book lies flat with its front cover upward. Deep restrained red clothbound cover and spine with subtle woven fibers, cream paper block, sewn binding cues, slightly rounded corners, tiny natural page variation, light everyday handling wear, and a clean graspable outer edge. Y axis up, front facing positive Z, centered at world origin, bottom-center pivot. Clean watertight topology, physically based materials, realistic paper and cloth response. Exactly one isolated book only. No environment, floor, shelf, table, pedestal, hands, robot, straps, floating parts, animation, neon glow, outline, arrows, UI, readable text, title, label, barcode, logo, trademark, or baked lighting. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

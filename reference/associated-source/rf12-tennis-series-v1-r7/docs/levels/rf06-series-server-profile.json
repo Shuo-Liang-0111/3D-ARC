@@ -1,0 +1,13 @@
+{
+  "allowedHosts": [
+    "127.0.0.1"
+  ],
+  "allowedRoot": "/path/to/arc-workspace",
+  "projectCandidate": ".",
+  "sshUser": "chenhaoyuan",
+  "deploymentScope": "RF-06 series on existing ARC entry with versioned release",
+  "reportCardinalCost": false,
+  "executionMode": "automatic-after-initial-scope",
+  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+  "credentials": "user-private helper store; no secrets in project"
+}

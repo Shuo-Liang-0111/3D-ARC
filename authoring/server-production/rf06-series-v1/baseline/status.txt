@@ -1,0 +1,403 @@
+ D .env.example
+ M .gitignore
+ M README.md
+ M agent-guide.html
+ M agent-guide.js
+ M docs/levels/rf12-realism-brief.md
+ M game/app.js
+ M game/level.js
+ M game/levels/rf02/engine.js
+ M game/levels/rf02/level.js
+ M game/levels/rf02/runtime.js
+ M game/levels/rf02/scene.js
+ M game/levels/rf03/engine.js
+ M game/levels/rf03/runtime.js
+ M game/levels/rf03/scene.js
+ M game/levels/rf04/engine.js
+ M game/levels/rf04/scene.js
+ M game/levels/rf05/engine.js
+ M game/levels/rf05/runtime.js
+ M game/levels/rf05/scene.js
+ M game/levels/rf05/series-animation.js
+ M game/levels/rf05/series-engine.js
+ M game/levels/rf05/series-layout.js
+ M game/levels/rf05/series-qa.js
+ M game/levels/rf05/series-runtime.js
+ M game/levels/rf05/series-scene.js
+ M game/levels/rf06/engine.js
+ M game/levels/rf06/runtime.js
+ M game/levels/rf06/scene.js
+ M game/levels/rf07/engine.js
+ M game/levels/rf07/runtime.js
+ M game/levels/rf07/scene.js
+ M game/levels/rf08/runtime.js
+ M game/levels/rf09/engine.js
+ M game/levels/rf09/runtime.js
+ M game/levels/rf09/scene.js
+ M game/levels/rf10/runtime.js
+ M game/levels/rf11/runtime.js
+ M game/levels/rf12/engine.js
+ M game/levels/rf12/level.js
+ M game/levels/rf12/preview.js
+ M game/levels/rf12/runtime.js
+ M game/levels/rf12/scene.js
+ M game/levels/rf13/asset-review.js
+ M game/levels/rf13/level.js
+ M game/levels/rf13/preview.js
+ M game/levels/rf13/runtime.js
+ M game/levels/rf13/scene.js
+ M game/levels/rf14/runtime.js
+ M game/levels/rf15-1/runtime.js
+ M game/levels/rf15-2/runtime.js
+ M game/levels/rf15-3/runtime.js
+ M game/levels/rf15/animation-qa.js
+ M game/levels/rf15/shared-variant-scene.js
+ M game/operator-controls.js
+ M game/rf01-shared-engine.js
+ M game/rf01-shared-level.js
+ M game/rf01-shared-runtime.js
+ M game/rf01-shared-scene.js
+ M game/rf01-yard-layout.js
+ M game/scene.js
+ M game/unitree-g1-edu2.js
+ M index.html
+ M package.json
+ M pnpm-lock.yaml
+ D public/local-assets/cardinal/rf02/requests/catalog-terminal.json
+ D public/local-assets/cardinal/rf02/requests/circulation-desk.json
+ D public/local-assets/cardinal/rf02/requests/freestanding-stack-module.json
+ D public/local-assets/cardinal/rf02/requests/indoor-planter.json
+ D public/local-assets/cardinal/rf02/requests/library-terrazzo-floor.json
+ D public/local-assets/cardinal/rf02/requests/reading-chair.json
+ D public/local-assets/cardinal/rf02/requests/reading-table-retry.json
+ D public/local-assets/cardinal/rf02/requests/reading-table-set.json
+ D public/local-assets/cardinal/rf02/requests/reading-table.json
+ D public/local-assets/cardinal/rf02/requests/red-book.json
+ D public/local-assets/cardinal/rf02/requests/red-target-shelf.json
+ D public/local-assets/cardinal/rf02/requests/return-cart.json
+ D public/local-assets/cardinal/rf02/requests/return-sorting-table.json
+ D public/local-assets/cardinal/rf02/requests/security-gate-module.json
+ D public/local-assets/cardinal/rf02/requests/suspended-linear-light.json
+ D public/local-assets/cardinal/rf02/requests/wall-shelf-module.json
+ D public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc.json
+ D public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc_image_to_model.json
+ D public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc_reference.json
+ D public/local-assets/cardinal/rf07/requests/cleanroom_wall.json
+ D public/local-assets/cardinal/rf07/requests/cold_chain_packing_island.json
+ D public/local-assets/cardinal/rf07/requests/dry_reagent_cabinet.json
+ D public/local-assets/cardinal/rf07/requests/epoxy_floor.json
+ D public/local-assets/cardinal/rf07/requests/handwash_eyewash_station.json
+ D public/local-assets/cardinal/rf07/requests/handwash_eyewash_station_image_to_model.json
+ D public/local-assets/cardinal/rf07/requests/handwash_eyewash_station_reference.json
+ D public/local-assets/cardinal/rf07/requests/medical_refrigerator.json
+ D public/local-assets/cardinal/rf07/requests/medical_waste_bin.json
+ D public/local-assets/cardinal/rf07/requests/p650_transport_case.json
+ D public/local-assets/cardinal/rf07/requests/p650_transport_case_image_to_model.json
+ D public/local-assets/cardinal/rf07/requests/p650_transport_case_reference.json
+ D public/local-assets/cardinal/rf07/requests/pcm_cooling_plate.json
+ D public/local-assets/cardinal/rf07/requests/pcm_cooling_plate_image_to_model.json
+ D public/local-assets/cardinal/rf07/requests/pcm_cooling_plate_reference.json
+ D public/local-assets/cardinal/rf07/requests/ppe_locker_bank.json
+ D public/local-assets/cardinal/rf07/requests/receiving_bench_equipment_bank.json
+ D public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier.json
+ D public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier_image_to_model.json
+ D public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier_reference.json
+ D public/local-assets/cardinal/rf07/requests/specimen_transfer_cart.json
+ D public/local-assets/cardinal/rf09/requests/av_podium.json
+ D public/local-assets/cardinal/rf09/requests/carpet_floor.json
+ D public/local-assets/cardinal/rf09/requests/ceiling_light.json
+ D public/local-assets/cardinal/rf09/requests/conference_table.json
+ D public/local-assets/cardinal/rf09/requests/conference_terminal.json
+ D public/local-assets/cardinal/rf09/requests/executive_chair.json
+ D public/local-assets/cardinal/rf09/requests/it_equipment_locker.json
+ D public/local-assets/cardinal/rf09/requests/lounge_sofa.json
+ D public/local-assets/cardinal/rf09/requests/office_workstation.json
+ D public/local-assets/cardinal/rf09/requests/painted_wall.json
+ D public/local-assets/cardinal/rf09/requests/reception_desk.json
+ D public/local-assets/cardinal/rf09/requests/supply_cabinet.json
+ D public/local-assets/cardinal/rf09/requests/usb_c_video_adapter.json
+ D public/local-assets/cardinal/rf09/requests/wireless_presenter.json
+ D public/local-assets/levels/rf12/layout.md
+ D public/local-assets/levels/rf12/manifest.json
+ M public/local-assets/levels/rf12/models/runtime/manifest.json
+ D public/local-assets/levels/rf12/requests/cooking_oil_bottle.json
+ M public/local-assets/levels/rf12/requests/floor_tile_texture.json
+ D public/local-assets/levels/rf12/requests/frying_pan.json
+ D public/local-assets/levels/rf12/requests/gas_stove.json
+ D public/local-assets/levels/rf12/requests/heat_trivet.json
+ M public/local-assets/levels/rf12/requests/range_hood.json
+ M public/local-assets/levels/rf12/requests/rf12_environment.json
+ M public/local-assets/levels/rf12/requests/safety_terminal.json
+ D public/local-assets/levels/rf12/requests/tofu_container.json
+ D public/local-assets/levels/rf12/requests/tomato_basket.json
+ M public/local-assets/levels/rf12/requests/wall_tile_texture.json
+ M public/local-assets/levels/rf12/textures/floor_tile_cardinal.png
+ M public/local-assets/levels/rf12/textures/wall_tile_cardinal.png
+ M rf12-preview.html
+ M rf13-assets.html
+ M rf13-preview.html
+ M server.mjs
+ M simulation/g1_simulation.py
+ M simulation/mujoco_server.py
+ M tests/g1-motion-calibration.test.mjs
+ M tests/operator-console.test.mjs
+ M tests/rf01-shared-yard.test.mjs
+ M tests/rf02-library.test.mjs
+ M tests/rf05-series.test.mjs
+ M tests/rf09-office.test.mjs
+ M tests/rf12-kitchen.test.mjs
+ M tests/rf13-clinic.test.mjs
+ M tests/shared-movement-controls.test.mjs
+ M tools/arc-managed-browser.mjs
+ M tools/arc-opencode-mcp.mjs
+ M tools/opencode-arc.sh
+ M vite.config.js
+?? .codex/
+?? .img2threejs/
+?? .impeccable.md
+?? app.js
+?? app.route.js
+?? "cript --'"
+?? docs/AGENT_PLATFORM.md
+?? docs/LEVEL_PRODUCTION_HARNESS.md
+?? docs/REALISM_GAME_PROMPT_GUIDE.md
+?? docs/levels/display-numbering.md
+?? docs/levels/rf01-sorting-acceptance.md
+?? docs/levels/rf01-sorting-assets.json
+?? docs/levels/rf01-sorting-production-plan.md
+?? docs/levels/rf01-sorting-server-profile.json
+?? docs/levels/rf01-sorting-v2-acceptance.md
+?? docs/levels/rf01-sorting-v2-assets.json
+?? docs/levels/rf01-sorting-v3-acceptance.md
+?? docs/levels/rf01-sorting-v4-acceptance.md
+?? docs/levels/rf02-interactions-v6-acceptance.md
+?? docs/levels/rf02-series-acceptance.md
+?? docs/levels/rf02-series-assets.json
+?? docs/levels/rf02-series-production-plan.md
+?? docs/levels/rf02-series-server-profile.json
+?? docs/levels/rf04-realism-brief.md
+?? docs/levels/rf08-static.md
+?? docs/levels/rf12-layout.json
+?? docs/levels/rf13-realism-v04.md
+?? docs/levels/rf15-acceptance-report.md
+?? docs/levels/rf15-asset-manifest.json
+?? docs/levels/rf15-contact-grasp.md
+?? docs/levels/rf15-layout.json
+?? docs/levels/rf15-production-plan.md
+?? docs/levels/rf15-realism-brief.md
+?? docs/levels/test_zpf2.md
+?? "ed -n 1,140p server.mjs"
+?? "ed -n 1,180p package.json"
+?? game/dexterous-hand.js
+?? game/levels/rf01-3/preview.js
+?? game/levels/rf01-3/qa.js
+?? game/levels/rf02-2/
+?? game/levels/rf02-3/
+?? game/levels/rf02/book-controller.js
+?? game/levels/rf02/furnishings-layout.js
+?? game/levels/rf02/furniture-controller.js
+?? game/levels/rf02/series-engine.js
+?? game/levels/rf02/series-layout.js
+?? game/levels/rf02/series-runtime.js
+?? game/levels/rf02/series-scene.js
+?? game/levels/rf05/series-leak-scene.js
+?? game/levels/rf05/series-leak.js
+?? game/levels/rf08/static-scene.js
+?? game/levels/rf13/furnishings.js
+?? game/levels/rf13/review-metrics.js
+?? game/levels/rf15/engine.js
+?? game/levels/rf15/preview.js
+?? game/levels/rf15/runtime.js
+?? game/levels/test_zpf/
+?? game/levels/test_zpf2/
+?? game/rf01-sorting-assets.js
+?? game/rf01-sorting-layout.js
+?? game/rf01-sorting-scene.js
+?? integrations/opencode/ARC_AGENT_PROMPT.md
+?? integrations/opencode/opencode.json.example
+?? level.js
+?? package-lock.json
+?? pnpm-workspace.yaml
+?? preview.js
+?? production/
+?? public/level-preview/rf12.html
+?? public/level-preview/rf15-wall-review.html
+?? public/local-assets/gaussian/
+?? public/local-assets/levels/rf04/
+?? public/local-assets/levels/rf12/models/runtime/validation.json
+?? public/local-assets/levels/rf12/requests/gas_knob.json
+?? public/local-assets/levels/rf12/requests/gas_valve.json
+?? public/local-assets/levels/rf12/requests/generation-plan.json
+?? public/local-assets/levels/rf12/requests/kitchen_sink.json
+?? public/local-assets/levels/rf12/requests/kitchen_window.json
+?? public/local-assets/levels/rf12/requests/refrigerator.json
+?? public/local-assets/levels/rf12/requests/wet_cloth.json
+?? public/local-assets/levels/rf13/cardinal-v0.2/
+?? public/local-assets/levels/rf13/cardinal-v0.3/environment-measurements.json
+?? public/local-assets/levels/rf13/cardinal-v0.3/exam-bed.orientation.json
+?? public/local-assets/levels/rf13/cardinal-v0.3/trolley.orientation.json
+?? public/local-assets/levels/rf13/realism-v0.3/
+?? public/local-assets/levels/rf13/realism-v0.4.1/
+?? public/local-assets/levels/rf13/realism-v0.4.2/
+?? public/local-assets/levels/rf13/realism-v0.4.3/
+?? public/local-assets/levels/rf13/realism-v0.4/
+?? public/local-assets/levels/rf14/
+?? public/local-assets/levels/rf15/
+?? public/rf01-infeed-review.html
+?? public/rf01-sorting-build-v2/
+?? public/rf01-sorting-build-v3/
+?? public/rf01-sorting-build-v4-navigation-v1/
+?? public/rf01-sorting-build-v4/
+?? public/rf01-sorting-evidence/
+?? public/rf01-sorting-preview.html
+?? public/rf01-sorting-qa.html
+?? public/rf01-sorting-v2-build-qa.html
+?? public/rf01-sorting-v3-build-qa.html
+?? public/rf01-sorting-v4-qa.html
+?? public/rf02-performance-qa.html
+?? public/rf02-series-qa.html
+?? public/rf04-ik.html
+?? public/rf04-series-v1-r1/
+?? public/rf04-series-v1-r10/
+?? public/rf04-series-v1-r11/
+?? public/rf04-series-v1-r12/
+?? public/rf04-series-v1-r13/
+?? public/rf04-series-v1-r2/
+?? public/rf04-series-v1-r3/
+?? public/rf04-series-v1-r4/
+?? public/rf04-series-v1-r5/
+?? public/rf04-series-v1-r6/
+?? public/rf04-series-v1-r7/
+?? public/rf04-series-v1-r8/
+?? public/rf04-series-v1-r9/
+?? public/rf04-series-v2-r14/
+?? public/rf04-series-v2-r15/
+?? public/rf04-series-v2-r16/
+?? public/rf04-series-v2-r17/
+?? public/rf04-series-v2-r18/
+?? public/rf04-series-v2-r19/
+?? public/rf04-series-v2-r20/
+?? public/rf04-series-v2-r21/
+?? public/rf04-series-v2-r22/
+?? public/rf04-series-v2-r23/
+?? public/rf05-series-v02-evidence
+?? public/rf05-series-v02-r10
+?? public/rf05-series-v02-r11
+?? public/rf05-series-v02-r12
+?? public/rf05-series-v02-r13
+?? public/rf05-series-v02-r14
+?? public/rf05-series-v02-r15
+?? public/rf05-series-v02-r16
+?? public/rf05-series-v02-r17
+?? public/rf05-series-v02-r18
+?? public/rf05-series-v02-r19
+?? public/rf05-series-v02-r2
+?? public/rf05-series-v02-r20
+?? public/rf05-series-v02-r21
+?? public/rf05-series-v02-r22
+?? public/rf05-series-v02-r23
+?? public/rf05-series-v02-r3
+?? public/rf05-series-v02-r4
+?? public/rf05-series-v02-r5
+?? public/rf05-series-v02-r6
+?? public/rf05-series-v02-r7
+?? public/rf05-series-v02-r8
+?? public/rf05-series-v02-r9
+?? public/rf05-series-v03-r1
+?? public/rf08-review-v2/
+?? public/vendor/
+?? rf12-layout.test.mjs
+?? rf12-live-level.js
+?? rf12-live-scene.js
+?? rf12-live-vite.js
+?? rf14-tennis.test.mjs
+?? rf15-preview.html
+?? rf15/
+?? "s -ltnp | rg ':4173' || true"
+?? server/agent-platform.mjs
+?? server/mujoco-bridge.mjs
+?? simulation/__pycache__/
+?? simulation/browser_arm_control.py
+?? simulation/requirements-rf15-contact.txt
+?? simulation/rf15_balance.py
+?? simulation/rf15_contact.py
+?? simulation/rf15_reach.py
+?? simulation/test_browser_arm_control.py
+?? simulation/test_level_environment.py
+?? simulation/test_rf15_balance.py
+?? simulation/test_rf15_contact.py
+?? tests/agent-browser-contract.test.mjs
+?? tests/agent-platform.test.mjs
+?? tests/app.js
+?? tests/arc-agent-client.test.mjs
+?? tests/engine.js
+?? tests/gaussian.js
+?? tests/level.js
+?? tests/mesh-collision.js
+?? tests/mujoco-bridge.test.mjs
+?? tests/rf01-sorting.test.mjs
+?? tests/rf02-series.test.mjs
+?? tests/rf08-static.test.mjs
+?? tests/rf12-airwall.test.mjs
+?? tests/rf12-layout.test.mjs
+?? tests/rf13-realism.test.mjs
+?? tests/test-zpf-office.test.mjs
+?? tests/test_zpf2-office.test.mjs
+?? tools/__pycache__/
+?? tools/arc-agent-client.mjs
+?? tools/docs/
+?? tools/level-production-harness.mjs
+?? tools/opencode-arc-local.sh
+?? tools/public/
+?? tools/rf01-infeed-prepare.mjs
+?? tools/rf01-sorting-audit.mjs
+?? tools/rf01-sorting-optimize.mjs
+?? tools/rf02-series/
+?? tools/rf04-optimize-cardinal-assets.py
+?? tools/rf04-optimize-cardinal-washer.py
+?? tools/rf04-series/browser-probe.mjs
+?? tools/rf04-series/ik-probe.mjs
+?? tools/rf04-series/ik-vacuum-probe.mjs
+?? tools/rf08-v2-build-dataset.py
+?? tools/rf08-v2-make-review.py
+?? tools/rf12-airwall.test.mjs
+?? tools/rf12-blender-audit.py
+?? tools/rf12-blender-refine.py
+?? tools/rf12-build-collision.mjs
+?? tools/rf12-collision-records.json
+?? tools/rf12-collision-sync.py
+?? tools/rf12-entry-services.py
+?? tools/rf12-hood-repair.py
+?? tools/rf12-inspect-assets.mjs
+?? tools/rf12-layout-environment.mjs
+?? tools/rf12-layout-manifest.mjs
+?? tools/rf12-layout-preview.js
+?? tools/rf12-layout-scene.js
+?? tools/rf12-orient-window.py
+?? tools/rf12-prepare-cardinal.mjs
+?? tools/rf12-realism-level.js
+?? tools/rf12-realism-scene.js
+?? tools/rf12-render-audit.py
+?? tools/rf12-sink-repair.py
+?? tools/rf12-surface-repair.py
+?? tools/rf12-v2-build-environment.mjs
+?? tools/rf12-v2-cardinal-poll.py
+?? tools/rf12-v2-cardinal-queue.py
+?? tools/rf12-v2-normalize.py
+?? tools/rf12-v2-prepare-cardinal.mjs
+?? tools/rf12-v2-write-runtime-manifest.mjs
+?? tools/rf12-window-realistic-request.json
+?? tools/rf13-asset-metrics.mjs
+?? tools/rf13-v04-build.py
+?? tools/rf13-v04-cardinal.py
+?? tools/rf13-v04-fit.py
+?? tools/rf15-arm-probe.mjs
+?? tools/rf15-browser-hand-probe.mjs
+?? tools/rf15-live-pose-probe.mjs
+?? tools/rf15-orange-pose-check.mjs
+?? tools/rf15/__pycache__/
+?? tools/rf15/audit-assets.py
+?? tools/rf15/build-assets.py
+?? tools/rf15/detail-pass.py
+?? tools/rf15/normalize-prop.py
+?? tools/rf15/wall-shell.py

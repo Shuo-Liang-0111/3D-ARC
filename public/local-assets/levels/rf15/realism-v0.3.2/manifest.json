@@ -1,0 +1,134 @@
+{
+  "level": "rf15",
+  "revision": "realism-v0.3.2",
+  "sourceRevision": "realism-v0.2.8",
+  "status": "internal-review",
+  "changes": [
+    "replacement hollow scanned crates",
+    "assembled workstations",
+    "hollow wash basin and plumbing",
+    "scanned electrical enclosure",
+    "wood pallet construction",
+    "correct truck hardware and treads",
+    "dynamic textured tail lift",
+    "paper-fibre cartons",
+    "embedded PBR texture maps"
+  ],
+  "textureSources": [
+    {
+      "label": "RF15-oak-PBR",
+      "source": "public/local-assets/cardinal/rf12-v2/textures/oak_cardinal.png",
+      "sha256": "65703c6967cd4a205a7b243e535864ffbc4c780c227ee39a2a47f098f1fdfba5"
+    },
+    {
+      "label": "RF15-plaster-PBR",
+      "source": "public/local-assets/embodiedgen/rf02/models/runtime/generated_textures/plaster.png",
+      "sha256": "132eb03f684e03d8dbaac871a439b9a9fff0b6be5e9e43ef4d076b6134c2055f"
+    },
+    {
+      "label": "RF15-kraft-PBR",
+      "source": "public/local-assets/embodiedgen/rf03/models/runtime/generated_textures/kraft_cardboard.png",
+      "sha256": "7c36dea7cf9a85eaa517fae0f9e9d0f21f8d2133f9af2f25ed63324e6d7425b8"
+    },
+    {
+      "label": "brushed-steel",
+      "source": "Blender/NumPy deterministic brushed micrograin",
+      "seed": 15,
+      "normal": "baked tangent-space"
+    },
+    {
+      "label": "RF15-skirting-PBR",
+      "source": "public/local-assets/polyhaven/rf01/textures/hangar_concrete_floor/hangar_concrete_floor_diff_2k.jpg",
+      "sha256": "b08c21c2c5ad64f1957803c3d80953a1f3dc1a5ffb566e53ea52479f6e2f8a6a"
+    },
+    {
+      "label": "RF15-floor-PBR",
+      "source": "public/local-assets/polyhaven/rf01/textures/hangar_concrete_floor/hangar_concrete_floor_diff_2k.jpg",
+      "sha256": "b08c21c2c5ad64f1957803c3d80953a1f3dc1a5ffb566e53ea52479f6e2f8a6a"
+    },
+    {
+      "label": "RF15-asphalt-PBR",
+      "source": "public/local-assets/polyhaven/rf01/textures/aerial_asphalt_01/aerial_asphalt_01_diff_2k.jpg",
+      "sha256": "00e5d999bfab217bccce0f3c735e7ad81e02b13ece0204a9ad264794d6c52292"
+    },
+    {
+      "label": "RF15-roof-PBR",
+      "source": "public/local-assets/polyhaven/rf01/textures/box_profile_metal_sheet/box_profile_metal_sheet_diff_2k.jpg",
+      "sha256": "305a107971b429e79a099be649a9c12218500681f0462501957ea573d592c696"
+    }
+  ],
+  "scannedSources": [
+    {
+      "asset": "plastic_crate_01",
+      "provider": "Poly Haven",
+      "license": "CC0 1.0"
+    },
+    {
+      "asset": "power_box_01",
+      "provider": "Poly Haven",
+      "license": "CC0 1.0"
+    }
+  ],
+  "assets": [
+    {
+      "id": "rf15_final",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/rf15_final.glb",
+      "bytes": 32007332,
+      "sha256": "d5cfb44c3a841ec1436246bd945340bb5b694e534eb39ff4e71d973931588778"
+    },
+    {
+      "id": "tail-lift",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/tail-lift.glb",
+      "bytes": 4342952,
+      "sha256": "1579342d2137e1d0f35832d0758586fd52f53db1ae9681efecda37544a395e9f"
+    },
+    {
+      "id": "pallet-jack",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/pallet-jack.glb",
+      "bytes": 2663648,
+      "sha256": "b65d53222872c5d19f11f01b5854bd7f13b97882e52097dd0e2fa2ba609a8e68"
+    },
+    {
+      "id": "platform-scale",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/platform-scale.glb",
+      "bytes": 3567144,
+      "sha256": "8eb84045dc874568c854b8b23b4b7b146115e937bbd1ab0077d1b0d1dc77a48b"
+    },
+    {
+      "id": "rf15_collision",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/rf15_collision.glb",
+      "bytes": 21980,
+      "sha256": "d017c41d00f264a5bd7b8eefdf6f97c82181795d1041f87443c3e9a6d1468967"
+    },
+    {
+      "id": "apple-crate",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/apple-crate.glb",
+      "bytes": 2933424,
+      "sha256": "a5b93d15d0ded2736819979f2dca4702738cd52f481d66967ec9bf043912592b"
+    },
+    {
+      "id": "apple-box",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/apple-box.glb",
+      "bytes": 152616,
+      "sha256": "41acad2d8da6a7b0b3315971b324723cef9a0ac575ac5129bc646441c05f1ed3"
+    },
+    {
+      "id": "tomato-crate",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/tomato-crate.glb",
+      "bytes": 3278200,
+      "sha256": "fe09f4552dfa10c1087d00fe8b75746446710af2a7e8de109e27f295af30f60a"
+    },
+    {
+      "id": "tomato-box",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/tomato-box.glb",
+      "bytes": 151948,
+      "sha256": "c851b55d65a7b05bd999835de4c9f43728240a0347fffbf5e67f77e69d58df34"
+    },
+    {
+      "id": "plane-tree",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.3.2/plane-tree.glb",
+      "bytes": 2877160,
+      "sha256": "725ae2d2094f35dd9abb82b065924c13292a2339a7bb1fed8184c284d91c591f"
+    }
+  ]
+}

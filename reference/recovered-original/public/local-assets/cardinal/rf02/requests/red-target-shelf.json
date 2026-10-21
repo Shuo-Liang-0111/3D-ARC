@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready single-sided adult open-stack bookshelf for a contemporary Chinese municipal public library. Real-world size approximately 3.0 m wide x 1.8 m high x 0.58 m deep. Five usable horizontal tiers, warm medium-oak veneer end panels, concealed dark powder-coated steel frame, adjustable shelf brackets, narrow kick plate, anti-tip wall fixing points, realistic fasteners, and restrained institutional wear. Fill the shelves with varied unbranded muted red clothbound books, while preserving one clearly empty single-book slot centered on the third usable tier at approximately 1.16 m above the floor for a game-controlled book. All shelf openings and the empty slot must remain physically open and unobstructed. X axis along shelf width, Y axis up, front facing positive Z, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. Exactly one isolated bookshelf only. No room, wall, floor, ladder, person, robot, loose book outside the shelf, floating parts, animation, neon glow, outline, arrows, UI, readable text, labels, logos, trademarks, or baked lighting. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

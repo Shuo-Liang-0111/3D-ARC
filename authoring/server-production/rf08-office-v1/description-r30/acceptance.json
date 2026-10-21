@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "release": "rf08-office-v1-r30",
+  "description": "布置会议室",
+  "levels": [
+    "RF-08",
+    "RF-08-2",
+    "RF-08-3"
+  ],
+  "checks": [
+    "All three engine objective titles verified",
+    "Production build passed",
+    "All three HTTP entries and both served objective bundles verified",
+    "CUA start description and running task panel show 布置会议室; screenshot inspected"
+  ],
+  "commit": "54e8045d7d56035a83a76d9b4443c6cef7f52274"
+}

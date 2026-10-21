@@ -1,0 +1,30 @@
+[
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/index.html",
+    "sha256": "78aca9784b1518265f0916da19f95c302392d9cdef70e8263b87b073980d1738"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/assets/series-runtime-jpxxwcaL.js",
+    "sha256": "afedc370ac1f9b42ff4df295f6901c89ff447c9464c54549c61e7c1fdd74c83a"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/assets/series-entry-WcQudOwe.js",
+    "sha256": "e758521bde3e1ddfc488994d11f83a2f748e82a1044c591b7f6994b4a7455fb3"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/assets/series-qa-9lW01IH1.js",
+    "sha256": "9dc0c4df9d87f5d43b5f743f98236ed6d6622ff34b735944926a4874b896d64d"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/assets/series-qa-DQdJSJ__.js",
+    "sha256": "4cd23fd338d694c1a8dee1853c69e9c87aaa02dd671b2e34a468a9fb5a6c07ad"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/assets/series-runtime-CiTyqbC-.js",
+    "sha256": "4617e8381a142bef0bcc931b0dd09d1a9a4622044ada6447766c7fe30c11ae98"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r23/assets/series-runtime-CHFwIlLZ.js",
+    "sha256": "25425e207eb32583fc3346d615c156ca30e127523e6605f6fa73596320f7b718"
+  }
+]

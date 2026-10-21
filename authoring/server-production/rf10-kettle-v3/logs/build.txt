@@ -1,0 +1,132 @@
+
+> relay-facility-3d@2.0.0 build
+> vite build --outDir ./authoring/server-production/rf10-kettle-v3/release
+
+vite v6.0.11 building for production...
+
+(!) outDir ./authoring/server-production/rf10-kettle-v3/release is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+transforming...
+✓ 1546 modules transformed.
+rendering chunks...
+computing gzip size...
+../production/rf10-kettle-v3/release/rf13-assets.html                                 1.55 kB │ gzip:     0.66 kB
+../production/rf10-kettle-v3/release/rf15-preview.html                                1.56 kB │ gzip:     0.64 kB
+../production/rf10-kettle-v3/release/rf14-preview.html                                1.62 kB │ gzip:     0.72 kB
+../production/rf10-kettle-v3/release/rf12-preview.html                                1.76 kB │ gzip:     0.81 kB
+../production/rf10-kettle-v3/release/rf13-preview.html                                3.06 kB │ gzip:     1.47 kB
+../production/rf10-kettle-v3/release/r1-view.html                                     3.30 kB │ gzip:     1.67 kB
+../production/rf10-kettle-v3/release/g1-edu2.html                                     3.80 kB │ gzip:     1.83 kB
+../production/rf10-kettle-v3/release/index.html                                      16.71 kB │ gzip:     4.91 kB
+../production/rf10-kettle-v3/release/agent-guide.html                                22.12 kB │ gzip:     8.01 kB
+../production/rf10-kettle-v3/release/assets/agentGuide-CVuxdR_6.css                  14.37 kB │ gzip:     3.92 kB
+../production/rf10-kettle-v3/release/assets/game-CZDc2QqC.css                        30.70 kB │ gzip:     6.91 kB
+../production/rf10-kettle-v3/release/assets/g1-locomotion-kONIMYOY.js                 0.07 kB │ gzip:     0.08 kB
+../production/rf10-kettle-v3/release/assets/rf01-yard-layout--oMqPTjc.js              0.57 kB │ gzip:     0.29 kB
+../production/rf10-kettle-v3/release/assets/modulepreload-polyfill-B5Qt9EMX.js        0.71 kB │ gzip:     0.40 kB
+../production/rf10-kettle-v3/release/assets/Pass-DRTulJ-D.js                          0.74 kB │ gzip:     0.42 kB
+../production/rf10-kettle-v3/release/assets/preload-helper-CmsKOCeN.js                1.11 kB │ gzip:     0.67 kB
+../production/rf10-kettle-v3/release/assets/runtime-BqItUyhb.js                       1.20 kB │ gzip:     0.61 kB
+../production/rf10-kettle-v3/release/assets/runtime-DBRomR9f.js                       1.20 kB │ gzip:     0.61 kB
+../production/rf10-kettle-v3/release/assets/runtime-C60KEX70.js                       1.26 kB │ gzip:     0.63 kB
+../production/rf10-kettle-v3/release/assets/runtime-p0iaqVAY.js                       1.26 kB │ gzip:     0.63 kB
+../production/rf10-kettle-v3/release/assets/runtime-CfuwQq66.js                       1.26 kB │ gzip:     0.63 kB
+../production/rf10-kettle-v3/release/assets/runtime-DRlWTuQS.js                       1.26 kB │ gzip:     0.63 kB
+../production/rf10-kettle-v3/release/assets/runtime-BCGP9q1L.js                       1.26 kB │ gzip:     0.63 kB
+../production/rf10-kettle-v3/release/assets/movement-BuXqi5gx.js                      1.28 kB │ gzip:     0.53 kB
+../production/rf10-kettle-v3/release/assets/runtime-DyXpi2Zi.js                       1.28 kB │ gzip:     0.63 kB
+../production/rf10-kettle-v3/release/assets/runtime-BoeaKcVU.js                       1.28 kB │ gzip:     0.64 kB
+../production/rf10-kettle-v3/release/assets/runtime-BZ6GXSON.js                       1.28 kB │ gzip:     0.64 kB
+../production/rf10-kettle-v3/release/assets/series-entry-CUt6fy3K.js                  1.31 kB │ gzip:     0.66 kB
+../production/rf10-kettle-v3/release/assets/runtime-BAd1O8s4.js                       1.31 kB │ gzip:     0.66 kB
+../production/rf10-kettle-v3/release/assets/runtime-IRj5kOwn.js                       1.31 kB │ gzip:     0.66 kB
+../production/rf10-kettle-v3/release/assets/series-runtime-Pw5EIEXJ.js                1.38 kB │ gzip:     1.05 kB
+../production/rf10-kettle-v3/release/assets/rf14Preview-U_kKrvm8.js                   1.44 kB │ gzip:     0.90 kB
+../production/rf10-kettle-v3/release/assets/office-entry-B7YqxegK.js                  1.46 kB │ gzip:     0.73 kB
+../production/rf10-kettle-v3/release/assets/office-entry-CsAQqXJw.js                  1.46 kB │ gzip:     0.73 kB
+../production/rf10-kettle-v3/release/assets/office-entry-B3J7r-hA.js                  1.46 kB │ gzip:     0.73 kB
+../production/rf10-kettle-v3/release/assets/runtime-hj1k2MDT.js                       1.48 kB │ gzip:     0.74 kB
+../production/rf10-kettle-v3/release/assets/runtime-CxkJKQ8U.js                       1.48 kB │ gzip:     0.75 kB
+../production/rf10-kettle-v3/release/assets/runtime-k_F70q70.js                       1.48 kB │ gzip:     0.75 kB
+../production/rf10-kettle-v3/release/assets/RoundedBoxGeometry-Bq2NETG5.js            1.76 kB │ gzip:     0.83 kB
+../production/rf10-kettle-v3/release/assets/rf15Preview-kcdfNaki.js                   1.79 kB │ gzip:     1.05 kB
+../production/rf10-kettle-v3/release/assets/animation-qa-DcJKZv9A.js                  1.82 kB │ gzip:     1.14 kB
+../production/rf10-kettle-v3/release/assets/rf13Assets-vc7AE7wy.js                    2.02 kB │ gzip:     1.23 kB
+../production/rf10-kettle-v3/release/assets/RoomEnvironment-BVSi_L2Q.js               2.05 kB │ gzip:     0.88 kB
+../production/rf10-kettle-v3/release/assets/agentGuide-BHyiLZjM.js                    2.05 kB │ gzip:     1.00 kB
+../production/rf10-kettle-v3/release/assets/level-D08omVjM.js                         2.06 kB │ gzip:     0.90 kB
+../production/rf10-kettle-v3/release/assets/level-BMq7ZDVf.js                         2.14 kB │ gzip:     0.96 kB
+../production/rf10-kettle-v3/release/assets/rf12Preview-DMKNghPc.js                   2.23 kB │ gzip:     1.11 kB
+../production/rf10-kettle-v3/release/assets/tool-room-qa-Cg_ip4PE.js                  2.38 kB │ gzip:     1.17 kB
+../production/rf10-kettle-v3/release/assets/runtime-BZMII8R-.js                       2.40 kB │ gzip:     1.60 kB
+../production/rf10-kettle-v3/release/assets/runtime-HvA5NH6m.js                       2.46 kB │ gzip:     1.67 kB
+../production/rf10-kettle-v3/release/assets/runtime-T5NYFGif.js                       2.52 kB │ gzip:     1.62 kB
+../production/rf10-kettle-v3/release/assets/runtime-D6aaBXnj.js                       2.60 kB │ gzip:     1.71 kB
+../production/rf10-kettle-v3/release/assets/runtime-C_BkBWdc.js                       2.66 kB │ gzip:     1.73 kB
+../production/rf10-kettle-v3/release/assets/r1View-BWd80mDB.js                        2.67 kB │ gzip:     1.54 kB
+../production/rf10-kettle-v3/release/assets/series-qa-CSmLH9bS.js                     2.81 kB │ gzip:     1.21 kB
+../production/rf10-kettle-v3/release/assets/runtime-CG0NZLjf.js                       2.81 kB │ gzip:     1.95 kB
+../production/rf10-kettle-v3/release/assets/field-qa-CdSVgRJ6.js                      2.81 kB │ gzip:     1.45 kB
+../production/rf10-kettle-v3/release/assets/runtime-Bn9WOGnd.js                       3.06 kB │ gzip:     1.98 kB
+../production/rf10-kettle-v3/release/assets/runtime-1vfEeR84.js                       3.11 kB │ gzip:     2.17 kB
+../production/rf10-kettle-v3/release/assets/level-BlkQD8bJ.js                         3.33 kB │ gzip:     1.64 kB
+../production/rf10-kettle-v3/release/assets/series-qa-D61XXaMD.js                     3.43 kB │ gzip:     1.55 kB
+../production/rf10-kettle-v3/release/assets/qa-BMUFGsUR.js                            3.46 kB │ gzip:     1.83 kB
+../production/rf10-kettle-v3/release/assets/HDRLoader-aEryOTFS.js                     3.51 kB │ gzip:     1.68 kB
+../production/rf10-kettle-v3/release/assets/qa-C9bW9jRC.js                            3.63 kB │ gzip:     1.63 kB
+../production/rf10-kettle-v3/release/assets/robot-action-CjdE5gF_.js                  3.79 kB │ gzip:     1.13 kB
+../production/rf10-kettle-v3/release/assets/engine-Ca6nlKGw.js                        4.85 kB │ gzip:     2.07 kB
+../production/rf10-kettle-v3/release/assets/robot-D9Xd5dNL.js                         4.98 kB │ gzip:     2.20 kB
+../production/rf10-kettle-v3/release/assets/g1Edu2-CFcShe9Q.js                        5.12 kB │ gzip:     2.61 kB
+../production/rf10-kettle-v3/release/assets/runtime-D_G27qLt.js                       5.70 kB │ gzip:     2.68 kB
+../production/rf10-kettle-v3/release/assets/rf13Preview-BnBUMUIB.js                   5.85 kB │ gzip:     2.84 kB
+../production/rf10-kettle-v3/release/assets/mujoco-client-DRJ7PK3c.js                 6.01 kB │ gzip:     2.46 kB
+../production/rf10-kettle-v3/release/assets/DRACOLoader-DGIScJx2.js                   6.32 kB │ gzip:     2.64 kB
+../production/rf10-kettle-v3/release/assets/interaction-qa-B4_czqNx.js                6.45 kB │ gzip:     2.82 kB
+../production/rf10-kettle-v3/release/assets/office-qa-CD4BD-ks.js                     6.95 kB │ gzip:     3.14 kB
+../production/rf10-kettle-v3/release/assets/engine-DKoEAacS.js                        7.02 kB │ gzip:     3.24 kB
+../production/rf10-kettle-v3/release/assets/runtime-D-0YHZlD.js                       7.37 kB │ gzip:     3.54 kB
+../production/rf10-kettle-v3/release/assets/unitree-r1-edu-Bhb-o3HO.js                7.53 kB │ gzip:     3.20 kB
+../production/rf10-kettle-v3/release/assets/g1-articulated-collision-D-qObSxx.js      7.61 kB │ gzip:     2.71 kB
+../production/rf10-kettle-v3/release/assets/unitree-g1-dex1-model-BF5DzcON.js         7.78 kB │ gzip:     2.95 kB
+../production/rf10-kettle-v3/release/assets/series-qa-g3kcHRxa.js                     8.06 kB │ gzip:     3.76 kB
+../production/rf10-kettle-v3/release/assets/scene-KduGnaKk.js                         8.14 kB │ gzip:     3.91 kB
+../production/rf10-kettle-v3/release/assets/interaction-walk-CBv8Esqv.js              9.19 kB │ gzip:     3.84 kB
+../production/rf10-kettle-v3/release/assets/runtime-DTDrPwkS.js                      10.01 kB │ gzip:     4.59 kB
+../production/rf10-kettle-v3/release/assets/engine-CnBI5Z3I.js                       10.39 kB │ gzip:     4.84 kB
+../production/rf10-kettle-v3/release/assets/runtime-DIEWPXUU.js                      10.71 kB │ gzip:     5.05 kB
+../production/rf10-kettle-v3/release/assets/series-runtime-CJNsvA1t.js               11.63 kB │ gzip:     5.01 kB
+../production/rf10-kettle-v3/release/assets/orange-scene-CJA6xox5.js                 12.44 kB │ gzip:     5.13 kB
+../production/rf10-kettle-v3/release/assets/scene-Di8ygSCE.js                        13.07 kB │ gzip:     5.88 kB
+../production/rf10-kettle-v3/release/assets/series-qa-BOFY57_J.js                    13.95 kB │ gzip:     5.30 kB
+../production/rf10-kettle-v3/release/assets/scene-tmcz0cGD.js                        15.58 kB │ gzip:     6.13 kB
+../production/rf10-kettle-v3/release/assets/runtime-CUp1Fi9O.js                      16.82 kB │ gzip:     6.79 kB
+../production/rf10-kettle-v3/release/assets/OrbitControls-kl6EECsu.js                19.15 kB │ gzip:     4.36 kB
+../production/rf10-kettle-v3/release/assets/runtime-Bg2vOnd3.js                      20.24 kB │ gzip:     8.48 kB
+../production/rf10-kettle-v3/release/assets/shared-variant-scene-J1Aiu0sL.js         20.41 kB │ gzip:     7.99 kB
+../production/rf10-kettle-v3/release/assets/runtime-DsSwU0bo.js                      25.63 kB │ gzip:    10.33 kB
+../production/rf10-kettle-v3/release/assets/series-animation-D93IHsCm.js             27.17 kB │ gzip:    10.40 kB
+../production/rf10-kettle-v3/release/assets/interaction-animation-D98mXitS.js        27.47 kB │ gzip:    10.17 kB
+../production/rf10-kettle-v3/release/assets/interaction-animation-BRe0sKkq.js        30.65 kB │ gzip:    10.16 kB
+../production/rf10-kettle-v3/release/assets/furniture-controller-C1gLm0fA.js         32.07 kB │ gzip:    11.10 kB
+../production/rf10-kettle-v3/release/assets/rf01-battery-BdY8nt37.js                 33.71 kB │ gzip:    10.20 kB
+../production/rf10-kettle-v3/release/assets/rf01-shared-scene-BQesc6_3.js            42.02 kB │ gzip:    15.74 kB
+../production/rf10-kettle-v3/release/assets/runtime-B74-oZ2r.js                      43.72 kB │ gzip:    16.96 kB
+../production/rf10-kettle-v3/release/assets/series-runtime-rTOb0QYJ.js               47.50 kB │ gzip:    17.78 kB
+../production/rf10-kettle-v3/release/assets/GLTFLoader-ELQ8TGyw.js                   48.69 kB │ gzip:    14.16 kB
+../production/rf10-kettle-v3/release/assets/office-runtime-BxUY6r6K.js               51.16 kB │ gzip:    20.13 kB
+../production/rf10-kettle-v3/release/assets/series-runtime-CUsv1H9T.js               53.04 kB │ gzip:    19.67 kB
+../production/rf10-kettle-v3/release/assets/series-runtime-CA6e4eLP.js               71.05 kB │ gzip:    22.80 kB
+../production/rf10-kettle-v3/release/assets/game-B4sK7Kar.js                        154.40 kB │ gzip:    67.41 kB
+../production/rf10-kettle-v3/release/assets/three.core-DK0yxxKN.js                  263.61 kB │ gzip:    72.75 kB
+../production/rf10-kettle-v3/release/assets/three.module-DPmUQNJr.js                324.43 kB │ gzip:    78.51 kB
+../production/rf10-kettle-v3/release/assets/runtime-B8ARlsxl.js                   1,973.94 kB │ gzip:   512.77 kB
+../production/rf10-kettle-v3/release/assets/rapier-DWaP5K6J.js                    2,235.32 kB │ gzip:   829.84 kB
+../production/rf10-kettle-v3/release/assets/spark.module-BAl5YztM.js              4,923.59 kB │ gzip: 1,749.66 kB
+
+(!) Some chunks are larger than 600 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.29s

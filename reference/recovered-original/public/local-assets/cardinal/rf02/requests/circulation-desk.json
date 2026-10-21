@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready modular circulation service desk for a contemporary Chinese municipal public library. Overall real-world size approximately 5.15 m wide x 1.07 m high x 1.06 m deep. Warm medium-oak public-facing panels over a durable dark powder-coated steel frame, solid low-sheen worktop, one integrated accessible lowered counter section approximately 0.78 m high, realistic toe kick, cable-management grommets, lockable staff-side storage seams, restrained daily wear, clean joinery and precise fasteners. The public front faces positive Z; the staff side is functional but contains no loose equipment. X axis along desk width, Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. Exactly one isolated desk only. No computer, monitor, books, chair, person, robot, room, floor, wall, floating parts, animation, neon glow, outline, arrows, UI, readable text, labels, logo, trademark, or baked lighting. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

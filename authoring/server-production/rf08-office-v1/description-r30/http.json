@@ -1,0 +1,21 @@
+[
+  {
+    "level": "rf09",
+    "release": "rf08-office-v1-r30",
+    "menuCount": 40
+  },
+  {
+    "level": "rf09-2",
+    "release": "rf08-office-v1-r30",
+    "menuCount": 40
+  },
+  {
+    "level": "rf09-3",
+    "release": "rf08-office-v1-r30",
+    "menuCount": 40
+  },
+  {
+    "bundleObjectives": "All three are 布置会议室",
+    "httpMatchesRelease": true
+  }
+]

@@ -1,0 +1,163 @@
+{
+  "first": {
+    "ceiling": true,
+    "items": {
+      "sampleA": {
+        "visible": true,
+        "position": [
+          -9.25,
+          0.9553,
+          -6.77
+        ]
+      },
+      "sampleB": {
+        "visible": true,
+        "position": [
+          -7.35,
+          0.9553,
+          -6.77
+        ]
+      },
+      "sampleC": {
+        "visible": true,
+        "position": [
+          -5.45,
+          0.9553,
+          -6.77
+        ]
+      },
+      "transport-case": {
+        "visible": true,
+        "position": [
+          1.2,
+          0.921,
+          1.6
+        ]
+      },
+      "cooling-module": {
+        "visible": true,
+        "position": [
+          3.65,
+          0.921,
+          1.7
+        ]
+      },
+      "leak-container": {
+        "visible": true,
+        "position": [
+          -6.65,
+          1.068,
+          -2.22
+        ]
+      }
+    }
+  },
+  "third": {
+    "ceiling": false,
+    "items": {
+      "sampleA": {
+        "visible": true,
+        "position": [
+          -9.25,
+          0.9553,
+          -6.77
+        ]
+      },
+      "sampleB": {
+        "visible": true,
+        "position": [
+          -7.35,
+          0.9553,
+          -6.77
+        ]
+      },
+      "sampleC": {
+        "visible": true,
+        "position": [
+          -5.45,
+          0.9553,
+          -6.77
+        ]
+      },
+      "transport-case": {
+        "visible": true,
+        "position": [
+          1.2,
+          0.921,
+          1.6
+        ]
+      },
+      "cooling-module": {
+        "visible": true,
+        "position": [
+          3.65,
+          0.921,
+          1.7
+        ]
+      },
+      "leak-container": {
+        "visible": true,
+        "position": [
+          -6.65,
+          1.068,
+          -2.22
+        ]
+      }
+    }
+  },
+  "errors": [],
+  "collision": {
+    "cabinet": {
+      "start": {
+        "x": 9,
+        "z": 0,
+        "yaw": 1.5707963267948966
+      },
+      "end": {
+        "x": 9.980000000000004,
+        "z": 6.429395695523584e-16,
+        "yaw": 1.5707963267948966
+      }
+    },
+    "wall": {
+      "start": {
+        "x": 0,
+        "z": -5.5,
+        "yaw": 3.141592653589793
+      },
+      "end": {
+        "x": 1.2858791391047169e-15,
+        "z": -6.340000000000003,
+        "yaw": 3.141592653589793
+      }
+    },
+    "tray": {
+      "start": {
+        "x": -8.8,
+        "z": 4.1,
+        "yaw": -1.5707963267948966
+      },
+      "end": {
+        "x": -9.290000000000003,
+        "z": 4.1,
+        "yaw": -1.5707963267948966
+      }
+    }
+  },
+  "performance": {
+    "animation": {
+      "fps": 32.871799976954975,
+      "phase": "idle",
+      "error": null,
+      "lastResult": null,
+      "contacts": [],
+      "walk": {
+        "stage": "idle",
+        "ready": false,
+        "travel": 0,
+        "waypoints": 0
+      }
+    },
+    "renderer": "WebKit WebGL"
+  }
+}

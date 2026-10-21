@@ -1,0 +1,20 @@
+[
+  {
+    "path": "local-assets/levels/rf12/window-v5/kitchen-collision.glb",
+    "sha256": "4268252d4be8c2b21bdf613f83e63a2f175dd85c9e21da9a3091a8878d0575f5",
+    "httpMatches": true,
+    "releaseMatches": true
+  },
+  {
+    "path": "local-assets/levels/rf12/window-v5/sliding-window.glb",
+    "sha256": "73a4d14763065408cab51c820c8a7deef97253ac18b3fe048d9b9a03961a192d",
+    "httpMatches": true,
+    "releaseMatches": true
+  },
+  {
+    "path": "local-assets/levels/rf12/window-v5/kitchen-environment.glb",
+    "sha256": "4730e9cde12be7e7f2372b4af0a33965fd00eb773b8c433e40d73c560e718b0a",
+    "httpMatches": true,
+    "releaseMatches": true
+  }
+]

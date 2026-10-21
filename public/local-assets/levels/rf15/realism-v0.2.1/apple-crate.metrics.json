@@ -1,0 +1,21 @@
+{
+  "name": "apple-crate",
+  "size": [
+    0.5906037092208862,
+    0.3389699729596032,
+    0.4467642307281494
+  ],
+  "min": [
+    -0.29550063610076904,
+    4.160679236520082e-05,
+    -0.22388219833374023
+  ],
+  "max": [
+    0.2951030731201172,
+    0.3390115797519684,
+    0.22288203239440918
+  ],
+  "frontAxis": "+Z",
+  "rotationDegrees": 0,
+  "crop": "Removed extraneous upper empty crate above 55 percent source height"
+}

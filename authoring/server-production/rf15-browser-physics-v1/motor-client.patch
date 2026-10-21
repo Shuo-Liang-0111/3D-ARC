@@ -1,0 +1,6 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -386,1 +386,2 @@
+       message: showToast,
++      motorCommand: targets => mujocoClient?.send({ type: "arm_command", targets }),

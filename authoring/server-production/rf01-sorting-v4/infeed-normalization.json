@@ -1,0 +1,18 @@
+{
+  "source": "./authoring/server-production/rf01-sorting-v4/source/compact-infeed.glb",
+  "output": "public/local-assets/cardinal/rf01/models/runtime/sorting-v4",
+  "scale": 1.6315368700510307,
+  "bounds": {
+    "min": [
+      -0.8000000000000002,
+      0,
+      -0.2441487346926868
+    ],
+    "max": [
+      0.8,
+      0.6705915545690371,
+      0.24500485020288196
+    ]
+  },
+  "textures": 3
+}

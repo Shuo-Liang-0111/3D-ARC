@@ -1,0 +1,97 @@
+{
+  "tomato-crate": {
+    "taskId": "aigc_6b695d9bd55f45f59472b76577e87e9d",
+    "status": "completed",
+    "request": "./authoring/server-production/rf15/cardinal/tomato-crate.json"
+  },
+  "apple-crate": {
+    "taskId": "aigc_b763943c529d4b8aabb8e332e8035a3b",
+    "status": "completed",
+    "request": "./authoring/server-production/rf15/v0.2/apple-crate.request.json",
+    "response": {
+      "createdAt": "2026-09-14T11:07:50.9692449Z",
+      "estimatedWaitSeconds": 30,
+      "id": "aigc_b763943c529d4b8aabb8e332e8035a3b",
+      "idempotentReplay": false,
+      "normalizations": [],
+      "normalizedInput": {
+        "enableImageAutofix": false,
+        "enablePbr": true,
+        "faceLimit": null,
+        "geometryQuality": "detailed",
+        "outputFormat": "glb",
+        "qualityPreset": "high-highpoly",
+        "taskType": "text_to_model",
+        "texture": true,
+        "textureResolution": null
+      },
+      "queuePosition": 1,
+      "queueReason": "scheduled",
+      "requestId": "aigc_b763943c529d4b8aabb8e332e8035a3b",
+      "retryAfterSeconds": 30,
+      "status": "queued",
+      "taskId": "aigc_b763943c529d4b8aabb8e332e8035a3b",
+      "type": "model3d"
+    }
+  },
+  "platform-scale": {
+    "taskId": "aigc_b83b4e0d8c814d739e96f93afb333fe6",
+    "status": "completed",
+    "request": "./authoring/server-production/rf15/v0.2/platform-scale.request.json",
+    "response": {
+      "createdAt": "2026-09-14T11:07:51.6652628Z",
+      "estimatedWaitSeconds": 30,
+      "id": "aigc_b83b4e0d8c814d739e96f93afb333fe6",
+      "idempotentReplay": false,
+      "normalizations": [],
+      "normalizedInput": {
+        "enableImageAutofix": false,
+        "enablePbr": true,
+        "faceLimit": null,
+        "geometryQuality": "detailed",
+        "outputFormat": "glb",
+        "qualityPreset": "high-highpoly",
+        "taskType": "text_to_model",
+        "texture": true,
+        "textureResolution": null
+      },
+      "queuePosition": 1,
+      "queueReason": "scheduled",
+      "requestId": "aigc_b83b4e0d8c814d739e96f93afb333fe6",
+      "retryAfterSeconds": 30,
+      "status": "queued",
+      "taskId": "aigc_b83b4e0d8c814d739e96f93afb333fe6",
+      "type": "model3d"
+    }
+  },
+  "pallet-jack": {
+    "taskId": "aigc_bb2b149db5054db48a9961caed19b6ac",
+    "status": "completed",
+    "request": "./authoring/server-production/rf15/v0.2/pallet-jack.request.json",
+    "response": {
+      "createdAt": "2026-09-14T11:07:52.486744Z",
+      "estimatedWaitSeconds": 60,
+      "id": "aigc_bb2b149db5054db48a9961caed19b6ac",
+      "idempotentReplay": false,
+      "normalizations": [],
+      "normalizedInput": {
+        "enableImageAutofix": false,
+        "enablePbr": true,
+        "faceLimit": null,
+        "geometryQuality": "detailed",
+        "outputFormat": "glb",
+        "qualityPreset": "high-highpoly",
+        "taskType": "text_to_model",
+        "texture": true,
+        "textureResolution": null
+      },
+      "queuePosition": 2,
+      "queueReason": "scheduled",
+      "requestId": "aigc_bb2b149db5054db48a9961caed19b6ac",
+      "retryAfterSeconds": 60,
+      "status": "queued",
+      "taskId": "aigc_bb2b149db5054db48a9961caed19b6ac",
+      "type": "model3d"
+    }
+  }
+}

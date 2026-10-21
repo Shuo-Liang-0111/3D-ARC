@@ -1,0 +1,33 @@
+{
+  "build": "r13",
+  "formalInteractions": 27,
+  "complete": true,
+  "animationTimeouts": 0,
+  "phase": "idle",
+  "maxContactErrorM": 0.05497015148301057,
+  "washed": true,
+  "water": 0,
+  "faucet": false,
+  "carriedItem": null,
+  "attachment": null,
+  "slots": [
+    "towel1",
+    "towel2",
+    "cup1",
+    "cup2"
+  ],
+  "chair": {
+    "x": 2.8003999999999967,
+    "z": -1.810400000000027,
+    "yaw": 1.5707963267948966,
+    "releaseErrorM": 0.001947116422884296
+  },
+  "cart": {
+    "x": 1.3836000000000075,
+    "z": 4.301149999999987,
+    "yaw": 0,
+    "releaseErrorM": 0.008178265385044802
+  },
+  "evidenceScope": "Robot teleported to nearby stations, production animation actions and manual key inputs for furniture; not route/budget verification",
+  "visualIssue": "First-person basin approach bends too deeply. r14 changes only basin stance/posture and must retest basin."
+}

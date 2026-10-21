@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready isolated medical supply object for a contemporary Chinese urban community clinic. Real-world size approximately 0.38 m wide x 0.22 m high x 0.28 m deep. Clean molded plastic carton with restrained realistic wear, crisp seams, lid and label panel, bottom flat and stable for shelf support, front facing positive Z, Y axis up, centered bottom pivot. Physically based materials, studio-neutral lighting, one isolated object only. No room, shelf, floor, wall, character, robot, hands, pedestal, floating parts, animation, readable text, logo, trademark, arrows, UI, baked environment, or background geometry. Export as GLB. Mauve-gray reception forms and clinic stationery supply carton.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

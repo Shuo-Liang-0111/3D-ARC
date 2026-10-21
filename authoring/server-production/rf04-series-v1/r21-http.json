@@ -1,0 +1,138 @@
+[
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/index.html",
+    "sha256": "21c7df600747aba0a08507f986d1176dce20185eea7f2d75a9f46c4ef45ec022"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/series-runtime-BVT9dBmG.js",
+    "sha256": "1dec2249bd782ba7c81a2a0d3b545e6e5bf11fe7bd90a5f6e29a2405cb23fb44"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/series-entry-CM36QVd-.js",
+    "sha256": "48d9b6e230998b719d88a6b32106fa77d79e8ccd0f9f5daa7f73d02198212f72"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/series-qa-DBAisUAM.js",
+    "sha256": "19275fd4d0d8ab603d4e2d6f83cbba6f03eb048c6366c4a96a91d00c597121bd"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/series-runtime-CcSvLUZn.js",
+    "sha256": "e808e66d78042ba4b3e8cadc67259d93b18d13956f17e006e2e25c79049dbbac"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/series-qa-X8JeJeiO.js",
+    "sha256": "f001ab7db279ad2707df535588e8698fc437b23310f7999042ed8f3f6d77b53d"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/series-runtime-C-CesiRT.js",
+    "sha256": "afa973396e22b4f95be202bd3456a2bef13deefc5c068450a8ab916317ad1c15"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-CUpuilqv.js",
+    "sha256": "a1b4a53ab053402bba7c37b9208a3a39a7a6a44bd5dc15b723def50cd1fa96b6"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-B8gKoJUf.js",
+    "sha256": "60d679261a01698a3405c3dcb4798d07affbc6beeb357ee0ad2c09b639cc0266"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-4y-_ekbF.js",
+    "sha256": "52ce67dfe0e8c4e9639ceba7e832bc044a91f9c885a345f5052da734e77bf523"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-NfGsj5Fj.js",
+    "sha256": "c0c969ea93ab7a9b298a3078f46e310ab33e7e209251d5403f1a0ebe970bf458"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-AI33dqnU.js",
+    "sha256": "de27d00582e5ce08b145e3819dd30ac6fa522eb8ddd4a08903714b0f4d7d33df"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-N-mFermS.js",
+    "sha256": "ce2e41076ac0296c339e96b6e6b57c88b5593ef0b8c08c9b27a89851fadc64c9"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-BMBVoJT6.js",
+    "sha256": "b6a769f88c18386ee9a6a723c81ce6024b763024bc36c297dc61720e2cdbaffa"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-DAtQyLdc.js",
+    "sha256": "e599a37ab0e4183b3f573b11a0d4e6f27af45e511e6660cd373f31b003d75ac1"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-CAN2JbmC.js",
+    "sha256": "2466cdc7252ff52cfb543c0b20bf42f7725772454ed7288037ad5a6fcf06e6e5"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-1M5nc8Wq.js",
+    "sha256": "cd4d8224ac520d5f0b049b77c47b3e393fd566d60223bc6021ed1203552eade3"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-BzYZTmM5.js",
+    "sha256": "2ef83d667ef49eef0ea94f3b0198021793c0260f35dc67b7b02df4c706ff8467"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-BL5JuRBO.js",
+    "sha256": "795064a01a484db22fb2c9872395d420a881d9fd788dc8bfd2b90522eb48996c"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-Bl_F62yT.js",
+    "sha256": "8a4b959fe86e1016690576d23a210539bd4eec52ad5b518a73f769aecb7e0b7d"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-CA4k_gbG.js",
+    "sha256": "a4f660c7107535534e245427cf906e40583e4e2f71a12152b8b9c1d96019b955"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-B0fNMl4P.js",
+    "sha256": "abe82808f4c5b54ed2fb37fda197c883bb4e9026dba806307a98ae7b5d0ac650"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-D8xl--mQ.js",
+    "sha256": "02cdc16d0169d6ff2a991ebc5a77a9dd30f9d01ddf203fd682da4edccea46934"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-DuT0YurP.js",
+    "sha256": "26eccf60d3d92d14b85fc669842e14766401d662e5148de4ce2099369a399329"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-6RhsdF7Z.js",
+    "sha256": "333c7da733530bc1e66522db491eac2bda34d7b6475883099be2d983ba34f576"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-B8uhRxrd.js",
+    "sha256": "7d8c924183477f1b95864608ffc85f45e81ed99e9ac65db91236fd0a1115974e"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-iebiiym0.js",
+    "sha256": "52fef3a5847bb256399f003391e9882b162618168341ec4e58dbd3fc5a35d7e2"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-CRWmhEOb.js",
+    "sha256": "7fe2e40779a6dd7829cccd8c438eaf243a4cd1d2f294bb40bdd0ff50eb46fbfc"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-Gji1jkdn.js",
+    "sha256": "c3a00d6da6104b3ccbb929fed62b29cf4476477fbbba0d8aff62736a24ddeb64"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-CbMFJoM_.js",
+    "sha256": "e843014ee00a10d8c58842db8a4d00dee80de0d8f37f3775efe87a4794d270a2"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-CPXdWzYn.js",
+    "sha256": "e8fcc7085a06d9fba658a85f180ee0da0f508c46ace4462e8ea5a5a895641d92"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-Ck3L-Eeg.js",
+    "sha256": "6ac3b19299876682c607a1aaaf178193af56c41a8544d1aed69e26b98e62705b"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-BL4zB6Cq.js",
+    "sha256": "b7e01374ec826620246203c88bf038ab54b6ee4fc49baf4ebd2e022243543c2f"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r21/assets/runtime-DPnFdia6.js",
+    "sha256": "714437850f6e729b7be40eaf789c7ad459b6bbaa3baca21e71b3776eaf24eded"
+  }
+]

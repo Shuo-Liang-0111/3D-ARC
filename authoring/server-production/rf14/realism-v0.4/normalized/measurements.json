@@ -1,0 +1,102 @@
+[
+  {
+    "asset": "ball-hopper",
+    "source": "./authoring/server-production/rf14/realism-v0.4/cardinal-ball-hopper.glb",
+    "processing": "EmbodiedGen 2.1.0 asset-process (uniform mesh and collision scaling, URDF height metadata)",
+    "uniformScale": 1.2438930722209856,
+    "bounds": [
+      [
+        -0.6093423664569855,
+        0.0,
+        -0.5204683840274811
+      ],
+      [
+        0.6093423664569855,
+        0.949999988079071,
+        0.5204683840274811
+      ]
+    ],
+    "size": [
+      1.218684732913971,
+      0.949999988079071,
+      1.0409367680549622
+    ],
+    "faces": 56737,
+    "visual": "pending"
+  },
+  {
+    "asset": "umpire-chair",
+    "source": "./authoring/server-production/rf14/realism-v0.4/cardinal-umpire-chair.glb",
+    "processing": "EmbodiedGen 2.1.0 asset-process (uniform mesh and collision scaling, URDF height metadata)",
+    "uniformScale": 2.35331680074618,
+    "bounds": [
+      [
+        -0.6574632823467255,
+        0.0,
+        -0.6293902695178986
+      ],
+      [
+        0.6574632823467255,
+        2.299999952316284,
+        0.6293902695178986
+      ]
+    ],
+    "size": [
+      1.314926564693451,
+      2.299999952316284,
+      1.2587805390357971
+    ],
+    "faces": 59520,
+    "visual": "pending"
+  },
+  {
+    "asset": "windscreen",
+    "source": "./authoring/server-production/rf14/realism-v0.4/cardinal-windscreen.glb",
+    "processing": "EmbodiedGen 2.1.0 asset-process (uniform mesh and collision scaling, URDF height metadata)",
+    "uniformScale": 2.4927721022272262,
+    "bounds": [
+      [
+        -1.225000023841858,
+        0.0,
+        -0.08147425204515457
+      ],
+      [
+        1.225000023841858,
+        2.1907492876052856,
+        0.08147425204515457
+      ]
+    ],
+    "size": [
+      2.450000047683716,
+      2.1907492876052856,
+      0.16294850409030914
+    ],
+    "faces": 47736,
+    "visual": "pending"
+  },
+  {
+    "asset": "plane-tree",
+    "source": "./authoring/server-production/rf14/realism-v0.4/cardinal-plane-tree.glb",
+    "processing": "EmbodiedGen 2.1.0 asset-process (uniform mesh and collision scaling, URDF height metadata)",
+    "uniformScale": 7.809863893565266,
+    "bounds": [
+      [
+        -3.833716034889221,
+        0.0,
+        -3.828576683998108
+      ],
+      [
+        3.833716034889221,
+        7.0,
+        3.828576683998108
+      ]
+    ],
+    "size": [
+      7.667432069778442,
+      7.0,
+      7.657153367996216
+    ],
+    "faces": 65562,
+    "visual": "pending"
+  }
+]

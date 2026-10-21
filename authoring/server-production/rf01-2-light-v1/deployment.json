@@ -1,0 +1,49 @@
+{
+  "url": "http://127.0.0.1:4173/?level=rf01-2",
+  "revision": "workshop-light-v1",
+  "results": [
+    {
+      "path": "game/levels/rf01-2/level.js",
+      "source": "cef346d3ce88d5c657dc8cb4c9485cadb9cb464acc6c36588eb0a299595a42fc",
+      "served": "cef346d3ce88d5c657dc8cb4c9485cadb9cb464acc6c36588eb0a299595a42fc"
+    },
+    {
+      "path": "game/levels/rf01-2/engine.js",
+      "source": "f2cbfcffdc0ce4ba2685686cccf4b376f6fecfdfc717961df23ae94e6bfeeac3",
+      "served": "f2cbfcffdc0ce4ba2685686cccf4b376f6fecfdfc717961df23ae94e6bfeeac3"
+    },
+    {
+      "path": "game/levels/rf01-2/runtime.js",
+      "source": "5826549b65202b5d1e3a318e1f7cf7704d578ac81860994c1b02c1a523d926a0",
+      "served": "5826549b65202b5d1e3a318e1f7cf7704d578ac81860994c1b02c1a523d926a0"
+    },
+    {
+      "path": "game/rf01-workshop.js",
+      "source": "16a0907efbd465ff018e1894cc8cd2845f0a7b7c66f3eeb4a832a52c588abe15",
+      "served": "16a0907efbd465ff018e1894cc8cd2845f0a7b7c66f3eeb4a832a52c588abe15"
+    },
+    {
+      "path": "game/scene.js",
+      "source": "357078f75f28cb704e980eedba0df6de6a1a00c65be7abfa968976b894af1b66",
+      "served": "357078f75f28cb704e980eedba0df6de6a1a00c65be7abfa968976b894af1b66"
+    },
+    {
+      "path": "local-assets/cardinal/rf01/models/runtime/rf01_factory_workshop.glb",
+      "source": "2953346dbe3b710997f2b65dd1665f7581fca941fc55bbbf243171645f3f009f",
+      "built": "2953346dbe3b710997f2b65dd1665f7581fca941fc55bbbf243171645f3f009f",
+      "served": "2953346dbe3b710997f2b65dd1665f7581fca941fc55bbbf243171645f3f009f"
+    },
+    {
+      "path": "local-assets/cardinal/rf01/models/runtime/rf01_fluorescent_light_fixture.glb",
+      "source": "4a397edc841ae40d56a7529c9abf580515ce8a19920a29f06d568a5887257078",
+      "built": "4a397edc841ae40d56a7529c9abf580515ce8a19920a29f06d568a5887257078",
+      "served": "4a397edc841ae40d56a7529c9abf580515ce8a19920a29f06d568a5887257078"
+    },
+    {
+      "path": "local-assets/cardinal/rf01/collision/rf01_static_collision.glb",
+      "source": "5dd4ef8093361baefa15655bcc526e0389e4eb1a8223a14142d6504c6bbb075e",
+      "built": "5dd4ef8093361baefa15655bcc526e0389e4eb1a8223a14142d6504c6bbb075e",
+      "served": "5dd4ef8093361baefa15655bcc526e0389e4eb1a8223a14142d6504c6bbb075e"
+    }
+  ]
+}

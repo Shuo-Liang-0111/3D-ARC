@@ -1,0 +1,35 @@
+{
+  "revision": "rf10-window-v5",
+  "status": "completed",
+  "scope": [
+    "shared east-wall operable window",
+    "RF-10 three safety checks, automatic completion"
+  ],
+  "window": {
+    "origin": [
+      4.12,
+      0.85,
+      0.4
+    ],
+    "yaw": -1.5707963267948966,
+    "size": [
+      1.35,
+      1.25,
+      0.12
+    ],
+    "handle": [
+      4.0,
+      1.15,
+      0.42
+    ],
+    "slide": 0.56
+  },
+  "host": "127.0.0.1",
+  "workspace": ".",
+  "servicePid": 4146057,
+  "assetSource": "reuse refined sliding window; Blender modifies precise wall opening and handle",
+  "codeCommit": "ed31ab8c9f6e71fbabeecee8a1a25a374387ed74",
+  "testsPassed": 35,
+  "browserChecks": "three real animated interactions completed; first/third person screenshots inspected",
+  "userAcceptance": "not_collected"
+}

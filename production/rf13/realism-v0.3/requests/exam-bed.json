@@ -1,0 +1,9 @@
+{
+  "prompt": "One realistic compact examination couch for a contemporary Chinese community clinic, isolated object. 0.75 meters wide, 1.90 meters long, 0.65 meters total height. Thin sage green medical vinyl padded mattress, gently raised head cushion at rear, four stainless steel legs and cross braces, small white paper roll holder under head end, intact clean usable equipment with fine seams and rubber feet. Long axis along Z, head at rear minus Z. No surrounding room, no floor slab, no person, no text, no additional objects.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

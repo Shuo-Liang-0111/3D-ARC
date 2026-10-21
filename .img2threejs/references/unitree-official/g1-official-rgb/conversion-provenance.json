@@ -1,0 +1,92 @@
+[
+  {
+    "source": "g1-01.jpg",
+    "derived": "g1-01-rgb.png",
+    "sourceSha256": "b0f29f5335208b7838cb7f0f37c71225cbbe07c296f6f42d61de48b76d1678a7",
+    "derivedSha256": "2d6e1774dfe8ebd765a36591f4cc8bfc6f3c29bf37bc647c6c81e5f94b56d703",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-02.jpg",
+    "derived": "g1-02-rgb.png",
+    "sourceSha256": "9e33e98f76cf8dd42b5a18432c807277e2b122e94b7af4f0697c89708aed31cf",
+    "derivedSha256": "03a8f380a42b5632a0c6b1dae34b875e7616b2e85b1b29f23788ba339753066f",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-03.jpg",
+    "derived": "g1-03-rgb.png",
+    "sourceSha256": "cd54bbab4fdcb14cd08a8000a7bc68e9a127986a40bd16a2dffa4e39f3c5a17b",
+    "derivedSha256": "931f7c3816ee833173afcc7d35ffbca9eadd49de78490b01e7b193945c52bbc9",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-04.jpg",
+    "derived": "g1-04-rgb.png",
+    "sourceSha256": "28fa0145f088050c791efa03a468716ab87c9212b9d809f734bf3cc0ff8b9afc",
+    "derivedSha256": "2bfab4a85253e8bb78d4f22f54e35636c10764ced00b5fede4376a46a00c8234",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-05.jpg",
+    "derived": "g1-05-rgb.png",
+    "sourceSha256": "e086eb7445609a083b8a46433f7ceb51a8c68f11cf8fa93f841125ae3fab30c3",
+    "derivedSha256": "4662b81b010c33b0068d84ffd5b1dd0ceb5dbe10cc25a56e1370065c96038397",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-06.jpg",
+    "derived": "g1-06-rgb.png",
+    "sourceSha256": "427acae6d45dbcd184f6e15f6381aaac1d645df060b8af412c0ed13a6473ae1b",
+    "derivedSha256": "0cba59126bb8005841df977b260bd5f91635e0f45a27ad3af8bcc9def6324e67",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-07.jpg",
+    "derived": "g1-07-rgb.png",
+    "sourceSha256": "ffe2f814bcf927f65e522fa2751c5c8ac44896f340913a4f4a8b3469761d7a8e",
+    "derivedSha256": "f10835b57cd99e2cf49d96dc4b70e9ac93894f698e4553c259db9a049db64c9d",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-08.jpg",
+    "derived": "g1-08-rgb.png",
+    "sourceSha256": "0b4d2b421c620fb1801856f9a5224f058121a8559b1d470660247cb4911ee49b",
+    "derivedSha256": "a60558d15e0dc6f1d7a951d45999bfc735561c6cf1f52ea5386d06209d26e057",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2740,
+    "height": 1720
+  },
+  {
+    "source": "g1-hero.jpg",
+    "derived": "g1-hero-rgb.png",
+    "sourceSha256": "8f1d1ce9bd0b001c41f8afca7afee23966a37e4a2fcf1034be7399a8600247e8",
+    "derivedSha256": "bc89a63573a56247a30628ff4ef43e55ec8f45f7d2a1c0b37e808fb985c0f0af",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 3840,
+    "height": 3600
+  },
+  {
+    "source": "g1-params.png",
+    "derived": "g1-params-rgb.png",
+    "sourceSha256": "135ff0b88df68bbda76e5f46accc47bd12c31e24dad7e2ef5300a00eeb518a85",
+    "derivedSha256": "4f692b041dcc402556a730375355e8014a3e51a244fcd3fe95de93bbacecd4ae",
+    "operation": "decode official source and losslessly encode RGB PNG",
+    "width": 2004,
+    "height": 1470
+  }
+]

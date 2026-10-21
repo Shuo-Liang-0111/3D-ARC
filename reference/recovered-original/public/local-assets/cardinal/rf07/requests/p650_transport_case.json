@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world laboratory equipment asset. P650 insulated biological sample transport case, 0.62 m wide x 0.468 m high x 0.505 m deep including handle. Dark insulated case body, aluminum protective corners, latches, temperature logger LCD and LED, UN3373-style diamond without readable text, rigid carry handle; bottom must be flat. Target dimensions approximately 0.62 m x 0.468 m x 0.505 m. Y-up, metric scale, front facing positive Z, centered bottom pivot. One isolated game-ready object only. Clean watertight topology, real thickness, beveled manufactured edges, physically based materials with base color, normal, roughness, metallic and AO. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

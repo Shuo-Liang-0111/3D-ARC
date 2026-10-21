@@ -1,0 +1,80 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "3918e1fe6f01d1757d1fbc6cdd6391ead371c9f440a2d8114647b87d98654135",
+    "bytes": 12930,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/series-runtime-Vx8De_Aj.js",
+    "sha256": "8f167fcb2c0d6dbbefd28c6e035f9e1ba9da744aed88e91f6776749df9fedae2",
+    "bytes": 48826,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/runtime-DfhPm-tp.js",
+    "sha256": "482e6a19260b66f799fc115d9df7ff7704eb6af05aef97477dc4a2113eb0a1fe",
+    "bytes": 1108,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/animation-qa-DnPF_KcI.js",
+    "sha256": "b7552cdfdd251246ca49ec7548ec77364e3748b5055ba21488e1cb9231d54de8",
+    "bytes": 1937,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/series-qa-B83mhcpm.js",
+    "sha256": "c8557edbc53035013a6ce8cf45ecdfc2cb33ac4d585234aeae231ceb3f15b7e6",
+    "bytes": 9853,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/runtime-BWVfpoE_.js",
+    "sha256": "022b51e4950aba44434030a7d247dafc23e863036081b0bb5b2c4e048f6e823f",
+    "bytes": 1108,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/index-CtUjlvD2.js",
+    "sha256": "88955440ec316adb2c6e43157a9735969ac86e584db3eef6cf7934ae3979d95b",
+    "bytes": 209182,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/index-CZDc2QqC.css",
+    "sha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5",
+    "bytes": 30700,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/interaction-walk-BoRqU2kV.js",
+    "sha256": "45263475da5d0e7daf6846c7f04605fdfc10bb9f8d5d8941b837e37bd99790fc",
+    "bytes": 15490,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/g1-articulated-collision-BPpGyAFc.js",
+    "sha256": "00a4a1cdbb1a8d2d7c81d55f8ad579e8b6047ba76084576e82612b4deabfc6b4",
+    "bytes": 2242961,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/series-entry-BjE3CVkW.js",
+    "sha256": "faa62ac4904c785986d966f98549e18cebd17f17e2b1155d90ee83b1f7576a63",
+    "bytes": 1106,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/interaction-animation-5-EOG3BD.js",
+    "sha256": "01510b741a39b67a2f4002a999f3a4f2100fd96eb9b4a4e7080b51a641ed2cbb",
+    "bytes": 32493,
+    "httpMatch": true
+  },
+  {
+    "path": "assets/GLTFLoader-diRaCXBC.js",
+    "sha256": "4d4af928fd835299f915ea26dc841a2d9d846ec7bb9912181d26126136d7c5c6",
+    "bytes": 595568,
+    "httpMatch": true
+  }
+]

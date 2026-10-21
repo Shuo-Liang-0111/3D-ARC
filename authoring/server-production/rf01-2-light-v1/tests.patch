@@ -1,0 +1,754 @@
+diff --git a/tests/rf01-2-lighting.test.mjs b/tests/rf01-2-lighting.test.mjs
+new file mode 100644
+--- /dev/null
++++ b/tests/rf01-2-lighting.test.mjs
+@@ -0,0 +1,143 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import { createInitialState, cloneState, updateMovement, updateEnvironment, interact, isWalkable, getInteraction } from "../game/levels/rf01-2/engine.js";
++import { LEVEL, WORKSHOP } from "../game/levels/rf01-2/level.js";
++
++function walkTo(initial, x, z) {
++  let state = initial;
++  for (let frame = 0; frame < 2000; frame += 1) {
++    const dx = x - state.player.x;
++    const dz = z - state.player.z;
++    const distance = Math.hypot(dx, dz);
++    if (distance < .01) return state;
++    const delta = Math.min(.02, distance / LEVEL.moveSpeed);
++    const yaw = state.player.yaw;
++    state = updateMovement(state, {
++      move: (dx * Math.sin(yaw) + dz * Math.cos(yaw)) / distance,
++      strafe: (dx * Math.cos(yaw) - dz * Math.sin(yaw)) / distance,
++    }, delta);
++    assert.equal(state.failed, false, "route depleted");
++  }
++  assert.fail("route blocked at " + JSON.stringify(state.player));
++}
++
++function openDoor(initial) {
++  let state = walkTo(initial, -.68, 0);
++  assert.equal(getInteraction(state)?.type, "shutter");
++  state = interact(state);
++  for (let frame = 0; frame < 160; frame += 1) state = updateEnvironment(state, .02);
++  assert.equal(state.shutterLift, WORKSHOP.height);
++  return state;
++}
++
++function completeRoute(initial) {
++  let state = openDoor(initial);
++  state = walkTo(state, 1.6, 0);
++  state = walkTo(state, 1.6, -3);
++  assert.equal(state.enteredWorkshop, true);
++  state = walkTo(state, 3.8, -3);
++  state = walkTo(state, 3.8, -5.5);
++  assert.equal(getInteraction(state)?.type, "lights");
++  state = interact(state);
++  assert.equal(state.complete, true);
++  return state;
++}
++
++test("a continuous engine route opens the shutter, enters and turns on lighting", () => {
++  const state = completeRoute(createInitialState());
++  assert.ok(state.progress > 20 && state.progress < 70);
++  assert.equal(state.lightsOn, true);
++  console.log(JSON.stringify({ route: "normal", distance: state.distanceMoved, reserve: state.progress, minimum: state.minimumReserve }));
++});
++
++test("three actual wrong interactions still allow the complete route", () => {
++  let state = createInitialState();
++  for (let count = 0; count < 3; count += 1) state = interact(state);
++  const final = completeRoute(state);
++  console.log(JSON.stringify({ route: "three-errors", distance: final.distanceMoved, reserve: final.progress, minimum: final.minimumReserve }));
++});
++
++test("closed and partly raised doors block; full clearance opens only the doorway", () => {
++  const state = createInitialState();
++  assert.equal(isWalkable(state, 1.6, -1.4), false);
++  state.shutterRequested = true;
++  state.shutterLift = WORKSHOP.clearance - .01;
++  assert.equal(isWalkable(state, 1.6, -1.4), false);
++  state.shutterLift = WORKSHOP.height;
++  assert.equal(isWalkable(state, 1.6, -1.4), true);
++  assert.equal(isWalkable(state, -1.5, -1.4), false);
++  assert.equal(isWalkable(state, 4.5, -1.4), false);
++  assert.equal(isWalkable(state, 5.02, -4), false);
++  assert.equal(isWalkable(state, 0, -6.9), false);
++  assert.equal(isWalkable(state, 0, 6.8), false);
++});
++
++test("collision checks both torso and forward body envelope", () => {
++  const state = createInitialState();
++  state.shutterLift = WORKSHOP.height;
++  state.player.yaw = 0;
++  assert.equal(isWalkable(state, 1.6, -2.1), true);
++  state.player.yaw = Math.PI / 2;
++  assert.equal(isWalkable(state, 4.5, -4), false);
++});
++
++test("light cannot be operated from outdoors, wrong direction, or without entering", () => {
++  let state = createInitialState();
++  state.player = { x: -.68, z: 0, yaw: 0 };
++  assert.equal(getInteraction(state), null);
++  assert.equal(interact(state).progress, 95);
++  state.player = { x: 3.8, z: -5.5, yaw: Math.PI };
++  state.shutterLift = WORKSHOP.height;
++  assert.equal(interact(state).lightsOn, false);
++  state.enteredWorkshop = true;
++  state.player.yaw = 0;
++  assert.equal(interact(state).lightsOn, false);
++});
++
++test("reward is first-time only and reset clears all milestones", () => {
++  let state = openDoor(createInitialState());
++  const before = state.progress;
++  state = interact(state);
++  assert.equal(state.progress, before - 5);
++  assert.deepEqual(createInitialState().rewardedMilestones, {});
++  assert.equal(createInitialState().lightsOn, false);
++  assert.equal(createInitialState().shutterLift, 0);
++});
++
++test("successful low-reserve operations reward once and cap at initial maximum", () => {
++  let state = createInitialState();
++  state.player = { x: -.68, z: 0, yaw: Math.PI };
++  state.progress = .2;
++  assert.ok(interact(state).progress > .2);
++  state.progress = 99;
++  assert.equal(interact(state).progress, 100);
++});
++
++test("empty operation exhaustion freezes state and cannot revive", () => {
++  const state = createInitialState();
++  state.progress = 4;
++  const failed = interact(state);
++  assert.equal(failed.failed, true);
++  assert.equal(failed.shutterRequested, false);
++  assert.deepEqual(interact(failed), failed);
++  assert.deepEqual(updateMovement(failed, { move: 1 }, 1), failed);
++  assert.deepEqual(updateEnvironment(failed, 1), failed);
++});
++
++test("completion freezes motion and environment", () => {
++  const complete = completeRoute(createInitialState());
++  assert.deepEqual(interact(complete), complete);
++  assert.deepEqual(updateMovement(complete, { move: 1 }, 1), complete);
++  assert.deepEqual(updateEnvironment(complete, 1), complete);
++});
++
++test("idle and pure turning are free, wall attempts consume reserve, drain bypass is ignored", () => {
++  const state = createInitialState();
++  assert.equal(updateMovement(state, {}, .05).progress, 100);
++  assert.equal(updateMovement(state, { turn: 1 }, .05).progress, 100);
++  state.player = { x: 1.6, z: -.62, yaw: Math.PI };
++  assert.ok(updateMovement(state, { move: 1, drain: false }, .05).progress < 100);
++  const moved = updateMovement(createInitialState(), { move: 1, drain: false }, .05);
++  assert.ok(moved.progress < 100);
++  assert.notEqual(cloneState(state).player, state.player);
++});
+diff --git a/public/level-preview/rf01-2-qa.html b/public/level-preview/rf01-2-qa.html
+new file mode 100644
+--- /dev/null
++++ b/public/level-preview/rf01-2-qa.html
+@@ -0,0 +1,6 @@
++<!doctype html>
++<html lang="zh"><meta charset="utf-8"><title>RF-01-2 正式关卡验收</title>
++<style>body{margin:0;background:#101814;color:#dce6df;font:14px sans-serif}nav{height:56px;display:flex;gap:8px;align-items:center;padding:0 10px}button,a{padding:8px;background:#d0ec7d;color:#142015;border:0;border-radius:3px;cursor:pointer}iframe{width:100%;height:calc(100vh - 110px);border:0}#result{white-space:pre-wrap;margin:8px;max-height:80px;overflow:auto}</style>
++<nav><button id="reset">重置</button><button id="approach">到卷帘门按钮</button><button id="open">打开卷帘门</button><button id="enter">走进黑暗厂房</button><button id="switch">到室内开关</button><button id="light">开启照明</button><button id="save">保存画面</button><span id="status">正在加载正式关卡</span></nav>
++<iframe id="game" src="/?level=rf01-2&view=first"></iframe><pre id="result"></pre>
++<script type="module" src="/game/levels/rf01-2/qa.js"></script></html>
+diff --git a/game/levels/rf01-2/qa.js b/game/levels/rf01-2/qa.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01-2/qa.js
+@@ -0,0 +1,67 @@
++const frame = document.querySelector("#game");
++const result = document.querySelector("#result");
++const status = document.querySelector("#status");
++const wait = duration => new Promise(resolve => setTimeout(resolve, duration));
++const trace = [];
++function agent() { return frame.contentWindow.__ARC_AGENT__; }
++function report(label) {
++  const state = agent().getState();
++  trace.push({ label, state });
++  result.textContent = JSON.stringify({ label, ...state });
++  status.textContent = label;
++}
++async function ready() {
++  for (let attempt = 0; attempt < 300; attempt += 1) {
++    if (agent()?.ready().ready) return;
++    await wait(200);
++  }
++  throw new Error("正式关卡加载失败");
++}
++async function walkTo(x, z) {
++  for (let attempt = 0; attempt < 180; attempt += 1) {
++    const state = agent().getState();
++    if (state.failed) throw new Error("任务余量耗尽");
++    const dx = x - state.player.x;
++    const dz = z - state.player.z;
++    if (Math.hypot(dx, dz) < .08) return;
++    const forward = dx * Math.sin(state.player.yaw) + dz * Math.cos(state.player.yaw);
++    const lateral = dx * Math.cos(state.player.yaw) - dz * Math.sin(state.player.yaw);
++    const useForward = Math.abs(forward) >= Math.abs(lateral);
++    const distance = Math.abs(useForward ? forward : lateral);
++    const action = useForward ? (forward > 0 ? "W" : "S") : (lateral > 0 ? "A" : "D");
++    await agent().act({ action, durationMs: Math.max(50, Math.min(350, distance / 1.4 * 1000)), harness: "state" });
++  }
++  throw new Error("路线受阻: " + JSON.stringify(agent().getState().player));
++}
++const actions = {
++  reset: async () => { await ready(); agent().reset(); report("初始：门关闭，照明 OFF"); },
++  approach: async () => { await walkTo(-.68, 0); report("到达门外按钮"); },
++  open: async () => { await agent().act({ action: "E", harness: "state" }); report("卷帘门升起中"); },
++  enter: async () => {
++    while (agent().getState().shutterLift < 2.1) await agent().act({ action: "WAIT", durationMs: 500, harness: "state" });
++    await walkTo(1.6, 0); await walkTo(1.6, -3); report("已进入，照明仍 OFF");
++  },
++  switch: async () => { await walkTo(3.8, -3); await walkTo(3.8, -5.5); report("到达室内开关"); },
++  light: async () => { await agent().act({ action: "E", harness: "state" }); report("开灯结果"); },
++  save: async () => {
++    const link = document.createElement("a");
++    link.href = frame.contentWindow.__RELAY_DEMO__.captureFrame();
++    link.download = "rf01-2-" + (agent().getState().lightsOn ? "lit" : "dark") + ".jpg";
++    link.click();
++    const evidence = document.createElement("a");
++    evidence.href = URL.createObjectURL(new Blob([JSON.stringify(trace, null, 2)], { type: "application/json" }));
++    evidence.download = "rf01-2-browser-trace.json";
++    evidence.click();
++  },
++};
++for (const [name, action] of Object.entries(actions)) {
++  document.getElementById(name).onclick = async () => {
++    const buttons = [...document.querySelectorAll("button")];
++    buttons.forEach(button => { button.disabled = true; });
++    try { status.textContent = "执行中"; await action(); }
++    catch (error) { status.textContent = error.message; }
++    finally { buttons.forEach(button => { button.disabled = false; }); }
++  };
++}
++await ready();
++status.textContent = "正式关卡已加载，点击重置开始验证";
+diff --git a/game/levels/rf01-2/level.js b/game/levels/rf01-2/level.js
+--- a/game/levels/rf01-2/level.js
++++ b/game/levels/rf01-2/level.js
+@@ -1,30 +1,30 @@
+-import { LEVEL as PARK } from "../../level.js";
+-import { RF01_COLLISION_PROXY_RECTS } from "../../rf01-collision-proxies.js";
+-
+-export const WORKSHOP = Object.freeze({
+-  doorway: { minX: -.38, maxX: 3.73, minZ: -1.85, maxZ: -1.12 },
+-  height: 2.36,
+-  clearance: 2.1,
+-  openingSeconds: 3,
+-  doorControl: { x: -.68, y: 1.2, z: -1.08 },
+-  lightSwitch: { x: 4.73, y: 1.2, z: -4.9 },
+-  inside: { minX: -4.8, maxX: 4.8, minZ: -6.7, maxZ: -2.1 },
+-  lampPositions: [[-3.2, 3.68, -4.3], [0, 3.68, -4.3], [3.2, 3.68, -4.3]],
+-});
+-
+-export const LEVEL = Object.freeze({
+-  ...PARK,
+-  id: "rf01-2",
+-  revision: "workshop-light-v1",
+-  title: "进入厂房并开启照明",
+-  interactionRange: 1.25,
+-  staticColliders: Object.freeze([
+-    ...PARK.staticColliders.filter(({ id }) => !["workshop", "fire-safety-station"].includes(id)),
+-    ...RF01_COLLISION_PROXY_RECTS.filter(({ id }) => !id.startsWith("workshop-front-") && id !== "workshop-interior"),
+-    { id: "workshop-front-left", minX: -5.07, maxX: -.38, minZ: -1.85, maxZ: -1.08 },
+-    { id: "workshop-front-right", minX: 3.73, maxX: 5.07, minZ: -1.85, maxZ: -1.08 },
+-    { id: "workshop-crate-left", minX: -4.85, maxX: -3.75, minZ: -2, maxZ: -1 },
+-    { id: "workshop-crate-right", minX: -3.45, maxX: -2.4, minZ: -2, maxZ: -1 },
+-  ]),
+-  progress: Object.freeze({ initial: 100, maximum: 100, perMeter: 3.6, blockedPerSecond: 2, error: 5, reward: 3 }),
+-});
++import { LEVEL as PARK } from "../../level.js";
++import { RF01_COLLISION_PROXY_RECTS } from "../../rf01-collision-proxies.js";
++
++export const WORKSHOP = Object.freeze({
++  doorway: { minX: -.38, maxX: 3.73, minZ: -1.85, maxZ: -1.12 },
++  height: 2.36,
++  clearance: 2.1,
++  openingSeconds: 3,
++  doorControl: { x: -.68, y: 1.2, z: -1.08 },
++  lightSwitch: { x: 3.8, y: 1.2, z: -6.65 },
++  inside: { minX: -4.8, maxX: 4.8, minZ: -6.7, maxZ: -2.1 },
++  lampPositions: [[-3.2, 3.68, -4.3], [0, 3.68, -4.3], [3.2, 3.68, -4.3]],
++});
++
++export const LEVEL = Object.freeze({
++  ...PARK,
++  id: "rf01-2",
++  revision: "workshop-light-v1",
++  title: "进入厂房并开启照明",
++  interactionRange: 1.25,
++  staticColliders: Object.freeze([
++    ...PARK.staticColliders.filter(({ id }) => !["workshop", "fire-safety-station"].includes(id)),
++    ...RF01_COLLISION_PROXY_RECTS.filter(({ id }) => !id.startsWith("workshop-front-") && id !== "workshop-interior"),
++    { id: "workshop-front-left", minX: -5.07, maxX: -.38, minZ: -1.85, maxZ: -1.08 },
++    { id: "workshop-front-right", minX: 3.73, maxX: 5.07, minZ: -1.85, maxZ: -1.08 },
++    { id: "workshop-crate-left", minX: -4.85, maxX: -3.75, minZ: -2, maxZ: -1 },
++    { id: "workshop-crate-right", minX: -3.45, maxX: -2.4, minZ: -2, maxZ: -1 },
++  ]),
++  progress: Object.freeze({ initial: 100, maximum: 100, perMeter: 3.6, blockedPerSecond: 2, error: 5, reward: 3 }),
++});
+diff --git a/game/rf01-workshop.js b/game/rf01-workshop.js
+--- a/game/rf01-workshop.js
++++ b/game/rf01-workshop.js
+@@ -1,228 +1,227 @@
+-import * as THREE from "three";
+-import { WORKSHOP } from "./levels/rf01-2/level.js";
+-
+-function makeBox(parent, name, size, position, material) {
+-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
+-  mesh.name = name;
+-  mesh.position.set(...position);
+-  mesh.castShadow = true;
+-  mesh.receiveShadow = true;
+-  parent.add(mesh);
+-  return mesh;
+-}
+-
+-function splitPolygon(polygon, axis, boundary, direction) {
+-  const inside = [];
+-  const outside = [];
+-  for (let index = 0; index < polygon.length; index += 1) {
+-    const current = polygon[index];
+-    const next = polygon[(index + 1) % polygon.length];
+-    const distance = (current.position[axis] - boundary) * direction;
+-    const nextDistance = (next.position[axis] - boundary) * direction;
+-    (distance >= 0 ? inside : outside).push(current);
+-    if ((distance >= 0) !== (nextDistance >= 0)) {
+-      const fraction = distance / (distance - nextDistance);
+-      const vertex = {
+-        position: current.position.clone().lerp(next.position, fraction),
+-        normal: current.normal.clone().lerp(next.normal, fraction).normalize(),
+-        uv: current.uv.clone().lerp(next.uv, fraction),
+-      };
+-      inside.push(vertex);
+-      outside.push(vertex);
+-    }
+-  }
+-  return { inside, outside };
+-}
+-
+-export function separateShutter(source) {
+-  source.updateWorldMatrix(true, false);
+-  const geometry = source.geometry;
+-  const positions = geometry.getAttribute("position");
+-  const normals = geometry.getAttribute("normal");
+-  const textureCoordinates = geometry.getAttribute("uv");
+-  const normalMatrix = new THREE.Matrix3().getNormalMatrix(source.matrixWorld);
+-  const vertices = Array.from({ length: positions.count }, (_, index) => ({
+-    position: new THREE.Vector3().fromBufferAttribute(positions, index).applyMatrix4(source.matrixWorld),
+-    normal: new THREE.Vector3().fromBufferAttribute(normals, index).applyMatrix3(normalMatrix).normalize(),
+-    uv: new THREE.Vector2().fromBufferAttribute(textureCoordinates, index),
+-  }));
+-  const shellIndices = [];
+-  const doorIndices = [];
+-  const positionValues = vertices.flatMap(vertex => vertex.position.toArray());
+-  const normalValues = vertices.flatMap(vertex => vertex.normal.toArray());
+-  const uvValues = vertices.flatMap(vertex => vertex.uv.toArray());
+-  vertices.forEach((vertex, index) => { vertex.index = index; });
+-  const planes = [
+-    ["x", WORKSHOP.doorway.minX, 1], ["x", WORKSHOP.doorway.maxX, -1],
+-    ["y", .035, 1], ["y", WORKSHOP.height, -1],
+-    ["z", -1.95, 1], ["z", -.96, -1],
+-  ];
+-  function appendPolygon(polygon, target) {
+-    if (polygon.length < 3) return;
+-    const indices = polygon.map(vertex => {
+-      if (vertex.index === undefined) {
+-        vertex.index = positionValues.length / 3;
+-        positionValues.push(...vertex.position.toArray());
+-        normalValues.push(...vertex.normal.toArray());
+-        uvValues.push(...vertex.uv.toArray());
+-      }
+-      return vertex.index;
+-    });
+-    for (let index = 1; index < indices.length - 1; index += 1) target.push(indices[0], indices[index], indices[index + 1]);
+-  }
+-  const count = geometry.index?.count ?? positions.count;
+-  for (let offset = 0; offset < count; offset += 3) {
+-    const triangle = [0, 1, 2].map(step => vertices[geometry.index ? geometry.index.getX(offset + step) : offset + step]);
+-    if (planes.some(([axis, boundary, direction]) => triangle.every(vertex => (vertex.position[axis] - boundary) * direction < 0))) {
+-      appendPolygon(triangle, shellIndices);
+-      continue;
+-    }
+-    let polygon = triangle;
+-    for (const [axis, boundary, direction] of planes) {
+-      const split = splitPolygon(polygon, axis, boundary, direction);
+-      appendPolygon(split.outside, shellIndices);
+-      polygon = split.inside;
+-      if (polygon.length < 3) break;
+-    }
+-    appendPolygon(polygon, doorIndices);
+-  }
+-  if (doorIndices.length < 30) throw new Error("RF-01 workshop shutter could not be separated");
+-  const attributes = {
+-    position: new THREE.Float32BufferAttribute(positionValues, 3),
+-    normal: new THREE.Float32BufferAttribute(normalValues, 3),
+-    uv: new THREE.Float32BufferAttribute(uvValues, 2),
+-  };
+-  function meshFor(indices, name) {
+-    const result = new THREE.BufferGeometry();
+-    Object.entries(attributes).forEach(([key, value]) => result.setAttribute(key, value));
+-    result.setIndex(indices);
+-    result.computeBoundingBox();
+-    result.computeBoundingSphere();
+-    const mesh = new THREE.Mesh(result, source.material);
+-    mesh.name = name;
+-    mesh.castShadow = true;
+-    mesh.receiveShadow = true;
+-    return mesh;
+-  }
+-  return { shell: meshFor(shellIndices, "workshop-original-shell"), door: meshFor(doorIndices, "workshop-original-shutter") };
+-}
+-
+-function roomMaterial(color, map) {
+-  const material = new THREE.MeshStandardMaterial({ color, map, roughness: .9, metalness: .03, envMapIntensity: .015 });
+-  material.onBeforeCompile = shader => {
+-    shader.fragmentShader = shader.fragmentShader.replace("#include <lights_fragment_end>",
+-      "#include <lights_fragment_end>\nreflectedLight.indirectDiffuse *= 0.025;");
+-  };
+-  material.customProgramCacheKey = () => "workshop-interior-ambient-v1";
+-  return material;
+-}
+-
+-function addControl(parent, name, position, label, emissive) {
+-  const plate = new THREE.MeshStandardMaterial({ color: 0xc4c6ba, roughness: .5, metalness: .3, envMapIntensity: .02 });
+-  const root = new THREE.Group();
+-  root.name = name;
+-  root.position.set(...position);
+-  if (name === "workshop-light-switch") root.rotation.y = -Math.PI / 2;
+-  parent.add(root);
+-  makeBox(root, name + "-box", [.28, .42, .085], [0, 0, 0], plate);
+-  const buttonMaterial = new THREE.MeshStandardMaterial({ color: 0x317845, emissive: 0x1d6638, emissiveIntensity: emissive, roughness: .4 });
+-  const button = makeBox(root, name + "-button", [.12, .13, .04], [0, -.07, .06], buttonMaterial);
+-  const canvas = document.createElement("canvas");
+-  canvas.width = 256;
+-  canvas.height = 80;
+-  const context = canvas.getContext("2d");
+-  context.fillStyle = "#e6e7d9";
+-  context.fillRect(0, 0, 256, 80);
+-  context.fillStyle = "#15251d";
+-  context.font = "bold 35px sans-serif";
+-  context.textAlign = "center";
+-  context.fillText(label, 128, 53);
+-  const labelMaterial = new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: .7, emissive: 0x223322, emissiveIntensity: .2 });
+-  makeBox(root, name + "-label", [.245, .08, .01], [0, .105, .049], labelMaterial);
+-  return button;
+-}
+-
+-export function installWorkshopInterior(world) {
+-  const workshop = world.productionAssets.getObjectByName("rf01-cardinal-workshop-meter-fitted");
+-  if (!workshop) throw new Error("RF-01 workshop production asset missing");
+-  const root = new THREE.Group();
+-  root.name = "rf01-shared-workshop-interior";
+-  world.scene.add(root);
+-  const shutter = new THREE.Group();
+-  shutter.name = "rf01-workshop-rolling-shutter";
+-  root.add(shutter);
+-  const originals = [];
+-  workshop.traverse(object => { if (object.isMesh) originals.push(object); });
+-  for (const original of originals) {
+-    const separated = separateShutter(original);
+-    root.add(separated.shell);
+-    shutter.add(separated.door);
+-    original.visible = false;
+-  }
+-  const wallMaterial = roomMaterial(0x858e91, world.surfaces.cladding.map);
+-  const floorMaterial = roomMaterial(0x969b95, world.surfaces.concrete.map);
+-  floorMaterial.normalMap = world.surfaces.concrete.normalMap;
+-  floorMaterial.roughnessMap = world.surfaces.concrete.roughnessMap;
+-  makeBox(root, "workshop-floor", [9.8, .04, 5.45], [0, .015, -4.15], floorMaterial);
+-  makeBox(root, "workshop-ceiling", [9.8, .08, 5.4], [0, 4.0, -4.15], wallMaterial);
+-  makeBox(root, "workshop-back-lining", [9.8, 3.95, .08], [0, 2, -6.81], wallMaterial);
+-  makeBox(root, "workshop-west-lining", [.08, 3.95, 5.4], [-4.91, 2, -4.15], wallMaterial);
+-  makeBox(root, "workshop-east-lining", [.08, 3.95, 5.4], [4.91, 2, -4.15], wallMaterial);
+-  makeBox(root, "workshop-front-left-lining", [4.5, 3.95, .08], [-2.65, 2, -1.99], wallMaterial);
+-  makeBox(root, "workshop-front-right-lining", [1.15, 3.95, .08], [4.32, 2, -1.99], wallMaterial);
+-  makeBox(root, "workshop-door-lintel-lining", [4.11, 1.57, .12], [1.675, 3.19, -1.99], wallMaterial);
+-  const steel = new THREE.MeshStandardMaterial({ color: 0x5e686a, metalness: .7, roughness: .45 });
+-  [-.43, 3.78].forEach(position => makeBox(root, "shutter-guide", [.10, 2.45, .20], [position, 1.225, -1.27], steel));
+-  makeBox(root, "shutter-roller-housing", [4.34, .18, .27], [1.675, 2.46, -1.30], steel);
+-  const outsideButton = addControl(root, "workshop-door-control",
+-    [WORKSHOP.doorControl.x, WORKSHOP.doorControl.y, WORKSHOP.doorControl.z], "OPEN", .7);
+-  const insideButton = addControl(root, "workshop-light-switch",
+-    [WORKSHOP.lightSwitch.x, WORKSHOP.lightSwitch.y, WORKSHOP.lightSwitch.z], "LIGHT", .8);
+-  makeBox(root, "workshop-switch-conduit", [.035, 2.68, .035], [4.77, 2.6, -4.9], steel);
+-  const fixtures = world.productionAssets.children.filter(child => {
+-    let found = false;
+-    child.traverse(object => { if (object.name === "rf01-cardinal-lightFixture") found = true; });
+-    return found;
+-  });
+-  const bulbs = [];
+-  const lights = [];
+-  fixtures.forEach((fixture, index) => {
+-    const position = WORKSHOP.lampPositions[index];
+-    if (!position) return;
+-    fixture.position.set(...position);
+-    fixture.traverse(object => {
+-      if (!object.isMesh) return;
+-      object.material = object.material.clone();
+-      object.material.emissiveIntensity = 0;
+-    });
+-    const glow = new THREE.MeshStandardMaterial({ color: 0xcdd5d2, emissive: 0xffeed3, emissiveIntensity: 0, roughness: .5 });
+-    bulbs.push(glow);
+-    makeBox(root, "workshop-light-diffuser-" + index, [1.5, .025, .12], [position[0], 3.65, position[2]], glow);
+-    const light = new THREE.PointLight(0xffeedc, 0, 9, 2);
+-    light.position.set(position[0], 3.4, position[2]);
+-    light.castShadow = true;
+-    light.shadow.mapSize.set(512, 512);
+-    light.shadow.bias = -.001;
+-    root.add(light);
+-    lights.push(light);
+-    makeBox(root, "workshop-light-bracket-" + index, [.05, .24, .05], [position[0], 3.86, position[2]], steel);
+-  });
+-  if (fixtures.length !== 3) throw new Error("RF-01 workshop requires all three existing light fixtures");
+-  const result = { root, shutter, lights, bulbs, outsideButton, insideButton, fixtures, revision: "workshop-light-v1" };
+-  setWorkshopLighting(result, false);
+-  syncWorkshopShutter(result, 0);
+-  return result;
+-}
+-
+-export function syncWorkshopShutter(workshop, lift) {
+-  const height = Math.max(0, Math.min(WORKSHOP.height, lift));
+-  workshop.shutter.position.y = height;
+-  workshop.shutter.scale.y = Math.max(.012, (WORKSHOP.height - height) / WORKSHOP.height);
+-  workshop.outsideButton.material.emissiveIntensity = height >= WORKSHOP.clearance ? 1.3 : .45;
+-}
+-
+-export function setWorkshopLighting(workshop, enabled) {
+-  workshop.lights.forEach(light => { light.intensity = enabled ? 85 : 0; });
+-  workshop.bulbs.forEach(material => { material.emissiveIntensity = enabled ? 5 : 0; });
+-  workshop.insideButton.material.emissiveIntensity = enabled ? 1.3 : .8;
+-}
++import * as THREE from "three";
++import { WORKSHOP } from "./levels/rf01-2/level.js";
++
++function makeBox(parent, name, size, position, material) {
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
++  mesh.name = name;
++  mesh.position.set(...position);
++  mesh.castShadow = true;
++  mesh.receiveShadow = true;
++  parent.add(mesh);
++  return mesh;
++}
++
++function splitPolygon(polygon, axis, boundary, direction) {
++  const inside = [];
++  const outside = [];
++  for (let index = 0; index < polygon.length; index += 1) {
++    const current = polygon[index];
++    const next = polygon[(index + 1) % polygon.length];
++    const distance = (current.position[axis] - boundary) * direction;
++    const nextDistance = (next.position[axis] - boundary) * direction;
++    (distance >= 0 ? inside : outside).push(current);
++    if ((distance >= 0) !== (nextDistance >= 0)) {
++      const fraction = distance / (distance - nextDistance);
++      const vertex = {
++        position: current.position.clone().lerp(next.position, fraction),
++        normal: current.normal.clone().lerp(next.normal, fraction).normalize(),
++        uv: current.uv.clone().lerp(next.uv, fraction),
++      };
++      inside.push(vertex);
++      outside.push(vertex);
++    }
++  }
++  return { inside, outside };
++}
++
++export function separateShutter(source) {
++  source.updateWorldMatrix(true, false);
++  const geometry = source.geometry;
++  const positions = geometry.getAttribute("position");
++  const normals = geometry.getAttribute("normal");
++  const textureCoordinates = geometry.getAttribute("uv");
++  const normalMatrix = new THREE.Matrix3().getNormalMatrix(source.matrixWorld);
++  const vertices = Array.from({ length: positions.count }, (_, index) => ({
++    position: new THREE.Vector3().fromBufferAttribute(positions, index).applyMatrix4(source.matrixWorld),
++    normal: new THREE.Vector3().fromBufferAttribute(normals, index).applyMatrix3(normalMatrix).normalize(),
++    uv: new THREE.Vector2().fromBufferAttribute(textureCoordinates, index),
++  }));
++  const shellIndices = [];
++  const doorIndices = [];
++  const positionValues = vertices.flatMap(vertex => vertex.position.toArray());
++  const normalValues = vertices.flatMap(vertex => vertex.normal.toArray());
++  const uvValues = vertices.flatMap(vertex => vertex.uv.toArray());
++  vertices.forEach((vertex, index) => { vertex.index = index; });
++  const planes = [
++    ["x", WORKSHOP.doorway.minX, 1], ["x", WORKSHOP.doorway.maxX, -1],
++    ["y", .035, 1], ["y", WORKSHOP.height, -1],
++    ["z", -1.95, 1], ["z", -.96, -1],
++  ];
++  function appendPolygon(polygon, target) {
++    if (polygon.length < 3) return;
++    const indices = polygon.map(vertex => {
++      if (vertex.index === undefined) {
++        vertex.index = positionValues.length / 3;
++        positionValues.push(...vertex.position.toArray());
++        normalValues.push(...vertex.normal.toArray());
++        uvValues.push(...vertex.uv.toArray());
++      }
++      return vertex.index;
++    });
++    for (let index = 1; index < indices.length - 1; index += 1) target.push(indices[0], indices[index], indices[index + 1]);
++  }
++  const count = geometry.index?.count ?? positions.count;
++  for (let offset = 0; offset < count; offset += 3) {
++    const triangle = [0, 1, 2].map(step => vertices[geometry.index ? geometry.index.getX(offset + step) : offset + step]);
++    if (planes.some(([axis, boundary, direction]) => triangle.every(vertex => (vertex.position[axis] - boundary) * direction < 0))) {
++      appendPolygon(triangle, shellIndices);
++      continue;
++    }
++    let polygon = triangle;
++    for (const [axis, boundary, direction] of planes) {
++      const split = splitPolygon(polygon, axis, boundary, direction);
++      appendPolygon(split.outside, shellIndices);
++      polygon = split.inside;
++      if (polygon.length < 3) break;
++    }
++    appendPolygon(polygon, doorIndices);
++  }
++  if (doorIndices.length < 30) throw new Error("RF-01 workshop shutter could not be separated");
++  const attributes = {
++    position: new THREE.Float32BufferAttribute(positionValues, 3),
++    normal: new THREE.Float32BufferAttribute(normalValues, 3),
++    uv: new THREE.Float32BufferAttribute(uvValues, 2),
++  };
++  function meshFor(indices, name) {
++    const result = new THREE.BufferGeometry();
++    Object.entries(attributes).forEach(([key, value]) => result.setAttribute(key, value));
++    result.setIndex(indices);
++    result.computeBoundingBox();
++    result.computeBoundingSphere();
++    const mesh = new THREE.Mesh(result, source.material);
++    mesh.name = name;
++    mesh.castShadow = true;
++    mesh.receiveShadow = true;
++    return mesh;
++  }
++  return { shell: meshFor(shellIndices, "workshop-original-shell"), door: meshFor(doorIndices, "workshop-original-shutter") };
++}
++
++function roomMaterial(color, map) {
++  const material = new THREE.MeshStandardMaterial({ color, map, roughness: .9, metalness: .03, envMapIntensity: .015 });
++  material.onBeforeCompile = shader => {
++    shader.fragmentShader = shader.fragmentShader.replace("#include <lights_fragment_end>",
++      "#include <lights_fragment_end>\nreflectedLight.indirectDiffuse *= 0.025;");
++  };
++  material.customProgramCacheKey = () => "workshop-interior-ambient-v1";
++  return material;
++}
++
++function addControl(parent, name, position, label, emissive) {
++  const plate = new THREE.MeshStandardMaterial({ color: 0xc4c6ba, roughness: .5, metalness: .3, envMapIntensity: .02 });
++  const root = new THREE.Group();
++  root.name = name;
++  root.position.set(...position);
++  parent.add(root);
++  makeBox(root, name + "-box", [.28, .42, .085], [0, 0, 0], plate);
++  const buttonMaterial = new THREE.MeshStandardMaterial({ color: 0x317845, emissive: 0x1d6638, emissiveIntensity: emissive, roughness: .4 });
++  const button = makeBox(root, name + "-button", [.12, .13, .04], [0, -.07, .06], buttonMaterial);
++  const canvas = document.createElement("canvas");
++  canvas.width = 256;
++  canvas.height = 80;
++  const context = canvas.getContext("2d");
++  context.fillStyle = "#e6e7d9";
++  context.fillRect(0, 0, 256, 80);
++  context.fillStyle = "#15251d";
++  context.font = "bold 35px sans-serif";
++  context.textAlign = "center";
++  context.fillText(label, 128, 53);
++  const labelMaterial = new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: .7, emissive: 0x223322, emissiveIntensity: .2 });
++  makeBox(root, name + "-label", [.245, .08, .01], [0, .105, .049], labelMaterial);
++  return button;
++}
++
++export function installWorkshopInterior(world) {
++  const workshop = world.productionAssets.getObjectByName("rf01-cardinal-workshop-meter-fitted");
++  if (!workshop) throw new Error("RF-01 workshop production asset missing");
++  const root = new THREE.Group();
++  root.name = "rf01-shared-workshop-interior";
++  world.scene.add(root);
++  const shutter = new THREE.Group();
++  shutter.name = "rf01-workshop-rolling-shutter";
++  root.add(shutter);
++  const originals = [];
++  workshop.traverse(object => { if (object.isMesh) originals.push(object); });
++  for (const original of originals) {
++    const separated = separateShutter(original);
++    root.add(separated.shell);
++    shutter.add(separated.door);
++    original.visible = false;
++  }
++  const wallMaterial = roomMaterial(0x858e91, world.surfaces.cladding.map);
++  const floorMaterial = roomMaterial(0x969b95, world.surfaces.concrete.map);
++  floorMaterial.normalMap = world.surfaces.concrete.normalMap;
++  floorMaterial.roughnessMap = world.surfaces.concrete.roughnessMap;
++  makeBox(root, "workshop-floor", [9.8, .04, 5.45], [0, .015, -4.15], floorMaterial);
++  makeBox(root, "workshop-ceiling", [9.8, .08, 5.4], [0, 4.0, -4.15], wallMaterial);
++  makeBox(root, "workshop-back-lining", [9.8, 3.95, .08], [0, 2, -6.81], wallMaterial);
++  makeBox(root, "workshop-west-lining", [.08, 3.95, 5.4], [-4.91, 2, -4.15], wallMaterial);
++  makeBox(root, "workshop-east-lining", [.08, 3.95, 5.4], [4.91, 2, -4.15], wallMaterial);
++  makeBox(root, "workshop-front-left-lining", [4.5, 3.95, .08], [-2.65, 2, -1.99], wallMaterial);
++  makeBox(root, "workshop-front-right-lining", [1.15, 3.95, .08], [4.32, 2, -1.99], wallMaterial);
++  makeBox(root, "workshop-door-lintel-lining", [4.11, 1.57, .12], [1.675, 3.19, -1.99], wallMaterial);
++  const steel = new THREE.MeshStandardMaterial({ color: 0x5e686a, metalness: .7, roughness: .45 });
++  [-.43, 3.78].forEach(position => makeBox(root, "shutter-guide", [.10, 2.45, .20], [position, 1.225, -1.27], steel));
++  makeBox(root, "shutter-roller-housing", [4.34, .18, .27], [1.675, 2.46, -1.30], steel);
++  const outsideButton = addControl(root, "workshop-door-control",
++    [WORKSHOP.doorControl.x, WORKSHOP.doorControl.y, WORKSHOP.doorControl.z], "OPEN", .7);
++  const insideButton = addControl(root, "workshop-light-switch",
++    [WORKSHOP.lightSwitch.x, WORKSHOP.lightSwitch.y, WORKSHOP.lightSwitch.z], "LIGHT", .8);
++  makeBox(root, "workshop-switch-conduit", [.035, 2.68, .035], [3.8, 2.6, -6.72], steel);
++  const fixtures = world.productionAssets.children.filter(child => {
++    let found = false;
++    child.traverse(object => { if (object.name === "rf01-cardinal-lightFixture") found = true; });
++    return found;
++  });
++  const bulbs = [];
++  const lights = [];
++  fixtures.forEach((fixture, index) => {
++    const position = WORKSHOP.lampPositions[index];
++    if (!position) return;
++    fixture.position.set(...position);
++    fixture.traverse(object => {
++      if (!object.isMesh) return;
++      object.material = object.material.clone();
++      object.material.emissiveIntensity = 0;
++    });
++    const glow = new THREE.MeshStandardMaterial({ color: 0xcdd5d2, emissive: 0xffeed3, emissiveIntensity: 0, roughness: .5 });
++    bulbs.push(glow);
++    makeBox(root, "workshop-light-diffuser-" + index, [1.5, .025, .12], [position[0], 3.65, position[2]], glow);
++    const light = new THREE.PointLight(0xffeedc, 0, 9, 2);
++    light.position.set(position[0], 3.4, position[2]);
++    light.castShadow = true;
++    light.shadow.mapSize.set(512, 512);
++    light.shadow.bias = -.001;
++    root.add(light);
++    lights.push(light);
++    makeBox(root, "workshop-light-bracket-" + index, [.05, .24, .05], [position[0], 3.86, position[2]], steel);
++  });
++  if (fixtures.length !== 3) throw new Error("RF-01 workshop requires all three existing light fixtures");
++  const result = { root, shutter, lights, bulbs, outsideButton, insideButton, fixtures, revision: "workshop-light-v1" };
++  setWorkshopLighting(result, false);
++  syncWorkshopShutter(result, 0);
++  return result;
++}
++
++export function syncWorkshopShutter(workshop, lift) {
++  const height = Math.max(0, Math.min(WORKSHOP.height, lift));
++  workshop.shutter.position.y = height;
++  workshop.shutter.scale.y = Math.max(.012, (WORKSHOP.height - height) / WORKSHOP.height);
++  workshop.outsideButton.material.emissiveIntensity = height >= WORKSHOP.clearance ? 1.3 : .45;
++}
++
++export function setWorkshopLighting(workshop, enabled) {
++  workshop.lights.forEach(light => { light.intensity = enabled ? 85 : 0; });
++  workshop.bulbs.forEach(material => { material.emissiveIntensity = enabled ? 5 : 0; });
++  workshop.insideButton.material.emissiveIntensity = enabled ? 1.3 : .8;
++}

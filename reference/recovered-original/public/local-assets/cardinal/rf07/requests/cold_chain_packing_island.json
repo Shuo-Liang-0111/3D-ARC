@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world laboratory equipment asset. Cold-chain packing island for a BSL-2 laboratory, 4.80 m wide x 1.72 m high x 1.60 m deep. Stainless cabinet base, black phenolic worktop, bumper corners and a small consumables rack; long working edge faces positive Z and feet contact the floor. Target dimensions approximately 4.8 m x 1.72 m x 1.6 m. Y-up, metric scale, front facing positive Z, centered bottom pivot. One isolated game-ready object only. Clean watertight topology, real thickness, beveled manufactured edges, physically based materials with base color, normal, roughness, metallic and AO. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

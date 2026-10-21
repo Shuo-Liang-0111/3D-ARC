@@ -1,0 +1,30 @@
+{
+  "release": "rf08-office-v1-r25",
+  "url": "http://127.0.0.1:4173/rf08-office-v1-r25/index.htm?mode=play&level=rf09&view=third&robot=g1&control=velocity&qa=office",
+  "method": "Robot-only station fixture, real pickup/place animations, no prop teleport or completion injection",
+  "status": "passed",
+  "finalPhase": "idle",
+  "complete": true,
+  "contacts": [
+    {
+      "type": "pickup",
+      "item": "docs-1",
+      "errorMeters": 0.031163027678743203
+    },
+    {
+      "type": "seat",
+      "item": "docs-1",
+      "errorMeters": 0.02958939774513595
+    },
+    {
+      "type": "pickup",
+      "item": "water-1",
+      "errorMeters": 0.031139096750405142
+    },
+    {
+      "type": "seat",
+      "item": "water-1",
+      "errorMeters": 0.0336400521752391
+    }
+  ]
+}

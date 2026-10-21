@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: oil, kettle, extinguisher and cloth remain recoverable after a local floor drop
+ok 1 - oil, kettle, extinguisher and cloth remain recoverable after a local floor drop
+  ---
+  duration_ms: 2.135346
+  type: 'test'
+  ...
+# Subtest: fire recovery leaves the cylinder at the animated release point and allows another cycle
+ok 2 - fire recovery leaves the cylinder at the animated release point and allows another cycle
+  ---
+  duration_ms: 0.318931
+  type: 'test'
+  ...
+# Subtest: timing boundaries are inclusive and independent of movement frame clamping
+ok 3 - timing boundaries are inclusive and independent of movement frame clamping
+  ---
+  duration_ms: 0.251787
+  type: 'test'
+  ...
+# Subtest: a stale off-switch animation cannot complete a kitchen already on fire
+ok 4 - a stale off-switch animation cannot complete a kitchen already on fire
+  ---
+  duration_ms: 1.089212
+  type: 'test'
+  ...
+# Subtest: local approach movement cannot tunnel through counter, wall or refrigerator
+ok 5 - local approach movement cannot tunnel through counter, wall or refrigerator
+  ---
+  duration_ms: 6.06284
+  type: 'test'
+  ...
+# Subtest: all kitchen variants share support coordinates and handles stay inside real prop dimensions
+ok 6 - all kitchen variants share support coordinates and handles stay inside real prop dimensions
+  ---
+  duration_ms: 0.22601
+  type: 'test'
+  ...
+# Subtest: the environment clock advances while the native robot is idle
+ok 7 - the environment clock advances while the native robot is idle
+  ---
+  duration_ms: 0.206712
+  type: 'test'
+  ...
+# Subtest: RF-10-2 completes one simple oil-bottle placement
+ok 8 - RF-10-2 completes one simple oil-bottle placement
+  ---
+  duration_ms: 0.981511
+  type: 'test'
+  ...
+# Subtest: RF-10-3 requires pickup, water and placement before ignition
+ok 9 - RF-10-3 requires pickup, water and placement before ignition
+  ---
+  duration_ms: 0.43517
+  type: 'test'
+  ...
+# Subtest: early shutdown retains water and starts a fresh heating attempt
+ok 10 - early shutdown retains water and starts a fresh heating attempt
+  ---
+  duration_ms: 0.341349
+  type: 'test'
+  ...
+# Subtest: fire invalidates the water and requires extinguishing then actual refill
+ok 11 - fire invalidates the water and requires extinguishing then actual refill
+  ---
+  duration_ms: 0.356207
+  type: 'test'
+  ...
+# Subtest: boiling animation state exists only with water and heat inside 55–65 seconds
+ok 12 - boiling animation state exists only with water and heat inside 55–65 seconds
+  ---
+  duration_ms: 0.235769
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 65.069132

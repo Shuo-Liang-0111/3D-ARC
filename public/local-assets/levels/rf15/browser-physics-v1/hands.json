@@ -1,0 +1,1155 @@
+{
+  "source": "Unitree official g1_29dof_with_hand.xml and STL meshes",
+  "hands": {
+    "left": [
+      {
+        "name": "left_wrist_yaw_link",
+        "parent": null,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "mass": 0.457415,
+        "geoms": [
+          {
+            "mesh": "left_hand_palm_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0415,
+              0.003,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_palm_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0415,
+              0.003,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ]
+      },
+      {
+        "name": "left_hand_thumb_0_link",
+        "parent": "left_wrist_yaw_link",
+        "position": [
+          0.067,
+          0.003,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0862366,
+        "geoms": [
+          {
+            "mesh": "left_hand_thumb_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_thumb_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "limits": [
+            -1.0472,
+            1.0472
+          ]
+        }
+      },
+      {
+        "name": "left_hand_thumb_1_link",
+        "parent": "left_hand_thumb_0_link",
+        "position": [
+          -0.0025,
+          -0.0193,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0588507,
+        "geoms": [
+          {
+            "mesh": "left_hand_thumb_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": null,
+            "type": "box",
+            "size": [
+              0.01,
+              0.015,
+              0.01
+            ],
+            "position": [
+              -0.001,
+              -0.032,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -0.724312,
+            1.0472
+          ]
+        }
+      },
+      {
+        "name": "left_hand_thumb_2_link",
+        "parent": "left_hand_thumb_1_link",
+        "position": [
+          0.0,
+          -0.0458,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0203063,
+        "geoms": [
+          {
+            "mesh": "left_hand_thumb_2_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_thumb_2_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            0.0,
+            1.74533
+          ]
+        }
+      },
+      {
+        "name": "left_hand_middle_0_link",
+        "parent": "left_wrist_yaw_link",
+        "position": [
+          0.1192,
+          0.0046,
+          -0.0285
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0588507,
+        "geoms": [
+          {
+            "mesh": "left_hand_middle_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_middle_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -1.5708,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "left_hand_middle_1_link",
+        "parent": "left_hand_middle_0_link",
+        "position": [
+          0.0458,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0203063,
+        "geoms": [
+          {
+            "mesh": "left_hand_middle_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_middle_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -1.74533,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "left_hand_index_0_link",
+        "parent": "left_wrist_yaw_link",
+        "position": [
+          0.1192,
+          0.0046,
+          0.0285
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0588507,
+        "geoms": [
+          {
+            "mesh": "left_hand_index_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_index_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -1.5708,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "left_hand_index_1_link",
+        "parent": "left_hand_index_0_link",
+        "position": [
+          0.0458,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0203063,
+        "geoms": [
+          {
+            "mesh": "left_hand_index_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "left_hand_index_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -1.74533,
+            0.0
+          ]
+        }
+      }
+    ],
+    "right": [
+      {
+        "name": "right_wrist_yaw_link",
+        "parent": null,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "mass": 0.457415,
+        "geoms": [
+          {
+            "mesh": "right_hand_palm_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0415,
+              -0.003,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_palm_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0415,
+              -0.003,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ]
+      },
+      {
+        "name": "right_hand_thumb_0_link",
+        "parent": "right_wrist_yaw_link",
+        "position": [
+          0.067,
+          -0.003,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0862366,
+        "geoms": [
+          {
+            "mesh": "right_hand_thumb_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_thumb_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "limits": [
+            -1.0472,
+            1.0472
+          ]
+        }
+      },
+      {
+        "name": "right_hand_thumb_1_link",
+        "parent": "right_hand_thumb_0_link",
+        "position": [
+          -0.0025,
+          0.0193,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0588507,
+        "geoms": [
+          {
+            "mesh": "right_hand_thumb_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": null,
+            "type": "box",
+            "size": [
+              0.01,
+              0.015,
+              0.01
+            ],
+            "position": [
+              -0.001,
+              0.032,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -1.0472,
+            0.724312
+          ]
+        }
+      },
+      {
+        "name": "right_hand_thumb_2_link",
+        "parent": "right_hand_thumb_1_link",
+        "position": [
+          0.0,
+          0.0458,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0203063,
+        "geoms": [
+          {
+            "mesh": "right_hand_thumb_2_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_thumb_2_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            -1.74533,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "right_hand_middle_0_link",
+        "parent": "right_wrist_yaw_link",
+        "position": [
+          0.1192,
+          -0.0046,
+          -0.0285
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0588507,
+        "geoms": [
+          {
+            "mesh": "right_hand_middle_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_middle_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            0.0,
+            1.5708
+          ]
+        }
+      },
+      {
+        "name": "right_hand_middle_1_link",
+        "parent": "right_hand_middle_0_link",
+        "position": [
+          0.0458,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0203063,
+        "geoms": [
+          {
+            "mesh": "right_hand_middle_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_middle_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            0.0,
+            1.74533
+          ]
+        }
+      },
+      {
+        "name": "right_hand_index_0_link",
+        "parent": "right_wrist_yaw_link",
+        "position": [
+          0.1192,
+          -0.0046,
+          0.0285
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0588507,
+        "geoms": [
+          {
+            "mesh": "right_hand_index_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_index_0_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            0.0,
+            1.5708
+          ]
+        }
+      },
+      {
+        "name": "right_hand_index_1_link",
+        "parent": "right_hand_index_0_link",
+        "position": [
+          0.0458,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0203063,
+        "geoms": [
+          {
+            "mesh": "right_hand_index_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": true,
+            "collision": false
+          },
+          {
+            "mesh": "right_hand_index_1_link.STL",
+            "type": "mesh",
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visual": false,
+            "collision": true
+          }
+        ],
+        "joint": {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "limits": [
+            0.0,
+            1.74533
+          ]
+        }
+      }
+    ]
+  }
+}

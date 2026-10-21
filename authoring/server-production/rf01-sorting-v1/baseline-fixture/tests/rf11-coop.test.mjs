@@ -1,0 +1,9 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import * as rf11 from "../game/levels/rf11/engine.js";
+import { LEVEL } from "../game/levels/rf11/level.js";
+
+test("RF-11 starts with two independent robot poses", () => { const state = rf11.createInitialState(); assert.notDeepEqual(state.player, state.partner); assert.equal(state.cargo.location, "floor"); });
+test("RF-11 supports simultaneous movement inputs", () => { const state = rf11.createInitialState(); const next = rf11.updateMovement(state, { alpha: { move: 1, drain: true }, beta: { move: 1, drain: true } }, .05); assert.notEqual(Math.hypot(next.player.x - state.player.x, next.player.z - state.player.z), 0); assert.notEqual(Math.hypot(next.partner.x - state.partner.x, next.partner.z - state.partner.z), 0); assert.ok(next.progress < state.progress); });
+test("RF-11 requires both confirmations to lift and install", () => { let state = rf11.createInitialState(); state = { ...state, player: { ...state.player, x: LEVEL.cargo.x, z: LEVEL.cargo.z }, partner: { ...state.partner, x: LEVEL.cargo.x + .5, z: LEVEL.cargo.z } }; state = rf11.interact(state, "alpha"); assert.equal(state.cargo.location, "floor"); state = rf11.interact(state, "beta"); assert.equal(state.cargo.location, "carried"); state = { ...state, player: { ...state.player, x: LEVEL.target.x, z: LEVEL.target.z }, partner: { ...state.partner, x: LEVEL.target.x + .5, z: LEVEL.target.z } }; state = rf11.interact(state, "alpha"); assert.equal(state.complete, false); state = rf11.interact(state, "beta"); assert.equal(state.complete, true); });
+test("RF-11 preserves an open safety door route", () => { const state = rf11.createInitialState(); assert.equal(rf11.isWalkable(state, 0, -1), true); assert.equal(rf11.isWalkable(state, -8, 0), false); });

@@ -1,0 +1,9 @@
+{
+  "game/levels/rf05/series-wind.js": "5aa8d9a1ddc9cff41c06c5a0ca0c1aa4637e7ed45f77c94aaf7e4b866dd34fbf",
+  "game/levels/rf05/series-tissues.js": "d117fe09e41d46274395a3024d978adae3476ab1fff4e781a9c6e5c2f983bdd5",
+  "game/levels/rf05/series-animation.js": "5d81bce31bd2aafc23569316bdb0ca720cbc94a8c80a4df768dfdac466261190",
+  "game/levels/rf05/series-layout.js": "d32a53525bfbf332fc45b672b46662fb93fe8fcd1b121397dbe949985ba7312a",
+  "tests/rf05-series.test.mjs": "53e53e4aaec46e5cfdf142ff8868563c5bef4cbed8f6359ef7c0135a5c38d143",
+  "docs/levels/rf05-series-acceptance.md": "01f7995590faf1db687c77e791b308aedcdf32506143d29d44461ac03e6b9d54",
+  "docs/levels/rf05-series-production-plan.md": "3e28df8a5f4c9c710fd0a2ee56efd301eede5777e2f376b7691c083afab80f80"
+}

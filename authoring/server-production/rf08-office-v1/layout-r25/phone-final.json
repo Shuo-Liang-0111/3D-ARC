@@ -1,0 +1,10 @@
+{
+  "release": "rf08-office-v1-r26",
+  "method": "qa=office robot station and automatic F on real ring; unchanged formal animation",
+  "ringAt": 61.914713798415505,
+  "deadline": 91.92030000007162,
+  "answeredAt": 69.5399000000954,
+  "status": "answered",
+  "phase": "idle",
+  "contactErrorMeters": 0.0005929373075368901
+}

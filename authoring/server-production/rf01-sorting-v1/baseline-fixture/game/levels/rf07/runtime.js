@@ -1,0 +1,19 @@
+import { LEVEL, SAMPLE_META, SAMPLE_TYPES } from "./level.js";
+import { closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement } from "./engine.js";
+import { createLaboratoryCargoModel, createLaboratoryScene, setLaboratoryCargoModel, syncLaboratoryVisuals } from "./scene.js";
+
+export { LEVEL, closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement };
+export const ui = Object.freeze({ id: "rf07", brand: "COLD-CHAIN TRANSFER", unit: "UNIT R-07 · BIO LAB LOGISTICS", systemLabel: "TEMPERATURE", cargoLabel: "TRANSPORT", gateLabel: "SEQUENCE", startKicker: "LEVEL RF-07 / BIO LAB", startTitle: "COLD-CHAIN<br />TRANSFER", startCopy: "读取墙上任务板，按指定顺序将三个编号样本装入运输箱。安装冷却模块、封箱并启动温控，最后把运输箱送入指定冷藏柜。WASD 移动和每次互动都会消耗状态余量，Q/E 转向不消耗余量。", completeKicker: "COLD-CHAIN COMPLETE", completeTitle: "转运完成", completeCopy: "样本已按顺序封装，并安全送入冷藏柜 02。", terminalHeading: "LAB LOGISTICS / RF-07" });
+export const camera = Object.freeze({ position: [0, 28, 6], lookAt: [0, 0.25, -0.3], fov: 33 });
+export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+export const eventMessages = Object.freeze({ sample_collected_sampleA: "已拿起样本 A-17 · 互动 -5 / 奖励 +15", sample_collected_sampleB: "已拿起样本 B-12 · 互动 -5 / 奖励 +15", sample_collected_sampleC: "已拿起样本 C-04 · 互动 -5 / 奖励 +15", sample_loaded_sampleA: "样本 A-17 已装箱 · 互动 -5 / 奖励 +40", sample_loaded_sampleB: "样本 B-12 已装箱 · 互动 -5 / 奖励 +40", sample_loaded_sampleC: "样本 C-04 已装箱 · 互动 -5 / 奖励 +40", sample_loaded_wrong_order: "样本顺序错误 · 首次装箱奖励 +40，取出箱顶样本后重新排序", sample_unloaded_sampleA: "已取出箱顶样本 A-17", sample_unloaded_sampleB: "已取出箱顶样本 B-12", sample_unloaded_sampleC: "已取出箱顶样本 C-04", samples_ordered: "三个样本顺序正确 · 首次装箱奖励 +40 / 任务奖励 +15", cooling_collected: "已拿起冷却模块 · 互动 -5 / 奖励 +15", cooling_installed: "冷却模块已安装 · 任务奖励 +15", case_sealed: "运输箱已封闭 · 状态余量 -5", temperature_activated: "温控已启动 · 任务奖励 +15", case_collected: "已拿起恒温运输箱", wrong_cold_cabinet: "冷藏柜编号不匹配 · 状态余量 -5", cold_chain_complete: "运输箱已送入冷藏柜 02", empty_interaction: "附近没有可操作对象 · 状态余量 -5", progress_depleted: "状态余量耗尽，冷链转运终止" });
+export function createScene() { return createLaboratoryScene(); }
+export function syncVisuals(world, state) { syncLaboratoryVisuals(world, state); }
+export function createCargoModel() { return createLaboratoryCargoModel(); }
+export function syncRobotCargo(robot, state) { setLaboratoryCargoModel(robot?.userData?.rackPayload, state); }
+export function isCarrying(state) { return Boolean(state.carriedItem); }
+export function getTelemetry(state) { return { system: state.complete ? "COMPLETE" : state.casePhase.toUpperCase(), systemOnline: ["active", "delivered"].includes(state.casePhase), cargo: state.carriedItem ? (state.carriedItem === "transport-case" ? "CASE" : SAMPLE_META[state.carriedItem]?.shortName ?? "COOLING") : "EMPTY", gate: `${state.caseSamples.length}/3` }; }
+export function getProgressSteps(state) { return [{ label: "按任务板顺序装箱", done: state.rewardedPhases.ordered, active: !state.rewardedPhases.ordered }, { label: "安装冷却模块", done: state.rewardedPhases.cooled, active: state.casePhase === "ordered" }, { label: "启动温控", done: state.rewardedPhases.temperature, active: state.casePhase === "sealed" }, { label: "送入冷藏柜 02", done: state.complete, active: state.casePhase === "active" || state.carriedItem === "transport-case" }]; }
+export function getTerminal(state) { return { title: "实验室冷链状态", copy: "任务板和主界面可见的信息保持一致。", rows: [["ORDER", state.caseSamples.map((type) => SAMPLE_META[type].code).join(" → ") || "EMPTY"], ["CASE", state.casePhase.toUpperCase()], ["TARGET", "COLD CABINET 02"]] }; }
+export function getSoundPosition(_before, state) { return state.player; }
+export function getDebugState(state) { return { carriedItem: state.carriedItem, samples: Object.fromEntries(SAMPLE_TYPES.map((type) => [type, state.samples[type].location])), caseSamples: state.caseSamples.map((type) => SAMPLE_META[type].code), casePhase: state.casePhase }; }

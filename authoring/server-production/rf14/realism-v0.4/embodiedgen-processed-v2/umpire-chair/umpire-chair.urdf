@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="umpire-chair"><link name="base"><visual><geometry><mesh filename="mesh/umpire-chair.glb" /></geometry></visual><collision><geometry><mesh filename="mesh/umpire-chair_collision.obj" /></geometry></collision><extra_info><min_height>2.3000</min_height><max_height>2.3000</max_height><real_height>2.3000</real_height></extra_info></link></robot>

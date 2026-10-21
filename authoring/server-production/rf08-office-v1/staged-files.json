@@ -1,0 +1,21 @@
+[
+  "docs/levels/rf08-office-series/README.md",
+  "docs/levels/rf08-office-series/asset-manifest.json",
+  "game/app.js",
+  "game/levels/rf09-2/office-entry.js",
+  "game/levels/rf09-3/office-entry.js",
+  "game/levels/rf09/office-animation.js",
+  "game/levels/rf09/office-architecture.js",
+  "game/levels/rf09/office-engine.js",
+  "game/levels/rf09/office-entry.js",
+  "game/levels/rf09/office-layout.js",
+  "game/levels/rf09/office-qa.js",
+  "game/levels/rf09/office-runtime.js",
+  "game/levels/rf09/office-scene.js",
+  "index.html",
+  "tests/rf08-office-series.test.mjs",
+  "tests/rf09-office.test.mjs",
+  "tools/rf08-office/build-candidate.mjs",
+  "tools/rf08-office/make-printer.py",
+  "vite.config.js"
+]

@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready freestanding public-library catalog terminal for a contemporary Chinese municipal library. Real-world size approximately 0.86 m wide x 1.35 m high x 0.80 m deep. Stable dark bronze powder-coated steel pedestal, gently angled recessed monitor, separate flat dark unlit screen material, compact physical keyboard shelf, accessible scanner slot, ventilation perforations, lockable service panel, concealed cable route, floor mounting plate, precise fasteners, and restrained daily wear. The silhouette must be practical and non-futuristic. Y axis up, front facing positive Z, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. Exactly one isolated terminal only. No room, floor, wall, desk, person, robot, hologram, floating display, animation, neon glow, outline, arrows, UI, readable screen content, text, labels, logo, trademark, or baked lighting. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

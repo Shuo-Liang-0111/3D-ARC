@@ -1,0 +1,9 @@
+{
+  "prompt": "One whole mature green leaf lettuce plant growing upright, botanical photorealism, overlapping irregular cupped ruffled leaves in a natural rosette, translucent light green young heart and dark green outer leaves, fine branching veins, curled thin edges, slight soil at short cuttable basal stem, 35 cm wide 28 cm tall. Only the vegetable, no soil slab, no pot, no container, no background. PBR true leaf coloration, natural roughness, no toy look.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

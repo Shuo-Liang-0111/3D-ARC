@@ -1,0 +1,23 @@
+[Unit]
+Description=ARC G1 MuJoCo simulation service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=.
+ExecStart=/opt/arc-runtime/env/bin/python ./simulation/mujoco_server.py
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=ARC_MUJOCO_HOST=127.0.0.1
+Environment=ARC_MUJOCO_PORT=4186
+Environment=ARC_MUJOCO_MAX_SESSIONS=12
+Environment=ARC_G1_YAW_RATE=0.6
+Environment=ARC_MUJOCO_MODEL=./vendor-data/unitree_mujoco/unitree_robots/g1/scene_29dof.xml
+Environment=ARC_G1_POLICY=./vendor-data/unitree_rl_lab/deploy/robots/g1_29dof/config/policy/velocity/v0/exported/policy.onnx
+Environment=ARC_G1_POLICY_CONFIG=./vendor-data/unitree_rl_lab/deploy/robots/g1_29dof/config/policy/velocity/v0/params/deploy.yaml
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

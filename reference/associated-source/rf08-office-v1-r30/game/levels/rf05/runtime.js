@@ -1,0 +1,18 @@
+import { ITEM_META, ITEM_TYPES, LEVEL } from "./level.js";
+import { closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement } from "./engine.js";
+import { createHotelCargoModel, createHotelRoomScene, setHotelCargoModel, syncHotelVisuals } from "./scene.js";
+export { LEVEL, closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement };
+export const ui = Object.freeze({ id: "rf05", brand: "HOTEL ROOM RESET", unit: "UNIT R-05 · GUEST SERVICES", systemLabel: "ROOM STATUS", cargoLabel: "CARRYING", gateLabel: "TASKS", startKicker: "LEVEL RF-05 / HOTEL ROOM", startTitle: "ROOM<br />RESET", startCopy: "在酒店客房中整理三件物品：将毛巾放入脏衣篮、水杯放到清洁车回收格、垃圾放入垃圾桶。WASD 移动和每次互动都会消耗状态余量，左右方向键转向不消耗余量，首次拾取与正确归位会补充余量。", completeKicker: "ROOM RESET COMPLETE", completeTitle: "整理完成", completeCopy: "客房内的毛巾、水杯和垃圾已经全部归位。", terminalHeading: "HOUSEKEEPING STATUS / RF-05" });
+export const camera = Object.freeze({ position: [0, 24.5, 10.5], lookAt: [0, 0.3, 0], fov: 36 });
+export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+export const eventMessages = Object.freeze({ item_collected_towel: "已拿起白色毛巾 · 互动 -5 / 奖励 +15", item_collected_cup: "已拿起玻璃水杯 · 互动 -5 / 奖励 +15", item_collected_trash: "已拿起地面垃圾 · 互动 -5 / 奖励 +15", item_recollected_towel: "再次拿起白色毛巾 · 状态余量 -5", item_recollected_cup: "再次拿起玻璃水杯 · 状态余量 -5", item_recollected_trash: "再次拿起地面垃圾 · 状态余量 -5", item_dropped_towel: "毛巾已放下 · 状态余量 -5", item_dropped_cup: "水杯已放下 · 状态余量 -5", item_dropped_trash: "垃圾已放下 · 状态余量 -5", item_delivered_towel: "毛巾已放入脏衣篮 · 互动 -5 / 奖励 +15", item_delivered_cup: "水杯已放到清洁车 · 互动 -5 / 奖励 +15", item_delivered_trash: "垃圾已放入垃圾桶 · 互动 -5 / 奖励 +15", wrong_target: "目标容器不匹配 · 状态余量 -5", empty_interaction: "附近没有可操作对象 · 状态余量 -5", room_reset_complete: "三件物品全部归位，客房整理完成", progress_depleted: "状态余量耗尽，整理任务终止" });
+export function createScene() { return createHotelRoomScene(); }
+export function syncVisuals(world, state) { syncHotelVisuals(world, state); }
+export function createCargoModel() { return createHotelCargoModel(); }
+export function syncRobotCargo(robot, state) { if (state.carriedItem) setHotelCargoModel(robot.userData.rackPayload, state.carriedItem); }
+export function isCarrying(state) { return Boolean(state.carriedItem); }
+export function getTelemetry(state) { const done = ITEM_TYPES.filter((type) => ["laundry", "cart", "bin"].includes(state.items[type].location)).length; return { system: state.complete ? "COMPLETE" : `${done}/3 RESET`, systemOnline: state.complete, cargo: state.carriedItem ? ITEM_META[state.carriedItem].shortName : "EMPTY", gate: `${done}/3 COMPLETE` }; }
+export function getProgressSteps(state) { return [{ label: "拾取三件物品", done: ITEM_TYPES.every((type) => state.rewardedPickups[type]), active: !state.complete }, { label: "毛巾入脏衣篮", done: state.items.towel.location === "laundry", active: state.carriedItem === "towel" }, { label: "水杯上清洁车", done: state.items.cup.location === "cart", active: state.carriedItem === "cup" }, { label: "垃圾入垃圾桶", done: state.items.trash.location === "bin", active: state.carriedItem === "trash" }]; }
+export function getTerminal(state) { return { title: "酒店客房状态", copy: "三件物品必须放入对应目标容器。", rows: [["TOWEL", state.items.towel.location.toUpperCase()], ["CUP", state.items.cup.location.toUpperCase()], ["TRASH", state.items.trash.location.toUpperCase()]] }; }
+export function getSoundPosition(_before, state) { return state.player; }
+export function getDebugState(state) { return { carriedItem: state.carriedItem, items: Object.fromEntries(ITEM_TYPES.map((type) => [type, state.items[type].location])), delivered: ITEM_TYPES.filter((type) => ["laundry", "cart", "bin"].includes(state.items[type].location)).length }; }

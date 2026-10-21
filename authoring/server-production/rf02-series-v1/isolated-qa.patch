@@ -1,0 +1,15 @@
+diff --git a/tools/rf02-series/prepare-browser-qa.mjs b/tools/rf02-series/prepare-browser-qa.mjs
+--- a/tools/rf02-series/prepare-browser-qa.mjs
++++ b/tools/rf02-series/prepare-browser-qa.mjs
+@@ -12,5 +12,6 @@
+-for (const [source, target] of copies) {
+-  fs.mkdirSync(path.dirname(target), { recursive: true });
+-  const text = fs.readFileSync(source, "utf8").replace('from "./route.mjs"', 'from "./route.js"');
+-  fs.writeFileSync(target, text);
+-}
++for (const [source, relative] of copies) {
++  const target = process.argv[2] ? path.join(process.argv[2], relative.slice(5)) : relative;
++  fs.mkdirSync(path.dirname(target), { recursive: true });
++  const text = fs.readFileSync(source, "utf8").replace('from "./route.mjs"', 'from "./route.js"');
++  fs.writeFileSync(target, text);
++}

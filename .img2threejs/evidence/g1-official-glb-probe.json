@@ -1,0 +1,2619 @@
+{
+  "schemaVersion": 1,
+  "kind": "glb-reference",
+  "path": "./public/local-assets/unitree/g1/g1_29dof_official.glb",
+  "sha256": "4e8e83e42cb7a9d1d93c46eb0da821eb54ebf3596923bee087cf7e614ae367b9",
+  "bytes": 17684664,
+  "binary": {
+    "version": 2,
+    "declaredLength": 17684664,
+    "jsonChunkBytes": 42209,
+    "binChunkBytes": 17642424,
+    "chunks": [
+      {
+        "type": "JSON",
+        "bytes": 42212
+      },
+      {
+        "type": "BIN\u0000",
+        "bytes": 17642424
+      }
+    ]
+  },
+  "asset": {
+    "version": "2.0",
+    "generator": "https://github.com/mikedh/trimesh"
+  },
+  "scene": {
+    "defaultScene": 0,
+    "sceneCount": 1,
+    "nodeCount": 68,
+    "meshCount": 36,
+    "primitiveCount": 36,
+    "materialCount": 2,
+    "skinCount": 0,
+    "animationCount": 0
+  },
+  "nodes": [
+    {
+      "index": 0,
+      "name": "world",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "name": "g1_official_root",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        2
+      ]
+    },
+    {
+      "index": 2,
+      "name": "pelvis",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        3,
+        4,
+        5,
+        17,
+        29
+      ]
+    },
+    {
+      "index": 3,
+      "name": "pelvis__visual_0",
+      "mesh": 0,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 4,
+      "name": "pelvis__visual_1",
+      "mesh": 1,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 5,
+      "name": "left_hip_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        6,
+        7
+      ]
+    },
+    {
+      "index": 6,
+      "name": "left_hip_pitch_link__visual_0",
+      "mesh": 2,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 7,
+      "name": "left_hip_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        8,
+        9
+      ]
+    },
+    {
+      "index": 8,
+      "name": "left_hip_roll_link__visual_0",
+      "mesh": 3,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 9,
+      "name": "left_hip_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        10,
+        11
+      ]
+    },
+    {
+      "index": 10,
+      "name": "left_hip_yaw_link__visual_0",
+      "mesh": 4,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 11,
+      "name": "left_knee_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        12,
+        13
+      ]
+    },
+    {
+      "index": 12,
+      "name": "left_knee_link__visual_0",
+      "mesh": 5,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 13,
+      "name": "left_ankle_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        14,
+        15
+      ]
+    },
+    {
+      "index": 14,
+      "name": "left_ankle_pitch_link__visual_0",
+      "mesh": 6,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 15,
+      "name": "left_ankle_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        16
+      ]
+    },
+    {
+      "index": 16,
+      "name": "left_ankle_roll_link__visual_0",
+      "mesh": 7,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 17,
+      "name": "right_hip_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        18,
+        19
+      ]
+    },
+    {
+      "index": 18,
+      "name": "right_hip_pitch_link__visual_0",
+      "mesh": 8,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 19,
+      "name": "right_hip_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        20,
+        21
+      ]
+    },
+    {
+      "index": 20,
+      "name": "right_hip_roll_link__visual_0",
+      "mesh": 9,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 21,
+      "name": "right_hip_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        22,
+        23
+      ]
+    },
+    {
+      "index": 22,
+      "name": "right_hip_yaw_link__visual_0",
+      "mesh": 10,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 23,
+      "name": "right_knee_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        24,
+        25
+      ]
+    },
+    {
+      "index": 24,
+      "name": "right_knee_link__visual_0",
+      "mesh": 11,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 25,
+      "name": "right_ankle_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        26,
+        27
+      ]
+    },
+    {
+      "index": 26,
+      "name": "right_ankle_pitch_link__visual_0",
+      "mesh": 12,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 27,
+      "name": "right_ankle_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        28
+      ]
+    },
+    {
+      "index": 28,
+      "name": "right_ankle_roll_link__visual_0",
+      "mesh": 13,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 29,
+      "name": "waist_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        30,
+        31
+      ]
+    },
+    {
+      "index": 30,
+      "name": "waist_yaw_link__visual_0",
+      "mesh": 14,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 31,
+      "name": "waist_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        32,
+        33
+      ]
+    },
+    {
+      "index": 32,
+      "name": "waist_roll_link__visual_0",
+      "mesh": 15,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 33,
+      "name": "torso_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        53
+      ]
+    },
+    {
+      "index": 34,
+      "name": "torso_link__visual_0",
+      "mesh": 16,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 35,
+      "name": "torso_link__visual_1",
+      "mesh": 17,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 36,
+      "name": "torso_link__visual_2",
+      "mesh": 18,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 37,
+      "name": "torso_link__visual_3",
+      "mesh": 19,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 38,
+      "name": "left_shoulder_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        39,
+        40
+      ]
+    },
+    {
+      "index": 39,
+      "name": "left_shoulder_pitch_link__visual_0",
+      "mesh": 20,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 40,
+      "name": "left_shoulder_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        41,
+        42
+      ]
+    },
+    {
+      "index": 41,
+      "name": "left_shoulder_roll_link__visual_0",
+      "mesh": 21,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 42,
+      "name": "left_shoulder_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        43,
+        44
+      ]
+    },
+    {
+      "index": 43,
+      "name": "left_shoulder_yaw_link__visual_0",
+      "mesh": 22,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 44,
+      "name": "left_elbow_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        45,
+        46
+      ]
+    },
+    {
+      "index": 45,
+      "name": "left_elbow_link__visual_0",
+      "mesh": 23,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 46,
+      "name": "left_wrist_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        47,
+        48
+      ]
+    },
+    {
+      "index": 47,
+      "name": "left_wrist_roll_link__visual_0",
+      "mesh": 24,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 48,
+      "name": "left_wrist_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        49,
+        50
+      ]
+    },
+    {
+      "index": 49,
+      "name": "left_wrist_pitch_link__visual_0",
+      "mesh": 25,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 50,
+      "name": "left_wrist_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        51,
+        52
+      ]
+    },
+    {
+      "index": 51,
+      "name": "left_wrist_yaw_link__visual_0",
+      "mesh": 26,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 52,
+      "name": "left_wrist_yaw_link__visual_1",
+      "mesh": 27,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 53,
+      "name": "right_shoulder_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        54,
+        55
+      ]
+    },
+    {
+      "index": 54,
+      "name": "right_shoulder_pitch_link__visual_0",
+      "mesh": 28,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 55,
+      "name": "right_shoulder_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        56,
+        57
+      ]
+    },
+    {
+      "index": 56,
+      "name": "right_shoulder_roll_link__visual_0",
+      "mesh": 29,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 57,
+      "name": "right_shoulder_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        58,
+        59
+      ]
+    },
+    {
+      "index": 58,
+      "name": "right_shoulder_yaw_link__visual_0",
+      "mesh": 30,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 59,
+      "name": "right_elbow_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        60,
+        61
+      ]
+    },
+    {
+      "index": 60,
+      "name": "right_elbow_link__visual_0",
+      "mesh": 31,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 61,
+      "name": "right_wrist_roll_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        62,
+        63
+      ]
+    },
+    {
+      "index": 62,
+      "name": "right_wrist_roll_link__visual_0",
+      "mesh": 32,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 63,
+      "name": "right_wrist_pitch_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        64,
+        65
+      ]
+    },
+    {
+      "index": 64,
+      "name": "right_wrist_pitch_link__visual_0",
+      "mesh": 33,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 65,
+      "name": "right_wrist_yaw_link",
+      "mesh": null,
+      "skin": null,
+      "children": [
+        66,
+        67
+      ]
+    },
+    {
+      "index": 66,
+      "name": "right_wrist_yaw_link__visual_0",
+      "mesh": 34,
+      "skin": null,
+      "children": []
+    },
+    {
+      "index": 67,
+      "name": "right_wrist_yaw_link__visual_1",
+      "mesh": 35,
+      "skin": null,
+      "children": []
+    }
+  ],
+  "meshes": [
+    {
+      "index": 0,
+      "name": "pelvis__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              -0.06445247679948807,
+              -0.1474500149488449,
+              -0.04875030368566513
+            ],
+            "max": [
+              0.06445247679948807,
+              0.0025000046007335186,
+              0.048750508576631546
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.06445247679948807,
+          -0.1474500149488449,
+          -0.04875030368566513
+        ],
+        "max": [
+          0.06445247679948807,
+          0.0025000046007335186,
+          0.048750508576631546
+        ],
+        "size": [
+          0.12890495359897614,
+          0.14995001954957843,
+          0.09750081226229668
+        ],
+        "center": [
+          0.0,
+          -0.0724750051740557,
+          1.0244548320770264e-07
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "name": "pelvis__mesh_1",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.0677763894200325,
+              -0.15200547873973846,
+              -0.058128051459789276
+            ],
+            "max": [
+              0.06776073575019836,
+              -0.02776389941573143,
+              0.061431244015693665
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.0677763894200325,
+          -0.15200547873973846,
+          -0.058128051459789276
+        ],
+        "max": [
+          0.06776073575019836,
+          -0.02776389941573143,
+          0.061431244015693665
+        ],
+        "size": [
+          0.13553712517023087,
+          0.12424157932400703,
+          0.11955929547548294
+        ],
+        "center": [
+          -7.826834917068481e-06,
+          -0.08988468907773495,
+          0.0016515962779521942
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "name": "left_hip_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              -0.09881081432104111,
+              -0.08004375547170639,
+              -0.04231603071093559
+            ],
+            "max": [
+              -1.752833850288127e-10,
+              0.03712092339992523,
+              0.04024069383740425
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.09881081432104111,
+          -0.08004375547170639,
+          -0.04231603071093559
+        ],
+        "max": [
+          -1.752833850288127e-10,
+          0.03712092339992523,
+          0.04024069383740425
+        ],
+        "size": [
+          0.09881081414575772,
+          0.11716467887163162,
+          0.08255672454833984
+        ],
+        "center": [
+          -0.049405407248162246,
+          -0.02146141603589058,
+          -0.0010376684367656708
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "name": "left_hip_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.048774201422929764,
+              -0.12412407994270325,
+              -0.026318851858377457
+            ],
+            "max": [
+              0.04911654815077782,
+              0.046484772115945816,
+              0.08016039431095123
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.048774201422929764,
+          -0.12412407994270325,
+          -0.026318851858377457
+        ],
+        "max": [
+          0.04911654815077782,
+          0.046484772115945816,
+          0.08016039431095123
+        ],
+        "size": [
+          0.09789074957370758,
+          0.17060885205864906,
+          0.10647924616932869
+        ],
+        "center": [
+          0.0001711733639240265,
+          -0.038819653913378716,
+          0.026920771226286888
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "name": "left_hip_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.0432993583381176,
+              -0.22623078525066376,
+              -0.1272493153810501
+            ],
+            "max": [
+              0.045383282005786896,
+              7.070005914044941e-09,
+              0.05238468199968338
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.0432993583381176,
+          -0.22623078525066376,
+          -0.1272493153810501
+        ],
+        "max": [
+          0.045383282005786896,
+          7.070005914044941e-09,
+          0.05238468199968338
+        ],
+        "size": [
+          0.0886826403439045,
+          0.22623079232066967,
+          0.1796339973807335
+        ],
+        "center": [
+          0.0010419618338346481,
+          -0.11311538909032892,
+          -0.037432316690683365
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "name": "left_knee_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03581269457936287,
+              -0.3150727450847626,
+              -0.03989659249782562
+            ],
+            "max": [
+              0.03588641807436943,
+              0.04004927724599838,
+              0.06391961872577667
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03581269457936287,
+          -0.3150727450847626,
+          -0.03989659249782562
+        ],
+        "max": [
+          0.03588641807436943,
+          0.04004927724599838,
+          0.06391961872577667
+        ],
+        "size": [
+          0.0716991126537323,
+          0.35512202233076096,
+          0.1038162112236023
+        ],
+        "center": [
+          3.686174750328064e-05,
+          -0.1375117339193821,
+          0.012011513113975525
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "name": "left_ankle_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.006557829678058624,
+              -0.02455790899693966,
+              -0.02449999935925007
+            ],
+            "max": [
+              0.006442185025662184,
+              0.012889973819255829,
+              0.01150001771748066
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.006557829678058624,
+          -0.02455790899693966,
+          -0.02449999935925007
+        ],
+        "max": [
+          0.006442185025662184,
+          0.012889973819255829,
+          0.01150001771748066
+        ],
+        "size": [
+          0.013000014703720808,
+          0.03744788281619549,
+          0.03600001707673073
+        ],
+        "center": [
+          -5.782232619822025e-05,
+          -0.005833967588841915,
+          -0.006499990820884705
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "name": "left_ankle_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              -0.03784090280532837,
+              -0.035409145057201385,
+              -0.06584136933088303
+            ],
+            "max": [
+              0.03774179145693779,
+              0.023583902046084404,
+              0.14236535131931305
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03784090280532837,
+          -0.035409145057201385,
+          -0.06584136933088303
+        ],
+        "max": [
+          0.03774179145693779,
+          0.023583902046084404,
+          0.14236535131931305
+        ],
+        "size": [
+          0.07558269426226616,
+          0.05899304710328579,
+          0.20820672065019608
+        ],
+        "center": [
+          -4.955567419528961e-05,
+          -0.005912621505558491,
+          0.03826199099421501
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "name": "right_hip_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              1.752833850288127e-10,
+              -0.08004375547170639,
+              -0.04231603071093559
+            ],
+            "max": [
+              0.09881081432104111,
+              0.03712008520960808,
+              0.04024069383740425
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          1.752833850288127e-10,
+          -0.08004375547170639,
+          -0.04231603071093559
+        ],
+        "max": [
+          0.09881081432104111,
+          0.03712008520960808,
+          0.04024069383740425
+        ],
+        "size": [
+          0.09881081414575772,
+          0.11716384068131447,
+          0.08255672454833984
+        ],
+        "center": [
+          0.049405407248162246,
+          -0.021461835131049156,
+          -0.0010376684367656708
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "name": "right_hip_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.04911654815077782,
+              -0.12412407994270325,
+              -0.026318851858377457
+            ],
+            "max": [
+              0.048774201422929764,
+              0.046484772115945816,
+              0.08016039431095123
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.04911654815077782,
+          -0.12412407994270325,
+          -0.026318851858377457
+        ],
+        "max": [
+          0.048774201422929764,
+          0.046484772115945816,
+          0.08016039431095123
+        ],
+        "size": [
+          0.09789074957370758,
+          0.17060885205864906,
+          0.10647924616932869
+        ],
+        "center": [
+          -0.0001711733639240265,
+          -0.038819653913378716,
+          0.026920771226286888
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "name": "right_hip_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.045383282005786896,
+              -0.22623078525066376,
+              -0.1272493153810501
+            ],
+            "max": [
+              0.0432993583381176,
+              7.070005914044941e-09,
+              0.05238468199968338
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.045383282005786896,
+          -0.22623078525066376,
+          -0.1272493153810501
+        ],
+        "max": [
+          0.0432993583381176,
+          7.070005914044941e-09,
+          0.05238468199968338
+        ],
+        "size": [
+          0.0886826403439045,
+          0.22623079232066967,
+          0.1796339973807335
+        ],
+        "center": [
+          -0.0010419618338346481,
+          -0.11311538909032892,
+          -0.037432316690683365
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "name": "right_knee_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03588281199336052,
+              -0.3150727450847626,
+              -0.03989659249782562
+            ],
+            "max": [
+              0.035813167691230774,
+              0.04004927724599838,
+              0.06391961872577667
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03588281199336052,
+          -0.3150727450847626,
+          -0.03989659249782562
+        ],
+        "max": [
+          0.035813167691230774,
+          0.04004927724599838,
+          0.06391961872577667
+        ],
+        "size": [
+          0.0716959796845913,
+          0.35512202233076096,
+          0.1038162112236023
+        ],
+        "center": [
+          -3.482215106487274e-05,
+          -0.1375117339193821,
+          0.012011513113975525
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "name": "right_ankle_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.006442185025662184,
+              -0.02455790899693966,
+              -0.02449999935925007
+            ],
+            "max": [
+              0.006557829678058624,
+              0.012889973819255829,
+              0.01150001771748066
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.006442185025662184,
+          -0.02455790899693966,
+          -0.02449999935925007
+        ],
+        "max": [
+          0.006557829678058624,
+          0.012889973819255829,
+          0.01150001771748066
+        ],
+        "size": [
+          0.013000014703720808,
+          0.03744788281619549,
+          0.03600001707673073
+        ],
+        "center": [
+          5.782232619822025e-05,
+          -0.005833967588841915,
+          -0.006499990820884705
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "name": "right_ankle_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              -0.03774179145693779,
+              -0.035409145057201385,
+              -0.06584136933088303
+            ],
+            "max": [
+              0.03784090280532837,
+              0.023583902046084404,
+              0.14236535131931305
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03774179145693779,
+          -0.035409145057201385,
+          -0.06584136933088303
+        ],
+        "max": [
+          0.03784090280532837,
+          0.023583902046084404,
+          0.14236535131931305
+        ],
+        "size": [
+          0.07558269426226616,
+          0.05899304710328579,
+          0.20820672065019608
+        ],
+        "center": [
+          4.955567419528961e-05,
+          -0.005912621505558491,
+          0.03826199099421501
+        ]
+      }
+    },
+    {
+      "index": 14,
+      "name": "waist_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.042462270706892014,
+              0.0003520474710967392,
+              -0.04249987378716469
+            ],
+            "max": [
+              0.042468879371881485,
+              0.046352848410606384,
+              0.042368583381175995
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.042462270706892014,
+          0.0003520474710967392,
+          -0.04249987378716469
+        ],
+        "max": [
+          0.042468879371881485,
+          0.046352848410606384,
+          0.042368583381175995
+        ],
+        "size": [
+          0.0849311500787735,
+          0.046000800939509645,
+          0.08486845716834068
+        ],
+        "center": [
+          3.3043324947357178e-06,
+          0.02335244794085156,
+          -6.564520299434662e-05
+        ]
+      }
+    },
+    {
+      "index": 15,
+      "name": "waist_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.011001885868608952,
+              -0.010000145994126797,
+              -0.010002080351114273
+            ],
+            "max": [
+              0.01100226491689682,
+              0.028945442289114,
+              0.010002371855080128
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.011001885868608952,
+          -0.010000145994126797,
+          -0.010002080351114273
+        ],
+        "max": [
+          0.01100226491689682,
+          0.028945442289114,
+          0.010002371855080128
+        ],
+        "size": [
+          0.02200415078550577,
+          0.038945588283240795,
+          0.0200044522061944
+        ],
+        "center": [
+          1.8952414393424988e-07,
+          0.0094726481474936,
+          1.457519829273224e-07
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "name": "torso_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.10771457850933075,
+              -0.009939233772456646,
+              -0.06664290279150009
+            ],
+            "max": [
+              0.10771293193101883,
+              0.30036330223083496,
+              0.08362693339586258
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.10771457850933075,
+          -0.009939233772456646,
+          -0.06664290279150009
+        ],
+        "max": [
+          0.10771293193101883,
+          0.30036330223083496,
+          0.08362693339586258
+        ],
+        "size": [
+          0.21542751044034958,
+          0.3103025360032916,
+          0.15026983618736267
+        ],
+        "center": [
+          -8.23289155960083e-07,
+          0.14521203422918916,
+          0.008492015302181244
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "name": "torso_link__mesh_1",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              -0.07480008900165558,
+              0.2569787800312042,
+              -0.07257411628961563
+            ],
+            "max": [
+              0.07450834661722183,
+              0.28617292642593384,
+              0.07682295143604279
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.07480008900165558,
+          0.2569787800312042,
+          -0.07257411628961563
+        ],
+        "max": [
+          0.07450834661722183,
+          0.28617292642593384,
+          0.07682295143604279
+        ],
+        "size": [
+          0.1493084356188774,
+          0.029194146394729614,
+          0.14939706772565842
+        ],
+        "center": [
+          -0.00014587119221687317,
+          0.27157585322856903,
+          0.0021244175732135773
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "name": "torso_link__mesh_2",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 0,
+          "positionBounds": {
+            "min": [
+              -0.07788655906915665,
+              0.324788361787796,
+              -0.06642202287912369
+            ],
+            "max": [
+              0.07770642638206482,
+              0.5305643677711487,
+              0.07379922270774841
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.07788655906915665,
+          0.324788361787796,
+          -0.06642202287912369
+        ],
+        "max": [
+          0.07770642638206482,
+          0.5305643677711487,
+          0.07379922270774841
+        ],
+        "size": [
+          0.15559298545122147,
+          0.20577600598335266,
+          0.1402212455868721
+        ],
+        "center": [
+          -9.00663435459137e-05,
+          0.42767636477947235,
+          0.0036885999143123627
+        ]
+      }
+    },
+    {
+      "index": 19,
+      "name": "torso_link__mesh_3",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.06749820709228516,
+              0.010882037691771984,
+              -0.057579949498176575
+            ],
+            "max": [
+              0.067332923412323,
+              0.05219333991408348,
+              0.059051238000392914
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.06749820709228516,
+          0.010882037691771984,
+          -0.057579949498176575
+        ],
+        "max": [
+          0.067332923412323,
+          0.05219333991408348,
+          0.059051238000392914
+        ],
+        "size": [
+          0.13483113050460815,
+          0.0413113022223115,
+          0.11663118749856949
+        ],
+        "center": [
+          -8.26418399810791e-05,
+          0.03153768880292773,
+          0.0007356442511081696
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "name": "left_shoulder_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.0744975134730339,
+              -0.050329867750406265,
+              -0.031012414023280144
+            ],
+            "max": [
+              7.454270978257682e-09,
+              0.040049511939287186,
+              0.031035970896482468
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.0744975134730339,
+          -0.050329867750406265,
+          -0.031012414023280144
+        ],
+        "max": [
+          7.454270978257682e-09,
+          0.040049511939287186,
+          0.031035970896482468
+        ],
+        "size": [
+          0.07449752092730488,
+          0.09037937968969345,
+          0.06204838491976261
+        ],
+        "center": [
+          -0.03724875300938146,
+          -0.00514017790555954,
+          1.1778436601161957e-05
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "name": "left_shoulder_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03994247317314148,
+              -0.10319999605417252,
+              -0.040152646601200104
+            ],
+            "max": [
+              0.03291530907154083,
+              0.03342677280306816,
+              0.04103577136993408
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03994247317314148,
+          -0.10319999605417252,
+          -0.040152646601200104
+        ],
+        "max": [
+          0.03291530907154083,
+          0.03342677280306816,
+          0.04103577136993408
+        ],
+        "size": [
+          0.07285778224468231,
+          0.13662676885724068,
+          0.08118841797113419
+        ],
+        "center": [
+          -0.0035135820508003235,
+          -0.03488661162555218,
+          0.00044156238436698914
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "name": "left_shoulder_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03310637176036835,
+              -0.11369692534208298,
+              -0.032810695469379425
+            ],
+            "max": [
+              0.04141250625252724,
+              0.031574152410030365,
+              0.048374809324741364
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03310637176036835,
+          -0.11369692534208298,
+          -0.032810695469379425
+        ],
+        "max": [
+          0.04141250625252724,
+          0.031574152410030365,
+          0.048374809324741364
+        ],
+        "size": [
+          0.07451887801289558,
+          0.14527107775211334,
+          0.08118550479412079
+        ],
+        "center": [
+          0.004153067246079445,
+          -0.041061386466026306,
+          0.007782056927680969
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "name": "left_elbow_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03477716073393822,
+              -0.04543027654290199,
+              -0.029775112867355347
+            ],
+            "max": [
+              0.03125531226396561,
+              0.029775114730000496,
+              0.10000001639127731
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03477716073393822,
+          -0.04543027654290199,
+          -0.029775112867355347
+        ],
+        "max": [
+          0.03125531226396561,
+          0.029775114730000496,
+          0.10000001639127731
+        ],
+        "size": [
+          0.06603247299790382,
+          0.07520539127290249,
+          0.12977512925863266
+        ],
+        "center": [
+          -0.0017609242349863052,
+          -0.007827580906450748,
+          0.03511245176196098
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "name": "left_wrist_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.029999999329447746,
+              -0.02999999187886715,
+              -4.373005372393509e-15
+            ],
+            "max": [
+              0.030494267120957375,
+              0.02999999187886715,
+              0.05599305406212807
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.029999999329447746,
+          -0.02999999187886715,
+          -4.373005372393509e-15
+        ],
+        "max": [
+          0.030494267120957375,
+          0.02999999187886715,
+          0.05599305406212807
+        ],
+        "size": [
+          0.06049426645040512,
+          0.0599999837577343,
+          0.05599305406213244
+        ],
+        "center": [
+          0.00024713389575481415,
+          0.0,
+          0.027996527031061848
+        ]
+      }
+    },
+    {
+      "index": 25,
+      "name": "left_wrist_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.028490660712122917,
+              -0.028490660712122917,
+              -0.02850000001490116
+            ],
+            "max": [
+              0.028490660712122917,
+              0.028490660712122917,
+              0.07450000196695328
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.028490660712122917,
+          -0.028490660712122917,
+          -0.02850000001490116
+        ],
+        "max": [
+          0.028490660712122917,
+          0.028490660712122917,
+          0.07450000196695328
+        ],
+        "size": [
+          0.056981321424245834,
+          0.056981321424245834,
+          0.10300000198185444
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.023000000976026058
+        ]
+      }
+    },
+    {
+      "index": 26,
+      "name": "left_wrist_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.030000001192092896,
+              -0.030494192615151405,
+              -0.0179926548153162
+            ],
+            "max": [
+              0.023864509537816048,
+              0.029999999329447746,
+              0.04150019958615303
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.030000001192092896,
+          -0.030494192615151405,
+          -0.0179926548153162
+        ],
+        "max": [
+          0.023864509537816048,
+          0.029999999329447746,
+          0.04150019958615303
+        ],
+        "size": [
+          0.05386451072990894,
+          0.06049419194459915,
+          0.05949285440146923
+        ],
+        "center": [
+          -0.003067745827138424,
+          -0.00024709664285182953,
+          0.011753772385418415
+        ]
+      }
+    },
+    {
+      "index": 27,
+      "name": "left_wrist_yaw_link__mesh_1",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.018651477992534637,
+              -0.043028898537158966,
+              -2.780881303010574e-08
+            ],
+            "max": [
+              0.0479060634970665,
+              0.06344989687204361,
+              0.13182935118675232
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.018651477992534637,
+          -0.043028898537158966,
+          -2.780881303010574e-08
+        ],
+        "max": [
+          0.0479060634970665,
+          0.06344989687204361,
+          0.13182935118675232
+        ],
+        "size": [
+          0.06655754148960114,
+          0.10647879540920258,
+          0.13182937899556535
+        ],
+        "center": [
+          0.01462729275226593,
+          0.010210499167442322,
+          0.06591466168896964
+        ]
+      }
+    },
+    {
+      "index": 28,
+      "name": "right_shoulder_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -7.454257655581387e-09,
+              -0.050329867750406265,
+              -0.031012414023280144
+            ],
+            "max": [
+              0.0744975134730339,
+              0.040049511939287186,
+              0.031035970896482468
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -7.454257655581387e-09,
+          -0.050329867750406265,
+          -0.031012414023280144
+        ],
+        "max": [
+          0.0744975134730339,
+          0.040049511939287186,
+          0.031035970896482468
+        ],
+        "size": [
+          0.07449752092729156,
+          0.09037937968969345,
+          0.06204838491976261
+        ],
+        "center": [
+          0.037248753009388125,
+          -0.00514017790555954,
+          1.1778436601161957e-05
+        ]
+      }
+    },
+    {
+      "index": 29,
+      "name": "right_shoulder_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03291530907154083,
+              -0.10319999605417252,
+              -0.04015251621603966
+            ],
+            "max": [
+              0.03994247317314148,
+              0.03342677280306816,
+              0.04103577136993408
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03291530907154083,
+          -0.10319999605417252,
+          -0.04015251621603966
+        ],
+        "max": [
+          0.03994247317314148,
+          0.03342677280306816,
+          0.04103577136993408
+        ],
+        "size": [
+          0.07285778224468231,
+          0.13662676885724068,
+          0.08118828758597374
+        ],
+        "center": [
+          0.0035135820508003235,
+          -0.03488661162555218,
+          0.0004416275769472122
+        ]
+      }
+    },
+    {
+      "index": 30,
+      "name": "right_shoulder_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.04141250625252724,
+              -0.11369692534208298,
+              -0.032810695469379425
+            ],
+            "max": [
+              0.03310637176036835,
+              0.031574152410030365,
+              0.048374809324741364
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.04141250625252724,
+          -0.11369692534208298,
+          -0.032810695469379425
+        ],
+        "max": [
+          0.03310637176036835,
+          0.031574152410030365,
+          0.048374809324741364
+        ],
+        "size": [
+          0.07451887801289558,
+          0.14527107775211334,
+          0.08118550479412079
+        ],
+        "center": [
+          -0.004153067246079445,
+          -0.041061386466026306,
+          0.007782056927680969
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "name": "right_elbow_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.03125531226396561,
+              -0.04543027654290199,
+              -0.029775112867355347
+            ],
+            "max": [
+              0.03477716073393822,
+              0.029775114730000496,
+              0.10000001639127731
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.03125531226396561,
+          -0.04543027654290199,
+          -0.029775112867355347
+        ],
+        "max": [
+          0.03477716073393822,
+          0.029775114730000496,
+          0.10000001639127731
+        ],
+        "size": [
+          0.06603247299790382,
+          0.07520539127290249,
+          0.12977512925863266
+        ],
+        "center": [
+          0.0017609242349863052,
+          -0.007827580906450748,
+          0.03511245176196098
+        ]
+      }
+    },
+    {
+      "index": 32,
+      "name": "right_wrist_roll_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.030494267120957375,
+              -0.02999999187886715,
+              -4.373005372393509e-15
+            ],
+            "max": [
+              0.029999999329447746,
+              0.02999999187886715,
+              0.05599305406212807
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.030494267120957375,
+          -0.02999999187886715,
+          -4.373005372393509e-15
+        ],
+        "max": [
+          0.029999999329447746,
+          0.02999999187886715,
+          0.05599305406212807
+        ],
+        "size": [
+          0.06049426645040512,
+          0.0599999837577343,
+          0.05599305406213244
+        ],
+        "center": [
+          -0.00024713389575481415,
+          0.0,
+          0.027996527031061848
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "name": "right_wrist_pitch_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.028490660712122917,
+              -0.028490660712122917,
+              -0.02850000187754631
+            ],
+            "max": [
+              0.028490660712122917,
+              0.028490660712122917,
+              0.07450000196695328
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.028490660712122917,
+          -0.028490660712122917,
+          -0.02850000187754631
+        ],
+        "max": [
+          0.028490660712122917,
+          0.028490660712122917,
+          0.07450000196695328
+        ],
+        "size": [
+          0.056981321424245834,
+          0.056981321424245834,
+          0.10300000384449959
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.023000000044703484
+        ]
+      }
+    },
+    {
+      "index": 34,
+      "name": "right_wrist_yaw_link__mesh_0",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.023864509537816048,
+              -0.030494192615151405,
+              -0.0179926548153162
+            ],
+            "max": [
+              0.029999999329447746,
+              0.029999999329447746,
+              0.04150019958615303
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.023864509537816048,
+          -0.030494192615151405,
+          -0.0179926548153162
+        ],
+        "max": [
+          0.029999999329447746,
+          0.029999999329447746,
+          0.04150019958615303
+        ],
+        "size": [
+          0.053864508867263794,
+          0.06049419194459915,
+          0.05949285440146923
+        ],
+        "center": [
+          0.0030677448958158493,
+          -0.00024709664285182953,
+          0.011753772385418415
+        ]
+      }
+    },
+    {
+      "index": 35,
+      "name": "right_wrist_yaw_link__mesh_1",
+      "primitiveCount": 1,
+      "primitives": [
+        {
+          "index": 0,
+          "mode": 4,
+          "attributes": [
+            "POSITION"
+          ],
+          "material": 1,
+          "positionBounds": {
+            "min": [
+              -0.0479060634970665,
+              -0.043028924614191055,
+              -2.8722640266209964e-08
+            ],
+            "max": [
+              0.018651476129889488,
+              0.06344989687204361,
+              0.13182809948921204
+            ]
+          }
+        }
+      ],
+      "bounds": {
+        "space": "mesh-local-untransformed",
+        "min": [
+          -0.0479060634970665,
+          -0.043028924614191055,
+          -2.8722640266209964e-08
+        ],
+        "max": [
+          0.018651476129889488,
+          0.06344989687204361,
+          0.13182809948921204
+        ],
+        "size": [
+          0.06655753962695599,
+          0.10647882148623466,
+          0.1318281282118523
+        ],
+        "center": [
+          -0.014627293683588505,
+          0.010210486128926277,
+          0.06591403538328588
+        ]
+      }
+    }
+  ],
+  "materials": [
+    {
+      "index": 0,
+      "name": "material-0",
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "index": 1,
+      "name": "material-1",
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "skins": [],
+  "bounds": {
+    "space": "mesh-local-untransformed",
+    "min": [
+      -0.10771457850933075,
+      -0.3150727450847626,
+      -0.1272493153810501
+    ],
+    "max": [
+      0.10771293193101883,
+      0.5305643677711487,
+      0.14236535131931305
+    ],
+    "size": [
+      0.21542751044034958,
+      0.8456371128559113,
+      0.26961466670036316
+    ],
+    "center": [
+      -8.23289155960083e-07,
+      0.10774581134319305,
+      0.00755801796913147
+    ]
+  },
+  "semanticDecomposition": {
+    "schemaVersion": 1,
+    "status": "rich",
+    "reliableSemanticBoundary": "named-node-or-mesh",
+    "reason": "Multiple named scene/mesh entities provide an explicit semantic starting point.",
+    "metadataEvidence": {
+      "nodeCount": 68,
+      "meshCount": 36,
+      "primitiveCount": 36,
+      "materialCount": 2,
+      "textureCount": 0,
+      "namedNodes": [
+        "world",
+        "g1_official_root",
+        "pelvis",
+        "pelvis__visual_0",
+        "pelvis__visual_1",
+        "left_hip_pitch_link",
+        "left_hip_pitch_link__visual_0",
+        "left_hip_roll_link",
+        "left_hip_roll_link__visual_0",
+        "left_hip_yaw_link",
+        "left_hip_yaw_link__visual_0",
+        "left_knee_link",
+        "left_knee_link__visual_0",
+        "left_ankle_pitch_link",
+        "left_ankle_pitch_link__visual_0",
+        "left_ankle_roll_link",
+        "left_ankle_roll_link__visual_0",
+        "right_hip_pitch_link",
+        "right_hip_pitch_link__visual_0",
+        "right_hip_roll_link",
+        "right_hip_roll_link__visual_0",
+        "right_hip_yaw_link",
+        "right_hip_yaw_link__visual_0",
+        "right_knee_link",
+        "right_knee_link__visual_0",
+        "right_ankle_pitch_link",
+        "right_ankle_pitch_link__visual_0",
+        "right_ankle_roll_link",
+        "right_ankle_roll_link__visual_0",
+        "waist_yaw_link",
+        "waist_yaw_link__visual_0",
+        "waist_roll_link",
+        "waist_roll_link__visual_0",
+        "torso_link",
+        "torso_link__visual_0",
+        "torso_link__visual_1",
+        "torso_link__visual_2",
+        "torso_link__visual_3",
+        "left_shoulder_pitch_link",
+        "left_shoulder_pitch_link__visual_0",
+        "left_shoulder_roll_link",
+        "left_shoulder_roll_link__visual_0",
+        "left_shoulder_yaw_link",
+        "left_shoulder_yaw_link__visual_0",
+        "left_elbow_link",
+        "left_elbow_link__visual_0",
+        "left_wrist_roll_link",
+        "left_wrist_roll_link__visual_0",
+        "left_wrist_pitch_link",
+        "left_wrist_pitch_link__visual_0",
+        "left_wrist_yaw_link",
+        "left_wrist_yaw_link__visual_0",
+        "left_wrist_yaw_link__visual_1",
+        "right_shoulder_pitch_link",
+        "right_shoulder_pitch_link__visual_0",
+        "right_shoulder_roll_link",
+        "right_shoulder_roll_link__visual_0",
+        "right_shoulder_yaw_link",
+        "right_shoulder_yaw_link__visual_0",
+        "right_elbow_link",
+        "right_elbow_link__visual_0",
+        "right_wrist_roll_link",
+        "right_wrist_roll_link__visual_0",
+        "right_wrist_pitch_link",
+        "right_wrist_pitch_link__visual_0",
+        "right_wrist_yaw_link",
+        "right_wrist_yaw_link__visual_0",
+        "right_wrist_yaw_link__visual_1"
+      ],
+      "namedMeshes": [
+        "pelvis__mesh_0",
+        "pelvis__mesh_1",
+        "left_hip_pitch_link__mesh_0",
+        "left_hip_roll_link__mesh_0",
+        "left_hip_yaw_link__mesh_0",
+        "left_knee_link__mesh_0",
+        "left_ankle_pitch_link__mesh_0",
+        "left_ankle_roll_link__mesh_0",
+        "right_hip_pitch_link__mesh_0",
+        "right_hip_roll_link__mesh_0",
+        "right_hip_yaw_link__mesh_0",
+        "right_knee_link__mesh_0",
+        "right_ankle_pitch_link__mesh_0",
+        "right_ankle_roll_link__mesh_0",
+        "waist_yaw_link__mesh_0",
+        "waist_roll_link__mesh_0",
+        "torso_link__mesh_0",
+        "torso_link__mesh_1",
+        "torso_link__mesh_2",
+        "torso_link__mesh_3",
+        "left_shoulder_pitch_link__mesh_0",
+        "left_shoulder_roll_link__mesh_0",
+        "left_shoulder_yaw_link__mesh_0",
+        "left_elbow_link__mesh_0",
+        "left_wrist_roll_link__mesh_0",
+        "left_wrist_pitch_link__mesh_0",
+        "left_wrist_yaw_link__mesh_0",
+        "left_wrist_yaw_link__mesh_1",
+        "right_shoulder_pitch_link__mesh_0",
+        "right_shoulder_roll_link__mesh_0",
+        "right_shoulder_yaw_link__mesh_0",
+        "right_elbow_link__mesh_0",
+        "right_wrist_roll_link__mesh_0",
+        "right_wrist_pitch_link__mesh_0",
+        "right_wrist_yaw_link__mesh_0",
+        "right_wrist_yaw_link__mesh_1"
+      ],
+      "namedMaterials": []
+    },
+    "strategies": [
+      {
+        "id": "named-node",
+        "status": "available"
+      },
+      {
+        "id": "primitive-material-boundary",
+        "status": "available"
+      },
+      {
+        "id": "uv-texture-boundary",
+        "status": "not-proven"
+      },
+      {
+        "id": "connected-component-hypothesis",
+        "status": "candidate-only"
+      },
+      {
+        "id": "curvature-normal-region-growing-hypothesis",
+        "status": "candidate-only"
+      },
+      {
+        "id": "multiview-id-mask",
+        "status": "required-for-runtime-region-evidence"
+      },
+      {
+        "id": "multipart-glb",
+        "status": "recommended"
+      }
+    ],
+    "claimsAllowed": [
+      "scene and drawable inventory",
+      "material/primitive boundaries explicitly present in the GLB",
+      "browser-rendered ID-mask evidence when captured"
+    ],
+    "claimsForbiddenUntilEvidence": [
+      "exact semantic labels inferred from a merged mesh",
+      "per-region material equality without region crops or ID masks",
+      "multipart topology reconstructed from metadata alone"
+    ]
+  },
+  "referenceReadiness": "pass",
+  "warnings": [
+    "GLB contains no skin; this is acceptable for static reference geometry but not animation evidence"
+  ],
+  "note": "Metadata only. Render the GLB through the target Three.js route before using it as a visual baseline; do not copy its topology into a procedural factory."
+}

@@ -1,0 +1,12 @@
+diff --git a/public/rf02-performance-qa.html b/public/rf02-performance-qa.html
+--- a/public/rf02-performance-qa.html
++++ b/public/rf02-performance-qa.html
+@@ -54,5 +54,3 @@
+ for (const view of ["first", "third", "dual"]) document.querySelector("#" + view).onclick = () => measure(view);
+-</script>
+-</html>
+ document.querySelector("#baseline").onclick = async () => {
+   frame.src = "about:blank";
+@@ -71,0 +70,2 @@
++</script>
++</html>

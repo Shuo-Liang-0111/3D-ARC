@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宇树 R1 EDU · 官方 MuJoCo 模型</title>
+    <style>
+      :root { font-family: Inter, "PingFang SC", system-ui, sans-serif; color: #162126; }
+      * { box-sizing: border-box; }
+      body { margin: 0; overflow: hidden; background: #e9edf2; }
+      canvas { display: block; width: 100vw; height: 100vh; }
+      .panel { position: fixed; top: 24px; left: 24px; width: min(380px, calc(100vw - 48px)); padding: 20px; border: 1px solid rgba(20, 116, 128, .2); border-radius: 18px; background: rgba(250, 252, 253, .88); backdrop-filter: blur(18px); box-shadow: 0 20px 60px rgba(28, 43, 52, .15); }
+      .eyebrow { margin: 0 0 8px; color: #168b94; font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+      h1 { margin: 0; font-size: 36px; line-height: 1; }
+      .description { margin: 14px 0 17px; color: #52636a; font-size: 14px; line-height: 1.65; }
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+      .tag { padding: 6px 9px; border-radius: 999px; background: rgba(22, 139, 148, .09); color: #285d63; font-size: 11px; }
+      .actions { display: flex; gap: 9px; }
+      button { border: 1px solid rgba(22, 139, 148, .3); border-radius: 10px; padding: 9px 13px; background: #e5f2f3; color: #174d52; cursor: pointer; }
+      button:hover { background: #d5ebed; }
+      .hint { position: fixed; right: 24px; bottom: 22px; color: #687b82; font-size: 12px; }
+      #status { position: fixed; inset: 0; display: grid; place-items: center; color: #315d63; font-size: 14px; letter-spacing: .08em; pointer-events: none; }
+      .capture .panel, .capture .hint { display: none; }
+      @media (max-width: 620px) { .panel { top: 14px; left: 14px; width: calc(100vw - 28px); padding: 16px; } .description, .tags { display: none; } .actions { margin-top: 14px; } }
+    </style>
+  </head>
+  <body>
+    <canvas id="r1-canvas" aria-label="宇树 R1 EDU 官方 MuJoCo 三维模型"></canvas>
+    <div id="status">正在加载官方 R1 模型…</div>
+    <section class="panel">
+      <p class="eyebrow">Official MuJoCo Asset · Three.js</p>
+      <h1>Unitree R1 EDU</h1>
+      <p class="description">来自宇树官方 MuJoCo R1 XML 与 STL 网格的完整迁移。当前公开模型为 29-DOF，手掌和手指外形固定集成在腕部网格中。</p>
+      <div class="tags"><span class="tag">官网配色</span><span class="tag">29-DOF</span><span class="tag">1.23 m</span><span class="tag">固定手型</span></div>
+      <div class="actions"><button id="motion" type="button">启动行走姿态</button><button id="explode" type="button">展开部件</button></div>
+    </section>
+    <div class="hint">拖动旋转 · 滚轮缩放 · 右键平移</div>
+    <script type="module" src="/game/r1-view.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "level": "rf15",
+  "status": "not_submitted_service_unreachable",
+  "requires": "Recheck Cardinal doctor and capabilities before any submission; inspect each result before integration.",
+  "requests": [
+    {
+      "id": "truck-cab",
+      "priority": 1,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"Photorealistic isolated Chinese light commercial refrigerated truck CAB ONLY, white painted stamped steel, 2.2 m wide, 1.85 m tall, 1.65 m long, sloped windscreen, accurate recessed headlights, black rubber windshield gasket, wipers, side door seams, mirrors, wheel arch cutouts and steps. No cargo box, no wheels, no ground, no platform, no people, no text. Complete textured exterior with restrained daily use, realistic glass reflections and fine material roughness. Cabin front faces forward, centered local origin."}
+    },
+    {
+      "id": "label-printer",
+      "priority": 1,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"One isolated photorealistic desktop thermal shipping label printer used in a rural produce packing station, 23 cm wide, 16 cm tall, 20 cm deep. Off-white lightly worn ABS upper lid, charcoal base, lid seam, side release buttons, narrow front output slot with a short blank white label, small status LED, rear power socket. PBR material detail, realistic rounded manufactured edges. No table, no room, no lettering, no pedestal, no extra objects."}
+    },
+    {
+      "id": "tape-dispenser",
+      "priority": 1,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"One photorealistic tabletop packing tape dispenser, 20 cm long, with a true hollow brown packing tape roll, flat circular side faces, visible white cardboard core, green painted metal cradle, axle, serrated steel cutting blade and rubber feet. Fine tape layer edges and restrained wear. Isolated object only, no ground, no stand, no text, physically hollow core, not a solid cylinder or doughnut."}
+    },
+    {
+      "id": "fire-extinguisher",
+      "priority": 2,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"One realistic 4 kg red dry powder fire extinguisher for a Chinese agricultural warehouse, 48 cm high, 17 cm diameter, pressed steel cylinder, rounded shoulder, metal valve and lever, pressure gauge, safety pin, curved black discharge hose clipped to cylinder, white safety label without readable branding, subtle use marks. PBR textures. Isolated complete object, no cabinet, no ground, no pedestal."}
+    },
+    {
+      "id": "cabbage-plant",
+      "priority": 1,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"Single photorealistic living green cabbage plant in a Chinese farm field, about 55 cm diameter and 30 cm high, layered curved broad leaves, natural irregular edges, branching leaf veins, waxy green colour variation, compact pale green central head, visible short stem at ground origin. Real leaf geometry and PBR texture, no soil block, no pot, no ground plane, no pedestal, no other plants."}
+    },
+    {
+      "id": "folded-cartons",
+      "priority": 2,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"Small neat stack of eight flattened corrugated kraft produce shipping cartons, overall 60 cm wide, 45 cm deep, 15 cm tall. Visible separate folded flaps and corrugated cut edges, kraft paper fibre, fold creases and slight edge wear. Photorealistic PBR, isolated stack only, no printing, no pallet, no ground or base."}
+    },
+    {
+      "id": "warehouse-light",
+      "priority": 2,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"Single photorealistic 1.5 m linear weatherproof warehouse fluorescent fixture, galvanized metal housing, translucent ribbed diffuser, sealed end caps, mounting clips and cable inlet. Accurate slim cross section, subtle dust, PBR surfaces. Isolated horizontal fixture only, no ceiling, no suspension rods, no room, no text, no background geometry."}
+    },
+    {
+      "id": "wash-basin",
+      "priority": 3,
+      "payload": {"taskType":"text_to_model","qualityPreset":"high-highpoly","outputFormat":"glb","texture":true,"enablePbr":true,"prompt":"Single commercial stainless steel handwash sink, 83 cm wide, 49 cm deep, rim 93 cm above floor, real hollow pressed bowl, drain opening, curved gooseneck faucet, rear splashback, tubular legs and visible drain trap. Brushed stainless, fine water spots, physically open basin, realistic PBR. No wall, floor, pedestal, people, or other furniture."}
+    }
+  ]
+}

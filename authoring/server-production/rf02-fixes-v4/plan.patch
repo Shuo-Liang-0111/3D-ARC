@@ -1,0 +1,93 @@
+--- a/docs/levels/rf02-series-production-plan.md
++++ b/docs/levels/rf02-series-production-plan.md
+@@ -1,45 +1,45 @@
+-# RF-02 series / library-operations-v3
+-
+-## Approved redesign
+-
+-The previous six-book sorting variants were rejected as too similar to RF-02. The user selected closing reset followed by dynamic patrol: chairs and cart first, then a failed retaining bookend with recurring falls, at most three books, without a global countdown. This supersedes shared-library-v1 gameplay.
+-
+-- RF-02 keeps its original three-book color-sorting objective and reserve rules.
+-- RF-02-2 requires pushing two displaced reading chairs back to their tables and manually parking the return cart inside the permanent yellow bay, with the correct orientation.
+-- RF-02-3 adds a random shelf fault activated by the first restored chair or 1.5 m of cart travel. One book begins falling immediately; an unrepaired bookend releases another every 12 simulation seconds, capped at three. Repair stops future falls; every already-fallen book must be returned.
+-- Shared scene: the same library, eight reading chairs, return cart, fifteen books, retaining rails, metal handling grips and parking bay appear in all three levels. Mission state changes their poses and completion conditions.
+-- No directory clues, route markers, target highlighting or step navigation. Final objectives and interaction/result feedback remain.
+-- F near a furniture grip initiates a short collision-aware walking/turning approach and arm animation. The player uses the existing movement/turning controls to push, and F to release. No object or robot teleportation.
+-- Repair uses the existing arm joints to touch the physical retaining-rail lever. Robot models, bones, dimensions, initial poses, shared camera/FOV, controls and shared movement remain frozen.
+-
+-## Task target and authorization
+-
+-Authoritative host: 127.0.0.1. Account: chenhaoyuan. Project: .. All runtime, downloads, assets, releases and production evidence stay under /path/to/arc-workspace. Mac is a control surface.
+-
+-Task artifacts: ./authoring/server-production/rf02-redesign-v3. Candidate previews use 4194. Final deployment replaces the task-owned 4192 service only after verification; the prior fixed release remains available for rollback. Preserve other services and unrelated working-tree changes. Credentials stay in the official private store; no costs or secrets in task records. User authorizes generation, necessary scene improvements and deployment. Task-only commit after successful checks; no push.
+-
+-## Scene and interaction production
+-
+-Retain the 24 × 16 m library and existing Cardinal/EmbodiedGen models. Reuse verified book-impact audio. Export exact metal grips, retaining rails, ceiling fixtures and authoritative collision geometry from the shared layout, with textures and models unchanged. Separate moving furniture roots and collision transforms use the same state.
+-
+-Measured chair dimensions are approximately 0.520 × 0.550 × 0.880 m. Footprints use 0.28/0.265 m half extents. Collision-aware approach stands 0.75 m behind chair centers; rear handling grips are 0.39 m behind, at 0.92 m height. Cart grip is 0.60 m behind its center, 1.04 m high, with a 0.96 m approach offset. These adapt the furniture to the frozen robot reach.
+-
+-Original return-desk book row uses measured clear support at 0.677/0.681 m and z=3.05. Reading-table and cart books use 0.686/1.01 m. All variants share exact collision layouts, including individual chairs and table footprints.
+-
+-## Reserve and verification
+-
+-Initial/maximum reserve is 100. Idle and free rotation have no cost; translation charges actual distance; blocked pushing and invalid interactions cost reserve. First successful task rewards are deduplicated and capped. Failure is atomic, completion/failure freeze state, reset clears progress and rewards.
+-
+-| Rule | RF-02-2 | RF-02-3 |
+-| --- | ---: | ---: |
+-| Movement points/m | 1.45 | 1.38 |
+-| Blocked movement points/s | 1 | 1.4 |
+-| Invalid interaction | 3 | 5 |
+-| Chair reward | 5 | 3 |
+-| Cart reward | 8 | 5 |
+-| Repair reward | — | 3 |
+-| Fallen-book first pickup/return | — | 1 / 1 |
+-
+-RF-02-3 combines longer routes, interruption and higher mistake penalties. All random branches and two-error paths must complete with positive minimum reserve. The acceptance record reports measured endpoints, minima and browser results separately.
+-
+-Required checks: original RF-02 regression; both full engine routes and all random fault branches; furniture collision/orientation/no-snap behavior; recurring/capped falls and repair interruption; reward deduplication, errors, failure/reset; real browser routes, first/third/dual screenshots and arm/object contact; source/build/HTTP asset hashes; protected-file hashes; production build. Desktop target is 1080p/30 FPS, with actual viewport and measured limitations recorded truthfully.
++# RF-02 series / library-operations-v4
++
++## Approved redesign
++
++The previous six-book sorting variants were rejected as too similar to RF-02. The user selected closing reset followed by dynamic patrol: chairs and cart first, then a failed retaining bookend with recurring falls, at most three books, without a global countdown. This supersedes shared-library-v1 gameplay.
++
++- RF-02 keeps its original three-book color-sorting objective and reserve rules.
++- RF-02-2 requires pushing two displaced reading chairs back to their tables and manually parking the return cart inside the permanent yellow bay, with the correct orientation.
++- RF-02-3 adds a random shelf fault activated independently after eight simulation seconds, or earlier by the first restored chair or 1.5 m of cart travel. One book begins falling immediately; an unrepaired bookend releases another every 12 simulation seconds, capped at three. Repair stops future falls; every already-fallen book must be returned.
++- Shared scene: the same library, eight reading chairs, return cart, fifteen books, retaining rails and parking bay appear in all three levels. Mission state changes their poses and completion conditions.
++- No directory clues, route markers, target highlighting or step navigation. Final objectives and interaction/result feedback remain.
++- F near the original chair back or either end of the cart initiates a short collision-aware walking/turning approach and arm animation. The player uses the existing movement/turning controls to push, and F to release. No object or robot teleportation.
++- Repair uses the existing arm joints to touch the physical retaining-rail lever. Robot models, bones, dimensions, initial poses, shared camera/FOV, controls and shared movement remain frozen.
++
++## Task target and authorization
++
++Authoritative host: 127.0.0.1. Account: chenhaoyuan. Project: .. All runtime, downloads, assets, releases and production evidence stay under /path/to/arc-workspace. Mac is a control surface.
++
++Task artifacts: ./authoring/server-production/rf02-fixes-v4. Candidate previews use 4194. Final deployment replaces the task-owned 4192 service only after verification; the prior fixed release remains available for rollback. Preserve other services and unrelated working-tree changes. Credentials stay in the official private store; no costs or secrets in task records. User authorizes generation, necessary scene improvements and deployment. Task-only commit after successful checks; no push.
++
++## Scene and interaction production
++
++Retain the 24 × 16 m library and existing Cardinal/EmbodiedGen models. Reuse verified book-impact audio. Export retaining rails, ceiling fixtures and authoritative collision geometry from the shared layout, with textures and models unchanged. Separate moving furniture roots and collision transforms use the same state.
++
++Measured chair dimensions are approximately 0.520 × 0.550 × 0.880 m. Footprints use 0.28/0.265 m half extents. Collision-aware approach stands 0.74 m behind chair centers and 0.78 m from either end of the cart. Arms contact existing surfaces; a temporary torso lean is animated and restored on release. All added handles have been removed from the shared GLB. Robot geometry and shared envelope are unchanged.
++
++Original return-desk book row uses measured clear support at 0.677/0.681 m and z=3.05. Reading-table and cart books use 0.686/1.01 m. Both new levels allow all six tabletop books to be picked up and returned, without making this an additional completion objective. The cart book follows its authoritative moving support until picked up. All variants share exact collision layouts, including individual chairs and table footprints.
++
++## Reserve and verification
++
++Initial/maximum reserve is 100. Idle and free rotation have no cost; translation charges actual distance; blocked pushing and invalid interactions cost reserve. First successful task rewards are deduplicated and capped. Failure is atomic, completion/failure freeze state, reset clears progress and rewards.
++
++| Rule | RF-02-2 | RF-02-3 |
++| --- | ---: | ---: |
++| Movement points/m | 1.45 | 1.38 |
++| Blocked movement points/s | 1 | 1.4 |
++| Invalid interaction | 3 | 5 |
++| Chair reward | 5 | 3 |
++| Cart reward | 8 | 5 |
++| Repair reward | — | 3 |
++| Fallen-book first pickup/return | — | 1 / 1 |
++
++RF-02-3 combines longer routes, interruption and higher mistake penalties. All random branches and two-error paths must complete with positive minimum reserve. The acceptance record reports measured endpoints, minima and browser results separately.
++
++Required checks: original RF-02 regression; both full engine routes and all random fault branches; furniture collision/orientation/no-snap behavior; recurring/capped falls and repair interruption; reward deduplication, errors, failure/reset; real browser routes, keyboard regressions for pickup and cart movement, first/third/dual screenshots and arm/object contact; source/build/HTTP asset hashes; protected-file hashes; production build. Desktop target is 1080p/30 FPS, with actual viewport and measured limitations recorded truthfully.

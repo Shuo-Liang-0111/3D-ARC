@@ -1,0 +1,470 @@
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02/series-layout.js
+@@ -0,0 +1,55 @@
++import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
++
++export const REVISION = "shared-library-v1";
++export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
++export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
++  const shelf = BASE_LEVEL.shelves[color];
++  const source = color === "black"
++    ? { x: -0.56, z: -6.43, y: 1.16 }
++    : { x: color === "red" ? -10.43 : 10.43, z: -1.65, y: 1.16 };
++  const landing = color === "black"
++    ? { x: -0.56, z: -5.30, y: 0.012 }
++    : { x: color === "red" ? -9.30 : 9.30, z: -1.65, y: 0.012 };
++  return [color, Object.freeze({ ...source, landing, rotation: shelf.rotation })];
++})));
++
++export const BOOKS = Object.freeze([
++  ...BOOK_COLORS.map((color) => Object.freeze({
++    id: color, color, ...BASE_LEVEL.books[color], y: 0.78, support: "return-table", location: "table",
++  })),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.75, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.75, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: 2.45, z: 4.55, y: 0.76, support: "return-cart", location: "table" }),
++  ...BOOK_COLORS.map((color) => Object.freeze({
++    id: "shelf-" + color, color, ...SHELF_BOOKS[color], support: color + "-target-shelf", location: "shelved", background: true,
++  })),
++]);
++
++export function seriesLevel(id) {
++  const dynamic = id === "rf02-3";
++  return Object.freeze({
++    ...BASE_LEVEL,
++    id,
++    title: dynamic ? "Archive Recovery" : "Reading Room Returns",
++    revision: REVISION,
++    dynamic,
++    interactionRange: 1.55,
++    progress: Object.freeze({
++      initial: 100, maximum: 100,
++      movementDrainPerMeter: dynamic ? 0.80 : 0.68,
++      blockedDrainPerSecond: dynamic ? 1.25 : 1.05,
++      errorCost: dynamic ? 5 : 3,
++      repeatCost: 1,
++      pickupReward: 1,
++      correctBookReward: 2,
++    }),
++    fallDuration: 0.95,
++    fallAfterReturns: 2,
++  });
++}
++
++export function shelfPose(color, id) {
++  const source = SHELF_BOOKS[color];
++  const slot = id.startsWith("shelf-") ? 0 : id === color ? 0.45 : 0.90;
++  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
++}
+diff --git a/game/levels/rf02/series-engine.js b/game/levels/rf02/series-engine.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02/series-engine.js
+@@ -0,0 +1,188 @@
++import { applyRobotMovement } from "../../movement.js";
++import { BOOK_COLORS } from "./level.js";
++import { BOOKS, SHELF_BOOKS, shelfPose, seriesLevel } from "./series-layout.js";
++
++const EPSILON = 1e-7;
++const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const clone = (state) => ({
++  ...state, player: { ...state.player },
++  books: Object.fromEntries(Object.entries(state.books).map(([id, book]) => [id, { ...book }])),
++  rewardedActions: { ...state.rewardedActions }, incident: { ...state.incident },
++});
++
++function overlaps(x, z, radius, rect) {
++  const nearX = Math.max(rect.minX, Math.min(x, rect.maxX));
++  const nearZ = Math.max(rect.minZ, Math.min(z, rect.maxZ));
++  return (x - nearX) ** 2 + (z - nearZ) ** 2 < radius ** 2;
++}
++
++export function createArchiveEngine(id) {
++  const LEVEL = seriesLevel(id);
++
++  function createInitialState(options = {}) {
++    const supplied = typeof options.random === "function" ? options.random() : Math.random();
++    const sample = Number.isFinite(supplied) ? Math.max(0, Math.min(0.999999, supplied)) : 0;
++    const color = BOOK_COLORS[Math.floor(sample * BOOK_COLORS.length)];
++    return {
++      player: { ...LEVEL.playerStart },
++      books: Object.fromEntries(BOOKS.map((book) => [book.id, { ...book }])),
++      carriedBook: null, carriedItem: null,
++      complete: false, failed: false, terminalOpen: false,
++      progress: LEVEL.progress.initial, minimumProgress: LEVEL.progress.initial,
++      rewardedActions: {}, returnedCount: 0,
++      incident: { color, bookId: "shelf-" + color, phase: LEVEL.dynamic ? "waiting" : "disabled", elapsed: 0 },
++      motion: "idle", elapsed: 0, distanceTravelled: 0, blockedTime: 0,
++      interactions: 0, lastEvent: "library_entered", revision: LEVEL.revision,
++    };
++  }
++
++  function isWalkable(_state, x, z, radius = LEVEL.playerRadius) {
++    const bounds = LEVEL.bounds;
++    if (![x, z, radius].every(Number.isFinite)) return false;
++    if (x - radius < bounds.minX || x + radius > bounds.maxX || z - radius < bounds.minZ || z + radius > bounds.maxZ) return false;
++    return !LEVEL.staticColliders.some((rect) => overlaps(x, z, radius, rect));
++  }
++
++  function settle(before, next, cost = 0, rewardKey = null, reward = 0) {
++    if (before.progress <= cost + EPSILON && cost > 0) {
++      const failed = clone(before);
++      failed.progress = 0;
++      failed.minimumProgress = 0;
++      failed.failed = true;
++      failed.motion = "idle";
++      failed.lastEvent = "progress_depleted";
++      failed.interactions = next.interactions;
++      return failed;
++    }
++    next.progress = before.progress - cost;
++    if (rewardKey && !before.rewardedActions[rewardKey]) {
++      next.rewardedActions[rewardKey] = true;
++      next.progress = Math.min(LEVEL.progress.maximum, next.progress + reward);
++    }
++    next.minimumProgress = Math.min(before.minimumProgress, next.progress);
++    return next;
++  }
++
++  function updateMovement(state, input = {}, deltaSeconds = 0) {
++    if (state.complete || state.failed) return clone(state);
++    const next = clone(state);
++    const dt = Number.isFinite(deltaSeconds) ? Math.min(0.05, Math.max(0, deltaSeconds)) : 0;
++    const movement = applyRobotMovement(next, state, input, dt, LEVEL, isWalkable);
++    const travelled = distance(next.player, state.player);
++    next.elapsed += dt;
++    next.distanceTravelled += travelled;
++    const blocked = movement.translating && travelled < EPSILON;
++    next.blockedTime += blocked ? dt : 0;
++    next.motion = movement.motionTurning ? "turning" : travelled > EPSILON ? "moving" : state.carriedBook ? "carrying" : "idle";
++    const cost = travelled * LEVEL.progress.movementDrainPerMeter + (blocked ? dt * LEVEL.progress.blockedDrainPerSecond : 0);
++    return settle(state, next, cost);
++  }
++
++  function reachable(state, point, ignoredCollider) {
++    const steps = Math.max(1, Math.ceil(distance(state.player, point) / 0.08));
++    for (let index = 1; index < steps; index += 1) {
++      const blend = index / steps;
++      const x = state.player.x + (point.x - state.player.x) * blend;
++      const z = state.player.z + (point.z - state.player.z) * blend;
++      if (LEVEL.staticColliders.some((rect) => rect.id !== ignoredCollider && x > rect.minX && x < rect.maxX && z > rect.minZ && z < rect.maxZ)) return false;
++    }
++    return true;
++  }
++
++  function getInteraction(state) {
++    if (state.complete || state.failed) return null;
++    const candidates = [];
++    if (state.carriedBook) {
++      for (const color of BOOK_COLORS) {
++        const shelf = LEVEL.shelves[color];
++        if (reachable(state, shelf, color + "-target-shelf")) candidates.push({ type: "shelf", color, distance: distance(state.player, shelf) });
++      }
++    } else {
++      for (const [bookId, book] of Object.entries(state.books)) {
++        const active = !book.background || (bookId === state.incident.bookId && state.incident.phase === "ground");
++        if (active && ["table", "ground"].includes(book.location) && reachable(state, book, book.support)) {
++          candidates.push({ type: "book", bookId, color: book.color, distance: distance(state.player, book) });
++        }
++      }
++    }
++    const nearest = candidates.filter((candidate) => candidate.distance <= LEVEL.interactionRange).sort((left, right) => left.distance - right.distance)[0];
++    if (nearest) return nearest;
++    return state.carriedBook ? { type: "drop", bookId: state.carriedBook } : null;
++  }
++
++  function interact(state) {
++    if (state.complete || state.failed) return clone(state);
++    const next = clone(state);
++    next.interactions += 1;
++    const action = getInteraction(state);
++    if (!action) {
++      next.lastEvent = "empty_interaction";
++      return settle(state, next, LEVEL.progress.errorCost);
++    }
++    if (action.type === "book") {
++      const book = next.books[action.bookId];
++      const rewardKey = "pickup:" + action.bookId;
++      book.location = "carried";
++      next.carriedBook = action.bookId;
++      next.carriedItem = action.bookId;
++      next.motion = "carrying";
++      next.lastEvent = "archive_book_collected";
++      return settle(state, next, state.rewardedActions[rewardKey] ? LEVEL.progress.repeatCost : 0, rewardKey, LEVEL.progress.pickupReward);
++    }
++    if (action.type === "drop") {
++      const book = next.books[state.carriedBook];
++      const point = {
++        x: state.player.x + Math.sin(state.player.yaw) * 0.58,
++        z: state.player.z + Math.cos(state.player.yaw) * 0.58,
++      };
++      if (!isWalkable(state, point.x, point.z, 0.15)) {
++        next.lastEvent = "blocked_drop";
++        return settle(state, next, LEVEL.progress.errorCost);
++      }
++      Object.assign(book, point, { y: 0.012, location: "ground", support: null });
++      next.carriedBook = null;
++      next.carriedItem = null;
++      next.motion = "idle";
++      next.lastEvent = "archive_book_dropped";
++      return settle(state, next, LEVEL.progress.repeatCost);
++    }
++    const book = next.books[state.carriedBook];
++    if (book.color !== action.color) {
++      next.lastEvent = "wrong_shelf";
++      return settle(state, next, LEVEL.progress.errorCost);
++    }
++    const bookId = state.carriedBook;
++    Object.assign(book, shelfPose(book.color, bookId), { location: "shelved" });
++    next.carriedBook = null;
++    next.carriedItem = null;
++    next.motion = "idle";
++    next.lastEvent = "archive_book_shelved";
++    if (book.background) next.incident.phase = "restored";
++    else next.returnedCount += 1;
++    if (LEVEL.dynamic && next.incident.phase === "waiting" && next.returnedCount >= LEVEL.fallAfterReturns) {
++      next.incident.phase = "falling";
++      next.incident.elapsed = 0;
++      next.books[next.incident.bookId].location = "falling";
++    }
++    next.complete = next.returnedCount === 6 && (!LEVEL.dynamic || next.incident.phase === "restored");
++    if (next.complete) next.lastEvent = "archive_complete";
++    return settle(state, next, 0, "return:" + bookId, LEVEL.progress.correctBookReward);
++  }
++
++  function updateEnvironment(state, deltaSeconds = 0) {
++    if (state.complete || state.failed || state.incident.phase !== "falling") return state;
++    const next = clone(state);
++    next.incident.elapsed = Math.min(LEVEL.fallDuration, state.incident.elapsed + Math.min(0.05, Math.max(0, Number.isFinite(deltaSeconds) ? deltaSeconds : 0)));
++    if (next.incident.elapsed >= LEVEL.fallDuration - EPSILON) {
++      next.incident.phase = "ground";
++      Object.assign(next.books[next.incident.bookId], SHELF_BOOKS[next.incident.color].landing, { location: "ground", support: null });
++    }
++    return next;
++  }
++
++  function getObjective(state) {
++    return { step: state.complete ? 1 : 0, title: state.failed ? "任务失败" : state.complete ? "馆藏整理完成" : LEVEL.dynamic ? "完成六本书归架，并将掉落的馆藏书归位" : "找到并归还馆内六本待归架书籍", detail: "" };
++  }
++
++  return { LEVEL, createInitialState, isWalkable, getInteraction, interact, updateMovement, updateEnvironment, getObjective, closeTerminal: clone };
++}
+diff --git a/game/levels/rf02/series-scene.js b/game/levels/rf02/series-scene.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02/series-scene.js
+@@ -0,0 +1,83 @@
++import * as THREE from "three";
++import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
++import { createLibraryScene } from "./scene.js";
++import { LEVEL } from "./level.js";
++import { ASSET_ROOT, BOOKS, SHELF_BOOKS, REVISION, shelfPose } from "./series-layout.js";
++
++export function createArchiveScene() {
++  const world = createLibraryScene();
++  world.revision = REVISION;
++  world.archiveRoots = { ...world.bookRoots };
++  world.lastIncidentPhase = "waiting";
++  const originalReady = world.assetReady;
++  const collisionReady = new Promise((resolve) => new GLTFLoader().load(
++    ASSET_ROOT + "/library-collision.glb",
++    (gltf) => {
++      gltf.scene.name = "rf02-authoritative-collision";
++      gltf.scene.visible = false;
++      world.scene.add(gltf.scene);
++      const boxes = new Map();
++      gltf.scene.updateMatrixWorld(true);
++      gltf.scene.traverse((node) => {
++        if (node.userData.collision && node.isMesh) boxes.set(node.name, new THREE.Box3().setFromObject(node));
++      });
++      const valid = LEVEL.staticColliders.every((rect) => {
++        const bounds = boxes.get("COLLIDER_" + rect.id);
++        return bounds && Math.abs(bounds.min.x - rect.minX) < 0.001 && Math.abs(bounds.max.x - rect.maxX) < 0.001
++          && Math.abs(bounds.min.z - rect.minZ) < 0.001 && Math.abs(bounds.max.z - rect.maxZ) < 0.001;
++      });
++      resolve({ loaded: valid, name: "shared-library-collision", url: ASSET_ROOT + "/library-collision.glb" });
++    },
++    undefined,
++    () => resolve({ loaded: false, name: "shared-library-collision" }),
++  ));
++  world.collisionReady = collisionReady;
++  world.assetReady = Promise.all([originalReady, collisionReady]).then(([results, collision]) => {
++    for (const book of BOOKS.filter((entry) => !world.archiveRoots[entry.id])) {
++      const root = new THREE.Group();
++      root.name = "archive-book-" + book.id;
++      const source = world.assetRoots.books[book.color];
++      root.add(source.clone(true));
++      world.scene.add(root);
++      world.archiveRoots[book.id] = root;
++    }
++    return [...results, collision];
++  });
++  return world;
++}
++
++function poseBook(root, book, incident) {
++  root.visible = book.location !== "carried";
++  if (!root.visible) return;
++  let pose = book.location === "shelved" ? shelfPose(book.color, book.id) : book;
++  let tilt = 0;
++  if (book.location === "falling") {
++    const source = SHELF_BOOKS[book.color];
++    const progress = Math.min(1, incident.elapsed / 0.95);
++    const travel = Math.min(1, progress / 0.8);
++    const falling = Math.max(0, (progress - 0.24) / 0.76);
++    pose = {
++      x: source.x + (source.landing.x - source.x) * travel,
++      z: source.z + (source.landing.z - source.z) * travel,
++      y: Math.max(0.012, source.y * (1 - falling * falling)),
++      rotation: source.rotation,
++    };
++    tilt = Math.sin(Math.PI * falling) * 0.65;
++  }
++  root.position.set(pose.x, pose.y ?? 0.78, pose.z);
++  root.rotation.set(tilt, pose.rotation ?? 0, 0);
++}
++
++export function syncArchiveVisuals(world, state) {
++  for (const definition of BOOKS) {
++    const root = world.archiveRoots[definition.id];
++    if (!root) continue;
++    const stateBook = state.books[definition.id];
++    const book = stateBook ? { ...definition, ...stateBook } : definition;
++    poseBook(root, book, state.incident);
++  }
++  if (state.incident?.phase === "ground" && world.lastIncidentPhase === "falling") {
++    world.bookImpact?.play().catch(() => {});
++  }
++  world.lastIncidentPhase = state.incident?.phase ?? "waiting";
++}
+diff --git a/game/levels/rf02/series-runtime.js b/game/levels/rf02/series-runtime.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02/series-runtime.js
+@@ -0,0 +1,50 @@
++import { createArchiveEngine } from "./series-engine.js";
++import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
++import { createLibraryCargoModel, setLibraryCargoModel } from "./scene.js";
++import { ASSET_ROOT } from "./series-layout.js";
++
++export function createArchiveRuntime(id) {
++  const engine = createArchiveEngine(id);
++  const dynamic = engine.LEVEL.dynamic;
++  return {
++    ...engine,
++    ui: Object.freeze({
++      id, brand: "PUBLIC LIBRARY ARCHIVES", unit: id.toUpperCase() + " · MUNICIPAL LIBRARY",
++      systemLabel: "ARCHIVES", cargoLabel: "CARGO", gateLabel: "COLLECTION",
++      startKicker: "LEVEL " + id.toUpperCase() + " / PUBLIC LIBRARY",
++      startTitle: dynamic ? "ARCHIVE<br />RECOVERY" : "READING ROOM<br />RETURNS",
++      startCopy: dynamic ? "完成六本书归架，并将掉落的馆藏书归位" : "找到并归还馆内六本待归架书籍",
++      completeKicker: "ARCHIVE RESTORED", completeTitle: "館藏整理完成",
++      completeCopy: dynamic ? "六本待归架书与掉落的馆藏书均已正确归位。" : "六本待归架书均已回到对应馆藏区。",
++      terminalHeading: "CATALOG TERMINAL",
++    }),
++    camera: Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 }),
++    audio: Object.freeze({ assets: {}, eventSounds: {}, volume: {} }),
++    eventMessages: Object.freeze({}),
++    createScene() {
++      const world = createArchiveScene();
++      if (dynamic) {
++        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.mp3");
++        world.bookImpact.volume = 0.65;
++        world.bookImpact.preload = "auto";
++        const original = world.assetReady;
++        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.mp3").then((response) => response.ok).catch(() => false)])
++          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.mp3" }]);
++      }
++      return world;
++    },
++    syncVisuals: syncArchiveVisuals,
++    createCargoModel: createLibraryCargoModel,
++    syncRobotCargo(robot, state) {
++      if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.books[state.carriedBook].color);
++    },
++    isCarrying: (state) => Boolean(state.carriedBook),
++    getTelemetry(state) {
++      return { system: state.complete ? "RESTORED" : "ACTIVE", systemOnline: state.complete, cargo: state.carriedBook ? state.books[state.carriedBook].color.toUpperCase() + " BOOK" : "EMPTY", gate: state.complete ? "COMPLETE" : "IN PROGRESS" };
++    },
++    getProgressSteps: () => [],
++    getTerminal: () => ({ title: "目录终端", copy: "", rows: [] }),
++    getSoundPosition: (_before, state) => state.player,
++    getDebugState: (state) => ({ revision: state.revision, returnedCount: state.returnedCount, incident: state.incident, carriedBook: state.carriedBook, minimumProgress: state.minimumProgress }),
++  };
++}
+diff --git a/game/levels/rf02-2/runtime.js b/game/levels/rf02-2/runtime.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02-2/runtime.js
+@@ -0,0 +1,9 @@
++import { createArchiveRuntime } from "../rf02/series-runtime.js";
++
++const runtime = createArchiveRuntime("rf02-2");
++export const {
++  LEVEL, ui, camera, audio, eventMessages, createInitialState, isWalkable, getInteraction,
++  interact, updateMovement, updateEnvironment, getObjective, closeTerminal, createScene,
++  syncVisuals, createCargoModel, syncRobotCargo, isCarrying, getTelemetry, getProgressSteps,
++  getTerminal, getSoundPosition, getDebugState,
++} = runtime;
+diff --git a/game/levels/rf02-3/runtime.js b/game/levels/rf02-3/runtime.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf02-3/runtime.js
+@@ -0,0 +1,9 @@
++import { createArchiveRuntime } from "../rf02/series-runtime.js";
++
++const runtime = createArchiveRuntime("rf02-3");
++export const {
++  LEVEL, ui, camera, audio, eventMessages, createInitialState, isWalkable, getInteraction,
++  interact, updateMovement, updateEnvironment, getObjective, closeTerminal, createScene,
++  syncVisuals, createCargoModel, syncRobotCargo, isCarrying, getTelemetry, getProgressSteps,
++  getTerminal, getSoundPosition, getDebugState,
++} = runtime;
+diff --git a/tools/rf02-series/build-collision.mjs b/tools/rf02-series/build-collision.mjs
+new file mode 100644
+--- /dev/null
++++ b/tools/rf02-series/build-collision.mjs
+@@ -0,0 +1,31 @@
++import fs from "node:fs";
++import path from "node:path";
++import * as THREE from "three";
++import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
++import { LEVEL } from "../../game/levels/rf02/level.js";
++import { ASSET_ROOT } from "../../game/levels/rf02/series-layout.js";
++
++globalThis.FileReader = class {
++  readAsArrayBuffer(blob) {
++    blob.arrayBuffer().then((result) => { this.result = result; this.onloadend?.(); });
++  }
++};
++const scene = new THREE.Scene();
++for (const collider of LEVEL.staticColliders) {
++  const height = collider.id.includes("wall") ? 3.6 : collider.id.includes("shelf") || collider.id.includes("stack") ? 1.8 : 1.1;
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(collider.maxX - collider.minX, height, collider.maxZ - collider.minZ), new THREE.MeshBasicMaterial());
++  mesh.position.set((collider.minX + collider.maxX) / 2, height / 2, (collider.minZ + collider.maxZ) / 2);
++  mesh.name = "COLLIDER_" + collider.id;
++  mesh.userData = { collision: true, shape: "box", authoritative: "rf02/level.js" };
++  scene.add(mesh);
++}
++const floor = new THREE.Mesh(new THREE.BoxGeometry(24, 0.1, 16), new THREE.MeshBasicMaterial());
++floor.position.y = -0.05;
++floor.name = "COLLIDER_floor";
++floor.userData = { collision: true, shape: "box" };
++scene.add(floor);
++const result = await new GLTFExporter().parseAsync(scene, { binary: true });
++const output = path.join("public", ASSET_ROOT, "library-collision.glb");
++fs.mkdirSync(path.dirname(output), { recursive: true });
++fs.writeFileSync(output, Buffer.from(result));
++console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
+diff --git a/tools/rf02-series/book-impact-request.json b/tools/rf02-series/book-impact-request.json
+new file mode 100644
+--- /dev/null
++++ b/tools/rf02-series/book-impact-request.json
+@@ -0,0 +1,5 @@
++{
++  "prompt": "One isolated heavy hardcover library book slipping from a wooden shelf and landing flat on a terrazzo floor: a short dry paper flutter then a soft low thump. Quiet indoor room, no voices, no music, no alarm, no footsteps. Single impact only, crisp natural close recording, clean silence after the impact.",
++  "generationType": "one_shot",
++  "durationSeconds": 2
++}

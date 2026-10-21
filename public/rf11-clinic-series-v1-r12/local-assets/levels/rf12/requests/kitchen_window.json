@@ -1,0 +1,16 @@
+{
+  "prompt": "Photorealistic high-detail game-ready GLB for a normally occupied Chinese urban apartment kitchen. Real-world proportions, physically based materials, restrained daily wear, Y axis up, front facing positive Z, centered bottom-center pivot, one isolated asset only, no robot, person, hands, extra objects, floor slab, wall slab, pedestal, floating parts, readable text, logo, watermark, UI, neon or baked lighting. Create one realistic Chinese apartment kitchen sliding window module with white aluminum frame, two glass sliding panels, latch, track, handle, rubber seals and shallow sill. Front +Z, rear mounting plane flat, window opening clear, no wall or exterior scene. Export GLB.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false,
+  "targetSizeMeters": [
+    1.35,
+    1.25,
+    0.12
+  ]
+}

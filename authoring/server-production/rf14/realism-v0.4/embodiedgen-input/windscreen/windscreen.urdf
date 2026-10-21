@@ -1,0 +1,1 @@
+<robot name="windscreen"><link name="base"><visual><geometry><mesh filename="mesh/windscreen.glb"/></geometry></visual><collision><geometry><mesh filename="mesh/windscreen_collision.obj"/></geometry></collision></link></robot>

@@ -1,0 +1,12 @@
+{
+  "game/robot-action.js": "038ffe0fd57232785fa2b94542bd4fb1b78634c4aeaaea4b7bc7c89ab522793a",
+  "game/robot.js": "9364751b4b5c8187255eeb0a7dc9b607784ac9e9686540f3bb8ad8894ea671a5",
+  "game/unitree-g1-dex1-model.js": "d7b38f0c95ae7573e87cf1916f4f288706d5a4df6c58320221633f26603beb9a",
+  "game/g1-edu2-preview.js": "c6a79a0bcd8f6c9e468d4a1ec25e0140a649e099b53dc09b186847bc08e9a858",
+  "game/g1-locomotion.js": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+  "game/g1-articulated-collision.js": "8fd3c7bbf3ad4850ddd425b9281429cad1311aa6e592f473db3226f95ed03987",
+  "game/unitree-g1-edu2.js": "dd76838ff6a38d84b9ea118061e457974ecb9094add5f17aec8d096cf8ffb9f4",
+  "game/movement.js": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+  "game/operator-controls.js": "b8aa70691ceebfaae5e12075db40255c39737003dfb1d33ecb173c08df1b4a58",
+  "game/view-mode.js": "30b62998781be79013211072199e2e494750345ace65543501f46e88cbc89d8b"
+}

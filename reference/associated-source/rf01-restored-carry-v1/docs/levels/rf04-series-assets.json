@@ -1,0 +1,47 @@
+{
+  "revision": "rf04-series-v1",
+  "variants": [
+    "rf04",
+    "rf04-2",
+    "rf04-3"
+  ],
+  "units": "meters",
+  "assets": [
+    {
+      "file": "furnishings.glb",
+      "bytes": 5698316,
+      "sha256": "aa95c3a4efe59c162b7fba3fa217360b828946d5e6793c114245036957bc751b",
+      "source": "Blender precision construction"
+    },
+    {
+      "file": "collision.glb",
+      "bytes": 45140,
+      "sha256": "1a16fa897739dcf17607a100d1b5b4b3c8a88db61ddb87f357e0fdb9a752e943",
+      "source": "Blender precision construction"
+    },
+    {
+      "file": "vacuum.glb",
+      "bytes": 1048024,
+      "sha256": "1186af758ae964a1601861d38d2b3618375bd79ce4d5ef887f786d0eabe106f1",
+      "source": "Blender precision construction"
+    }
+  ],
+  "reuse": [
+    "RF04 EmbodiedGen apartment",
+    "RF04 Cardinal washer,clothes,rack,beds,wood,plaster"
+  ],
+  "cardinalAttempts": [
+    {
+      "taskId": "aigc_7e97924e28c141649cdb50e35c7048bc",
+      "qualityPreset": "high-highpoly",
+      "status": "failed"
+    },
+    {
+      "operation": "image",
+      "status": "rejected",
+      "httpStatus": 409,
+      "reason": "installed helper incompatible with upgraded image API"
+    }
+  ],
+  "fallback": "Authorized Blender pipeline; no generated Cardinal vacuum artifact used"
+}

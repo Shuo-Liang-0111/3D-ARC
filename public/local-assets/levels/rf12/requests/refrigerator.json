@@ -1,0 +1,16 @@
+{
+  "prompt": "Photorealistic high-detail game-ready GLB for a normally occupied Chinese urban apartment kitchen. Real-world proportions, physically based materials, restrained daily wear, Y axis up, front facing positive Z, centered bottom-center pivot, one isolated asset only, no robot, person, hands, extra objects, floor slab, wall slab, pedestal, floating parts, readable text, logo, watermark, UI, neon or baked lighting. Create one full-height two-door stainless household refrigerator common in a Chinese apartment, with separate freezer and fridge doors, recessed handles, gasket seams, adjustable feet, side panels and subtle brushed metal variation. Front +Z, bottom feet flat, no kitchen or food items. Export GLB.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false,
+  "targetSizeMeters": [
+    0.92,
+    1.9,
+    0.68
+  ]
+}

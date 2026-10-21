@@ -1,0 +1,67 @@
+[
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/opening-terminal.glb",
+    "sha256": "0bb5f23cbb57dd5043242c721536f04252093ba851134067c3446e7567c768e3",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/chair.glb",
+    "sha256": "e9bb81fe66b02a310df0d6c4b3c48626538b82e2fc1790760766b48be6471f96",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/collision.glb",
+    "sha256": "1f743daf6800f971d75548c4307352af5c17d8770b96710d465d5f0c1b748397",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/environment.glb",
+    "sha256": "4d3f6653004fda4a866574aef16786220e788d5b3849c6b7b6fdff68f8cd0403",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/forms.glb",
+    "sha256": "677124735d4ddf1d033d0ca26f6bcb9a170dc9eab86c8bbf515695fd1214c9a2",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/empty-box.glb",
+    "sha256": "6a5d6a4f7d446b1c7ad8efd7501d5202908f8ef1cc1e4a19cad5f950739e04b2",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/diagnostic-panel-fitted.glb",
+    "sha256": "54514c8cbb8804dc76055d98b8bfca078ed4989d5276a3f9c7add242f5cb6280",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/clinical-basin-fitted.glb",
+    "sha256": "115e1c642d43a07bb1be11719aa3f52059db1943b9690fc541b6ff6a1eb24987",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/gloves.glb",
+    "sha256": "14228516e8e462677d7a2e72a785b6143ba88aa6fad412ee35c29f12b6e8178e",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/trolley.glb",
+    "sha256": "daf09d5a1e6955b67871d5afa38901fd1af0012a3514de2b2ff524495d4e577d",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/gauze.glb",
+    "sha256": "6660528768731bb9265cd835b1ca63b70b57f9e78e1c46197e0f4cb85d3e35f9",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/realism-v0.4.3/dressings.glb",
+    "sha256": "0be2d223c3bdcc0fd2f165e8f8aab82d101f4ecae8ea3587470e454d24399e62",
+    "sourceHttpReleaseMatch": true
+  },
+  {
+    "path": "/local-assets/levels/rf13/clinic-series-v1/request-chime.mp3",
+    "sha256": "d14a2668126f5fdeb80129d16df65cb14d2b5eb7bda133a85d8db68a5dcb2522",
+    "sourceHttpReleaseMatch": true
+  }
+]

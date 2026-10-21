@@ -1,0 +1,11 @@
+import {build} from 'vite';
+import {resolve} from 'node:path';
+import {existsSync,mkdirSync,readFileSync,writeFileSync,symlinkSync} from 'node:fs';
+const revision=process.argv[2];if(!/^r\d+$/.test(revision??''))throw Error('Usage: build-candidate.mjs rN');
+const name='rf08-office-v1-'+revision;
+const out=resolve('./authoring/server-production/rf08-office-v1/build',revision);
+if(existsSync(out))throw Error('Immutable release already exists');
+await build({configFile:false,root:process.cwd(),base:'/'+name+'/',publicDir:false,logLevel:'warn',build:{target:'esnext',outDir:out,emptyOutDir:false,chunkSizeWarningLimit:5000,rollupOptions:{input:resolve('index.html')}}});
+writeFileSync(resolve(out,'index.htm'),readFileSync(resolve(out,'index.html')));
+symlinkSync(out,resolve('public',name),'dir');
+console.log(JSON.stringify({name,out,url:'http://127.0.0.1:4173/'+name+'/index.htm'}));

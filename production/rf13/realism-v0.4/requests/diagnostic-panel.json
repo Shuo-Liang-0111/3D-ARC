@@ -1,0 +1,9 @@
+{
+  "prompt": "One realistic wall mounted medical diagnostic instrument panel for a contemporary community clinic exam room. A compact off-white rectangular backplate 0.46m wide and 0.58m high, only 0.12m deep, with wall mounted aneroid blood pressure gauge, black coiled flexible tubing, cuff basket, otoscope and ophthalmoscope handles with cables resting in holders. Fine practical manufactured details. Isolated object front faces positive Z, back mounting surface at negative Z. No wall, room, floor slab, people, readable lettering or extra objects.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

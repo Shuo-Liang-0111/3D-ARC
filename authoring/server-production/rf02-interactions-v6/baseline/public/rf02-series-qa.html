@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>RF-02 series browser route verification</title>
+<style>
+body{margin:0;background:#111;color:#eee;font:14px system-ui}header{height:44px;display:flex;align-items:center;gap:12px;padding:0 12px}button,select{font:inherit}iframe{border:0;width:100%;height:calc(100vh - 44px)}#captures{display:none}output{white-space:pre}
+</style>
+<header><select id="level"><option>rf02-2</option><option>rf02-3</option></select><button id="load">加载关卡</button><button id="next">下一次交互</button><button id="run">完整路线</button><button id="pause">暂停路线</button><button id="capture">保存画面</button><button id="export">下载证据</button><output id="status">等待加载</output></header>
+<iframe id="game" title="正式 ARC 游戏"></iframe><section id="captures"></section>
+<script type="module" src="/tools/rf02-series/browser-qa.js"></script>
+</html>

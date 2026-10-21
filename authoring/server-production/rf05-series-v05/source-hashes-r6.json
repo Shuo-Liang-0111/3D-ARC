@@ -1,0 +1,12 @@
+{
+  "game/levels/rf05/series-scene.js": "4caf3806731b23249123686b554a1a342c01f7f71cd1a7f18f7f7a5896dd42b7",
+  "game/levels/rf05/series-entry.js": "d8b6c874b9e70430aa1325e1ad9605d0fefa6884c91e560cc3daec5827546dc9",
+  "game/levels/rf05/series-animation.js": "565751cd8f6a07e33afb05f85df55bf3466ce50066e07a5e1f5c4e0bb61b413f",
+  "game/levels/rf05/series-engine.js": "0bceb1fc5e8b0e9f82959e281d461715ef35694a21409a802213e9b17003b863",
+  "game/levels/rf05/series-layout.js": "258ac8e4c29d20b93d644bc6829a1a64a6889faef1a2f50f985aebd8b0663cd4",
+  "game/levels/rf05/series-qa.js": "43c9f873a8ae5ea7a28556fe88f57ef698d88aa996e50f0657b8a1ff4a98bdba",
+  "game/levels/rf05/series-runtime.js": "a5f6fb345a42869efb9a4e0fb6ca095cb71011d059906c1278c02e827564bc25",
+  "game/levels/rf05/series-wind.js": "dd846e2b307a02c192d74db1f3f356dbcdaede0c7dcfd4cc4955065681f503ab",
+  "game/levels/rf05/series-wind-scene.js": "db6de007c451e1ebf3a6a29748702d16eeebdb73712c984aa557558edaad3b3e",
+  "game/app.js": "c20e4463ec538405af0d659a83bc9e22b277ebf857059ee1ee5d40a44d37197a"
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "level": "rf06",
+    "status": 200,
+    "release": "rf06-series-v1-r11"
+  },
+  {
+    "level": "rf06-2",
+    "status": 200,
+    "release": "rf06-series-v1-r11"
+  },
+  {
+    "level": "rf06-3",
+    "status": 200,
+    "release": "rf06-series-v1-r11"
+  }
+]

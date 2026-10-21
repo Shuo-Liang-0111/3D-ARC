@@ -1,0 +1,528 @@
+{
+  "error": "Error: Turn failed: target 3.141282132903286, actual {\"x\":7.299132476041969,\"z\":10.793771777032047,\"yaw\":3.062932653589895}",
+  "errors": [],
+  "checkpoints": [
+    {
+      "name": "first-initial",
+      "state": {
+        "player": {
+          "x": -2,
+          "z": 8,
+          "yaw": 3.141592653589793
+        },
+        "items": {
+          "ball-1": {
+            "id": "ball-1",
+            "name": "网球 1",
+            "x": -3.8,
+            "y": 0.004,
+            "z": 10,
+            "location": "floor"
+          },
+          "ball-2": {
+            "id": "ball-2",
+            "name": "网球 2",
+            "x": 3.2,
+            "y": 0.004,
+            "z": 7.5,
+            "location": "floor"
+          },
+          "ball-3": {
+            "id": "ball-3",
+            "name": "网球 3",
+            "x": -1.4,
+            "y": 0.004,
+            "z": 3,
+            "location": "floor"
+          },
+          "ball-4": {
+            "id": "ball-4",
+            "name": "网球 4",
+            "x": 4.5,
+            "y": 0,
+            "z": 13.5,
+            "location": "floor"
+          },
+          "ball-5": {
+            "id": "ball-5",
+            "name": "网球 5",
+            "x": -3.5,
+            "y": 0.004,
+            "z": -4,
+            "location": "floor"
+          },
+          "ball-6": {
+            "id": "ball-6",
+            "name": "网球 6",
+            "x": 3.6,
+            "y": 0.004,
+            "z": -7,
+            "location": "floor"
+          },
+          "ball-7": {
+            "id": "ball-7",
+            "name": "网球 7",
+            "x": -1.2,
+            "y": 0.004,
+            "z": -11,
+            "location": "floor"
+          },
+          "ball-8": {
+            "id": "ball-8",
+            "name": "网球 8",
+            "x": 4.7,
+            "y": 0,
+            "z": -14,
+            "location": "floor"
+          }
+        },
+        "carriedItem": null,
+        "delivered": [],
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "motion": "idle",
+        "elapsed": 0.8910000000238419,
+        "interactions": 0,
+        "lastEvent": "court_started"
+      },
+      "time": "2026-09-10T09:21:26.159Z"
+    },
+    {
+      "name": "first-look-up",
+      "state": {
+        "player": {
+          "x": -2,
+          "z": 8,
+          "yaw": 3.141592653589793
+        },
+        "items": {
+          "ball-1": {
+            "id": "ball-1",
+            "name": "网球 1",
+            "x": -3.8,
+            "y": 0.004,
+            "z": 10,
+            "location": "floor"
+          },
+          "ball-2": {
+            "id": "ball-2",
+            "name": "网球 2",
+            "x": 3.2,
+            "y": 0.004,
+            "z": 7.5,
+            "location": "floor"
+          },
+          "ball-3": {
+            "id": "ball-3",
+            "name": "网球 3",
+            "x": -1.4,
+            "y": 0.004,
+            "z": 3,
+            "location": "floor"
+          },
+          "ball-4": {
+            "id": "ball-4",
+            "name": "网球 4",
+            "x": 4.5,
+            "y": 0,
+            "z": 13.5,
+            "location": "floor"
+          },
+          "ball-5": {
+            "id": "ball-5",
+            "name": "网球 5",
+            "x": -3.5,
+            "y": 0.004,
+            "z": -4,
+            "location": "floor"
+          },
+          "ball-6": {
+            "id": "ball-6",
+            "name": "网球 6",
+            "x": 3.6,
+            "y": 0.004,
+            "z": -7,
+            "location": "floor"
+          },
+          "ball-7": {
+            "id": "ball-7",
+            "name": "网球 7",
+            "x": -1.2,
+            "y": 0.004,
+            "z": -11,
+            "location": "floor"
+          },
+          "ball-8": {
+            "id": "ball-8",
+            "name": "网球 8",
+            "x": 4.7,
+            "y": 0,
+            "z": -14,
+            "location": "floor"
+          }
+        },
+        "carriedItem": null,
+        "delivered": [],
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "motion": "idle",
+        "elapsed": 7.906800000023868,
+        "interactions": 0,
+        "lastEvent": "court_started"
+      },
+      "time": "2026-09-10T09:21:33.616Z"
+    },
+    {
+      "name": "third-initial",
+      "state": {
+        "player": {
+          "x": -2,
+          "z": 8,
+          "yaw": 3.141592653589793
+        },
+        "items": {
+          "ball-1": {
+            "id": "ball-1",
+            "name": "网球 1",
+            "x": -3.8,
+            "y": 0.004,
+            "z": 10,
+            "location": "floor"
+          },
+          "ball-2": {
+            "id": "ball-2",
+            "name": "网球 2",
+            "x": 3.2,
+            "y": 0.004,
+            "z": 7.5,
+            "location": "floor"
+          },
+          "ball-3": {
+            "id": "ball-3",
+            "name": "网球 3",
+            "x": -1.4,
+            "y": 0.004,
+            "z": 3,
+            "location": "floor"
+          },
+          "ball-4": {
+            "id": "ball-4",
+            "name": "网球 4",
+            "x": 4.5,
+            "y": 0,
+            "z": 13.5,
+            "location": "floor"
+          },
+          "ball-5": {
+            "id": "ball-5",
+            "name": "网球 5",
+            "x": -3.5,
+            "y": 0.004,
+            "z": -4,
+            "location": "floor"
+          },
+          "ball-6": {
+            "id": "ball-6",
+            "name": "网球 6",
+            "x": 3.6,
+            "y": 0.004,
+            "z": -7,
+            "location": "floor"
+          },
+          "ball-7": {
+            "id": "ball-7",
+            "name": "网球 7",
+            "x": -1.2,
+            "y": 0.004,
+            "z": -11,
+            "location": "floor"
+          },
+          "ball-8": {
+            "id": "ball-8",
+            "name": "网球 8",
+            "x": 4.7,
+            "y": 0,
+            "z": -14,
+            "location": "floor"
+          }
+        },
+        "carriedItem": null,
+        "delivered": [],
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "motion": "idle",
+        "elapsed": 9.256000000023867,
+        "interactions": 0,
+        "lastEvent": "court_started"
+      },
+      "time": "2026-09-10T09:21:35.527Z"
+    },
+    {
+      "name": "before-pickup",
+      "state": {
+        "player": {
+          "x": -3.752017139699546,
+          "z": 10.79278315915511,
+          "yaw": 3.0775126535897908
+        },
+        "items": {
+          "ball-1": {
+            "id": "ball-1",
+            "name": "网球 1",
+            "x": -3.8,
+            "y": 0.004,
+            "z": 10,
+            "location": "floor"
+          },
+          "ball-2": {
+            "id": "ball-2",
+            "name": "网球 2",
+            "x": 3.2,
+            "y": 0.004,
+            "z": 7.5,
+            "location": "floor"
+          },
+          "ball-3": {
+            "id": "ball-3",
+            "name": "网球 3",
+            "x": -1.4,
+            "y": 0.004,
+            "z": 3,
+            "location": "floor"
+          },
+          "ball-4": {
+            "id": "ball-4",
+            "name": "网球 4",
+            "x": 4.5,
+            "y": 0,
+            "z": 13.5,
+            "location": "floor"
+          },
+          "ball-5": {
+            "id": "ball-5",
+            "name": "网球 5",
+            "x": -3.5,
+            "y": 0.004,
+            "z": -4,
+            "location": "floor"
+          },
+          "ball-6": {
+            "id": "ball-6",
+            "name": "网球 6",
+            "x": 3.6,
+            "y": 0.004,
+            "z": -7,
+            "location": "floor"
+          },
+          "ball-7": {
+            "id": "ball-7",
+            "name": "网球 7",
+            "x": -1.2,
+            "y": 0.004,
+            "z": -11,
+            "location": "floor"
+          },
+          "ball-8": {
+            "id": "ball-8",
+            "name": "网球 8",
+            "x": 4.7,
+            "y": 0,
+            "z": -14,
+            "location": "floor"
+          }
+        },
+        "carriedItem": null,
+        "delivered": [],
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "motion": "idle",
+        "elapsed": 26.584422436987097,
+        "interactions": 0,
+        "lastEvent": "court_started"
+      },
+      "time": "2026-09-10T09:21:53.586Z"
+    },
+    {
+      "name": "carrying",
+      "state": {
+        "player": {
+          "x": -3.752017139699546,
+          "z": 10.79278315915511,
+          "yaw": 3.0775126535897908
+        },
+        "items": {
+          "ball-1": {
+            "id": "ball-1",
+            "name": "网球 1",
+            "x": -3.8,
+            "y": 0.004,
+            "z": 10,
+            "location": "carried"
+          },
+          "ball-2": {
+            "id": "ball-2",
+            "name": "网球 2",
+            "x": 3.2,
+            "y": 0.004,
+            "z": 7.5,
+            "location": "floor"
+          },
+          "ball-3": {
+            "id": "ball-3",
+            "name": "网球 3",
+            "x": -1.4,
+            "y": 0.004,
+            "z": 3,
+            "location": "floor"
+          },
+          "ball-4": {
+            "id": "ball-4",
+            "name": "网球 4",
+            "x": 4.5,
+            "y": 0,
+            "z": 13.5,
+            "location": "floor"
+          },
+          "ball-5": {
+            "id": "ball-5",
+            "name": "网球 5",
+            "x": -3.5,
+            "y": 0.004,
+            "z": -4,
+            "location": "floor"
+          },
+          "ball-6": {
+            "id": "ball-6",
+            "name": "网球 6",
+            "x": 3.6,
+            "y": 0.004,
+            "z": -7,
+            "location": "floor"
+          },
+          "ball-7": {
+            "id": "ball-7",
+            "name": "网球 7",
+            "x": -1.2,
+            "y": 0.004,
+            "z": -11,
+            "location": "floor"
+          },
+          "ball-8": {
+            "id": "ball-8",
+            "name": "网球 8",
+            "x": 4.7,
+            "y": 0,
+            "z": -14,
+            "location": "floor"
+          }
+        },
+        "carriedItem": "ball-1",
+        "delivered": [],
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "motion": "carrying",
+        "elapsed": 28.467722436987074,
+        "interactions": 1,
+        "lastEvent": "battery_collected"
+      },
+      "time": "2026-09-10T09:21:55.955Z"
+    },
+    {
+      "name": "dropped",
+      "state": {
+        "player": {
+          "x": -3.752017139699546,
+          "z": 10.79278315915511,
+          "yaw": 3.0775126535897908
+        },
+        "items": {
+          "ball-1": {
+            "id": "ball-1",
+            "name": "网球 1",
+            "x": -3.7020689393521895,
+            "y": 0.004,
+            "z": 10.014384047335177,
+            "location": "floor"
+          },
+          "ball-2": {
+            "id": "ball-2",
+            "name": "网球 2",
+            "x": 3.2,
+            "y": 0.004,
+            "z": 7.5,
+            "location": "floor"
+          },
+          "ball-3": {
+            "id": "ball-3",
+            "name": "网球 3",
+            "x": -1.4,
+            "y": 0.004,
+            "z": 3,
+            "location": "floor"
+          },
+          "ball-4": {
+            "id": "ball-4",
+            "name": "网球 4",
+            "x": 4.5,
+            "y": 0,
+            "z": 13.5,
+            "location": "floor"
+          },
+          "ball-5": {
+            "id": "ball-5",
+            "name": "网球 5",
+            "x": -3.5,
+            "y": 0.004,
+            "z": -4,
+            "location": "floor"
+          },
+          "ball-6": {
+            "id": "ball-6",
+            "name": "网球 6",
+            "x": 3.6,
+            "y": 0.004,
+            "z": -7,
+            "location": "floor"
+          },
+          "ball-7": {
+            "id": "ball-7",
+            "name": "网球 7",
+            "x": -1.2,
+            "y": 0.004,
+            "z": -11,
+            "location": "floor"
+          },
+          "ball-8": {
+            "id": "ball-8",
+            "name": "网球 8",
+            "x": 4.7,
+            "y": 0,
+            "z": -14,
+            "location": "floor"
+          }
+        },
+        "carriedItem": null,
+        "delivered": [],
+        "complete": false,
+        "failed": false,
+        "terminalOpen": false,
+        "progress": 100,
+        "motion": "idle",
+        "elapsed": 30.534322436986987,
+        "interactions": 2,
+        "lastEvent": "battery_dropped"
+      },
+      "time": "2026-09-10T09:21:58.543Z"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -377,0 +378,15 @@
++let browserPhysics = null;
++const browserPhysicsReady = robotId === "g1" && ["rf15-1", "rf15-2", "rf15-3"].includes(levelId) && searchParams.get("physics") === "1"
++  ? Promise.all([robot.userData.assetReady, world.assetReady]).then(async () => {
++    const { createBrowserPhysics } = await import("./levels/rf15/browser-physics.js");
++    browserPhysics = await createBrowserPhysics(world, robot, {
++      runtime, controlMode: controlModeId,
++      getState: () => state,
++      setState: next => { state = next; },
++      stop: releaseAllControls,
++      message: showToast,
++    });
++    return { loaded: true };
++  })
++  : Promise.resolve({ loaded: true });
++browserPhysicsReady.catch(error => { gameShell.dataset.physicsError = String(error); console.error(error); });
+@@ -380 +395 @@
+-Promise.allSettled([robot.userData.assetReady, secondRobotAssetReady, collisionReady, cargoAssetReady, environmentAssetReady]).then(([robotResult, secondRobotResult, collisionResult, cargoResult, environmentResult]) => {
++Promise.allSettled([robot.userData.assetReady, secondRobotAssetReady, collisionReady, cargoAssetReady, environmentAssetReady, browserPhysicsReady]).then(([robotResult, secondRobotResult, collisionResult, cargoResult, environmentResult, physicsResult]) => {
+@@ -393 +408 @@
+-  const environmentAssetsLoaded = environmentAssets.every((asset) => asset?.loaded);
++  const environmentAssetsLoaded = environmentAssets.every((asset) => asset?.loaded) && physicsResult.status === "fulfilled";
+@@ -468,0 +484 @@
++  browserPhysics?.reset();
+@@ -930,0 +947,5 @@
++  if (browserPhysics) {
++    const handled = browserPhysics.interact();
++    updateInterface();
++    return handled;
++  }
+@@ -970 +992 @@
+-    : readInput();
++    : browserPhysics?.busy ? browserPhysics.motionInput(state) ?? { move: 0, strafe: 0, turn: 0, drain: false } : readInput();
+@@ -1048,0 +1071 @@
++  browserPhysics?.frame(delta, running && !state.complete && !state.failed);
+diff --git a/game/levels/rf15/field-scene.js b/game/levels/rf15/field-scene.js
+--- a/game/levels/rf15/field-scene.js
++++ b/game/levels/rf15/field-scene.js
+@@ -41 +41,2 @@
+-  const jobs = [attach("field", root), attach("basket", anchor(root, FIELD.basket))];
++  const basket = anchor(root, FIELD.basket);
++  const jobs = [attach("field", root), attach("basket", basket)];
+@@ -52 +53 @@
+-  world.field = { crops, deposited, produce };
++  world.field = { crops, deposited, produce, basket };
+diff --git a/vite.config.js b/vite.config.js
+--- a/vite.config.js
++++ b/vite.config.js
+@@ -21,0 +22 @@
++  "levels/rf15/browser-physics-v1",

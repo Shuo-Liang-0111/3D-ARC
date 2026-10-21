@@ -1,0 +1,32 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf14",
+  "revision": "realism-v0.2",
+  "units": "meters",
+  "upAxis": "Y",
+  "budgetMiB": 60,
+  "environment": {
+    "visual": "/local-assets/levels/rf14/realism-v0.2/environment.glb",
+    "collision": "/local-assets/levels/rf14/realism-v0.2/collision.glb"
+  },
+  "interactables": [
+    {
+      "id": "ball",
+      "path": "/local-assets/levels/rf14/realism-v0.2/ball.glb"
+    },
+    {
+      "id": "cart",
+      "path": "/local-assets/levels/rf14/realism-v0.2/cart.glb"
+    }
+  ],
+  "compression": {
+    "geometry": "none",
+    "decoderPath": "/vendor/draco/"
+  },
+  "hashes": {
+    "collision.glb": "7e94392900aa8dce0665fc9e8d25f4766c1014a16a7efe0ecaa2269aa26f07a7",
+    "environment.glb": "cad79aeee5566431219884ecd64426bed5a8bf387bfd7f662d1b430613c1140c",
+    "ball.glb": "b385f8504212b872a9dc191a15dfa4b1cbb623c125e09dda723019060aeae217",
+    "cart.glb": "b531f9062cf3cc3f5a45c857a9f8e547adb9a730681bd0ddcb276b1c46f667eb"
+  }
+}

@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {OfficePhysics, installOfficePhysics} from '../game/levels/rf08/scan-physics.js';
+import {createInitialState, getInteraction, interact, updateMovement} from '../game/levels/rf08/engine.js';
+import {actionKindForEvent} from '../game/robot-action.js';
+const load=(file,Type)=>{const buffer=readFileSync('public/office-scan/'+file);return new Type(buffer.buffer.slice(buffer.byteOffset,buffer.byteOffset+buffer.byteLength));};
+test('bin pickup, relocation, collision, blocked placement and reset',()=>{
+ const physics=new OfficePhysics(load('collision-positions.bin',Float32Array),load('collision-indices.bin',Uint32Array));installOfficePhysics(physics);
+ const state=createInitialState();state.player={x:-0.82,z:1.45,yaw:0};
+ assert.equal(physics.canStand(state.player.x,state.player.z),true);
+ assert.equal(getInteraction(state)?.type,'pickup');
+ const carrying=interact(state);assert.equal(carrying.carriedItem,'bin');assert.equal(state.bin.location,'floor');
+ assert.equal(physics.canPlaceBin(-.82,1.85),true,'original footprint freed of static bin');
+ carrying.player={x:-1.5,z:1.25,yaw:Math.PI/2};
+ const placed=interact(carrying);assert.equal(placed.carriedItem,null);assert.equal(placed.bin.location,'floor');assert.ok(placed.bin.x>carrying.player.x);
+ assert.equal(physics.canStand(placed.bin.x,placed.bin.z),false,'placed bin blocks robot');
+ const pickedAgain=interact(placed);assert.equal(pickedAgain.carriedItem,'bin');
+ pickedAgain.player={x:2.8,z:1.7,yaw:Math.PI/2};const blocked=interact(pickedAgain);assert.equal(blocked.carriedItem,'bin');assert.equal(blocked.lastEvent,'office_bin_place_blocked');
+ const reset=createInitialState();physics.setBin(reset.bin);assert.deepEqual(reset.bin,{location:'floor',x:-.82,z:2.01,yaw:0});
+ assert.equal(actionKindForEvent('office_bin_picked_up'),'pickup');assert.equal(actionKindForEvent('office_bin_placed'),'place');
+});

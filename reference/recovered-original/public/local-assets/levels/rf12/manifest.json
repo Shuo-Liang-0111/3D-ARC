@@ -1,0 +1,255 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf12",
+  "units": "meters",
+  "environment": {
+    "visual": "models/runtime/rf12_final.glb",
+    "collision": "models/runtime/rf12_collision.glb",
+    "collisionSha256": "4c1379f21e2ce51d8121c1461f6ed90323a1e4e83a493283418951933ace0861"
+  },
+  "surfaces": {
+    "floor": {
+      "path": "textures/floor_tile_cardinal.png",
+      "taskId": "aigc_7a55d4b6ca49407999fb07c09d554bd1",
+      "sha256": "2f595656315e79bc58d9e1abb57765252340c1ad1d4bbae7de324726418e2ded",
+      "repeat": [3, 3]
+    },
+    "wall": {
+      "path": "textures/wall_tile_cardinal.png",
+      "taskId": "aigc_691e83e106654f1584ebf630b4aa2b96",
+      "sha256": "086838afffa08abd4f5e2c93bdb0f921533bfa200ac46e0114c5c56b73f957b4",
+      "repeat": [2, 1]
+    }
+  },
+  "interactables": [
+    {
+      "id": "tomato-basket",
+      "path": "models/runtime/interactables/tomato_basket.glb",
+      "dimensions": [
+        0.46,
+        0.24,
+        0.36
+      ],
+      "support": "counter"
+    },
+    {
+      "id": "tofu-container",
+      "path": "models/runtime/interactables/tofu_container.glb",
+      "dimensions": [
+        0.46,
+        0.18,
+        0.32
+      ],
+      "support": "counter"
+    },
+    {
+      "id": "cooking-oil-bottle",
+      "path": "models/runtime/interactables/cooking_oil_bottle.glb",
+      "dimensions": [
+        0.22,
+        0.38,
+        0.22
+      ],
+      "support": "counter"
+    },
+    {
+      "id": "frying-pan",
+      "path": "models/runtime/interactables/frying_pan.glb",
+      "dimensions": [
+        0.8,
+        0.14,
+        0.5
+      ],
+      "support": "burner"
+    },
+    {
+      "id": "gas-stove",
+      "path": "models/runtime/interactables/gas_stove.glb",
+      "dimensions": [
+        1.6,
+        0.9,
+        1.25
+      ],
+      "support": "floor"
+    },
+    {
+      "id": "range-hood",
+      "path": "models/runtime/interactables/range_hood.glb",
+      "dimensions": [
+        1.8,
+        0.55,
+        0.48
+      ],
+      "support": "wall"
+    },
+    {
+      "id": "safety-terminal",
+      "path": "models/runtime/interactables/safety_terminal.glb",
+      "dimensions": [
+        0.8,
+        1,
+        0.5
+      ],
+      "support": "floor"
+    },
+    {
+      "id": "heat-trivet",
+      "path": "models/runtime/interactables/heat_trivet.glb",
+      "dimensions": [
+        0.45,
+        0.05,
+        0.35
+      ],
+      "support": "counter"
+    }
+  ],
+  "optional": [],
+  "compression": {
+    "geometry": "draco",
+    "decoderPath": "/vendor/draco/"
+  },
+  "validation": {
+    "embeddedTextures": true,
+    "stableNodeNames": true,
+    "collisionReviewed": true,
+    "visualReviewed": true,
+    "supportContactReviewed": true
+  },
+  "generation": {
+    "environment": {
+      "taskId": "aigc_8370d0efab9b46618137795496368c8d",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/rf12_environment.highpoly.glb",
+      "sourceSha256": "99cc47918e068d474d0ced798d91b36b16f70322713638631d0ae48c03f01815",
+      "runtimeArtifact": "models/runtime/rf12_final.glb",
+      "runtimeSha256": "782e6b68aa105291c517b57f8d1fdb4a79923b5657da3d2c009d8a4b8d5354b4",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "tomato": {
+      "taskId": "aigc_01b7413dd51448c284f558ac88cf97d1",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/tomato_basket.highpoly.glb",
+      "sourceSha256": "04d4d47dc7aa6412780ee6f9e9e892a776739097df32b3c6b8b29a117c11f9ee",
+      "runtimeArtifact": "models/runtime/interactables/tomato_basket.glb",
+      "runtimeSha256": "cee257d3d8475de1386c7a44a557ca37c815a6e05a7a5cb129624bd0dfa027b9",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "tofu": {
+      "taskId": "aigc_8d3f0e63ca5a4e65a3829ce20b8cc833",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/tofu_container.highpoly.glb",
+      "sourceSha256": "ac5bb87cbf6fdd3c2e1e8f210f1c6890703c824cb558d0a7fde5aa15c95fe3d9",
+      "runtimeArtifact": "models/runtime/interactables/tofu_container.glb",
+      "runtimeSha256": "5b5a7f7ae2afea74b5618d94fed23ea0f82da799bb756c3e95ca892b4873e2f4",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "oil": {
+      "taskId": "aigc_53fdf9ffcbc24c3eaa0d2b16cb3e1c86",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/cooking_oil_bottle.highpoly.glb",
+      "sourceSha256": "7ca12c875b2e5ad7373851fcbb3203a593f7399bf4f6c8ca4a6d9042eb362ec7",
+      "runtimeArtifact": "models/runtime/interactables/cooking_oil_bottle.glb",
+      "runtimeSha256": "f31bfcc4eb1a53eaad08411feae9b5eb779dedd90cb06c6a821c515a437060da",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "pan": {
+      "taskId": "aigc_7ce0be155966495d9255d319208450f9",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/frying_pan.highpoly.glb",
+      "sourceSha256": "70de08dd3c0c1e02c561cad77ebcb387b8b4e57c3f98ac832c0fed3b237bcb6a",
+      "runtimeArtifact": "models/runtime/interactables/frying_pan.glb",
+      "runtimeSha256": "955e0b8f54c58ae96826c7bf09c565a630047f46a16a06d566319e1a0b452f42",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "stove": {
+      "taskId": "aigc_e3b4401a7ca74ad5a3627fe5c5b06d5a",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/gas_stove.highpoly.glb",
+      "sourceSha256": "67366fe7940ad94316eee06c580473491ffb6bfe91e25e3e06f9bff15a93a52f",
+      "runtimeArtifact": "models/runtime/interactables/gas_stove.glb",
+      "runtimeSha256": "98ecf07df0165fae91e1069ad5763d7fdf7e86663ade0e31cd3127e8f1b2538d",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "hood": {
+      "taskId": "aigc_3879656b8e344d6d8f27f0555ba036c2",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/range_hood.highpoly.glb",
+      "sourceSha256": "d5b9fcfdaf7077150e133c403473a898bcd526dfdede7b8eaf212f42ba100f4c",
+      "runtimeArtifact": "models/runtime/interactables/range_hood.glb",
+      "runtimeSha256": "cd7d64303dcfa8dcbb3f601a2a541f7437f0a2005e3410da62123834decff03e",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "terminal": {
+      "taskId": "aigc_d7327abd1a8942178f2b374142fadfbd",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/safety_terminal.highpoly.glb",
+      "sourceSha256": "321a8b1af19475014dd086c8085df30363625ff0993b9fb431bea1df00bcdfbc",
+      "runtimeArtifact": "models/runtime/interactables/safety_terminal.glb",
+      "runtimeSha256": "aa3b29cc8fb5ca8b2e212e9267124588aa669d54bc2261ceccd9926739755ccd",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    },
+    "trivet": {
+      "taskId": "aigc_d2f7a44dd1bb4db99eb773af72dc6de7",
+      "taskType": "text_to_model",
+      "qualityPreset": "high-highpoly",
+      "sourceArtifact": "models/source/heat_trivet.highpoly.glb",
+      "sourceSha256": "d73cce59bb6a2a47c85eb46c8262162359fbf56aff42d08017791c8c3419607a",
+      "runtimeArtifact": "models/runtime/interactables/heat_trivet.glb",
+      "runtimeSha256": "ddb7c1229b8ba6f33e03576cc24ca36399b236b4619e4beab9a822e4453471fe",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "review": {
+        "status": "approved",
+        "screenshots": []
+      }
+    }
+  }
+}

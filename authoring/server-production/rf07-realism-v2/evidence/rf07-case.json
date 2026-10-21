@@ -1,0 +1,145 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": 9.813588287654714,
+      "z": 0.0005787999749620667,
+      "yaw": 1.8154084399555037
+    },
+    "samples": {
+      "sampleA": {
+        "location": "case",
+        "x": -9.25,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleB": {
+        "location": "case",
+        "x": -7.35,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleC": {
+        "location": "case",
+        "x": -5.45,
+        "y": 0.9553,
+        "z": -6.77
+      }
+    },
+    "caseSamples": [
+      "sampleA",
+      "sampleC",
+      "sampleB"
+    ],
+    "casePoint": {
+      "x": 6,
+      "y": 0,
+      "z": 3.43
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.921,
+      "z": 1.7
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.068,
+      "z": -2.22
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "case",
+    "casePhase": "delivered",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "device",
+      "device": "bsc-03",
+      "triggerAt": 152.6800629369378,
+      "status": "resolved",
+      "startedAt": null
+    },
+    "clock": 47.05090000009536,
+    "clockStamp": 56698.39999961853,
+    "elapsed": 26.24970000000024,
+    "complete": true,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 4,
+    "lastEvent": "cabinet",
+    "rewards": [
+      "delivered"
+    ],
+    "delivered": true,
+    "casePhaseBeforeDrop": "active",
+    "doorOpen": false
+  },
+  "animation": {
+    "fps": 11.039646730799259,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "cabinet",
+      "event": "cabinet",
+      "error": 0.01788597823590442,
+      "revision": "rf07-realism-v2"
+    },
+    "contacts": [
+      {
+        "type": "case-pickup",
+        "event": "case-pickup",
+        "error": 0.014473096612217082,
+        "revision": "rf07-realism-v2"
+      },
+      {
+        "type": "drop",
+        "event": "drop",
+        "error": 0.0033940404303181193,
+        "revision": "rf07-realism-v2"
+      },
+      {
+        "type": "case-pickup",
+        "event": "case-pickup",
+        "error": 0.02359208056043675,
+        "revision": "rf07-realism-v2"
+      },
+      {
+        "type": "cabinet",
+        "event": "cabinet",
+        "error": 0.01788597823590442,
+        "revision": "rf07-realism-v2"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.5135979950143942,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.001940072291859903,
+          "position": [
+            9.693343198175837,
+            0.03471190665532127,
+            -0.1335366022496527
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0018770118725919282,
+          "position": [
+            9.652022963404644,
+            0.034762933046303825,
+            0.2004984783031671
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "assetChecks": [
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/lounge_sofa.glb",
+      "match": true,
+      "bytes": 6917320
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/usb_c_video_adapter.glb",
+      "match": true,
+      "bytes": 5455136
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/reception_desk.glb",
+      "match": true,
+      "bytes": 8842432
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/office_workstation.glb",
+      "match": true,
+      "bytes": 9899092
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/it_equipment_locker.glb",
+      "match": true,
+      "bytes": 8579408
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/executive_chair.glb",
+      "match": true,
+      "bytes": 7003124
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/wireless_presenter.glb",
+      "match": true,
+      "bytes": 4805592
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/ceiling_light.glb",
+      "match": true,
+      "bytes": 4438808
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/conference_table.glb",
+      "match": true,
+      "bytes": 9541920
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/conference_terminal.glb",
+      "match": true,
+      "bytes": 6356604
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/supply_cabinet.glb",
+      "match": true,
+      "bytes": 9294700
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/av_podium.glb",
+      "match": true,
+      "bytes": 6945252
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/textures/runtime/painted_wall-basecolor.webp",
+      "match": true,
+      "bytes": 351932
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/textures/runtime/carpet_floor-basecolor.webp",
+      "match": true,
+      "bytes": 1983530
+    },
+    {
+      "path": "public/local-assets/levels/rf09/office-v1/office-printer.glb",
+      "match": true,
+      "bytes": 634940
+    },
+    {
+      "path": "public/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "match": true,
+      "bytes": 398868
+    }
+  ],
+  "entryMatch": true,
+  "entryHasViteClient": false,
+  "entryHasThreeLevels": true
+}

@@ -1,0 +1,214 @@
+diff --git a/docs/levels/rf02-series-acceptance.md b/docs/levels/rf02-series-acceptance.md
+--- a/docs/levels/rf02-series-acceptance.md
++++ b/docs/levels/rf02-series-acceptance.md
+@@ -1,49 +1,92 @@
+-# RF-02 redesign verification — library-operations-v3
+-
+-Status: redesigned gameplay implemented; RF-02-2 formal-browser complete; final RF-02-3 browser route and performance check in progress. This record supersedes the rejected shared-library-v1 gameplay.
+-
+-## Approved scope and deployment
+-
+-The user rejected extra book sorting and selected closing reset followed by dynamic patrol. RF-02-2 restores two reading chairs and manually parks the return cart. RF-02-3 adds a random failed retaining rail, one immediate fall and another every 12 simulation seconds while unrepaired, capped at three. Repair halts new drops, and all already-fallen books remain required. No global countdown, terminal clues or step navigation.
+-
+-All three levels share the same 24 × 16 m library, furniture, fifteen books, handling grips, retaining rails and parking bay. RF-02 retains the original three-book objective and reserve rules. F initiates a collision-aware local approach and arm animation; existing movement and turning controls drive furniture; F releases it. Completion is delayed until furniture-release recovery ends.
+-
+-Authoritative project: . on 127.0.0.1, user chenhaoyuan. Task runtime/evidence: ./authoring/server-production/rf02-redesign-v3. Candidate: release-r3, port 4194. Final intended port: 4192. Prior release-r1/r2 and the superseded ./authoring/server-production/rf02-series-v1/release remain isolated. Credentials are in the official private store and excluded from project/log/Git records.
+-
+-## Rules and route measurements
+-
+-Initial and maximum reserve are 100. Actual movement costs 1.45 points/m in RF-02-2 and 1.38 in RF-02-3. Blocked movement costs 1/1.4 points/s; invalid interactions cost 3/5. First chair restoration gives 5/3, cart parking 8/5. Third-level repair gives 3; fallen-book first pickup and return each give 1. Rewards are deduplicated and capped. Idle/free rotation are free. Failure is atomic; failed/complete states freeze; reset clears earned rewards.
+-
+-Engine routes exercise updateMovement, collision checks and updateEnvironment without navigation teleportation. Two-error variants inject real invalid interactions.
+-
+-| Route | Distance m | End | Minimum | End with two errors | Minimum with two errors |
+-| --- | ---: | ---: | ---: | ---: | ---: |
+-| RF-02-2 | 50.7059 | 44.4764 | 36.4764 | 38.4764 | 30.4764 |
+-| RF-02-3 red | 73.5492 | 18.5021 | 12.4808 | 8.5021 | 2.4808 |
+-| RF-02-3 black | 63.5188 | 32.3440 | 26.2678 | 22.3440 | 16.2678 |
+-| RF-02-3 white | 56.2519 | 42.3723 | 36.0258 | 32.3723 | 26.0258 |
+-
+-RF-02-2 fixed release-r2 formal-browser route completed all nine furniture operations, ending at 43.6887, minimum 35.6887. Grip errors during attached movement: chairs approximately 4–8 mm, cart approximately 1–3 mm. Recovery pose distances are not contact errors. Third-level r2 browser run validated three falling/ground transitions, both chairs, cart parking and bookend repair, then a QA-only assertion incorrectly required one particular same-color book. The game correctly selected a nearer book; the final QA script records actual picked IDs and queues the remaining fallen books.
+-
+-## Geometry and assets
+-
+-Seventeen runtime resources total 4,964,531 bytes, excluding shared robot/runtime dependencies. Source, release-r3 and HTTP 4194 SHA-256 correspondence passed. Generated metal/ceiling fixtures and collision use Three.js GLTFExporter; retained Cardinal/EmbodiedGen models and the completed Cardinal impact sound are reused. No new image/model generation was necessary.
+-
+-Collision GLB contains 34 nodes: current shared furniture/table/shelf/wall rectangles plus floor. Formal loading compares proxy bounds within 1 mm. Moving furniture, visual roots and collision poses follow the same state. Oriented rectangle checks cover carried chair/cart against walls, tables and other furniture. Grip captures actual offsets without snapping.
+-
+-Measured chair geometry is approximately 0.520 × 0.550 × 0.880 m. Rear metal handling grips adapt the furniture to frozen robot reach. Cart handling grips and retaining-rail levers have matching visible geometry. South-facing static chair handles were corrected in r3. Book supports remain measured table/cart heights.
+-
+-## Verification
+-
+-- Original/new RF-02 tests: 40/40 passed.
+-- Production release-r3 build passed with the existing large-chunk warning.
+-- Protected hashes: nine robot, shared movement, animation and camera-control files match the task baseline.
+-- Broader shared-movement suite: 56/59 combined passed. Three pre-existing unrelated failures remain: RF-08 lateral movement, RF-08 turning, and an old exact-source-string F-key assertion. Shared movement/control files were not modified for this task.
+-- No commit or push while the broader verification has failures, per current user repository instructions. No unrelated files were reset or overwritten.
+-- Test coverage includes every random branch, two-error complete routes, repair interruption, capped falls, furniture orientation/collision/no-snap, wrong shelf, terminal exclusion, blocked drops, empty/repeated interactions, deduplication/cap, atomic failure, freeze/reset.
+-
+-Evidence is under the task production directory; local screenshot copies are in the current Codex visualization directory under rf02-redesign-v3. Old sorting-version screenshots are not current redesign evidence.
+-
+-## Outstanding checks
+-
+-Complete the r3 formal-browser patrol route; inspect first/third/dual views; measure current performance; recheck original RF-02 shared scene; switch task-owned 4192 to the verified fixed release; verify online bytes and entry. User acceptance is optional and not presumed. Performance measurements from the rejected old version do not establish the current result.
++# RF-02 redesign verification — library-operations-v3
++
++Status: redesigned gameplay deployed and both formal-browser routes complete. Required level checks and measured 1080p performance pass. Broader repository verification has three unrelated failures, so no task commit/push was made. User acceptance is not presumed. This record supersedes the rejected shared-library-v1 gameplay.
++
++## Approved scope and deployment
++
++The user rejected extra book sorting and selected closing reset followed by dynamic patrol. RF-02-2 restores two reading chairs and manually parks the return cart. RF-02-3 adds a random failed retaining rail, one immediate fall and another every 12 simulation seconds while unrepaired, capped at three. Repair halts new drops, and all already-fallen books remain required. No global countdown, terminal clues or step navigation.
++
++All three levels share the same 24 × 16 m library, furniture, fifteen books, handling grips, retaining rails and parking bay. RF-02 retains the original three-book objective and reserve rules. F initiates a collision-aware local approach and arm animation; existing movement and turning controls drive furniture; F releases it. Completion is delayed until furniture-release recovery ends.
++
++Authoritative project: . on 127.0.0.1, user chenhaoyuan. Task runtime/evidence: ./authoring/server-production/rf02-redesign-v3. Deployed: release-r3, port 4192, PID 310762, cwd ., Vite preview with an explicit fixed outDir. Candidate review remains on 4194. Prior release-r1/r2 and the superseded ./authoring/server-production/rf02-series-v1/release remain isolated. Credentials are in the official private store and excluded from project/log/Git records.
++
++## Rules and route measurements
++
++Initial and maximum reserve are 100. Actual movement costs 1.45 points/m in RF-02-2 and 1.38 in RF-02-3. Blocked movement costs 1/1.4 points/s; invalid interactions cost 3/5. First chair restoration gives 5/3, cart parking 8/5. Third-level repair gives 3; fallen-book first pickup and return each give 1. Rewards are deduplicated and capped. Idle/free rotation are free. Failure is atomic; failed/complete states freeze; reset clears earned rewards.
++
++Engine routes exercise updateMovement, collision checks and updateEnvironment without navigation teleportation. Two-error variants inject real invalid interactions.
++
++| Route | Distance m | End | Minimum | End with two errors | Minimum with two errors |
++| --- | ---: | ---: | ---: | ---: | ---: |
++| RF-02-2 | 50.7059 | 44.4764 | 36.4764 | 38.4764 | 30.4764 |
++| RF-02-3 red | 73.5492 | 18.5021 | 12.4808 | 8.5021 | 2.4808 |
++| RF-02-3 black | 63.5188 | 32.3440 | 26.2678 | 22.3440 | 16.2678 |
++| RF-02-3 white | 56.2519 | 42.3723 | 36.0258 | 32.3723 | 26.0258 |
++
++RF-02-2 fixed release-r2 formal-browser route completed all nine furniture operations, ending at 43.6887, minimum 35.6887. Grip errors during attached movement: chairs approximately 4–8 mm, cart approximately 1–3 mm. Recovery pose distances are not contact errors. Third-level r2 browser run validated three falling/ground transitions, both chairs, cart parking and bookend repair, then a QA-only assertion incorrectly required one particular same-color book. The game correctly selected a nearer book; the final QA script records actual picked IDs and queues the remaining fallen books.
++
++## Geometry and assets
++
++Seventeen runtime resources total 4,964,531 bytes, excluding shared robot/runtime dependencies. Source, release-r3 and deployed HTTP 4192 SHA-256 correspondence passed. Generated metal/ceiling fixtures and collision use Three.js GLTFExporter; retained Cardinal/EmbodiedGen models and the completed Cardinal impact sound are reused. No new image/model generation was necessary.
++
++Collision GLB contains 34 nodes: current shared furniture/table/shelf/wall rectangles plus floor. Formal loading compares proxy bounds within 1 mm. Moving furniture, visual roots and collision poses follow the same state. Oriented rectangle checks cover carried chair/cart against walls, tables and other furniture. Grip captures actual offsets without snapping.
++
++Measured chair geometry is approximately 0.520 × 0.550 × 0.880 m. Rear metal handling grips adapt the furniture to frozen robot reach. Cart handling grips and retaining-rail levers have matching visible geometry. South-facing static chair handles were corrected in r3. Book supports remain measured table/cart heights.
++
++## Verification
++
++- Original/new RF-02 tests: 40/40 passed.
++- Production release-r3 build passed with the existing large-chunk warning.
++- Protected hashes: nine robot, shared movement, animation and camera-control files match the task baseline.
++- Broader shared-movement suite: 56/59 combined passed. Three pre-existing unrelated failures remain: RF-08 lateral movement, RF-08 turning, and an old exact-source-string F-key assertion. Shared movement/control files were not modified for this task.
++- No commit or push while the broader verification has failures, per current user repository instructions. No unrelated files were reset or overwritten.
++- Test coverage includes every random branch, two-error complete routes, repair interruption, capped falls, furniture orientation/collision/no-snap, wrong shelf, terminal exclusion, blocked drops, empty/repeated interactions, deduplication/cap, atomic failure, freeze/reset.
++
++Evidence is under the task production directory; local screenshot copies are in the current Codex visualization directory under rf02-redesign-v3. Old sorting-version screenshots are not current redesign evidence.
++
++## Final browser, views and performance
++
++Release-r3 RF-02-3 completed all 16 operations in the actual formal browser, with a white-shelf fault, three landed books, successful repair and all three books shelved. Distance: 57.0547 m. Final reserve: 41.2646. Minimum: 35.2388. No teleportation or injected completion was used. RF-02-2's r2 complete route and r3's identical furniture operations provide the furniture regression; r3 only changed feedback and static south-chair handle orientation.
++
++First/third/dual formal screenshots were inspected. Original RF-02 shows the same displaced chairs, handling grips, cart and rails while retaining 0/3 book filing. Current browser evidence contains beginning, grip, push, release, falling, ground, repair, book recovery and completion snapshots. The standard overview/HUD still makes small books difficult to inspect; the unchanged first-person view is available.
++
++On Apple M3 / ANGLE Metal, after asset readiness, each sample spans 180 rendered intervals:
++
++| RF-02-3 view | Game viewport | FPS |
++| --- | --- | ---: |
++| First | 1280 × 680 | 46.30 |
++| Third | 1280 × 680 | 59.95 |
++| Dual | 1280 × 680 | 59.97 |
++| First | 1920 × 1080 | 59.95 |
++| Third | 1920 × 1080 | 59.95 |
++| Dual | 1920 × 1080 | 59.95 |
++
++These are short stationary samples, not a guarantee of minimum FPS throughout gameplay. Original RF-02 initially measured 25.57 FPS at 1280 × 680 and remeasured 33.83 FPS on the deployed address. Loading, warmup and concurrent browser load can vary; no claim attributes the entire improvement to one change. The shared library uses a pixel-ratio cap of 1; camera/FOV and model geometry remain unchanged.
++
++Final asset byte verification on 4192 passed for all 17 resources. Nine protected hashes still match. Browser viewport override was reset after measurement. The old task service was replaced only after its PID/cwd/command were verified; other services were preserved.
++
++## Evidence and reproduction
++
++Production evidence: ./authoring/server-production/rf02-redesign-v3/browser-evidence. Key files:
++- rf02-2-browser-report.json and rf02-2-complete.png.
++- rf02-3-browser-report.json and rf02-3-complete.png.
++- rf02-3-first.png, rf02-3-third.png, rf02-3-dual.png.
++- rf02-3-shelf-white-0-falling.jpg and the ground/repair/recovery captures.
++- rf02-3-performance-all.json and rf02-original-performance-deployed.json.
++
++The r2 diagnostic report is retained separately and is not the final patrol-success report. Previous shared-library-v1 evidence describes rejected gameplay.
++
++Reproduce from the authoritative project:
++- node --test tests/rf02*.test.mjs
++- node tools/rf02-series/measure-routes.mjs ./authoring/server-production/rf02-redesign-v3/routes.json
++- npm run build -- --outDir <new-version-directory>
++- Copy dist/local-assets, dist/vendor and dist/agent-kit to the new version directory: the existing Vite asset-copy plugin writes to dist even with an alternate outDir.
++- node tools/rf02-series/prepare-browser-qa.mjs <new-version-directory>
++- node tools/rf02-series/write-manifest.mjs <release-directory> http://127.0.0.1:4192
++- sha256sum -c ./authoring/server-production/rf02-redesign-v3/baseline/protected.sha256
++
++Playable URLs:
++- http://127.0.0.1:4192/?mode=play&level=rf02-2&view=third&robot=g1&control=velocity
++- http://127.0.0.1:4192/?mode=play&level=rf02-3&view=third&robot=g1&control=velocity
++
++Rollback target: ./authoring/server-production/rf02-series-v1/release. Restart only the task-owned 4192 preview with that outDir if rollback is required. No credentials, generated media, builds, environments or logs are committed.
+diff --git a/docs/levels/rf02-series-server-profile.json b/docs/levels/rf02-series-server-profile.json
+--- a/docs/levels/rf02-series-server-profile.json
++++ b/docs/levels/rf02-series-server-profile.json
+@@ -1,31 +1,34 @@
+-{
+-  "profile": "rf02-series-current-task",
+-  "allowedHosts": [
+-    "127.0.0.1"
+-  ],
+-  "allowedRoot": "/path/to/arc-workspace",
+-  "projectCandidate": ".",
+-  "requiresProjectVerification": true,
+-  "projectVerified": true,
+-  "sshUser": "chenhaoyuan",
+-  "authorizationEvidence": "User selected closing reset then dynamic patrol, recurring falls capped at three with no global countdown, and authorized shared-scene improvements and deployment on this host.",
+-  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
+-  "credentials": "Official private credential store; no secrets in project",
+-  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+-  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
+-  "embodiedgenEnvironmentCandidate": null,
+-  "previewPortCandidates": [
+-    4194
+-  ],
+-  "executionMode": "automatic-after-initial-scope",
+-  "qualityPreset": "high-highpoly",
+-  "reportCardinalCost": false,
+-  "cardinalExecution": "automatic-within-approved-level",
+-  "cardinalBatchApprovalRequired": false,
+-  "cardinalMaxRegenerationsPerAsset": 2,
+-  "revision": "library-operations-v3",
+-  "releaseDirectory": "./authoring/server-production/rf02-redesign-v3/release-r3",
+-  "taskArtifacts": "./authoring/server-production/rf02-redesign-v3",
+-  "deployedPort": 4192,
+-  "deploymentStatus": "verified gameplay, preparing switch"
+-}
++{
++  "profile": "rf02-series-current-task",
++  "allowedHosts": [
++    "127.0.0.1"
++  ],
++  "allowedRoot": "/path/to/arc-workspace",
++  "projectCandidate": ".",
++  "requiresProjectVerification": true,
++  "projectVerified": true,
++  "sshUser": "chenhaoyuan",
++  "authorizationEvidence": "User selected closing reset then dynamic patrol, recurring falls capped at three with no global countdown, and authorized shared-scene improvements and deployment on this host.",
++  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
++  "credentials": "Official private credential store; no secrets in project",
++  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
++  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
++  "embodiedgenEnvironmentCandidate": null,
++  "previewPortCandidates": [
++    4194
++  ],
++  "executionMode": "automatic-after-initial-scope",
++  "qualityPreset": "high-highpoly",
++  "reportCardinalCost": false,
++  "cardinalExecution": "automatic-within-approved-level",
++  "cardinalBatchApprovalRequired": false,
++  "cardinalMaxRegenerationsPerAsset": 2,
++  "revision": "library-operations-v3",
++  "releaseDirectory": "./authoring/server-production/rf02-redesign-v3/release-r3",
++  "taskArtifacts": "./authoring/server-production/rf02-redesign-v3",
++  "deployedPort": 4192,
++  "deploymentStatus": "deployed and browser verified",
++  "deployedPid": 310762,
++  "requiredLevelTests": "40/40 passed",
++  "broaderRepositoryTests": "3 unrelated failures; commit withheld"
++}

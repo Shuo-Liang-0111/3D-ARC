@@ -1,0 +1,807 @@
+{
+  "keyAudit": [
+    {
+      "code": "KeyW",
+      "before": {
+        "player": {
+          "x": 0,
+          "z": 3.7,
+          "yaw": 0
+        },
+        "progress": 100
+      },
+      "start": 56128.199999928474,
+      "after": {
+        "player": {
+          "x": 0.05045953344378777,
+          "z": 4.827059709644202,
+          "yaw": 0.034038686782242866
+        },
+        "progress": 97.70523999999997
+      },
+      "seconds": 2.0097000000476837,
+      "mujocoStatus": "online"
+    },
+    {
+      "code": "KeyQ",
+      "before": {
+        "player": {
+          "x": 0.05045953344378777,
+          "z": 4.827059709644202,
+          "yaw": 0.034038686782242866
+        },
+        "progress": 97.70523999999997
+      },
+      "start": 64696.39999997616,
+      "after": {
+        "player": {
+          "x": 0.043827070037638007,
+          "z": 4.818101617077256,
+          "yaw": 0.40632593781477855
+        },
+        "progress": 97.70523999999997
+      },
+      "seconds": 2.0205,
+      "mujocoStatus": "online"
+    }
+  ],
+  "suite": {
+    "steps": [
+      {
+        "station": "pickup:docs-1",
+        "expect": "pickup"
+      },
+      {
+        "station": "seat:1:doc",
+        "expect": "seat"
+      },
+      {
+        "station": "pickup:water-1",
+        "expect": "pickup"
+      },
+      {
+        "station": "seat:1:water",
+        "expect": "seat"
+      },
+      {
+        "station": "grip:chair-a",
+        "expect": "grip"
+      },
+      {
+        "drive": {
+          "strafe": -1
+        },
+        "seconds": 2
+      },
+      {
+        "station": null,
+        "expect": "release"
+      },
+      {
+        "station": "confirm",
+        "expect": "not_ready"
+      },
+      {
+        "station": "wall",
+        "drive": {
+          "move": 1
+        },
+        "seconds": 1
+      },
+      {
+        "station": "glass",
+        "drive": {
+          "move": 1
+        },
+        "seconds": 1
+      },
+      {
+        "station": "door",
+        "drive": {
+          "move": 1
+        },
+        "seconds": 1
+      }
+    ],
+    "index": 11,
+    "stage": "next",
+    "results": [
+      {
+        "step": {
+          "station": "pickup:docs-1",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": -10.080003811662857,
+            "z": 3.598963047654292,
+            "yaw": 6.021385919380436
+          },
+          "contacts": 0
+        },
+        "result": {
+          "type": "pickup",
+          "item": "docs-1",
+          "event": "pickup",
+          "error": 0.03330896370311616,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "seat:1:doc",
+          "expect": "seat"
+        },
+        "before": {
+          "player": {
+            "x": -3.839230484541326,
+            "z": -6.949999999999999,
+            "yaw": 1.0471975511965976
+          },
+          "contacts": 1
+        },
+        "result": {
+          "type": "seat",
+          "item": "docs-1",
+          "event": "seat",
+          "error": 0.00014497888975447632,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:water-1",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": -8.99,
+            "z": 3.1799999999999997,
+            "yaw": 0
+          },
+          "contacts": 2
+        },
+        "result": {
+          "type": "pickup",
+          "item": "water-1",
+          "event": "pickup",
+          "error": 0.029283224791866205,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "seat:1:water",
+          "expect": "seat"
+        },
+        "before": {
+          "player": {
+            "x": -3.4892304845413262,
+            "z": -6.9,
+            "yaw": 1.0471975511965976
+          },
+          "contacts": 3
+        },
+        "result": {
+          "type": "seat",
+          "item": "water-1",
+          "event": "seat",
+          "error": 0.03271863364469705,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "grip:chair-a",
+          "expect": "grip"
+        },
+        "before": {
+          "player": {
+            "x": -2.778963047654292,
+            "z": -3.3799961883371425,
+            "yaw": 4.974188368183839
+          },
+          "contacts": 4
+        },
+        "result": {
+          "type": "grip",
+          "event": "grip",
+          "error": 0.03145825178170559,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "push"
+      },
+      {
+        "step": {
+          "drive": {
+            "strafe": -1
+          },
+          "seconds": 2
+        },
+        "before": {
+          "player": {
+            "x": -3.578763634046982,
+            "z": -2.632752327738166,
+            "yaw": 3.1576264875436526
+          },
+          "contacts": 5
+        },
+        "result": {
+          "player": {
+            "x": -2.9740413745320495,
+            "z": -2.6424491750172185,
+            "yaw": 3.1576264875436526
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": -2.987188555036062,
+              "z": -3.4623437729045294,
+              "yaw": 3.1576264875436526,
+              "target": {
+                "x": -3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3.6,
+              "z": -3.45,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "push"
+      },
+      {
+        "step": {
+          "station": null,
+          "expect": "release"
+        },
+        "before": {
+          "player": {
+            "x": -2.9740413745320495,
+            "z": -2.6424491750172185,
+            "yaw": 3.1576264875436526
+          },
+          "contacts": 5
+        },
+        "result": {
+          "type": "release",
+          "event": "release",
+          "error": 0.012459219736735815,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "confirm",
+          "expect": "not_ready"
+        },
+        "before": {
+          "player": {
+            "x": -4.541344560986456,
+            "z": -3.1507798811618923,
+            "yaw": 4.319689898685966
+          },
+          "contacts": 6
+        },
+        "result": {
+          "type": "confirm",
+          "event": "not_ready",
+          "error": 0.0008003886155154219,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "wall",
+          "drive": {
+            "move": 1
+          },
+          "seconds": 1
+        },
+        "before": {
+          "player": {
+            "x": 11.9,
+            "z": 7.3,
+            "yaw": 1.5707963267948966
+          },
+          "contacts": 7
+        },
+        "result": {
+          "player": {
+            "x": 12.600400000000024,
+            "z": 7.3,
+            "yaw": 1.5707963267948966
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": -2.987188555036062,
+              "z": -3.4623437729045294,
+              "yaw": 3.1576264875436526,
+              "target": {
+                "x": -3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3.6,
+              "z": -3.45,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "glass",
+          "drive": {
+            "move": 1
+          },
+          "seconds": 1
+        },
+        "before": {
+          "player": {
+            "x": 7,
+            "z": -3.1,
+            "yaw": 0
+          },
+          "contacts": 7
+        },
+        "result": {
+          "player": {
+            "x": 7,
+            "z": -2.600599999999977,
+            "yaw": 0
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": -2.987188555036062,
+              "z": -3.4623437729045294,
+              "yaw": 3.1576264875436526,
+              "target": {
+                "x": -3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3.6,
+              "z": -3.45,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "door",
+          "drive": {
+            "move": 1
+          },
+          "seconds": 1
+        },
+        "before": {
+          "player": {
+            "x": 0,
+            "z": -1,
+            "yaw": 3.141592653589793
+          },
+          "contacts": 7
+        },
+        "result": {
+          "player": {
+            "x": 1.2453433300529367e-16,
+            "z": -2.0168999999999935,
+            "yaw": 3.141592653589793
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": -2.987188555036062,
+              "z": -3.4623437729045294,
+              "yaw": 3.1576264875436526,
+              "target": {
+                "x": -3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3.6,
+              "z": -3.45,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.45,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "idle"
+      }
+    ],
+    "status": "passed",
+    "started": 75026.5,
+    "before": {
+      "player": {
+        "x": 0,
+        "z": -1,
+        "yaw": 3.141592653589793
+      },
+      "contacts": 7
+    },
+    "deadline": 187168.39999997616
+  },
+  "snapshot": {
+    "revision": "rf08-office-v1-realism",
+    "phase": "idle",
+    "error": null,
+    "fps": 25.50737495874911,
+    "robotPose": {
+      "position": [
+        1.2453433300529367e-16,
+        0.001215475648249864,
+        -2.0168999999999935
+      ],
+      "rotation": [
+        -3.141592653589793,
+        1.2246467991473532e-16,
+        -3.141592653589793
+      ]
+    },
+    "lastResult": {
+      "type": "confirm",
+      "event": "not_ready",
+      "error": 0.0008003886155154219,
+      "revision": "rf08-office-v1-realism"
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "item": "docs-1",
+        "event": "pickup",
+        "error": 0.03330896370311616,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "seat",
+        "item": "docs-1",
+        "event": "seat",
+        "error": 0.00014497888975447632,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "water-1",
+        "event": "pickup",
+        "error": 0.029283224791866205,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "seat",
+        "item": "water-1",
+        "event": "seat",
+        "error": 0.03271863364469705,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "grip",
+        "event": "grip",
+        "error": 0.03145825178170559,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "release",
+        "event": "release",
+        "error": 0.012459219736735815,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "confirm",
+        "event": "not_ready",
+        "error": 0.0008003886155154219,
+        "revision": "rf08-office-v1-realism"
+      }
+    ],
+    "ceiling": false
+  },
+  "state": {
+    "level": "rf09-2",
+    "player": {
+      "x": 1.2453433300529367e-16,
+      "z": -2.0168999999999935,
+      "yaw": 3.141592653589793
+    },
+    "items": {
+      "folder": {
+        "id": "folder",
+        "type": "folder",
+        "x": -10.85,
+        "y": 0.965,
+        "z": 4.4,
+        "location": "surface"
+      },
+      "tray": {
+        "id": "tray",
+        "type": "tray",
+        "x": -1.5,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "surface"
+      },
+      "remote": {
+        "id": "remote",
+        "type": "remote",
+        "x": 8.85,
+        "y": 0.965,
+        "z": 3.95,
+        "location": "surface"
+      },
+      "paper": {
+        "id": "paper",
+        "type": "paper",
+        "x": 8.45,
+        "y": 0.965,
+        "z": 4.02,
+        "location": "surface"
+      },
+      "printed": {
+        "id": "printed",
+        "type": "printed",
+        "x": 6.5,
+        "y": 1.02,
+        "z": 5.03,
+        "location": "printer",
+        "available": false
+      },
+      "used": {
+        "id": "used",
+        "type": "used",
+        "x": -4.12,
+        "y": 0.79,
+        "z": -5.65,
+        "location": "surface"
+      },
+      "docs-1": {
+        "id": "docs-1",
+        "type": "documents",
+        "x": -2.8,
+        "y": 0.79,
+        "z": -6.35,
+        "location": "surface",
+        "yaw": 0.4079479995786168
+      },
+      "water-1": {
+        "id": "water-1",
+        "type": "water",
+        "x": -2.45,
+        "y": 0.79,
+        "z": -6.3,
+        "location": "surface",
+        "yaw": 0.5406079661910836
+      },
+      "docs-2": {
+        "id": "docs-2",
+        "type": "documents",
+        "x": -9.940000000000001,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-2": {
+        "id": "water-2",
+        "type": "water",
+        "x": -8.82,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-3": {
+        "id": "docs-3",
+        "type": "documents",
+        "x": -9.58,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-3": {
+        "id": "water-3",
+        "type": "water",
+        "x": -8.65,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-4": {
+        "id": "docs-4",
+        "type": "documents",
+        "x": -9.22,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-4": {
+        "id": "water-4",
+        "type": "water",
+        "x": -8.48,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "water-5": {
+        "id": "water-5",
+        "type": "water",
+        "x": 9.22,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      },
+      "water-6": {
+        "id": "water-6",
+        "type": "water",
+        "x": 9.47,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      }
+    },
+    "chairs": {
+      "chair-a": {
+        "id": "chair-a",
+        "x": -2.987188555036062,
+        "z": -3.4623437729045294,
+        "yaw": 3.1576264875436526,
+        "target": {
+          "x": -3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      },
+      "chair-b": {
+        "id": "chair-b",
+        "x": 3.6,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": 3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      }
+    },
+    "carriedItem": null,
+    "attachment": null,
+    "seats": [
+      {
+        "id": "1",
+        "doc": "docs-1",
+        "water": "water-1"
+      },
+      {
+        "id": "2",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "3",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "4",
+        "doc": null,
+        "water": null
+      }
+    ],
+    "returned": {
+      "folder": true,
+      "tray": true,
+      "remote": true
+    },
+    "printer": {
+      "paper": false,
+      "phase": "empty",
+      "time": 0
+    },
+    "requests": [
+      {
+        "id": "print",
+        "status": "active"
+      },
+      {
+        "id": "water",
+        "status": "pending",
+        "count": 0
+      },
+      {
+        "id": "collect",
+        "status": "pending"
+      }
+    ],
+    "progress": 87.32183999999982,
+    "rewarded": {
+      "pickup:docs-1": true,
+      "seat:1:doc": true,
+      "pickup:water-1": true,
+      "seat:1:water": true,
+      "chair:chair-a": true
+    },
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "terminalOpen": false,
+    "elapsed": 73.13499999999955,
+    "clock": 152.1521000000035,
+    "interactions": 7,
+    "motion": "moving",
+    "lastEvent": "not_ready"
+  },
+  "emptyInteraction": {
+    "before": 87.32183999999982,
+    "after": 83.32183999999982,
+    "event": "no_target"
+  }
+}

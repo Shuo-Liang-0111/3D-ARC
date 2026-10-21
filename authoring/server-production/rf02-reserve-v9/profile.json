@@ -1,0 +1,12 @@
+{
+  "task": "rf02-reserve-v9",
+  "host": "127.0.0.1",
+  "workspace": ".",
+  "pid": 869430,
+  "livePort": 4192,
+  "release": "./authoring/server-production/rf02-reserve-v9/release",
+  "rollback": "./authoring/server-production/rf02-lighting-v8/release",
+  "scope": "RF-02-2 initial reserve 100; configuration and initial UI only",
+  "status": "deployed",
+  "deployedAt": "2026-09-21T16:47:30+0800"
+}

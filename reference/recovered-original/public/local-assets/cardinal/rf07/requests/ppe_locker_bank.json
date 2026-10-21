@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world laboratory equipment asset. PPE locker bank for a cleanroom anteroom, 2.80 m wide x 2.10 m high x 0.82 m deep. Four powder-coated steel lockers, door seams, handles, ventilation slots and continuous plinth; doors face positive Z and base rests on floor. Target dimensions approximately 2.8 m x 2.1 m x 0.82 m. Y-up, metric scale, front facing positive Z, centered bottom pivot. One isolated game-ready object only. Clean watertight topology, real thickness, beveled manufactured edges, physically based materials with base color, normal, roughness, metallic and AO. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

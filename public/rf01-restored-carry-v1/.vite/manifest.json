@@ -1,0 +1,1640 @@
+{
+  "_DRACOLoader-DGIScJx2.js": {
+    "file": "assets/DRACOLoader-DGIScJx2.js",
+    "name": "DRACOLoader",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_GLTFLoader-ELQ8TGyw.js": {
+    "file": "assets/GLTFLoader-ELQ8TGyw.js",
+    "name": "GLTFLoader",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_HDRLoader-aEryOTFS.js": {
+    "file": "assets/HDRLoader-aEryOTFS.js",
+    "name": "HDRLoader",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_OrbitControls-kl6EECsu.js": {
+    "file": "assets/OrbitControls-kl6EECsu.js",
+    "name": "OrbitControls",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_Pass-DRTulJ-D.js": {
+    "file": "assets/Pass-DRTulJ-D.js",
+    "name": "Pass",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_RoomEnvironment-BVSi_L2Q.js": {
+    "file": "assets/RoomEnvironment-BVSi_L2Q.js",
+    "name": "RoomEnvironment",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_RoundedBoxGeometry-Bq2NETG5.js": {
+    "file": "assets/RoundedBoxGeometry-Bq2NETG5.js",
+    "name": "RoundedBoxGeometry",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_engine-DKoEAacS.js": {
+    "file": "assets/engine-DKoEAacS.js",
+    "name": "engine",
+    "imports": [
+      "_scene-KduGnaKk.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "_engine-s66euiz1.js": {
+    "file": "assets/engine-s66euiz1.js",
+    "name": "engine",
+    "imports": [
+      "_scene-BnaZSxVq.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "_furniture-controller-C1gLm0fA.js": {
+    "file": "assets/furniture-controller-C1gLm0fA.js",
+    "name": "furniture-controller",
+    "imports": [
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.core-DK0yxxKN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "_g1-locomotion-kONIMYOY.js": {
+    "file": "assets/g1-locomotion-kONIMYOY.js",
+    "name": "g1-locomotion"
+  },
+  "_interaction-animation-IWJy9epM.js": {
+    "file": "assets/interaction-animation-IWJy9epM.js",
+    "name": "interaction-animation",
+    "imports": [
+      "_scene-BnaZSxVq.js",
+      "_movement-BuXqi5gx.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf12/interaction-qa.js"
+    ]
+  },
+  "_interaction-walk-CBv8Esqv.js": {
+    "file": "assets/interaction-walk-CBv8Esqv.js",
+    "name": "interaction-walk",
+    "imports": [
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_level-BMq7ZDVf.js": {
+    "file": "assets/level-BMq7ZDVf.js",
+    "name": "level",
+    "imports": [
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "_level-BlkQD8bJ.js": {
+    "file": "assets/level-BlkQD8bJ.js",
+    "name": "level",
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js"
+    ]
+  },
+  "_level-D08omVjM.js": {
+    "file": "assets/level-D08omVjM.js",
+    "name": "level",
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "_modulepreload-polyfill-B5Qt9EMX.js": {
+    "file": "assets/modulepreload-polyfill-B5Qt9EMX.js",
+    "name": "modulepreload-polyfill"
+  },
+  "_movement-BuXqi5gx.js": {
+    "file": "assets/movement-BuXqi5gx.js",
+    "name": "movement"
+  },
+  "_mujoco-client-DRJ7PK3c.js": {
+    "file": "assets/mujoco-client-DRJ7PK3c.js",
+    "name": "mujoco-client",
+    "imports": [
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_office-runtime-CxofID63.js": {
+    "file": "assets/office-runtime-CxofID63.js",
+    "name": "office-runtime",
+    "imports": [
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf09/office-qa.js"
+    ]
+  },
+  "_orange-scene-CJA6xox5.js": {
+    "file": "assets/orange-scene-CJA6xox5.js",
+    "name": "orange-scene",
+    "imports": [
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_preload-helper-CmsKOCeN.js": {
+    "file": "assets/preload-helper-CmsKOCeN.js",
+    "name": "preload-helper"
+  },
+  "_rapier-DWaP5K6J.js": {
+    "file": "assets/rapier-DWaP5K6J.js",
+    "name": "rapier"
+  },
+  "_rf01-production-assets-D7whLpUk.js": {
+    "file": "assets/rf01-production-assets-D7whLpUk.js",
+    "name": "rf01-production-assets",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_rf01-shared-scene-DXGu7em7.js": {
+    "file": "assets/rf01-shared-scene-DXGu7em7.js",
+    "name": "rf01-shared-scene",
+    "imports": [
+      "_level-D08omVjM.js",
+      "_movement-BuXqi5gx.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_rf01-production-assets-D7whLpUk.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_three.core-DK0yxxKN.js",
+      "_robot-D9Xd5dNL.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "_rf01-yard-layout--oMqPTjc.js": {
+    "file": "assets/rf01-yard-layout--oMqPTjc.js",
+    "name": "rf01-yard-layout"
+  },
+  "_robot-D9Xd5dNL.js": {
+    "file": "assets/robot-D9Xd5dNL.js",
+    "name": "robot",
+    "imports": [
+      "_preload-helper-CmsKOCeN.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_unitree-r1-edu-Bhb-o3HO.js",
+      "_three.core-DK0yxxKN.js"
+    ],
+    "dynamicImports": [
+      "game/g1-articulated-collision.js"
+    ]
+  },
+  "_robot-action-CjdE5gF_.js": {
+    "file": "assets/robot-action-CjdE5gF_.js",
+    "name": "robot-action"
+  },
+  "_runtime-DIEWPXUU.js": {
+    "file": "assets/runtime-DIEWPXUU.js",
+    "name": "runtime",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-animation-D93IHsCm.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf06-3/qa.js"
+    ]
+  },
+  "_scene-BnaZSxVq.js": {
+    "file": "assets/scene-BnaZSxVq.js",
+    "name": "scene",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_scene-D0OLuQYQ.js": {
+    "file": "assets/scene-D0OLuQYQ.js",
+    "name": "scene",
+    "imports": [
+      "_level-BlkQD8bJ.js",
+      "_movement-BuXqi5gx.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_scene-DSl2dH56.js": {
+    "file": "assets/scene-DSl2dH56.js",
+    "name": "scene",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_scene-KduGnaKk.js": {
+    "file": "assets/scene-KduGnaKk.js",
+    "name": "scene",
+    "imports": [
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_three.core-DK0yxxKN.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf15/qa.js"
+    ]
+  },
+  "_series-animation-D93IHsCm.js": {
+    "file": "assets/series-animation-D93IHsCm.js",
+    "name": "series-animation",
+    "imports": [
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf06/series-qa.js"
+    ]
+  },
+  "_series-runtime-BmRfQz1W.js": {
+    "file": "assets/series-runtime-BmRfQz1W.js",
+    "name": "series-runtime",
+    "imports": [
+      "_movement-BuXqi5gx.js",
+      "_scene-DSl2dH56.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf14/series-qa.js"
+    ],
+    "css": [
+      "assets/series-runtime-DyqFZYIx.css"
+    ]
+  },
+  "_series-runtime-CA6e4eLP.js": {
+    "file": "assets/series-runtime-CA6e4eLP.js",
+    "name": "series-runtime",
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf04/series-qa.js"
+    ]
+  },
+  "_series-runtime-CJNsvA1t.js": {
+    "file": "assets/series-runtime-CJNsvA1t.js",
+    "name": "series-runtime",
+    "imports": [
+      "_movement-BuXqi5gx.js",
+      "_furniture-controller-C1gLm0fA.js"
+    ]
+  },
+  "_series-runtime-CUsv1H9T.js": {
+    "file": "assets/series-runtime-CUsv1H9T.js",
+    "name": "series-runtime",
+    "imports": [
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf05/series-qa.js"
+    ]
+  },
+  "_series-runtime-DyqFZYIx.css": {
+    "file": "assets/series-runtime-DyqFZYIx.css",
+    "src": "_series-runtime-DyqFZYIx.css"
+  },
+  "_series-runtime-Pw5EIEXJ.js": {
+    "file": "assets/series-runtime-Pw5EIEXJ.js",
+    "name": "series-runtime",
+    "imports": [
+      "_series-animation-D93IHsCm.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_series-runtime-eRwcajXp.js": {
+    "file": "assets/series-runtime-eRwcajXp.js",
+    "name": "series-runtime",
+    "imports": [
+      "_level-BlkQD8bJ.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-D0OLuQYQ.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf13/series-qa.js"
+    ]
+  },
+  "_series-runtime-rTOb0QYJ.js": {
+    "file": "assets/series-runtime-rTOb0QYJ.js",
+    "name": "series-runtime",
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf07/series-qa.js"
+    ]
+  },
+  "_shared-variant-scene-J1Aiu0sL.js": {
+    "file": "assets/shared-variant-scene-J1Aiu0sL.js",
+    "name": "shared-variant-scene",
+    "imports": [
+      "_movement-BuXqi5gx.js",
+      "_orange-scene-CJA6xox5.js",
+      "_scene-KduGnaKk.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf15/tool-room-qa.js",
+      "game/levels/rf15/field-qa.js"
+    ]
+  },
+  "_spark.module-BAl5YztM.js": {
+    "file": "assets/spark.module-BAl5YztM.js",
+    "name": "spark.module",
+    "imports": [
+      "_three.module-DPmUQNJr.js",
+      "_Pass-DRTulJ-D.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_three.core-DK0yxxKN.js": {
+    "file": "assets/three.core-DK0yxxKN.js",
+    "name": "three.core"
+  },
+  "_three.module-DPmUQNJr.js": {
+    "file": "assets/three.module-DPmUQNJr.js",
+    "name": "three.module",
+    "imports": [
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_unitree-g1-dex1-model-BF5DzcON.js": {
+    "file": "assets/unitree-g1-dex1-model-BF5DzcON.js",
+    "name": "unitree-g1-dex1-model",
+    "imports": [
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "_unitree-r1-edu-Bhb-o3HO.js": {
+    "file": "assets/unitree-r1-edu-Bhb-o3HO.js",
+    "name": "unitree-r1-edu",
+    "imports": [
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "agent-guide.html": {
+    "file": "assets/agentGuide-BHyiLZjM.js",
+    "name": "agentGuide",
+    "src": "agent-guide.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js"
+    ],
+    "css": [
+      "assets/agentGuide-CVuxdR_6.css"
+    ]
+  },
+  "g1-edu2.html": {
+    "file": "assets/g1Edu2-CFcShe9Q.js",
+    "name": "g1Edu2",
+    "src": "g1-edu2.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_OrbitControls-kl6EECsu.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "game/g1-articulated-collision.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_three.core-DK0yxxKN.js",
+      "_rapier-DWaP5K6J.js",
+      "_GLTFLoader-ELQ8TGyw.js"
+    ]
+  },
+  "game/g1-articulated-collision.js": {
+    "file": "assets/g1-articulated-collision-D-qObSxx.js",
+    "name": "g1-articulated-collision",
+    "src": "game/g1-articulated-collision.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rapier-DWaP5K6J.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "game/levels/rf01-2/runtime.js": {
+    "file": "assets/runtime-Z9Sixd-E.js",
+    "name": "runtime",
+    "src": "game/levels/rf01-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rf01-shared-scene-DXGu7em7.js",
+      "_level-D08omVjM.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_rf01-production-assets-D7whLpUk.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_robot-D9Xd5dNL.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_unitree-r1-edu-Bhb-o3HO.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf01-3/runtime.js": {
+    "file": "assets/runtime-kUP1GIgv.js",
+    "name": "runtime",
+    "src": "game/levels/rf01-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rf01-shared-scene-DXGu7em7.js",
+      "_level-D08omVjM.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_rf01-production-assets-D7whLpUk.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_robot-D9Xd5dNL.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_unitree-r1-edu-Bhb-o3HO.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf01/runtime.js": {
+    "file": "assets/runtime-CGC2jDk6.js",
+    "name": "runtime",
+    "src": "game/levels/rf01/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rf01-shared-scene-DXGu7em7.js",
+      "_level-D08omVjM.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_rf01-production-assets-D7whLpUk.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_robot-D9Xd5dNL.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_unitree-r1-edu-Bhb-o3HO.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf02-2/runtime.js": {
+    "file": "assets/runtime-BqItUyhb.js",
+    "name": "runtime",
+    "src": "game/levels/rf02-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CJNsvA1t.js",
+      "_movement-BuXqi5gx.js",
+      "_furniture-controller-C1gLm0fA.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "game/levels/rf02-3/runtime.js": {
+    "file": "assets/runtime-DBRomR9f.js",
+    "name": "runtime",
+    "src": "game/levels/rf02-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CJNsvA1t.js",
+      "_movement-BuXqi5gx.js",
+      "_furniture-controller-C1gLm0fA.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "game/levels/rf02/runtime.js": {
+    "file": "assets/runtime-D-0YHZlD.js",
+    "name": "runtime",
+    "src": "game/levels/rf02/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_furniture-controller-C1gLm0fA.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "game/levels/rf03/runtime.js": {
+    "file": "assets/runtime-Bg2vOnd3.js",
+    "name": "runtime",
+    "src": "game/levels/rf03/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_level-D08omVjM.js",
+      "_movement-BuXqi5gx.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.module-DPmUQNJr.js"
+    ]
+  },
+  "game/levels/rf04-2/runtime.js": {
+    "file": "assets/runtime-BoeaKcVU.js",
+    "name": "runtime",
+    "src": "game/levels/rf04-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CA6e4eLP.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf04-3/runtime.js": {
+    "file": "assets/runtime-BZ6GXSON.js",
+    "name": "runtime",
+    "src": "game/levels/rf04-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CA6e4eLP.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf04/runtime.js": {
+    "file": "assets/runtime-DyXpi2Zi.js",
+    "name": "runtime",
+    "src": "game/levels/rf04/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CA6e4eLP.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf04/series-qa.js": {
+    "file": "assets/series-qa-g3kcHRxa.js",
+    "name": "series-qa",
+    "src": "game/levels/rf04/series-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CA6e4eLP.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf05-2/runtime.js": {
+    "file": "assets/runtime-BAd1O8s4.js",
+    "name": "runtime",
+    "src": "game/levels/rf05-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CUsv1H9T.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf05-3/runtime.js": {
+    "file": "assets/runtime-IRj5kOwn.js",
+    "name": "runtime",
+    "src": "game/levels/rf05-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CUsv1H9T.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf05/series-entry.js": {
+    "file": "assets/series-entry-CUt6fy3K.js",
+    "name": "series-entry",
+    "src": "game/levels/rf05/series-entry.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CUsv1H9T.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf05/series-qa.js": {
+    "file": "assets/series-qa-BOFY57_J.js",
+    "name": "series-qa",
+    "src": "game/levels/rf05/series-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-CUsv1H9T.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf06-2/runtime.js": {
+    "file": "assets/runtime-p0iaqVAY.js",
+    "name": "runtime",
+    "src": "game/levels/rf06-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-Pw5EIEXJ.js",
+      "_series-animation-D93IHsCm.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf06-3/qa.js": {
+    "file": "assets/qa-BMUFGsUR.js",
+    "name": "qa",
+    "src": "game/levels/rf06-3/qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_runtime-DIEWPXUU.js",
+      "_series-animation-D93IHsCm.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_mujoco-client-DRJ7PK3c.js"
+    ]
+  },
+  "game/levels/rf06/runtime.js": {
+    "file": "assets/runtime-C60KEX70.js",
+    "name": "runtime",
+    "src": "game/levels/rf06/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-Pw5EIEXJ.js",
+      "_series-animation-D93IHsCm.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf06/series-qa.js": {
+    "file": "assets/series-qa-D61XXaMD.js",
+    "name": "series-qa",
+    "src": "game/levels/rf06/series-qa.js",
+    "isDynamicEntry": true
+  },
+  "game/levels/rf07-2/runtime.js": {
+    "file": "assets/runtime-DRlWTuQS.js",
+    "name": "runtime",
+    "src": "game/levels/rf07-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-rTOb0QYJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf07-3/runtime.js": {
+    "file": "assets/runtime-BCGP9q1L.js",
+    "name": "runtime",
+    "src": "game/levels/rf07-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-rTOb0QYJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf07/runtime.js": {
+    "file": "assets/runtime-CfuwQq66.js",
+    "name": "runtime",
+    "src": "game/levels/rf07/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-rTOb0QYJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf07/series-qa.js": {
+    "file": "assets/series-qa-CSmLH9bS.js",
+    "name": "series-qa",
+    "src": "game/levels/rf07/series-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-rTOb0QYJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf08/runtime.js": {
+    "file": "assets/runtime-DTDrPwkS.js",
+    "name": "runtime",
+    "src": "game/levels/rf08/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_rapier-DWaP5K6J.js",
+      "_movement-BuXqi5gx.js",
+      "_spark.module-BAl5YztM.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_Pass-DRTulJ-D.js"
+    ]
+  },
+  "game/levels/rf09-2/office-entry.js": {
+    "file": "assets/office-entry-Yq6wvdDC.js",
+    "name": "office-entry",
+    "src": "game/levels/rf09-2/office-entry.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_office-runtime-CxofID63.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf09-3/office-entry.js": {
+    "file": "assets/office-entry-ZiYaFkzW.js",
+    "name": "office-entry",
+    "src": "game/levels/rf09-3/office-entry.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_office-runtime-CxofID63.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf09/office-entry.js": {
+    "file": "assets/office-entry-CfecbpFg.js",
+    "name": "office-entry",
+    "src": "game/levels/rf09/office-entry.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_office-runtime-CxofID63.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf09/office-qa.js": {
+    "file": "assets/office-qa-D0G1fT-5.js",
+    "name": "office-qa",
+    "src": "game/levels/rf09/office-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_office-runtime-CxofID63.js",
+      "_movement-BuXqi5gx.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf10/runtime.js": {
+    "file": "assets/runtime-B8ARlsxl.js",
+    "name": "runtime",
+    "src": "game/levels/rf10/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_spark.module-BAl5YztM.js",
+      "_Pass-DRTulJ-D.js"
+    ]
+  },
+  "game/levels/rf11/runtime.js": {
+    "file": "assets/runtime-CUp1Fi9O.js",
+    "name": "runtime",
+    "src": "game/levels/rf11/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.core-DK0yxxKN.js",
+      "_three.module-DPmUQNJr.js"
+    ]
+  },
+  "game/levels/rf12-2/runtime.js": {
+    "file": "assets/runtime-PQgEu29N.js",
+    "name": "runtime",
+    "src": "game/levels/rf12-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_interaction-animation-IWJy9epM.js",
+      "_scene-BnaZSxVq.js",
+      "_movement-BuXqi5gx.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_three.module-DPmUQNJr.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "game/levels/rf12-3/runtime.js": {
+    "file": "assets/runtime-Cxo0YckF.js",
+    "name": "runtime",
+    "src": "game/levels/rf12-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_interaction-animation-IWJy9epM.js",
+      "_scene-BnaZSxVq.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf12/interaction-qa.js": {
+    "file": "assets/interaction-qa-DPxDS8W1.js",
+    "name": "interaction-qa",
+    "src": "game/levels/rf12/interaction-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_scene-BnaZSxVq.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "game/levels/rf12/runtime.js": {
+    "file": "assets/runtime-C0x9QLxW.js",
+    "name": "runtime",
+    "src": "game/levels/rf12/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_interaction-animation-IWJy9epM.js",
+      "_scene-BnaZSxVq.js",
+      "_engine-s66euiz1.js",
+      "_movement-BuXqi5gx.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_three.module-DPmUQNJr.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js"
+    ]
+  },
+  "game/levels/rf13-02/runtime.js": {
+    "file": "assets/runtime-DphVPdDB.js",
+    "name": "runtime",
+    "src": "game/levels/rf13-02/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-eRwcajXp.js",
+      "_level-BlkQD8bJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-D0OLuQYQ.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf13-03/runtime.js": {
+    "file": "assets/runtime-D18hMHpb.js",
+    "name": "runtime",
+    "src": "game/levels/rf13-03/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-eRwcajXp.js",
+      "_level-BlkQD8bJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-D0OLuQYQ.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf13/series-entry.js": {
+    "file": "assets/series-entry-B3am7Ecq.js",
+    "name": "series-entry",
+    "src": "game/levels/rf13/series-entry.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-eRwcajXp.js",
+      "_level-BlkQD8bJ.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-D0OLuQYQ.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf13/series-qa.js": {
+    "file": "assets/series-qa-CZvcuTsX.js",
+    "name": "series-qa",
+    "src": "game/levels/rf13/series-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_level-BlkQD8bJ.js",
+      "_series-runtime-eRwcajXp.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-D0OLuQYQ.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf14-2/runtime.js": {
+    "file": "assets/runtime-Bu7qyveA.js",
+    "name": "runtime",
+    "src": "game/levels/rf14-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-BmRfQz1W.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-DSl2dH56.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf14-3/runtime.js": {
+    "file": "assets/runtime-BQKZ3hno.js",
+    "name": "runtime",
+    "src": "game/levels/rf14-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-BmRfQz1W.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-DSl2dH56.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf14/runtime.js": {
+    "file": "assets/runtime-Ic82LLoc.js",
+    "name": "runtime",
+    "src": "game/levels/rf14/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-BmRfQz1W.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-DSl2dH56.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf14/series-qa.js": {
+    "file": "assets/series-qa-BeWKMLdX.js",
+    "name": "series-qa",
+    "src": "game/levels/rf14/series-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_series-runtime-BmRfQz1W.js",
+      "_movement-BuXqi5gx.js",
+      "_scene-DSl2dH56.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_interaction-walk-CBv8Esqv.js"
+    ]
+  },
+  "game/levels/rf15-1/runtime.js": {
+    "file": "assets/runtime-C_BkBWdc.js",
+    "name": "runtime",
+    "src": "game/levels/rf15-1/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_scene-KduGnaKk.js",
+      "_orange-scene-CJA6xox5.js",
+      "_shared-variant-scene-J1Aiu0sL.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "game/levels/rf15-2/runtime.js": {
+    "file": "assets/runtime-T5NYFGif.js",
+    "name": "runtime",
+    "src": "game/levels/rf15-2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_scene-KduGnaKk.js",
+      "_orange-scene-CJA6xox5.js",
+      "_shared-variant-scene-J1Aiu0sL.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "game/levels/rf15-3/runtime.js": {
+    "file": "assets/runtime-D6aaBXnj.js",
+    "name": "runtime",
+    "src": "game/levels/rf15-3/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_scene-KduGnaKk.js",
+      "_orange-scene-CJA6xox5.js",
+      "_shared-variant-scene-J1Aiu0sL.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "game/levels/rf15/animation-qa.js": {
+    "file": "assets/animation-qa-DcJKZv9A.js",
+    "name": "animation-qa",
+    "src": "game/levels/rf15/animation-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_orange-scene-CJA6xox5.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf15/field-qa.js": {
+    "file": "assets/field-qa-CdSVgRJ6.js",
+    "name": "field-qa",
+    "src": "game/levels/rf15/field-qa.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_orange-scene-CJA6xox5.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ]
+  },
+  "game/levels/rf15/interaction-animation.js": {
+    "file": "assets/interaction-animation-BRe0sKkq.js",
+    "name": "interaction-animation",
+    "src": "game/levels/rf15/interaction-animation.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_interaction-walk-CBv8Esqv.js",
+      "_orange-scene-CJA6xox5.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf15/animation-qa.js"
+    ]
+  },
+  "game/levels/rf15/qa.js": {
+    "file": "assets/qa-C9bW9jRC.js",
+    "name": "qa",
+    "src": "game/levels/rf15/qa.js",
+    "isDynamicEntry": true
+  },
+  "game/levels/rf15/runtime.js": {
+    "file": "assets/runtime-1vfEeR84.js",
+    "name": "runtime",
+    "src": "game/levels/rf15/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_scene-KduGnaKk.js",
+      "_engine-DKoEAacS.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "game/levels/rf15/tool-room-qa.js": {
+    "file": "assets/tool-room-qa-Cg_ip4PE.js",
+    "name": "tool-room-qa",
+    "src": "game/levels/rf15/tool-room-qa.js",
+    "isDynamicEntry": true
+  },
+  "game/levels/test_zpf/runtime.js": {
+    "file": "assets/runtime-DsSwU0bo.js",
+    "name": "runtime",
+    "src": "game/levels/test_zpf/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "game/levels/test_zpf2/runtime.js": {
+    "file": "assets/runtime-B74-oZ2r.js",
+    "name": "runtime",
+    "src": "game/levels/test_zpf2/runtime.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js",
+      "_three.module-DPmUQNJr.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_RoundedBoxGeometry-Bq2NETG5.js",
+      "_three.core-DK0yxxKN.js"
+    ]
+  },
+  "index.html": {
+    "file": "assets/game-DmB7BvhA.js",
+    "name": "game",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_three.module-DPmUQNJr.js",
+      "_three.core-DK0yxxKN.js",
+      "_rf01-production-assets-D7whLpUk.js",
+      "_Pass-DRTulJ-D.js",
+      "_robot-D9Xd5dNL.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_unitree-r1-edu-Bhb-o3HO.js",
+      "_robot-action-CjdE5gF_.js",
+      "_mujoco-client-DRJ7PK3c.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_HDRLoader-aEryOTFS.js"
+    ],
+    "dynamicImports": [
+      "game/levels/rf01/runtime.js",
+      "game/levels/rf01-2/runtime.js",
+      "game/levels/rf01-3/runtime.js",
+      "game/levels/rf02/runtime.js",
+      "game/levels/rf02-2/runtime.js",
+      "game/levels/rf02-3/runtime.js",
+      "game/levels/rf03/runtime.js",
+      "game/levels/rf04/runtime.js",
+      "game/levels/rf04-2/runtime.js",
+      "game/levels/rf04-3/runtime.js",
+      "game/levels/rf05/series-entry.js",
+      "game/levels/rf05-2/runtime.js",
+      "game/levels/rf05-3/runtime.js",
+      "game/levels/rf06/runtime.js",
+      "game/levels/rf06-2/runtime.js",
+      "_runtime-DIEWPXUU.js",
+      "game/levels/rf07/runtime.js",
+      "game/levels/rf07-2/runtime.js",
+      "game/levels/rf07-3/runtime.js",
+      "game/levels/rf08/runtime.js",
+      "game/levels/rf09/office-entry.js",
+      "game/levels/rf09-2/office-entry.js",
+      "game/levels/rf09-3/office-entry.js",
+      "game/levels/rf10/runtime.js",
+      "game/levels/rf11/runtime.js",
+      "game/levels/rf12/runtime.js",
+      "game/levels/rf12-2/runtime.js",
+      "game/levels/rf12-3/runtime.js",
+      "game/levels/rf13/series-entry.js",
+      "game/levels/rf13-02/runtime.js",
+      "game/levels/rf13-03/runtime.js",
+      "game/levels/rf14/runtime.js",
+      "game/levels/rf14-2/runtime.js",
+      "game/levels/rf14-3/runtime.js",
+      "game/levels/rf15/runtime.js",
+      "game/levels/rf15-1/runtime.js",
+      "game/levels/rf15-2/runtime.js",
+      "game/levels/rf15-3/runtime.js",
+      "game/levels/test_zpf/runtime.js",
+      "game/levels/test_zpf2/runtime.js",
+      "game/levels/rf15/interaction-animation.js"
+    ],
+    "css": [
+      "assets/game-CuzE43b-.css"
+    ]
+  },
+  "r1-view.html": {
+    "file": "assets/r1View-BWd80mDB.js",
+    "name": "r1View",
+    "src": "r1-view.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_OrbitControls-kl6EECsu.js",
+      "_unitree-r1-edu-Bhb-o3HO.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js"
+    ]
+  },
+  "rf12-preview.html": {
+    "file": "assets/rf12Preview-DsQoDeTV.js",
+    "name": "rf12Preview",
+    "src": "rf12-preview.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_scene-BnaZSxVq.js",
+      "_engine-s66euiz1.js",
+      "_three.core-DK0yxxKN.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  },
+  "rf13-assets.html": {
+    "file": "assets/rf13Assets-vc7AE7wy.js",
+    "name": "rf13Assets",
+    "src": "rf13-assets.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_OrbitControls-kl6EECsu.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_level-BlkQD8bJ.js",
+      "_three.core-DK0yxxKN.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js"
+    ]
+  },
+  "rf13-preview.html": {
+    "file": "assets/rf13Preview-COqca49k.js",
+    "name": "rf13Preview",
+    "src": "rf13-preview.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_OrbitControls-kl6EECsu.js",
+      "_scene-D0OLuQYQ.js",
+      "_level-BlkQD8bJ.js",
+      "_robot-D9Xd5dNL.js",
+      "_robot-action-CjdE5gF_.js",
+      "_three.core-DK0yxxKN.js",
+      "_movement-BuXqi5gx.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_unitree-g1-dex1-model-BF5DzcON.js",
+      "_unitree-r1-edu-Bhb-o3HO.js"
+    ]
+  },
+  "rf14-preview.html": {
+    "file": "assets/rf14Preview-DeMvDAf4.js",
+    "name": "rf14Preview",
+    "src": "rf14-preview.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_OrbitControls-kl6EECsu.js",
+      "_scene-DSl2dH56.js",
+      "_three.core-DK0yxxKN.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_HDRLoader-aEryOTFS.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js"
+    ]
+  },
+  "rf15-preview.html": {
+    "file": "assets/rf15Preview-kcdfNaki.js",
+    "name": "rf15Preview",
+    "src": "rf15-preview.html",
+    "isEntry": true,
+    "imports": [
+      "_modulepreload-polyfill-B5Qt9EMX.js",
+      "_three.module-DPmUQNJr.js",
+      "_OrbitControls-kl6EECsu.js",
+      "_GLTFLoader-ELQ8TGyw.js",
+      "_DRACOLoader-DGIScJx2.js",
+      "_scene-KduGnaKk.js",
+      "_engine-DKoEAacS.js",
+      "_three.core-DK0yxxKN.js",
+      "_preload-helper-CmsKOCeN.js",
+      "_RoomEnvironment-BVSi_L2Q.js",
+      "_g1-locomotion-kONIMYOY.js",
+      "_level-BMq7ZDVf.js",
+      "_rf01-yard-layout--oMqPTjc.js",
+      "_movement-BuXqi5gx.js"
+    ]
+  }
+}

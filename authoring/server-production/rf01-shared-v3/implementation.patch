@@ -1,0 +1,2055 @@
+diff --git a/game/rf01-shared-level.js b/game/rf01-shared-level.js
+new file mode 100644
+--- /dev/null
++++ b/game/rf01-shared-level.js
+@@ -0,0 +1,46 @@
++import { RF01_YARD_LAYOUT, RF01_CRATE_COLLIDERS } from "./rf01-yard-layout.js";
++import { LEVEL as PARK } from "./level.js";
++import { RF01_COLLISION_PROXY_RECTS } from "./rf01-collision-proxies.js";
++
++export const WORKSHOP = Object.freeze({
++  doorway: { minX: -.38, maxX: 3.73, minZ: -1.85, maxZ: -1.12 },
++  height: 2.36,
++  clearance: 2.1,
++  openingSeconds: 3,
++  holdSeconds: 10,
++  innerDoorControl: { x: -.68, y: 1.2, z: -2.09 },
++  doorControl: { x: -.68, y: 1.2, z: -1.08 },
++  lightSwitch: { x: 3.8, y: 1.2, z: -6.34 },
++  inside: { minX: -4.5, maxX: 4.5, minZ: -6.3, maxZ: -2.1 },
++  lampPositions: [[-3.2, 3.68, -4.3], [0, 3.68, -4.3], [3.2, 3.68, -4.3]],
++});
++
++export const SHARED_LEVEL = Object.freeze({
++  ...PARK,
++  id: "rf01",
++  revision: "rf01-shared-v3",
++  title: "工业园区",
++  interactionRange: 1.5,
++  staticColliders: Object.freeze([
++    ...PARK.staticColliders.filter(({ id }) => !["workshop", "fire-safety-station"].includes(id)),
++    ...RF01_COLLISION_PROXY_RECTS.filter(({ id }) => !id.startsWith("workshop-front-") && id !== "workshop-interior"),
++    { id: "workshop-front-left", minX: -5.07, maxX: -.38, minZ: -1.85, maxZ: -1.08 },
++    { id: "workshop-front-right", minX: 3.73, maxX: 5.07, minZ: -1.85, maxZ: -1.08 },
++    { id: "workshop-inner-west", minX: -4.65, maxX: -4.55, minZ: -6.55, maxZ: -1.9 },
++    { id: "workshop-inner-east", minX: 4.55, maxX: 4.65, minZ: -6.55, maxZ: -1.9 },
++    { id: "workshop-inner-back", minX: -4.65, maxX: 4.65, minZ: -6.55, maxZ: -6.45 },
++  ]),
++  progress: Object.freeze({ initial: 100, maximum: 100, perMeter: 1.2, blockedPerSecond: 2, error: 5, reward: 3 }),
++});
++
++export const DISPATCH = Object.freeze({
++  bays: Object.freeze([{ x: 3.25, z: 2.75 }, { x: 3.25, z: 4.05 }]),
++});
++export function levelFor(id) {
++  const objectives = {
++    rf01: "恢复园区供电，打开园区大门并抵达出口",
++    "rf01-2": "进入厂房并开启照明",
++    "rf01-3": "恢复供电与照明，将厂房两箱货送到门岗并确认出库",
++  };
++  return Object.freeze({ ...SHARED_LEVEL, id, title: objectives[id] });
++}
+diff --git a/game/rf01-shared-engine.js b/game/rf01-shared-engine.js
+new file mode 100644
+--- /dev/null
++++ b/game/rf01-shared-engine.js
+@@ -0,0 +1,210 @@
++import { applyRobotMovement } from "./movement.js";
++import { DOOR_COLLIDER } from "./level.js";
++import { WORKSHOP, DISPATCH } from "./rf01-shared-level.js";
++import { RF01_YARD_LAYOUT } from "./rf01-yard-layout.js";
++
++export function distance(first, second) { return Math.hypot(first.x - second.x, first.z - second.z); }
++export function angleDelta(from, to) { return Math.atan2(Math.sin(to - from), Math.cos(to - from)); }
++export function isInside(point) {
++  const bounds = WORKSHOP.inside;
++  return point.x > bounds.minX && point.x < bounds.maxX && point.z > bounds.minZ && point.z < bounds.maxZ;
++}
++function overlaps(point, rect) {
++  const nearX = Math.max(rect.minX, Math.min(point.x, rect.maxX));
++  const nearZ = Math.max(rect.minZ, Math.min(point.z, rect.maxZ));
++  return (point.x - nearX) ** 2 + (point.z - nearZ) ** 2 < point.radius ** 2;
++}
++function cargoRect(cargo) {
++  return { id: cargo.id, minX: cargo.x - .43, maxX: cargo.x + .43, minZ: cargo.z - .30, maxZ: cargo.z + .30 };
++}
++function intersects(first, second) {
++  return first.minX < second.maxX && first.maxX > second.minX && first.minZ < second.maxZ && first.maxZ > second.minZ;
++}
++export function createParkEngine(LEVEL) {
++  function createInitialState() {
++    return {
++      player: { ...LEVEL.playerStart }, battery: { location: "ground", ...LEVEL.batteryStart },
++      crates: RF01_YARD_LAYOUT.crates.map((position, index) => ({ id: "crate-" + index, x: position[0], z: position[2], location: "ground" })),
++      carriedItem: null, powered: false, doorOpen: false, terminalOpen: false, dispatchConfirmed: false,
++      shutterRequested: false, shutterLift: 0, shutterPhase: "closed", shutterHold: 0, shutterBlocked: false,
++      enteredWorkshop: false, lightsOn: false, complete: false, failed: false,
++      progress: LEVEL.progress.initial, minimumReserve: LEVEL.progress.initial,
++      rewardedMilestones: {}, motion: "idle", elapsed: 0, interactions: 0, distanceMoved: 0, lastEvent: "park_ready",
++    };
++  }
++  function cloneState(state) {
++    return { ...state, player: { ...state.player }, battery: { ...state.battery },
++      crates: state.crates.map(crate => ({ ...crate })), rewardedMilestones: { ...state.rewardedMilestones } };
++  }
++  function isCarrying(state) { return state.battery.location === "carried" || Boolean(state.carriedItem); }
++  function bodyPoints(state, x, z) {
++    const yaw = state.player.yaw;
++    const points = [{ x, z, radius: LEVEL.playerRadius }, {
++      x: x + Math.sin(yaw) * LEVEL.playerForwardOffset, z: z + Math.cos(yaw) * LEVEL.playerForwardOffset, radius: LEVEL.playerRadius,
++    }];
++    if (isCarrying(state)) points.push({ x: x + Math.sin(yaw) * .65, z: z + Math.cos(yaw) * .65, radius: .44 });
++    return points;
++  }
++  function getColliders(state) {
++    const blockers = [...LEVEL.staticColliders, ...state.crates.filter(crate => crate.location !== "carried").map(cargoRect)];
++    if (!state.doorOpen) blockers.push(DOOR_COLLIDER);
++    if (state.shutterLift < WORKSHOP.clearance) blockers.push(WORKSHOP.doorway);
++    return blockers;
++  }
++  function isWalkable(state, x, z) {
++    const blockers = getColliders(state);
++    const bounds = LEVEL.bounds;
++    return bodyPoints(state, x, z).every(point =>
++      point.x - point.radius >= bounds.minX && point.x + point.radius <= bounds.maxX
++      && point.z - point.radius >= bounds.minZ && point.z + point.radius <= bounds.maxZ
++      && !blockers.some(rect => overlaps(point, rect)));
++  }
++  function checkCompletion(state) {
++    const ready = LEVEL.id === "rf01"
++      ? state.powered && state.doorOpen && distance(state.player, LEVEL.exit) <= LEVEL.exit.radius
++      : LEVEL.id === "rf01-2"
++        ? state.enteredWorkshop && state.lightsOn
++        : state.powered && state.lightsOn && state.crates.every(crate => crate.location === "delivered") && state.dispatchConfirmed;
++    if (ready) {
++      state.complete = true; state.motion = "idle"; state.terminalOpen = false; state.lastEvent = "mission_complete";
++    }
++    return state;
++  }
++  function settle(next, previous, cost, milestone) {
++    const first = milestone && !previous.rewardedMilestones[milestone];
++    const balance = previous.progress - cost + (first ? LEVEL.progress.reward : 0);
++    if (balance <= 0) {
++      const failed = cloneState(previous);
++      Object.assign(failed, { progress: 0, minimumReserve: 0, failed: true, motion: "idle", terminalOpen: false,
++        lastEvent: "progress_depleted", interactions: next.interactions });
++      return failed;
++    }
++    next.progress = Math.min(LEVEL.progress.maximum, balance);
++    next.minimumReserve = Math.min(previous.minimumReserve, next.progress);
++    if (first) next.rewardedMilestones[milestone] = true;
++    return checkCompletion(next);
++  }
++  function updateMovement(state, input, deltaSeconds) {
++    if (state.complete || state.failed || state.terminalOpen) return cloneState(state);
++    const next = cloneState(state);
++    const delta = Math.min(Math.max(deltaSeconds, 0), .05);
++    next.elapsed += delta;
++    const movement = applyRobotMovement(next, state, input, delta, LEVEL, isWalkable);
++    const moved = distance(next.player, state.player);
++    next.distanceMoved += moved;
++    next.motion = movement.motionTurning ? "turning" : moved > 1e-6 ? "moving" : "idle";
++    next.enteredWorkshop ||= state.shutterLift >= WORKSHOP.clearance && isInside(next.player);
++    const cost = moved * LEVEL.progress.perMeter
++      + (movement.translating && moved < 1e-6 && !movement.motionTurning ? LEVEL.progress.blockedPerSecond * delta : 0);
++    return settle(next, state, cost);
++  }
++  function doorwayOccupied(state) {
++    return bodyPoints(state, state.player.x, state.player.z).some(point => overlaps(point, WORKSHOP.doorway))
++      || state.crates.some(crate => crate.location !== "carried" && intersects(cargoRect(crate), WORKSHOP.doorway));
++  }
++  function updateEnvironment(state, deltaSeconds) {
++    if (state.complete || state.failed) return cloneState(state);
++    const next = cloneState(state);
++    const delta = Math.min(Math.max(deltaSeconds, 0), .1);
++    next.shutterBlocked = false;
++    if (state.shutterPhase === "opening") {
++      next.shutterLift = Math.min(WORKSHOP.height, state.shutterLift + delta * WORKSHOP.height / WORKSHOP.openingSeconds);
++      if (next.shutterLift === WORKSHOP.height) { next.shutterPhase = "open"; next.shutterHold = WORKSHOP.holdSeconds; }
++    } else if (state.shutterPhase === "open") {
++      next.shutterHold = Math.max(0, state.shutterHold - delta);
++      if (next.shutterHold === 0) next.shutterPhase = "closing";
++    } else if (state.shutterPhase === "closing") {
++      if (doorwayOccupied(state)) { next.shutterBlocked = true; return next; }
++      next.shutterLift = Math.max(0, state.shutterLift - delta * WORKSHOP.height / WORKSHOP.openingSeconds);
++      if (next.shutterLift === 0) { next.shutterPhase = "closed"; next.shutterRequested = false; }
++    }
++    return next;
++  }
++  function facing(state, target, range = LEVEL.interactionRange) {
++    const dx = target.x - state.player.x, dz = target.z - state.player.z;
++    const separation = Math.hypot(dx, dz);
++    return separation <= range && (separation < .05
++      || (Math.sin(state.player.yaw) * dx + Math.cos(state.player.yaw) * dz) / separation > .35);
++  }
++  function getInteraction(state) {
++    if (state.complete || state.failed) return null;
++    if (state.terminalOpen) return { type: "terminal-close", label: "关闭终端" };
++    const inside = isInside(state.player);
++    const control = inside ? WORKSHOP.innerDoorControl : WORKSHOP.doorControl;
++    if ((inside || state.player.z > -1.3) && facing(state, control, 1.25)) {
++      return { type: "shutter", label: state.shutterPhase === "opening" ? "卷帘门上升中" : "开启卷帘门（十秒后自动关闭）" };
++    }
++    if (inside && facing(state, WORKSHOP.lightSwitch, 1.25)) return { type: "lights", label: state.lightsOn ? "关闭照明" : "开启照明" };
++    if (state.carriedItem) {
++      const bay = DISPATCH.bays[Number(state.carriedItem.split("-")[1])];
++      if (facing(state, bay, 1.5)) return { type: "deliver", label: "货箱放入收货位", target: bay };
++      return { type: "drop-crate", label: "放下货箱" };
++    }
++    const candidates = [];
++    if (state.battery.location === "carried" && facing(state, LEVEL.powerSlot, 1.8)) candidates.push({ type: "slot", target: LEVEL.powerSlot });
++    if (!isCarrying(state)) {
++      if (state.battery.location === "ground" && facing(state, state.battery, 1.8)) candidates.push({ type: "battery", target: state.battery });
++      state.crates.filter(crate => crate.location !== "carried" && facing(state, crate, 1.35)).forEach(crate => candidates.push({ type: "crate", target: crate, id: crate.id }));
++    }
++    if (facing(state, LEVEL.door, 1.8)) candidates.push({ type: "door", target: LEVEL.door });
++    if (facing(state, LEVEL.terminal, 1.8)) candidates.push({ type: "terminal", target: LEVEL.terminal });
++    const nearest = candidates.sort((first, second) => distance(state.player, first.target) - distance(state.player, second.target))[0];
++    if (nearest) return { ...nearest, label: ({ battery: "拿取能源模块", slot: "接入电源", crate: "拿取货箱", door: "操作园区大门", terminal: "操作门岗终端" })[nearest.type] };
++    if (state.battery.location === "carried") return { type: "drop", label: "放下能源模块" };
++    return null;
++  }
++  function safePlacement(state, point, carriedId) {
++    const rect = cargoRect(point);
++    const others = getColliders(state).filter(collider => collider.id !== carriedId);
++    return rect.minX >= LEVEL.bounds.minX && rect.maxX <= LEVEL.bounds.maxX
++      && rect.minZ >= LEVEL.bounds.minZ && rect.maxZ <= LEVEL.bounds.maxZ
++      && !others.some(other => intersects(rect, other));
++  }
++  function interact(state) {
++    if (state.complete || state.failed) return cloneState(state);
++    const next = cloneState(state);
++    next.interactions += 1;
++    const action = getInteraction(state);
++    let cost = LEVEL.progress.error, milestone;
++    next.lastEvent = "invalid_interaction";
++    if (action?.type === "shutter" && state.shutterPhase !== "opening" && state.shutterPhase !== "open") {
++      next.shutterRequested = true; next.shutterPhase = "opening"; next.lastEvent = "shutter_opening"; milestone = "shutter"; cost = 0;
++    } else if (action?.type === "lights") {
++      next.lightsOn = !state.lightsOn; next.lastEvent = next.lightsOn ? "workshop_lit" : "workshop_dark"; milestone = next.lightsOn ? "lights" : null; cost = 0;
++    } else if (action?.type === "battery") {
++      next.battery = { location: "carried" }; next.lastEvent = "battery_collected"; milestone = "battery"; cost = 0;
++    } else if (action?.type === "slot") {
++      next.battery = { location: "slotted", ...LEVEL.powerSlot }; next.powered = true; next.lastEvent = "power_restored"; milestone = "power"; cost = 0;
++    } else if (action?.type === "crate") {
++      next.carriedItem = action.id; next.crates.find(crate => crate.id === action.id).location = "carried";
++      next.lastEvent = "crate_collected"; cost = 0;
++    } else if (action?.type === "deliver" || action?.type === "drop-crate") {
++      const point = action.type === "deliver" ? action.target : {
++        x: state.player.x + Math.sin(state.player.yaw) * 1.02, z: state.player.z + Math.cos(state.player.yaw) * 1.02,
++      };
++      if (safePlacement(state, point, state.carriedItem)) {
++        const crate = next.crates.find(entry => entry.id === state.carriedItem);
++        Object.assign(crate, point, { location: action.type === "deliver" ? "delivered" : "ground" });
++        next.carriedItem = null; next.lastEvent = action.type === "deliver" ? "crate_delivered" : "crate_dropped";
++        milestone = action.type === "deliver" ? "delivered-" + crate.id : null; cost = 0;
++      }
++    } else if (action?.type === "drop") {
++      const point = { x: state.player.x + Math.sin(state.player.yaw), z: state.player.z + Math.cos(state.player.yaw) };
++      if (safePlacement(state, point)) { next.battery = { location: "ground", ...point }; next.lastEvent = "battery_dropped"; cost = 0; }
++    } else if (action?.type === "door" && state.powered) {
++      const occupied = bodyPoints(state, state.player.x, state.player.z).some(point => overlaps(point, DOOR_COLLIDER));
++      if (!state.doorOpen || !occupied) { next.doorOpen = !state.doorOpen; next.lastEvent = next.doorOpen ? "door_opened" : "door_closed"; milestone = next.doorOpen ? "gate" : null; cost = 0; }
++    } else if (action?.type === "terminal") {
++      if (state.powered && state.lightsOn && state.crates.every(crate => crate.location === "delivered")) {
++        next.dispatchConfirmed = true; next.lastEvent = "dispatch_confirmed"; milestone = "dispatch";
++      } else { next.terminalOpen = true; next.lastEvent = "terminal_opened"; }
++      cost = 0;
++    } else if (action?.type === "terminal-close") {
++      next.terminalOpen = false; next.lastEvent = "terminal_closed"; cost = 0;
++    }
++    return settle(next, state, cost, milestone);
++  }
++  function closeTerminal(state) { const next = cloneState(state); next.terminalOpen = false; return next; }
++  function getObjective(state) { return { step: state.complete ? 4 : 1, title: state.failed ? "任务失败" : LEVEL.title, detail: "" }; }
++  return { createInitialState, cloneState, isWalkable, getColliders, isCarrying, updateMovement, updateEnvironment, getInteraction, interact, closeTerminal, getObjective };
++}
+diff --git a/game/levels/rf01/level.js b/game/levels/rf01/level.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01/level.js
+@@ -0,0 +1,3 @@
++import { levelFor } from "../../rf01-shared-level.js";
++export { WORKSHOP, DISPATCH } from "../../rf01-shared-level.js";
++export const LEVEL = levelFor("rf01");
+diff --git a/game/levels/rf01/engine.js b/game/levels/rf01/engine.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01/engine.js
+@@ -0,0 +1,4 @@
++import { LEVEL } from "./level.js";
++import { createParkEngine } from "../../rf01-shared-engine.js";
++export { isInside } from "../../rf01-shared-engine.js";
++export const { createInitialState, cloneState, isWalkable, getColliders, isCarrying, updateMovement, updateEnvironment, getInteraction, interact, closeTerminal, getObjective } = createParkEngine(LEVEL);
+diff --git a/game/levels/rf01/runtime.js b/game/levels/rf01/runtime.js
+--- a/game/levels/rf01/runtime.js
++++ b/game/levels/rf01/runtime.js
+@@ -1,62 +1,7 @@
+-import { LEVEL } from "../../level.js";
+-import { closeTerminal, createInitialState, getObjective, interact, updateMovement } from "../../engine.js";
+-import { createFacilityScene, createRF01BatteryCargoModel, syncFacilityVisuals } from "../../scene.js";
+-
+-export { LEVEL, closeTerminal, createInitialState, getObjective, interact, updateMovement };
+-
+-export const ui = Object.freeze({
+-  id: "rf01",
+-  brand: "INDUSTRIAL PARK / A01",
+-  unit: "UNIT R-01 · SERVICE YARD SIMULATION",
+-  systemLabel: "PARK POWER",
+-  cargoLabel: "CARGO",
+-  gateLabel: "SECURITY GATE",
+-  startKicker: "LEVEL RF-01 / CHINESE INDUSTRIAL PARK",
+-  startTitle: "SERVICE<br />YARD",
+-  startCopy: "控制类人机器人在中国轻工业园区的厂房服务院落内完成应急供电：从维护间货架取出 700×420×280 mm 能源模块，送到门岗旁电源柜，通电后开启 4 m 平移门并抵达门外缓冲区。布局、道路、厂房、配电设备和门岗按米制真实尺寸组织。",
+-  completeKicker: "OBJECTIVE COMPLETE",
+-  completeTitle: "园区通行恢复",
+-  completeCopy: "应急电源已接入，4 m 平移门开启，机器人已在门外车辆缓冲区完成身份确认。",
+-  terminalHeading: "GATEHOUSE TERMINAL / T-01",
+-});
+-
+-export const camera = Object.freeze({ position: [0, 18.5, 16], lookAt: [0, 0.6, 0], fov: 43 });
+-
+-export const eventMessages = Object.freeze({
+-  battery_collected: "700 mm 能源模块已由双手稳定携带 · 任务余量 +15",
+-  battery_dropped: "能源模块已放置在服务通道地面",
+-  power_restored: "门岗应急电源柜已接入园区控制回路 · 任务余量 +25",
+-  door_unpowered: "平移门未通电，门机和机械锁均未响应",
+-  door_opened: "4 m 电动平移门正在向西收拢 · 任务余量 +20",
+-  door_closed: "平移门已关闭",
+-  terminal_closed: "门岗终端连接已断开",
+-  exit_reached: "门外车辆缓冲区已确认机器人身份",
+-  progress_depleted: "任务余量耗尽，行动终止",
+-});
+-
+-export function createScene() { return createFacilityScene(); }
+-export function createCargoModel() { return createRF01BatteryCargoModel(); }
+-export function syncVisuals(world, state, delta) { syncFacilityVisuals(world, state, delta); }
+-export function isCarrying(state) { return state.battery.location === "carried"; }
+-export function getTelemetry(state) { return { system: state.powered ? "ONLINE" : "OFFLINE", systemOnline: state.powered, cargo: isCarrying(state) ? "ENERGY MODULE" : "EMPTY", gate: state.doorOpen ? "OPEN" : state.powered ? "READY" : "NO POWER" }; }
+-export function getProgressSteps(state) {
+-  const objective = getObjective(state);
+-  return ["能源模块", "应急电源柜", "平移门", "门外缓冲区"].map((label, index) => ({ label, done: index + 1 < objective.step || state.complete, active: index + 1 === objective.step && !state.complete && !state.failed }));
+-}
+-export function getTerminal(state) {
+-  let title;
+-  let copy;
+-  if (state.powered) {
+-    title = "门岗最低运行电力已恢复";
+-    copy = state.doorOpen ? "门机控制回路已通电。4 m 平移门已向西收拢，门外缓冲区正在等待确认。" : "应急电源柜输出稳定。可在门内控制面板处使用本地门机开关。";
+-  } else if (state.battery.location === "carried") {
+-    title = "检测到便携能源模块";
+-    copy = "将模块送至门岗西侧的应急电源柜。插入后，门机和机械锁才会获得最低运行电力。";
+-  } else {
+-    title = "园区门岗控制回路离线";
+-    copy = "能源模块记录在西侧维护间外的电池货架。回收模块并送至门岗电源柜，可恢复平移门控制器。";
+-  }
+-  return { title, copy, rows: [["ENERGY MODULE", state.battery.location === "slotted" ? "CONNECTED" : state.battery.location === "carried" ? "IN TRANSIT" : "NOT DETECTED"], ["PARK POWER BUS", state.powered ? "ONLINE" : "OFFLINE"], ["SLIDING GATE", state.doorOpen ? "OPEN" : state.powered ? "READY" : "LOCKED"]] };
+-}
+-export function getSoundPosition(beforeState, state) { if (state.lastEvent === "battery_collected") return beforeState.battery; if (state.lastEvent === "battery_dropped") return state.battery; if (state.lastEvent === "power_restored") return LEVEL.powerSlot; return state.player; }
+-export function getDebugState(state) { return { battery: state.battery.location, powered: state.powered, doorOpen: state.doorOpen }; }
++import { LEVEL } from "./level.js";
++import { createParkRuntime } from "../../rf01-shared-runtime.js";
++export { LEVEL };
++export * from "./engine.js";
++export { camera } from "../../rf01-shared-runtime.js";
++export { createScene, createCargoModel, syncVisuals, syncRobotCargo } from "../../rf01-shared-scene.js";
++export const { ui, audio, eventMessages, getTelemetry, getProgressSteps, getTerminal, getSoundPosition, getDebugState } = createParkRuntime(LEVEL);
+diff --git a/game/levels/rf01-2/level.js b/game/levels/rf01-2/level.js
+--- a/game/levels/rf01-2/level.js
++++ b/game/levels/rf01-2/level.js
+@@ -1,33 +1,3 @@
+-import { RF01_YARD_LAYOUT, RF01_CRATE_COLLIDERS } from "../../rf01-yard-layout.js";
+-import { LEVEL as PARK } from "../../level.js";
+-import { RF01_COLLISION_PROXY_RECTS } from "../../rf01-collision-proxies.js";
+-
+-export const WORKSHOP = Object.freeze({
+-  doorway: { minX: -.38, maxX: 3.73, minZ: -1.85, maxZ: -1.12 },
+-  height: 2.36,
+-  clearance: 2.1,
+-  openingSeconds: 3,
+-  doorControl: { x: -.68, y: 1.2, z: -1.08 },
+-  lightSwitch: { x: 3.8, y: 1.2, z: -6.34 },
+-  inside: { minX: -4.5, maxX: 4.5, minZ: -6.3, maxZ: -2.1 },
+-  lampPositions: [[-3.2, 3.68, -4.3], [0, 3.68, -4.3], [3.2, 3.68, -4.3]],
+-});
+-
+-export const LEVEL = Object.freeze({
+-  ...PARK,
+-  id: "rf01-2",
+-  revision: RF01_YARD_LAYOUT.revision,
+-  title: "进入厂房并开启照明",
+-  interactionRange: 1.25,
+-  staticColliders: Object.freeze([
+-    ...PARK.staticColliders.filter(({ id }) => !["workshop", "fire-safety-station"].includes(id)),
+-    ...RF01_COLLISION_PROXY_RECTS.filter(({ id }) => !id.startsWith("workshop-front-") && id !== "workshop-interior"),
+-    { id: "workshop-front-left", minX: -5.07, maxX: -.38, minZ: -1.85, maxZ: -1.08 },
+-    { id: "workshop-front-right", minX: 3.73, maxX: 5.07, minZ: -1.85, maxZ: -1.08 },
+-    { id: "workshop-inner-west", minX: -4.65, maxX: -4.55, minZ: -6.55, maxZ: -1.9 },
+-    { id: "workshop-inner-east", minX: 4.55, maxX: 4.65, minZ: -6.55, maxZ: -1.9 },
+-    { id: "workshop-inner-back", minX: -4.65, maxX: 4.65, minZ: -6.55, maxZ: -6.45 },
+-    ...RF01_CRATE_COLLIDERS,
+-  ]),
+-  progress: Object.freeze({ initial: 100, maximum: 100, perMeter: 3.6, blockedPerSecond: 2, error: 5, reward: 3 }),
+-});
++import { levelFor } from "../../rf01-shared-level.js";
++export { WORKSHOP, DISPATCH } from "../../rf01-shared-level.js";
++export const LEVEL = levelFor("rf01-2");
+diff --git a/game/levels/rf01-2/engine.js b/game/levels/rf01-2/engine.js
+--- a/game/levels/rf01-2/engine.js
++++ b/game/levels/rf01-2/engine.js
+@@ -1,141 +1,4 @@
+-import { applyRobotMovement } from "../../movement.js";
+-import { LEVEL, WORKSHOP } from "./level.js";
+-import { DOOR_COLLIDER } from "../../level.js";
+-export { LEVEL };
+-
+-export function createInitialState() {
+-  return {
+-    player: { ...LEVEL.playerStart }, battery: { location: "ground", ...LEVEL.batteryStart },
+-    powered: false, doorOpen: false, terminalOpen: false,
+-    shutterRequested: false, shutterLift: 0, enteredWorkshop: false, lightsOn: false,
+-    complete: false, failed: false, progress: LEVEL.progress.initial, minimumReserve: LEVEL.progress.initial,
+-    rewardedMilestones: {}, motion: "idle", elapsed: 0, interactions: 0, distanceMoved: 0,
+-    lastEvent: "workshop_dark",
+-  };
+-}
+-
+-export function cloneState(state) {
+-  return { ...state, player: { ...state.player }, battery: { ...state.battery }, rewardedMilestones: { ...state.rewardedMilestones } };
+-}
+-
+-function overlaps(point, rect) {
+-  const nearX = Math.max(rect.minX, Math.min(point.x, rect.maxX));
+-  const nearZ = Math.max(rect.minZ, Math.min(point.z, rect.maxZ));
+-  return (point.x - nearX) ** 2 + (point.z - nearZ) ** 2 < LEVEL.playerRadius ** 2;
+-}
+-
+-export function isInside(point) {
+-  const bounds = WORKSHOP.inside;
+-  return point.x > bounds.minX && point.x < bounds.maxX && point.z > bounds.minZ && point.z < bounds.maxZ;
+-}
+-
+-export function isWalkable(state, x, z) {
+-  const points = [{ x, z }, {
+-    x: x + Math.sin(state.player.yaw) * LEVEL.playerForwardOffset,
+-    z: z + Math.cos(state.player.yaw) * LEVEL.playerForwardOffset,
+-  }];
+-  const { bounds, playerRadius } = LEVEL;
+-  const blockers = [...LEVEL.staticColliders, DOOR_COLLIDER];
+-  if (state.shutterLift < WORKSHOP.clearance) blockers.push(WORKSHOP.doorway);
+-  return points.every(point =>
+-    point.x - playerRadius >= bounds.minX && point.x + playerRadius <= bounds.maxX
+-    && point.z - playerRadius >= bounds.minZ && point.z + playerRadius <= bounds.maxZ
+-    && !blockers.some(rect => overlaps(point, rect)));
+-}
+-
+-function settle(next, previous, cost, milestone) {
+-  const first = milestone && !previous.rewardedMilestones[milestone];
+-  const reward = first ? LEVEL.progress.reward : 0;
+-  const balance = previous.progress - cost + reward;
+-  if (balance <= 0) {
+-    const failed = cloneState(previous);
+-    failed.progress = 0;
+-    failed.minimumReserve = 0;
+-    failed.failed = true;
+-    failed.motion = "idle";
+-    failed.lastEvent = "progress_depleted";
+-    failed.interactions = next.interactions;
+-    return failed;
+-  }
+-  next.progress = Math.min(LEVEL.progress.maximum, balance);
+-  next.minimumReserve = Math.min(previous.minimumReserve, next.progress);
+-  if (first) next.rewardedMilestones[milestone] = true;
+-  return next;
+-}
+-
+-export function updateMovement(state, input, deltaSeconds) {
+-  if (state.complete || state.failed) return cloneState(state);
+-  const next = cloneState(state);
+-  const delta = Math.min(Math.max(deltaSeconds, 0), .05);
+-  next.elapsed += delta;
+-  const movement = applyRobotMovement(next, state, input, delta, LEVEL, isWalkable);
+-  const distance = Math.hypot(next.player.x - state.player.x, next.player.z - state.player.z);
+-  next.distanceMoved += distance;
+-  next.motion = movement.motionTurning ? "turning" : distance > 1e-6 ? "moving" : "idle";
+-  next.enteredWorkshop ||= state.shutterLift >= WORKSHOP.clearance && isInside(next.player);
+-  const cost = distance * LEVEL.progress.perMeter
+-    + (movement.translating && distance < 1e-6 && !movement.motionTurning ? LEVEL.progress.blockedPerSecond * delta : 0);
+-  return settle(next, state, cost);
+-}
+-
+-export function updateEnvironment(state, deltaSeconds) {
+-  if (state.complete || state.failed || !state.shutterRequested) return cloneState(state);
+-  const next = cloneState(state);
+-  next.shutterLift = Math.min(WORKSHOP.height, state.shutterLift
+-    + Math.min(Math.max(deltaSeconds, 0), .1) * WORKSHOP.height / WORKSHOP.openingSeconds);
+-  return next;
+-}
+-
+-function facing(state, target) {
+-  const dx = target.x - state.player.x;
+-  const dz = target.z - state.player.z;
+-  const distance = Math.hypot(dx, dz);
+-  return distance <= LEVEL.interactionRange && distance > .05
+-    && (Math.sin(state.player.yaw) * dx + Math.cos(state.player.yaw) * dz) / distance > .35;
+-}
+-
+-export function getInteraction(state) {
+-  if (state.complete || state.failed) return null;
+-  if (state.player.z > -1.3 && facing(state, WORKSHOP.doorControl)) {
+-    return { type: "shutter", label: state.shutterRequested ? "卷帘门正在开启或已打开" : "打开厂房卷帘门" };
+-  }
+-  if (isInside(state.player) && facing(state, WORKSHOP.lightSwitch)) {
+-    return { type: "lights", label: "开启厂房照明" };
+-  }
+-  return null;
+-}
+-
+-export function interact(state) {
+-  if (state.complete || state.failed) return cloneState(state);
+-  const next = cloneState(state);
+-  next.interactions += 1;
+-  const interaction = getInteraction(state);
+-  let milestone;
+-  let cost = LEVEL.progress.error;
+-  if (interaction?.type === "shutter" && !state.shutterRequested) {
+-    next.shutterRequested = true;
+-    next.lastEvent = "shutter_opening";
+-    milestone = "shutter";
+-    cost = 0;
+-  } else if (interaction?.type === "lights" && state.enteredWorkshop && state.shutterLift >= WORKSHOP.clearance) {
+-    next.lightsOn = true;
+-    next.complete = true;
+-    next.motion = "idle";
+-    next.lastEvent = "workshop_lit";
+-    milestone = "lights";
+-    cost = 0;
+-  } else {
+-    next.lastEvent = interaction?.type === "shutter" ? "shutter_already_opening" : "empty_interaction";
+-  }
+-  return settle(next, state, cost, milestone);
+-}
+-
+-export function closeTerminal(state) { return cloneState(state); }
+-
+-export function getObjective(state) {
+-  if (state.failed) return { step: 0, title: "任务失败", detail: "余量耗尽，按 R 重置。" };
+-  if (state.complete) return { step: 3, title: "厂房照明已开启", detail: "已进入厂房并操作室内照明开关。" };
+-  if (!state.shutterRequested) return { step: 1, title: "打开厂房卷帘门", detail: "靠近门边控制按钮，面向按钮按 F。" };
+-  if (!state.enteredWorkshop) return { step: 2, title: "进入黑暗厂房", detail: "等待卷帘门升起后进入。" };
+-  return { step: 3, title: "打开室内照明", detail: "找到室内墙上的照明开关，面向开关按 F。" };
+-}
++import { LEVEL } from "./level.js";
++import { createParkEngine } from "../../rf01-shared-engine.js";
++export { isInside } from "../../rf01-shared-engine.js";
++export const { createInitialState, cloneState, isWalkable, getColliders, isCarrying, updateMovement, updateEnvironment, getInteraction, interact, closeTerminal, getObjective } = createParkEngine(LEVEL);
+diff --git a/game/levels/rf01-2/runtime.js b/game/levels/rf01-2/runtime.js
+--- a/game/levels/rf01-2/runtime.js
++++ b/game/levels/rf01-2/runtime.js
+@@ -1,48 +1,7 @@
+-import { ui as originalUi, camera } from "../rf01/runtime.js";
+-import { LEVEL, WORKSHOP } from "./level.js";
+-import { createFacilityScene, syncFacilityVisuals } from "../../scene.js";
+-import { setWorkshopLighting, syncWorkshopShutter } from "../../rf01-workshop.js";
+-export { LEVEL, camera };
+-export { createInitialState, cloneState, updateMovement, updateEnvironment, interact, getInteraction, isWalkable, closeTerminal, getObjective } from "./engine.js";
+-export const ui = Object.freeze({
+-  ...originalUi, id: "rf01-2", brand: "INDUSTRIAL PARK / A01-2",
+-  unit: "RF-01-2 · WORKSHOP LIGHTING", systemLabel: "厂房照明", gateLabel: "卷帘门",
+-  startKicker: "RF-01-2 / WORKSHOP LIGHTING", startTitle: "厂房<br />照明恢复",
+-  startCopy: "打开卷帘门，进入黑暗厂房并开启室内照明。",
+-  completeTitle: "厂房照明已开启", completeCopy: "卷帘门已打开，机器人进入厂房并打开了室内照明。",
+-});
+-export const eventMessages = Object.freeze({
+-  shutter_opening: "卷帘门正在升起，净空足够后可进入",
+-  shutter_already_opening: "卷帘门已启动，无需重复操作 · 余量 -5",
+-  workshop_lit: "厂房照明已开启，任务完成",
+-  empty_interaction: "请靠近并面向开关 · 余量 -5",
+-  progress_depleted: "任务余量耗尽，按 R 重置",
+-});
+-export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+-export function createScene() { return createFacilityScene(); }
+-export function isCarrying() { return false; }
+-export function syncVisuals(world, state, delta) {
+-  syncFacilityVisuals(world, state, delta);
+-  if (world.workshop) {
+-    syncWorkshopShutter(world.workshop, state.shutterLift);
+-    setWorkshopLighting(world.workshop, state.lightsOn);
+-    world.workshop.cutaway.value = state.enteredWorkshop ? 1 : 0;
+-  }
+-}
+-export function getTelemetry(state) {
+-  return { system: state.lightsOn ? "ON" : "OFF", systemOnline: state.lightsOn, cargo: "EMPTY",
+-    gate: state.shutterLift >= WORKSHOP.clearance ? "OPEN" : state.shutterRequested ? "OPENING" : "CLOSED" };
+-}
+-export function getProgressSteps(state) {
+-  return [
+-    { label: "打开卷帘门", done: state.shutterLift >= WORKSHOP.clearance, active: !state.shutterRequested },
+-    { label: "进入黑暗厂房", done: state.enteredWorkshop, active: state.shutterRequested && !state.enteredWorkshop },
+-    { label: "开启室内照明", done: state.lightsOn, active: state.enteredWorkshop && !state.lightsOn },
+-  ];
+-}
+-export function getTerminal() { return { title: "厂房照明", copy: ui.startCopy, rows: [] }; }
+-export function getSoundPosition(_before, state) { return state.player; }
+-export function getDebugState(state) {
+-  return { revision: LEVEL.revision, shutterLift: state.shutterLift, enteredWorkshop: state.enteredWorkshop,
+-    lightsOn: state.lightsOn, distanceMoved: state.distanceMoved, minimumReserve: state.minimumReserve };
+-}
++import { LEVEL } from "./level.js";
++import { createParkRuntime } from "../../rf01-shared-runtime.js";
++export { LEVEL };
++export * from "./engine.js";
++export { camera } from "../../rf01-shared-runtime.js";
++export { createScene, createCargoModel, syncVisuals, syncRobotCargo } from "../../rf01-shared-scene.js";
++export const { ui, audio, eventMessages, getTelemetry, getProgressSteps, getTerminal, getSoundPosition, getDebugState } = createParkRuntime(LEVEL);
+diff --git a/game/levels/rf01-3/level.js b/game/levels/rf01-3/level.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01-3/level.js
+@@ -0,0 +1,3 @@
++import { levelFor } from "../../rf01-shared-level.js";
++export { WORKSHOP, DISPATCH } from "../../rf01-shared-level.js";
++export const LEVEL = levelFor("rf01-3");
+diff --git a/game/levels/rf01-3/engine.js b/game/levels/rf01-3/engine.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01-3/engine.js
+@@ -0,0 +1,4 @@
++import { LEVEL } from "./level.js";
++import { createParkEngine } from "../../rf01-shared-engine.js";
++export { isInside } from "../../rf01-shared-engine.js";
++export const { createInitialState, cloneState, isWalkable, getColliders, isCarrying, updateMovement, updateEnvironment, getInteraction, interact, closeTerminal, getObjective } = createParkEngine(LEVEL);
+diff --git a/game/levels/rf01-3/runtime.js b/game/levels/rf01-3/runtime.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01-3/runtime.js
+@@ -0,0 +1,7 @@
++import { LEVEL } from "./level.js";
++import { createParkRuntime } from "../../rf01-shared-runtime.js";
++export { LEVEL };
++export * from "./engine.js";
++export { camera } from "../../rf01-shared-runtime.js";
++export { createScene, createCargoModel, syncVisuals, syncRobotCargo } from "../../rf01-shared-scene.js";
++export const { ui, audio, eventMessages, getTelemetry, getProgressSteps, getTerminal, getSoundPosition, getDebugState } = createParkRuntime(LEVEL);
+diff --git a/game/engine.js b/game/engine.js
+--- a/game/engine.js
++++ b/game/engine.js
+@@ -1,185 +1,2 @@
+-import { DOOR_COLLIDER, getRF01StaticColliders, LEVEL } from "./level.js";
+-import { applyRobotMovement } from "./movement.js";
+-
+-const EPSILON = 1e-6;
+-
+-export function createInitialState() {
+-  return {
+-    player: { ...LEVEL.playerStart },
+-    battery: { location: "ground", ...LEVEL.batteryStart },
+-    powered: false,
+-    doorOpen: false,
+-    terminalOpen: false,
+-    complete: false,
+-    failed: false,
+-    progress: LEVEL.progress.initial,
+-    rewardedMilestones: {},
+-    motion: "idle",
+-    elapsed: 0,
+-    interactions: 0,
+-    lastEvent: "facility_entered",
+-  };
+-}
+-
+-export function cloneState(state) {
+-  return {
+-    ...state,
+-    player: { ...state.player },
+-    battery: { ...state.battery },
+-    rewardedMilestones: { ...state.rewardedMilestones },
+-  };
+-}
+-
+-export function distance(a, b) {
+-  return Math.hypot(a.x - b.x, a.z - b.z);
+-}
+-
+-export function angleDelta(from, to) {
+-  return Math.atan2(Math.sin(to - from), Math.cos(to - from));
+-}
+-
+-function circleOverlapsRect(x, z, radius, rect) {
+-  const nearX = Math.max(rect.minX, Math.min(x, rect.maxX));
+-  const nearZ = Math.max(rect.minZ, Math.min(z, rect.maxZ));
+-  return (x - nearX) ** 2 + (z - nearZ) ** 2 < radius ** 2;
+-}
+-
+-export function isWalkable(state, x, z) {
+-  const { bounds, playerRadius: radius, playerForwardOffset } = LEVEL;
+-  const yaw = state.player?.yaw ?? 0;
+-  const collisionCircles = [
+-    { x, z },
+-    { x: x + Math.sin(yaw) * playerForwardOffset, z: z + Math.cos(yaw) * playerForwardOffset },
+-  ];
+-  if (collisionCircles.some((circle) => circle.x - radius < bounds.minX || circle.x + radius > bounds.maxX || circle.z - radius < bounds.minZ || circle.z + radius > bounds.maxZ)) return false;
+-  if (getRF01StaticColliders().some((rect) => collisionCircles.some((circle) => circleOverlapsRect(circle.x, circle.z, radius, rect)))) return false;
+-  if (!state.doorOpen && collisionCircles.some((circle) => circleOverlapsRect(circle.x, circle.z, radius, DOOR_COLLIDER))) return false;
+-  return true;
+-}
+-
+-export function updateMovement(state, input, deltaSeconds) {
+-  const next = cloneState(state);
+-  const dt = Math.min(Math.max(deltaSeconds, 0), 0.05);
+-  next.elapsed += dt;
+-  if (state.complete || state.failed || state.terminalOpen) {
+-    next.motion = state.battery.location === "carried" ? "carrying" : "idle";
+-    return next;
+-  }
+-
+-  const movement = applyRobotMovement(next, state, input, dt, LEVEL, isWalkable);
+-  if (!movement.active) {
+-    next.motion = state.battery.location === "carried" ? "carrying" : "idle";
+-    return next;
+-  }
+-  if (input.drain !== false) next.progress = Math.max(0, state.progress - LEVEL.progress.movementDrainPerSecond * dt);
+-  // Carrying is a presentation state, not a locomotion state. Keep reporting
+-  // movement here so the walking gait remains active while holding a payload.
+-  next.motion = movement.motionTurning ? "turning" : "moving";
+-  if (state.battery.location === "carried") next.battery = { location: "carried" };
+-
+-  if (next.progress <= EPSILON) {
+-    next.progress = 0;
+-    next.failed = true;
+-    next.terminalOpen = false;
+-    next.motion = "idle";
+-    next.lastEvent = "progress_depleted";
+-    return next;
+-  }
+-
+-  if (state.powered && state.doorOpen && distance(next.player, LEVEL.exit) <= LEVEL.exit.radius) {
+-    next.complete = true;
+-    next.progress = LEVEL.progress.maximum;
+-    next.motion = "idle";
+-    next.lastEvent = "exit_reached";
+-  }
+-  return next;
+-}
+-
+-function nearbyCandidates(state) {
+-  const candidates = [];
+-  if (state.battery.location === "ground") {
+-    candidates.push({ type: "battery", distance: distance(state.player, state.battery) });
+-  }
+-  if (state.battery.location === "carried") {
+-    candidates.push({ type: "slot", distance: distance(state.player, LEVEL.powerSlot) });
+-  }
+-  candidates.push({ type: "door", distance: distance(state.player, LEVEL.door) });
+-  candidates.push({ type: "terminal", distance: distance(state.player, LEVEL.terminal) });
+-  return candidates
+-    .filter((candidate) => candidate.distance <= LEVEL.interactionRange)
+-    .sort((a, b) => a.distance - b.distance);
+-}
+-
+-export function getInteraction(state) {
+-  if (state.complete || state.failed) return null;
+-  if (state.terminalOpen) return { type: "terminal-close", label: "关闭终端" };
+-  const nearest = nearbyCandidates(state)[0];
+-  if (nearest?.type === "battery") return { ...nearest, label: "抓取能源模块" };
+-  if (nearest?.type === "slot") return { ...nearest, label: "放入电源插槽" };
+-  if (nearest?.type === "terminal") return { ...nearest, label: "读取维护终端" };
+-  if (nearest?.type === "door") {
+-    if (!state.powered) return { ...nearest, label: "检查安全门" };
+-    return { ...nearest, label: state.doorOpen ? "关闭安全门" : "打开安全门" };
+-  }
+-  if (state.battery.location === "carried") return { type: "drop", label: "放下能源模块" };
+-  return null;
+-}
+-
+-export function interact(state) {
+-  const interaction = getInteraction(state);
+-  if (!interaction) return cloneState(state);
+-  const next = cloneState(state);
+-  next.interactions += 1;
+-
+-  if (interaction.type === "battery") {
+-    next.battery = { location: "carried" };
+-    next.motion = "carrying";
+-    next.lastEvent = "battery_collected";
+-  } else if (interaction.type === "slot") {
+-    next.battery = { location: "slotted", x: LEVEL.powerSlot.x, z: LEVEL.powerSlot.z };
+-    next.powered = true;
+-    next.motion = "idle";
+-    next.lastEvent = "power_restored";
+-  } else if (interaction.type === "drop") {
+-    next.battery = { location: "ground", x: state.player.x, z: state.player.z };
+-    next.motion = "idle";
+-    next.lastEvent = "battery_dropped";
+-  } else if (interaction.type === "door") {
+-    if (!state.powered) {
+-      next.lastEvent = "door_unpowered";
+-    } else {
+-      next.doorOpen = !state.doorOpen;
+-      next.lastEvent = next.doorOpen ? "door_opened" : "door_closed";
+-    }
+-  } else if (interaction.type === "terminal") {
+-    next.terminalOpen = true;
+-    next.motion = "idle";
+-    next.lastEvent = "terminal_opened";
+-  } else if (interaction.type === "terminal-close") {
+-    next.terminalOpen = false;
+-    next.lastEvent = "terminal_closed";
+-  }
+-  const reward = LEVEL.progress.rewards[next.lastEvent] ?? 0;
+-  if (reward > 0 && !next.rewardedMilestones[next.lastEvent]) {
+-    next.rewardedMilestones[next.lastEvent] = true;
+-    next.progress = Math.min(LEVEL.progress.maximum, next.progress + reward);
+-  }
+-  return next;
+-}
+-
+-export function closeTerminal(state) {
+-  if (!state.terminalOpen) return cloneState(state);
+-  const next = cloneState(state);
+-  next.terminalOpen = false;
+-  next.lastEvent = "terminal_closed";
+-  return next;
+-}
+-
+-export function getObjective(state) {
+-  if (state.failed) return { step: 0, title: "任务失败", detail: "任务余量已耗尽，按 R 重新开始。" };
+-  if (state.complete) return { step: 4, title: "撤离成功", detail: "设施最低运行电力已恢复。" };
+-  if (state.powered && state.doorOpen) return { step: 4, title: "前往门外缓冲区", detail: "穿过南侧 5 m 平移门，进入门外车辆缓冲区。" };
+-  if (state.powered) return { step: 3, title: "打开安全门", detail: "门已通电，靠近控制面板并按 F。" };
+-  if (state.battery.location === "carried") return { step: 2, title: "安装能源模块", detail: "双手携带模块前往门岗西侧的应急电源柜。" };
+-  return { step: 1, title: "恢复园区供电", detail: "前往西侧维护间外的电池货架，找到可用能源模块。" };
+-}
++export * from "./levels/rf01/engine.js";
++export { distance, angleDelta } from "./rf01-shared-engine.js";
+diff --git a/game/rf01-shared-runtime.js b/game/rf01-shared-runtime.js
+new file mode 100644
+--- /dev/null
++++ b/game/rf01-shared-runtime.js
+@@ -0,0 +1,33 @@
++export const camera = Object.freeze({ position: [0, 18.5, 16], lookAt: [0, .6, 0], fov: 43 });
++export function createParkRuntime(LEVEL) {
++  const suffix = LEVEL.id.replace("rf", "").toUpperCase();
++  const ui = Object.freeze({
++    id: LEVEL.id, brand: "INDUSTRIAL PARK / " + suffix, unit: LEVEL.id.toUpperCase() + " · SHARED SERVICE YARD",
++    systemLabel: "园区供电 / 厂房照明", cargoLabel: "携带物", gateLabel: "厂房卷帘门",
++    startKicker: LEVEL.id.toUpperCase() + " / INDUSTRIAL PARK",
++    startTitle: LEVEL.title, startCopy: LEVEL.title,
++    completeKicker: "OBJECTIVE COMPLETE", completeTitle: "任务完成", completeCopy: LEVEL.title,
++    terminalHeading: "门岗出库终端",
++  });
++  function getTelemetry(state) {
++    const cargo = state.carriedItem ? "货箱 " + (Number(state.carriedItem.split("-")[1]) + 1) : state.battery.location === "carried" ? "能源模块" : "EMPTY";
++    const gate = state.shutterBlocked ? "防夹停门" : state.shutterPhase === "open" ? Math.ceil(state.shutterHold) + "s"
++      : ({ closed: "CLOSED", opening: "OPENING", closing: "CLOSING" })[state.shutterPhase];
++    return { system: (state.powered ? "ON" : "OFF") + " / " + (state.lightsOn ? "ON" : "OFF"), systemOnline: state.powered, cargo, gate };
++  }
++  function getTerminal(state) {
++    const delivered = state.crates.filter(crate => crate.location === "delivered").length;
++    return { title: state.dispatchConfirmed ? "出库记录已确认" : "门岗运行记录",
++      copy: "园区供电、厂房照明和两箱货物均就绪时，在终端前按 F 确认出库。",
++      rows: [["园区供电", state.powered ? "ONLINE" : "OFFLINE"], ["厂房照明", state.lightsOn ? "ON" : "OFF"], ["货物到位", delivered + " / 2"]] };
++  }
++  function getDebugState(state) {
++    return { revision: LEVEL.revision, powered: state.powered, shutterLift: state.shutterLift, shutterPhase: state.shutterPhase,
++      shutterHold: state.shutterHold, shutterBlocked: state.shutterBlocked, enteredWorkshop: state.enteredWorkshop,
++      lightsOn: state.lightsOn, crates: state.crates, carriedItem: state.carriedItem,
++      dispatchConfirmed: state.dispatchConfirmed, distanceMoved: state.distanceMoved, minimumReserve: state.minimumReserve };
++  }
++  return { ui, audio: Object.freeze({ assets: {}, eventSounds: {}, volume: {} }), eventMessages: Object.freeze({}),
++    getTelemetry, getTerminal, getDebugState, getProgressSteps: () => [],
++    getSoundPosition: (_before, state) => state.player };
++}
+diff --git a/game/rf01-shared-scene.js b/game/rf01-shared-scene.js
+new file mode 100644
+--- /dev/null
++++ b/game/rf01-shared-scene.js
+@@ -0,0 +1,62 @@
++import * as THREE from "three";
++import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
++import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
++import { createFacilityScene, createRF01BatteryCargoModel, syncFacilityVisuals } from "./scene.js";
++import { RF01_PRODUCTION_ASSETS } from "./rf01-production-assets.js";
++import { setWorkshopLighting, syncWorkshopShutter } from "./rf01-workshop.js";
++import { DISPATCH } from "./rf01-shared-level.js";
++const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
++export function createScene() {
++  const world = createFacilityScene();
++  const ready = world.assetReady;
++  world.assetReady = ready.then(results => {
++    world.crates = world.productionAssets.children.filter(child => child.name === "rf01-cardinal-cargoCrate");
++    if (world.crates.length !== 2) throw new Error("Shared RF-01 requires both cargo crates");
++    const material = new THREE.MeshStandardMaterial({ color: 0xc5a64e, roughness: .95, polygonOffset: true, polygonOffsetFactor: -1 });
++    DISPATCH.bays.forEach((bay,index) => {
++      const border = new THREE.Group(); border.name = "rf01-dispatch-bay-" + index;
++      [[1.05,.035,0,-.43],[1.05,.035,0,.43],[.035,.86,-.525,0],[.035,.86,.525,0]].forEach(([width,depth,x,z]) => {
++        const stripe = new THREE.Mesh(new THREE.BoxGeometry(width,.005,depth), material);
++        stripe.position.set(bay.x+x,.032,bay.z+z); stripe.receiveShadow = true; border.add(stripe);
++      });
++      world.scene.add(border);
++    });
++    return results;
++  });
++  return world;
++}
++export function createCargoModel() {
++  const root = new THREE.Group(); root.userData.robotScale = 1;
++  const battery = createRF01BatteryCargoModel(); battery.name = "rf01-carried-battery"; root.add(battery);
++  const ready = loader.loadAsync(RF01_PRODUCTION_ASSETS.models.cargoCrate).then(gltf => {
++    const crate = gltf.scene; crate.name = "rf01-carried-crate"; crate.scale.setScalar(.62);
++    crate.position.y = -.27;
++    crate.traverse(object => { if (object.isMesh) { object.castShadow = true; object.receiveShadow = true; } });
++    root.add(crate); return { loaded: true, name: "rf01-shared-cargo", url: RF01_PRODUCTION_ASSETS.models.cargoCrate };
++  });
++  root.userData.assetReady = Promise.all([battery.userData.assetReady,ready]).then(results => ({ loaded: results.every(result=>result.loaded), name: "rf01-shared-cargo" }));
++  return root;
++}
++export function syncRobotCargo(robot,state) {
++  const payload = robot.userData.rackPayload;
++  if (!payload) return;
++  payload.visible = Boolean(state.carriedItem) || state.battery.location === "carried";
++  const battery = payload.getObjectByName("rf01-carried-battery");
++  const crate = payload.getObjectByName("rf01-carried-crate");
++  if (battery) battery.visible = state.battery.location === "carried";
++  if (crate) crate.visible = Boolean(state.carriedItem);
++}
++export function syncVisuals(world,state,delta) {
++  syncFacilityVisuals(world,state,delta);
++  if (world.workshop) {
++    syncWorkshopShutter(world.workshop,state.shutterLift);
++    setWorkshopLighting(world.workshop,state.lightsOn);
++    world.workshop.cutaway.value = state.enteredWorkshop ? 1 : 0;
++  }
++  world.crates?.forEach((model,index) => {
++    const crate = state.crates[index];
++    model.visible = crate.location !== "carried";
++    model.position.set(crate.x,crate.z < -2.1 ? .04 : .032,crate.z);
++    model.rotation.y = 0;
++  });
++}
+diff --git a/game/rf01-workshop.js b/game/rf01-workshop.js
+--- a/game/rf01-workshop.js
++++ b/game/rf01-workshop.js
+@@ -1,257 +1,260 @@
+-import * as THREE from "three";
+-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+-import { RF01_YARD_LAYOUT } from "./rf01-yard-layout.js";
+-import { WORKSHOP } from "./levels/rf01-2/level.js";
+-
+-function makeBox(parent, name, size, position, material) {
+-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
+-  mesh.name = name;
+-  mesh.position.set(...position);
+-  mesh.castShadow = true;
+-  mesh.receiveShadow = true;
+-  parent.add(mesh);
+-  return mesh;
+-}
+-
+-function splitPolygon(polygon, axis, boundary, direction) {
+-  const inside = [];
+-  const outside = [];
+-  for (let index = 0; index < polygon.length; index += 1) {
+-    const current = polygon[index];
+-    const next = polygon[(index + 1) % polygon.length];
+-    const distance = (current.position[axis] - boundary) * direction;
+-    const nextDistance = (next.position[axis] - boundary) * direction;
+-    (distance >= 0 ? inside : outside).push(current);
+-    if ((distance >= 0) !== (nextDistance >= 0)) {
+-      const fraction = distance / (distance - nextDistance);
+-      const vertex = {
+-        position: current.position.clone().lerp(next.position, fraction),
+-        normal: current.normal.clone().lerp(next.normal, fraction).normalize(),
+-        uv: current.uv.clone().lerp(next.uv, fraction),
+-      };
+-      inside.push(vertex);
+-      outside.push(vertex);
+-    }
+-  }
+-  return { inside, outside };
+-}
+-
+-export function separateShutter(source) {
+-  source.updateWorldMatrix(true, false);
+-  const geometry = source.geometry;
+-  const positions = geometry.getAttribute("position");
+-  const normals = geometry.getAttribute("normal");
+-  const textureCoordinates = geometry.getAttribute("uv");
+-  const normalMatrix = new THREE.Matrix3().getNormalMatrix(source.matrixWorld);
+-  const vertices = Array.from({ length: positions.count }, (_, index) => ({
+-    position: new THREE.Vector3().fromBufferAttribute(positions, index).applyMatrix4(source.matrixWorld),
+-    normal: new THREE.Vector3().fromBufferAttribute(normals, index).applyMatrix3(normalMatrix).normalize(),
+-    uv: new THREE.Vector2().fromBufferAttribute(textureCoordinates, index),
+-  }));
+-  const shellIndices = [];
+-  const doorIndices = [];
+-  const positionValues = vertices.flatMap(vertex => vertex.position.toArray());
+-  const normalValues = vertices.flatMap(vertex => vertex.normal.toArray());
+-  const uvValues = vertices.flatMap(vertex => vertex.uv.toArray());
+-  vertices.forEach((vertex, index) => { vertex.index = index; });
+-  const planes = [
+-    ["x", WORKSHOP.doorway.minX, 1], ["x", WORKSHOP.doorway.maxX, -1],
+-    ["y", .035, 1], ["y", WORKSHOP.height, -1],
+-    ["z", -1.95, 1], ["z", -.96, -1],
+-  ];
+-  function appendPolygon(polygon, target) {
+-    if (polygon.length < 3) return;
+-    const indices = polygon.map(vertex => {
+-      if (vertex.index === undefined) {
+-        vertex.index = positionValues.length / 3;
+-        positionValues.push(...vertex.position.toArray());
+-        normalValues.push(...vertex.normal.toArray());
+-        uvValues.push(...vertex.uv.toArray());
+-      }
+-      return vertex.index;
+-    });
+-    for (let index = 1; index < indices.length - 1; index += 1) target.push(indices[0], indices[index], indices[index + 1]);
+-  }
+-  const count = geometry.index?.count ?? positions.count;
+-  for (let offset = 0; offset < count; offset += 3) {
+-    const triangle = [0, 1, 2].map(step => vertices[geometry.index ? geometry.index.getX(offset + step) : offset + step]);
+-    if (planes.some(([axis, boundary, direction]) => triangle.every(vertex => (vertex.position[axis] - boundary) * direction < 0))) {
+-      appendPolygon(triangle, shellIndices);
+-      continue;
+-    }
+-    let polygon = triangle;
+-    for (const [axis, boundary, direction] of planes) {
+-      const split = splitPolygon(polygon, axis, boundary, direction);
+-      appendPolygon(split.outside, shellIndices);
+-      polygon = split.inside;
+-      if (polygon.length < 3) break;
+-    }
+-    appendPolygon(polygon, doorIndices);
+-  }
+-  if (doorIndices.length < 30) throw new Error("RF-01 workshop shutter could not be separated");
+-  const attributes = {
+-    position: new THREE.Float32BufferAttribute(positionValues, 3),
+-    normal: new THREE.Float32BufferAttribute(normalValues, 3),
+-    uv: new THREE.Float32BufferAttribute(uvValues, 2),
+-  };
+-  function meshFor(indices, name) {
+-    const result = new THREE.BufferGeometry();
+-    Object.entries(attributes).forEach(([key, value]) => result.setAttribute(key, value));
+-    result.setIndex(indices);
+-    result.computeBoundingBox();
+-    result.computeBoundingSphere();
+-    const mesh = new THREE.Mesh(result, source.material);
+-    mesh.name = name;
+-    mesh.castShadow = true;
+-    mesh.receiveShadow = true;
+-    return mesh;
+-  }
+-  return { shell: meshFor(shellIndices, "workshop-original-shell"), door: meshFor(doorIndices, "workshop-original-shutter") };
+-}
+-
+-function roomMaterial(color, map) {
+-  const material = new THREE.MeshStandardMaterial({ color, map, roughness: .9, metalness: .03, envMapIntensity: .015 });
+-  material.onBeforeCompile = shader => {
+-    shader.fragmentShader = shader.fragmentShader.replace("#include <lights_fragment_end>",
+-      "#include <lights_fragment_end>\nreflectedLight.indirectDiffuse *= 0.025;");
+-  };
+-  material.customProgramCacheKey = () => "workshop-interior-ambient-v1";
+-  return material;
+-}
+-
+-async function addControl(parent, name, position, assetName, mountDepth) {
+-  const url = "/local-assets/cardinal/rf01/models/runtime/workshop-v2-fit/" + assetName + ".glb";
+-  const gltf = await new GLTFLoader().loadAsync(url);
+-  const root = gltf.scene;
+-  root.name = name;
+-  root.position.set(...position);
+-  root.traverse(object => {
+-    if (!object.isMesh) return;
+-    object.castShadow = true;
+-    object.receiveShadow = true;
+-    const materials = Array.isArray(object.material) ? object.material : [object.material];
+-    materials.forEach(material => {
+-      material.envMapIntensity = assetName === "light-switch" ? .035 : .55;
+-      material.roughness = Math.max(material.roughness ?? .45, .38);
+-      if (material.map) material.map.colorSpace = THREE.SRGBColorSpace;
+-    });
+-  });
+-  parent.add(root);
+-  const mounting = new THREE.MeshStandardMaterial({ color: 0x677073, roughness: .56, metalness: .6 });
+-  makeBox(parent, name + "-mount", [.20, .25, mountDepth],
+-    [position[0], position[1], position[2] - .06 - mountDepth / 2], mounting);
+-  return { root, loaded: true, name: assetName, url };
+-}
+-
+-function addCutaway(material, uniform) {
+-  const previousCompile = material.onBeforeCompile;
+-  const previousKey = material.customProgramCacheKey();
+-  material.onBeforeCompile = shader => {
+-    previousCompile.call(material, shader);
+-    shader.uniforms.workshopCutaway = uniform;
+-    shader.vertexShader = "varying float workshopHeight;\n" + shader.vertexShader;
+-    shader.vertexShader = shader.vertexShader.replace("#include <project_vertex>",
+-      "#include <project_vertex>\nworkshopHeight = (modelMatrix * vec4(transformed, 1.0)).y;");
+-    shader.fragmentShader = "uniform float workshopCutaway;\nvarying float workshopHeight;\n" + shader.fragmentShader;
+-    shader.fragmentShader = shader.fragmentShader.replace("#include <opaque_fragment>",
+-      "if (workshopCutaway > 0.5 && cameraPosition.y > 6.0 && workshopHeight > 1.6) discard;\n#include <opaque_fragment>");
+-  };
+-  material.customProgramCacheKey = () => previousKey + "-workshop-cutaway-v1";
+-  material.needsUpdate = true;
+-}
+-
+-export async function installWorkshopInterior(world) {
+-  const workshop = world.productionAssets.getObjectByName("rf01-cardinal-workshop-meter-fitted");
+-  if (!workshop) throw new Error("RF-01 workshop production asset missing");
+-  const root = new THREE.Group();
+-  root.name = "rf01-shared-workshop-interior";
+-  world.scene.add(root);
+-  const shutter = new THREE.Group();
+-  shutter.name = "rf01-workshop-rolling-shutter";
+-  root.add(shutter);
+-  const originals = [];
+-  workshop.traverse(object => { if (object.isMesh) originals.push(object); });
+-  for (const original of originals) {
+-    const separated = separateShutter(original);
+-    root.add(separated.shell);
+-    shutter.add(separated.door);
+-    original.visible = false;
+-  }
+-  const wallMaterial = roomMaterial(0x858e91, world.surfaces.cladding.map);
+-  const floorMaterial = roomMaterial(0x969b95, world.surfaces.concrete.map);
+-  floorMaterial.normalMap = world.surfaces.concrete.normalMap;
+-  floorMaterial.roughnessMap = world.surfaces.concrete.roughnessMap;
+-  makeBox(root, "workshop-floor", [9.2, .04, 4.55], [0, .015, -4.175], floorMaterial);
+-  makeBox(root, "workshop-ceiling", [9.2, .08, 4.55], [0, 4.0, -4.175], wallMaterial);
+-  makeBox(root, "workshop-back-lining", [9.2, 3.95, .08], [0, 2, -6.5], wallMaterial);
+-  makeBox(root, "workshop-west-lining", [.08, 3.95, 4.55], [-4.6, 2, -4.175], wallMaterial);
+-  makeBox(root, "workshop-east-lining", [.08, 3.95, 4.55], [4.6, 2, -4.175], wallMaterial);
+-  makeBox(root, "workshop-front-left-lining", [4.5, 3.95, .08], [-2.65, 2, -1.99], wallMaterial);
+-  makeBox(root, "workshop-front-right-lining", [1.15, 3.95, .08], [4.32, 2, -1.99], wallMaterial);
+-  makeBox(root, "workshop-door-lintel-lining", [4.11, 1.57, .12], [1.675, 3.19, -1.99], wallMaterial);
+-  const steel = new THREE.MeshStandardMaterial({ color: 0x5e686a, metalness: .7, roughness: .45 });
+-  [-.43, 3.78].forEach(position => makeBox(root, "shutter-guide", [.10, 2.45, .20], [position, 1.225, -1.27], steel));
+-  makeBox(root, "shutter-roller-housing", [4.34, .18, .27], [1.675, 2.46, -1.30], steel);
+-  const controls = await Promise.all([
+-    addControl(root, "workshop-door-control",
+-      [WORKSHOP.doorControl.x, WORKSHOP.doorControl.y, WORKSHOP.doorControl.z], "door-control", .14),
+-    addControl(root, "workshop-light-switch",
+-      [WORKSHOP.lightSwitch.x, WORKSHOP.lightSwitch.y, WORKSHOP.lightSwitch.z], "light-switch", .06),
+-  ]);
+-  const [outsideButton, insideButton] = controls.map(control => control.root);
+-  makeBox(root, "workshop-switch-conduit", [.035, 2.68, .035], [3.8, 2.6, -6.41], steel);
+-  const fixtures = world.productionAssets.children.filter(child => {
+-    let found = false;
+-    child.traverse(object => { if (object.name === "rf01-cardinal-lightFixture") found = true; });
+-    return found;
+-  });
+-  const bulbs = [];
+-  const lights = [];
+-  fixtures.forEach((fixture, index) => {
+-    const position = WORKSHOP.lampPositions[index];
+-    if (!position) return;
+-    fixture.position.set(...position);
+-    fixture.traverse(object => {
+-      if (!object.isMesh) return;
+-      object.material = object.material.clone();
+-      object.material.emissiveIntensity = 0;
+-    });
+-    const glow = new THREE.MeshStandardMaterial({ color: 0xcdd5d2, emissive: 0xffeed3, emissiveIntensity: 0, roughness: .5 });
+-    bulbs.push(glow);
+-    makeBox(root, "workshop-light-diffuser-" + index, [1.5, .025, .12], [position[0], 3.65, position[2]], glow);
+-    const light = new THREE.PointLight(0xffeedc, 0, 9, 2);
+-    light.position.set(position[0], 3.4, position[2]);
+-    light.castShadow = true;
+-    light.shadow.mapSize.set(512, 512);
+-    light.shadow.bias = -.001;
+-    root.add(light);
+-    lights.push(light);
+-    makeBox(root, "workshop-light-bracket-" + index, [.05, .24, .05], [position[0], 3.86, position[2]], steel);
+-  });
+-  if (fixtures.length !== 3) throw new Error("RF-01 workshop requires all three existing light fixtures");
+-  const cutaway = { value: 0 };
+-  const materials = new Set();
+-  [root, ...fixtures].forEach(group => group.traverse(object => {
+-    if (!object.isMesh) return;
+-    const entries = Array.isArray(object.material) ? object.material : [object.material];
+-    entries.forEach(material => materials.add(material));
+-  }));
+-  materials.forEach(material => addCutaway(material, cutaway));
+-  const result = { root, shutter, lights, bulbs, outsideButton, insideButton, controls, fixtures, cutaway, revision: RF01_YARD_LAYOUT.revision };
+-  setWorkshopLighting(result, false);
+-  syncWorkshopShutter(result, 0);
+-  return result;
+-}
+-
+-export function syncWorkshopShutter(workshop, lift) {
+-  const height = Math.max(0, Math.min(WORKSHOP.height, lift));
+-  workshop.shutter.position.y = height;
+-  workshop.shutter.scale.y = Math.max(.012, (WORKSHOP.height - height) / WORKSHOP.height);
+-  workshop.outsideButton.userData.active = height >= WORKSHOP.clearance;
+-}
+-
+-export function setWorkshopLighting(workshop, enabled) {
+-  workshop.lights.forEach(light => { light.intensity = enabled ? 85 : 0; });
+-  workshop.bulbs.forEach(material => { material.emissiveIntensity = enabled ? 5 : 0; });
+-  workshop.insideButton.userData.active = enabled;
+-}
++import * as THREE from "three";
++import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
++import { RF01_YARD_LAYOUT } from "./rf01-yard-layout.js";
++import { WORKSHOP } from "./rf01-shared-level.js";
++
++function makeBox(parent, name, size, position, material) {
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
++  mesh.name = name;
++  mesh.position.set(...position);
++  mesh.castShadow = true;
++  mesh.receiveShadow = true;
++  parent.add(mesh);
++  return mesh;
++}
++
++function splitPolygon(polygon, axis, boundary, direction) {
++  const inside = [];
++  const outside = [];
++  for (let index = 0; index < polygon.length; index += 1) {
++    const current = polygon[index];
++    const next = polygon[(index + 1) % polygon.length];
++    const distance = (current.position[axis] - boundary) * direction;
++    const nextDistance = (next.position[axis] - boundary) * direction;
++    (distance >= 0 ? inside : outside).push(current);
++    if ((distance >= 0) !== (nextDistance >= 0)) {
++      const fraction = distance / (distance - nextDistance);
++      const vertex = {
++        position: current.position.clone().lerp(next.position, fraction),
++        normal: current.normal.clone().lerp(next.normal, fraction).normalize(),
++        uv: current.uv.clone().lerp(next.uv, fraction),
++      };
++      inside.push(vertex);
++      outside.push(vertex);
++    }
++  }
++  return { inside, outside };
++}
++
++export function separateShutter(source) {
++  source.updateWorldMatrix(true, false);
++  const geometry = source.geometry;
++  const positions = geometry.getAttribute("position");
++  const normals = geometry.getAttribute("normal");
++  const textureCoordinates = geometry.getAttribute("uv");
++  const normalMatrix = new THREE.Matrix3().getNormalMatrix(source.matrixWorld);
++  const vertices = Array.from({ length: positions.count }, (_, index) => ({
++    position: new THREE.Vector3().fromBufferAttribute(positions, index).applyMatrix4(source.matrixWorld),
++    normal: new THREE.Vector3().fromBufferAttribute(normals, index).applyMatrix3(normalMatrix).normalize(),
++    uv: new THREE.Vector2().fromBufferAttribute(textureCoordinates, index),
++  }));
++  const shellIndices = [];
++  const doorIndices = [];
++  const positionValues = vertices.flatMap(vertex => vertex.position.toArray());
++  const normalValues = vertices.flatMap(vertex => vertex.normal.toArray());
++  const uvValues = vertices.flatMap(vertex => vertex.uv.toArray());
++  vertices.forEach((vertex, index) => { vertex.index = index; });
++  const planes = [
++    ["x", WORKSHOP.doorway.minX, 1], ["x", WORKSHOP.doorway.maxX, -1],
++    ["y", .035, 1], ["y", WORKSHOP.height, -1],
++    ["z", -1.95, 1], ["z", -.96, -1],
++  ];
++  function appendPolygon(polygon, target) {
++    if (polygon.length < 3) return;
++    const indices = polygon.map(vertex => {
++      if (vertex.index === undefined) {
++        vertex.index = positionValues.length / 3;
++        positionValues.push(...vertex.position.toArray());
++        normalValues.push(...vertex.normal.toArray());
++        uvValues.push(...vertex.uv.toArray());
++      }
++      return vertex.index;
++    });
++    for (let index = 1; index < indices.length - 1; index += 1) target.push(indices[0], indices[index], indices[index + 1]);
++  }
++  const count = geometry.index?.count ?? positions.count;
++  for (let offset = 0; offset < count; offset += 3) {
++    const triangle = [0, 1, 2].map(step => vertices[geometry.index ? geometry.index.getX(offset + step) : offset + step]);
++    if (planes.some(([axis, boundary, direction]) => triangle.every(vertex => (vertex.position[axis] - boundary) * direction < 0))) {
++      appendPolygon(triangle, shellIndices);
++      continue;
++    }
++    let polygon = triangle;
++    for (const [axis, boundary, direction] of planes) {
++      const split = splitPolygon(polygon, axis, boundary, direction);
++      appendPolygon(split.outside, shellIndices);
++      polygon = split.inside;
++      if (polygon.length < 3) break;
++    }
++    appendPolygon(polygon, doorIndices);
++  }
++  if (doorIndices.length < 30) throw new Error("RF-01 workshop shutter could not be separated");
++  const attributes = {
++    position: new THREE.Float32BufferAttribute(positionValues, 3),
++    normal: new THREE.Float32BufferAttribute(normalValues, 3),
++    uv: new THREE.Float32BufferAttribute(uvValues, 2),
++  };
++  function meshFor(indices, name) {
++    const result = new THREE.BufferGeometry();
++    Object.entries(attributes).forEach(([key, value]) => result.setAttribute(key, value));
++    result.setIndex(indices);
++    result.computeBoundingBox();
++    result.computeBoundingSphere();
++    const mesh = new THREE.Mesh(result, source.material);
++    mesh.name = name;
++    mesh.castShadow = true;
++    mesh.receiveShadow = true;
++    return mesh;
++  }
++  return { shell: meshFor(shellIndices, "workshop-original-shell"), door: meshFor(doorIndices, "workshop-original-shutter") };
++}
++
++function roomMaterial(color, map) {
++  const material = new THREE.MeshStandardMaterial({ color, map, roughness: .9, metalness: .03, envMapIntensity: .015 });
++  material.onBeforeCompile = shader => {
++    shader.fragmentShader = shader.fragmentShader.replace("#include <lights_fragment_end>",
++      "#include <lights_fragment_end>\nreflectedLight.indirectDiffuse *= 0.025;");
++  };
++  material.customProgramCacheKey = () => "workshop-interior-ambient-v1";
++  return material;
++}
++
++async function addControl(parent, name, position, assetName, mountDepth, yaw = 0) {
++  const url = "/local-assets/cardinal/rf01/models/runtime/workshop-v2-fit/" + assetName + ".glb";
++  const gltf = await new GLTFLoader().loadAsync(url);
++  const root = gltf.scene;
++  root.name = name;
++  root.position.set(...position);
++  root.rotation.y = yaw;
++  root.traverse(object => {
++    if (!object.isMesh) return;
++    object.castShadow = true;
++    object.receiveShadow = true;
++    const materials = Array.isArray(object.material) ? object.material : [object.material];
++    materials.forEach(material => {
++      material.envMapIntensity = assetName === "light-switch" ? .035 : .55;
++      material.roughness = Math.max(material.roughness ?? .45, .38);
++      if (material.map) material.map.colorSpace = THREE.SRGBColorSpace;
++    });
++  });
++  parent.add(root);
++  const mounting = new THREE.MeshStandardMaterial({ color: 0x677073, roughness: .56, metalness: .6 });
++  makeBox(parent, name + "-mount", [.20, .25, mountDepth],
++    [position[0], position[1], position[2] - Math.cos(yaw) * (.06 + mountDepth / 2)], mounting);
++  return { root, loaded: true, name: assetName, url };
++}
++
++function addCutaway(material, uniform) {
++  const previousCompile = material.onBeforeCompile;
++  const previousKey = material.customProgramCacheKey();
++  material.onBeforeCompile = shader => {
++    previousCompile.call(material, shader);
++    shader.uniforms.workshopCutaway = uniform;
++    shader.vertexShader = "varying float workshopHeight;\n" + shader.vertexShader;
++    shader.vertexShader = shader.vertexShader.replace("#include <project_vertex>",
++      "#include <project_vertex>\nworkshopHeight = (modelMatrix * vec4(transformed, 1.0)).y;");
++    shader.fragmentShader = "uniform float workshopCutaway;\nvarying float workshopHeight;\n" + shader.fragmentShader;
++    shader.fragmentShader = shader.fragmentShader.replace("#include <opaque_fragment>",
++      "if (workshopCutaway > 0.5 && cameraPosition.y > 6.0 && workshopHeight > 1.6) discard;\n#include <opaque_fragment>");
++  };
++  material.customProgramCacheKey = () => previousKey + "-workshop-cutaway-v1";
++  material.needsUpdate = true;
++}
++
++export async function installWorkshopInterior(world) {
++  const workshop = world.productionAssets.getObjectByName("rf01-cardinal-workshop-meter-fitted");
++  if (!workshop) throw new Error("RF-01 workshop production asset missing");
++  const root = new THREE.Group();
++  root.name = "rf01-shared-workshop-interior";
++  world.scene.add(root);
++  const shutter = new THREE.Group();
++  shutter.name = "rf01-workshop-rolling-shutter";
++  root.add(shutter);
++  const originals = [];
++  workshop.traverse(object => { if (object.isMesh) originals.push(object); });
++  for (const original of originals) {
++    const separated = separateShutter(original);
++    root.add(separated.shell);
++    shutter.add(separated.door);
++    original.visible = false;
++  }
++  const wallMaterial = roomMaterial(0x858e91, world.surfaces.cladding.map);
++  const floorMaterial = roomMaterial(0x969b95, world.surfaces.concrete.map);
++  floorMaterial.normalMap = world.surfaces.concrete.normalMap;
++  floorMaterial.roughnessMap = world.surfaces.concrete.roughnessMap;
++  makeBox(root, "workshop-floor", [9.2, .04, 4.55], [0, .015, -4.175], floorMaterial);
++  makeBox(root, "workshop-ceiling", [9.2, .08, 4.55], [0, 4.0, -4.175], wallMaterial);
++  makeBox(root, "workshop-back-lining", [9.2, 3.95, .08], [0, 2, -6.5], wallMaterial);
++  makeBox(root, "workshop-west-lining", [.08, 3.95, 4.55], [-4.6, 2, -4.175], wallMaterial);
++  makeBox(root, "workshop-east-lining", [.08, 3.95, 4.55], [4.6, 2, -4.175], wallMaterial);
++  makeBox(root, "workshop-front-left-lining", [4.5, 3.95, .08], [-2.65, 2, -1.99], wallMaterial);
++  makeBox(root, "workshop-front-right-lining", [1.15, 3.95, .08], [4.32, 2, -1.99], wallMaterial);
++  makeBox(root, "workshop-door-lintel-lining", [4.11, 1.57, .12], [1.675, 3.19, -1.99], wallMaterial);
++  const steel = new THREE.MeshStandardMaterial({ color: 0x5e686a, metalness: .7, roughness: .45 });
++  [-.43, 3.78].forEach(position => makeBox(root, "shutter-guide", [.10, 2.45, .20], [position, 1.225, -1.27], steel));
++  makeBox(root, "shutter-roller-housing", [4.34, .18, .27], [1.675, 2.46, -1.30], steel);
++  const controls = await Promise.all([
++    addControl(root, "workshop-door-control",
++      [WORKSHOP.doorControl.x, WORKSHOP.doorControl.y, WORKSHOP.doorControl.z], "door-control", .14),
++    addControl(root, "workshop-inner-door-control",
++      [WORKSHOP.innerDoorControl.x, WORKSHOP.innerDoorControl.y, WORKSHOP.innerDoorControl.z], "door-control", .05, Math.PI),
++    addControl(root, "workshop-light-switch",
++      [WORKSHOP.lightSwitch.x, WORKSHOP.lightSwitch.y, WORKSHOP.lightSwitch.z], "light-switch", .06),
++  ]);
++  const [outsideButton, innerDoorButton, insideButton] = controls.map(control => control.root);
++  makeBox(root, "workshop-switch-conduit", [.035, 2.68, .035], [3.8, 2.6, -6.41], steel);
++  const fixtures = world.productionAssets.children.filter(child => {
++    let found = false;
++    child.traverse(object => { if (object.name === "rf01-cardinal-lightFixture") found = true; });
++    return found;
++  });
++  const bulbs = [];
++  const lights = [];
++  fixtures.forEach((fixture, index) => {
++    const position = WORKSHOP.lampPositions[index];
++    if (!position) return;
++    fixture.position.set(...position);
++    fixture.traverse(object => {
++      if (!object.isMesh) return;
++      object.material = object.material.clone();
++      object.material.emissiveIntensity = 0;
++    });
++    const glow = new THREE.MeshStandardMaterial({ color: 0xcdd5d2, emissive: 0xffeed3, emissiveIntensity: 0, roughness: .5 });
++    bulbs.push(glow);
++    makeBox(root, "workshop-light-diffuser-" + index, [1.5, .025, .12], [position[0], 3.65, position[2]], glow);
++    const light = new THREE.PointLight(0xffeedc, 0, 9, 2);
++    light.position.set(position[0], 3.4, position[2]);
++    light.castShadow = true;
++    light.shadow.mapSize.set(512, 512);
++    light.shadow.bias = -.001;
++    root.add(light);
++    lights.push(light);
++    makeBox(root, "workshop-light-bracket-" + index, [.05, .24, .05], [position[0], 3.86, position[2]], steel);
++  });
++  if (fixtures.length !== 3) throw new Error("RF-01 workshop requires all three existing light fixtures");
++  const cutaway = { value: 0 };
++  const materials = new Set();
++  [root, ...fixtures].forEach(group => group.traverse(object => {
++    if (!object.isMesh) return;
++    const entries = Array.isArray(object.material) ? object.material : [object.material];
++    entries.forEach(material => materials.add(material));
++  }));
++  materials.forEach(material => addCutaway(material, cutaway));
++  const result = { root, shutter, lights, bulbs, outsideButton, innerDoorButton, insideButton, controls, fixtures, cutaway, revision: RF01_YARD_LAYOUT.revision };
++  setWorkshopLighting(result, false);
++  syncWorkshopShutter(result, 0);
++  return result;
++}
++
++export function syncWorkshopShutter(workshop, lift) {
++  const height = Math.max(0, Math.min(WORKSHOP.height, lift));
++  workshop.shutter.position.y = height;
++  workshop.shutter.scale.y = Math.max(.012, (WORKSHOP.height - height) / WORKSHOP.height);
++  workshop.outsideButton.userData.active = height >= WORKSHOP.clearance;
++}
++
++export function setWorkshopLighting(workshop, enabled) {
++  workshop.lights.forEach(light => { light.intensity = enabled ? 85 : 0; });
++  workshop.bulbs.forEach(material => { material.emissiveIntensity = enabled ? 5 : 0; });
++  workshop.insideButton.userData.active = enabled;
++}
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -1,230 +1,231 @@
+-<!doctype html>
+-<html lang="zh-CN">
+-  <head>
+-    <meta charset="UTF-8" />
+-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+-    <meta name="description" content="支持第一、第三及双视角的 3D 人形机器人任务环境。" />
+-    <title>Robot Archive — 3D Puzzle Demo</title>
+-    <link rel="stylesheet" href="/styles.css" />
+-    <link rel="stylesheet" href="/operator-console.css" />
+-  </head>
+-  <body>
+-    <main id="game-shell" aria-label="Robot Archive 3D 游戏">
+-      <div id="viewport" aria-hidden="true"></div>
+-      <div class="vignette" aria-hidden="true"></div>
+-      <div class="operator-view-layer" aria-hidden="true">
+-        <div class="operator-view-caption operator-view-caption-first"><b>01</b><span>G1 / FIRST PERSON</span></div>
+-        <div class="operator-view-caption operator-view-caption-third"><b>02</b><span>ARC / TACTICAL OVERVIEW</span><em>滚轮缩放 · 中键旋转</em></div>
+-        <div class="operator-third-view-focus"></div>
+-        <div class="operator-view-divider"></div>
+-      </div>
+-
+-      <header class="top-hud glass-panel">
+-        <div class="identity">
+-          <span class="identity-mark"><i></i><i></i><i></i></span>
+-          <div><strong id="brand-name">RELAY FACILITY</strong><span id="unit-label">UNIT R-04 · LOCAL SIMULATION</span></div>
+-        </div>
+-        <div class="progress-state">
+-          <div class="progress-heading"><small>MISSION RESERVE</small><strong id="progress-value">100%</strong></div>
+-          <div id="progress-meter" class="progress-meter" role="progressbar" aria-label="任务余量" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+-            <span id="progress-fill"></span>
+-          </div>
+-        </div>
+-        <div class="system-state">
+-          <span class="status-light" id="system-light"></span>
+-          <div><small id="system-label">FACILITY POWER</small><strong id="power-label">OFFLINE</strong></div>
+-        </div>
+-      </header>
+-
+-      <aside class="mission-panel glass-panel">
+-        <span class="section-label">CURRENT DIRECTIVE</span>
+-        <h1 id="objective-title">恢复设施供电</h1>
+-      </aside>
+-
+-      <aside class="telemetry-panel glass-panel">
+-        <div><span>ROBOT STATE</span><strong id="robot-state">IDLE</strong></div>
+-        <div><span id="cargo-label">CARGO</span><strong id="cargo-state">EMPTY</strong></div>
+-        <div><span id="gate-label">GATE</span><strong id="gate-state">NO POWER</strong></div>
+-      </aside>
+-
+-      <aside id="operator-console" class="operator-console glass-panel" aria-label="ARC 机器人操控面板">
+-        <div class="operator-console-heading">
+-          <div><span class="section-label">PILOT CONTROL</span><strong>WASD + Q/E / 直接控制</strong></div>
+-          <span id="operator-control-state" class="operator-control-state">STANDBY</span>
+-        </div>
+-
+-        <div class="operator-view-switch" role="group" aria-label="切换游戏视角">
+-          <span>VIEW</span>
+-          <button data-view-option="first" type="button" aria-pressed="false">第一视角</button>
+-          <button data-view-option="third" type="button" aria-pressed="true">第三视角</button>
+-          <button data-view-option="dual" type="button" aria-pressed="false">双视角</button>
+-        </div>
+-
+-        <div class="operator-keyboard-deck" aria-label="ARC 移动控制">
+-          <section class="operator-keyboard-zone">
+-            <div class="operator-zone-label"><strong>TRANSLATE</strong><span>按住移动 · 松开停止</span></div>
+-            <div class="operator-wasd-grid">
+-              <button class="operator-key operator-key-w" type="button" data-control-code="KeyW"><b>W</b><small>前进</small></button>
+-              <button class="operator-key" type="button" data-control-code="KeyA"><b>A</b><small>左移</small></button>
+-              <button class="operator-key" type="button" data-control-code="KeyS"><b>S</b><small>后退</small></button>
+-              <button class="operator-key" type="button" data-control-code="KeyD"><b>D</b><small>右移</small></button>
+-            </div>
+-          </section>
+-          <section class="operator-keyboard-zone operator-yaw-zone">
+-            <div class="operator-zone-label"><strong>YAW</strong><span>Q/E 转向</span></div>
+-            <div class="operator-yaw-row">
+-              <button class="operator-key" type="button" data-control-code="KeyQ"><b>Q</b><small>左转</small></button>
+-              <span>YAW</span>
+-              <button class="operator-key" type="button" data-control-code="KeyE"><b>E</b><small>右转</small></button>
+-            </div>
+-          </section>
+-        </div>
+-
+-        <div class="operator-action-grid">
+-          <button type="button" data-control-code="ArrowUp"><kbd>↑</kbd><span><b>D435 抬头</b><small>按住调整视角</small></span></button>
+-          <button type="button" data-control-code="ArrowDown"><kbd>↓</kbd><span><b>D435 低头</b><small>按住调整视角</small></span></button>
+-          <button type="button" data-operator-action="interact"><kbd>F</kbd><span><b>任务互动</b><small>拾取 / 放置 / 操作</small></span></button>
+-          <button type="button" data-operator-action="reset"><kbd>R</kbd><span><b>重置关卡</b><small>恢复任务初始状态</small></span></button>
+-        </div>
+-
+-        <div class="operator-runtime-state">
+-          <div><small>ROBOT MOTION</small><strong id="operator-motion-state">IDLE</strong></div>
+-          <div><small>MISSION INPUT</small><strong id="operator-input-state">LOCKED</strong></div>
+-        </div>
+-
+-        <button id="operator-stop" class="operator-stop" type="button" disabled>
+-          <span>STOP</span><small>立即释放全部移动输入</small>
+-        </button>
+-      </aside>
+-
+-      <div class="controls-hint glass-panel">
+-        <span><kbd>W</kbd><kbd>S</kbd> 前后 · <kbd>A</kbd><kbd>D</kbd> 平移</span>
+-        <span><kbd>Q</kbd><kbd>E</kbd> 转向（不耗余量）</span>
+-        <span><kbd>↑</kbd><kbd>↓</kbd> 调整 D435 视角</span>
+-        <span><kbd>F</kbd> 互动</span>
+-        <span><kbd>R</kbd> 重置</span>
+-      </div>
+-
+-      <div class="operator-feed-strip glass-panel" aria-live="polite">
+-        <span class="operator-feed-live"><i id="operator-live-pip"></i><b id="operator-live-label">STANDBY</b></span>
+-        <time id="operator-clock">--:--:--</time>
+-        <span id="operator-feed-path">ARC → LOCAL SIM → G1</span>
+-      </div>
+-
+-      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+-
+-      <section id="home-overlay" class="full-overlay home-overlay" hidden>
+-        <div class="home-card">
+-          <div class="home-copy">
+-            <span class="section-label">ARC / ROBOT ARCHIVE / LOCAL SIMULATION</span>
+-            <h1>让机器人<br /><em>进入任务现场</em></h1>
+-            <p>ARC 是一个面向人类与 AI Agent 的 3D 机器人任务环境。先了解项目，再选择亲自操控，或把自己的 Agent 接入同一套游戏画面与动作接口。</p>
+-            <div class="home-meta"><span>12 个实验关卡</span><span>统一 W A S D E 协议</span><span>本地 OpenCode</span></div>
+-          </div>
+-          <div class="entry-grid" aria-label="选择进入方式">
+-            <a class="entry-card entry-card-primary" href="/?mode=play">
+-              <span class="entry-index">ENTRY 01 / HUMAN</span>
+-              <strong>人类游玩</strong>
+-              <p>选择关卡，用键盘操控浏览器里的 G1 机器人。</p>
+-              <span class="entry-arrow">进入选关 →</span>
+-            </a>
+-            <a class="entry-card" href="/?mode=agent&amp;level=rf01&amp;view=third">
+-              <span class="entry-index">ENTRY 02 / AGENT</span>
+-              <strong>Agent 接入</strong>
+-              <p>进入与人类完全一致的游戏界面，预览 Agent 使用的同一套关卡与 HUD。</p>
+-              <span class="entry-arrow">进入 Agent 预览 →</span>
+-            </a>
+-          </div>
+-        </div>
+-      </section>
+-
+-      <section id="start-overlay" class="full-overlay" hidden>
+-        <div class="start-card">
+-          <span id="start-kicker" class="section-label">LEVEL RF-01 / INDUSTRIAL LAB</span>
+-          <h2 id="start-title">RELAY<br />FACILITY</h2>
+-          <p id="start-copy">控制类人机器人进入废弃实验设施。</p>
+-          <nav class="level-select" aria-label="选择关卡">
+-            <a data-level-option="rf01" href="/?mode=play&amp;level=rf01"><span>RF-01</span><strong>工业园区</strong></a>
+-            <a data-level-option="rf01-2" href="/?mode=play&amp;level=rf01-2"><span>RF-01-2</span><strong>厂房照明</strong></a>
+-            <a data-level-option="rf02" href="/?mode=play&amp;level=rf02"><span>RF-02</span><strong>图书馆归档</strong></a>
+-            <a data-level-option="rf03" href="/?mode=play&amp;level=rf03"><span>RF-03</span><strong>快递分拣线</strong></a>
+-            <a data-level-option="rf04" href="/?mode=play&amp;level=rf04"><span>RF-04</span><strong>家庭洗衣</strong></a>
+-            <a data-level-option="rf05" href="/?mode=play&amp;level=rf05"><span>RF-05</span><strong>酒店整理</strong></a>
+-            <a data-level-option="rf06" href="/?mode=play&amp;level=rf06"><span>RF-06</span><strong>家庭漏水</strong></a>
+-            <a data-level-option="rf07" href="/?mode=play&amp;level=rf07"><span>RF-07</span><strong>冷链转运</strong></a>
+-            <a data-level-option="rf08" href="/?mode=play&amp;level=rf08"><span>RF-08</span><strong>办公室灰盒</strong></a>
+-            <a data-level-option="rf09" href="/?mode=play&amp;level=rf09"><span>RF-09</span><strong>会议准备</strong></a>
+-            <a data-level-option="rf10" href="/?mode=play&amp;level=rf10"><span>RF-10</span><strong>会议室自由探索</strong></a>
+-            <a data-level-option="rf11" href="/?mode=play&amp;level=rf11"><span>RF-11</span><strong>双机器人协作搬运</strong></a>
+-            <a data-level-option="rf12" href="/?mode=play&amp;level=rf12"><span>RF-12</span><strong>中国家庭厨房</strong></a>
+-            <a data-level-option="rf13" href="/?mode=play&amp;level=rf13"><span>RF-13</span><strong>社区诊所开诊</strong></a>
+-            <a data-level-option="rf14" href="/?mode=play&amp;level=rf14"><span>RF-14</span><strong>网球场捡球归筐</strong></a>
+-            <a data-level-option="rf15" href="/?mode=play&amp;level=rf15"><span>RF-15</span><strong>农产品冷链装运</strong></a>
+-            <a data-level-option="rf15-1" href="/?mode=play&amp;level=rf15-1"><span>RF-15-1</span><strong>田间收割入筐</strong></a>
+-            <a data-level-option="rf15-2" href="/?mode=play&amp;level=rf15-2"><span>RF-15-2</span><strong>农田喷洒作业</strong></a>
+-            <a data-level-option="rf15-3" href="/?mode=play&amp;level=rf15-3"><span>RF-15-3</span><strong>动态称重装车</strong></a>
+-            <a data-level-option="test_zpf" href="/?mode=play&amp;level=test_zpf"><span>TEST-ZPF</span><strong>小办公室巡检</strong></a>
+-            <a data-level-option="test_zpf2" href="/?mode=play&amp;level=test_zpf2"><span>TEST-ZPF2</span><strong>小办公室实景</strong></a>
+-          </nav>
+-          <div class="robot-select" role="group" aria-label="选择机器人">
+-            <button data-robot-option="g1" type="button"><span>G1 EDU2 · MuJoCo 29DOF</span><small>官方 MuJoCo 网格与关节</small></button>
+-            <button data-robot-option="r1" type="button"><span>R1 EDU</span><small>官方 MuJoCo 模型</small></button>
+-          </div>
+-          <div class="robot-select control-mode-select" role="group" aria-label="选择控制模式">
+-            <button data-control-option="velocity" type="button"><span>速度策略</span><small>WASD + Q/E 人工驾驶</small></button>
+-            <button data-control-option="joint" type="button"><span>29DOF AGENT</span><small>VLA / Agent 关节目标</small></button>
+-          </div>
+-          <div class="view-mode-select" role="group" aria-label="选择游戏视角">
+-            <button data-view-option="first" type="button" aria-pressed="false">第一视角</button>
+-            <button data-view-option="third" type="button" aria-pressed="true">第三视角</button>
+-            <button data-view-option="dual" type="button" aria-pressed="false">双视角</button>
+-          </div>
+-          <button id="start-button" type="button">开始任务 <span>→</span></button>
+-          <div class="start-meta"><span>固定同步视角</span><span>连续移动</span><span>统一 F 键互动</span><a href="/agent-guide.html">AGENT 接入指南 ↗</a></div>
+-        </div>
+-      </section>
+-
+-      <section id="terminal-overlay" class="dialog-overlay" hidden>
+-        <article class="terminal-card">
+-          <div class="terminal-heading"><span id="terminal-heading-text">MAINTENANCE TERMINAL / T-03</span><i></i></div>
+-          <div class="terminal-screen">
+-            <span class="terminal-kicker">FACILITY DIAGNOSTICS</span>
+-            <h2 id="terminal-title">主电网离线</h2>
+-            <p id="terminal-copy"></p>
+-            <dl>
+-              <div><dt id="terminal-label-1">ENERGY MODULE</dt><dd id="terminal-battery">NOT DETECTED</dd></div>
+-              <div><dt id="terminal-label-2">POWER BUS</dt><dd id="terminal-power">OFFLINE</dd></div>
+-              <div><dt id="terminal-label-3">SECURITY GATE</dt><dd id="terminal-door">LOCKED</dd></div>
+-            </dl>
+-          </div>
+-          <button id="terminal-close" type="button"><kbd>F</kbd> 关闭终端</button>
+-        </article>
+-      </section>
+-
+-      <section id="complete-overlay" class="dialog-overlay" hidden>
+-        <article class="complete-card">
+-          <span class="complete-signal"></span>
+-          <span id="complete-kicker" class="section-label">OBJECTIVE COMPLETE</span>
+-          <h2 id="complete-title">撤离成功</h2>
+-          <p id="complete-copy">办公区物品已归位，设备状态检查完成。</p>
+-          <button id="restart-button" type="button">重新开始</button>
+-          <a href="./legacy/">打开保留的 2D 原型</a>
+-        </article>
+-      </section>
+-
+-      <section id="failure-overlay" class="dialog-overlay" hidden>
+-        <article class="failure-card">
+-          <span class="failure-signal"></span>
+-          <span class="section-label">MISSION FAILED</span>
+-          <h2>行动终止</h2>
+-          <p>任务余量已经耗尽。规划更短的路线，并通过完成关键目标补充余量。</p>
+-          <button id="failure-restart-button" type="button">重新开始</button>
+-        </article>
+-      </section>
+-
+-      <a class="legacy-link" href="./legacy/">LEGACY 2D ↗</a>
+-      <button id="return-to-levels" class="return-to-levels" type="button">← 返回选关</button>
+-    </main>
+-    <script type="module" src="/game/app.js"></script>
+-  </body>
+-</html>
++<!doctype html>
++<html lang="zh-CN">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1" />
++    <meta name="description" content="支持第一、第三及双视角的 3D 人形机器人任务环境。" />
++    <title>Robot Archive — 3D Puzzle Demo</title>
++    <link rel="stylesheet" href="/styles.css" />
++    <link rel="stylesheet" href="/operator-console.css" />
++  </head>
++  <body>
++    <main id="game-shell" aria-label="Robot Archive 3D 游戏">
++      <div id="viewport" aria-hidden="true"></div>
++      <div class="vignette" aria-hidden="true"></div>
++      <div class="operator-view-layer" aria-hidden="true">
++        <div class="operator-view-caption operator-view-caption-first"><b>01</b><span>G1 / FIRST PERSON</span></div>
++        <div class="operator-view-caption operator-view-caption-third"><b>02</b><span>ARC / TACTICAL OVERVIEW</span><em>滚轮缩放 · 中键旋转</em></div>
++        <div class="operator-third-view-focus"></div>
++        <div class="operator-view-divider"></div>
++      </div>
++
++      <header class="top-hud glass-panel">
++        <div class="identity">
++          <span class="identity-mark"><i></i><i></i><i></i></span>
++          <div><strong id="brand-name">RELAY FACILITY</strong><span id="unit-label">UNIT R-04 · LOCAL SIMULATION</span></div>
++        </div>
++        <div class="progress-state">
++          <div class="progress-heading"><small>MISSION RESERVE</small><strong id="progress-value">100%</strong></div>
++          <div id="progress-meter" class="progress-meter" role="progressbar" aria-label="任务余量" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
++            <span id="progress-fill"></span>
++          </div>
++        </div>
++        <div class="system-state">
++          <span class="status-light" id="system-light"></span>
++          <div><small id="system-label">FACILITY POWER</small><strong id="power-label">OFFLINE</strong></div>
++        </div>
++      </header>
++
++      <aside class="mission-panel glass-panel">
++        <span class="section-label">CURRENT DIRECTIVE</span>
++        <h1 id="objective-title">恢复设施供电</h1>
++      </aside>
++
++      <aside class="telemetry-panel glass-panel">
++        <div><span>ROBOT STATE</span><strong id="robot-state">IDLE</strong></div>
++        <div><span id="cargo-label">CARGO</span><strong id="cargo-state">EMPTY</strong></div>
++        <div><span id="gate-label">GATE</span><strong id="gate-state">NO POWER</strong></div>
++      </aside>
++
++      <aside id="operator-console" class="operator-console glass-panel" aria-label="ARC 机器人操控面板">
++        <div class="operator-console-heading">
++          <div><span class="section-label">PILOT CONTROL</span><strong>WASD + Q/E / 直接控制</strong></div>
++          <span id="operator-control-state" class="operator-control-state">STANDBY</span>
++        </div>
++
++        <div class="operator-view-switch" role="group" aria-label="切换游戏视角">
++          <span>VIEW</span>
++          <button data-view-option="first" type="button" aria-pressed="false">第一视角</button>
++          <button data-view-option="third" type="button" aria-pressed="true">第三视角</button>
++          <button data-view-option="dual" type="button" aria-pressed="false">双视角</button>
++        </div>
++
++        <div class="operator-keyboard-deck" aria-label="ARC 移动控制">
++          <section class="operator-keyboard-zone">
++            <div class="operator-zone-label"><strong>TRANSLATE</strong><span>按住移动 · 松开停止</span></div>
++            <div class="operator-wasd-grid">
++              <button class="operator-key operator-key-w" type="button" data-control-code="KeyW"><b>W</b><small>前进</small></button>
++              <button class="operator-key" type="button" data-control-code="KeyA"><b>A</b><small>左移</small></button>
++              <button class="operator-key" type="button" data-control-code="KeyS"><b>S</b><small>后退</small></button>
++              <button class="operator-key" type="button" data-control-code="KeyD"><b>D</b><small>右移</small></button>
++            </div>
++          </section>
++          <section class="operator-keyboard-zone operator-yaw-zone">
++            <div class="operator-zone-label"><strong>YAW</strong><span>Q/E 转向</span></div>
++            <div class="operator-yaw-row">
++              <button class="operator-key" type="button" data-control-code="KeyQ"><b>Q</b><small>左转</small></button>
++              <span>YAW</span>
++              <button class="operator-key" type="button" data-control-code="KeyE"><b>E</b><small>右转</small></button>
++            </div>
++          </section>
++        </div>
++
++        <div class="operator-action-grid">
++          <button type="button" data-control-code="ArrowUp"><kbd>↑</kbd><span><b>D435 抬头</b><small>按住调整视角</small></span></button>
++          <button type="button" data-control-code="ArrowDown"><kbd>↓</kbd><span><b>D435 低头</b><small>按住调整视角</small></span></button>
++          <button type="button" data-operator-action="interact"><kbd>F</kbd><span><b>任务互动</b><small>拾取 / 放置 / 操作</small></span></button>
++          <button type="button" data-operator-action="reset"><kbd>R</kbd><span><b>重置关卡</b><small>恢复任务初始状态</small></span></button>
++        </div>
++
++        <div class="operator-runtime-state">
++          <div><small>ROBOT MOTION</small><strong id="operator-motion-state">IDLE</strong></div>
++          <div><small>MISSION INPUT</small><strong id="operator-input-state">LOCKED</strong></div>
++        </div>
++
++        <button id="operator-stop" class="operator-stop" type="button" disabled>
++          <span>STOP</span><small>立即释放全部移动输入</small>
++        </button>
++      </aside>
++
++      <div class="controls-hint glass-panel">
++        <span><kbd>W</kbd><kbd>S</kbd> 前后 · <kbd>A</kbd><kbd>D</kbd> 平移</span>
++        <span><kbd>Q</kbd><kbd>E</kbd> 转向（不耗余量）</span>
++        <span><kbd>↑</kbd><kbd>↓</kbd> 调整 D435 视角</span>
++        <span><kbd>F</kbd> 互动</span>
++        <span><kbd>R</kbd> 重置</span>
++      </div>
++
++      <div class="operator-feed-strip glass-panel" aria-live="polite">
++        <span class="operator-feed-live"><i id="operator-live-pip"></i><b id="operator-live-label">STANDBY</b></span>
++        <time id="operator-clock">--:--:--</time>
++        <span id="operator-feed-path">ARC → LOCAL SIM → G1</span>
++      </div>
++
++      <div id="toast" class="toast" role="status" aria-live="polite"></div>
++
++      <section id="home-overlay" class="full-overlay home-overlay" hidden>
++        <div class="home-card">
++          <div class="home-copy">
++            <span class="section-label">ARC / ROBOT ARCHIVE / LOCAL SIMULATION</span>
++            <h1>让机器人<br /><em>进入任务现场</em></h1>
++            <p>ARC 是一个面向人类与 AI Agent 的 3D 机器人任务环境。先了解项目，再选择亲自操控，或把自己的 Agent 接入同一套游戏画面与动作接口。</p>
++            <div class="home-meta"><span>12 个实验关卡</span><span>统一 W A S D E 协议</span><span>本地 OpenCode</span></div>
++          </div>
++          <div class="entry-grid" aria-label="选择进入方式">
++            <a class="entry-card entry-card-primary" href="/?mode=play">
++              <span class="entry-index">ENTRY 01 / HUMAN</span>
++              <strong>人类游玩</strong>
++              <p>选择关卡，用键盘操控浏览器里的 G1 机器人。</p>
++              <span class="entry-arrow">进入选关 →</span>
++            </a>
++            <a class="entry-card" href="/?mode=agent&amp;level=rf01&amp;view=third">
++              <span class="entry-index">ENTRY 02 / AGENT</span>
++              <strong>Agent 接入</strong>
++              <p>进入与人类完全一致的游戏界面，预览 Agent 使用的同一套关卡与 HUD。</p>
++              <span class="entry-arrow">进入 Agent 预览 →</span>
++            </a>
++          </div>
++        </div>
++      </section>
++
++      <section id="start-overlay" class="full-overlay" hidden>
++        <div class="start-card">
++          <span id="start-kicker" class="section-label">LEVEL RF-01 / INDUSTRIAL LAB</span>
++          <h2 id="start-title">RELAY<br />FACILITY</h2>
++          <p id="start-copy">控制类人机器人进入废弃实验设施。</p>
++          <nav class="level-select" aria-label="选择关卡">
++            <a data-level-option="rf01" href="/?mode=play&amp;level=rf01"><span>RF-01</span><strong>工业园区</strong></a>
++            <a data-level-option="rf01-2" href="/?mode=play&amp;level=rf01-2"><span>RF-01-2</span><strong>厂房照明</strong></a>
++              <a href="/?mode=play&level=rf01-3&view=first&robot=g1&control=velocity">RF-01-3 厂房出库</a>
++            <a data-level-option="rf02" href="/?mode=play&amp;level=rf02"><span>RF-02</span><strong>图书馆归档</strong></a>
++            <a data-level-option="rf03" href="/?mode=play&amp;level=rf03"><span>RF-03</span><strong>快递分拣线</strong></a>
++            <a data-level-option="rf04" href="/?mode=play&amp;level=rf04"><span>RF-04</span><strong>家庭洗衣</strong></a>
++            <a data-level-option="rf05" href="/?mode=play&amp;level=rf05"><span>RF-05</span><strong>酒店整理</strong></a>
++            <a data-level-option="rf06" href="/?mode=play&amp;level=rf06"><span>RF-06</span><strong>家庭漏水</strong></a>
++            <a data-level-option="rf07" href="/?mode=play&amp;level=rf07"><span>RF-07</span><strong>冷链转运</strong></a>
++            <a data-level-option="rf08" href="/?mode=play&amp;level=rf08"><span>RF-08</span><strong>办公室灰盒</strong></a>
++            <a data-level-option="rf09" href="/?mode=play&amp;level=rf09"><span>RF-09</span><strong>会议准备</strong></a>
++            <a data-level-option="rf10" href="/?mode=play&amp;level=rf10"><span>RF-10</span><strong>会议室自由探索</strong></a>
++            <a data-level-option="rf11" href="/?mode=play&amp;level=rf11"><span>RF-11</span><strong>双机器人协作搬运</strong></a>
++            <a data-level-option="rf12" href="/?mode=play&amp;level=rf12"><span>RF-12</span><strong>中国家庭厨房</strong></a>
++            <a data-level-option="rf13" href="/?mode=play&amp;level=rf13"><span>RF-13</span><strong>社区诊所开诊</strong></a>
++            <a data-level-option="rf14" href="/?mode=play&amp;level=rf14"><span>RF-14</span><strong>网球场捡球归筐</strong></a>
++            <a data-level-option="rf15" href="/?mode=play&amp;level=rf15"><span>RF-15</span><strong>农产品冷链装运</strong></a>
++            <a data-level-option="rf15-1" href="/?mode=play&amp;level=rf15-1"><span>RF-15-1</span><strong>田间收割入筐</strong></a>
++            <a data-level-option="rf15-2" href="/?mode=play&amp;level=rf15-2"><span>RF-15-2</span><strong>农田喷洒作业</strong></a>
++            <a data-level-option="rf15-3" href="/?mode=play&amp;level=rf15-3"><span>RF-15-3</span><strong>动态称重装车</strong></a>
++            <a data-level-option="test_zpf" href="/?mode=play&amp;level=test_zpf"><span>TEST-ZPF</span><strong>小办公室巡检</strong></a>
++            <a data-level-option="test_zpf2" href="/?mode=play&amp;level=test_zpf2"><span>TEST-ZPF2</span><strong>小办公室实景</strong></a>
++          </nav>
++          <div class="robot-select" role="group" aria-label="选择机器人">
++            <button data-robot-option="g1" type="button"><span>G1 EDU2 · MuJoCo 29DOF</span><small>官方 MuJoCo 网格与关节</small></button>
++            <button data-robot-option="r1" type="button"><span>R1 EDU</span><small>官方 MuJoCo 模型</small></button>
++          </div>
++          <div class="robot-select control-mode-select" role="group" aria-label="选择控制模式">
++            <button data-control-option="velocity" type="button"><span>速度策略</span><small>WASD + Q/E 人工驾驶</small></button>
++            <button data-control-option="joint" type="button"><span>29DOF AGENT</span><small>VLA / Agent 关节目标</small></button>
++          </div>
++          <div class="view-mode-select" role="group" aria-label="选择游戏视角">
++            <button data-view-option="first" type="button" aria-pressed="false">第一视角</button>
++            <button data-view-option="third" type="button" aria-pressed="true">第三视角</button>
++            <button data-view-option="dual" type="button" aria-pressed="false">双视角</button>
++          </div>
++          <button id="start-button" type="button">开始任务 <span>→</span></button>
++          <div class="start-meta"><span>固定同步视角</span><span>连续移动</span><span>统一 F 键互动</span><a href="/agent-guide.html">AGENT 接入指南 ↗</a></div>
++        </div>
++      </section>
++
++      <section id="terminal-overlay" class="dialog-overlay" hidden>
++        <article class="terminal-card">
++          <div class="terminal-heading"><span id="terminal-heading-text">MAINTENANCE TERMINAL / T-03</span><i></i></div>
++          <div class="terminal-screen">
++            <span class="terminal-kicker">FACILITY DIAGNOSTICS</span>
++            <h2 id="terminal-title">主电网离线</h2>
++            <p id="terminal-copy"></p>
++            <dl>
++              <div><dt id="terminal-label-1">ENERGY MODULE</dt><dd id="terminal-battery">NOT DETECTED</dd></div>
++              <div><dt id="terminal-label-2">POWER BUS</dt><dd id="terminal-power">OFFLINE</dd></div>
++              <div><dt id="terminal-label-3">SECURITY GATE</dt><dd id="terminal-door">LOCKED</dd></div>
++            </dl>
++          </div>
++          <button id="terminal-close" type="button"><kbd>F</kbd> 关闭终端</button>
++        </article>
++      </section>
++
++      <section id="complete-overlay" class="dialog-overlay" hidden>
++        <article class="complete-card">
++          <span class="complete-signal"></span>
++          <span id="complete-kicker" class="section-label">OBJECTIVE COMPLETE</span>
++          <h2 id="complete-title">撤离成功</h2>
++          <p id="complete-copy">办公区物品已归位，设备状态检查完成。</p>
++          <button id="restart-button" type="button">重新开始</button>
++          <a href="./legacy/">打开保留的 2D 原型</a>
++        </article>
++      </section>
++
++      <section id="failure-overlay" class="dialog-overlay" hidden>
++        <article class="failure-card">
++          <span class="failure-signal"></span>
++          <span class="section-label">MISSION FAILED</span>
++          <h2>行动终止</h2>
++          <p>任务余量已经耗尽。规划更短的路线，并通过完成关键目标补充余量。</p>
++          <button id="failure-restart-button" type="button">重新开始</button>
++        </article>
++      </section>
++
++      <a class="legacy-link" href="./legacy/">LEGACY 2D ↗</a>
++      <button id="return-to-levels" class="return-to-levels" type="button">← 返回选关</button>
++    </main>
++    <script type="module" src="/game/app.js"></script>
++  </body>
++</html>
+diff --git a/game/rf01-yard-layout.js b/game/rf01-yard-layout.js
+--- a/game/rf01-yard-layout.js
++++ b/game/rf01-yard-layout.js
+@@ -1,23 +1,23 @@
+-export const RF01_YARD_LAYOUT = Object.freeze({
+-  revision: "workshop-realism-v2",
+-  powerSlot: Object.freeze({ x: 6.15, z: .4 }),
+-  cabinet: Object.freeze([6.05, .05, -2.42]),
+-  pump: Object.freeze([7.05, .05, -1.55]),
+-  manifold: Object.freeze([7.75, .05, -2.1]),
+-  crates: Object.freeze([
+-    Object.freeze([-3.55, .04, -4.8, .05]),
+-    Object.freeze([-3.55, .04, -3.3, -.08]),
+-  ]),
+-  hedges: Object.freeze([
+-    Object.freeze([-7.8, 0, -2.2]),
+-    Object.freeze([-6.2, 0, -2.2]),
+-  ]),
+-});
+-export const RF01_YARD_COLLIDERS = Object.freeze([
+-  Object.freeze({ id: "power-slot", minX: 5.40, maxX: 6.90, minZ: -.14, maxZ: .94 }),
+-  Object.freeze({ id: "west-hedges", minX: -8.60, maxX: -5.40, minZ: -2.575, maxZ: -1.825 }),
+-]);
+-export const RF01_CRATE_COLLIDERS = Object.freeze([
+-  Object.freeze({ id: "workshop-crate-left", minX: -3.975, maxX: -3.125, minZ: -5.1, maxZ: -4.5 }),
+-  Object.freeze({ id: "workshop-crate-right", minX: -3.975, maxX: -3.125, minZ: -3.6, maxZ: -3.0 }),
+-]);
++export const RF01_YARD_LAYOUT = Object.freeze({
++  revision: "rf01-shared-v3",
++  powerSlot: Object.freeze({ x: 6.15, z: .4 }),
++  cabinet: Object.freeze([6.05, .05, -2.42]),
++  pump: Object.freeze([7.05, .05, -1.55]),
++  manifold: Object.freeze([7.75, .05, -2.1]),
++  crates: Object.freeze([
++    Object.freeze([-3.55, .04, -4.8, .05]),
++    Object.freeze([-3.55, .04, -3.3, -.08]),
++  ]),
++  hedges: Object.freeze([
++    Object.freeze([-7.8, 0, -2.2]),
++    Object.freeze([-6.2, 0, -2.2]),
++  ]),
++});
++export const RF01_YARD_COLLIDERS = Object.freeze([
++  Object.freeze({ id: "power-slot", minX: 5.40, maxX: 6.90, minZ: -.14, maxZ: .94 }),
++  Object.freeze({ id: "west-hedges", minX: -8.60, maxX: -5.40, minZ: -2.575, maxZ: -1.825 }),
++]);
++export const RF01_CRATE_COLLIDERS = Object.freeze([
++  Object.freeze({ id: "workshop-crate-left", minX: -3.975, maxX: -3.125, minZ: -5.1, maxZ: -4.5 }),
++  Object.freeze({ id: "workshop-crate-right", minX: -3.975, maxX: -3.125, minZ: -3.6, maxZ: -3.0 }),
++]);
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -36,11 +36,10 @@
+   MujocoClient,
+   applyMujocoState,
+ } from "/game/mujoco-client.js";
+-import { RF01_COLLISION_PROXIES } from "/game/rf01-collision-proxies.js";
+ 
+ const searchParams = new URLSearchParams(window.location.search);
+ const requestedLevel = searchParams.get("level");
++const levelId = ["rf01", "rf01-2", "rf01-3", "rf02", "rf03", "rf04", "rf05", "rf06", "rf07", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "rf14", "rf15", "rf15-1", "rf15-2", "rf15-3", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
+-const levelId = ["rf01", "rf01-2", "rf02", "rf03", "rf04", "rf05", "rf06", "rf07", "rf08", "rf09", "rf10", "rf11", "rf12", "rf13", "rf14", "rf15", "rf15-1", "rf15-2", "rf15-3", "test_zpf", "test_zpf2"].includes(requestedLevel) ? requestedLevel : "rf01";
+ const isCooperativeLevel = levelId === "rf11";
+ const robotProfile = getRobotProfile(isCooperativeLevel ? "g1" : searchParams.get("robot"));
+ const robotId = robotProfile.id;
+@@ -64,6 +63,7 @@
+ const runtimeLoaders = {
+   rf01: () => import("/game/levels/rf01/runtime.js"),
+   "rf01-2": () => import("/game/levels/rf01-2/runtime.js"),
++  "rf01-3": () => import("/game/levels/rf01-3/runtime.js"),
+   rf02: () => import("/game/levels/rf02/runtime.js"),
+   rf03: () => import("/game/levels/rf03/runtime.js"),
+   rf04: () => import("/game/levels/rf04/runtime.js"),
+@@ -87,8 +87,9 @@
+ const runtime = await runtimeLoaders[levelId]();
+ const { LEVEL } = runtime;
+ const FINAL_OBJECTIVES = Object.freeze({
++  rf01: "恢复园区供电，打开园区大门并抵达出口",
+-  rf01: "恢复园区供电",
+   "rf01-2": "进入厂房并开启照明",
++  "rf01-3": "恢复供电与照明，将厂房两箱货送到门岗并确认出库",
+   rf02: "完成馆藏归位",
+   rf03: "完成快递分拣",
+   rf04: "完成衣物洗涤与晾晒",
+@@ -221,7 +222,7 @@
+ viewport.append(renderer.domElement);
+ 
+ const world = runtime.createScene(renderer);
++const environmentReady = ["rf01", "rf01-2", "rf01-3"].includes(levelId)
+-const environmentReady = ["rf01", "rf01-2"].includes(levelId)
+   ? loadRF01EnvironmentMap(renderer, world.scene)
+   : Promise.resolve({ loaded: false });
+ const baseFogNear = world.scene.fog?.near;
+@@ -249,7 +250,7 @@
+ const firstPersonLookAt = new THREE.Vector3();
+ const r1CameraForward = new THREE.Vector3();
+ const r1CameraRight = new THREE.Vector3();
++const postProcessing = ["rf01", "rf01-2", "rf01-3"].includes(levelId)
+-const postProcessing = ["rf01", "rf01-2"].includes(levelId)
+   ? createRF01PostProcessing(renderer, world.scene, camera)
+   : null;
+ let robotAction = createRobotActionState();
+@@ -287,10 +288,12 @@
+ world.scene.add(robot);
+ if (secondRobot) world.scene.add(secondRobot);
+ Promise.allSettled([robot.userData.assetReady, world.collisionReady]).then(([robotResult, collisionResult]) => {
++  if (!["rf01", "rf01-2", "rf01-3"].includes(levelId) || robotId !== "g1" || robotResult.status !== "fulfilled" || collisionResult.status !== "fulfilled") return;
+-  if (levelId !== "rf01" || robotId !== "g1" || robotResult.status !== "fulfilled" || collisionResult.status !== "fulfilled") return;
+   const rig = robot.userData.collisionRig;
+   if (!rig || !collisionResult.value?.loaded || rig.staticParts.length) return;
++  LEVEL.staticColliders.forEach(rect => rig.addStaticBox(
++    [(rect.minX + rect.maxX) / 2, 1.2, (rect.minZ + rect.maxZ) / 2],
++    [rect.maxX - rect.minX, 2.4, rect.maxZ - rect.minZ], rect.id));
+-  RF01_COLLISION_PROXIES.forEach((proxy) => rig.addStaticBox(proxy.position, proxy.size, proxy.name));
+   gameShell.dataset.g1CollisionReady = "true";
+   gameShell.dataset.g1CollisionGeomCount = String(rig.getCollisionSummary().total);
+ });
+@@ -933,12 +936,7 @@
+   if (state.interactions !== beforeInteractions) {
+     robotAction = beginRobotAction(robotAction, state.lastEvent, beforeState, state);
+     audioSystem.playEvent(state.lastEvent, runtime.getSoundPosition(beforeState, state));
++
+-    if (state.lastEvent !== "terminal_opened") {
+-      const message = levelId === "rf15"
+-        ? state.complete ? runtime.eventMessages.harvest_complete : state.failed ? runtime.eventMessages.progress_depleted : state.errors > beforeState.errors ? "操作未完成 · 余量 -5" : ""
+-        : runtime.eventMessages[state.lastEvent];
+-      showToast(message);
+-    }
+   }
+   updateInterface();
+   return state.interactions !== beforeInteractions;
+@@ -1056,7 +1054,6 @@
+     releaseAllControls();
+     robotAction = finishRobotAction();
+     failureOverlay.hidden = false;
+-    showToast(runtime.eventMessages.progress_depleted);
+   }
+   updateInterface();
+   renderViews();

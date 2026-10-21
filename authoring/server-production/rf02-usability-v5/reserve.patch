@@ -1,0 +1,178 @@
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -1,53 +1,53 @@
+-import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
+-import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
+-
+-export { CART, CHAIRS };
+-export const REVISION = FURNISHINGS_REVISION;
+-export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
+-
+-export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
+-  const black = color === "black";
+-  return [color, Object.freeze({
+-    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
+-    z: black ? -6.43 : -1.75,
+-    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
+-  })];
+-})));
+-
+-export function shelfPose(color, id) {
+-  const source = SHELF_BOOKS[color];
+-  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
+-  const slot = shelfIndex * 0.36;
+-  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
+-}
+-
+-export function landingPose(color, index) {
+-  return color === "black"
+-    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
+-    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
+-}
+-
+-export const BOOKS = Object.freeze([
+-  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
+-  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
+-  Object.freeze({ id: "black-reading", color: "black", x: 6.22, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
+-  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
+-  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
+-    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
+-    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
+-  }))),
+-]);
+-
+-export function seriesLevel(id) {
+-  return Object.freeze({
+-    ...BASE_LEVEL, id, revision: REVISION,
+-    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
+-    dynamic: id === "rf02-3", interactionRange: 1.30,
+-    progress: Object.freeze({
+-      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.05 : 1.45,
+-      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
+-      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, pickupReward: 1, correctBookReward: 1,
+-    }),
+-    fallDuration: 0.95, fallIntervalMin: 60, fallIntervalMax: 90, maximumFalls: 3,
+-  });
+-}
++import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
++import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
++
++export { CART, CHAIRS };
++export const REVISION = FURNISHINGS_REVISION;
++export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
++
++export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
++  const black = color === "black";
++  return [color, Object.freeze({
++    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
++    z: black ? -6.43 : -1.75,
++    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
++  })];
++})));
++
++export function shelfPose(color, id) {
++  const source = SHELF_BOOKS[color];
++  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
++  const slot = shelfIndex * 0.36;
++  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
++}
++
++export function landingPose(color, index) {
++  return color === "black"
++    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
++    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
++}
++
++export const BOOKS = Object.freeze([
++  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.22, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
++  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
++    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
++    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
++  }))),
++]);
++
++export function seriesLevel(id) {
++  return Object.freeze({
++    ...BASE_LEVEL, id, revision: REVISION,
++    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
++    dynamic: id === "rf02-3", interactionRange: 1.30,
++    progress: Object.freeze({
++      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 0.98 : 1.45,
++      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
++      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, pickupReward: 1, correctBookReward: 1,
++    }),
++    fallDuration: 0.95, fallIntervalMin: 60, fallIntervalMax: 90, maximumFalls: 3,
++  });
++}
+--- a/docs/levels/rf02-series-production-plan.md
++++ b/docs/levels/rf02-series-production-plan.md
+@@ -1,33 +1,33 @@
+-# RF-02 series / library-operations-v5
+-
+-## Current authorized behavior
+-
+-The latest user request supersedes the bookend-fault and precise furniture-placement rules.
+-
+-- RF-02 retains its original three-book sorting objective.
+-- RF-02-2 requires moving two displaced chairs beside their associated reading tables and manually parking the return cart inside the yellow bay.
+-- RF-02-3 adds three automatic book falls, each from a different randomly ordered color shelf. Each interval is randomly 60–90 simulation seconds, including the first interval. No shelf repair and no global countdown. All three fallen books must be returned.
+-- All three levels share the same library, original chairs/cart, fifteen books and parking signage. No added furniture handles or repair fixtures.
+-- The cart is approached at either original handle end (initial world-X ends), with two hands on that handle. Nearby F initiates collision-aware alignment; the player controls pushing and presses F to release.
+-- A chair is restored when its non-overlapping footprint is within 0.38 m of its table. There is no exact chair heading or home-position requirement.
+-- Cart parking accepts any heading whose rotated footprint fits inside the 1.8 × 1.52 m marked bay at (8.65, -3.15). Floor and wall labels identify the destination.
+-- Both new levels animate reaching, lifting, hand carrying and placing books. Ground pickup uses a crouch. Original model geometry, bones, dimensions, rest pose, camera/FOV and shared control/kinematics/envelope remain frozen.
+-- No directory clues or step navigation. Final objectives, permanent parking signage and necessary interaction feedback remain.
+-
+-## Deployment scope
+-
+-Authoritative host: 127.0.0.1; account: chenhaoyuan; project: .. Runtime, assets, releases and production evidence remain under /path/to/arc-workspace. Mac is a control/evidence surface.
+-
+-Task artifacts: ./authoring/server-production/rf02-usability-v5. Preview 4194; deploy to task-owned 4192 after verification. Preserve unrelated changes and services. The v4 fixed release remains available for rollback. Credentials stay outside project files. Do not report Cardinal cost. Existing scene assets are reused; no new generated asset is needed.
+-
+-## Geometry and validation
+-
+-Retain the 24 × 16 m library and Cardinal/EmbodiedGen models. The native cart measures approximately 0.86 × 0.54 × 1.12 m; robot stands 0.91 m from its center along the handle axis. Moving objects and collision transforms share authoritative state. Parking and collision GLBs use versioned directories.
+-
+-Required checks: original RF-02 regression; six tabletop books in both variants; both native cart ends; relaxed chair placement; rotated parking bounds; autonomous 60–90 second intervals, distinct shelves and maximum three; full clean/two-error engine routes; real browser interactions, carrying and full routes; protected-file and source/build/HTTP hashes; production build. Failures and candidate evidence remain distinct from deployment and user acceptance.
+-
+-## Reserve
+-
+-Initial/maximum 100. RF-02-2 movement 1.45 points/m, invalid interaction 3, chair reward 5, cart reward 8. RF-02-3 movement 1.05 points/m, invalid interaction 5, chair reward 3, cart reward 5. First pickup/return reward 1 each. Blocked movement costs 1/1.4 points/s; repeats cost 1. Rewards are deduplicated and capped. Idle and free turn cost zero. Failure is atomic; terminal states freeze; reset clears rewards.
+-
+-RF-02-3 requires longer routes across all three shelves and has higher mistake penalties. Engine and browser endpoint/minimum reserve must remain positive and are recorded independently.
++# RF-02 series / library-operations-v5
++
++## Current authorized behavior
++
++The latest user request supersedes the bookend-fault and precise furniture-placement rules.
++
++- RF-02 retains its original three-book sorting objective.
++- RF-02-2 requires moving two displaced chairs beside their associated reading tables and manually parking the return cart inside the yellow bay.
++- RF-02-3 adds three automatic book falls, each from a different randomly ordered color shelf. Each interval is randomly 60–90 simulation seconds, including the first interval. No shelf repair and no global countdown. All three fallen books must be returned.
++- All three levels share the same library, original chairs/cart, fifteen books and parking signage. No added furniture handles or repair fixtures.
++- The cart is approached at either original handle end (initial world-X ends), with two hands on that handle. Nearby F initiates collision-aware alignment; the player controls pushing and presses F to release.
++- A chair is restored when its non-overlapping footprint is within 0.38 m of its table. There is no exact chair heading or home-position requirement.
++- Cart parking accepts any heading whose rotated footprint fits inside the 1.8 × 1.52 m marked bay at (8.65, -3.15). Floor and wall labels identify the destination.
++- Both new levels animate reaching, lifting, hand carrying and placing books. Ground pickup uses a crouch. Original model geometry, bones, dimensions, rest pose, camera/FOV and shared control/kinematics/envelope remain frozen.
++- No directory clues or step navigation. Final objectives, permanent parking signage and necessary interaction feedback remain.
++
++## Deployment scope
++
++Authoritative host: 127.0.0.1; account: chenhaoyuan; project: .. Runtime, assets, releases and production evidence remain under /path/to/arc-workspace. Mac is a control/evidence surface.
++
++Task artifacts: ./authoring/server-production/rf02-usability-v5. Preview 4194; deploy to task-owned 4192 after verification. Preserve unrelated changes and services. The v4 fixed release remains available for rollback. Credentials stay outside project files. Do not report Cardinal cost. Existing scene assets are reused; no new generated asset is needed.
++
++## Geometry and validation
++
++Retain the 24 × 16 m library and Cardinal/EmbodiedGen models. The native cart measures approximately 0.86 × 0.54 × 1.12 m; robot stands 0.91 m from its center along the handle axis. Moving objects and collision transforms share authoritative state. Parking and collision GLBs use versioned directories.
++
++Required checks: original RF-02 regression; six tabletop books in both variants; both native cart ends; relaxed chair placement; rotated parking bounds; autonomous 60–90 second intervals, distinct shelves and maximum three; full clean/two-error engine routes; real browser interactions, carrying and full routes; protected-file and source/build/HTTP hashes; production build. Failures and candidate evidence remain distinct from deployment and user acceptance.
++
++## Reserve
++
++Initial/maximum 100. RF-02-2 movement 1.45 points/m, invalid interaction 3, chair reward 5, cart reward 8. RF-02-3 movement 0.98 points/m, invalid interaction 5, chair reward 3, cart reward 5. First pickup/return reward 1 each. Blocked movement costs 1/1.4 points/s; repeats cost 1. Rewards are deduplicated and capped. Idle and free turn cost zero. Failure is atomic; terminal states freeze; reset clears rewards.
++
++RF-02-3 requires longer routes across all three shelves and has higher mistake penalties. Engine and browser endpoint/minimum reserve must remain positive and are recorded independently.

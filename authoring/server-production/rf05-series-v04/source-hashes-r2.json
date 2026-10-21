@@ -1,0 +1,13 @@
+{
+  "game/levels/rf05/series-scene.js": "63b4a321f163d0c6234f1595ec9d27dcad133e6d678e7c09fd789b13313725bd",
+  "game/levels/rf05/series-leak-scene.js": "2b1b6c54e2e64f48adc0857ad22aa34951fa4126102cab88ad3712559bd45e72",
+  "game/levels/rf05/series-leak.js": "3ded16dd1568de20631aff9fbf94e831cee73cca60f0434e8226c4052ae9b324",
+  "game/levels/rf05/series-entry.js": "d8b6c874b9e70430aa1325e1ad9605d0fefa6884c91e560cc3daec5827546dc9",
+  "game/levels/rf05/series-animation.js": "93a4c22325f1e8ad4a86f04e0945db8014413db2e0ddde945166a3b23beb1803",
+  "game/levels/rf05/series-engine.js": "6792ded7183a1292edb1d785768f17177a9e7ccd028ab30e6e214ac1ce2afe79",
+  "game/levels/rf05/series-layout.js": "47d12b0115565d53d48708b431acaf0ddce208a616d6e62fe549e03ba7712bda",
+  "game/levels/rf05/series-qa.js": "8f895f707dcbe3a07996f0fdef59336b4b2e3ac9beae477b3f44d3927ee9a80d",
+  "game/levels/rf05/series-runtime.js": "864d0317b117414c2ae7ba0ff78940ab3d1fbda63111f266861db854d30a9814",
+  "game/app.js": "e2930a23bad31dae0c26a4d7fb5914b7ec4ccde8bf35ef5203a21a8a085e1be0",
+  "tests/rf05-series.test.mjs": "96db297d6162d022a504a03ee62ab0176b9c22fb85258ed673f2e54beb7672a9"
+}

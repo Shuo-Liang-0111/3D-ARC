@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rf02-2",
+    "color": "red",
+    "distance": 42.66079916680103,
+    "final": 56.14184120813781,
+    "minimum": 48.14184120813781,
+    "complete": true,
+    "drops": 0
+  },
+  {
+    "id": "rf02-3",
+    "color": "red",
+    "distance": 64.0410854840915,
+    "final": 48.7465888706839,
+    "minimum": 38.02067405364323,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "black",
+    "distance": 53.08741467673342,
+    "final": 62.98636092024954,
+    "minimum": 52.38445132592437,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "white",
+    "distance": 48.14116687453986,
+    "final": 69.4164830631012,
+    "minimum": 54.54096108316173,
+    "complete": true,
+    "drops": 3
+  }
+]

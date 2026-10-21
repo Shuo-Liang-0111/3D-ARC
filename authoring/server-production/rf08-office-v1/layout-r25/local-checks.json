@@ -1,0 +1,15 @@
+{
+  "symmetry": true,
+  "removedTablePass": true,
+  "receptionBlocks": true,
+  "PHONE_POINT": {
+    "x": 1.281,
+    "y": 0.9385,
+    "z": 6.355
+  },
+  "finalPlayer": {
+    "x": 1.281,
+    "z": 5.660000000000001,
+    "yaw": 0
+  }
+}

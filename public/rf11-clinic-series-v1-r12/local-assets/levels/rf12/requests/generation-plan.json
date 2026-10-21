@@ -1,0 +1,89 @@
+{
+  "schema": "arc-rf12-generation/v1",
+  "level": "rf12",
+  "provider": "Cardinal",
+  "qualityPreset": "high-highpoly",
+  "assets": {
+    "rf12_environment": {
+      "request": "requests/rf12_environment.json",
+      "targetSizeMeters": [
+        8.4,
+        2.8,
+        6.8
+      ],
+      "status": "planned"
+    },
+    "range_hood": {
+      "request": "requests/range_hood.json",
+      "targetSizeMeters": [
+        1.8,
+        0.55,
+        0.48
+      ],
+      "status": "planned"
+    },
+    "gas_knob": {
+      "request": "requests/gas_knob.json",
+      "targetSizeMeters": [
+        0.12,
+        0.12,
+        0.08
+      ],
+      "status": "planned"
+    },
+    "gas_valve": {
+      "request": "requests/gas_valve.json",
+      "targetSizeMeters": [
+        0.28,
+        0.24,
+        0.2
+      ],
+      "status": "planned"
+    },
+    "wet_cloth": {
+      "request": "requests/wet_cloth.json",
+      "targetSizeMeters": [
+        0.42,
+        0.04,
+        0.32
+      ],
+      "status": "planned"
+    },
+    "kitchen_window": {
+      "request": "requests/kitchen_window.json",
+      "targetSizeMeters": [
+        1.35,
+        1.25,
+        0.12
+      ],
+      "status": "planned"
+    },
+    "safety_terminal": {
+      "request": "requests/safety_terminal.json",
+      "targetSizeMeters": [
+        0.72,
+        1.08,
+        0.45
+      ],
+      "status": "planned"
+    },
+    "refrigerator": {
+      "request": "requests/refrigerator.json",
+      "targetSizeMeters": [
+        0.92,
+        1.9,
+        0.68
+      ],
+      "status": "planned"
+    },
+    "kitchen_sink": {
+      "request": "requests/kitchen_sink.json",
+      "targetSizeMeters": [
+        0.9,
+        0.42,
+        0.68
+      ],
+      "status": "planned"
+    }
+  }
+}

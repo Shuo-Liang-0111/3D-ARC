@@ -1,0 +1,3673 @@
+{
+  "towels": [
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.050386597761217795,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "carried"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel",
+        "attachment": null,
+        "wind": {
+          "clock": 104.23830000002789,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -2.2295686001978736,
+          "y": 0.9514471876439285,
+          "z": -2.0613451712524773
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "deliver",
+        "item": "towel",
+        "target": "laundry"
+      },
+      "contact": {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.054976202690140474,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 112.71170000002849,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -3.1789869709593965,
+          "y": 0.6032607807788049,
+          "z": 2.5548072463951557
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel1"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05292782058735722,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel1",
+        "attachment": null,
+        "wind": {
+          "clock": 122.67010000002925,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1450895420373834,
+          "y": 0.9580473116934195,
+          "z": 3.2216928467940136
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "towel1",
+        "slot": "towel1"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05405787767725557,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 130.27690000002968,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -2.305471122460191,
+          "y": 0.5977544127992003,
+          "z": -1.5116868815194686
+        },
+        "slots": {
+          "towel1": "towel1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel2"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05195361446064556,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel2",
+        "attachment": null,
+        "wind": {
+          "clock": 140.05160000003065,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1452394871272755,
+          "y": 0.9797757740805466,
+          "z": 3.2080447659456053
+        },
+        "slots": {
+          "towel1": "towel1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "towel2",
+        "slot": "towel2"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05488817324760633,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 147.67460000003115,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.2902230197259346,
+          "y": 0.5954577333647466,
+          "z": -1.5104399403931428
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    }
+  ],
+  "afterTowels": {
+    "revision": "rf05-series-v06-r11",
+    "fps": 60.04222749971528,
+    "gripError": null,
+    "phase": "idle",
+    "error": null,
+    "hand": [
+      0.29354293923461744,
+      0.5970289138840792,
+      -1.5124910848416429
+    ],
+    "held": [
+      0.28596848453841267,
+      0.3899609558929494,
+      -2.505563245823877
+    ],
+    "player": {
+      "x": 0.12681853803088164,
+      "z": -1.786787835694768,
+      "yaw": 2.9279198825816906
+    },
+    "wind": {
+      "clock": 403.65390000006414,
+      "opening": 0,
+      "latch": 1,
+      "latched": true,
+      "wind": 0
+    },
+    "tissues": {},
+    "catchHand": {
+      "x": 0.29354293923461744,
+      "y": 0.5970289138840792,
+      "z": -1.5124910848416429
+    },
+    "lastResult": {
+      "type": "restock",
+      "event": "restocked",
+      "error": 0.05488817324760633,
+      "revision": "rf05-series-v06-r11"
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.050386597761217795,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.054976202690140474,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05292782058735722,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05405787767725557,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05195361446064556,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05488817324760633,
+        "revision": "rf05-series-v06-r11"
+      }
+    ]
+  },
+  "cart": [
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.050386597761217795,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "carried"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel",
+        "attachment": null,
+        "wind": {
+          "clock": 104.23830000002789,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -2.2295686001978736,
+          "y": 0.9514471876439285,
+          "z": -2.0613451712524773
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "deliver",
+        "item": "towel",
+        "target": "laundry"
+      },
+      "contact": {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.054976202690140474,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 112.71170000002849,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -3.1789869709593965,
+          "y": 0.6032607807788049,
+          "z": 2.5548072463951557
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel1"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05292782058735722,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel1",
+        "attachment": null,
+        "wind": {
+          "clock": 122.67010000002925,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1450895420373834,
+          "y": 0.9580473116934195,
+          "z": 3.2216928467940136
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "towel1",
+        "slot": "towel1"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05405787767725557,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 130.27690000002968,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -2.305471122460191,
+          "y": 0.5977544127992003,
+          "z": -1.5116868815194686
+        },
+        "slots": {
+          "towel1": "towel1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel2"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05195361446064556,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel2",
+        "attachment": null,
+        "wind": {
+          "clock": 140.05160000003065,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1452394871272755,
+          "y": 0.9797757740805466,
+          "z": 3.2080447659456053
+        },
+        "slots": {
+          "towel1": "towel1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "towel2",
+        "slot": "towel2"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05488817324760633,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 147.67460000003115,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.2902230197259346,
+          "y": 0.5954577333647466,
+          "z": -1.5104399403931428
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "grip",
+        "key": "cart"
+      },
+      "contact": {
+        "type": "grip",
+        "event": "gripped",
+        "error": 0.0541487235667255,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": "cart",
+        "wind": {
+          "clock": 407.09000000006483,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.8093420790797693,
+          "y": 1.003787776215008,
+          "z": 2.6370591309343774
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "release",
+        "key": "cart"
+      },
+      "contact": {
+        "type": "release",
+        "event": "released",
+        "error": 0.00038654383746961323,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 411.5937000000658,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.7709034761205714,
+          "y": 0.5960955139359129,
+          "z": 1.9505858203713546
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "cartMovement": {
+        "before": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 1.027,
+          "handleBack": 0.264,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.724,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "after": {
+          "x": 1.2502276040163829,
+          "z": 3.088662104882042,
+          "yaw": 0.2802099999999918,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 1.027,
+          "handleBack": 0.264,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.724,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "grip": 0.00019532845267125306
+      }
+    }
+  ],
+  "final": [
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.050386597761217795,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "carried"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel",
+        "attachment": null,
+        "wind": {
+          "clock": 104.23830000002789,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -2.2295686001978736,
+          "y": 0.9514471876439285,
+          "z": -2.0613451712524773
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "deliver",
+        "item": "towel",
+        "target": "laundry"
+      },
+      "contact": {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.054976202690140474,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 112.71170000002849,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -3.1789869709593965,
+          "y": 0.6032607807788049,
+          "z": 2.5548072463951557
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel1"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05292782058735722,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel1",
+        "attachment": null,
+        "wind": {
+          "clock": 122.67010000002925,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1450895420373834,
+          "y": 0.9580473116934195,
+          "z": 3.2216928467940136
+        },
+        "slots": {},
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "towel1",
+        "slot": "towel1"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05405787767725557,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 130.27690000002968,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -2.305471122460191,
+          "y": 0.5977544127992003,
+          "z": -1.5116868815194686
+        },
+        "slots": {
+          "towel1": "towel1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "towel2"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05195361446064556,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "towel2",
+        "attachment": null,
+        "wind": {
+          "clock": 140.05160000003065,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1452394871272755,
+          "y": 0.9797757740805466,
+          "z": 3.2080447659456053
+        },
+        "slots": {
+          "towel1": "towel1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "towel2",
+        "slot": "towel2"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05488817324760633,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 147.67460000003115,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.2902230197259346,
+          "y": 0.5954577333647466,
+          "z": -1.5104399403931428
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "grip",
+        "key": "cart"
+      },
+      "contact": {
+        "type": "grip",
+        "event": "gripped",
+        "error": 0.0541487235667255,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": "cart",
+        "wind": {
+          "clock": 407.09000000006483,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.8093420790797693,
+          "y": 1.003787776215008,
+          "z": 2.6370591309343774
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 1.05,
+            "z": 2.9,
+            "yaw": 0,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "release",
+        "key": "cart"
+      },
+      "contact": {
+        "type": "release",
+        "event": "released",
+        "error": 0.00038654383746961323,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "room"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 411.5937000000658,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.7709034761205714,
+          "y": 0.5960955139359129,
+          "z": 1.9505858203713546
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "cartMovement": {
+        "before": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 1.027,
+          "handleBack": 0.264,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.724,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "after": {
+          "x": 1.2502276040163829,
+          "z": 3.088662104882042,
+          "yaw": 0.2802099999999918,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 1.027,
+          "handleBack": 0.264,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.724,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "grip": 0.00019532845267125306
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "cup"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05491744292661116,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "carried"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "cup",
+        "attachment": null,
+        "wind": {
+          "clock": 636.8639999999095,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": -1.090914379955414,
+          "y": 0.9616331556498438,
+          "z": -4.560516163024605
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "deliver",
+        "item": "cup",
+        "target": "cart"
+      },
+      "contact": {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.05069391754477132,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "cart"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "stock"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 644.4869999998967,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 0.6975298169065607,
+          "y": 0.5931801459343936,
+          "z": 2.1979972665115963
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "cup1"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.054452566104086546,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "cart"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "carried"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": "cup1",
+        "attachment": null,
+        "wind": {
+          "clock": 964.5031999995873,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.2506553352383645,
+          "y": 0.9503954240056838,
+          "z": 2.5977826856891615
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "cup1",
+        "slot": "cup1"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05282523215412255,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "cart"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "cup1"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "stock"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 971.142399999577,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 3.1260640490892335,
+          "y": 1.3856103685068577,
+          "z": -2.8065776174439687
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2",
+          "cup1": "cup1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "pickup",
+        "item": "cup2"
+      },
+      "contact": {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.04894275806462516,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "cart"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "cup1"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "carried"
+          }
+        },
+        "carriedItem": "cup2",
+        "attachment": null,
+        "wind": {
+          "clock": 980.3833999995641,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 1.1975324868255146,
+          "y": 0.9579039003911872,
+          "z": 3.347447926348246
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2",
+          "cup1": "cup1"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    },
+    {
+      "requested": {
+        "type": "restock",
+        "item": "cup2",
+        "slot": "cup2"
+      },
+      "contact": {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05157710054158396,
+        "revision": "rf05-series-v06-r11"
+      },
+      "state": {
+        "revision": "rf05-series-v06-r11",
+        "items": {
+          "towel": {
+            "type": "towel",
+            "x": -2.3,
+            "y": 0.414,
+            "z": -2.55,
+            "location": "laundry"
+          },
+          "cup": {
+            "type": "cup",
+            "x": -1,
+            "y": 0.544,
+            "z": -4.2,
+            "location": "cart"
+          },
+          "trash": {
+            "type": "trash",
+            "x": 2.15,
+            "y": 0.025,
+            "z": 0.2,
+            "location": "room"
+          },
+          "towel1": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.145,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel1"
+          },
+          "towel2": {
+            "type": "towel",
+            "x": 0.965,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "towel2"
+          },
+          "cup1": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 2.9,
+            "location": "slot",
+            "slot": "cup1"
+          },
+          "cup2": {
+            "type": "cup",
+            "x": 1.38,
+            "y": 1.005,
+            "z": 3.06,
+            "location": "slot",
+            "slot": "cup2"
+          }
+        },
+        "carriedItem": null,
+        "attachment": null,
+        "wind": {
+          "clock": 990.1567999995539,
+          "opening": 0,
+          "latch": 1,
+          "latched": true,
+          "wind": 0
+        },
+        "catchHand": {
+          "x": 2.480649411931177,
+          "y": 0.5974216875357357,
+          "z": -1.3819776482484112
+        },
+        "slots": {
+          "towel1": "towel1",
+          "towel2": "towel2",
+          "cup1": "cup1",
+          "cup2": "cup2"
+        },
+        "furniture": {
+          "cart": {
+            "x": 0.9899778339075463,
+            "z": 2.9085077158454595,
+            "yaw": -0.00007000000002441858,
+            "width": 0.95,
+            "depth": 0.58,
+            "height": 1.05,
+            "handleY": 1.027,
+            "handleBack": 0.264,
+            "handleHalfWidth": 0.24,
+            "standBack": 0.724,
+            "target": {
+              "x": 1.4,
+              "z": 4.48,
+              "yaw": 0
+            }
+          },
+          "chair": {
+            "x": 2.45,
+            "z": -0.76,
+            "yaw": 1.5707963267948966,
+            "width": 0.58,
+            "depth": 0.58,
+            "height": 0.9,
+            "handleY": 0.84,
+            "handleBack": 0.258,
+            "handleHalfWidth": 0.19,
+            "standBack": 0.76,
+            "target": {
+              "x": 2.82,
+              "z": -1.87,
+              "yaw": 1.5707963267948966
+            }
+          }
+        }
+      }
+    }
+  ],
+  "snapshot": {
+    "revision": "rf05-series-v06-r11",
+    "fps": 59.94804502478664,
+    "gripError": null,
+    "phase": "idle",
+    "error": null,
+    "hand": [
+      2.478265249900696,
+      0.5963623198274545,
+      -1.3802277059987782
+    ],
+    "held": [
+      3.4219621332458705,
+      0.7333518894522517,
+      -1.2605550502912284
+    ],
+    "player": {
+      "x": 2.7548516566107044,
+      "z": -1.5498384164887529,
+      "yaw": 1.3576467962951186,
+      "y": 0
+    },
+    "wind": {
+      "clock": 1931.4210999991571,
+      "opening": 0,
+      "latch": 1,
+      "latched": true,
+      "wind": 0
+    },
+    "tissues": {},
+    "catchHand": {
+      "x": 2.478265249900696,
+      "y": 0.5963623198274545,
+      "z": -1.3802277059987782
+    },
+    "lastResult": {
+      "type": "restock",
+      "event": "restocked",
+      "error": 0.05157710054158396,
+      "revision": "rf05-series-v06-r11"
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.050386597761217795,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.054976202690140474,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05292782058735722,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05405787767725557,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05195361446064556,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05488817324760633,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "grip",
+        "event": "gripped",
+        "error": 0.0541487235667255,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "release",
+        "event": "released",
+        "error": 0.00038654383746961323,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.05491744292661116,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "deliver",
+        "event": "delivered",
+        "error": 0.05069391754477132,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.054452566104086546,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05282523215412255,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "pickup",
+        "event": "picked_up",
+        "error": 0.04894275806462516,
+        "revision": "rf05-series-v06-r11"
+      },
+      {
+        "type": "restock",
+        "event": "restocked",
+        "error": 0.05157710054158396,
+        "revision": "rf05-series-v06-r11"
+      }
+    ]
+  },
+  "errors": []
+}

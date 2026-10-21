@@ -1,0 +1,6 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -387,1 +387,2 @@
+       motorCommand: targets => mujocoClient?.send({ type: "arm_command", targets }),
++      robotFeedback: () => latestMujocoState,

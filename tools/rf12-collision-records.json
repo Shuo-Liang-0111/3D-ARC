@@ -1,0 +1,86 @@
+[
+  {
+    "id": "north-wall",
+    "minX": -4.2,
+    "maxX": 4.2,
+    "minZ": -3.4,
+    "maxZ": -3.25
+  },
+  {
+    "id": "west-wall-rear",
+    "minX": -4.2,
+    "maxX": -4.05,
+    "minZ": -3.4,
+    "maxZ": 1.55
+  },
+  {
+    "id": "west-wall-front",
+    "minX": -4.2,
+    "maxX": -4.05,
+    "minZ": 2.35,
+    "maxZ": 3.4
+  },
+  {
+    "id": "east-wall",
+    "minX": 4.05,
+    "maxX": 4.2,
+    "minZ": -3.4,
+    "maxZ": 3.4
+  },
+  {
+    "id": "south-wall-west",
+    "minX": -4.2,
+    "maxX": -0.95,
+    "minZ": 3.25,
+    "maxZ": 3.4
+  },
+  {
+    "id": "south-wall-east",
+    "minX": 0.95,
+    "maxX": 4.2,
+    "minZ": 3.25,
+    "maxZ": 3.4
+  },
+  {
+    "id": "counter",
+    "minX": -3.825,
+    "maxX": 3.435,
+    "minZ": -3.24,
+    "maxZ": -2.165
+  },
+  {
+    "id": "refrigerator",
+    "minX": -4.01,
+    "maxX": -3.09,
+    "minZ": -1.34,
+    "maxZ": -0.66
+  },
+  {
+    "id": "entry-cabinet",
+    "minX": -3.71,
+    "maxX": -2.99,
+    "minZ": 2.325,
+    "maxZ": 2.775
+  },
+  {
+    "id": "entry-return-left",
+    "minX": -1.11,
+    "maxX": -0.95,
+    "minZ": 3.4,
+    "maxZ": 6.9
+  },
+  {
+    "id": "entry-return-right",
+    "minX": 0.95,
+    "maxX": 1.11,
+    "minZ": 3.4,
+    "maxZ": 6.9
+  },
+  {
+    "id": "hall-end-wall",
+    "minX": -1.11,
+    "maxX": 1.11,
+    "minZ": 6.82,
+    "maxZ": 6.98
+  }
+]

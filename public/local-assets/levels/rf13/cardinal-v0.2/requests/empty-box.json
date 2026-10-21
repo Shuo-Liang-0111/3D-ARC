@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready isolated empty reusable medical transport box for a contemporary Chinese community clinic. Real-world size approximately 0.38 m wide x 0.22 m high x 0.28 m deep. Open-top rigid tan polypropylene tote with visible empty interior, reinforced rim, side hand slots and stable flat bottom, restrained realistic wear, front facing positive Z, Y axis up, centered bottom pivot. Physically based materials, one isolated object only. No room, shelf, floor, wall, character, robot, hands, pedestal, floating parts, animation, readable text, logo, trademark, arrows, UI, baked environment, or background geometry. Export as GLB.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

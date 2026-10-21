@@ -1,0 +1,8 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "prompt": "One isolated realistic Chinese apartment kitchen aluminum sliding window. Front elevation is 1.35 metres wide and 1.25 metres tall; depth only 0.14 metres. Two equal transparent glass panes in narrow silver anodized extruded aluminum frames, parallel double sliding tracks, black rubber glazing seals, realistic crescent latch, screws and sill drainage slots. Rectangular opening, slim profiles, no opaque panels. Entire frame visible, straight orthogonal architecture. Y up, front faces +Z, bottom center origin. Photorealistic PBR, subtle brushed metal, restrained wear. No surrounding wall, no room, no ground, no cabinets, no door, no curtain, no text. Preserve width to height ratio, not a tall door. Single window assembly only."
+}

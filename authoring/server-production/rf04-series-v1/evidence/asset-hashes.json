@@ -1,0 +1,57 @@
+[
+  {
+    "file": "levels/rf04/series-v1/furnishings.glb",
+    "sha256": "aa95c3a4efe59c162b7fba3fa217360b828946d5e6793c114245036957bc751b",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "levels/rf04/series-v1/collision.glb",
+    "sha256": "1a16fa897739dcf17607a100d1b5b4b3c8a88db61ddb87f357e0fdb9a752e943",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "levels/rf04/series-v1/vacuum.glb",
+    "sha256": "1186af758ae964a1601861d38d2b3618375bd79ce4d5ef887f786d0eabe106f1",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/shirt.glb",
+    "sha256": "9d968d848032156ed8349cafa602a70eddd55b215941492ad4cc2bbbdad6d271",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/bed.glb",
+    "sha256": "71ccd748e997f1bc9614bd0d5f51fb16a1f0ad30b529b47df357e82073db28a5",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/towel.glb",
+    "sha256": "38d77f0bd684a9bb508675f89abf9612147d7505c6e17a8c0eeb1bf927a634ee",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/drying-rack.glb",
+    "sha256": "0549763eba2d62b68828db1f2f7ede54e1ff732fb62b51788f9643a559a98f55",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/washer.glb",
+    "sha256": "f0b3f71ec1a923c5f8bc7a3fd1a96f89015ad0c529f8863d2869f794d2698231",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/pants.glb",
+    "sha256": "bc5921c1f22537faffb66b80627e2320653036b1d5b922c1e7bd851d56107cfc",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "cardinal/rf04/models/runtime/wet-bundle.glb",
+    "sha256": "21a4500ecf413a61c290371bd03aaaa9f0760b47fdf84677b6ad1af381e23eeb",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "file": "embodiedgen/rf04/models/runtime/rf04_final.glb",
+    "sha256": "ccc389fe4a1e18f319e9fab453702fb07dec657b82961f9ca35854d07bbcefa2",
+    "sourceBuildHttpMatch": true
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "status": "completed",
+  "release": "rf08-office-v1-r28",
+  "commit": "1ba9f1eaf5608734fc42bb253942593c32cae604",
+  "urls": {
+    "rf09": "http://127.0.0.1:4173/?mode=play&level=rf09",
+    "rf09-2": "http://127.0.0.1:4173/?mode=play&level=rf09-2",
+    "rf09-3": "http://127.0.0.1:4173/?mode=play&level=rf09-3"
+  },
+  "browserEvidence": "layout-r25; actual first/third-person CUA images in current conversation",
+  "tests": {
+    "logicMotionAndAccess": 18,
+    "orderPermutations": 32,
+    "build": "passed; full production and immutable r28 build",
+    "browser": "r27 water then documents with chair unparked: four formal actions passed; r28 office runtime equivalent"
+  },
+  "userAcceptance": "not asserted",
+  "pushed": false,
+  "motionReserveFix": {
+    "status": "completed",
+    "tests": {
+      "logicAndMotion": 19,
+      "registration": 1,
+      "build": "passed"
+    },
+    "evidence": [
+      "evidence/browser/motion-reserve-r14.json",
+      "evidence/browser/motion-reserve-r14.png",
+      "evidence/browser/tray-motion-r14.json",
+      "evidence/canonical-http-r14.json",
+      "evidence/protected-files-r14.json"
+    ],
+    "release": "rf08-office-v1-r14",
+    "commit": "cdf4d520f8181ab45b0a0ae8416746b76fcbb278"
+  },
+  "updatedAt": "2026-09-22T10:01:48.419715+00:00",
+  "simplifiedTasks": {
+    "status": "completed",
+    "rf08": "One missing document and one missing bottle at seat 1; seats 2–8 start furnished.",
+    "rf08-2": "Document, water and chair return in any order; all required before completion.",
+    "rf08-3": "Document, water, chair and phone in any order; real 60–90 second ring and 30 second deadline unchanged.",
+    "interactiveInventory": "All visible documents and water bottles are pickup candidates.",
+    "phoneLocation": {
+      "x": 1.2,
+      "y": 0.841,
+      "z": 6.25,
+      "area": "reception desk worktop",
+      "supportHeight": 0.838
+    },
+    "sceneCleanup": [
+      "Removed meeting side table, screen and collider",
+      "North and south chair rows mirror around table center",
+      "Yellow outlines mark document, water and chair return targets"
+    ],
+    "motionReserve": "Preserved r14 rules",
+    "verification": "15 tests; local collision; r25 formal placements and r26 reception call; canonical r26 bytes",
+    "scope": "Station-based functional checks with formal animations and short local movement; no full-route or reserve-budget validation"
+  },
+  "freeOrder": {
+    "release": "rf08-office-v1-r28",
+    "evidence": "order-r27/",
+    "scope": "Station-based formal interaction checks; no full-route navigation test"
+  }
+}

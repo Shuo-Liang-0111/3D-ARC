@@ -1,0 +1,62 @@
+[
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/agent-guide.js",
+    "target": "agent-guide.js"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/app.route.js",
+    "target": "app.route.js"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/package.json",
+    "target": "package.json"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/README.md",
+    "target": "README.md"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/agent-guide.html",
+    "target": "agent-guide.html"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/app.js",
+    "target": "app.js"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/vite.config.js",
+    "target": "vite.config.js"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/index.html",
+    "target": "index.html"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/server.mjs",
+    "target": "server.mjs"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/server",
+    "target": "server"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/integrations",
+    "target": "integrations"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/public",
+    "target": "public"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/tools",
+    "target": "tools"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/docs",
+    "target": "docs"
+  },
+  {
+    "path": "authoring/server-production/rf01-sorting-v1/baseline-fixture/simulation",
+    "target": "simulation"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  "index.html",
+  "agent-guide.html",
+  "game/app.js",
+  "vite.config.js",
+  "game/levels/rf08/runtime.js",
+  "game/levels/rf09/runtime.js",
+  "game/levels/rf10/runtime.js",
+  "game/levels/rf11/runtime.js",
+  "game/levels/rf12/runtime.js",
+  "game/levels/rf13/runtime.js",
+  "game/levels/rf14/runtime.js",
+  "game/levels/rf15/runtime.js",
+  "game/levels/rf15-1/runtime.js",
+  "game/levels/rf15-2/runtime.js",
+  "game/levels/rf15-3/runtime.js"
+]

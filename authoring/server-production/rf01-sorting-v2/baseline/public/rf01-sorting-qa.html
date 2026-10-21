@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>RF-01 分拣线正式游戏验收</title>
+<style>
+body{margin:0;background:#151b1c;color:#e4ece8;font:14px system-ui}header{padding:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}button{padding:9px 18px;cursor:pointer}iframe{width:100%;height:820px;border:0}pre{white-space:pre-wrap;padding:12px}#captures img{width:100%;max-width:1600px}#captures h2{padding:12px}
+</style>
+<header><strong>RF-01 / sorting-v1</strong><button id="full">完整路线并保存证据</button><button id="supply">1 供电与开门</button><button id="lighting">2 进入与开灯</button><button id="sort">3 三件分拣</button><button id="capture">记录当前双视角</button><button id="save">保存证据</button><button id="reset">重置</button><span id="status">加载中</span></header>
+<iframe id="game" src="/?mode=play&amp;level=rf01-3&amp;view=dual&amp;robot=g1&amp;control=velocity&amp;revision=rf01-sorting-v1"></iframe>
+<p id="performance">等待帧率采样</p><pre id="result"></pre><section id="captures"></section>
+<script type="module" src="/game/levels/rf01-3/qa.js"></script>
+</html>

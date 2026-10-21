@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: shared inventory, geometry, spawn, reserve and independent state
+ok 1 - shared inventory, geometry, spawn, reserve and independent state
+  ---
+  duration_ms: 1.873109
+  type: 'test'
+  ...
+# Subtest: base level needs three distinct correct returns; no wrong-location success
+ok 2 - base level needs three distinct correct returns; no wrong-location success
+  ---
+  duration_ms: 4.039033
+  type: 'test'
+  ...
+# Subtest: premature meeting confirmation rejected; four complete seats and chair positions required
+ok 3 - premature meeting confirmation rejected; four complete seats and chair positions required
+  ---
+  duration_ms: 6.387689
+  type: 'test'
+  ...
+# Subtest: taking a placed document invalidates seat; occupied slot cannot duplicate items
+ok 4 - taking a placed document invalidates seat; occupied slot cannot duplicate items
+  ---
+  duration_ms: 0.630742
+  type: 'test'
+  ...
+# Subtest: printer enforces paper -> six-second printing -> output; no early or duplicate retrieval
+ok 5 - printer enforces paper -> six-second printing -> output; no early or duplicate retrieval
+  ---
+  duration_ms: 1.406052
+  type: 'test'
+  ...
+# Subtest: service requests finite, max two active, third starts after print delivery
+ok 6 - service requests finite, max two active, third starts after print delivery
+  ---
+  duration_ms: 1.821175
+  type: 'test'
+  ...
+# Subtest: walking respects wall, table and glass; doorway passes
+ok 7 - walking respects wall, table and glass; doorway passes
+  ---
+  duration_ms: 1.75273
+  type: 'test'
+  ...
+# Subtest: chair grip, player push and release update real pose without snapping to target
+ok 8 - chair grip, player push and release update real pose without snapping to target
+  ---
+  duration_ms: 0.494286
+  type: 'test'
+  ...
+# Subtest: reset restores all props, request schedule and printer
+ok 9 - reset restores all props, request schedule and printer
+  ---
+  duration_ms: 0.324561
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 79.666247

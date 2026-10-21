@@ -1,0 +1,52 @@
+import { LEVEL as BASE } from "./level.js";
+export const REVISION = "rf05-series-v02";
+export const distance = (a,b) => Math.hypot(a.x-b.x,a.z-b.z);
+export const objectives = {
+ rf05: "将旧毛巾、水杯和垃圾分别回收，完成客房整理。",
+ "rf05-2": "回收旧物，并为双床客房补齐两套干净毛巾和水杯。",
+ "rf05-3": "完成客房回收补给、杯具清洗及家具归位，确认客房可交付。",
+};
+export const STOCK = {
+ towel1:{type:"towel",x:.965,y:1.005,z:2.9}, towel2:{type:"towel",x:.965,y:1.145,z:2.9},
+ cup1:{type:"cup",x:1.38,y:1.005,z:2.9}, cup2:{type:"cup",x:1.38,y:1.005,z:3.06},
+};
+export const SLOTS = {
+ towel1:{type:"towel",x:-2.15,y:.695,z:-2.35},
+ towel2:{type:"towel",x:.15,y:.695,z:-2.35},
+ cup1:{type:"cup",x:3.40,y:.78,z:-2.42},
+ cup2:{type:"cup",x:3.40,y:.78,z:-1.26},
+};
+export const DIRTY = {
+ towel:{type:"towel",x:-2.15,y:.695,z:-2.35},
+ cup:{type:"cup",x:-1,y:.56,z:-2.35},
+ trash:{type:"trash",x:2.15,y:.025,z:.2},
+};
+export const TARGETS = {
+ laundry:{x:-2.15,y:.55,z:2.35},
+ cart:{x:1.38,y:1.005,z:2.74},
+ bin:{x:3.45,y:.45,z:4.5},
+};
+export const BASIN = {x:-3.55,z:3.95,bottom:.73,rim:.98,waterMin:.4,waterMax:.7,fillRate:.03,drainRate:.18,
+ cup:{x:-3.42,y:.735,z:3.99},tap:{x:-3.38,y:1.105,z:3.63},drain:{x:-3.38,y:.94,z:4.25},
+ stand:{x:-2.90,z:4.03,yaw:-Math.PI/2}};
+export const EXIT = {x:.40,y:1.12,z:5.08};
+export const FURNITURE = {
+ cart:{x:1.05,z:2.9,yaw:0,width:.95,depth:.58,height:1.05,handleY:.96,handleBack:.39,handleHalfWidth:.24,standBack:.84,target:{x:1.4,z:4.48,yaw:0}},
+ chair:{x:2.45,z:-.76,yaw:Math.PI/2,width:.58,depth:.58,height:.90,handleY:.84,handleBack:.24,handleHalfWidth:.19,standBack:.76,target:{x:2.82,z:-1.87,yaw:Math.PI/2}},
+};
+export const FIXED = BASE.staticColliders.filter(r=>!["desk-chair","cleaning-cart","trash-bin","bathroom-vanity","desk"].includes(r.id)).concat([
+ {id:"desk",minX:3.12,maxX:3.78,minZ:-2.69,maxZ:-1.05},
+ {id:"bathroom-vanity",minX:-4.0,maxX:-3.24,minZ:3.3,maxZ:4.60},
+ {id:"toilet",minX:-2.34,maxX:-1.86,minZ:3.07,maxZ:3.77},
+ {id:"handover-post",minX:.41,maxX:.53,minZ:5.03,maxZ:5.13},
+ {id:"trash-bin",minX:3.18,maxX:3.72,minZ:4.23,maxZ:4.77},
+]);
+export function makeLevel(id){return {...BASE,id,title:"Hotel Room Service",interactionRange:1.3,staticColliders:FIXED,targets:TARGETS};}
+export function furniturePoint(f,x,y,z){return {x:f.x+Math.cos(f.yaw)*x+Math.sin(f.yaw)*z,y,z:f.z-Math.sin(f.yaw)*x+Math.cos(f.yaw)*z};}
+export function standForFurniture(f){return {...furniturePoint(f,0,0,-f.standBack),yaw:f.yaw};}
+export function furnitureRect(f,padding=0){const w=f.width/2+padding,d=f.depth/2+padding,c=Math.abs(Math.cos(f.yaw)),s=Math.abs(Math.sin(f.yaw));return {id:f.id,minX:f.x-c*w-s*d,maxX:f.x+c*w+s*d,minZ:f.z-s*w-c*d,maxZ:f.z+s*w+c*d};}
+export function stockPose(id,state){const item=STOCK[id],f=state.furniture.cart;return furniturePoint(f,item.x-FURNITURE.cart.x,item.y,item.z-FURNITURE.cart.z);}
+export function itemPose(id,state){const i=state.items[id];if(i.location==="stock")return stockPose(id,state);if(i.location==="room"||i.location==="floor")return i;
+ if(i.location==="slot")return SLOTS[i.slot];if(i.location==="sink")return BASIN.cup;
+ if(i.location==="cart")return furniturePoint(state.furniture.cart,.33,1.005,-.16);
+ return TARGETS[i.location]??i;}

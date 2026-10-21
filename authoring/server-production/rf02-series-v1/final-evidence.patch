@@ -1,0 +1,7 @@
+diff --git a/docs/levels/rf02-series-acceptance.md b/docs/levels/rf02-series-acceptance.md
+--- a/docs/levels/rf02-series-acceptance.md
++++ b/docs/levels/rf02-series-acceptance.md
+@@ -70,0 +71,3 @@
++- Manual keyboard smoke test on 4192 passed: F at the empty start location changed RF-02-2 reserve from 100 to 97; R reset it to 100 and displayed the normal reset confirmation.
++- The final rebuild passed in 6.77 seconds. RF-02 source/QA modules and runtime asset hashes match the fixed release. Concurrent RF-01 changes caused different RF-01/shared-entry chunk names in the latest general dist; those unrelated changes were not copied over the already tested fixed release.
++- The rejected 4193 candidate service was stopped. The 4192 playable release remains active.

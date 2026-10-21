@@ -1,0 +1,134 @@
+[
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/bathroom_vanity.glb",
+    "sha256": "1ad14831a9f8fd0d6311eaa692ec49abe5abbddfda0b25893436d9be7b0f647a",
+    "bytes": 305976,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/bedside_table.glb",
+    "sha256": "8773643b425b371d90346fd9dc9c25296a812fe5d40f8e4421b2761ef7b794f7",
+    "bytes": 287428,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/ceiling_light.glb",
+    "sha256": "c5f8c7841762fd5ad2a6666d1b50f1252336d0e986d20b7064b0f02b14bc443b",
+    "bytes": 297404,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/cleaning_cart.glb",
+    "sha256": "41c748b981302dd578d887d633303cf1c513c0a10bafabb98bbce62763329028",
+    "bytes": 443352,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/curtain_window_module.glb",
+    "sha256": "8bd72d071fecc3a685402f6ebc1e4179eff48101d37397f705262bdde69338e1",
+    "bytes": 861260,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/desk_chair.glb",
+    "sha256": "c054f6b23d53ef6a0b7eed4938e2dd23be6893bc6766f1cf7b135fc42b376b61",
+    "bytes": 293060,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/drinking_cup.glb",
+    "sha256": "4d87bd3679bb22b0bce81ebc0c88f8bca3ac162904ca6ba77c6c704bdb09a541",
+    "bytes": 91472,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/laundry_basket.glb",
+    "sha256": "81a54070bf9deeeb4fadd0fa60f1da9923f6382c206ef89e23ac52e6266a2e1a",
+    "bytes": 555328,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/luggage_bench.glb",
+    "sha256": "79b2fbc3492a45d5a29c86174f47631211229f7dfc668424e36edaa70af53dec",
+    "bytes": 373980,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/paper_trash.glb",
+    "sha256": "679cbb05a0ff994b1a4ed33ffe52a05ceaa71177a6b72db38e368b78b1c6e294",
+    "bytes": 98312,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/shower_fixture.glb",
+    "sha256": "1dbd639a260275a5043a0b67c1dda6b08e47ba2d75ee8c0a5f0b3f89919a140b",
+    "bytes": 259120,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/television_console.glb",
+    "sha256": "f90d1d3072bc809a052f8d580df8765fcbe0601ec92e29b7ace0416eeb5a083b",
+    "bytes": 285240,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/toilet.glb",
+    "sha256": "6d9c2169c02f3514ab94887ff202e1ded11419796e11698a3b0d75bbb4c2e070",
+    "bytes": 261792,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/towel.glb",
+    "sha256": "27f76478c655d6925ad4e7e3939144ce82204cf9f60ab2b37ca23b0ac27ff4a2",
+    "bytes": 155884,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/trash_bin.glb",
+    "sha256": "97037e77a2e31a38c310604de425603b09f966c2b8efbd1cf51f80d3b7dd1107",
+    "bytes": 263928,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/twin_bed.glb",
+    "sha256": "9d2714fc0c2f3e5276e53e2b6eb2a585f137da680f932fe5221b60c084f3cc5e",
+    "bytes": 451620,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/wardrobe.glb",
+    "sha256": "17f9498f96fb483234163394616f1373c836ba71a30bcfce29620882acdf55b3",
+    "bytes": 257104,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/models/series-v02-opt1/writing_desk.glb",
+    "sha256": "1e2aea4350966b5408a497d4afb101d6a33da2e338eda3e624465bdd01576cf6",
+    "bytes": 313924,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+    "sha256": "9adda573e239a007207e68b6dbe16c204196837824b9599974093d79f500bfbb",
+    "bytes": 8932523,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/textures/source/bathroom_wall_tile.png",
+    "sha256": "60520a8aaa3fc275d969b7994db545967c3eb72e9c31fd4cb1a1295daec5efee",
+    "bytes": 4907810,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/textures/source/guestroom_wood_floor.png",
+    "sha256": "fea6e57ae5133ba92f288f3a87db4f6b5179e4e6c0ce05ecea0b11547689260d",
+    "bytes": 4942835,
+    "buildAndHTTPMatch": true
+  },
+  {
+    "url": "/local-assets/cardinal/rf05/textures/source/warm_gray_wall.png",
+    "sha256": "cc359c438c0803144ab378e0cd1cd3778d82f52b5cc421f06ca6b9ca648603be",
+    "bytes": 5556821,
+    "buildAndHTTPMatch": true
+  }
+]

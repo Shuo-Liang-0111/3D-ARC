@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="ball-hopper"><link name="base"><visual><geometry><mesh filename="mesh/ball-hopper.glb" /></geometry></visual><collision><geometry><mesh filename="mesh/ball-hopper_collision.obj" /></geometry></collision><extra_info><min_height>0.9500</min_height><max_height>0.9500</max_height><real_height>0.9500</real_height></extra_info></link></robot>

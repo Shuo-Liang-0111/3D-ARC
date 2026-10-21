@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "level": "rf14",
+      "release": "rf12-tennis-series-v1-r6"
+    },
+    {
+      "level": "rf14-2",
+      "release": "rf12-tennis-series-v1-r6"
+    },
+    {
+      "level": "rf14-3",
+      "release": "rf12-tennis-series-v1-r6"
+    }
+  ],
+  "protectedUnchanged": 9,
+  "buildHttpBytesMatch": true
+}

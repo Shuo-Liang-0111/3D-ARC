@@ -1,0 +1,19 @@
+{
+  "checked": [
+    "/local-assets/embodiedgen/rf06/models/runtime/rf06_final.glb",
+    "/local-assets/embodiedgen/rf06/models/runtime/interactables/wrench.glb",
+    "/local-assets/embodiedgen/rf06/models/runtime/interactables/mop.glb",
+    "/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+    "/local-assets/embodiedgen/rf06/models/runtime/interactables/tool_rack.glb",
+    "/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+    "/local-assets/levels/rf06/series-v1/bucket.glb",
+    "/local-assets/levels/rf06/series-v1/sofa.glb",
+    "/local-assets/levels/rf06/series-v1/coffee_table.glb",
+    "/local-assets/cardinal/rf04/textures/warm-oak-floor.png",
+    "/local-assets/cardinal/rf04/textures/realistic-warm-plaster-wall.png",
+    "/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+    "/local-assets/levels/rf06/pest-v2/insecticide.glb",
+    "/local-assets/levels/rf06/pest-v2/cockroach.glb"
+  ],
+  "protectedFilesUnchanged": true
+}

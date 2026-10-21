@@ -1,0 +1,6 @@
+diff --git a/game/levels/rf01-2/measure.js b/game/levels/rf01-2/measure.js
+--- a/game/levels/rf01-2/measure.js
++++ b/game/levels/rf01-2/measure.js
+@@ -11,1 +11,1 @@
+-camera.position.set(0, 2.3, 12);
++camera.position.set(0, 2.3, 2);

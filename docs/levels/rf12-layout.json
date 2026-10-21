@@ -1,0 +1,31 @@
+{
+  "level": "rf12",
+  "units": "meters",
+  "bounds": { "minX": -4.2, "maxX": 4.2, "minZ": -3.4, "maxZ": 3.4 },
+  "openings": [
+    { "id": "south-entry", "minX": -0.95, "maxX": 0.95, "minZ": 3.25, "maxZ": 3.4 },
+    { "id": "west-service-door", "minX": -4.2, "maxX": -4.05, "minZ": 1.55, "maxZ": 2.35 }
+  ],
+  "staticColliders": [
+    { "id": "north-wall", "minX": -4.2, "maxX": 4.2, "minZ": -3.4, "maxZ": -3.25 },
+    { "id": "west-wall-rear", "minX": -4.2, "maxX": -4.05, "minZ": -3.4, "maxZ": 1.55 },
+    { "id": "west-wall-front", "minX": -4.2, "maxX": -4.05, "minZ": 2.35, "maxZ": 3.4 },
+    { "id": "east-wall", "minX": 4.05, "maxX": 4.2, "minZ": -3.4, "maxZ": 3.4 },
+    { "id": "south-wall-west", "minX": -4.2, "maxX": -0.95, "minZ": 3.25, "maxZ": 3.4 },
+    { "id": "south-wall-east", "minX": 0.95, "maxX": 4.2, "minZ": 3.25, "maxZ": 3.4 },
+    { "id": "counter-west", "minX": -3.7, "maxX": 0.15, "minZ": -3.05, "maxZ": -2.12 },
+    { "id": "counter-east", "minX": 0.95, "maxX": 3.65, "minZ": -3.05, "maxZ": -2.12 },
+    { "id": "refrigerator", "minX": -3.75, "maxX": -2.85, "minZ": -1.75, "maxZ": -0.45 },
+    { "id": "entry-cabinet", "minX": -3.75, "maxX": -2.4, "minZ": 1.55, "maxZ": 2.15 }
+  ],
+  "interactionPoints": [
+    { "id": "checklist", "x": -3.25, "z": 2.25 },
+    { "id": "cloth", "x": 0.65, "z": -2.55 },
+    { "id": "sink", "x": -0.45, "z": -2.55 },
+    { "id": "hood", "x": 2.25, "z": -2.78 },
+    { "id": "gas-knob", "x": 2.25, "z": -2.45 },
+    { "id": "gas-valve", "x": 3.55, "z": -2.3 },
+    { "id": "window", "x": -0.75, "z": -3.12 },
+    { "id": "terminal", "x": -3.35, "z": 2.55 }
+  ]
+}

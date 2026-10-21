@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready four-person public library reading table for a contemporary Chinese municipal library during normal opening hours. Real-world size exactly approximately 2.40 m long x 0.75 m high x 1.05 m deep. One isolated rectangular commercial reading table only, with a durable pale natural oak veneer top, softly rounded laminated edges, four correctly attached dark graphite powder-coated steel legs inset near the corners, realistic braces and fasteners, and one small flush central black power module without readable labels. Clean practical municipal-library design, physically based oak and metal materials, restrained normal-use wear. Long axis along X, seated users face across the short dimension, front toward positive Z, Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology. No chairs, books, floor, room, lamps, screens, people, robot, hands, loose cables, drawers, shelves, readable text, logo, trademark, neon, UI, floating parts, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

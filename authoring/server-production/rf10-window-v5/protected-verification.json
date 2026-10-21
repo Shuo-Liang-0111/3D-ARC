@@ -1,0 +1,6 @@
+{
+  "game/robot.js": true,
+  "game/unitree-g1-edu2.js": true,
+  "game/movement.js": true,
+  "game/operator-controls.js": true
+}

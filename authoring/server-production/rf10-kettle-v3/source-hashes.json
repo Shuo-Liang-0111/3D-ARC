@@ -1,0 +1,18 @@
+{
+  "game/app.js": "f2a0d2ea9bccde7c6b20e0aca6bb42f3959a061199af03e84c27cdc86ecb4c09",
+  "index.html": "f4e8d5c29b6d14db182a93031fb011119772428cba012bd7cbfb563ff4bc7523",
+  "game/levels/rf12-3/engine.js": "e40e57e4473fe1a8ea0e1b6752a266c07d32d20f972d8c04f0d5677267bc132d",
+  "game/levels/rf12-3/level.js": "9dda3c48f2e52abf4cddbad755addcf3e4b5ebfc85a548e0019d216fa0e229bc",
+  "game/levels/rf12-3/runtime.js": "2b7152a6dfe9a3147fd3da080e4b0ec563dbd5a0331d75a137a846781ac7b4db",
+  "game/levels/rf12/interaction-animation.js": "950400b6c53dc27e79d0d7d011fd220ae1a206b40644e737344276cf7651fd50",
+  "game/levels/rf12/interaction-layout.js": "289d429a3a6ac89ba11e0555248dc9b09de585efd24baae59aa3cabc37e801cd",
+  "game/levels/rf12/interaction-qa.js": "4c2d94326eac0bde15c3bd4e4a83f7961a3b8405098b69553ca494fd3cc3bb8b",
+  "game/levels/rf12/kettle-effects.js": "c866fdf9f9ff145449329dae02ea761f5a44ef524b9733a44da4a63d04e130d3",
+  "game/levels/rf12/scene.js": "fadb6bcff6c4f1a399faebb8d5641969d9ad3d784eec6ef239bb7ebda1db0e20",
+  "game/levels/rf12/variants-scene.js": "455461dbde1c6af4142773e62c7432593000fea7c00db44b70579e6221391597",
+  "tests/rf10-interactions.test.mjs": "d30e6e9f820aff119e504ea8c455f2aac8182d2bd2ebeb510ad71a44ade95608",
+  "tests/rf10-variants.test.mjs": "4b16a433e95086be6fa1fa3607b26cc4064a798d2ccb8456b1b3a2bc4d7764ea",
+  "tools/rf10-series/prepare-kettle.py": "5e702c04d4bee7872787bf006617f463ab27fbae1fec3d819f792d0ae0763df9",
+  "tools/rf10-series/prepare-kettle-sink.py": "4f31dab1abda88bc2ad01eda88f0cc64e5578baf998016c7a7b8e8fea88f6802",
+  "docs/levels/rf10-kettle-v3.md": "9089588e99c7deb42febdb95b75bdc7f9fbf09174b97364277178306aad5d80b"
+}

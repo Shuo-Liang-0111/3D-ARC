@@ -1,0 +1,9 @@
+{
+  "revision": "rf05-series-v06-r11",
+  "protectedUnchanged": 21,
+  "buildHTTPMatches": 41,
+  "reusedAssets": 22,
+  "concurrentUnrelatedChanges": {
+    "game/app.js": "RF12-3 objective text; not modified or staged by this task"
+  }
+}

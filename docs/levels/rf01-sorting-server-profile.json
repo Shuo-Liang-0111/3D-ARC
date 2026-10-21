@@ -1,0 +1,21 @@
+{
+  "profile": "rf01-sorting-v1",
+  "allowedHosts": ["127.0.0.1"],
+  "allowedRoot": "/path/to/arc-workspace",
+  "projectCandidate": ".",
+  "requiresProjectVerification": false,
+  "sshUser": "chenhaoyuan",
+  "authorizationEvidence": "2026-09-19 user request and three confirmed gameplay choices",
+  "deploymentScope": "Existing ARC application, port 4173, shared RF-01 scene and RF-01-3 sorting",
+  "credentials": "SSH password supplied only at password prompt; no credentials in project",
+  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+  "blenderCandidate": null,
+  "embodiedgenEnvironmentCandidate": null,
+  "previewPortCandidates": [4173],
+  "executionMode": "automatic-after-initial-scope",
+  "qualityPreset": "high-highpoly",
+  "reportCardinalCost": false,
+  "cardinalExecution": "Reuse existing RF-03 assets; no new requests needed",
+  "cardinalBatchApprovalRequired": false,
+  "cardinalMaxRegenerationsPerAsset": 2
+}

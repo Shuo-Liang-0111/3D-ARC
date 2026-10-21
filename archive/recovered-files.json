@@ -1,0 +1,506 @@
+[
+  {
+    "originalPath": ".env.example",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 116,
+    "sha256": "e1e0f51bd0f8c5d2ddd7c60ead4a1d6fa0ad1e75cbf7ff094ffc1cd1882c38d1",
+    "role": "configuration-template",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/catalog-terminal.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1205,
+    "sha256": "2478405ddd1f6e916551e52acd64f714dd40c69c9e95551eb7128c4fd0144ea1",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/circulation-desk.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1253,
+    "sha256": "907f443e7964cb44bcfe1c00372cb92facef6ac18c7777d360848b4f978511e6",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/freestanding-stack-module.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1338,
+    "sha256": "1ae7974cd244d38bc2e4e1cc34518d023cc84b8b605fd3966c52a8f9c5d21691",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/indoor-planter.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1182,
+    "sha256": "00785c5b7fcba3631503a29e08ddceafa00b4347cf084d34b138c459a0985cb8",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/library-terrazzo-floor.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 821,
+    "sha256": "42e25f15af4a8111d1458f6b1ee70f2fd282af96bfa9ec3085f1c0d989864fbc",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/reading-chair.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1251,
+    "sha256": "6735e2f38841d6c042ed6eb0d0b9beeb7bb38b9d32f29f55a4efd35c0cc21a7f",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/reading-table-retry.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1305,
+    "sha256": "ab0a51f3695853bf7e9129ed32f1bf305687d5007ba9dc94f011bd4faba73e7c",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/reading-table-set.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1323,
+    "sha256": "9d8045018148cd6959d36e01261582e4e62e985f7aed505b488e8d670c64c38a",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/reading-table.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1128,
+    "sha256": "f500664e5ee8a1cd74914cc4dfb71c364e820127fd1a7285cc5e4c2e35d8ead5",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/red-book.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1152,
+    "sha256": "2cc71210ea12ced869b73de82cebf25d733cd4a894683de412b66e83e61092dd",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/red-target-shelf.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1406,
+    "sha256": "0ed35ef12c795a3d7ac446612256811776bb142f3dd21c2a72fb9716ec6c5e21",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/return-cart.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1112,
+    "sha256": "fdeb134849565157ce0c6e04854dde5a5eb2fbf2d3c061ea2a6a042863350e77",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/return-sorting-table.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1181,
+    "sha256": "6283fd870af99fb7cb15c164f6f98c4aef060b70dc1ed2ce67382155b345c22b",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/security-gate-module.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1239,
+    "sha256": "c8f7eab720829b279904e59600b5ce7d3f6f4cfa159bfe938bea5201cb385624",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/suspended-linear-light.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1211,
+    "sha256": "227afbc617344c73992494b7f72086f45cf797f1345233c2a08d0ea0e23dae21",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf02/requests/wall-shelf-module.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1338,
+    "sha256": "87d8123b740a65db92d8f9fba0fb50b4a25cb87937188f9768f0ed5e91b3fa23",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1094,
+    "sha256": "f5cca1e5a804d1b1369ec328a8a5112524c4fa9e70416fc28be54b3963f70c5d",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc_image_to_model.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 289,
+    "sha256": "ff1ab5b7147a610491344af4dd8b0bea6fbd68e50c63ad23a73ae3cf3bebd8bd",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc_reference.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 590,
+    "sha256": "126e9f98b1a0824d8696ebefd6edc5c1ac686297c7c1e2a504eed7dc645d4f20",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/cleanroom_wall.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 391,
+    "sha256": "5626b3d4dc7955590f61d1d4d7a819d66a920229c8e807350843ebf62ba850b0",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/cold_chain_packing_island.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1053,
+    "sha256": "373daff02d419e37364d48a6f33a9b27ae40a8325e6bafd28a2afb97567e1879",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/dry_reagent_cabinet.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1021,
+    "sha256": "35ee80f41aa4321a80d63211285d130d6787794c8b55b79e1ff4b8e84ee980ec",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/epoxy_floor.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 396,
+    "sha256": "35e17575f3d095e78b766d6c38dd298c03917b3c5e451c805d72574d20c06ed5",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/handwash_eyewash_station.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1059,
+    "sha256": "018bbcc7a104d42730e6f2074fb6b4318f10e1f12eeabdc62a362d841ecf6e07",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/handwash_eyewash_station_image_to_model.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 289,
+    "sha256": "5e64f5dbce5963c2be1d1104688c7eb2ae561da1773f1eb207dae5e92377ced2",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/handwash_eyewash_station_reference.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 565,
+    "sha256": "704bfeb9fb27c53309471dccd5dbc095e1e983f337f3f5e4a1c90466cc8c4a91",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/medical_refrigerator.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1063,
+    "sha256": "8c9e060408f3b58f23d96edc49bf74254cd7ff330f7d24876f733d3c6fdded43",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/medical_waste_bin.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 992,
+    "sha256": "dbcc5c87ab8a934c94c67692a51927b70a4f8b82afc298673f04c37e1f6dddeb",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/p650_transport_case.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1100,
+    "sha256": "fd80b1caa1adce16b3e69fb6feabf64ee54dc43dde73d38630c07193357b24c4",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/p650_transport_case_image_to_model.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 289,
+    "sha256": "939610917118a06d97029e2fdb1708ccd3159ff46f3d5a6bc3826abe59e2f0fa",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/p650_transport_case_reference.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 560,
+    "sha256": "d121a9f03096611417f748f45c0a0f492205b0f279fff19548f34a9fb058bb51",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/pcm_cooling_plate.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1023,
+    "sha256": "99c13cd4b6f338ee6304e39d9e4b4797ce542466f794a0a14c11f25a7f0980ee",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/pcm_cooling_plate_image_to_model.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 289,
+    "sha256": "edd5f392de12d9acd71654dd872ebf5ea779d3975a002d5713ee5d6724ea1797",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/pcm_cooling_plate_reference.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 563,
+    "sha256": "5788a7be2ef8f41d0a4bc3e77b248680e287b86da4b95bedd4d1680540001377",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/ppe_locker_bank.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1032,
+    "sha256": "5bc7f931769d475cc54e3f15698f85821c2d4b0b8e73326371c8cf2cdadb93d0",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/receiving_bench_equipment_bank.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1096,
+    "sha256": "945a7af2fc6440af18f2844b31dbce389a640ce00a3bc23a330049fca670f80a",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1045,
+    "sha256": "03068af61522bd8d696fef4498663eed9e9f3e1a5b1506ef8a2dd83ba9997abc",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier_image_to_model.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 289,
+    "sha256": "35e98de78a24d1ea6718545237c6c4441a12918b45c4451ed975f8f64f56a4ab",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier_reference.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 561,
+    "sha256": "ca66ba27b10c69dc89ce93281bdc927c5cb616730b4249dd9ff1823291b49fdc",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf07/requests/specimen_transfer_cart.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1043,
+    "sha256": "d2ace9f43d4148f7ccfadc0bd33e43dac551df909ef33bcf4439018ea0de9d3b",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/av_podium.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1253,
+    "sha256": "b10fb758b57f627ae76da6fd44c1274b34d56ff84aeaf8b4be1d1c4b97ac27b2",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/carpet_floor.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 556,
+    "sha256": "c38f6bc6956a3dd177870fa4a539ea05df957172f6058e9bb863e9523fb22e9c",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/ceiling_light.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1200,
+    "sha256": "2c0000561321c2602602c4aa2b177d36d3e869adae78e7b8becb1a823195a050",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/conference_table.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1135,
+    "sha256": "aef368ba4c4b7a6a34b1288a0f85ff81fe7e287b73ce893fb56e95291669e924",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/conference_terminal.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1241,
+    "sha256": "c88043ac448c678cebacd5149dbe95bedc8ed83c98b1ce5712f811693975ed87",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/executive_chair.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1134,
+    "sha256": "bdadd1e793a1b3ee6ab5c7671d73e0b2c6fdfa859f54419c80b56d4489095ec8",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/it_equipment_locker.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1120,
+    "sha256": "93abe79eff05f5be5ed409d98762404f64de8dd6d19fe6cf7885cb7aecff5de5",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/lounge_sofa.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1237,
+    "sha256": "5f195ff234470f18d126d138d41a3d4a245ad445de0c691a53f74bf5d2ee54b6",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/office_workstation.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1143,
+    "sha256": "28d4d6892d9d9d233f2f44c3043e0e7aa1c5534ac9996848643ca56fd4941af1",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/painted_wall.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 512,
+    "sha256": "e4f3e8be8fac5f7b4d30c35a1404a88c15947f99860c590b9d04151ee68242bf",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/reception_desk.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1109,
+    "sha256": "5c65e99fd75393f7902a6d48be4b801003f5f64a2867906fe2e5aa8080be82ff",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/supply_cabinet.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1225,
+    "sha256": "c4556d8e04007008e2b786787d0b1fa5fb60b2cd433b15abf7e82f1e0fdd3672",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/usb_c_video_adapter.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1178,
+    "sha256": "e04af06baafe64f6d18d48cef8b9b6b1c63f17d99f477abbf9a3aa18167d748e",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/cardinal/rf09/requests/wireless_presenter.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 1146,
+    "sha256": "27e097a0dedf5d7843504e3c2678f0137c9e19d4c5a01adfc3472d2780c043eb",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/layout.md",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 924,
+    "sha256": "8a3577ed010179918f7efc78f3eb5c2296d6e921c68add9f7c6eb394142e076b",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/manifest.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 8259,
+    "sha256": "f973dccc67a6790ad992852eda44d3c667a44034fe9bbf1e461363753fd0acce",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/requests/cooking_oil_bottle.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 693,
+    "sha256": "5079be0bc7190c6679f53d8666d14fe18e8f279d6fba32531abeee9ab6eb02db",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/requests/frying_pan.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 734,
+    "sha256": "7228f72f513878e2ebef11d939857ce8e426c59d9d09c8b6b8e6782893100053",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/requests/gas_stove.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 731,
+    "sha256": "eb3db976dae25538831fdd39a8c4ff738a94ea38031811237c4d131a65e88d25",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/requests/heat_trivet.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 667,
+    "sha256": "36853d95ae9f1c9f93b3034b1945a6d020238955737dd2f3ca443ca41f62fbac",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/requests/tofu_container.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 749,
+    "sha256": "9e950c360c7a8dd8c2e786e5b41fb0a6532f16567cd29338e711eb4e0dc25237",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  },
+  {
+    "originalPath": "public/local-assets/levels/rf12/requests/tomato_basket.json",
+    "commit": "2fd164bc2f5bb24805a81ce9d29f2e576a0907bd",
+    "bytes": 712,
+    "sha256": "dd1007ec84da081ce3d00ea4b7e836f2b6d58065ebe8b6c4659beeb1114b93cd",
+    "role": "original-authoring-data",
+    "note": "Recovered into audit directory only; current original working tree unchanged."
+  }
+]

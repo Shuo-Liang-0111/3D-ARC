@@ -1,0 +1,11 @@
+import puppeteer from 'puppeteer-core';import fs from 'node:fs';
+const out='./authoring/server-production/rf07-series-v1/evidence',wait=ms=>new Promise(r=>setTimeout(r,ms));
+const b=await puppeteer.launch({executablePath:'/opt/arc-runtime/browser/chrome/linux-153.0.8010.36/chrome-linux64/chrome',headless:true,args:['--no-sandbox','--enable-gpu','--ignore-gpu-blocklist','--use-angle=gl-egl','--disable-dev-shm-usage']});
+try{const p=await b.newPage();await p.setViewport({width:1440,height:900});const errors=[];p.on('pageerror',e=>errors.push(e.message));
+await p.goto((process.env.QA_BASE??'http://127.0.0.1:4173/rf07-series-v1-r2/')+'?mode=play&level=rf07-3&view=third&rf07qa=1',{waitUntil:'networkidle0',timeout:120000});await p.waitForFunction(()=>window.__RF07_QA__&&!document.querySelector('#start-button').disabled,{timeout:90000});await p.click('#start-button');
+await p.evaluate(()=>{__RF07_QA__.fixture('normal');__RF07_QA__.station('sample','sampleA');__RF07_QA__.schedule('device',1);});await p.keyboard.press('KeyF');await wait(5500);
+const interrupt=await p.evaluate(()=>({state:__RF07_QA__.state(),animation:__RF07_QA__.snapshot()}));if(interrupt.state.carriedItem!==null||interrupt.state.alarm.status!=='active')throw Error('Alarm did not interrupt pickup');
+await p.evaluate(()=>__RF07_QA__.deadline(1));await wait(1800);const timeout=await p.evaluate(()=>({state:__RF07_QA__.state(),overlay:!document.querySelector('#failure-overlay').hidden,text:document.querySelector('#failure-overlay p').textContent,visibleText:document.querySelector('#game-shell').innerText}));if(!timeout.state.failed||!timeout.overlay||!timeout.text.includes('泄漏'))throw Error('Missing failure result');if(/120|倒计时|剩余.*秒/.test(timeout.visibleText))throw Error('Countdown leaked into UI');
+await p.screenshot({path:out+'/alarm-timeout.png'});await p.click('#failure-restart-button');await wait(800);const reset=await p.evaluate(()=>__RF07_QA__.state());if(reset.failed||reset.alarm.status!=='pending'||reset.carriedItem!==null)throw Error('Reset failed');
+fs.writeFileSync(out+'/alarm-boundaries.json',JSON.stringify({errors,interrupt,timeout,reset},null,2));console.log('PASS alarm interrupt, hidden deadline, failure copy, restart');
+}catch(e){console.error(e);process.exitCode=1;}finally{await b.close();}

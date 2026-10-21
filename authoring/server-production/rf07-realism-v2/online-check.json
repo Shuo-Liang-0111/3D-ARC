@@ -1,0 +1,29 @@
+[
+  {
+    "id": "rf07-2",
+    "release": "rf07-realism-v2-r9",
+    "errors": [],
+    "loaded": "true",
+    "complete": false,
+    "failed": false,
+    "qaAbsent": true
+  },
+  {
+    "id": "rf07",
+    "release": "rf07-realism-v2-r9",
+    "errors": [],
+    "loaded": "true",
+    "complete": false,
+    "failed": false,
+    "qaAbsent": true
+  },
+  {
+    "id": "rf07-3",
+    "release": "rf07-realism-v2-r9",
+    "errors": [],
+    "loaded": "true",
+    "complete": false,
+    "failed": false,
+    "qaAbsent": true
+  }
+]

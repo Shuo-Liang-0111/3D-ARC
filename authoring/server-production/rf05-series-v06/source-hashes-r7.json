@@ -1,0 +1,7 @@
+{
+  "game/levels/rf05/series-animation.js": "f57ad48d4cf1b86831cc770a965313ea0009b9967c94a411ec7678935c2a58d7",
+  "game/levels/rf05/series-layout.js": "90079ab93c3d348222f37d90f3196750bae9989255083fb287dd40833df5fcc1",
+  "tests/rf05-series.test.mjs": "165760387241129c40e37bd60b43700f9b7a0db60fd883f820b64166279956b3",
+  "docs/levels/rf05-series-acceptance.md": "b121eaeee7bf763c9464a86450f20dc0c8a01e1dcc8e95aff6355435b460637c",
+  "docs/levels/rf05-series-production-plan.md": "46613e188f0915f529fb38802b717ca39428fefb69e4704928405f1ad7e6ea6d"
+}

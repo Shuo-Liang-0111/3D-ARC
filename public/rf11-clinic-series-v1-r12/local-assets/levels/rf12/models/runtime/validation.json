@@ -1,0 +1,215 @@
+{
+  "level": "rf12",
+  "status": "pass",
+  "checkedAt": "2026-09-04T12:25:16.402Z",
+  "totalBytes": 14715016,
+  "totalMiB": 14.033,
+  "assets": [
+    {
+      "id": "environment",
+      "path": "/local-assets/levels/rf12/models/runtime/rf12_final.glb",
+      "role": "environment",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/rf12_final.glb",
+        "bytes": 1586460,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "collision",
+      "path": "/local-assets/levels/rf12/models/runtime/rf12_collision.glb",
+      "role": "collision",
+      "collision": true,
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/rf12_collision.glb",
+        "bytes": 21340,
+        "meshes": 11,
+        "primitives": 11,
+        "images": 0,
+        "draco": false,
+        "webp": false
+      }
+    },
+    {
+      "id": "range-hood",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/range_hood.glb",
+      "dimensions": [
+        1.8,
+        0.55,
+        0.48
+      ],
+      "support": "wall",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/range_hood.glb",
+        "bytes": 1672360,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "gas-knob",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/gas_knob.glb",
+      "dimensions": [
+        0.12,
+        0.12,
+        0.08
+      ],
+      "support": "counter",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/gas_knob.glb",
+        "bytes": 1534664,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "gas-valve",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/gas_valve.glb",
+      "dimensions": [
+        0.28,
+        0.24,
+        0.2
+      ],
+      "support": "wall",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/gas_valve.glb",
+        "bytes": 1840320,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "wet-cloth",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/wet_cloth.glb",
+      "dimensions": [
+        0.42,
+        0.04,
+        0.32
+      ],
+      "support": "counter",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/wet_cloth.glb",
+        "bytes": 1842016,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "kitchen-window",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/kitchen_window.glb",
+      "dimensions": [
+        1.35,
+        1.25,
+        0.12
+      ],
+      "support": "wall",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/kitchen_window.glb",
+        "bytes": 1581864,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "safety-terminal",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/safety_terminal.glb",
+      "dimensions": [
+        0.72,
+        1.08,
+        0.45
+      ],
+      "support": "floor",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/safety_terminal.glb",
+        "bytes": 1565768,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "refrigerator",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/refrigerator.glb",
+      "dimensions": [
+        0.92,
+        1.9,
+        0.68
+      ],
+      "support": "floor",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/refrigerator.glb",
+        "bytes": 1399976,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    },
+    {
+      "id": "kitchen-sink",
+      "path": "/local-assets/levels/rf12/models/runtime/interactables/kitchen_sink.glb",
+      "dimensions": [
+        0.9,
+        0.42,
+        0.68
+      ],
+      "support": "counter",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "role": "interactive",
+      "inspected": {
+        "path": "/local-assets/levels/rf12/models/runtime/interactables/kitchen_sink.glb",
+        "bytes": 1670248,
+        "meshes": 1,
+        "primitives": 1,
+        "images": 3,
+        "draco": true,
+        "webp": true
+      }
+    }
+  ],
+  "errors": []
+}

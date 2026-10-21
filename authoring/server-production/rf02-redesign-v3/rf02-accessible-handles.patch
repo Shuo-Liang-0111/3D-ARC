@@ -1,0 +1,652 @@
+diff --git a/game/levels/rf02/furnishings-layout.js b/game/levels/rf02/furnishings-layout.js
+--- a/game/levels/rf02/furnishings-layout.js
++++ b/game/levels/rf02/furnishings-layout.js
+@@ -1,37 +1,37 @@
+-export const FURNISHINGS_REVISION = "library-operations-v3";
+-
+-export const CHAIRS = Object.freeze([
+-  { id: "west-north", model: "readingChair", x: -5.76, z: 0.40, home: { x: -5.76, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
+-  { id: "west-north-two", model: "readingChair-2", x: -4.24, z: 1.49, modelYaw: -Math.PI / 2 },
+-  { id: "west-south", model: "readingChair-3", x: -5.76, z: 3.21, modelYaw: Math.PI / 2 },
+-  { id: "west-south-two", model: "readingChair-4", x: -4.24, z: 3.21, modelYaw: Math.PI / 2 },
+-  { id: "east-north-two", model: "readingChair-5", x: 4.64, z: 1.49, modelYaw: -Math.PI / 2 },
+-  { id: "east-north", model: "readingChair-6", x: 6.16, z: 0.40, home: { x: 6.16, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
+-  { id: "east-south", model: "readingChair-7", x: 4.64, z: 3.21, modelYaw: Math.PI / 2 },
+-  { id: "east-south-two", model: "readingChair-8", x: 6.16, z: 3.21, modelYaw: Math.PI / 2 },
+-].map((chair) => Object.freeze({ halfX: 0.28, halfZ: 0.265, yaw: 0, standOffset: 0.75, handleBack: 0.22, handleY: 0.84, handleHalfWidth: 0.20, ...chair })));
+-
+-export const CART = Object.freeze({
+-  id: "return-cart", x: 2.45, z: 4.55, yaw: Math.PI,
+-  halfX: 0.45, halfZ: 0.265, standOffset: 0.96,
+-  handleBack: 0.31, handleY: 1.04, handleHalfWidth: 0.25,
+-  parking: Object.freeze({ x: 8.65, z: -3.15, yaw: Math.PI, halfX: 0.68, halfZ: 0.56 }),
+-});
+-
+-export function furnitureStand(object) {
+-  return {
+-    x: object.x - Math.sin(object.yaw) * object.standOffset,
+-    z: object.z - Math.cos(object.yaw) * object.standOffset,
+-    yaw: object.yaw,
+-  };
+-}
+-
+-export function furnitureRect(object) {
+-  return { id: object.id, minX: object.x - object.halfX, maxX: object.x + object.halfX, minZ: object.z - object.halfZ, maxZ: object.z + object.halfZ };
+-}
+-
+-export const READING_COLLIDERS = Object.freeze([
+-  { id: "west-reading-zone", minX: -6.20, maxX: -3.80, minZ: 1.825, maxZ: 2.875 },
+-  { id: "east-reading-zone", minX: 4.20, maxX: 6.60, minZ: 1.825, maxZ: 2.875 },
+-  ...CHAIRS.map(furnitureRect),
+-]);
++export const FURNISHINGS_REVISION = "library-operations-v3";
++
++export const CHAIRS = Object.freeze([
++  { id: "west-north", model: "readingChair", x: -5.76, z: 0.40, home: { x: -5.76, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
++  { id: "west-north-two", model: "readingChair-2", x: -4.24, z: 1.49, modelYaw: -Math.PI / 2 },
++  { id: "west-south", model: "readingChair-3", x: -5.76, z: 3.21, modelYaw: Math.PI / 2 },
++  { id: "west-south-two", model: "readingChair-4", x: -4.24, z: 3.21, modelYaw: Math.PI / 2 },
++  { id: "east-north-two", model: "readingChair-5", x: 4.64, z: 1.49, modelYaw: -Math.PI / 2 },
++  { id: "east-north", model: "readingChair-6", x: 6.16, z: 0.40, home: { x: 6.16, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
++  { id: "east-south", model: "readingChair-7", x: 4.64, z: 3.21, modelYaw: Math.PI / 2 },
++  { id: "east-south-two", model: "readingChair-8", x: 6.16, z: 3.21, modelYaw: Math.PI / 2 },
++].map((chair) => Object.freeze({ halfX: 0.28, halfZ: 0.265, yaw: 0, standOffset: 0.75, handleBack: 0.39, handleY: 0.92, handleHalfWidth: 0.20, ...chair })));
++
++export const CART = Object.freeze({
++  id: "return-cart", x: 2.45, z: 4.55, yaw: Math.PI,
++  halfX: 0.45, halfZ: 0.30, standOffset: 0.96,
++  handleBack: 0.60, handleY: 1.04, handleHalfWidth: 0.25,
++  parking: Object.freeze({ x: 8.65, z: -3.15, yaw: Math.PI, halfX: 0.68, halfZ: 0.56 }),
++});
++
++export function furnitureStand(object) {
++  return {
++    x: object.x - Math.sin(object.yaw) * object.standOffset,
++    z: object.z - Math.cos(object.yaw) * object.standOffset,
++    yaw: object.yaw,
++  };
++}
++
++export function furnitureRect(object) {
++  return { id: object.id, minX: object.x - object.halfX, maxX: object.x + object.halfX, minZ: object.z - object.halfZ, maxZ: object.z + object.halfZ };
++}
++
++export const READING_COLLIDERS = Object.freeze([
++  { id: "west-reading-zone", minX: -6.20, maxX: -3.80, minZ: 1.825, maxZ: 2.875 },
++  { id: "east-reading-zone", minX: 4.20, maxX: 6.60, minZ: 1.825, maxZ: 2.875 },
++  ...CHAIRS.map(furnitureRect),
++]);
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -1,59 +1,59 @@
+-import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
+-import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
+-
+-export { CART, CHAIRS };
+-export const REVISION = FURNISHINGS_REVISION;
+-export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
+-
+-export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
+-  const black = color === "black";
+-  return [color, Object.freeze({
+-    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
+-    z: black ? -6.43 : -1.75,
+-    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
+-  })];
+-})));
+-
+-export const BOOKENDS = Object.freeze({
+-  red: { x: -10.26, y: 1.16, z: -1.05, rotation: Math.PI / 2, stand: { x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, handle: { x: -10.26, y: 1.26, z: 0.32 } },
+-  black: { x: 0, y: 1.16, z: -6.25, rotation: 0, stand: { x: 1.32, z: -5.65, yaw: Math.PI }, handle: { x: 1.32, y: 1.26, z: -6.25 } },
+-  white: { x: 10.26, y: 1.16, z: -1.05, rotation: -Math.PI / 2, stand: { x: 9.65, z: 0.32, yaw: Math.PI / 2 }, handle: { x: 10.26, y: 1.26, z: 0.32 } },
+-});
+-
+-export function shelfPose(color, id) {
+-  const source = SHELF_BOOKS[color];
+-  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
+-  const slot = shelfIndex * 0.36;
+-  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
+-}
+-
+-export function landingPose(color, index) {
+-  return color === "black"
+-    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
+-    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
+-}
+-
+-export const BOOKS = Object.freeze([
+-  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
+-  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
+-  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
+-  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
+-  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
+-    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
+-    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
+-  }))),
+-]);
+-
+-export function seriesLevel(id) {
+-  return Object.freeze({
+-    ...BASE_LEVEL, id, revision: REVISION,
+-    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
+-    dynamic: id === "rf02-3", interactionRange: 1.30,
+-    progress: Object.freeze({
+-      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.38 : 1.45,
+-      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
+-      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, repairReward: 3, pickupReward: 1, correctBookReward: 1,
+-    }),
+-    fallDuration: 0.95, fallInterval: 12, maximumFalls: 3,
+-  });
+-}
++import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
++import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
++
++export { CART, CHAIRS };
++export const REVISION = FURNISHINGS_REVISION;
++export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
++
++export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
++  const black = color === "black";
++  return [color, Object.freeze({
++    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
++    z: black ? -6.43 : -1.75,
++    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
++  })];
++})));
++
++export const BOOKENDS = Object.freeze({
++  red: { x: -10.26, y: 1.16, z: -1.05, rotation: Math.PI / 2, stand: { x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, handle: { x: -10.00, y: 1.26, z: 0.32 } },
++  black: { x: 0, y: 1.16, z: -6.25, rotation: 0, stand: { x: 1.32, z: -5.65, yaw: Math.PI }, handle: { x: 1.32, y: 1.26, z: -6.00 } },
++  white: { x: 10.26, y: 1.16, z: -1.05, rotation: -Math.PI / 2, stand: { x: 9.65, z: 0.32, yaw: Math.PI / 2 }, handle: { x: 10.00, y: 1.26, z: 0.32 } },
++});
++
++export function shelfPose(color, id) {
++  const source = SHELF_BOOKS[color];
++  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
++  const slot = shelfIndex * 0.36;
++  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
++}
++
++export function landingPose(color, index) {
++  return color === "black"
++    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
++    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
++}
++
++export const BOOKS = Object.freeze([
++  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
++  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
++    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
++    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
++  }))),
++]);
++
++export function seriesLevel(id) {
++  return Object.freeze({
++    ...BASE_LEVEL, id, revision: REVISION,
++    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
++    dynamic: id === "rf02-3", interactionRange: 1.30,
++    progress: Object.freeze({
++      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.38 : 1.45,
++      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
++      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, repairReward: 3, pickupReward: 1, correctBookReward: 1,
++    }),
++    fallDuration: 0.95, fallInterval: 12, maximumFalls: 3,
++  });
++}
+diff --git a/tools/rf02-series/build-collision.mjs b/tools/rf02-series/build-collision.mjs
+--- a/tools/rf02-series/build-collision.mjs
++++ b/tools/rf02-series/build-collision.mjs
+@@ -1,105 +1,110 @@
+-import fs from "node:fs";
+-import path from "node:path";
+-import * as THREE from "three";
+-import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+-import { LEVEL } from "../../game/levels/rf02/level.js";
+-import { ASSET_ROOT, BOOKENDS, CART } from "../../game/levels/rf02/series-layout.js";
+-
+-globalThis.FileReader = class {
+-  readAsArrayBuffer(blob) {
+-    blob.arrayBuffer().then((result) => { this.result = result; this.onloadend?.(); });
+-  }
+-};
+-const scene = new THREE.Scene();
+-for (const collider of LEVEL.staticColliders) {
+-  const height = collider.id.includes("wall") ? 3.6 : collider.id.includes("shelf") || collider.id.includes("stack") ? 1.8 : 1.1;
+-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(collider.maxX - collider.minX, height, collider.maxZ - collider.minZ), new THREE.MeshBasicMaterial());
+-  mesh.position.set((collider.minX + collider.maxX) / 2, height / 2, (collider.minZ + collider.maxZ) / 2);
+-  mesh.name = "COLLIDER_" + collider.id;
+-  mesh.userData = { collision: true, shape: "box", authoritative: "rf02/level.js" };
+-  scene.add(mesh);
+-}
+-const floor = new THREE.Mesh(new THREE.BoxGeometry(24, 0.1, 16), new THREE.MeshBasicMaterial());
+-floor.position.y = -0.05;
+-floor.name = "COLLIDER_floor";
+-floor.userData = { collision: true, shape: "box" };
+-scene.add(floor);
+-const result = await new GLTFExporter().parseAsync(scene, { binary: true });
+-const output = path.join("public", ASSET_ROOT, "library-collision.glb");
+-fs.mkdirSync(path.dirname(output), { recursive: true });
+-fs.writeFileSync(output, Buffer.from(result));
+-console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
+-const fixtures = new THREE.Scene();
+-const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(24, 16), new THREE.MeshStandardMaterial({ color: 0xe1dfd7, roughness: 0.95 }));
+-ceiling.name = "library-ceiling-interior-face";
+-ceiling.rotation.x = Math.PI / 2;
+-ceiling.position.y = 3.599;
+-fixtures.add(ceiling);
+-for (const positionX of [-9, -3, 3, 9]) {
+-  for (const positionZ of [-4.8, 0.2, 5.2]) {
+-    for (const offset of [-0.86, 0.86]) {
+-      const suspension = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.07, 8), new THREE.MeshStandardMaterial({ color: 0x6d7171, metalness: 0.65, roughness: 0.5 }));
+-      suspension.name = "luminaire-suspension-" + positionX + "-" + positionZ + "-" + offset;
+-      suspension.position.set(positionX + offset, 3.565, positionZ);
+-      fixtures.add(suspension);
+-    }
+-  }
+-}
+-const fixtureBytes = await new GLTFExporter().parseAsync(fixtures, { binary: true });
+-fs.writeFileSync(path.join("public", ASSET_ROOT, "ceiling-fixtures.glb"), Buffer.from(fixtureBytes));
+-
+-const operations = new THREE.Scene();
+-const steel = new THREE.MeshStandardMaterial({ color: 0x6b7477, metalness: 0.7, roughness: 0.38 });
+-const latchMaterial = new THREE.MeshStandardMaterial({ color: 0xc77f36, metalness: 0.5, roughness: 0.4 });
+-function box(parent, name, size, position, material = steel) {
+-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
+-  mesh.name = name;
+-  mesh.position.fromArray(position);
+-  mesh.castShadow = true;
+-  mesh.receiveShadow = true;
+-  parent.add(mesh);
+-  return mesh;
+-}
+-for (const [color, definition] of Object.entries(BOOKENDS)) {
+-  const root = new THREE.Group();
+-  root.name = "bookend-" + color;
+-  const rail = new THREE.Group();
+-  rail.name = "rail-" + color;
+-  box(rail, "retaining-lip-" + color, [2.96, 0.115, 0.014], [0, 0.0575, 0]);
+-  box(rail, "support-foot-" + color, [2.96, 0.008, 0.09], [0, 0.004, -0.038]);
+-  root.add(rail);
+-  for (const horizontal of [-1.37, 1.32]) {
+-    box(root, "mount-" + color + "-" + horizontal, [0.13, 0.16, 0.038], [horizontal, 0.08, -0.02]);
+-    box(rail, "latch-" + color + "-" + horizontal, [0.08, 0.025, 0.03], [horizontal, 0.10, 0.025], latchMaterial);
+-    const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.014, 12), steel);
+-    bolt.rotation.x = Math.PI / 2;
+-    bolt.position.set(horizontal, 0.03, 0.022);
+-    root.add(bolt);
+-  }
+-  root.position.set(definition.x, definition.y, definition.z);
+-  root.rotation.y = definition.rotation;
+-  operations.add(root);
+-}
+-const handle = new THREE.Group();
+-handle.name = "cart-handle";
+-for (const lateral of [-CART.handleHalfWidth, CART.handleHalfWidth]) {
+-  const upright = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.24, 12), steel);
+-  upright.position.set(lateral, CART.handleY - 0.12, -CART.handleBack);
+-  handle.add(upright);
+-}
+-const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.017, 0.017, CART.handleHalfWidth * 2 + 0.06, 16), steel);
+-grip.rotation.z = Math.PI / 2;
+-grip.position.set(0, CART.handleY, -CART.handleBack);
+-handle.add(grip);
+-handle.position.set(CART.x, 0, CART.z);
+-handle.rotation.y = CART.yaw;
+-operations.add(handle);
+-const parking = CART.parking;
+-const paint = new THREE.MeshStandardMaterial({ color: 0xb59f58, roughness: 0.95, polygonOffset: true, polygonOffsetFactor: -1 });
+-for (const side of [-1, 1]) {
+-  box(operations, "parking-side-" + side, [0.025, 0.003, parking.halfZ * 2], [parking.x + parking.halfX * side, 0.006, parking.z], paint);
+-  box(operations, "parking-end-" + side, [parking.halfX * 2, 0.003, 0.025], [parking.x, 0.006, parking.z + parking.halfZ * side], paint);
+-}
+-const operationBytes = await new GLTFExporter().parseAsync(operations, { binary: true });
+-fs.writeFileSync(path.join("public", ASSET_ROOT, "closing-fixtures.glb"), Buffer.from(operationBytes));
+-console.log(JSON.stringify({ revision: ASSET_ROOT, operationBytes: operationBytes.byteLength }));
++import fs from "node:fs";
++import path from "node:path";
++import * as THREE from "three";
++import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
++import { LEVEL } from "../../game/levels/rf02/level.js";
++import { ASSET_ROOT, BOOKENDS, CART, CHAIRS } from "../../game/levels/rf02/series-layout.js";
++
++globalThis.FileReader = class {
++  readAsArrayBuffer(blob) {
++    blob.arrayBuffer().then((result) => { this.result = result; this.onloadend?.(); });
++  }
++};
++const scene = new THREE.Scene();
++for (const collider of LEVEL.staticColliders) {
++  const height = collider.id.includes("wall") ? 3.6 : collider.id.includes("shelf") || collider.id.includes("stack") ? 1.8 : 1.1;
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(collider.maxX - collider.minX, height, collider.maxZ - collider.minZ), new THREE.MeshBasicMaterial());
++  mesh.position.set((collider.minX + collider.maxX) / 2, height / 2, (collider.minZ + collider.maxZ) / 2);
++  mesh.name = "COLLIDER_" + collider.id;
++  mesh.userData = { collision: true, shape: "box", authoritative: "rf02/level.js" };
++  scene.add(mesh);
++}
++const floor = new THREE.Mesh(new THREE.BoxGeometry(24, 0.1, 16), new THREE.MeshBasicMaterial());
++floor.position.y = -0.05;
++floor.name = "COLLIDER_floor";
++floor.userData = { collision: true, shape: "box" };
++scene.add(floor);
++const result = await new GLTFExporter().parseAsync(scene, { binary: true });
++const output = path.join("public", ASSET_ROOT, "library-collision.glb");
++fs.mkdirSync(path.dirname(output), { recursive: true });
++fs.writeFileSync(output, Buffer.from(result));
++console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
++const fixtures = new THREE.Scene();
++const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(24, 16), new THREE.MeshStandardMaterial({ color: 0xe1dfd7, roughness: 0.95 }));
++ceiling.name = "library-ceiling-interior-face";
++ceiling.rotation.x = Math.PI / 2;
++ceiling.position.y = 3.599;
++fixtures.add(ceiling);
++for (const positionX of [-9, -3, 3, 9]) {
++  for (const positionZ of [-4.8, 0.2, 5.2]) {
++    for (const offset of [-0.86, 0.86]) {
++      const suspension = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.07, 8), new THREE.MeshStandardMaterial({ color: 0x6d7171, metalness: 0.65, roughness: 0.5 }));
++      suspension.name = "luminaire-suspension-" + positionX + "-" + positionZ + "-" + offset;
++      suspension.position.set(positionX + offset, 3.565, positionZ);
++      fixtures.add(suspension);
++    }
++  }
++}
++const fixtureBytes = await new GLTFExporter().parseAsync(fixtures, { binary: true });
++fs.writeFileSync(path.join("public", ASSET_ROOT, "ceiling-fixtures.glb"), Buffer.from(fixtureBytes));
++
++const operations = new THREE.Scene();
++const steel = new THREE.MeshStandardMaterial({ color: 0x6b7477, metalness: 0.7, roughness: 0.38 });
++const latchMaterial = new THREE.MeshStandardMaterial({ color: 0xc77f36, metalness: 0.5, roughness: 0.4 });
++function box(parent, name, size, position, material = steel) {
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
++  mesh.name = name;
++  mesh.position.fromArray(position);
++  mesh.castShadow = true;
++  mesh.receiveShadow = true;
++  parent.add(mesh);
++  return mesh;
++}
++for (const [color, definition] of Object.entries(BOOKENDS)) {
++  const root = new THREE.Group();
++  root.name = "bookend-" + color;
++  const rail = new THREE.Group();
++  rail.name = "rail-" + color;
++  box(rail, "retaining-lip-" + color, [2.96, 0.115, 0.014], [0, 0.0575, 0]);
++  box(rail, "support-foot-" + color, [2.96, 0.008, 0.09], [0, 0.004, -0.038]);
++  root.add(rail);
++  for (const horizontal of [-1.37, 1.32]) {
++    box(root, "mount-" + color + "-" + horizontal, [0.13, 0.16, 0.038], [horizontal, 0.08, -0.02]);
++    box(root, "latch-lever-" + color + "-" + horizontal, [0.055, 0.025, 0.27], [horizontal, 0.10, 0.13], latchMaterial);
++    const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.014, 12), steel);
++    bolt.rotation.x = Math.PI / 2;
++    bolt.position.set(horizontal, 0.03, 0.022);
++    root.add(bolt);
++  }
++  root.position.set(definition.x, definition.y, definition.z);
++  root.rotation.y = definition.rotation;
++  operations.add(root);
++}
++for (const object of [...CHAIRS, CART]) {
++  const handle = new THREE.Group();
++  handle.name = object === CART ? "cart-handle" : "chair-handle-" + object.id;
++  for (const lateral of [-object.handleHalfWidth, object.handleHalfWidth]) {
++    const anchor = new THREE.Vector3(lateral, object === CART ? 0.85 : 0.77, object === CART ? -0.22 : -0.23);
++    const endpoint = new THREE.Vector3(lateral, object.handleY, -object.handleBack);
++    const upright = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, anchor.distanceTo(endpoint), 12), steel);
++    upright.position.copy(anchor).add(endpoint).multiplyScalar(0.5);
++    upright.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), endpoint.clone().sub(anchor).normalize());
++    handle.add(upright);
++  }
++  const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.017, 0.017, object.handleHalfWidth * 2 + 0.025, 16), steel);
++  grip.rotation.z = Math.PI / 2;
++  grip.position.set(0, object.handleY, -object.handleBack);
++  handle.add(grip);
++  handle.position.set(object.x, 0, object.z);
++  handle.rotation.y = object.yaw;
++  operations.add(handle);
++}
++const parking = CART.parking;
++const paint = new THREE.MeshStandardMaterial({ color: 0xb59f58, roughness: 0.95, polygonOffset: true, polygonOffsetFactor: -1 });
++for (const side of [-1, 1]) {
++  box(operations, "parking-side-" + side, [0.025, 0.003, parking.halfZ * 2], [parking.x + parking.halfX * side, 0.006, parking.z], paint);
++  box(operations, "parking-end-" + side, [parking.halfX * 2, 0.003, 0.025], [parking.x, 0.006, parking.z + parking.halfZ * side], paint);
++}
++const operationBytes = await new GLTFExporter().parseAsync(operations, { binary: true });
++fs.writeFileSync(path.join("public", ASSET_ROOT, "closing-fixtures.glb"), Buffer.from(operationBytes));
++console.log(JSON.stringify({ revision: ASSET_ROOT, operationBytes: operationBytes.byteLength }));
+diff --git a/game/levels/rf02/series-scene.js b/game/levels/rf02/series-scene.js
+--- a/game/levels/rf02/series-scene.js
++++ b/game/levels/rf02/series-scene.js
+@@ -1,113 +1,116 @@
+-import * as THREE from "three";
+-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+-import { createLibraryScene } from "./scene.js";
+-import { LEVEL } from "./level.js";
+-import { ASSET_ROOT, BOOKS, BOOKENDS, CART, CHAIRS, REVISION, shelfPose } from "./series-layout.js";
+-
+-export function createArchiveScene() {
+-  const world = createLibraryScene();
+-  world.revision = REVISION;
+-  world.archiveRoots = { ...world.bookRoots };
+-  world.fallenBooks = new Set();
+-  world.bookends = {};
+-  world.collisionRoots = new Map();
+-  const originalReady = world.assetReady;
+-  const collisionReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/library-collision.glb", (gltf) => {
+-    gltf.scene.visible = false;
+-    world.scene.add(gltf.scene);
+-    gltf.scene.updateMatrixWorld(true);
+-    const boxes = new Map();
+-    gltf.scene.traverse((node) => {
+-      if (node.userData.collision && node.isMesh) {
+-        boxes.set(node.name, new THREE.Box3().setFromObject(node));
+-        world.collisionRoots.set(node.name.replace("COLLIDER_", ""), node);
+-      }
+-    });
+-    const valid = LEVEL.staticColliders.every((rect) => {
+-      const bounds = boxes.get("COLLIDER_" + rect.id);
+-      return bounds && Math.abs(bounds.min.x - rect.minX) < 0.001 && Math.abs(bounds.max.x - rect.maxX) < 0.001
+-        && Math.abs(bounds.min.z - rect.minZ) < 0.001 && Math.abs(bounds.max.z - rect.maxZ) < 0.001;
+-    });
+-    resolve({ loaded: valid, name: "shared-library-collision", url: ASSET_ROOT + "/library-collision.glb" });
+-  }, undefined, () => resolve({ loaded: false, name: "shared-library-collision" })));
+-  world.collisionReady = collisionReady;
+-  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/ceiling-fixtures.glb", (gltf) => {
+-    world.scene.add(gltf.scene);
+-    resolve({ loaded: true, name: "ceiling-fixtures", url: ASSET_ROOT + "/ceiling-fixtures.glb" });
+-  }, undefined, () => resolve({ loaded: false, name: "ceiling-fixtures" })));
+-  const operationsReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/closing-fixtures.glb", (gltf) => {
+-    world.scene.add(gltf.scene);
+-    for (const color of ["red", "black", "white"]) world.bookends[color] = gltf.scene.getObjectByName("bookend-" + color);
+-    world.cartHandle = gltf.scene.getObjectByName("cart-handle");
+-    resolve({ loaded: Object.values(world.bookends).every(Boolean) && Boolean(world.cartHandle), name: "closing-fixtures", url: ASSET_ROOT + "/closing-fixtures.glb" });
+-  }, undefined, () => resolve({ loaded: false, name: "closing-fixtures" })));
+-  world.assetReady = Promise.all([originalReady, collisionReady, fixturesReady, operationsReady]).then(([results, collision, fixtures, operations]) => {
+-    for (const book of BOOKS.filter((entry) => !world.archiveRoots[entry.id])) {
+-      const root = new THREE.Group();
+-      root.name = "archive-book-" + book.id;
+-      root.add(world.assetRoots.books[book.color].clone(true));
+-      world.scene.add(root);
+-      world.archiveRoots[book.id] = root;
+-    }
+-    world.chairRoots = Object.fromEntries(CHAIRS.map((chair) => [chair.id, world.assetRoots.staticSlice.getObjectByName(chair.model)]));
+-    world.cartRoot = world.assetRoots.staticSlice.getObjectByName("returnCart");
+-    const furnitureValid = Object.values(world.chairRoots).every(Boolean) && Boolean(world.cartRoot);
+-    return [...results, collision, fixtures, operations, { loaded: furnitureValid, name: "shared-furniture-bindings" }];
+-  });
+-  return world;
+-}
+-
+-function poseBook(root, book, state) {
+-  root.visible = book.location !== "carried";
+-  if (!root.visible) return;
+-  let pose = book.location === "shelved" ? shelfPose(book.color, book.id) : book;
+-  let tilt = 0;
+-  if (book.support === "return-cart" && state.cart) pose = { ...pose, x: state.cart.x, z: state.cart.z, rotation: state.cart.yaw - CART.yaw };
+-  if (book.location === "falling") {
+-    const source = shelfPose(book.color, book.id);
+-    const progress = Math.min(1, book.fallElapsed / 0.95);
+-    const travel = Math.min(1, progress / 0.8), falling = Math.max(0, (progress - 0.24) / 0.76);
+-    pose = {
+-      x: source.x + (book.landing.x - source.x) * travel,
+-      z: source.z + (book.landing.z - source.z) * travel,
+-      y: Math.max(0.012, source.y * (1 - falling * falling)), rotation: source.rotation,
+-    };
+-    tilt = Math.sin(Math.PI * falling) * 0.65;
+-  }
+-  root.position.set(pose.x, pose.y ?? 0.78, pose.z);
+-  root.rotation.set(tilt, pose.rotation ?? 0, 0);
+-}
+-
+-export function syncArchiveVisuals(world, state) {
+-  for (const definition of BOOKS) {
+-    const root = world.archiveRoots[definition.id];
+-    if (!root) continue;
+-    const book = state.books[definition.id] ? { ...definition, ...state.books[definition.id] } : definition;
+-    poseBook(root, book, state);
+-    if (book.fallen && book.location === "ground" && !world.fallenBooks.has(book.id)) {
+-      world.fallenBooks.add(book.id);
+-      if (world.bookImpact) { world.bookImpact.currentTime = 0; world.bookImpact.play().catch(() => {}); }
+-    }
+-  }
+-  if (!state.incident || state.incident.phase === "waiting") world.fallenBooks.clear();
+-  for (const definition of CHAIRS) {
+-    const chair = state.chairs?.[definition.id] ?? definition;
+-    const root = world.chairRoots?.[definition.id];
+-    if (root) { root.position.set(chair.x, 0, chair.z); root.rotation.y = definition.modelYaw + chair.yaw; }
+-    const collision = world.collisionRoots.get(definition.id);
+-    if (collision) { collision.position.x = chair.x; collision.position.z = chair.z; collision.rotation.y = chair.yaw; }
+-  }
+-  const cart = state.cart ?? CART;
+-  if (world.cartRoot) { world.cartRoot.position.set(cart.x, 0, cart.z); world.cartRoot.rotation.y = cart.yaw - CART.yaw; }
+-  if (world.cartHandle) { world.cartHandle.position.set(cart.x, 0, cart.z); world.cartHandle.rotation.y = cart.yaw; }
+-  const cartCollision = world.collisionRoots.get("return-cart");
+-  if (cartCollision) { cartCollision.position.x = cart.x; cartCollision.position.z = cart.z; cartCollision.rotation.y = cart.yaw - CART.yaw; }
+-  for (const [color, root] of Object.entries(world.bookends)) {
+-    const definition = BOOKENDS[color];
+-    const loose = state.incident?.color === color && state.incident.phase === "loose";
+-    root.position.set(definition.x, definition.y, definition.z);
+-    root.rotation.set(0, definition.rotation, 0);
+-    const rail = root.getObjectByName("rail-" + color);
+-    if (rail) rail.rotation.x = loose ? 1.05 : 0;
+-  }
+-}
++import * as THREE from "three";
++import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
++import { createLibraryScene } from "./scene.js";
++import { LEVEL } from "./level.js";
++import { ASSET_ROOT, BOOKS, BOOKENDS, CART, CHAIRS, REVISION, shelfPose } from "./series-layout.js";
++
++export function createArchiveScene() {
++  const world = createLibraryScene();
++  world.revision = REVISION;
++  world.archiveRoots = { ...world.bookRoots };
++  world.fallenBooks = new Set();
++  world.bookends = {};
++  world.collisionRoots = new Map();
++  const originalReady = world.assetReady;
++  const collisionReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/library-collision.glb", (gltf) => {
++    gltf.scene.visible = false;
++    world.scene.add(gltf.scene);
++    gltf.scene.updateMatrixWorld(true);
++    const boxes = new Map();
++    gltf.scene.traverse((node) => {
++      if (node.userData.collision && node.isMesh) {
++        boxes.set(node.name, new THREE.Box3().setFromObject(node));
++        world.collisionRoots.set(node.name.replace("COLLIDER_", ""), node);
++      }
++    });
++    const valid = LEVEL.staticColliders.every((rect) => {
++      const bounds = boxes.get("COLLIDER_" + rect.id);
++      return bounds && Math.abs(bounds.min.x - rect.minX) < 0.001 && Math.abs(bounds.max.x - rect.maxX) < 0.001
++        && Math.abs(bounds.min.z - rect.minZ) < 0.001 && Math.abs(bounds.max.z - rect.maxZ) < 0.001;
++    });
++    resolve({ loaded: valid, name: "shared-library-collision", url: ASSET_ROOT + "/library-collision.glb" });
++  }, undefined, () => resolve({ loaded: false, name: "shared-library-collision" })));
++  world.collisionReady = collisionReady;
++  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/ceiling-fixtures.glb", (gltf) => {
++    world.scene.add(gltf.scene);
++    resolve({ loaded: true, name: "ceiling-fixtures", url: ASSET_ROOT + "/ceiling-fixtures.glb" });
++  }, undefined, () => resolve({ loaded: false, name: "ceiling-fixtures" })));
++  const operationsReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/closing-fixtures.glb", (gltf) => {
++    world.scene.add(gltf.scene);
++    for (const color of ["red", "black", "white"]) world.bookends[color] = gltf.scene.getObjectByName("bookend-" + color);
++    world.cartHandle = gltf.scene.getObjectByName("cart-handle");
++    world.chairHandles = Object.fromEntries(CHAIRS.map((chair) => [chair.id, gltf.scene.getObjectByName("chair-handle-" + chair.id)]));
++    resolve({ loaded: Object.values(world.bookends).every(Boolean) && Boolean(world.cartHandle), name: "closing-fixtures", url: ASSET_ROOT + "/closing-fixtures.glb" });
++  }, undefined, () => resolve({ loaded: false, name: "closing-fixtures" })));
++  world.assetReady = Promise.all([originalReady, collisionReady, fixturesReady, operationsReady]).then(([results, collision, fixtures, operations]) => {
++    for (const book of BOOKS.filter((entry) => !world.archiveRoots[entry.id])) {
++      const root = new THREE.Group();
++      root.name = "archive-book-" + book.id;
++      root.add(world.assetRoots.books[book.color].clone(true));
++      world.scene.add(root);
++      world.archiveRoots[book.id] = root;
++    }
++    world.chairRoots = Object.fromEntries(CHAIRS.map((chair) => [chair.id, world.assetRoots.staticSlice.getObjectByName(chair.model)]));
++    world.cartRoot = world.assetRoots.staticSlice.getObjectByName("returnCart");
++    const furnitureValid = Object.values(world.chairRoots).every(Boolean) && Boolean(world.cartRoot);
++    return [...results, collision, fixtures, operations, { loaded: furnitureValid, name: "shared-furniture-bindings" }];
++  });
++  return world;
++}
++
++function poseBook(root, book, state) {
++  root.visible = book.location !== "carried";
++  if (!root.visible) return;
++  let pose = book.location === "shelved" ? shelfPose(book.color, book.id) : book;
++  let tilt = 0;
++  if (book.support === "return-cart" && state.cart) pose = { ...pose, x: state.cart.x, z: state.cart.z, rotation: state.cart.yaw - CART.yaw };
++  if (book.location === "falling") {
++    const source = shelfPose(book.color, book.id);
++    const progress = Math.min(1, book.fallElapsed / 0.95);
++    const travel = Math.min(1, progress / 0.8), falling = Math.max(0, (progress - 0.24) / 0.76);
++    pose = {
++      x: source.x + (book.landing.x - source.x) * travel,
++      z: source.z + (book.landing.z - source.z) * travel,
++      y: Math.max(0.012, source.y * (1 - falling * falling)), rotation: source.rotation,
++    };
++    tilt = Math.sin(Math.PI * falling) * 0.65;
++  }
++  root.position.set(pose.x, pose.y ?? 0.78, pose.z);
++  root.rotation.set(tilt, pose.rotation ?? 0, 0);
++}
++
++export function syncArchiveVisuals(world, state) {
++  for (const definition of BOOKS) {
++    const root = world.archiveRoots[definition.id];
++    if (!root) continue;
++    const book = state.books[definition.id] ? { ...definition, ...state.books[definition.id] } : definition;
++    poseBook(root, book, state);
++    if (book.fallen && book.location === "ground" && !world.fallenBooks.has(book.id)) {
++      world.fallenBooks.add(book.id);
++      if (world.bookImpact) { world.bookImpact.currentTime = 0; world.bookImpact.play().catch(() => {}); }
++    }
++  }
++  if (!state.incident || state.incident.phase === "waiting") world.fallenBooks.clear();
++  for (const definition of CHAIRS) {
++    const chair = state.chairs?.[definition.id] ?? definition;
++    const root = world.chairRoots?.[definition.id];
++    if (root) { root.position.set(chair.x, 0, chair.z); root.rotation.y = definition.modelYaw + chair.yaw; }
++    const handle = world.chairHandles?.[definition.id];
++    if (handle) { handle.position.set(chair.x, 0, chair.z); handle.rotation.y = chair.yaw; }
++    const collision = world.collisionRoots.get(definition.id);
++    if (collision) { collision.position.x = chair.x; collision.position.z = chair.z; collision.rotation.y = chair.yaw; }
++  }
++  const cart = state.cart ?? CART;
++  if (world.cartRoot) { world.cartRoot.position.set(cart.x, 0, cart.z); world.cartRoot.rotation.y = cart.yaw - CART.yaw; }
++  if (world.cartHandle) { world.cartHandle.position.set(cart.x, 0, cart.z); world.cartHandle.rotation.y = cart.yaw; }
++  const cartCollision = world.collisionRoots.get("return-cart");
++  if (cartCollision) { cartCollision.position.x = cart.x; cartCollision.position.z = cart.z; cartCollision.rotation.y = cart.yaw - CART.yaw; }
++  for (const [color, root] of Object.entries(world.bookends)) {
++    const definition = BOOKENDS[color];
++    const loose = state.incident?.color === color && state.incident.phase === "loose";
++    root.position.set(definition.x, definition.y, definition.z);
++    root.rotation.set(0, definition.rotation, 0);
++    const rail = root.getObjectByName("rail-" + color);
++    if (rail) rail.rotation.x = loose ? 1.05 : 0;
++  }
++}

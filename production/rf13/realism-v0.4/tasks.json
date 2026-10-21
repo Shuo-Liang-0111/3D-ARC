@@ -1,0 +1,24 @@
+{
+  "clinical-basin": {
+    "status": "completed",
+    "request": "./production/rf13/realism-v0.4/requests/clinical-basin.json",
+    "regenerations": 0,
+    "taskId": "aigc_a257655bbf9b4bbb8a889e5cbe54c6d3",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "5e22e6f85f9bbdebd64c5622ef36bf7ad2fab4af7f1378a1f0eecff72d40fbc5",
+    "path": "./production/rf13/realism-v0.4/source/clinical-basin.glb"
+  },
+  "diagnostic-panel": {
+    "status": "completed",
+    "request": "./production/rf13/realism-v0.4/requests/diagnostic-panel.json",
+    "regenerations": 0,
+    "taskId": "aigc_9685c0cd3b174e1499ce91a63b363c26",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "bbfcb69562590f7c43d6d6812f7dd25be9fe67ba972c04e77eb39df4b9826a4d",
+    "path": "./production/rf13/realism-v0.4/source/diagnostic-panel.glb"
+  }
+}

@@ -1,0 +1,27 @@
+17:28:21 | INFO: Data are loaded, start creating Blender stuff
+17:28:21 | INFO: Blender create Mesh node tripo_mesh_fffb5c05-7c2a-4dda-b1f2-f9c1036ed22c
+17:28:21 | INFO: glTF import finished in 0.02s
+17:28:21 | INFO: Data are loaded, start creating Blender stuff
+17:28:21 | INFO: Blender create Mesh node tripo_mesh_ba9c4874-1852-4086-a38e-dac6bb7cd4b8
+17:28:21 | INFO: Blender create Mesh node Continuous pressed basin
+17:28:21 | INFO: Blender create Mesh node Torus
+17:28:21 | INFO: Blender create Mesh node Cylinder
+17:28:21 | INFO: Blender create Mesh node Cylinder.001
+17:28:21 | INFO: Blender create Mesh node Cylinder.002
+17:28:21 | INFO: Blender create Mesh node Cylinder.003
+17:28:21 | INFO: Blender create Mesh node Cylinder.004
+17:28:21 | INFO: Blender create Mesh node Cylinder.005
+17:28:21 | INFO: Blender create Mesh node Cylinder.006
+17:28:21 | INFO: Blender create Mesh node Cylinder.007
+17:28:21 | INFO: Blender create Mesh node Cylinder.008
+17:28:21 | INFO: Blender create Mesh node Cylinder.009
+17:28:21 | INFO: Blender create Mesh node Swivel spout
+17:28:21 | INFO: Blender create Mesh node Cylinder.010
+17:28:21 | INFO: Blender create Mesh node Cylinder.011
+17:28:21 | INFO: Blender create Mesh node Cylinder.012
+17:28:21 | INFO: Blender create Mesh node Cylinder.013
+17:28:21 | INFO: glTF import finished in 0.03s
+{"kettle": {"boundsBlender": [[-0.12137655168771744, -0.1782817840576172, -2.3846185285947286e-05], [0.12123840302228928, 0.13075068593025208, 0.2800399661064148]], "sha256": "bf367abb86c561305e034b9624c535001772d9ac41f9bd7b1b833df8c0f20fe7", "images": 3, "gripNearestVertex": 0.004274462386495134}, "sink": {"boundsBlender": [[-0.3959999978542328, -0.3401874601840973, 0.023834016174077988], [0.45013919472694397, 0.340182900428772, 0.5531267523765564]], "sha256": "fea5c05a817214622571dd5a99c4b71b85bda0e92927508933712d03bee5a64a", "images": 6, "basinRays": [[-0.2, -0.12, 0.024999991059303284], [-0.2, 0, 0.02499999850988388], [-0.2, 0.12, 0.02499999850988388], [0, -0.12, 0.024999991059303284], [0, 0, 0.024999991059303284], [0, 0.12, 0.025000005960464478], [0.2, -0.12, 0.024999991059303284], [0.2, 0, 0.024999991059303284], [0.2, 0.12, 0.02499999850988388]]}}
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+
+Blender quit

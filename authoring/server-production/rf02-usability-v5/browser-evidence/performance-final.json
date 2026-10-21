@@ -1,0 +1,38 @@
+[
+  {
+    "view": "first",
+    "fps": 59.950041631973356,
+    "samples": 180,
+    "loadMs": 967.2000000476837,
+    "viewport": [
+      1280,
+      680
+    ],
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3, Unspecified Version)",
+    "assetGate": "true"
+  },
+  {
+    "view": "third",
+    "fps": 59.96801705756918,
+    "samples": 180,
+    "loadMs": 967.2000000476837,
+    "viewport": [
+      1280,
+      680
+    ],
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3, Unspecified Version)",
+    "assetGate": "true"
+  },
+  {
+    "view": "dual",
+    "fps": 52.888288182405695,
+    "samples": 180,
+    "loadMs": 967.2000000476837,
+    "viewport": [
+      1280,
+      680
+    ],
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3, Unspecified Version)",
+    "assetGate": "true"
+  }
+]

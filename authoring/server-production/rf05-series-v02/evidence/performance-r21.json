@@ -1,0 +1,19 @@
+{
+  "build": "r21",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "canvas": [
+    1920,
+    1080
+  ],
+  "view": "third",
+  "seconds": 10,
+  "samples": 20,
+  "meanFPS": 38.10356658785234,
+  "minFPS": 33.12979082810827,
+  "maxFPS": 41.710805085404175,
+  "assets": "series-v02-opt2",
+  "triangles": 406839
+}

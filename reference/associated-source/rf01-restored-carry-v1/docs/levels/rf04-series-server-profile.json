@@ -1,0 +1,10 @@
+{
+  "host": "127.0.0.1",
+  "user": "chenhaoyuan",
+  "root": "/path/to/arc-workspace",
+  "project": ".",
+  "port": 4173,
+  "cardinalSkill": "/opt/cardinal-aigc-skill",
+  "authorization": "User task and v0.1 approval 2026-09-20",
+  "credentials": "private user store; never in project"
+}

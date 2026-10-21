@@ -1,0 +1,62 @@
+[
+  {
+    "asset": "return-sorting-table",
+    "sourceFaces": 47616,
+    "runtimeFaces": 16000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "catalog-terminal",
+    "sourceFaces": 49350,
+    "runtimeFaces": 12000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "security-gate-module",
+    "sourceFaces": 46401,
+    "runtimeFaces": 10000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "circulation-desk",
+    "sourceFaces": 39113,
+    "runtimeFaces": 12000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "return-cart",
+    "sourceFaces": 48461,
+    "runtimeFaces": 12000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "indoor-planter",
+    "sourceFaces": 66283,
+    "runtimeFaces": 11999,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "suspended-linear-light",
+    "sourceFaces": 47688,
+    "runtimeFaces": 3000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "reading-table",
+    "sourceFaces": 39774,
+    "runtimeFaces": 12000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "reading-chair",
+    "sourceFaces": 48858,
+    "runtimeFaces": 8000,
+    "revision": "shared-library-v2"
+  },
+  {
+    "asset": "red-book",
+    "sourceFaces": 66672,
+    "runtimeFaces": 6000,
+    "revision": "shared-library-v2"
+  }
+]

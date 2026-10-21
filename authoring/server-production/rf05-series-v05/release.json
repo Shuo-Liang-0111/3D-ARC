@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "version": "rf05-series-v05-r6",
+  "commit": "37764d01c76f370a5afe276436b82929022f33f8",
+  "normalPlayerStarted": true,
+  "qaPanelAbsent": true,
+  "testCount": 24,
+  "protectedFilesUnchanged": 17,
+  "sharedVitePID": 4146057,
+  "pushed": false,
+  "userAcceptance": "not-yet-received"
+}

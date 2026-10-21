@@ -1,0 +1,596 @@
+{
+  "schema": "arc-shared-library/v1",
+  "revision": "library-operations-v5",
+  "levels": [
+    "rf02",
+    "rf02-2",
+    "rf02-3"
+  ],
+  "units": "meters",
+  "upAxis": "Y",
+  "assets": [
+    {
+      "id": "environment",
+      "role": "static",
+      "provider": "server_blender_meter_scale_shell",
+      "taskId": null,
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+      "bytes": 771272,
+      "sha256": "b165994e3a057125876ff78ea2658e8a8b40946892ed1658470b21897bb506af",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 12,
+        "materials": 12,
+        "embeddedImages": 8,
+        "nodes": 12
+      }
+    },
+    {
+      "id": "returnSortingTable",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_38d0f593f3b2489d920932a6bf61287e",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/return-sorting-table.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/return-sorting-table.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/return-sorting-table.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/return-sorting-table.glb",
+      "bytes": 362640,
+      "sha256": "115072d15670c6711773ff8599100a7fb873351f7369c57b5a3a38c7635c0bde",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "catalogTerminal",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_67a99cf00ad54fa49932651e9e1dc12b",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/catalog-terminal.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/catalog-terminal.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/catalog-terminal.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/catalog-terminal.glb",
+      "bytes": 372416,
+      "sha256": "78373d734886b78b8db28044ce030c9cc84b3711673a11e0d691004a513bcebd",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "securityGateModule",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_1038bae225f14ebb80a3f29bf68e15df",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/security-gate-module.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/security-gate-module.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/security-gate-module.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/security-gate-module.glb",
+      "bytes": 353968,
+      "sha256": "c9d950e4d9766a96d702942c7ac8913b6e8bb69cae7af64558075746fe1be2eb",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "circulationDesk",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_c1ff3fe42fa844feaf08aac6d900a8f0",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/circulation-desk.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/circulation-desk.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/circulation-desk.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/circulation-desk.glb",
+      "bytes": 325028,
+      "sha256": "a9194c120762c5ab01a36fe195461c2e9d4e2dd33f89d6bd3a01c5b22dc53c43",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "returnCart",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_1dc239b1e9df44f4ad8e56b8b50e916d",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/return-cart.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/return-cart.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/return-cart.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/return-cart.glb",
+      "bytes": 388288,
+      "sha256": "94ebfb9ecd6a0277674abe42fedbb30d7688114db5f63e86846cb58c06a66338",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "indoorPlanter",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_f3f08eff328a4e899d1ef98a171100b9",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "bytes": 398868,
+      "sha256": "dd0a1aae5039c572a261e9209772da073dc93983b97cc2bca50664806824d162",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "suspendedLinearLight",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_11d454acd22047acac41c54729909cff",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/suspended-linear-light.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/suspended-linear-light.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/suspended-linear-light.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/suspended-linear-light.glb",
+      "bytes": 237372,
+      "sha256": "66555b46fc48ae6fe096b96d42467739007cd0cef797aa27e0a15c4eb52ca027",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "readingTable",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_171623076557402280aab088e16abf01",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/reading-table.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/reading-table.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/reading-table.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/reading-table.glb",
+      "bytes": 249896,
+      "sha256": "f5d7ade0263c1b62ae0822391ed1a290e55799c01e1238c74e607854a7949cb2",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "readingChair",
+      "role": "static",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_3b951865d2ca4303a63512cb08fd55c0",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/reading-chair.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/reading-chair.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/reading-chair.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/reading-chair.glb",
+      "bytes": 615216,
+      "sha256": "79fd24a11caf6a65b7c430934a664fe471bc0598322732761b93d225e528b310",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "red",
+      "role": "interactive",
+      "provider": "cardinal_text_to_model",
+      "taskId": "aigc_a5ffcbe5c4a94808893e455daf33ea90",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/red-book.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/red-book.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/red-book.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/red-book.glb",
+      "bytes": 400112,
+      "sha256": "ab888776c902a23cf7da0194cabe7bfe98b33f5f9cd9273838e90ff10d6b804e",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 1,
+        "materials": 1,
+        "embeddedImages": 3,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "black",
+      "role": "interactive",
+      "provider": "retained validated RF-02 asset",
+      "taskId": null,
+      "sourcePath": "public/local-assets/embodiedgen/rf02/models/runtime/interactables/black_book.glb",
+      "runtimePath": "public/local-assets/embodiedgen/rf02/models/runtime/interactables/black_book.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/embodiedgen/rf02/models/runtime/interactables/black_book.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/embodiedgen/rf02/models/runtime/interactables/black_book.glb",
+      "bytes": 23900,
+      "sha256": "23e835bbbd9e4c3396a8681ad28fde520a2ca94d4d90b2aee601371b26eb983a",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 5,
+        "materials": 2,
+        "embeddedImages": 2,
+        "nodes": 5
+      }
+    },
+    {
+      "id": "white",
+      "role": "interactive",
+      "provider": "retained validated RF-02 asset",
+      "taskId": null,
+      "sourcePath": "public/local-assets/embodiedgen/rf02/models/runtime/interactables/white_book.glb",
+      "runtimePath": "public/local-assets/embodiedgen/rf02/models/runtime/interactables/white_book.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/embodiedgen/rf02/models/runtime/interactables/white_book.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/embodiedgen/rf02/models/runtime/interactables/white_book.glb",
+      "bytes": 23900,
+      "sha256": "936b737278d36020ca929df93ac62c338a8b68c20b59aa2b93220517147ef548",
+      "sourceBuildServedMatch": true,
+      "reused": true,
+      "glb": {
+        "meshes": 5,
+        "materials": 2,
+        "embeddedImages": 2,
+        "nodes": 5
+      }
+    },
+    {
+      "id": "collision",
+      "role": "collision",
+      "provider": "Three.js GLTFExporter, precise shared layout",
+      "taskId": null,
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/library-collision.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/library-collision.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/library-operations-v5/library-collision.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/library-operations-v5/library-collision.glb",
+      "bytes": 68136,
+      "sha256": "28d80084a6ad2ff4288e32c774142be5612fda701e535e5b96b934a8b4c652be",
+      "sourceBuildServedMatch": true,
+      "reused": false,
+      "glb": {
+        "meshes": 34,
+        "materials": 34,
+        "embeddedImages": 0,
+        "nodes": 34
+      }
+    },
+    {
+      "id": "fixtures",
+      "role": "static",
+      "provider": "Three.js GLTFExporter, precise shared layout",
+      "taskId": null,
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/ceiling-fixtures.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/ceiling-fixtures.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/library-operations-v5/ceiling-fixtures.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/library-operations-v5/ceiling-fixtures.glb",
+      "bytes": 73608,
+      "sha256": "90f366560ade0a6c894816efb03a9e479e38ddcb249d678cef746f19deccf5c3",
+      "sourceBuildServedMatch": true,
+      "reused": false,
+      "glb": {
+        "meshes": 25,
+        "materials": 25,
+        "embeddedImages": 0,
+        "nodes": 25
+      }
+    },
+    {
+      "id": "closingFixtures",
+      "role": "static",
+      "provider": "Three.js GLTFExporter, precise shared layout",
+      "taskId": null,
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/closing-fixtures.glb",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/closing-fixtures.glb",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/library-operations-v5/closing-fixtures.glb",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/library-operations-v5/closing-fixtures.glb",
+      "bytes": 7612,
+      "sha256": "ea6530dd9364a59bc5c887cc35c3b3cb74a1e37ee5e1bc857c3c37a6d824e11a",
+      "sourceBuildServedMatch": true,
+      "reused": false,
+      "glb": {
+        "meshes": 4,
+        "materials": 1,
+        "embeddedImages": 0,
+        "nodes": 4
+      }
+    },
+    {
+      "id": "impact",
+      "role": "sound-effect",
+      "provider": "Cardinal",
+      "taskId": "aigc_de47994684c44a6d92e4bf0f0af17d06",
+      "sourcePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/book-impact.flac",
+      "runtimePath": "public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/book-impact.flac",
+      "buildPath": "./authoring/server-production/rf02-interactions-v6/release-r2/local-assets/cardinal/rf02/models/runtime/library-operations-v5/book-impact.flac",
+      "deployedUrl": "http://127.0.0.1:4192/local-assets/cardinal/rf02/models/runtime/library-operations-v5/book-impact.flac",
+      "bytes": 126179,
+      "sha256": "0a5030e5f38fe657f3fa2f203827e4fa3f2dcf977681bc8720b3790ca7a447f4",
+      "sourceBuildServedMatch": true,
+      "reused": false,
+      "glb": null
+    }
+  ],
+  "books": [
+    {
+      "id": "red",
+      "color": "red",
+      "x": -0.62,
+      "z": 3.05,
+      "y": 0.677,
+      "support": "return-table",
+      "location": "table"
+    },
+    {
+      "id": "black",
+      "color": "black",
+      "x": 0,
+      "z": 3.05,
+      "y": 0.681,
+      "support": "return-table",
+      "location": "table"
+    },
+    {
+      "id": "white",
+      "color": "white",
+      "x": 0.62,
+      "z": 3.05,
+      "y": 0.677,
+      "support": "return-table",
+      "location": "table"
+    },
+    {
+      "id": "red-reading",
+      "color": "red",
+      "x": -5.82,
+      "z": 2.35,
+      "y": 0.686,
+      "support": "west-reading-zone",
+      "location": "table"
+    },
+    {
+      "id": "black-reading",
+      "color": "black",
+      "x": 6.22,
+      "z": 2.35,
+      "y": 0.686,
+      "support": "east-reading-zone",
+      "location": "table"
+    },
+    {
+      "id": "white-cart",
+      "color": "white",
+      "x": 2.45,
+      "z": 4.55,
+      "y": 1.01,
+      "support": "return-cart",
+      "location": "table"
+    },
+    {
+      "id": "shelf-red-0",
+      "color": "red",
+      "x": -10.43,
+      "y": 1.16,
+      "z": -1.75,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": -9.22,
+        "y": 0.012,
+        "z": -1.85
+      },
+      "support": "red-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 0
+    },
+    {
+      "id": "shelf-red-1",
+      "color": "red",
+      "x": -10.43,
+      "y": 1.16,
+      "z": -1.3900000000000001,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": -9.22,
+        "y": 0.012,
+        "z": -1.25
+      },
+      "support": "red-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 1
+    },
+    {
+      "id": "shelf-red-2",
+      "color": "red",
+      "x": -10.43,
+      "y": 1.16,
+      "z": -1.03,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": -9.22,
+        "y": 0.012,
+        "z": -0.6500000000000001
+      },
+      "support": "red-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 2
+    },
+    {
+      "id": "shelf-black-0",
+      "color": "black",
+      "x": -0.7,
+      "y": 1.16,
+      "z": -6.43,
+      "rotation": 0,
+      "landing": {
+        "x": -0.75,
+        "y": 0.012,
+        "z": -5.18
+      },
+      "support": "black-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 0
+    },
+    {
+      "id": "shelf-black-1",
+      "color": "black",
+      "x": -0.33999999999999997,
+      "y": 1.16,
+      "z": -6.43,
+      "rotation": 0,
+      "landing": {
+        "x": -0.08999999999999997,
+        "y": 0.012,
+        "z": -5.18
+      },
+      "support": "black-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 1
+    },
+    {
+      "id": "shelf-black-2",
+      "color": "black",
+      "x": 0.020000000000000018,
+      "y": 1.16,
+      "z": -6.43,
+      "rotation": 0,
+      "landing": {
+        "x": 0.5700000000000001,
+        "y": 0.012,
+        "z": -5.18
+      },
+      "support": "black-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 2
+    },
+    {
+      "id": "shelf-white-0",
+      "color": "white",
+      "x": 10.43,
+      "y": 1.16,
+      "z": -1.75,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": 9.22,
+        "y": 0.012,
+        "z": -1.85
+      },
+      "support": "white-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 0
+    },
+    {
+      "id": "shelf-white-1",
+      "color": "white",
+      "x": 10.43,
+      "y": 1.16,
+      "z": -1.3900000000000001,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": 9.22,
+        "y": 0.012,
+        "z": -1.25
+      },
+      "support": "white-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 1
+    },
+    {
+      "id": "shelf-white-2",
+      "color": "white",
+      "x": 10.43,
+      "y": 1.16,
+      "z": -1.03,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": 9.22,
+        "y": 0.012,
+        "z": -0.6500000000000001
+      },
+      "support": "white-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 2
+    }
+  ],
+  "rules": {
+    "rf02-2": {
+      "initial": 50,
+      "maximum": 100,
+      "movementDrainPerMeter": 1.45,
+      "blockedDrainPerSecond": 1,
+      "errorCost": 3,
+      "repeatCost": 1,
+      "chairReward": 5,
+      "cartReward": 8,
+      "pickupReward": 1,
+      "correctBookReward": 1
+    },
+    "rf02-3": {
+      "initial": 100,
+      "maximum": 100,
+      "movementDrainPerMeter": 0.98,
+      "blockedDrainPerSecond": 1.4,
+      "errorCost": 5,
+      "repeatCost": 1,
+      "chairReward": 3,
+      "cartReward": 5,
+      "pickupReward": 1,
+      "correctBookReward": 1
+    }
+  },
+  "totalRuntimeBytes": 4798411,
+  "generationTasks": [
+    {
+      "asset": "impact",
+      "provider": "Cardinal",
+      "taskId": "aigc_de47994684c44a6d92e4bf0f0af17d06",
+      "status": "completed",
+      "regenerations": 0,
+      "actualFormat": "FLAC",
+      "request": "tools/rf02-series/book-impact-request.json"
+    }
+  ],
+  "measuredAt": "2026-09-20T05:13:53.823Z"
+}

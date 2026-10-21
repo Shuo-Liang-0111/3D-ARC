@@ -1,0 +1,1438 @@
+{
+  "revision": "rf01-sorting-v4",
+  "record": "data/recordings/1789814661865-rf01-sorting-v4-qa.json",
+  "complete": true,
+  "distance": 73.90395302265642,
+  "reserve": 52.46180163388401,
+  "minimum": 49.46180163388401,
+  "interactions": 10,
+  "pickups": [
+    {
+      "label": "06A 带边取件前 red",
+      "player": {
+        "x": 0.6500535511662824,
+        "z": -4.499018480311775,
+        "yaw": 3.251084025306109
+      }
+    },
+    {
+      "label": "06A 带边取件前 yellow",
+      "player": {
+        "x": 0.6501034732908747,
+        "z": -4.499991456731914,
+        "yaw": 9.281359586927966
+      }
+    },
+    {
+      "label": "06A 带边取件前 blue",
+      "player": {
+        "x": 0.6504591357368662,
+        "z": -4.480850810016868,
+        "yaw": 9.440096101492381
+      }
+    }
+  ],
+  "frameCadence": "Live frame cadence: 41.8 FPS / 1280 × 820",
+  "motionVideo": "motion.webm",
+  "screenshots": [
+    {
+      "label": "01 起点 / 双视角",
+      "file": "01.jpg"
+    },
+    {
+      "label": "02 能源模块携带",
+      "file": "02.jpg"
+    },
+    {
+      "label": "03 卷帘门开启",
+      "file": "03.jpg"
+    },
+    {
+      "label": "04 进入厂房 / 照明关闭",
+      "file": "04.jpg"
+    },
+    {
+      "label": "05 分拣线 / 照明开启",
+      "file": "05.jpg"
+    },
+    {
+      "label": "05B 静止观察 / 快递持续传送",
+      "file": "06.jpg"
+    },
+    {
+      "label": "06 手持 red",
+      "file": "07.jpg"
+    },
+    {
+      "label": "07 入栏 red",
+      "file": "08.jpg"
+    },
+    {
+      "label": "06 手持 yellow",
+      "file": "09.jpg"
+    },
+    {
+      "label": "07 入栏 yellow",
+      "file": "10.jpg"
+    },
+    {
+      "label": "06 手持 blue",
+      "file": "11.jpg"
+    },
+    {
+      "label": "07 入栏 blue",
+      "file": "12.jpg"
+    },
+    {
+      "label": "08 正式关卡完成",
+      "file": "13.jpg"
+    }
+  ],
+  "trace": [
+    {
+      "label": "01 起点 / 双视角",
+      "state": {
+        "player": {
+          "x": 0.000632551168967988,
+          "z": 4.79785000721767,
+          "yaw": 3.1642483949290994
+        },
+        "battery": {
+          "location": "ground",
+          "x": -6.8,
+          "z": -0.35
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": false,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": false,
+        "lightsOn": false,
+        "conveyorPhase": 0,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": -1.5,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 0.10000000000000009,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 1.7000000000000002,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 100,
+        "minimumReserve": 100,
+        "rewardedMilestones": {},
+        "motion": "moving",
+        "elapsed": 1.666900000000002,
+        "interactions": 0,
+        "distanceMoved": 0.01687616747312575,
+        "lastEvent": "park_ready"
+      },
+      "time": "2026-09-19T10:38:06.985Z"
+    },
+    {
+      "label": "02 能源模块携带",
+      "state": {
+        "player": {
+          "x": -6.738752287217601,
+          "z": 1.2455539223794785,
+          "yaw": 3.230078137345075
+        },
+        "battery": {
+          "location": "carried"
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": false,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": false,
+        "lightsOn": false,
+        "conveyorPhase": 0,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": -1.5,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 0.10000000000000009,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 1.7000000000000002,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 92.5756878109595,
+        "minimumReserve": 89.5756878109595,
+        "rewardedMilestones": {
+          "battery": true
+        },
+        "motion": "moving",
+        "elapsed": 35.595776001301864,
+        "interactions": 1,
+        "distanceMoved": 10.445746145977768,
+        "lastEvent": "battery_collected"
+      },
+      "time": "2026-09-19T10:38:43.625Z"
+    },
+    {
+      "label": "03 卷帘门开启",
+      "state": {
+        "player": {
+          "x": 0.6004800483697222,
+          "z": -0.29984929979461883,
+          "yaw": 3.306811751575916
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": true,
+        "shutterLift": 2.1892146666666616,
+        "shutterPhase": "opening",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": false,
+        "lightsOn": false,
+        "conveyorPhase": 20.707749999999837,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": 0.007749999999838053,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 1.6077499999998395,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 74.66011212615847,
+        "minimumReserve": 71.66011212615847,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true
+        },
+        "motion": "moving",
+        "elapsed": 125.09961802540049,
+        "interactions": 3,
+        "distanceMoved": 34.601784056223536,
+        "lastEvent": "shutter_opening"
+      },
+      "time": "2026-09-19T10:40:20.164Z"
+    },
+    {
+      "label": "04 进入厂房 / 照明关闭",
+      "state": {
+        "player": {
+          "x": 0.899989616567007,
+          "z": -3.100058726005539,
+          "yaw": 3.316595446833213
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": true,
+        "shutterLift": 2.36,
+        "shutterPhase": "open",
+        "shutterHold": 3.1346999999999485,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": false,
+        "conveyorPhase": 25.677119999999878,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": 0.1771199999998787,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 1.7771199999998801,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": -1.4228800000001218,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 71.18048463223893,
+        "minimumReserve": 71.18048463223893,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true
+        },
+        "motion": "idle",
+        "elapsed": 131.69211231529013,
+        "interactions": 3,
+        "distanceMoved": 38.08170214986926,
+        "lastEvent": "shutter_opening"
+      },
+      "time": "2026-09-19T10:40:27.367Z"
+    },
+    {
+      "label": "05 分拣线 / 照明开启",
+      "state": {
+        "player": {
+          "x": 0.6430535578942101,
+          "z": -3.814096353047406,
+          "yaw": 3.2583644847214748
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 52.675209999999595,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": -0.02479000000040177,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 1.5752099999995997,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 62.45006936194821,
+        "minimumReserve": 62.45006936194821,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true
+        },
+        "motion": "moving",
+        "elapsed": 169.6862989371406,
+        "interactions": 4,
+        "distanceMoved": 49.93088969419836,
+        "lastEvent": "workshop_lit"
+      },
+      "time": "2026-09-19T10:41:06.928Z"
+    },
+    {
+      "label": "05B 静止观察 / 快递持续传送",
+      "state": {
+        "player": {
+          "x": 0.657727464535857,
+          "z": -3.8067937751662395,
+          "yaw": 3.2767730905030374
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 53.25865999999957,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": -1.0413400000004254,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 0.558659999999576,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 62.45006936194821,
+        "minimumReserve": 62.45006936194821,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true
+        },
+        "motion": "moving",
+        "elapsed": 170.51979893714076,
+        "interactions": 4,
+        "distanceMoved": 49.95291967819023,
+        "lastEvent": "workshop_lit"
+      },
+      "time": "2026-09-19T10:41:07.799Z"
+    },
+    {
+      "label": "06A 带边取件前 red",
+      "state": {
+        "player": {
+          "x": 0.6500535511662824,
+          "z": -4.499018480311775,
+          "yaw": 3.251084025306109
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 59.0660699999994,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "conveyor",
+            "x": -0.033930000000598426,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 1.566069999999403,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 61.67035202175283,
+        "minimumReserve": 61.67035202175283,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true
+        },
+        "motion": "moving",
+        "elapsed": 178.76313590500484,
+        "interactions": 4,
+        "distanceMoved": 50.767778151535424,
+        "lastEvent": "workshop_lit"
+      },
+      "time": "2026-09-19T10:41:16.185Z"
+    },
+    {
+      "label": "06 手持 red",
+      "state": {
+        "player": {
+          "x": 0.6505683898808935,
+          "z": -4.495814618049647,
+          "yaw": 3.2646220833433137
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": "parcel-red",
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 60.32669999999936,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "carried",
+            "x": -0.033930000000598426,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": -0.3733000000006319,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 61.67035202175283,
+        "minimumReserve": 61.67035202175283,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true
+        },
+        "motion": "moving",
+        "elapsed": 180.56403590500503,
+        "interactions": 5,
+        "distanceMoved": 50.771066022403474,
+        "lastEvent": "crate_collected"
+      },
+      "time": "2026-09-19T10:41:18.091Z"
+    },
+    {
+      "label": "07 入栏 red",
+      "state": {
+        "player": {
+          "x": -3.5511661238304955,
+          "z": -4.070809603226678,
+          "yaw": 6.272288734222158
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 92.42526999999765,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 1.3252699999976505,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 59.3971407758307,
+        "minimumReserve": 56.3971407758307,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true
+        },
+        "motion": "moving",
+        "elapsed": 225.49911749785272,
+        "interactions": 6,
+        "distanceMoved": 57.03280515236112,
+        "lastEvent": "crate_delivered"
+      },
+      "time": "2026-09-19T10:42:05.137Z"
+    },
+    {
+      "label": "06A 带边取件前 yellow",
+      "state": {
+        "player": {
+          "x": 0.6501034732908747,
+          "z": -4.499991456731914,
+          "yaw": 9.281359586927966
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 116.7002199999969,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "conveyor",
+            "x": 1.6002199999969022,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 2.1,
+            "z": -5.5,
+            "onBelt": false
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 54.73343234453623,
+        "minimumReserve": 54.73343234453623,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true
+        },
+        "motion": "moving",
+        "elapsed": 259.3396814412707,
+        "interactions": 6,
+        "distanceMoved": 62.7812975616549,
+        "lastEvent": "crate_delivered"
+      },
+      "time": "2026-09-19T10:42:40.123Z"
+    },
+    {
+      "label": "06 手持 yellow",
+      "state": {
+        "player": {
+          "x": 0.6489855760860922,
+          "z": -4.497665344335761,
+          "yaw": 9.277373421543098
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": "parcel-yellow",
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 117.94621999999691,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "carried",
+            "x": 1.6002199999969022,
+            "z": -5.5,
+            "onBelt": true
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": -0.35378000000307974,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 54.73343234453623,
+        "minimumReserve": 54.73343234453623,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true
+        },
+        "motion": "moving",
+        "elapsed": 261.11968144127115,
+        "interactions": 7,
+        "distanceMoved": 62.78393084709658,
+        "lastEvent": "crate_collected"
+      },
+      "time": "2026-09-19T10:42:42.055Z"
+    },
+    {
+      "label": "07 入栏 yellow",
+      "state": {
+        "player": {
+          "x": -2.0522778928389065,
+          "z": -4.131348534677907,
+          "yaw": 6.357581834347089
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 141.0705799999951,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "sorted",
+            "x": -2.05,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": -1.2294200000049162,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 54.67708717873555,
+        "minimumReserve": 51.67708717873555,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true,
+          "sorted-yellow": true
+        },
+        "motion": "idle",
+        "elapsed": 293.66499165703954,
+        "interactions": 8,
+        "distanceMoved": 66.24014099362859,
+        "lastEvent": "crate_delivered"
+      },
+      "time": "2026-09-19T10:43:15.554Z"
+    },
+    {
+      "label": "06A 带边取件前 blue",
+      "state": {
+        "player": {
+          "x": 0.6504591357368662,
+          "z": -4.480850810016868,
+          "yaw": 9.440096101492381
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 167.59539999999194,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "sorted",
+            "x": -2.05,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "blue": {
+            "type": "blue",
+            "location": "conveyor",
+            "x": 1.2953999999919352,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 51.25430637591504,
+        "minimumReserve": 51.25430637591504,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true,
+          "sorted-yellow": true
+        },
+        "motion": "moving",
+        "elapsed": 331.13673972261444,
+        "interactions": 8,
+        "distanceMoved": 71.31101010629068,
+        "lastEvent": "crate_delivered"
+      },
+      "time": "2026-09-19T10:43:53.782Z"
+    },
+    {
+      "label": "06 手持 blue",
+      "state": {
+        "player": {
+          "x": 0.6514962386908112,
+          "z": -4.479246380830244,
+          "yaw": 9.455023136923968
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": "parcel-blue",
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 168.82102999999182,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "sorted",
+            "x": -2.05,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "blue": {
+            "type": "blue",
+            "location": "carried",
+            "x": 1.2953999999919352,
+            "z": -5.5,
+            "onBelt": true
+          }
+        },
+        "complete": false,
+        "failed": false,
+        "progress": 51.25430637591504,
+        "minimumReserve": 51.25430637591504,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true,
+          "sorted-yellow": true
+        },
+        "motion": "idle",
+        "elapsed": 332.8876397226148,
+        "interactions": 9,
+        "distanceMoved": 71.31320016420291,
+        "lastEvent": "crate_collected"
+      },
+      "time": "2026-09-19T10:43:55.701Z"
+    },
+    {
+      "label": "07 入栏 blue",
+      "state": {
+        "player": {
+          "x": -0.5482234541045518,
+          "z": -4.113279094000373,
+          "yaw": 12.433764874121351
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 184.8130899999908,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "sorted",
+            "x": -2.05,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "blue": {
+            "type": "blue",
+            "location": "sorted",
+            "x": -0.5499999999999998,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          }
+        },
+        "complete": true,
+        "failed": false,
+        "progress": 52.46180163388401,
+        "minimumReserve": 49.46180163388401,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true,
+          "sorted-yellow": true,
+          "sorted-blue": true
+        },
+        "motion": "idle",
+        "elapsed": 355.3162631453772,
+        "interactions": 10,
+        "distanceMoved": 73.90395302265642,
+        "lastEvent": "mission_complete"
+      },
+      "time": "2026-09-19T10:44:21.013Z"
+    },
+    {
+      "label": "08 正式关卡完成",
+      "state": {
+        "player": {
+          "x": -0.5482234541045518,
+          "z": -4.113279094000373,
+          "yaw": 12.433764874121351
+        },
+        "battery": {
+          "location": "slotted",
+          "x": 6.15,
+          "z": 0.4
+        },
+        "crates": [
+          {
+            "id": "crate-0",
+            "x": -7,
+            "z": 3.3,
+            "location": "ground"
+          },
+          {
+            "id": "crate-1",
+            "x": -7,
+            "z": 4.65,
+            "location": "ground"
+          }
+        ],
+        "carriedItem": null,
+        "powered": true,
+        "doorOpen": false,
+        "terminalOpen": false,
+        "dispatchConfirmed": false,
+        "shutterRequested": false,
+        "shutterLift": 0,
+        "shutterPhase": "closed",
+        "shutterHold": 0,
+        "shutterBlocked": false,
+        "enteredWorkshop": true,
+        "lightsOn": true,
+        "conveyorPhase": 184.8130899999908,
+        "conveyorDirection": 1,
+        "parcels": {
+          "red": {
+            "type": "red",
+            "location": "sorted",
+            "x": -3.55,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "yellow": {
+            "type": "yellow",
+            "location": "sorted",
+            "x": -2.05,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          },
+          "blue": {
+            "type": "blue",
+            "location": "sorted",
+            "x": -0.5499999999999998,
+            "z": -2.45,
+            "onBelt": true,
+            "yaw": -1.5707963267948966,
+            "floor": 0.3035
+          }
+        },
+        "complete": true,
+        "failed": false,
+        "progress": 52.46180163388401,
+        "minimumReserve": 49.46180163388401,
+        "rewardedMilestones": {
+          "battery": true,
+          "power": true,
+          "shutter": true,
+          "lights": true,
+          "sorted-red": true,
+          "sorted-yellow": true,
+          "sorted-blue": true
+        },
+        "motion": "idle",
+        "elapsed": 355.3162631453772,
+        "interactions": 10,
+        "distanceMoved": 73.90395302265642,
+        "lastEvent": "mission_complete"
+      },
+      "time": "2026-09-19T10:44:21.075Z"
+    }
+  ]
+}

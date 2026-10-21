@@ -1,0 +1,61 @@
+diff --git a/game/app.js b/game/app.js
+index 975695e..bd81001 100644
+--- a/game/app.js
++++ b/game/app.js
+@@ -372,0 +378,16 @@ const cargoAssetReady = cargoModel?.userData?.assetReady ?? Promise.resolve({ lo
++let browserPhysics = null;
++const browserPhysicsReady = robotId === "g1" && ["rf15-1", "rf15-2", "rf15-3"].includes(levelId) && searchParams.get("physics") === "1"
++  ? Promise.all([robot.userData.assetReady, world.assetReady]).then(async () => {
++    const { createBrowserPhysics } = await import("./levels/rf15/browser-physics.js");
++    browserPhysics = await createBrowserPhysics(world, robot, {
++      runtime, controlMode: controlModeId,
++      getState: () => state,
++      setState: next => { state = next; },
++      stop: releaseAllControls,
++      message: showToast,
++      robotFeedback: () => latestMujocoState,
++    });
++    return { loaded: true };
++  })
++  : Promise.resolve({ loaded: true });
++browserPhysicsReady.catch(error => { gameShell.dataset.physicsError = String(error); console.error(error); });
+@@ -375 +396 @@ const secondRobotAssetReady = secondRobot?.userData?.assetReady ?? Promise.resol
+-Promise.allSettled([robot.userData.assetReady, secondRobotAssetReady, collisionReady, cargoAssetReady, environmentAssetReady]).then(([robotResult, secondRobotResult, collisionResult, cargoResult, environmentResult]) => {
++Promise.allSettled([robot.userData.assetReady, secondRobotAssetReady, collisionReady, cargoAssetReady, environmentAssetReady, browserPhysicsReady]).then(([robotResult, secondRobotResult, collisionResult, cargoResult, environmentResult, physicsResult]) => {
+@@ -389 +410 @@ Promise.allSettled([robot.userData.assetReady, secondRobotAssetReady, collisionR
+-  const environmentAssetsLoaded = environmentAssets.every((asset) => asset?.loaded);
++  const environmentAssetsLoaded = environmentAssets.every((asset) => asset?.loaded) && physicsResult.status === "fulfilled";
+@@ -442,0 +464 @@ function stopControlInput() {
++  browserPhysics?.cancel();
+@@ -463,0 +486 @@ function resetSimulation({ force = false } = {}) {
++  browserPhysics?.reset();
+@@ -836,0 +860,3 @@ function startGame(event) {
++    for (const name of ["physics", "qa"]) {
++      if (searchParams.has(name)) gameplayUrl.searchParams.set(name, searchParams.get(name));
++    }
+@@ -925,0 +952,5 @@ function performInteraction() {
++  if (browserPhysics) {
++    const handled = browserPhysics.interact();
++    updateInterface();
++    return handled;
++  }
+@@ -971 +997 @@ function animate(now) {
+-    : readInput();
++    : browserPhysics?.busy ? browserPhysics.motionInput(state) ?? { move: 0, strafe: 0, turn: 0, drain: false } : readInput();
+@@ -973 +999,4 @@ function animate(now) {
+-    if (mujocoEnabled && mujocoOnline && controlModeId === "velocity") {
++    if (browserPhysics?.busy) {
++      mujocoClient?.setCommand({ forward: 0, lateral: 0, yaw: 0 }, levelId, { x: state.player.x, z: state.player.z, yaw: state.player.yaw });
++      state = runtime.updateMovement(state, input, delta);
++    } else if (mujocoEnabled && mujocoOnline && controlModeId === "velocity") {
+@@ -1004 +1033 @@ function animate(now) {
+-      if (movementInput) {
++      if (movementInput && !browserPhysics?.busy) {
+@@ -1044,0 +1074 @@ function animate(now) {
++  browserPhysics?.frame(delta, running && !state.complete && !state.failed);
+diff --git a/vite.config.js b/vite.config.js
+index fd20467..d6a85ea 100644
+--- a/vite.config.js
++++ b/vite.config.js
+@@ -20,0 +22 @@ const runtimeAssetDirectories = [
++  "levels/rf15/browser-physics-v1",

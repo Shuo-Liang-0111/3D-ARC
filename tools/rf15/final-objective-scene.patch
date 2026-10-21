@@ -1,0 +1,12 @@
+--- a/game/levels/rf15/scene.js
++++ b/game/levels/rf15/scene.js
+@@ -6,1 +6,0 @@
+-import { getObjective, getInteraction } from "./engine.js";
+@@ -104,2 +103,1 @@
+-  const note = document.createElement('p'); note.id = 'rf15-task-instruction'; note.style.cssText = 'font-size:12px;line-height:1.6;color:#d0d9b9;margin:10px 0 0;max-width:34em'; document.querySelector('.mission-panel')?.append(note);
+-  const world = { scene, items, tail, display, note, cargo, assetRoots: { environment, collision, scale, jack }, frames: 0, startedAt: performance.now(), fps: 0 };
++  const world = { scene, items, tail, display, cargo, assetRoots: { environment, collision, scale, jack }, frames: 0, startedAt: performance.now(), fps: 0 };
+@@ -125,3 +123,0 @@
+-  const directive = getObjective(state); const interaction = getInteraction(state);
+-  const copy = `${directive.title} · ${directive.detail}${interaction ? '  [F] ' + interaction.label : ''}`;
+-  if (world.note.textContent !== copy) world.note.textContent = copy;

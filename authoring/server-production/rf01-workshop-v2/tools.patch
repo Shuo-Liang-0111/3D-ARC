@@ -1,0 +1,114 @@
+diff --git a/tools/rf01-normalize-controls.py b/tools/rf01-normalize-controls.py
+new file mode 100644
+--- /dev/null
++++ b/tools/rf01-normalize-controls.py
+@@ -0,0 +1,52 @@
++import bpy
++import json
++import sys
++from pathlib import Path
++from mathutils import Vector
++
++source = Path("./authoring/server-production/rf01-workshop-v2/source")
++target = Path("./public/local-assets/cardinal/rf01/models/runtime/workshop-v2")
++target.mkdir(parents=True, exist_ok=True)
++reports = []
++for name, dimensions in [("door-control", (.24, .42, .14)), ("light-switch", (.24, .29, .12))]:
++    bpy.ops.object.select_all(action="SELECT")
++    bpy.ops.object.delete(use_global=False)
++    bpy.ops.import_scene.gltf(filepath=str(source / (name + ".glb")))
++    meshes = [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]
++    corners = [obj.matrix_world @ Vector(corner) for obj in meshes for corner in obj.bound_box]
++    lower = Vector(tuple(min(point[axis] for point in corners) for axis in range(3)))
++    upper = Vector(tuple(max(point[axis] for point in corners) for axis in range(3)))
++    extent = upper - lower
++    center = (upper + lower) / 2
++    for obj in meshes:
++        transform = obj.matrix_world.copy()
++        obj.parent = None
++        obj.matrix_world = transform
++        bpy.context.view_layer.objects.active = obj
++        obj.select_set(True)
++        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
++        for vertex in obj.data.vertices:
++            vertex.co.x = (vertex.co.x - center.x) * dimensions[0] / extent.x
++            vertex.co.y = (vertex.co.y - center.y) * dimensions[2] / extent.y
++            vertex.co.z = (vertex.co.z - center.z) * dimensions[1] / extent.z
++        if len(obj.data.polygons) > 40000:
++            modifier = obj.modifiers.new("RuntimeSurface", "DECIMATE")
++            modifier.ratio = 40000 / len(obj.data.polygons)
++            bpy.ops.object.modifier_apply(modifier=modifier.name)
++        obj.name = name
++        obj.select_set(False)
++    for image in bpy.data.images:
++        if image.type != "IMAGE" or not image.has_data:
++            continue
++        if max(image.size) > 2048:
++            factor = 2048 / max(image.size)
++            image.scale(int(image.size[0] * factor), int(image.size[1] * factor))
++        image.pack()
++    bpy.ops.object.select_all(action="DESELECT")
++    for obj in meshes:
++        obj.select_set(True)
++    output = target / (name + ".glb")
++    bpy.ops.export_scene.gltf(filepath=str(output), export_format="GLB", use_selection=True, export_yup=True, export_image_format="AUTO")
++    reports.append({"name": name, "source_extent_blender": list(extent), "target_xyz": dimensions, "triangles": sum(len(obj.data.polygons) for obj in meshes), "bytes": output.stat().st_size})
++(target / "manifest.json").write_text(json.dumps({"revision": "workshop-realism-v2", "assets": reports}, indent=2))
++print(json.dumps(reports))
+diff --git a/public/level-preview/rf01-workshop-review.html b/public/level-preview/rf01-workshop-review.html
+new file mode 100644
+--- /dev/null
++++ b/public/level-preview/rf01-workshop-review.html
+@@ -0,0 +1,4 @@
++<!doctype html><html lang="zh"><meta charset="utf-8"><title>RF-01 布局与开关检查</title>
++<style>body{margin:0;background:#111;color:#eee;font:14px sans-serif}nav{position:fixed;top:0;background:#14201fee;padding:8px;z-index:2}button{padding:8px;margin-right:8px}#info{white-space:pre-wrap;max-height:120px;overflow:auto}</style>
++<nav><button data-view="yard">园区</button><button data-view="rack">电池架绿化</button><button data-view="equipment">供电设备</button><button data-view="inside">室内箱子</button><button data-view="door">卷帘门开关</button><button data-view="light">照明开关</button><button data-view="doorBack">门开关背面</button><button data-view="lightBack">灯开关背面</button><button id="save">保存截图</button><div id="info">加载中</div></nav>
++<script type="module" src="/game/levels/rf01-2/review.js"></script></html>
+diff --git a/game/levels/rf01-2/review.js b/game/levels/rf01-2/review.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01-2/review.js
+@@ -0,0 +1,43 @@
++import * as THREE from "three";
++import { createFacilityScene } from "../../scene.js";
++import { loadRF01EnvironmentMap } from "../../rf01-production-assets.js";
++import { setWorkshopLighting, syncWorkshopShutter } from "../../rf01-workshop.js";
++const world = createFacilityScene();
++const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
++renderer.setSize(innerWidth, innerHeight);
++renderer.setPixelRatio(1);
++renderer.toneMapping = THREE.ACESFilmicToneMapping;
++renderer.toneMappingExposure = 1.05;
++renderer.shadowMap.enabled = true;
++renderer.shadowMap.type = THREE.PCFSoftShadowMap;
++document.body.append(renderer.domElement);
++await Promise.all([world.assetReady, loadRF01EnvironmentMap(renderer, world.scene)]);
++const camera = new THREE.PerspectiveCamera(44, innerWidth / innerHeight, .01, 100);
++let current = "yard";
++const views = {
++  yard: [[1,8.2,13],[0,1,-1.5]],
++  rack: [[-7.4,3.4,3.8],[-6.8,.55,-1.25]],
++  equipment: [[7,3.3,4.5],[6.5,.8,-1.4]],
++  inside: [[2,3,-2.6],[-3.4,.4,-4.15]],
++  door: [[-.43,1.35,-.24],[-.68,1.2,-1.08]],
++  light: [[4.05,1.35,-5.5],[3.8,1.2,-6.34]],
++  doorBack: [[-.68,1.3,-1.8],[-.68,1.2,-1.08]],
++  lightBack: [[3.8,1.3,-7],[3.8,1.2,-6.34]],
++};
++function show(name) {
++  current = name;
++  camera.position.set(...views[name][0]);
++  camera.lookAt(...views[name][1]);
++  syncWorkshopShutter(world.workshop, name === "inside" ? 2.36 : 0);
++  setWorkshopLighting(world.workshop, ["inside","light","lightBack"].includes(name));
++  renderer.render(world.scene,camera);
++  document.querySelector("#info").textContent = world.visualRevision + " / " + name;
++}
++document.querySelectorAll("[data-view]").forEach(button => { button.onclick = () => show(button.dataset.view); });
++document.querySelector("#save").onclick = () => {
++  renderer.render(world.scene,camera);
++  const link = document.createElement("a");
++  link.href = renderer.domElement.toDataURL("image/jpeg", .95);
++  link.download = "rf01-v2-" + current + ".jpg"; link.click();
++};
++show("yard");

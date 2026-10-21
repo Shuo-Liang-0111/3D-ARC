@@ -1,0 +1,251 @@
+{
+  "revision": "library-operations-v5",
+  "records": [
+    {
+      "type": "start",
+      "at": "2026-09-20T05:14:05.923Z",
+      "loadMs": 46605,
+      "state": {
+        "player": {
+          "x": 0,
+          "z": 7.18,
+          "yaw": 3.141592653589793
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          }
+        },
+        "carriedBook": null,
+        "terminalOpen": false,
+        "complete": false,
+        "failed": false,
+        "progress": 100,
+        "rewardedBooks": {},
+        "rewardedPickups": {},
+        "motion": "idle",
+        "elapsed": 0,
+        "interactions": 0,
+        "lastEvent": "library_entered"
+      },
+      "revision": "library-operations-v5"
+    },
+    {
+      "type": "real-keyboard",
+      "before": {
+        "player": {
+          "x": 0,
+          "z": 7.18,
+          "yaw": 3.141592653589793
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          }
+        },
+        "carriedBook": null,
+        "terminalOpen": false,
+        "complete": false,
+        "failed": false,
+        "progress": 100,
+        "rewardedBooks": {},
+        "rewardedPickups": {},
+        "motion": "idle",
+        "elapsed": 0,
+        "interactions": 0,
+        "lastEvent": "library_entered"
+      },
+      "moved": {
+        "player": {
+          "x": 0.002508466104474797,
+          "z": 6.392627976630089,
+          "yaw": 3.1741149506570494
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          }
+        },
+        "carriedBook": null,
+        "terminalOpen": false,
+        "complete": false,
+        "failed": false,
+        "progress": 97.13079999999975,
+        "rewardedBooks": {},
+        "rewardedPickups": {},
+        "motion": "moving",
+        "elapsed": 1.4679000000000013,
+        "interactions": 0,
+        "lastEvent": "library_entered"
+      },
+      "turned": {
+        "player": {
+          "x": 0.03227947141302494,
+          "z": 6.075804286963462,
+          "yaw": 3.559230798264781
+        },
+        "books": {
+          "red": {
+            "id": "red",
+            "color": "red",
+            "x": -0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          },
+          "black": {
+            "id": "black",
+            "color": "black",
+            "x": 0,
+            "z": 3.05,
+            "y": 0.681,
+            "support": "return-table",
+            "location": "table"
+          },
+          "white": {
+            "id": "white",
+            "color": "white",
+            "x": 0.62,
+            "z": 3.05,
+            "y": 0.677,
+            "support": "return-table",
+            "location": "table"
+          }
+        },
+        "carriedBook": null,
+        "terminalOpen": false,
+        "complete": false,
+        "failed": false,
+        "progress": 97.13079999999975,
+        "rewardedBooks": {},
+        "rewardedPickups": {},
+        "motion": "moving",
+        "elapsed": 2.167900000000001,
+        "interactions": 0,
+        "lastEvent": "library_entered"
+      },
+      "distance": 0.7873760191851316,
+      "yaw": 0.38511584760773143
+    }
+  ],
+  "state": {
+    "player": {
+      "x": 0.03227947141302494,
+      "z": 6.075804286963462,
+      "yaw": 3.559230798264781
+    },
+    "books": {
+      "red": {
+        "id": "red",
+        "color": "red",
+        "x": -0.62,
+        "z": 3.05,
+        "y": 0.677,
+        "support": "return-table",
+        "location": "table"
+      },
+      "black": {
+        "id": "black",
+        "color": "black",
+        "x": 0,
+        "z": 3.05,
+        "y": 0.681,
+        "support": "return-table",
+        "location": "table"
+      },
+      "white": {
+        "id": "white",
+        "color": "white",
+        "x": 0.62,
+        "z": 3.05,
+        "y": 0.677,
+        "support": "return-table",
+        "location": "table"
+      }
+    },
+    "carriedBook": null,
+    "terminalOpen": false,
+    "complete": false,
+    "failed": false,
+    "progress": 97.13079999999975,
+    "rewardedBooks": {},
+    "rewardedPickups": {},
+    "motion": "moving",
+    "elapsed": 2.167900000000001,
+    "interactions": 0,
+    "lastEvent": "library_entered"
+  }
+}

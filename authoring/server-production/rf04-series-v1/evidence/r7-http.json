@@ -1,0 +1,334 @@
+[
+  {
+    "file": "index.html",
+    "sha256": "bd918d4dfee7c013722a2461b55b23270812077af9085733fa3ba1442184f972",
+    "httpMatches": true
+  },
+  {
+    "file": "release.json",
+    "sha256": "7ec3d5358c3e145a14e6cb6466b77f79f9d4ad18bafa7bdd5a1389e7f86873a7",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/HDRLoader-DxQsBT3I.js",
+    "sha256": "ef493bd3a3ada4b1aafaf33fad69cd1aa3a1b4b299d50452ad9b16874e87ac73",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/interaction-animation-Ckjas8Vc.js",
+    "sha256": "07c25f5bc3fb7849cdb8e6137c04fac1e930a9ce84f3f9da37a701935519374f",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BilqoRDq.js",
+    "sha256": "fb5d7a7ffb91dde91cd4b48274a421f53a0f53590875fe9420fdd018f5669b32",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/rf01-yard-layout--oMqPTjc.js",
+    "sha256": "085ba0ebaf2837df702fc45ac48b2f9f319388a07c3b0ad2a02cbf39e332eec2",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/preload-helper-DLiCYny5.js",
+    "sha256": "005e5004c7d61c61d0f24e0a1a05e49bf93e0087de1858c1ed462a38a0031100",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BmLydy_Y.js",
+    "sha256": "bf794295b443faaf92ae1af3a89fd36218ae70be2ffd75bde873569d1fe5ea72",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/furniture-controller-Cn_u4AIm.js",
+    "sha256": "ff5d55bcbd3d09678fc79bfe41c57805829d0da5df9da4bb0851b285f9ace188",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-MuI2ICeJ.js",
+    "sha256": "1c6a3fabbfdc0b35516494cd25a69bee57577a1ed38ca32ab7bb43b911c743de",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-B4WVRBQb.js",
+    "sha256": "573d4bfe4aecbbe7ee79205fead5581897529d65e1872e412992293c42439602",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BZ_zC8sY.js",
+    "sha256": "c794ef4d74726ccf494a2af5cd32d752be8692e700a15b039fb1febff96219ef",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/qa-C9bW9jRC.js",
+    "sha256": "307d439ad8990a33cdc884d9283c580d4af47d3bba90cdcd61b58d33c00b07fd",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/series-entry-BmoKQ195.js",
+    "sha256": "c0191b6db11b1a6f483db4b87fd596346845723098ff820b8986a85c687e7b7f",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-CATeOL7S.js",
+    "sha256": "a0069aa98d1e4d46dd41699b461fcde5c8fddb495aa505045e5068b03cab7cde",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/rf01-shared-scene-BXZkjEtj.js",
+    "sha256": "d479930e24c38915625c2d7663dbf150851c00c35715387d9efcc1f917d019c5",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-CTMrNUXe.js",
+    "sha256": "e4a5bb73d5e36a90eef5a4f8cd981726082d8dd876928874a6867db12582c39a",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-DArJtUci.js",
+    "sha256": "a6ea760fe281c0b6d150e04e56a0497bf6b5f221c3bb4fbea0900758b90860f9",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-CSKVxIKO.js",
+    "sha256": "ce786a990c88706d76a568cf661a0d6c7d2c957dfb2e27a3aa464023f4d64d28",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/movement-DSrPwqFO.js",
+    "sha256": "f2597053ba9189e82bbda6c3489408f764fdec4ac1c40b07f02b5e2443897171",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/series-runtime-D8pNRwca.js",
+    "sha256": "963bb77fbbb92572e0ed145ccdd6cdf664dfa636e2114471ff7959086d22caca",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-DGbWZXvC.js",
+    "sha256": "8f745118d6aa5793e8b001c7aadea8e4feac03c3d74962f15d271838bfe5f1a9",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/index-4ZeJshEW.js",
+    "sha256": "938337ade77c6143ee22055b0a92755c0b18c82b2d02c8670a2bc545eb63866e",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/Pass-DlvU1vrp.js",
+    "sha256": "d0a4512503cfa1c2ffcb35cddefe53e1538c887bafd2777360d29f011c20b02e",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-DR-zbgJx.js",
+    "sha256": "eb6f2e08c124b2a130235de26e6438cb2f14c81a91d5c00ddffdd8322aac62af",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-DVzunorf.js",
+    "sha256": "79aef18786d7ea31f4f1e501a9b40d8777b82f260e4168c07c4a4e450c8d3ab9",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/series-qa-Dg7alNyy.js",
+    "sha256": "18c962ad088dc5e7d2a7fdf072afb7420fe993310b26936044e0ea7ee29dc4a9",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BW5C02YM.js",
+    "sha256": "0e1c20746723c67f56d4ac6ce87a2c70a78db184c4226e9013ca4306b6bda74b",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/three.module-C-wgcw4T.js",
+    "sha256": "8910d7b87cc89c84197bb29f48f797c9162369d511b09c6557ecc62bd1e49a85",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/series-runtime-42iNRFxU.js",
+    "sha256": "704cbcac08909407a75adf3eee2d9aca4aa29089ad21363f0af8aa7bb7b17397",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-xSTTDWaX.js",
+    "sha256": "f5615c721846a13b44195f9775777c0cffcead325c8fe430a97da2d93831b624",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/scene-DcxARHQo.js",
+    "sha256": "474a97ef44b9e4d98c31ed718ac3db75450396e45a9890c94fef2e8d8f226ac5",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/interaction-walk-CgesedTI.js",
+    "sha256": "937f4cce622e72f389101cc15d1c6a3050711dc732e13e5520a3d6bce92a7e90",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/GLTFLoader-CisBLBye.js",
+    "sha256": "e85bee843ae47f4bc382a0644519148f3fd93afaa6808e3eda501a2ca0b607fe",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/rf01-battery-BSHHtDoM.js",
+    "sha256": "493adec41c64e12a8f797b370ad28267b4e15d4d074d9e638db7de57d02f50ed",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/RoundedBoxGeometry-Cz8ofBIy.js",
+    "sha256": "ca62836bbc1bf52e86c940d59925bb522a94f88c34193ed1ce695f04d7bc7919",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-DLkJiGYd.js",
+    "sha256": "db3624059a3480e2e6a8b44bfd88b2ed28fb4895b465fd3bad726e0525c95c0b",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/orange-scene-yc2w2Y5h.js",
+    "sha256": "d466f70b58792bcbb7ad04b663697e3d6c95c03b66af03d62a6c77c590b87d9d",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-CiHhjKAM.js",
+    "sha256": "5a11204491f10c7862969366c3f74f91b613a6784797610bd512fe50a0175140",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/series-qa-Cg0I9f8u.js",
+    "sha256": "7436186af924eef3cd6447b05a47f8456216bd20d807c0385571d4daeda1f2ab",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-Db2zAmx9.js",
+    "sha256": "f559fd7a2d719ffafbfac0819f111bcdd95a435a3503720ebb40aec27d7453a8",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-skBfuzLy.js",
+    "sha256": "73cdd1301c3df6302366d86c40a10c699ed9e9ec3e1d3dbabc6f6b322c6b07da",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/field-qa-Cdj3g3kl.js",
+    "sha256": "dd36502985e2dbdbb39e92e2d0dfb35dbf3296f987312863056c7dadb7538c4b",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-bYcYA3ag.js",
+    "sha256": "19b3e77c2689ba55acfae4a7c6f39d6a71d58b92929b578478badcea837c9b8d",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/level-DHYXF6h6.js",
+    "sha256": "5b895abb893cacff6dbc151487fda8a487b6bddf9d0ce6de9276af99bb580344",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/shared-variant-scene-oT7fVfrg.js",
+    "sha256": "f3b215091675c95591b7d33e81d7f4dd5d1ea836a8ed224fc6dab309b2a3b42a",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/spark.module-2BKeCZ9L.js",
+    "sha256": "d14d5ff720fb880cccc32bd14c3ad6cba049396bac023373e0b96a3141dad352",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BiRC4gw5.js",
+    "sha256": "202a42e60c6f67255b3053228343f702a21e8ef26e081be5c9655314de74ef94",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/level-CeHmt2dK.js",
+    "sha256": "2e7fab8e75788824f15b115873dacb26727d720e568581d4a3f4a016ec2d9857",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-ahu8T2iM.js",
+    "sha256": "8ded7650192c7e35012dfdb97e3772cd60adbdb2fdc9cb22212908caeb2638d2",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BW2Ew9uz.js",
+    "sha256": "1fd20c37084a6b4cc6597142bc7e90f9d91e7a4785f95855fd897ac2c6442256",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/rapier-DWaP5K6J.js",
+    "sha256": "1508d500e234720989b9e1f5ef5764fd6ef9aa360172d3e7381e40f369e16175",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-Cl1x9Q3q.js",
+    "sha256": "9e0c8aa811a129e05fcd25b3a3daf614123b5fd5a5472fe07834af17984c6564",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/RoomEnvironment-B7kLJmT4.js",
+    "sha256": "c2c7beae04d6b5bbde9899027801791df5e9de2b82db692dcca27fc4ec0d651a",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-Bh9NlOWL.js",
+    "sha256": "58253b5015a375a6e5505d3b9c25ff7507e4b88fc50b6f02a62ff20785c52cc6",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-BCT0MGQo.js",
+    "sha256": "4d934fb9911985332d08f068e1dbacd51279963513f208fa5fd3b8c27423f1b2",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/tool-room-qa-Cg_ip4PE.js",
+    "sha256": "520aff67bf2d5039735b80234d7f8fe8ffb10972ad3831b1e79520c774983600",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/animation-qa-DBd_jZCB.js",
+    "sha256": "dda64150365598b1624cabb0c52e97d03755b76144b85c28cbe240cb39253381",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/three.core-B5tU1zIV.js",
+    "sha256": "aebe918abd841fea5acf0d9e7ffd618ba4296764739303a848f335b3eb4e2861",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/DRACOLoader-DLSSwr_U.js",
+    "sha256": "cd949d8566e09df5188850ce9b7e8cf4c4629ce6a90ae9d5411bdd07ee00ec7d",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-CmFPpsyZ.js",
+    "sha256": "72c30d0ffa92fe3925f1219434f4f8b6587cb7b062ee1730c5d45f9ba3f35bbd",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/runtime-cLm-hb_0.js",
+    "sha256": "6748636049f16371dc75d17219effed892c364f411c80bca1e80cfb61494e53f",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/g1-articulated-collision-Bb-jS9wQ.js",
+    "sha256": "c1a844abb51ce42e7682e3b24b579b101484a64cc429f480c51e10b64d277d37",
+    "httpMatches": true
+  },
+  {
+    "file": "assets/series-runtime-psGKNqnU.js",
+    "sha256": "245e74d5e5d1e1b2acbddf50ef3e7b6b6e5d578f6de79f02153212e20d2a8e0a",
+    "httpMatches": true
+  },
+  {
+    "source": "game/levels/rf04/series-animation.js",
+    "sha256": "a67cdade84b5810f6763e6f6f90c617f7972f99ed898299a42dd55078701a6a1"
+  },
+  {
+    "source": "game/levels/rf04/series-scene.js",
+    "sha256": "a0e12ddbacdee4cb6fe07139550c8fe75c0ca53cf6306b7771a387d9dfcea2b8"
+  },
+  {
+    "source": "game/levels/rf04/series-layout.js",
+    "sha256": "430588ad51b7b13b1fbfa6edfda9cec36c04e7a085456343db388f09e6b5dfb8"
+  }
+]

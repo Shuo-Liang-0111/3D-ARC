@@ -1,0 +1,19 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf11",
+  "units": "meters",
+  "environment": { "visual": "models/runtime/rf11_final.glb", "collision": "models/runtime/rf11_collision.glb" },
+  "interactables": [
+    { "id": "servo-pump-case", "path": "models/runtime/interactables/servo_pump_case.glb", "dimensions": [0.9, 0.48, 0.64], "support": "floor" },
+    { "id": "cooperative-dolly", "path": "models/runtime/interactables/cooperative_dolly.glb", "dimensions": [1.8, 0.16, 1.1], "support": "floor" },
+    { "id": "assembly-base", "path": "models/runtime/interactables/assembly_base.glb", "dimensions": [3.4, 0.18, 1.8], "support": "floor" }
+  ],
+  "optional": [],
+  "compression": { "geometry": "draco", "decoderPath": "/vendor/draco/" },
+  "validation": { "embeddedTextures": true, "stableNodeNames": true, "collisionReviewed": true }
+  ,"generation": {
+    "servo-pump-case": { "taskId": "aigc_a81c4bccdc0f48678541741ea23a8bef", "qualityPreset": "high-highpoly", "sourceArtifact": "models/source/servo_pump_case.highpoly.glb", "frontAxis": "+Z", "pivot": "bottom-center" },
+    "cooperative-dolly": { "taskId": "aigc_0df563750bb14ca1a4b90ef186bb74e2", "qualityPreset": "high-highpoly", "sourceArtifact": "models/source/cooperative_dolly.highpoly.glb", "frontAxis": "+Z", "pivot": "bottom-center" },
+    "environment": { "taskId": "aigc_8908cc4b34634d0aa85a5d10de6a87a9", "qualityPreset": "high-highpoly", "sourceArtifact": "models/source/rf11_environment.highpoly.glb", "frontAxis": "+Z", "pivot": "bottom-center" }
+  }
+}

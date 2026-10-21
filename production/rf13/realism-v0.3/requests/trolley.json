@@ -1,0 +1,9 @@
+{
+  "prompt": "One realistic compact stainless steel clinical supply trolley, isolated object, width 0.65 meters, depth 0.55 meters, total height 0.90 meters. Two shallow rectangular trays with raised lips, four slim tubular upright legs, four small rubber swivel casters, U shaped push handle attached to one end. Clean lightly brushed stainless steel with realistic joints. Empty trays, no additional objects, no floor slab, no room, no text.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

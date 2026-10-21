@@ -1,0 +1,66 @@
+import { G1_LOCOMOTION } from "../../g1-locomotion.js";
+
+export const ITEM_TYPES = Object.freeze(["wrench", "bucket", "mop"]);
+
+export const ITEM_META = Object.freeze({
+  wrench: Object.freeze({ name: "银色扳手", shortName: "扳手", color: 0xb7c2c7 }),
+  bucket: Object.freeze({ name: "蓝色水桶", shortName: "水桶", color: 0x3b82a8 }),
+  mop: Object.freeze({ name: "长柄拖把", shortName: "拖把", color: 0xb57d42 }),
+});
+
+export const LEVEL = Object.freeze({
+  id: "rf06",
+  title: "家庭漏水处理",
+  bounds: Object.freeze({ minX: -5.4, maxX: 5.4, minZ: -4.0, maxZ: 4.0 }),
+  playerStart: Object.freeze({ x: 3.35, z: -2.45, yaw: 0 }),
+  playerRadius: 0.32,
+  interactionRange: 1.65,
+  ...G1_LOCOMOTION,
+  items: Object.freeze({
+    wrench: Object.freeze({ x: 4.58, z: 1.72, home: "tool-rack" }),
+    bucket: Object.freeze({ x: 3.78, z: 2.56, home: "utility-room" }),
+    mop: Object.freeze({ x: 4.58, z: 2.22, home: "tool-rack" }),
+  }),
+  valve: Object.freeze({ x: -3.16, z: 3.15 }),
+  leak: Object.freeze({ x: -3.16, z: 2.84 }),
+  bucketDrop: Object.freeze({ x: -3.16, z: 2.72 }),
+  puddle: Object.freeze({ x: -2.55, z: 2.50 }),
+  toolRack: Object.freeze({ x: 4.84, z: 1.96 }),
+  progress: Object.freeze({
+    initial: 100,
+    maximum: 100,
+    actionDrainPerSecond: 1.5,
+    interactionCost: 5,
+    itemPickupReward: 15,
+    taskCompletionReward: 15,
+  }),
+  staticColliders: Object.freeze([
+    { id: "north-wall", minX: -5.4, maxX: 5.4, minZ: 3.88, maxZ: 4.0 },
+    { id: "west-wall", minX: -5.4, maxX: -5.28, minZ: -4.0, maxZ: 4.0 },
+    { id: "east-wall", minX: 5.28, maxX: 5.4, minZ: -4.0, maxZ: 4.0 },
+    { id: "south-wall-west", minX: -5.4, maxX: 3.55, minZ: -4.0, maxZ: -3.88 },
+    { id: "south-wall-east", minX: 4.55, maxX: 5.4, minZ: -4.0, maxZ: -3.88 },
+        { id: "kitchen-east-wall-south", minX: -1.47, maxX: -1.35, minZ: 0.62, maxZ: 1.22 },
+    { id: "kitchen-east-wall-north", minX: -1.47, maxX: -1.35, minZ: 2.30, maxZ: 4.0 },
+    { id: "kitchen-south-wall-west", minX: -5.4, maxX: -3.30, minZ: 0.56, maxZ: 0.68 },
+    { id: "kitchen-south-wall-repair", minX: -3.30, maxX: -1.65, minZ: 0.56, maxZ: 0.68 },
+    { id: "kitchen-south-wall-east", minX: -1.65, maxX: -1.35, minZ: 0.56, maxZ: 0.68 },
+    { id: "utility-west-wall-north", minX: 2.62, maxX: 2.74, minZ: 2.35, maxZ: 4.0 },
+    { id: "utility-west-wall-south", minX: 2.62, maxX: 2.74, minZ: 1.10, maxZ: 1.48 },
+    { id: "washroom-west-wall-repair", minX: 2.62, maxX: 2.74, minZ: 1.48, maxZ: 2.35 },
+    { id: "utility-south-wall-west", minX: 2.62, maxX: 3.35, minZ: 1.04, maxZ: 1.16 },
+    { id: "utility-south-wall-east", minX: 4.55, maxX: 5.4, minZ: 1.04, maxZ: 1.16 },
+    { id: "kitchen-north-counter", minX: -4.75, maxX: -1.58, minZ: 3.22, maxZ: 3.86 },
+    { id: "kitchen-west-counter", minX: -5.26, maxX: -4.62, minZ: 1.55, maxZ: 3.86 },
+    { id: "refrigerator", minX: -5.18, maxX: -4.36, minZ: 0.78, maxZ: 1.53 },
+    { id: "sofa", minX: -4.05, maxX: -1.65, minZ: -3.48, maxZ: -2.52 },
+    { id: "coffee-table", minX: -3.48, maxX: -2.22, minZ: -2.12, maxZ: -1.38 },
+    { id: "tv-console", minX: -3.82, maxX: -1.78, minZ: -0.54, maxZ: -0.08 },
+    { id: "dining-set", minX: -0.20, maxX: 1.70, minZ: -2.15, maxZ: -0.34 },
+    { id: "shoe-cabinet", minX: 4.88, maxX: 5.28, minZ: -3.30, maxZ: -1.88 },
+    { id: "entry-bench", minX: 3.82, maxX: 4.68, minZ: -2.99, maxZ: -2.57 },
+    { id: "washer", minX: 2.82, maxX: 3.52, minZ: 3.12, maxZ: 3.86 },
+    { id: "utility-cabinet", minX: 4.48, maxX: 5.24, minZ: 2.70, maxZ: 3.86 },
+    { id: "tool-rack", minX: 4.92, maxX: 5.18, minZ: 1.60, maxZ: 2.32 },
+  ]),
+});

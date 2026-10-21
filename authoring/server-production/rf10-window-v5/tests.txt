@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: fire has its own 60 second deadline with ignition-frame remainder
+ok 1 - fire has its own 60 second deadline with ignition-frame remainder
+  ---
+  duration_ms: 1.176154
+  type: 'test'
+  ...
+# Subtest: a delayed environment frame can cross both ignition and fire deadline
+ok 2 - a delayed environment frame can cross both ignition and fire deadline
+  ---
+  duration_ms: 0.198492
+  type: 'test'
+  ...
+# Subtest: fire countdown advances while stationary and via movement clock only once
+ok 3 - fire countdown advances while stationary and via movement clock only once
+  ---
+  duration_ms: 0.431841
+  type: 'test'
+  ...
+# Subtest: extinguishing before the deadline keeps recovery viable and resets the next fire
+ok 4 - extinguishing before the deadline keeps recovery viable and resets the next fire
+  ---
+  duration_ms: 0.418952
+  type: 'test'
+  ...
+# Subtest: a late pending extinguish cannot reverse failure or clear the fire
+ok 5 - a late pending extinguish cannot reverse failure or clear the fire
+  ---
+  duration_ms: 0.170564
+  type: 'test'
+  ...
+# Subtest: reset restores full fire allowance and no failure reason
+ok 6 - reset restores full fire allowance and no failure reason
+  ---
+  duration_ms: 0.103961
+  type: 'test'
+  ...
+# Subtest: oil, kettle and extinguisher remain recoverable after a local floor drop
+ok 7 - oil, kettle and extinguisher remain recoverable after a local floor drop
+  ---
+  duration_ms: 1.802217
+  type: 'test'
+  ...
+# Subtest: fire recovery leaves the cylinder at the animated release point and allows another cycle
+ok 8 - fire recovery leaves the cylinder at the animated release point and allows another cycle
+  ---
+  duration_ms: 0.32954
+  type: 'test'
+  ...
+# Subtest: timing boundaries are inclusive and independent of movement frame clamping
+ok 9 - timing boundaries are inclusive and independent of movement frame clamping
+  ---
+  duration_ms: 0.257846
+  type: 'test'
+  ...
+# Subtest: a stale off-switch animation cannot complete a kitchen already on fire
+ok 10 - a stale off-switch animation cannot complete a kitchen already on fire
+  ---
+  duration_ms: 0.225839
+  type: 'test'
+  ...
+# Subtest: local approach movement cannot tunnel through counter, wall or refrigerator
+ok 11 - local approach movement cannot tunnel through counter, wall or refrigerator
+  ---
+  duration_ms: 5.819512
+  type: 'test'
+  ...
+# Subtest: all kitchen variants share support coordinates and handles stay inside real prop dimensions
+ok 12 - all kitchen variants share support coordinates and handles stay inside real prop dimensions
+  ---
+  duration_ms: 0.181553
+  type: 'test'
+  ...
+# Subtest: the environment clock advances while the native robot is idle
+ok 13 - the environment clock advances while the native robot is idle
+  ---
+  duration_ms: 0.209251
+  type: 'test'
+  ...
+# Subtest: RF-10-2 completes one simple oil-bottle placement
+ok 14 - RF-10-2 completes one simple oil-bottle placement
+  ---
+  duration_ms: 1.009629
+  type: 'test'
+  ...
+# Subtest: RF-10-3 requires pickup, water and placement before ignition
+ok 15 - RF-10-3 requires pickup, water and placement before ignition
+  ---
+  duration_ms: 0.44847
+  type: 'test'
+  ...
+# Subtest: early shutdown retains water and starts a fresh heating attempt
+ok 16 - early shutdown retains water and starts a fresh heating attempt
+  ---
+  duration_ms: 0.362527
+  type: 'test'
+  ...
+# Subtest: fire invalidates the water and requires extinguishing then actual refill
+ok 17 - fire invalidates the water and requires extinguishing then actual refill
+  ---
+  duration_ms: 0.377416
+  type: 'test'
+  ...
+# Subtest: boiling animation state exists only with water and heat inside 55–65 seconds
+ok 18 - boiling animation state exists only with water and heat inside 55–65 seconds
+  ---
+  duration_ms: 0.241249
+  type: 'test'
+  ...
+# Subtest: RF-10 has exactly three checks and completes without checklist or terminal
+ok 19 - RF-10 has exactly three checks and completes without checklist or terminal
+  ---
+  duration_ms: 1.43098
+  type: 'test'
+  ...
+# Subtest: old sink-side window, cloth and entry terminal cannot become extra tasks
+ok 20 - old sink-side window, cloth and entry terminal cannot become extra tasks
+  ---
+  duration_ms: 0.260546
+  type: 'test'
+  ...
+# Subtest: the gas valve still requires shutting the stove and partial checks cannot complete
+ok 21 - the gas valve still requires shutting the stove and partial checks cannot complete
+  ---
+  duration_ms: 0.22397
+  type: 'test'
+  ...
+# Subtest: window has a counter-free approach and the wall remains impassable
+ok 22 - window has a counter-free approach and the wall remains impassable
+  ---
+  duration_ms: 0.975002
+  type: 'test'
+  ...
+# Subtest: exported wall and collision both contain a real side-window aperture
+ok 23 - exported wall and collision both contain a real side-window aperture
+  ---
+  duration_ms: 2.327369
+  type: 'test'
+  ...
+# Subtest: the exported pull handle belongs to the moving sash
+ok 24 - the exported pull handle belongs to the moving sash
+  ---
+  duration_ms: 0.599945
+  type: 'test'
+  ...
+# Subtest: RF-12 can pass through the entrance plane into the landing
+ok 25 - RF-12 can pass through the entrance plane into the landing
+  ---
+  duration_ms: 0.926406
+  type: 'test'
+  ...
+# Subtest: RF-12 does not collide with the old invisible terminal cabinet
+ok 26 - RF-12 does not collide with the old invisible terminal cabinet
+  ---
+  duration_ms: 0.129518
+  type: 'test'
+  ...
+# Subtest: RF-12 counter does not have a walk-through gap
+ok 27 - RF-12 counter does not have a walk-through gap
+  ---
+  duration_ms: 0.391244
+  type: 'test'
+  ...
+# Subtest: RF-12 fridge collision follows the visible 92 by 68 cm appliance
+ok 28 - RF-12 fridge collision follows the visible 92 by 68 cm appliance
+  ---
+  duration_ms: 0.21446
+  type: 'test'
+  ...
+# Subtest: RF-12 sliding door clears the entrance and lies parallel to its wall
+ok 29 - RF-12 sliding door clears the entrance and lies parallel to its wall
+  ---
+  duration_ms: 0.716425
+  type: 'test'
+  ...
+# Subtest: RF-12 cupboard clears window opening and sill
+ok 30 - RF-12 cupboard clears window opening and sill
+  ---
+  duration_ms: 0.165025
+  type: 'test'
+  ...
+# Subtest: RF-12 cupboard bodies do not overlap
+ok 31 - RF-12 cupboard bodies do not overlap
+  ---
+  duration_ms: 0.096971
+  type: 'test'
+  ...
+# Subtest: RF-12 replacement basin closes all sampled bottom positions
+ok 32 - RF-12 replacement basin closes all sampled bottom positions
+  ---
+  duration_ms: 1.676838
+  type: 'test'
+  ...
+# Subtest: RF-12 preview and gameplay reuse repaired assets and cloth clones
+ok 33 - RF-12 preview and gameplay reuse repaired assets and cloth clones
+  ---
+  duration_ms: 0.298343
+  type: 'test'
+  ...
+# Subtest: RF-12 range hood has a closed housing and mounted chimney
+ok 34 - RF-12 range hood has a closed housing and mounted chimney
+  ---
+  duration_ms: 1.575528
+  type: 'test'
+  ...
+# Subtest: RF-12 entrance has a full depth hall and matching end wall
+ok 35 - RF-12 entrance has a full depth hall and matching end wall
+  ---
+  duration_ms: 0.164525
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 107.257396

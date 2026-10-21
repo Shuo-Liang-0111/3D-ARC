@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world office asset. Wireless presentation clicker, 0.13 m wide x 0.06 m high x 0.42 m deep. Matte graphite ABS body, gently tapered silhouette, two tactile blank buttons, subtle status lens, USB receiver dock seam and laser emitter at positive Z end. One solid handheld object with flat stable underside. Target dimensions approximately 0.13 m x 0.06 m x 0.42 m. Y axis up, front facing positive Z, metric scale, centered at world origin, bottom-center pivot. One isolated photorealistic game-ready object only. Real construction, believable thickness, manufactured edge radii, fasteners and physically based materials. All supporting feet or the flat base must share one ground plane. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,237 @@
+diff --git a/tools/rf02-series/route.mjs b/tools/rf02-series/route.mjs
+--- a/tools/rf02-series/route.mjs
++++ b/tools/rf02-series/route.mjs
+@@ -1,87 +1,146 @@
+-import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
+-
+-const GRID = 0.24;
+-const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
+-
+-export function routeToInteraction(engine, state, target) {
+-  const origin = state.player;
+-  const queue = [{ x: origin.x, z: origin.z, column: 0, row: 0, parent: -1 }];
+-  const visited = new Set(["0,0"]);
+-  const desired = (point) => {
+-    const interaction = engine.getInteraction({ ...state, player: { ...state.player, ...point } });
+-    return interaction?.type === target.type && interaction.distance <= engine.LEVEL.interactionRange - 0.08 && (target.bookId ? interaction.bookId === target.bookId : interaction.color === target.color);
+-  };
+-  let found = -1;
+-  for (let head = 0; head < queue.length && head < 24000; head += 1) {
+-    const current = queue[head];
+-    if (desired(current)) { found = head; break; }
+-    for (const [stepX, stepZ] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+-      const column = current.column + stepX;
+-      const row = current.row + stepZ;
+-      const key = column + "," + row;
+-      if (visited.has(key)) continue;
+-      visited.add(key);
+-      const point = { x: origin.x + column * GRID, z: origin.z + row * GRID };
+-      const clearance = engine.LEVEL.playerRadius + 0.07;
+-      if (!engine.isWalkable(state, point.x, point.z, clearance) || !engine.isWalkable(state, (point.x + current.x) / 2, (point.z + current.z) / 2, clearance)) continue;
+-      queue.push({ ...point, column, row, parent: head });
+-    }
+-  }
+-  if (found < 0) throw new Error("No reachable interaction: " + JSON.stringify(target));
+-  const path = [];
+-  for (let index = found; index >= 0; index = queue[index].parent) path.unshift({ x: queue[index].x, z: queue[index].z });
+-  const compact = [path[0]];
+-  for (let index = 1; index < path.length - 1; index += 1) {
+-    const before = path[index - 1], current = path[index], after = path[index + 1];
+-    if (Math.abs((current.x - before.x) * (after.z - current.z) - (current.z - before.z) * (after.x - current.x)) > 1e-6) compact.push(current);
+-  }
+-  if (path.length > 1) compact.push(path.at(-1));
+-  return compact;
+-}
+-
+-export function walkPath(engine, initial, points, samples = []) {
+-  let state = initial;
+-  for (const point of points) {
+-    let frames = 0;
+-    while (distance(state.player, point) > 0.0001) {
+-      if (state.failed) throw new Error("Reserve depleted: " + JSON.stringify({ level: engine.LEVEL.id, travelled: state.distanceTravelled, target: point }));
+-      const dx = point.x - state.player.x, dz = point.z - state.player.z;
+-      const length = Math.hypot(dx, dz);
+-      const dt = Math.min(0.05, length / engine.LEVEL.moveSpeed);
+-      const yaw = state.player.yaw;
+-      const input = { move: (dx * Math.sin(yaw) + dz * Math.cos(yaw)) / length, strafe: (dx * Math.cos(yaw) - dz * Math.sin(yaw)) / length, turn: 0 };
+-      state = engine.updateMovement(state, input, dt);
+-      state = engine.updateEnvironment(state, dt);
+-      if (++frames > 10000) throw new Error("Movement blocked on engine route");
+-    }
+-    samples.push({ x: state.player.x, z: state.player.z, reserve: state.progress, minimum: state.minimumProgress });
+-  }
+-  return state;
+-}
+-
+-export function walkRoute(id, randomValue = 0.1, errors = 0) {
+-  const engine = createArchiveEngine(id);
+-  let state = engine.createInitialState({ random: () => randomValue });
+-  const samples = [], segments = [];
+-  for (let index = 0; index < errors; index += 1) state = engine.interact(state);
+-  const order = ["red", "red-reading", "black", "black-reading", "white", "white-cart"];
+-  function action(target) {
+-    const path = routeToInteraction(engine, state, target);
+-    state = walkPath(engine, state, path, samples);
+-    segments.push({ target, path, before: { ...state.player } });
+-    const previous = state;
+-    state = engine.interact(state);
+-    if (state.failed || previous.interactions === state.interactions) throw new Error("Interaction failed");
+-  }
+-  for (const bookId of order) {
+-    action({ type: "book", bookId });
+-    action({ type: "shelf", color: state.books[bookId].color });
+-  }
+-  if (engine.LEVEL.dynamic) {
+-    while (state.incident.phase === "falling") state = engine.updateEnvironment(state, 0.05);
+-    action({ type: "book", bookId: state.incident.bookId });
+-    action({ type: "shelf", color: state.incident.color });
+-  }
+-  if (!state.complete) throw new Error("Route did not complete");
+-  return { id, randomValue, errors, distance: state.distanceTravelled, blockedTime: state.blockedTime, finalReserve: state.progress, minimumReserve: state.minimumProgress, interactions: state.interactions, incident: state.incident, samples, segments, state };
+-}
++import fs from "node:fs";
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++import { CART, CHAIRS, BOOKENDS } from "../../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
++
++const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++
++export function pathTo(engine, state, goal, radius = engine.LEVEL.playerRadius + 0.035) {
++  const pitch = 0.18;
++  const bounds = engine.LEVEL.bounds;
++  const columns = Math.ceil((bounds.maxX - bounds.minX) / pitch);
++  const key = (point) => Math.round((point.x - bounds.minX) / pitch) + "," + Math.round((point.z - bounds.minZ) / pitch);
++  const clear = (from, to) => {
++    const steps = Math.max(1, Math.ceil(distance(from, to) / 0.025));
++    for (let index = 1; index <= steps; index += 1) {
++      const blend = index / steps;
++      if (!engine.isWalkable(state, from.x + (to.x - from.x) * blend, from.z + (to.z - from.z) * blend, radius)) return false;
++    }
++    return true;
++  };
++  if (!engine.isWalkable(state, goal.x, goal.z, radius)) throw new Error("Unwalkable goal " + JSON.stringify({ goal, attachment: state.attachment }));
++  if (clear(state.player, goal)) return [state.player, goal];
++  const queue = [{ ...state.player, previous: null }], seen = new Set([key(state.player)]);
++  let found = null;
++  for (let cursor = 0; cursor < queue.length && cursor < columns * 100; cursor += 1) {
++    const current = queue[cursor];
++    if (distance(current, goal) < pitch * 2 && clear(current, goal)) { found = current; break; }
++    for (const [deltaX, deltaZ] of [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]) {
++      const next = { x: current.x + deltaX * pitch, z: current.z + deltaZ * pitch, previous: current };
++      const nextKey = key(next);
++      if (seen.has(nextKey) || !clear(current, next)) continue;
++      seen.add(nextKey); queue.push(next);
++    }
++  }
++  if (!found) throw new Error("No path " + JSON.stringify({ start: state.player, goal, attachment: state.attachment }));
++  const route = [goal];
++  for (let current = found; current; current = current.previous) route.unshift({ x: current.x, z: current.z });
++  const smooth = [route[0]];
++  for (let index = 0; index < route.length - 1;) {
++    let end = route.length - 1;
++    while (end > index + 1 && !clear(route[index], route[end])) end -= 1;
++    smooth.push(route[end]); index = end;
++  }
++  return smooth;
++}
++
++export function walkPath(engine, state, points, environment = true) {
++  let current = state;
++  for (const point of points.slice(1)) {
++    for (let count = 0; distance(current.player, point) > 0.012; count += 1) {
++      if (count > 8000 || current.failed) throw new Error("Walking failed " + JSON.stringify({ point, state: current.player, reserve: current.progress }));
++      const dx = point.x - current.player.x, dz = point.z - current.player.z, yaw = current.player.yaw;
++      const magnitude = Math.hypot(dx, dz);
++      const speed = Math.min(1, magnitude / (engine.LEVEL.moveSpeed * 0.05));
++      const next = engine.updateMovement(current, { move: (dx * Math.sin(yaw) + dz * Math.cos(yaw)) / magnitude * speed, strafe: (dx * Math.cos(yaw) - dz * Math.sin(yaw)) / magnitude * speed }, 0.05);
++      if (distance(next.player, current.player) < 1e-8) throw new Error("Blocked " + JSON.stringify({ point, player: current.player, attachment: current.attachment }));
++      current = environment ? engine.updateEnvironment(next, 0.05) : next;
++    }
++  }
++  return current;
++}
++
++export function face(engine, state, yaw) {
++  let current = state;
++  for (let count = 0; Math.abs(angle(yaw, current.player.yaw)) > 0.005; count += 1) {
++    if (count > 2000) throw new Error("Cannot turn");
++    const error = angle(yaw, current.player.yaw);
++    current = engine.updateEnvironment(engine.updateMovement(current, { turn: Math.max(-1, Math.min(1, error / (engine.LEVEL.turnSpeed * 0.05))) }, 0.05), 0.05);
++  }
++  return current;
++}
++
++export function approach(engine, state, goal) {
++  let current = walkPath(engine, state, pathTo(engine, state, goal));
++  if (Number.isFinite(goal.yaw)) current = face(engine, current, goal.yaw);
++  return current;
++}
++
++export function interactionGoal(engine, state, target) {
++  const center = target.type === "book" ? state.books[target.bookId] : engine.LEVEL.shelves[target.color];
++  const candidates = [];
++  for (let ring = 0.6; ring <= 1.35; ring += 0.18) for (let step = 0; step < 32; step += 1) {
++    const direction = step * Math.PI / 16;
++    const point = { x: center.x + Math.sin(direction) * ring, z: center.z + Math.cos(direction) * ring, yaw: direction + Math.PI };
++    if (!engine.isWalkable(state, point.x, point.z, engine.LEVEL.playerRadius + 0.04)) continue;
++    const action = engine.getInteraction({ ...state, player: point });
++    if (action?.type === target.type && (target.bookId ? action.bookId === target.bookId : action.color === target.color)) candidates.push(point);
++  }
++  candidates.sort((left, right) => distance(left, state.player) - distance(right, state.player));
++  for (const candidate of candidates) {
++    try { pathTo(engine, state, candidate); return candidate; } catch {}
++  }
++  throw new Error("No interaction approach " + JSON.stringify(target));
++}
++
++export function walkRoute(id, random = 0.5, errors = 0, delayRepair = true) {
++  const engine = createArchiveEngine(id);
++  let state = engine.createInitialState({ random: () => random });
++  const records = [{ operation: "start", state }];
++  for (let index = 0; index < errors; index += 1) state = engine.interact(state);
++  for (const definition of CHAIRS.filter((chair) => chair.task)) {
++    state = approach(engine, state, furnitureStand(state.chairs[definition.id]));
++    state = engine.interact(state);
++    if (!state.attachment) throw new Error("Chair grip failed");
++    const goal = furnitureStand({ ...state.chairs[definition.id], ...definition.home });
++    state = walkPath(engine, state, pathTo(engine, state, goal, engine.LEVEL.playerRadius));
++    state = engine.interact(state);
++    if (!state.chairs[definition.id].restored) throw new Error("Chair not restored");
++    records.push({ operation: definition.id, state });
++  }
++  state = approach(engine, state, furnitureStand(state.cart));
++  state = engine.interact(state);
++  if (!state.attachment) throw new Error("Cart grip failed");
++  const parkingStand = furnitureStand({ ...state.cart, ...CART.parking });
++  state = walkPath(engine, state, pathTo(engine, state, parkingStand, engine.LEVEL.playerRadius + 0.025));
++  state = engine.interact(state);
++  if (!state.cart.parked) throw new Error("Cart not parked");
++  records.push({ operation: "cart", state });
++  if (engine.LEVEL.dynamic) {
++    if (delayRepair) for (let index = 0; index < 500; index += 1) state = engine.updateEnvironment(state, 0.05);
++    state = approach(engine, state, BOOKENDS[state.incident.color].stand);
++    if (engine.getInteraction(state)?.type !== "repair") throw new Error("Repair selection failed");
++    state = engine.interact(state);
++    for (let index = 0; index < 20; index += 1) state = engine.updateEnvironment(state, 0.05);
++    records.push({ operation: "repair", state });
++    for (const book of Object.values(state.books).filter((entry) => entry.fallen && entry.location !== "shelved")) {
++      state = approach(engine, state, interactionGoal(engine, state, { type: "book", bookId: book.id }));
++      state = engine.interact(state);
++      if (state.carriedBook !== book.id) throw new Error("Pickup failed");
++      state = approach(engine, state, interactionGoal(engine, state, { type: "shelf", color: book.color }));
++      state = engine.interact(state);
++      records.push({ operation: book.id, state });
++    }
++  }
++  return { id, state, records, finalReserve: state.progress, minimumReserve: state.minimumProgress, distance: state.distanceTravelled, blockedTime: state.blockedTime };
++}
++
++if (process.argv[1]?.endsWith("route.mjs")) {
++  const results = ["rf02-2", "rf02-3"].flatMap((id) => (id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]).map((sample) => {
++    const route = walkRoute(id, sample);
++    return { id, color: route.state.incident.color, distance: route.distance, final: route.finalReserve, minimum: route.minimumReserve, complete: route.state.complete, drops: route.state.incident.drops };
++  }));
++  console.log(JSON.stringify(results, null, 2));
++  if (process.argv[2]) fs.writeFileSync(process.argv[2], JSON.stringify(results, null, 2) + "\n");
++}

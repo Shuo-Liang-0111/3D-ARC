@@ -1,0 +1,61 @@
+{
+  "revision": "library-surfaces-v7",
+  "levels": [
+    "rf02",
+    "rf02-2",
+    "rf02-3"
+  ],
+  "textures": {
+    "wall": {
+      "tileMeters": 1.2,
+      "taskId": "aigc_359afaf902d444e6a982d405c1ef6b61"
+    },
+    "ceiling": {
+      "tileMeters": 0.6,
+      "taskId": "aigc_444606cfcc7949b1a0cbbd25a33420f8"
+    }
+  },
+  "assets": [
+    {
+      "url": "/local-assets/cardinal/rf02/models/runtime/library-surfaces-v7/wall-shell.glb",
+      "sha256": "20740e67335dfadd0400f7e419582270d3059da7e46c56c4568d6fb63b2aa3f4",
+      "bytes": 6574680,
+      "embeddedImages": 11,
+      "baseNormalRoughness": true,
+      "singleSided": true
+    },
+    {
+      "url": "/local-assets/cardinal/rf02/models/runtime/library-surfaces-v7/ceiling-fixtures.glb",
+      "sha256": "b1007ed6f63881553e5f073973b1ffe4ff0a1c5e92ba33c3b64560c2cfbfd533",
+      "bytes": 4483036,
+      "embeddedImages": 3,
+      "baseNormalRoughness": true,
+      "singleSided": true
+    }
+  ],
+  "collisionUnchanged": true,
+  "layoutUnchanged": true,
+  "geometry": [
+    {
+      "source": "./public/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+      "output": "./public/local-assets/cardinal/rf02/models/runtime/library-surfaces-v7/wall-shell.glb",
+      "changedNodes": [
+        "RF02 consolidated warm low VOC wall paint"
+      ],
+      "geometryBoundsPreserved": true,
+      "nodes": 12,
+      "bytes": 6574680
+    },
+    {
+      "source": "./public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/ceiling-fixtures.glb",
+      "output": "./public/local-assets/cardinal/rf02/models/runtime/library-surfaces-v7/ceiling-fixtures.glb",
+      "changedNodes": [
+        "library-ceiling-interior-face"
+      ],
+      "geometryBoundsPreserved": true,
+      "nodes": 25,
+      "bytes": 4483036
+    }
+  ],
+  "scope": "Material checks only; no route or reserve testing"
+}

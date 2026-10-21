@@ -1,0 +1,90 @@
+[
+  {
+    "playerX": "6.76",
+    "playerZ": "9.26",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "20.6",
+    "reviewCalls": "104",
+    "reviewTriangles": "1091240",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "6.07",
+    "playerZ": "10.79",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "83",
+    "reviewTriangles": "912670",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "5.05",
+    "playerZ": "13.09",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "56",
+    "reviewTriangles": "656194",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "4.52",
+    "playerZ": "14.27",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "56",
+    "reviewTriangles": "656194",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "4.52",
+    "playerZ": "14.27",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "56",
+    "reviewTriangles": "656194",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "5.08",
+    "playerZ": "14.24",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "56",
+    "reviewTriangles": "656194",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "7.25",
+    "playerZ": "14.42",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "56",
+    "reviewTriangles": "656194",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  },
+  {
+    "playerX": "7.26",
+    "playerZ": "14.12",
+    "delivered": "[\"ball-1\",\"ball-2\",\"ball-3\"]",
+    "reviewFps": "60.0",
+    "reviewCalls": "56",
+    "reviewTriangles": "656194",
+    "reviewTextures": "31",
+    "reviewGeometries": "72",
+    "levelRevision": "realism-v0.4.2"
+  }
+]

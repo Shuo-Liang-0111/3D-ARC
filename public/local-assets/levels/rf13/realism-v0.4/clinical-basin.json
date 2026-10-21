@@ -1,0 +1,21 @@
+{
+  "provider": "Cardinal",
+  "processing": "Blender",
+  "sourceSha256": "5e22e6f85f9bbdebd64c5622ef36bf7ad2fab4af7f1378a1f0eecff72d40fbc5",
+  "runtimeSha256": "bf53cf1b67ade1f43587377612ace2c8d12351576614045164b40c6da05e6851",
+  "scale": 0.4124920663430228,
+  "targetEnvelopeMeters": [
+    0.6,
+    0.38,
+    0.46
+  ],
+  "actualSizeMeters": [
+    0.3657723516225815,
+    0.3799971485941569,
+    0.4046064019203186
+  ],
+  "sourceFaces": 1913510,
+  "runtimeFaces": 114810,
+  "runtimeBytes": 4753908,
+  "visualReview": "pending"
+}

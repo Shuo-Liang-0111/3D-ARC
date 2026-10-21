@@ -1,0 +1,74 @@
+{
+  "revision": "clinic-series-v1-r12",
+  "phase": "holding",
+  "error": null,
+  "holdError": 0.006013257663083156,
+  "fps": 59.95336960221461,
+  "robotPose": {
+    "position": [
+      -5.398419272013359,
+      -0.008689165320953096,
+      -4.1
+    ],
+    "rotation": [
+      0,
+      -1.5707963267948966,
+      0
+    ]
+  },
+  "lastResult": {
+    "type": "pickup",
+    "item": "gloves",
+    "event": "battery_collected",
+    "error": 0.03164897104109561,
+    "revision": "clinic-series-v1-r12"
+  },
+  "contacts": [
+    {
+      "type": "pickup",
+      "item": "gloves",
+      "event": "battery_collected",
+      "error": 0.03164897104109561,
+      "revision": "clinic-series-v1-r12"
+    }
+  ],
+  "ceiling": true,
+  "player": {
+    "x": -5.398419272013359,
+    "z": -4.1,
+    "yaw": -1.5707963267948966
+  },
+  "progress": 93.94925000000005,
+  "clock": 133.42719999997325,
+  "requests": [],
+  "carried": "gloves",
+  "done": 0,
+  "failed": false,
+  "complete": false,
+  "walk": {
+    "stage": "settle",
+    "ready": true,
+    "travel": 0.15841927201335881,
+    "waypoints": 1,
+    "feet": [
+      {
+        "side": "left",
+        "error": 0.0017740371353508165,
+        "position": [
+          -5.242526898131539,
+          0.041801764318312035,
+          -3.9728820755545713
+        ]
+      },
+      {
+        "side": "right",
+        "error": 0.0014280990292698493,
+        "position": [
+          -5.233515676685123,
+          0.04181855175473537,
+          -4.226986867895964
+        ]
+      }
+    ]
+  }
+}

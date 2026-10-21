@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world office asset. Compact tabletop audiovisual connection hub, 0.84 m wide x 0.18 m high x 0.50 m deep. One low graphite and walnut enclosure with a gently sloped operator face, two recessed blank connection bays, cable grommets, fine ventilation slots and four integrated non-slip feet. Operator side faces positive Z. The complete flat underside rests on a conference table; no stand, column or floor plinth. Target dimensions approximately 0.84 m x 0.18 m x 0.5 m. Y axis up, front facing positive Z, metric scale, centered at world origin, bottom-center pivot. One isolated photorealistic game-ready object only. Real construction, believable thickness, manufactured edge radii, fasteners and physically based materials. All supporting feet or the flat base must share one ground plane. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

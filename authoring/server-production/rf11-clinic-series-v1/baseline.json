@@ -1,0 +1,16 @@
+{
+  "game/app.js": "d1616e2364149ccda92648cba5938e743eed8c282693cb3aeda1e30225d64ed2",
+  "index.html": "f4e8d5c29b6d14db182a93031fb011119772428cba012bd7cbfb563ff4bc7523",
+  "vite.config.js": "7069850e6cfaee6fffd5f082f3ee6343042bed4e117cd7698aa44f5e74c525a3",
+  "game/robot.js": "9364751b4b5c8187255eeb0a7dc9b607784ac9e9686540f3bb8ad8894ea671a5",
+  "game/unitree-g1-edu2.js": "dd76838ff6a38d84b9ea118061e457974ecb9094add5f17aec8d096cf8ffb9f4",
+  "game/unitree-r1-edu.js": "f7d06c92bec1b434e1dc9e2a866216279fa40ccb4b1a116c87e8a2c662fbd66a",
+  "game/level.js": "690a87db3dba29b09cddff2f2d2894afa9eaa1e7f692ee86765a3a2550d01540",
+  "game/operator-controls.js": "b8aa70691ceebfaae5e12075db40255c39737003dfb1d33ecb173c08df1b4a58",
+  "game/third-person-view-controls.js": "894e5c9a91a6268b4bc4b2a2a1e19503421ebc394b7a8e9581f9a45b71fd00b5",
+  "game/view-mode.js": "30b62998781be79013211072199e2e494750345ace65543501f46e88cbc89d8b",
+  "game/levels/rf13/runtime.js": "fc0943580154919b907dc01a95242df2f836443028d941623c43011fb002b42a",
+  "game/levels/rf13/scene.js": "7b26904c6b56acee4ab1c4be85cd45c21186d7d69be84c8f82b81fbbca69fbcc",
+  "game/levels/rf13/level.js": "36dcf34d9fd389df6cece7fbb6e4b0e0401ba0eae4c70f1ba39697f833f49bf2",
+  "game/levels/rf13/engine.js": "abff5f9509dfacfd251a06ae14ab795209672c1ac4136c6e3b376d7da34ab40d"
+}

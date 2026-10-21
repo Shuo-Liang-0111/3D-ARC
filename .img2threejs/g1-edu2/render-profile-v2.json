@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "render-profile.v2",
+  "kind": "threejs-render-profile",
+  "authority": "browser-threejs",
+  "renderer": {
+    "backend": "WebGLRenderer",
+    "colorManagementEnabled": true,
+    "workingColorSpace": "Linear-sRGB",
+    "outputColorSpace": "SRGBColorSpace",
+    "toneMapping": "ACESFilmicToneMapping",
+    "toneMappingExposure": 1.0,
+    "viewport": [900, 1200],
+    "devicePixelRatio": 1.0,
+    "antialias": true,
+    "alpha": false,
+    "shadowMap": {"enabled": true, "type": "PCFShadowMap"}
+  },
+  "environment": {"kind": "none", "source": "structured key/fill/rim lights in g1-edu2-preview.js", "intensity": 0.0},
+  "camera": {"projection": "perspective", "position": [1.95, 1.02, 3.45], "target": [0.0, 0.66, 0.0], "near": 0.05, "far": 50.0, "fovDegrees": 25.0},
+  "background": {"kind": "solid", "color": "#e9ecf2", "alpha": 1.0},
+  "passes": [
+    {"id": "beauty", "required": true, "colorSpace": "SRGBColorSpace", "toneMapped": true},
+    {"id": "alpha-silhouette", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false},
+    {"id": "semantic-id", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "region-id-rgb"},
+    {"id": "depth", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "linear-depth"},
+    {"id": "normal", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "view-space-xyz-remapped"},
+    {"id": "roughness-material-id", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "roughness-plus-region-id"}
+  ],
+  "regions": [
+    {"id": "face", "semantic": "sensor-head", "criticality": "critical", "idColor": [255, 0, 0]},
+    {"id": "kasa", "semantic": "torso-waist", "criticality": "critical", "idColor": [255, 128, 0]},
+    {"id": "scarf", "semantic": "left-arm", "criticality": "high", "idColor": [255, 255, 0]},
+    {"id": "tunic", "semantic": "right-arm", "criticality": "high", "idColor": [0, 255, 0]},
+    {"id": "staff", "semantic": "dex3-hands", "criticality": "high", "idColor": [0, 255, 255]},
+    {"id": "tail", "semantic": "legs-and-knee-discs", "criticality": "high", "idColor": [0, 0, 255]},
+    {"id": "feet", "semantic": "shoe-profile-feet", "criticality": "important", "idColor": [128, 0, 255]},
+    {"id": "materials", "semantic": "five-observed-pbr-families", "criticality": "high", "idColor": [255, 0, 255]}
+  ],
+  "feedbackGroups": [
+    {"id": "camera", "order": 1}, {"id": "silhouette", "order": 2}, {"id": "face", "order": 3},
+    {"id": "clothing", "order": 4}, {"id": "accessory", "order": 5}, {"id": "materials", "order": 6}, {"id": "lighting", "order": 7}
+  ]
+}

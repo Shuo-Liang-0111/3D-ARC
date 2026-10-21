@@ -1,0 +1,138 @@
+{
+  "version": "rf08-office-v1-r18",
+  "levelIds": [
+    "rf09",
+    "rf09-2",
+    "rf09-3"
+  ],
+  "sharedScene": "office-scene.js",
+  "assets": [
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/lounge_sofa.glb",
+      "bytes": 6917320,
+      "sha256": "ead41acb7a6bc2205fcb27dacaeb07940ee50e11b6443a43b04e45c0f7b3693e",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/usb_c_video_adapter.glb",
+      "bytes": 5455136,
+      "sha256": "b8593acddd24c2f66d695482b92d27438de152f464ebd2b57d561559b7876ae4",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/reception_desk.glb",
+      "bytes": 8842432,
+      "sha256": "aef7021a2f3d8fd66c5350d01678d2ea91f23acb01f58f3815696acede0bcade",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/office_workstation.glb",
+      "bytes": 9899092,
+      "sha256": "87ee1767c23a507b127cb4b0ace5faf96e4307b01ca38c3a442ab8fd4c6da8e7",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/it_equipment_locker.glb",
+      "bytes": 8579408,
+      "sha256": "5f3af284ca449cc02b63d1f8b5def10bd6dc9236e94423d71d43fa99720197e5",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/executive_chair.glb",
+      "bytes": 7003124,
+      "sha256": "9c26274f8e657d640ae21882544e0dd8a140a4bd3720b985497369963b9d0f11",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/wireless_presenter.glb",
+      "bytes": 4805592,
+      "sha256": "41b6d4145b8daa051ebf7fec3a4a0bd5716688344d4c33b8fc49400760c48b99",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/ceiling_light.glb",
+      "bytes": 4438808,
+      "sha256": "eeae847d5fda6ffb35001a6599e2f0ab94adfad4cb68119916faf4c93c07c6a3",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/conference_table.glb",
+      "bytes": 9541920,
+      "sha256": "0fccfc189336755a4bcd93f182f22065ac3d076fba4f474666575890df7bf043",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/conference_terminal.glb",
+      "bytes": 6356604,
+      "sha256": "82421d0fe1c711cd2e005b9168e70c125e7535eac8c770fb46b11187a345bce8",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/supply_cabinet.glb",
+      "bytes": 9294700,
+      "sha256": "a76cb10367817bf95f8237ddb71b2648d82975db0bd376dec16b128598fa2b47",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/models/runtime/av_podium.glb",
+      "bytes": 6945252,
+      "sha256": "07f06e667b6fc39ef8242e35a23f1b919c5ad8488ce75e908548e92f45222b50",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/textures/runtime/painted_wall-basecolor.webp",
+      "bytes": 351932,
+      "sha256": "dfadb455652ecf3d05784979715e118256c06dfd38c224bf3c3730efe08a4c62",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf09/textures/runtime/carpet_floor-basecolor.webp",
+      "bytes": 1983530,
+      "sha256": "ea99d23d153b5c5df2af827b0cf4302cbc1ee713fb6c9496ff1d974699679272",
+      "source": "existing Cardinal asset reused"
+    },
+    {
+      "path": "public/local-assets/levels/rf09/office-v1/office-printer.glb",
+      "bytes": 634940,
+      "sha256": "532afa623b53aea6e1c90eb827b4b6fbc8cbba45b41bf31131617edb0c5f2837",
+      "source": "Blender authored"
+    },
+    {
+      "path": "public/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "bytes": 398868,
+      "sha256": "dd0a1aae5039c572a261e9209772da073dc93983b97cc2bca50664806824d162",
+      "source": "existing Cardinal asset reused"
+    }
+  ],
+  "cardinalPrinterRequest": {
+    "outcome": "connection_error_without_task_id",
+    "receiptUnknown": true,
+    "resubmitted": false,
+    "replacement": "precise authored Blender printer, same interaction coordinates"
+  },
+  "proceduralAssets": [
+    {
+      "id": "office-speakerphone",
+      "source": "game/levels/rf09/office-phone.js",
+      "sourceSha256": "4bb58dc2f824d78be445d492d7956e7def9d7a1ff0853fdfc08e24ab42593914",
+      "parts": [
+        "handset",
+        "cradle",
+        "keypad",
+        "speaker",
+        "coiled cable",
+        "LCD",
+        "indicator",
+        "speakerphone button"
+      ],
+      "sharedAcrossLevels": true,
+      "audio": "Web Audio dual-tone ringer"
+    },
+    {
+      "id": "conference-entry-extension",
+      "source": "game/levels/rf09/office-architecture.js",
+      "clearWidthMeters": 1.4,
+      "collisionSource": "game/levels/rf09/office-layout.js"
+    }
+  ]
+}

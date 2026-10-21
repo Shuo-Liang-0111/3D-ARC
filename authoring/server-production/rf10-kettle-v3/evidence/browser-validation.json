@@ -1,0 +1,42 @@
+{
+  "revision": "rf10-kettle-v3",
+  "tests": {
+    "passed": 23,
+    "failed": 0
+  },
+  "browser": {
+    "hardRecovery": {
+      "passed": true,
+      "interactions": 13,
+      "attempts": 3,
+      "shutdownSeconds": 58.8869,
+      "contactErrors": [
+        0.0061599998,
+        0.0015648739,
+        0.0224585329,
+        0.0002519465,
+        0.0003465331,
+        0.0098164513,
+        0.0232362579,
+        0.0162168366,
+        0.0199391471,
+        0.0023444674,
+        0.020024937,
+        0.0002984053,
+        0.0002627454
+      ]
+    },
+    "idleTimeoutSeconds": 65.0032,
+    "easy": "passed",
+    "medium": "passed",
+    "firstPersonCeiling": true,
+    "thirdPersonCeiling": false,
+    "boilingVisual": {
+      "steam": true,
+      "water": true,
+      "fixture": "boiling-frozen",
+      "source": "actual browser screenshots in task tool history"
+    }
+  },
+  "scope": "Internal station/time fixtures; real interaction animations; local collision checks. No full navigation or reserve balance claims."
+}

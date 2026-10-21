@@ -1,0 +1,31 @@
+{
+  "release": "rf08-office-v1-r27",
+  "finalEquivalentRelease": "rf08-office-v1-r28",
+  "method": "Robot-only station setup followed by four formal F pickup/place animations",
+  "order": [
+    "pickup water",
+    "place water",
+    "pickup document",
+    "place document"
+  ],
+  "status": "passed",
+  "finalState": {
+    "chair": {
+      "x": 0,
+      "z": -2.1
+    },
+    "seat": {
+      "id": "1",
+      "doc": "docs-1",
+      "water": "water-1"
+    },
+    "complete": false,
+    "phase": "idle"
+  },
+  "contactErrorsMeters": [
+    0.02429320698915657,
+    0.0005124575768066681,
+    0.030400641733059668,
+    0.03291511003265622
+  ]
+}

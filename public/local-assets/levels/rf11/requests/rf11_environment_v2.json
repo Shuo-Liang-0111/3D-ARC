@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready static interior of a normally operating Chinese precision servo-pump assembly cell, modeled as a coherent architectural space rather than a pile of props. Exact real-world envelope 24 m wide x 16 m deep x 4.2 m high, Y axis up, origin at floor center, front facing positive Z. Light-gray insulated sandwich-panel walls with visible vertical seams, corner trims, wall base rails and a centered 3.2 m wide x 3.0 m high south safety-door opening that remains genuinely open. Continuous matte medium-gray epoxy floor with subtle roller scuffs, realistic roughness variation, painted yellow-black perimeter safety lines and a clear 3 m wide central robot path. Two believable blue-gray guarded servo workcells sit against the west and east side walls, a north-wall steel storage rack holds a few pallet cartons, overhead linear LED fixtures are mounted to the ceiling, electrical cabinet and safety station are wall-mounted. Correct construction logic: walls meet floor, equipment sits on floor, ceiling fixtures attach overhead, no intersections, no duplicated walls, no floating or stretched geometry. Detailed watertight topology, physically based materials, restrained realistic wear, embedded 2K-4K textures, stable semantic node names for floor, walls, door frame, workcells, rack, lights and safety markings. One complete static environment only. No robots, no cargo, no dolly, no people, no extra floor plane, no pedestal, no floating objects, no UI, no readable text, no logos, no neon, no sci-fi, no baked lighting, no external texture paths. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

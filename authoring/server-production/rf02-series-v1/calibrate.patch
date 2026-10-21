@@ -1,0 +1,40 @@
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -38,1 +38,1 @@
+-      movementDrainPerMeter: dynamic ? 0.80 : 0.68,
++      movementDrainPerMeter: dynamic ? 0.94 : 0.86,
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -25,1 +25,1 @@
+-  Object.freeze({ id: "white-cart", color: "white", x: 2.45, z: 4.55, y: 0.76, support: "return-cart", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: 2.45, z: 4.55, y: 1.01, support: "return-cart", location: "table" }),
+diff --git a/game/levels/rf02/series-runtime.js b/game/levels/rf02/series-runtime.js
+--- a/game/levels/rf02/series-runtime.js
++++ b/game/levels/rf02/series-runtime.js
+@@ -27,1 +27,1 @@
+-        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.mp3");
++        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.flac");
+diff --git a/game/levels/rf02/series-runtime.js b/game/levels/rf02/series-runtime.js
+--- a/game/levels/rf02/series-runtime.js
++++ b/game/levels/rf02/series-runtime.js
+@@ -31,2 +31,2 @@
+-        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.mp3").then((response) => response.ok).catch(() => false)])
+-          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.mp3" }]);
++        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.flac").then((response) => response.ok).catch(() => false)])
++          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.flac" }]);
+diff --git a/tools/rf02-series/audit-supports.py b/tools/rf02-series/audit-supports.py
+--- a/tools/rf02-series/audit-supports.py
++++ b/tools/rf02-series/audit-supports.py
+@@ -19,3 +19,7 @@
+-    ray_origin = Vector((0, 0, 5))
+-    hit, location, normal, _, _, _ = bpy.context.scene.ray_cast(bpy.context.evaluated_depsgraph_get(), ray_origin, Vector((0, 0, -1)))
+-    results.append({"id": name, "blenderBounds": [minimum, maximum], "centerSupportY": location.z if hit else None})
++    support_samples = []
++    for sample_x in ([-0.82, 0.72] if name == "reading-table" else [0]):
++        for offset_x, offset_z in [(0, 0), (-0.07, -0.10), (-0.07, 0.10), (0.07, -0.10), (0.07, 0.10)]:
++            ray_origin = Vector((sample_x + offset_x, -offset_z, 5))
++            hit, location, normal, _, _, _ = bpy.context.scene.ray_cast(bpy.context.evaluated_depsgraph_get(), ray_origin, Vector((0, 0, -1)))
++            support_samples.append({"x": sample_x + offset_x, "z": offset_z, "y": location.z if hit else None})
++    results.append({"id": name, "blenderBounds": [minimum, maximum], "supports": support_samples})

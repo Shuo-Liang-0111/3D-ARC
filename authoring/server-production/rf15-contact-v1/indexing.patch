@@ -1,0 +1,46 @@
+diff --git a/simulation/g1_simulation.py b/simulation/g1_simulation.py
+--- a/simulation/g1_simulation.py
++++ b/simulation/g1_simulation.py
+@@ -140,6 +140,9 @@
+         self.policy_joint_names = tuple(
+             self.joint_names[index] for index in self.joint_ids_map
+         )
++        self.robot_qpos = self.model.jnt_qposadr[1:].copy()
++        self.robot_dofs = self.model.jnt_dofadr[1:].copy()
++        self.robot_actuators = np.arange(29, dtype=np.int32)
+         self.joint_lower_limits = self.model.jnt_range[1:, 0].copy()
+@@ -190,1 +193,1 @@
+-        self.data.qpos[7 + mapping] = self.resources.default_joint_pos
++        self.data.qpos[self.resources.robot_qpos[mapping]] = self.resources.default_joint_pos
+@@ -234,1 +237,1 @@
+-        current_policy_order = self.data.qpos[7:][self.resources.joint_ids_map]
++        current_policy_order = self.data.qpos[self.resources.robot_qpos][self.resources.joint_ids_map]
+@@ -273,1 +276,1 @@
+-        self.joint_command_start[:] = self.data.qpos[7:][self.resources.joint_ids_map]
++        self.joint_command_start[:] = self.data.qpos[self.resources.robot_qpos][self.resources.joint_ids_map]
+@@ -332,9 +335,9 @@
+-        joint_pos = self.data.qpos[7:]
+-        joint_vel = self.data.qvel[6:]
++        joint_pos = self.data.qpos[self.resources.robot_qpos]
++        joint_vel = self.data.qvel[self.resources.robot_dofs]
+         torque = (
+             self.resources.stiffness * (self.target_joint_pos - joint_pos)
+             - self.resources.damping * joint_vel
+         )
+-        control_range = self.resources.model.actuator_ctrlrange
+-        self.data.ctrl[:] = np.clip(torque, control_range[:, 0], control_range[:, 1])
++        control_range = self.resources.model.actuator_ctrlrange[self.resources.robot_actuators]
++        self.data.ctrl[self.resources.robot_actuators] = np.clip(torque, control_range[:, 0], control_range[:, 1])
+@@ -357,2 +360,2 @@
+-        joint_pos_policy = self.data.qpos[7:][mapping]
+-        joint_vel_policy = self.data.qvel[6:][mapping]
++        joint_pos_policy = self.data.qpos[self.resources.robot_qpos][mapping]
++        joint_vel_policy = self.data.qvel[self.resources.robot_dofs][mapping]
+@@ -410,2 +413,2 @@
+-                "positions": finite_list(self.data.qpos[7:]),
+-                "velocities": finite_list(self.data.qvel[6:]),
++                "positions": finite_list(self.data.qpos[self.resources.robot_qpos]),
++                "velocities": finite_list(self.data.qvel[self.resources.robot_dofs]),
+@@ -417,1 +420,1 @@
+-                    self.data.qpos[7:][self.resources.joint_ids_map]
++                    self.data.qpos[self.resources.robot_qpos][self.resources.joint_ids_map]

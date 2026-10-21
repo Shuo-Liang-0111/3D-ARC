@@ -1,0 +1,6 @@
+diff --git a/game/levels/rf15/variant-engine.js b/game/levels/rf15/variant-engine.js
+--- a/game/levels/rf15/variant-engine.js
++++ b/game/levels/rf15/variant-engine.js
+@@ -14,1 +14,1 @@
+-  function getColliders(state) { return [...STATIC_COLLIDERS, ...TOOL_ROOM_WALLS, ...FIELD_COLLIDERS, toolDoorCollider(state)]; }
++  function getColliders(state) { return [...STATIC_COLLIDERS.filter(collider => !state.browserPhysics || collider.id !== "pallet-jack"), ...TOOL_ROOM_WALLS, ...FIELD_COLLIDERS.filter(collider => !state.browserPhysics || collider.id !== "harvest-basket"), toolDoorCollider(state)]; }

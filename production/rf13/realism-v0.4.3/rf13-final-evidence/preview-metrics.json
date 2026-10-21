@@ -1,0 +1,9 @@
+{
+  "reviewCallsPerPass": "55",
+  "reviewFps": "60.0",
+  "reviewFrameP95Ms": "17.6",
+  "reviewGeometries": "267",
+  "reviewSampleMs": "2000",
+  "reviewTextures": "53",
+  "reviewTrianglesPerPass": "178998"
+}

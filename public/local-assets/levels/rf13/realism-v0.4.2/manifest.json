@@ -1,0 +1,78 @@
+{
+  "levelId": "rf13",
+  "revision": "realism-v0.4.2",
+  "provider": "Cardinal+Blender",
+  "environment": "environment.glb",
+  "collision": "collision.glb",
+  "interactive": [
+    "gloves",
+    "gauze",
+    "dressings",
+    "forms",
+    "empty-box",
+    "opening-terminal",
+    "chair",
+    "trolley"
+  ],
+  "collisionAuthority": "game/levels/rf13/level.js + furnishings.js",
+  "visualStatus": "internal-review",
+  "provenance": {
+    "architecture": "Blender dimensioned structural geometry",
+    "trolley": "Blender reconstruction to gameplay dimensions",
+    "vinyl": "deterministic procedural albedo and normal; no claim of scan",
+    "oak": "reused source from realism-v0.3; see previous ledger",
+    "clinical-basin": "Cardinal; tasks.json",
+    "diagnostic-panel": "Cardinal; tasks.json",
+    "portable-items-and-chair": "reused Cardinal runtime from cardinal-v0.3"
+  },
+  "files": {
+    "chair.glb": {
+      "sha256": "e9bb81fe66b02a310df0d6c4b3c48626538b82e2fc1790760766b48be6471f96",
+      "bytes": 4747924
+    },
+    "clinical-basin-fitted.glb": {
+      "sha256": "115e1c642d43a07bb1be11719aa3f52059db1943b9690fc541b6ff6a1eb24987",
+      "bytes": 1469036
+    },
+    "collision.glb": {
+      "sha256": "5d5883073225472f1fbba315d564bc6f7d0d2df1f7a0331674d21456934853f7",
+      "bytes": 63152
+    },
+    "diagnostic-panel-fitted.glb": {
+      "sha256": "54514c8cbb8804dc76055d98b8bfca078ed4989d5276a3f9c7add242f5cb6280",
+      "bytes": 1699540
+    },
+    "dressings.glb": {
+      "sha256": "0be2d223c3bdcc0fd2f165e8f8aab82d101f4ecae8ea3587470e454d24399e62",
+      "bytes": 5250636
+    },
+    "empty-box.glb": {
+      "sha256": "6a5d6a4f7d446b1c7ad8efd7501d5202908f8ef1cc1e4a19cad5f950739e04b2",
+      "bytes": 5336172
+    },
+    "environment.glb": {
+      "sha256": "827585eab6592817a83ee136631e2a5c04aed15fc92e41128fb570356eb52dfd",
+      "bytes": 22081036
+    },
+    "forms.glb": {
+      "sha256": "677124735d4ddf1d033d0ca26f6bcb9a170dc9eab86c8bbf515695fd1214c9a2",
+      "bytes": 5259292
+    },
+    "gauze.glb": {
+      "sha256": "6660528768731bb9265cd835b1ca63b70b57f9e78e1c46197e0f4cb85d3e35f9",
+      "bytes": 5391056
+    },
+    "gloves.glb": {
+      "sha256": "14228516e8e462677d7a2e72a785b6143ba88aa6fad412ee35c29f12b6e8178e",
+      "bytes": 5000760
+    },
+    "opening-terminal.glb": {
+      "sha256": "0bb5f23cbb57dd5043242c721536f04252093ba851134067c3446e7567c768e3",
+      "bytes": 5155208
+    },
+    "trolley.glb": {
+      "sha256": "aef7609b4fb4ea49fd5e17db137fae12f7b90d4ac0448a9c28a47f6a24d0971d",
+      "bytes": 169260
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf14",
+  "revision": "realism-v0.3",
+  "units": "meters",
+  "upAxis": "Y",
+  "budgetMiB": 60,
+  "environment": {
+    "visual": "/local-assets/levels/rf14/realism-v0.3/environment.glb",
+    "collision": "/local-assets/levels/rf14/realism-v0.3/collision.glb"
+  },
+  "interactables": [
+    {
+      "id": "ball",
+      "path": "/local-assets/levels/rf14/realism-v0.3/ball.glb"
+    },
+    {
+      "id": "cart",
+      "path": "/local-assets/levels/rf14/realism-v0.3/cart.glb"
+    },
+    {
+      "id": "court-bench",
+      "path": "/local-assets/levels/rf14/realism-v0.3/court-bench.glb"
+    },
+    {
+      "id": "tennis-bag",
+      "path": "/local-assets/levels/rf14/realism-v0.3/tennis-bag.glb"
+    }
+  ],
+  "compression": {
+    "geometry": "none",
+    "decoderPath": "/vendor/draco/"
+  },
+  "hashes": {
+    "collision.glb": "58a27459b0c40bb6a7d264b529f95a53b8e91975a98f1dfa2d4c2bceb9889081",
+    "environment.glb": "97cd1b1c250f62c08ef5404df28d3277bb2dca74949841372f83d778907f86ac",
+    "ball.glb": "10c01dfa8ce8158ea88a4f06b4f611bba4bd4147c1a02569b12f6074e9c64c3e",
+    "court-bench.glb": "fb104a6043a63c418384f031e2918c0cbb83fba3d873f6cd697921846034d718",
+    "tennis-bag.glb": "948faae5eaf9618fa8591dad042b737467f52c5bb82b463317691b6b7fec0cc3",
+    "cart.glb": "b531f9062cf3cc3f5a45c857a9f8e547adb9a730681bd0ddcb276b1c46f667eb"
+  }
+}

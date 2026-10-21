@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world laboratory equipment asset. Seven-point-nine meter specimen receiving bench equipment bank, 7.90 m wide x 1.75 m high x 1.00 m deep. Modular stainless lower cabinets, black phenolic worktop, backsplash, LIMS monitor, barcode printer, benchtop centrifuge and compact PCR analyzer, all structurally mounted as one bank. Target dimensions approximately 7.9 m x 1.75 m x 1.0 m. Y-up, metric scale, front facing positive Z, centered bottom pivot. One isolated game-ready object only. Clean watertight topology, real thickness, beveled manufactured edges, physically based materials with base color, normal, roughness, metallic and AO. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,10 @@
+{
+  "release": "rf01-restored-carry-v1",
+  "commit": "7208dc80dadffd3b887faabf93d92beec9462648",
+  "historicalHold": "3e01ef5",
+  "tests": 51,
+  "levelCargoCases": 12,
+  "httpDependencies": 26,
+  "userAcceptance": "not requested",
+  "url": "http://127.0.0.1:4173/?mode=play&level=rf01-3&view=third&robot=g1&control=velocity"
+}

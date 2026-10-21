@@ -1,0 +1,17 @@
+{
+  "build": "r21",
+  "result": "PASSED",
+  "formalActions": 8,
+  "timeouts": 0,
+  "washContactM": 0.022084516400225625,
+  "sinkTakeContactM": 0.054776229119425236,
+  "sink": {
+    "water": 0,
+    "faucet": false,
+    "draining": false,
+    "clean": true,
+    "washed": true
+  },
+  "phase": "idle",
+  "frame": "rf05-r21-washing-firstperson.png"
+}

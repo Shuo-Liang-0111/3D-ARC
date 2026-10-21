@@ -1,0 +1,1423 @@
+--- a/tests/rf02-series.test.mjs
++++ b/tests/rf02-series.test.mjs
+@@ -1,185 +1,232 @@
+-import test from "node:test";
+-import assert from "node:assert/strict";
+-import fs from "node:fs";
+-import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
+-import { BOOKS, BOOKENDS, CART, CHAIRS, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
+-import { furnitureStand } from "../game/levels/rf02/furnishings-layout.js";
+-import { walkRoute, approach } from "../tools/rf02-series/route.mjs";
+-
+-function stepEnvironment(engine, state, seconds) {
+-  let current = state;
+-  for (let index = 0; index < Math.ceil(seconds / 0.05); index += 1) current = engine.updateEnvironment(current, 0.05);
+-  return current;
+-}
+-
+-function restoredChair(engine, state) {
+-  const chair = Object.values(state.chairs)[0];
+-  const next = structuredClone(state);
+-  Object.assign(next.chairs[chair.id], chair.home);
+-  next.player = furnitureStand(next.chairs[chair.id]);
+-  const gripped = engine.interact(next);
+-  assert.ok(gripped.attachment);
+-  return engine.interact(gripped);
+-}
+-
+-for (const id of ["rf02-2", "rf02-3"]) {
+-  const engine = createArchiveEngine(id);
+-  test(id + " is a furniture task with the shared scene, no return-desk pickups or catalog clues", () => {
+-    const state = engine.createInitialState();
+-    assert.equal(Object.keys(state.books).length, BOOKS.length);
+-    assert.equal(Object.keys(state.chairs).length, 2);
+-    assert.equal(state.cart.parked, false);
+-    assert.equal(engine.getInteraction({ ...state, player: { ...state.player, ...engine.LEVEL.terminal } }), null);
+-    const atDesk = { ...state, player: { x: 0, z: 4, yaw: Math.PI } };
+-    assert.notEqual(engine.getInteraction(atDesk)?.type, "book");
+-  });
+-  test(id + " requires both chair placements and correct cart parking", () => {
+-    let state = engine.createInitialState();
+-    state = restoredChair(engine, state);
+-    assert.equal(state.complete, false);
+-    state.cart = { ...state.cart, ...CART.parking };
+-    state.player = furnitureStand(state.cart);
+-    state = engine.interact(engine.interact(state));
+-    assert.equal(state.cart.parked, true);
+-    assert.equal(state.complete, false);
+-  });
+-  test(id + " grip uses an aligned handle and never snaps furniture on first movement", () => {
+-    const state = engine.createInitialState();
+-    state.player = { ...furnitureStand(state.cart), x: state.cart.x + 0.01 };
+-    const before = { ...state.cart };
+-    const held = engine.interact(state);
+-    assert.ok(held.attachment);
+-    const after = engine.updateMovement(held, {}, 0.05);
+-    assert.ok(Math.abs(after.cart.x - before.x) < 1e-9);
+-    assert.ok(Math.abs(after.cart.z - before.z) < 1e-9);
+-    assert.equal(after.progress, 100);
+-  });
+-  test(id + " cart body blocks at a wall even where the robot alone fits", () => {
+-    const state = engine.createInitialState();
+-    state.cart = { ...state.cart, x: 11.28, z: -3, yaw: 0 };
+-    state.player = furnitureStand(state.cart);
+-    const held = engine.interact(state);
+-    const blocked = engine.updateMovement(held, { strafe: 1 }, 0.05);
+-    assert.equal(blocked.cart.x, held.cart.x);
+-    assert.deepEqual(blocked.player, held.player);
+-    assert.ok(blocked.progress < held.progress);
+-    assert.ok(blocked.blockedTime > 0);
+-  });
+-  test(id + " release outside the bay is allowed but does not award parking or complete", () => {
+-    let state = engine.createInitialState();
+-    state.player = furnitureStand(state.cart);
+-    state = engine.interact(state);
+-    state = engine.interact(state);
+-    assert.equal(state.attachment, null);
+-    assert.equal(state.cart.parked, false);
+-    assert.equal(state.progress, 100);
+-    assert.equal(state.complete, false);
+-  });
+-  test(id + " idle/turn are free, distance and invalid F attempts cost reserve", () => {
+-    const state = engine.createInitialState();
+-    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
+-    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
+-    assert.ok(engine.updateMovement(state, { move: 1, drain: false }, 0.05).progress < 100);
+-    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
+-  });
+-  test(id + " failure is atomic and frozen; reset clears rewards and task objects", () => {
+-    const state = { ...engine.createInitialState(), progress: 0.5 };
+-    const failed = engine.interact(state);
+-    assert.equal(failed.failed, true);
+-    assert.equal(failed.progress, 0);
+-    assert.deepEqual(failed.cart, state.cart);
+-    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
+-    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
+-    assert.deepEqual(engine.interact(failed), failed);
+-    const reset = engine.createInitialState();
+-    assert.equal(reset.progress, 100);
+-    assert.equal(reset.attachment, null);
+-    assert.deepEqual(reset.rewardedActions, {});
+-  });
+-  test(id + " restore rewards cap at 100 and cannot be repeated for the same item", () => {
+-    const state = engine.createInitialState();
+-    const restored = restoredChair(engine, state);
+-    assert.equal(restored.progress, 100);
+-    const chair = Object.values(restored.chairs).find((entry) => entry.restored);
+-    const repeated = structuredClone(restored);
+-    repeated.chairs[chair.id].restored = false;
+-    repeated.progress = 50;
+-    const result = restoredChair(engine, repeated);
+-    assert.equal(result.progress, 50);
+-  });
+-  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
+-    for (const errors of [0, 2]) {
+-      test(id + " complete movement route / random " + sample + " / errors " + errors, () => {
+-        const route = walkRoute(id, sample, errors);
+-        assert.equal(route.state.complete, true);
+-        assert.equal(route.state.failed, false);
+-        assert.ok(route.minimumReserve > 0);
+-        assert.ok(route.finalReserve < 70);
+-        assert.equal(route.blockedTime, 0);
+-        assert.equal(route.state.cart.parked, true);
+-        assert.ok(Object.values(route.state.chairs).every((chair) => chair.restored));
+-        assert.deepEqual(engine.updateMovement(route.state, { move: 1 }, 0.05), route.state);
+-        if (id === "rf02-3") {
+-          assert.equal(route.state.incident.phase, "fixed");
+-          assert.equal(route.state.incident.drops, 3);
+-        }
+-      });
+-    }
+-  }
+-}
+-
+-test("fault activation guarantees a first fall, repeats while loose, and is capped at three", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  for (const [sample, color] of [[0.1, "red"], [0.5, "black"], [0.9, "white"]]) {
+-    let state = restoredChair(engine, engine.createInitialState({ random: () => sample }));
+-    assert.equal(state.incident.color, color);
+-    assert.equal(state.incident.phase, "loose");
+-    assert.equal(state.incident.drops, 1);
+-    assert.equal(state.books["shelf-" + color + "-0"].location, "falling");
+-    state = stepEnvironment(engine, state, 11);
+-    assert.equal(state.incident.drops, 1);
+-    state = stepEnvironment(engine, state, 2);
+-    assert.equal(state.incident.drops, 2);
+-    state = stepEnvironment(engine, state, 100);
+-    assert.equal(state.incident.drops, 3);
+-    assert.equal(Object.values(state.books).filter((book) => book.fallen && book.location === "ground").length, 3);
+-    assert.equal(state.complete, false);
+-  }
+-});
+-
+-test("repair stops subsequent falls but keeps every already-falling or landed book required", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  let state = restoredChair(engine, engine.createInitialState({ random: () => 0.5 }));
+-  state.player = { ...BOOKENDS.black.stand };
+-  assert.equal(engine.getInteraction(state)?.type, "repair");
+-  state = engine.interact(state);
+-  assert.equal(state.incident.phase, "fixed");
+-  state = stepEnvironment(engine, state, 100);
+-  assert.equal(state.incident.drops, 1);
+-  assert.equal(state.books["shelf-black-0"].location, "ground");
+-  assert.equal(state.complete, false);
+-});
+-
+-test("moving the cart can trigger a fault before either chair is restored", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  let state = engine.createInitialState();
+-  state.player = furnitureStand(state.cart);
+-  state = engine.interact(state);
+-  for (let index = 0; index < 30; index += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
+-  assert.equal(state.incident.phase, "loose");
+-  assert.equal(state.incident.drops, 1);
+-  assert.ok(Object.values(state.chairs).every((chair) => !chair.restored));
+-});
+-
+-test("park orientation matters and the collision GLB matches every initial furniture proxy", () => {
+-  const engine = createArchiveEngine("rf02-2");
+-  let state = engine.createInitialState();
+-  state.cart = { ...state.cart, ...CART.parking, yaw: 0 };
+-  state.player = furnitureStand(state.cart);
+-  state = engine.interact(engine.interact(state));
+-  assert.equal(state.cart.parked, false);
+-  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/library-collision.glb");
+-  const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+-  for (const collider of engine.LEVEL.staticColliders) assert.ok(json.nodes.some((node) => node.name === "COLLIDER_" + collider.id));
+-  assert.ok(fs.statSync("public" + ASSET_ROOT + "/closing-fixtures.glb").size > 1000);
+-});
++import test from "node:test";
++import assert from "node:assert/strict";
++import fs from "node:fs";
++import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
++import { BOOKS, BOOKENDS, CART, CHAIRS, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../game/levels/rf02/furnishings-layout.js";
++import { walkRoute, approach } from "../tools/rf02-series/route.mjs";
++
++function stepEnvironment(engine, state, seconds) {
++  let current = state;
++  for (let index = 0; index < Math.ceil(seconds / 0.05); index += 1) current = engine.updateEnvironment(current, 0.05);
++  return current;
++}
++
++function restoredChair(engine, state) {
++  const chair = Object.values(state.chairs)[0];
++  const next = structuredClone(state);
++  Object.assign(next.chairs[chair.id], chair.home);
++  next.player = furnitureStand(next.chairs[chair.id]);
++  const gripped = engine.interact(next);
++  assert.ok(gripped.attachment);
++  return engine.interact(gripped);
++}
++
++for (const id of ["rf02-2", "rf02-3"]) {
++  const engine = createArchiveEngine(id);
++  test(id + " is a furniture task with the shared scene, tabletop pickups and no catalog clues", () => {
++    const state = engine.createInitialState();
++    assert.equal(Object.keys(state.books).length, BOOKS.length);
++    assert.equal(Object.keys(state.chairs).length, 2);
++    assert.equal(state.cart.parked, false);
++    assert.equal(engine.getInteraction({ ...state, player: { ...state.player, ...engine.LEVEL.terminal } }), null);
++    const atDesk = { ...state, player: { x: 0, z: 4, yaw: Math.PI } };
++    assert.equal(engine.getInteraction(atDesk)?.type, "book");
++    const picked = engine.interact(atDesk);
++    assert.ok(picked.carriedBook);
++    assert.equal(picked.books[picked.carriedBook].location, "carried");
++    assert.equal(picked.books[picked.carriedBook].support, null);
++  });
++  test(id + " requires both chair placements and correct cart parking", () => {
++    let state = engine.createInitialState();
++    state = restoredChair(engine, state);
++    assert.equal(state.complete, false);
++    state.cart = { ...state.cart, x: CART.parking.x, z: CART.parking.z, yaw: CART.parking.yaw };
++    state.player = furnitureStand(state.cart);
++    state = engine.interact(engine.interact(state));
++    assert.equal(state.cart.parked, true);
++    assert.equal(state.complete, false);
++  });
++  test(id + " grip uses an aligned handle and never snaps furniture on first movement", () => {
++    const state = engine.createInitialState();
++    state.player = { ...furnitureStand(state.cart), x: state.cart.x + 0.01 };
++    const before = { ...state.cart };
++    const held = engine.interact(state);
++    assert.ok(held.attachment);
++    const after = engine.updateMovement(held, {}, 0.05);
++    assert.ok(Math.abs(after.cart.x - before.x) < 1e-9);
++    assert.ok(Math.abs(after.cart.z - before.z) < 1e-9);
++    assert.equal(after.progress, 100);
++  });
++  test(id + " cart body blocks at a wall even where the robot alone fits", () => {
++    const state = engine.createInitialState();
++    state.cart = { ...state.cart, x: 11.28, z: -3, yaw: 0 };
++    state.player = furnitureStand(state.cart);
++    const held = engine.interact(state);
++    const blocked = engine.updateMovement(held, { strafe: 1 }, 0.05);
++    assert.equal(blocked.cart.x, held.cart.x);
++    assert.deepEqual(blocked.player, held.player);
++    assert.ok(blocked.progress < held.progress);
++    assert.ok(blocked.blockedTime > 0);
++  });
++  test(id + " release outside the bay is allowed but does not award parking or complete", () => {
++    let state = engine.createInitialState();
++    state.player = furnitureStand(state.cart);
++    state = engine.interact(state);
++    state = engine.interact(state);
++    assert.equal(state.attachment, null);
++    assert.equal(state.cart.parked, false);
++    assert.equal(state.progress, 100);
++    assert.equal(state.complete, false);
++  });
++  test(id + " idle/turn are free, distance and invalid F attempts cost reserve", () => {
++    const state = engine.createInitialState();
++    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
++    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
++    assert.ok(engine.updateMovement(state, { move: 1, drain: false }, 0.05).progress < 100);
++    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
++  });
++  test(id + " failure is atomic and frozen; reset clears rewards and task objects", () => {
++    const state = { ...engine.createInitialState(), progress: 0.5 };
++    const failed = engine.interact(state);
++    assert.equal(failed.failed, true);
++    assert.equal(failed.progress, 0);
++    assert.deepEqual(failed.cart, state.cart);
++    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
++    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
++    assert.deepEqual(engine.interact(failed), failed);
++    const reset = engine.createInitialState();
++    assert.equal(reset.progress, 100);
++    assert.equal(reset.attachment, null);
++    assert.deepEqual(reset.rewardedActions, {});
++  });
++  test(id + " restore rewards cap at 100 and cannot be repeated for the same item", () => {
++    const state = engine.createInitialState();
++    const restored = restoredChair(engine, state);
++    assert.equal(restored.progress, 100);
++    const chair = Object.values(restored.chairs).find((entry) => entry.restored);
++    const repeated = structuredClone(restored);
++    repeated.chairs[chair.id].restored = false;
++    repeated.progress = 50;
++    const result = restoredChair(engine, repeated);
++    assert.equal(result.progress, 50);
++  });
++  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
++    for (const errors of [0, 2]) {
++      test(id + " complete movement route / random " + sample + " / errors " + errors, () => {
++        const route = walkRoute(id, sample, errors);
++        assert.equal(route.state.complete, true);
++        assert.equal(route.state.failed, false);
++        assert.ok(route.minimumReserve > 0);
++        assert.ok(route.finalReserve < 70);
++        assert.equal(route.blockedTime, 0);
++        assert.equal(route.state.cart.parked, true);
++        assert.ok(Object.values(route.state.chairs).every((chair) => chair.restored));
++        assert.deepEqual(engine.updateMovement(route.state, { move: 1 }, 0.05), route.state);
++        if (id === "rf02-3") {
++          assert.equal(route.state.incident.phase, "fixed");
++          assert.equal(route.state.incident.drops, 3);
++        }
++      });
++    }
++  }
++}
++
++test("fault activation guarantees a first fall, repeats while loose, and is capped at three", () => {
++  const engine = createArchiveEngine("rf02-3");
++  for (const [sample, color] of [[0.1, "red"], [0.5, "black"], [0.9, "white"]]) {
++    let state = restoredChair(engine, engine.createInitialState({ random: () => sample }));
++    assert.equal(state.incident.color, color);
++    assert.equal(state.incident.phase, "loose");
++    assert.equal(state.incident.drops, 1);
++    assert.equal(state.books["shelf-" + color + "-0"].location, "falling");
++    state = stepEnvironment(engine, state, 11);
++    assert.equal(state.incident.drops, 1);
++    state = stepEnvironment(engine, state, 2);
++    assert.equal(state.incident.drops, 2);
++    state = stepEnvironment(engine, state, 100);
++    assert.equal(state.incident.drops, 3);
++    assert.equal(Object.values(state.books).filter((book) => book.fallen && book.location === "ground").length, 3);
++    assert.equal(state.complete, false);
++  }
++});
++
++test("repair stops subsequent falls but keeps every already-falling or landed book required", () => {
++  const engine = createArchiveEngine("rf02-3");
++  let state = restoredChair(engine, engine.createInitialState({ random: () => 0.5 }));
++  state.player = { ...BOOKENDS.black.stand };
++  assert.equal(engine.getInteraction(state)?.type, "repair");
++  state = engine.interact(state);
++  assert.equal(state.incident.phase, "fixed");
++  state = stepEnvironment(engine, state, 100);
++  assert.equal(state.incident.drops, 1);
++  assert.equal(state.books["shelf-black-0"].location, "ground");
++  assert.equal(state.complete, false);
++});
++
++test("moving the cart can trigger a fault before either chair is restored", () => {
++  const engine = createArchiveEngine("rf02-3");
++  let state = engine.createInitialState();
++  state.player = furnitureStand(state.cart);
++  state = engine.interact(state);
++  for (let index = 0; index < 30; index += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
++  assert.equal(state.incident.phase, "loose");
++  assert.equal(state.incident.drops, 1);
++  assert.ok(Object.values(state.chairs).every((chair) => !chair.restored));
++});
++
++test("park orientation matters and the collision GLB matches every initial furniture proxy", () => {
++  const engine = createArchiveEngine("rf02-2");
++  let state = engine.createInitialState();
++  state.cart = { ...state.cart, ...CART.parking, yaw: 0 };
++  state.player = furnitureStand(state.cart);
++  state = engine.interact(engine.interact(state));
++  assert.equal(state.cart.parked, false);
++  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/library-collision.glb");
++  const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
++  for (const collider of engine.LEVEL.staticColliders) assert.ok(json.nodes.some((node) => node.name === "COLLIDER_" + collider.id));
++  assert.ok(fs.statSync("public" + ASSET_ROOT + "/closing-fixtures.glb").size > 1000);
++});
++
++test("fault starts without furniture input and produces three visible ground books", () => {
++  const engine = createArchiveEngine("rf02-3");
++  for (const sample of [0.1, 0.5, 0.9]) {
++    let state = stepEnvironment(engine, engine.createInitialState({ random: () => sample }), 7);
++    assert.equal(state.incident.phase, "waiting");
++    state = stepEnvironment(engine, state, 2);
++    assert.equal(state.incident.phase, "loose");
++    assert.equal(state.incident.drops, 1);
++    state = stepEnvironment(engine, state, 36);
++    assert.equal(state.incident.drops, 3);
++    assert.equal(Object.values(state.books).filter(book => book.fallen && book.location === "ground").length, 3);
++    assert.equal(state.progress, 100);
++  }
++});
++
++for (const id of ["rf02-2", "rf02-3"]) {
++  test(id + " supports native cart pushing from both ends and carried cart books stay detached", () => {
++    const engine = createArchiveEngine(id);
++    for (const side of [1, -1]) {
++      let state = engine.createInitialState();
++      state.player = furnitureStand(state.cart, side);
++      state = engine.interact(state);
++      assert.equal(state.attachment?.kind, "cart");
++      const before = { ...state.cart };
++      for (let step = 0; step < 8; step += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
++      assert.ok(Math.hypot(state.cart.x - before.x, state.cart.z - before.z) > 0.3);
++      assert.equal(state.books["white-cart"].x, state.cart.x);
++      assert.equal(state.books["white-cart"].z, state.cart.z);
++      state = engine.interact(state);
++      state.player = { x: state.cart.x + 0.94, z: state.cart.z, yaw: -Math.PI / 2 };
++      state = engine.interact(state);
++      assert.equal(state.carriedBook, "white-cart");
++      assert.equal(state.books["white-cart"].support, null);
++    }
++  });
++}
++
++test("shared fixtures contain no added chair or cart handles", () => {
++  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/closing-fixtures.glb");
++  const gltf = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
++  assert.ok(gltf.nodes.every(node => !/^(cart-handle|chair-handle)/.test(node.name ?? "")));
++});
+--- a/tools/rf02-series/browser-qa.js
++++ b/tools/rf02-series/browser-qa.js
+@@ -1,172 +1,218 @@
+-import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
+-import { CHAIRS, CART, BOOKENDS, REVISION } from "../../game/levels/rf02/series-layout.js";
+-import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
+-import { pathTo, interactionGoal } from "./route.mjs";
+-
+-const frame = document.querySelector("#game");
+-const status = document.querySelector("#status");
+-let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
+-const observedFalls = new Set();
+-const api = () => frame.contentWindow.__ARC_AGENT__;
+-const read = () => api().getState();
+-const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+-const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
+-const engine = () => createArchiveEngine(document.querySelector("#level").value);
+-
+-function capture(label) {
+-  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
+-  const image = document.createElement("img");
+-  image.src = data; image.alt = label;
+-  document.querySelector("#captures").append(image);
+-  images.push({ label, data });
+-}
+-
+-function observeFall() {
+-  for (const book of Object.values(read().books)) {
+-    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
+-    const key = book.id + "-" + book.location;
+-    if (!observedFalls.has(key)) {
+-      observedFalls.add(key);
+-      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
+-      capture(key);
+-    }
+-  }
+-}
+-
+-async function waitFor(predicate, timeout = 45000) {
+-  const started = performance.now();
+-  while (!predicate()) {
+-    if (stopped) throw new Error("Paused");
+-    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
+-    observeFall();
+-    await delay(100);
+-  }
+-  observeFall();
+-}
+-
+-function load() {
+-  stopped = true;
+-  operations = []; records = []; images = []; observedFalls.clear();
+-  document.querySelector("#captures").replaceChildren();
+-  status.removeAttribute("data-report");
+-  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
+-  readyAt = performance.now();
+-  status.value = "加载 " + document.querySelector("#level").value;
+-}
+-
+-async function prepare() {
+-  for (let attempt = 0; attempt < 1200 && !api()?.ready().ready; attempt += 1) await delay(100);
+-  if (!api()?.ready().ready) throw new Error("Assets are not ready");
+-  if (operations.length || records.length) return;
+-  api().reset({ harness: "state" });
+-  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
+-    { type: "grip", kind: "chair", id: chair.id },
+-    { type: "push", kind: "chair", id: chair.id },
+-    { type: "release", kind: "chair", id: chair.id },
+-  ]);
+-  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
+-  if (engine().LEVEL.dynamic) operations.push({ type: "repair" });
+-  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
+-  capture("start");
+-}
+-
+-async function walkTo(goal) {
+-  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.045);
+-  for (const point of points.slice(1)) {
+-    let attempts = 0, blocked = 0;
+-    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.025) {
+-      if (stopped) throw new Error("Paused");
+-      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
+-      const before = read(), yaw = before.player.yaw;
+-      const dx = point.x - before.player.x, dz = point.z - before.player.z;
+-      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
+-      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
+-      const along = Math.abs(forward) >= Math.abs(lateral);
+-      const component = along ? forward : lateral;
+-      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
+-      const speed = along ? component >= 0 ? 1 : 0.5 : 0.3;
+-      await api().act({ action, durationMs: Math.max(40, Math.min(700, Math.abs(component) / speed * 1000)), harness: "state" });
+-      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
+-      blocked = travelled < 0.0005 ? blocked + 1 : 0;
+-      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
+-      observeFall();
+-      status.value = "行走 · 余量 " + read().progress.toFixed(1);
+-    }
+-  }
+-}
+-
+-async function interactAndWait(target) {
+-  await api().act({ action: "E", durationMs: 100, harness: "state" });
+-  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
+-  else if (target.type === "release" || target.type === "repair") await waitFor(() => animation().phase === "idle");
+-  if (read().failed) throw new Error("Reserve depleted");
+-}
+-
+-async function executeNext() {
+-  await prepare();
+-  const target = operations[0];
+-  if (!target) return;
+-  const state = read();
+-  if (target.type === "grip") {
+-    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+-    await walkTo(furnitureStand(object));
+-  } else if (target.type === "push") {
+-    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+-    await walkTo(furnitureStand({ ...object, ...(target.kind === "cart" ? CART.parking : object.home) }));
+-  } else if (target.type === "repair") {
+-    await walkTo(BOOKENDS[state.incident.color].stand);
+-  } else if (target.type === "book" || target.type === "shelf") {
+-    await walkTo(interactionGoal(engine(), read(), target));
+-  }
+-  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+-  if (target.type !== "push") await interactAndWait(target);
+-  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
+-  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
+-  if (target.type === "repair") {
+-    if (read().incident.phase !== "fixed") throw new Error("Fault not fixed");
+-    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
+-    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
+-    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
+-  }
+-  if (target.type === "book") {
+-    if (!read().carriedBook || !read().books[read().carriedBook].fallen) throw new Error("No fallen book picked up");
+-    target.pickedBookId = read().carriedBook;
+-  }
+-  if (target.type === "shelf") {
+-    if (read().carriedBook) throw new Error("Book was not returned");
+-    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
+-    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
+-  }
+-  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
+-  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+-  operations.shift();
+-  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
+-  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+-  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
+-}
+-
+-async function run(all) {
+-  if (busy) return;
+-  busy = true; stopped = false;
+-  try {
+-    do { await executeNext(); } while (all && !stopped && operations.length);
+-    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
+-  } catch (error) {
+-    status.value = error.message;
+-    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
+-  } finally { busy = false; }
+-}
+-
+-document.querySelector("#load").onclick = load;
+-document.querySelector("#next").onclick = () => run(false);
+-document.querySelector("#run").onclick = () => run(true);
+-document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
+-document.querySelector("#capture").onclick = () => capture("manual");
+-document.querySelector("#export").onclick = () => {
+-  const link = document.createElement("a");
+-  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
+-  link.download = document.querySelector("#level").value + "-operations-evidence.json";
+-  link.click();
+-  URL.revokeObjectURL(link.href);
+-};
+-load();
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++import { CHAIRS, CART, BOOKENDS, REVISION } from "../../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
++import { pathTo, interactionGoal } from "./route.mjs";
++
++const frame = document.querySelector("#game");
++const status = document.querySelector("#status");
++let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
++const observedFalls = new Set();
++const api = () => frame.contentWindow.__ARC_AGENT__;
++const read = () => api().getState();
++const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
++const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
++const engine = () => createArchiveEngine(document.querySelector("#level").value);
++async function key(code, duration) {
++  const target = frame.contentWindow;
++  target.dispatchEvent(new target.KeyboardEvent("keydown", { code, key: code.replace("Key", "").toLowerCase(), bubbles: true }));
++  try { await delay(duration); }
++  finally { target.dispatchEvent(new target.KeyboardEvent("keyup", { code, bubbles: true })); }
++  await delay(90);
++}
++
++function capture(label) {
++  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
++  const image = document.createElement("img");
++  image.src = data; image.alt = label;
++  document.querySelector("#captures").append(image);
++  images.push({ label, data });
++}
++
++function observeFall() {
++  for (const book of Object.values(read().books)) {
++    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
++    const key = book.id + "-" + book.location;
++    if (!observedFalls.has(key)) {
++      observedFalls.add(key);
++      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
++      capture(key);
++    }
++  }
++}
++
++async function waitFor(predicate, timeout = 45000) {
++  const started = performance.now();
++  while (!predicate()) {
++    if (stopped) throw new Error("Paused");
++    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
++    observeFall();
++    await delay(100);
++  }
++  observeFall();
++}
++
++function load() {
++  stopped = true;
++  operations = []; records = []; images = []; observedFalls.clear();
++  document.querySelector("#captures").replaceChildren();
++  status.removeAttribute("data-report");
++  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
++  readyAt = performance.now();
++  status.value = "加载 " + document.querySelector("#level").value;
++}
++
++async function prepare() {
++  for (let attempt = 0; attempt < 1200 && !api()?.ready().ready; attempt += 1) await delay(100);
++  if (!api()?.ready().ready) throw new Error("Assets are not ready");
++  if (operations.length || records.length) return;
++  api().reset({ harness: "state" });
++  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
++    { type: "grip", kind: "chair", id: chair.id },
++    { type: "push", kind: "chair", id: chair.id },
++    { type: "release", kind: "chair", id: chair.id },
++  ]);
++  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
++  if (engine().LEVEL.dynamic) operations.push({ type: "repair" });
++  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
++  capture("start");
++}
++
++async function walkTo(goal) {
++  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.025);
++  for (const point of points.slice(1)) {
++    let attempts = 0, blocked = 0;
++    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.025) {
++      if (stopped) throw new Error("Paused");
++      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
++      const before = read(), yaw = before.player.yaw;
++      const dx = point.x - before.player.x, dz = point.z - before.player.z;
++      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
++      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
++      const along = Math.abs(forward) >= Math.abs(lateral);
++      const component = along ? forward : lateral;
++      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
++      const speed = read().attachment ? engine().LEVEL.moveSpeed : along ? component >= 0 ? 1 : 0.5 : 0.3;
++      await key("Key" + action, Math.max(18, Math.min(700, Math.abs(component) / speed * 850)));
++      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
++      blocked = travelled < 0.0005 ? blocked + 1 : 0;
++      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
++      observeFall();
++      status.value = "行走 · 余量 " + read().progress.toFixed(1);
++    }
++  }
++}
++
++async function interactAndWait(target) {
++  await key("KeyF", 70);
++  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
++  else if (target.type === "release" || target.type === "repair") await waitFor(() => animation().phase === "idle");
++  await waitFor(() => frame.contentDocument.querySelector("#game-shell").dataset.robotActionActive !== "true");
++  if (read().failed) throw new Error("Reserve depleted");
++}
++
++async function executeNext() {
++  await prepare();
++  const target = operations[0];
++  if (!target) return;
++  const state = read();
++  if (target.type === "grip") {
++    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
++    await walkTo(furnitureStand(object));
++  } else if (target.type === "push") {
++    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
++    await walkTo(furnitureStand({ ...object, ...(target.kind === "cart" ? CART.parking : object.home) }));
++  } else if (target.type === "repair") {
++    await walkTo(BOOKENDS[state.incident.color].stand);
++  } else if (target.type === "book" || target.type === "shelf") {
++    await walkTo(interactionGoal(engine(), read(), target));
++  }
++  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
++  if (target.type !== "push") await interactAndWait(target);
++  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
++  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
++  if (target.type === "repair") {
++    if (read().incident.phase !== "fixed") throw new Error("Fault not fixed");
++    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
++    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
++    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
++  }
++  if (target.type === "book") {
++    if (!read().carriedBook || !read().books[read().carriedBook].fallen) throw new Error("No fallen book picked up");
++    target.pickedBookId = read().carriedBook;
++  }
++  if (target.type === "shelf") {
++    if (read().carriedBook) throw new Error("Book was not returned");
++    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
++    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
++  }
++  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
++  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
++  operations.shift();
++  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
++  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
++  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
++}
++
++async function run(all) {
++  if (busy) return;
++  busy = true; stopped = false;
++  try {
++    do { await executeNext(); } while (all && !stopped && operations.length);
++    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
++  } catch (error) {
++    status.value = error.message;
++    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
++  } finally { busy = false; }
++}
++
++document.querySelector("#load").onclick = load;
++document.querySelector("#next").onclick = () => run(false);
++document.querySelector("#run").onclick = () => run(true);
++document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
++document.querySelector("#capture").onclick = () => capture("manual");
++document.querySelector("#export").onclick = () => {
++  const link = document.createElement("a");
++  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
++  link.download = document.querySelector("#level").value + "-operations-evidence.json";
++  link.click();
++  URL.revokeObjectURL(link.href);
++};
++load();
++
++const regression = document.createElement("button");
++regression.id = "regress";
++regression.textContent = "缺陷回归";
++document.querySelector("header").append(regression);
++regression.onclick = async () => {
++  if (busy) return;
++  busy = true; stopped = false;
++  try {
++    await prepare();
++    await walkTo(interactionGoal(engine(), read(), { type: "book", bookId: "black" }));
++    await interactAndWait({ type: "book" });
++    if (!read().carriedBook) throw new Error("Table pickup failed");
++    capture("table-book-carried");
++    records.push({ type: "table-pickup", state: read() });
++    api().reset({ harness: "state" });
++    const stand = furnitureStand(read().cart, -1);
++    await walkTo(stand);
++    await interactAndWait({ type: "grip" });
++    if (read().attachment?.kind !== "cart" || read().attachment.side !== -1) throw new Error("Front push unavailable");
++    const before = { ...read().cart };
++    await key("KeyW", 650);
++    if (Math.hypot(read().cart.x - before.x, read().cart.z - before.z) < 0.3) throw new Error("Keyboard cannot push cart");
++    capture("native-cart-push");
++    await interactAndWait({ type: "release" });
++    records.push({ type: "front-cart-push", before, state: read(), animation: animation() });
++    if (engine().LEVEL.dynamic) {
++      await waitFor(() => read().incident.drops === 3 && Object.values(read().books).filter(book => book.fallen).every(book => book.location === "ground"), 60000);
++      records.push({ type: "three-automatic-falls", state: read() });
++      capture("three-automatic-falls");
++    }
++    status.value = "缺陷回归通过";
++    status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
++  } catch (error) {
++    status.value = error.message;
++    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: read() });
++  } finally { busy = false; }
++};
+--- a/game/levels/rf02/furnishings-layout.js
++++ b/game/levels/rf02/furnishings-layout.js
+@@ -1,37 +1,37 @@
+-export const FURNISHINGS_REVISION = "library-operations-v4";
+-
+-export const CHAIRS = Object.freeze([
+-  { id: "west-north", model: "readingChair", x: -5.76, z: 0.40, home: { x: -5.76, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
+-  { id: "west-north-two", model: "readingChair-2", x: -4.24, z: 1.49, modelYaw: -Math.PI / 2 },
+-  { id: "west-south", model: "readingChair-3", x: -5.76, z: 3.21, modelYaw: Math.PI / 2 },
+-  { id: "west-south-two", model: "readingChair-4", x: -4.24, z: 3.21, modelYaw: Math.PI / 2 },
+-  { id: "east-north-two", model: "readingChair-5", x: 4.64, z: 1.49, modelYaw: -Math.PI / 2 },
+-  { id: "east-north", model: "readingChair-6", x: 6.16, z: 0.40, home: { x: 6.16, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
+-  { id: "east-south", model: "readingChair-7", x: 4.64, z: 3.21, modelYaw: Math.PI / 2 },
+-  { id: "east-south-two", model: "readingChair-8", x: 6.16, z: 3.21, modelYaw: Math.PI / 2 },
+-].map((chair) => Object.freeze({ halfX: 0.28, halfZ: 0.265, yaw: 0, standOffset: 0.705, handleBack: 0.22, handleY: 0.85, handleHalfWidth: 0.20, ...chair })));
+-
+-export const CART = Object.freeze({
+-  id: "return-cart", x: 2.45, z: 4.55, yaw: Math.PI,
+-  halfX: 0.45, halfZ: 0.30, standOffset: 0.76,
+-  handleBack: 0.28, handleY: 1.00, handleHalfWidth: 0.25,
+-  parking: Object.freeze({ x: 8.65, z: -3.15, yaw: Math.PI, halfX: 0.68, halfZ: 0.56 }),
+-});
+-
+-export function furnitureStand(object, side = 1) {
+-  return {
+-    x: object.x - Math.sin(object.yaw) * object.standOffset * side,
+-    z: object.z - Math.cos(object.yaw) * object.standOffset * side,
+-    yaw: object.yaw + (side < 0 ? Math.PI : 0),
+-  };
+-}
+-
+-export function furnitureRect(object) {
+-  return { id: object.id, minX: object.x - object.halfX, maxX: object.x + object.halfX, minZ: object.z - object.halfZ, maxZ: object.z + object.halfZ };
+-}
+-
+-export const READING_COLLIDERS = Object.freeze([
+-  { id: "west-reading-zone", minX: -6.20, maxX: -3.80, minZ: 1.825, maxZ: 2.875 },
+-  { id: "east-reading-zone", minX: 4.20, maxX: 6.60, minZ: 1.825, maxZ: 2.875 },
+-  ...CHAIRS.map(furnitureRect),
+-]);
++export const FURNISHINGS_REVISION = "library-operations-v4";
++
++export const CHAIRS = Object.freeze([
++  { id: "west-north", model: "readingChair", x: -5.76, z: 0.40, home: { x: -5.76, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
++  { id: "west-north-two", model: "readingChair-2", x: -4.24, z: 1.49, modelYaw: -Math.PI / 2 },
++  { id: "west-south", model: "readingChair-3", x: -5.76, z: 3.21, modelYaw: Math.PI / 2 },
++  { id: "west-south-two", model: "readingChair-4", x: -4.24, z: 3.21, modelYaw: Math.PI / 2 },
++  { id: "east-north-two", model: "readingChair-5", x: 4.64, z: 1.49, modelYaw: -Math.PI / 2 },
++  { id: "east-north", model: "readingChair-6", x: 6.16, z: 0.40, home: { x: 6.16, z: 1.49, yaw: 0 }, task: true, modelYaw: -Math.PI / 2 },
++  { id: "east-south", model: "readingChair-7", x: 4.64, z: 3.21, modelYaw: Math.PI / 2 },
++  { id: "east-south-two", model: "readingChair-8", x: 6.16, z: 3.21, modelYaw: Math.PI / 2 },
++].map((chair) => Object.freeze({ halfX: 0.28, halfZ: 0.265, yaw: 0, standOffset: 0.74, handleBack: 0.22, handleY: 0.85, handleHalfWidth: 0.20, ...chair })));
++
++export const CART = Object.freeze({
++  id: "return-cart", x: 2.45, z: 4.55, yaw: Math.PI,
++  halfX: 0.45, halfZ: 0.30, standOffset: 0.78,
++  handleBack: 0.28, handleY: 1.00, handleHalfWidth: 0.25,
++  parking: Object.freeze({ x: 8.65, z: -3.15, yaw: Math.PI, halfX: 0.68, halfZ: 0.56 }),
++});
++
++export function furnitureStand(object, side = 1) {
++  return {
++    x: object.x - Math.sin(object.yaw) * object.standOffset * side,
++    z: object.z - Math.cos(object.yaw) * object.standOffset * side,
++    yaw: object.yaw + (side < 0 ? Math.PI : 0),
++  };
++}
++
++export function furnitureRect(object) {
++  return { id: object.id, minX: object.x - object.halfX, maxX: object.x + object.halfX, minZ: object.z - object.halfZ, maxZ: object.z + object.halfZ };
++}
++
++export const READING_COLLIDERS = Object.freeze([
++  { id: "west-reading-zone", minX: -6.20, maxX: -3.80, minZ: 1.825, maxZ: 2.875 },
++  { id: "east-reading-zone", minX: 4.20, maxX: 6.60, minZ: 1.825, maxZ: 2.875 },
++  ...CHAIRS.map(furnitureRect),
++]);
+--- a/game/levels/rf02/furniture-controller.js
++++ b/game/levels/rf02/furniture-controller.js
+@@ -1,265 +1,265 @@
+-import * as THREE from "three";
+-import { BrowserArmScript } from "../rf15/browser-arm-script.js";
+-import { approachPath } from "../rf15/interaction-walk.js";
+-import { BOOKENDS } from "./series-layout.js";
+-
+-const up = new THREE.Vector3(0, 1, 0);
+-const idle = () => ({ move: 0, strafe: 0, turn: 0 });
+-const separation = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
+-const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
+-
+-export function createFurnitureController(world, robot, options) {
+-  return new FurnitureController(world, robot, options);
+-}
+-
+-class FurnitureController {
+-  constructor(world, robot, options) {
+-    this.world = world;
+-    this.robot = robot;
+-    this.options = options;
+-    this.arms = {};
+-    if (robot.userData.officialModel && robot.userData.robotProfile?.setJointAngle) {
+-      for (const side of ["left", "right"]) this.arms[side] = new BrowserArmScript(robot, side);
+-    }
+-    this.reset();
+-    world.furnitureController = this;
+-  }
+-
+-  reset() {
+-    this.restoreTorso();
+-    this.action = null;
+-    this.path = null;
+-    this.pendingCompletion = false;
+-    this.step = 0;
+-    this.walkBlend = 0;
+-    this.previous = { ...this.options.getState().player };
+-    this.lastResult = null;
+-    for (const arm of Object.values(this.arms)) arm.active = false;
+-  }
+-
+-  restoreTorso() {
+-    if (this.torsoRest && this.robot.userData.officialModel) this.robot.userData.officialModel.getObjectByName("torso_link").quaternion.copy(this.torsoRest);
+-    this.torsoRest = null;
+-    this.torsoTarget = null;
+-  }
+-
+-  cancel() {
+-    this.options.stop();
+-    if (this.options.getState().attachment) this.commit();
+-    if (this.action || Object.values(this.arms).some((arm) => arm.active)) {
+-      this.action ??= { phase: "recover", time: 0 };
+-      this.beginRecovery();
+-    }
+-  }
+-
+-  beginLean() {
+-    const torso = this.robot.userData.officialModel?.getObjectByName("torso_link");
+-    if (torso && this.object()) {
+-      this.torsoRest = torso.quaternion.clone();
+-      const rest = this.robot.userData.officialModel.userData.restPose.get("torso_link");
+-      this.torsoTarget = rest.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), this.action.selected.kind === "chair" ? 0.6 : 0.45));
+-      this.action.phase = "lean";
+-      this.action.time = 0;
+-    } else this.beginReach();
+-  }
+-
+-  drawTorso() {
+-    if (!this.torsoRest || !this.torsoTarget) return;
+-    const torso = this.robot.userData.officialModel.getObjectByName("torso_link");
+-    const phase = this.action?.phase;
+-    const blend = phase === "lean" ? Math.min(1, this.action.time / 0.55) : phase === "recover" ? Math.max(0, 1 - this.action.time / 0.55) : 1;
+-    torso.quaternion.copy(this.torsoRest).slerp(this.torsoTarget, blend);
+-    this.robot.updateMatrixWorld(true);
+-  }
+-
+-  get busy() {
+-    return Boolean(this.action || this.options.getState().attachment);
+-  }
+-
+-  object(state = this.options.getState()) {
+-    const attachment = state.attachment ?? this.action?.selected;
+-    return attachment?.kind === "cart" ? state.cart : attachment?.kind === "chair" ? state.chairs[attachment.id] : null;
+-  }
+-
+-  targets() {
+-    const object = this.object();
+-    if (object) {
+-      return Object.fromEntries(["left", "right"].map((side) => {
+-        const pushSide = (this.options.getState().attachment ?? this.action?.selected)?.side ?? 1;
+-        const local = new THREE.Vector3((side === "left" ? object.handleHalfWidth : -object.handleHalfWidth) * pushSide, object.handleY, -object.handleBack * pushSide);
+-        return [side, local.applyAxisAngle(up, object.yaw).add(new THREE.Vector3(object.x, 0, object.z))];
+-      }));
+-    }
+-    const handle = BOOKENDS[this.action.selected.color].handle;
+-    return { right: new THREE.Vector3(handle.x, handle.y, handle.z) };
+-  }
+-
+-  interact() {
+-    if (this.action) return true;
+-    const state = this.options.getState();
+-    if (state.attachment) {
+-      this.options.stop();
+-      this.action = { phase: "release", time: 0, selected: { ...state.attachment } };
+-      return true;
+-    }
+-    const selected = this.options.runtime.getInteraction(state);
+-    if (!selected || !["grip", "repair"].includes(selected.type)) return false;
+-    const path = approachPath(state, selected.stand, this.options.runtime);
+-    if (!path) {
+-      this.options.message("操作位置被挡住，请从可通行的一侧靠近");
+-      this.options.setState(this.options.runtime.interact(state));
+-      return true;
+-    }
+-    this.options.stop();
+-    this.path = path;
+-    this.action = { phase: "align", time: 0, selected, index: 0, ready: false, stuck: 0 };
+-    this.previous = { ...state.player };
+-    return true;
+-  }
+-
+-  motionInput(state, input = {}) {
+-    if (!this.action) return state.attachment ? input : null;
+-    if (this.action.phase !== "align") return idle();
+-    const action = this.action;
+-    while (action.index < this.path.length && separation(state.player, this.path[action.index]) < 0.02) action.index += 1;
+-    if (action.index < this.path.length) {
+-      const point = this.path[action.index], error = angle(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw);
+-      if (Math.abs(error) > 0.06) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
+-      return { ...idle(), move: Math.min(0.40, separation(state.player, point) * 3) / this.options.runtime.LEVEL.moveSpeed };
+-    }
+-    const error = angle(action.selected.stand.yaw, state.player.yaw);
+-    if (Math.abs(error) > 0.012) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
+-    action.ready = true;
+-    return idle();
+-  }
+-
+-  commit() {
+-    const next = this.options.runtime.interact(this.options.getState());
+-    if (next.complete) {
+-      this.pendingCompletion = true;
+-      next.complete = false;
+-      next.settling = true;
+-    }
+-    this.options.setState(next);
+-    const message = this.options.runtime.eventMessages?.[next.lastEvent];
+-    if (message) this.options.message(message);
+-    return next;
+-  }
+-
+-  beginReach() {
+-    const targets = this.targets();
+-    this.action.rest = {};
+-    for (const [side, target] of Object.entries(targets)) {
+-      const arm = this.arms[side];
+-      if (!arm) continue;
+-      arm.capture();
+-      this.action.rest[side] = [...arm.angles];
+-      arm.error = arm.plan(target, null);
+-    }
+-    const invalid = Object.values(this.arms).some((arm) => arm.active && arm.error > 0.10);
+-    if (invalid) {
+-      this.lastResult = { type: "unreachable", solverErrors: Object.fromEntries(Object.entries(this.arms).map(([side, arm]) => [side, arm.error])), robotPosition: this.robot.position.toArray(), targets: Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, target.toArray()])) };
+-      this.options.message("推行接触位置不可达，请调整站位");
+-      this.beginRecovery();
+-      return;
+-    }
+-    this.action.phase = "reach";
+-    this.action.time = 0;
+-  }
+-
+-  beginRecovery() {
+-    const action = this.action;
+-    for (const [side, arm] of Object.entries(this.arms)) {
+-      if (action.rest?.[side]) arm.targetAngles = [...action.rest[side]];
+-      else if (this.gripRest?.[side]) arm.targetAngles = [...this.gripRest[side]];
+-    }
+-    action.phase = "recover";
+-    action.time = 0;
+-  }
+-
+-  settled() {
+-    return Object.values(this.arms).every((arm) => !arm.active || Math.max(...arm.angles.map((value, index) => Math.abs(value - arm.targetAngles[index]))) < 0.025);
+-  }
+-
+-  drawWalking(dt, moved, turned) {
+-    const moving = moved > 0.0001 || turned > 0.001;
+-    this.step += (moved + turned * 0.16) * Math.PI * 2 / 0.55;
+-    this.walkBlend += THREE.MathUtils.clamp((moving ? 1 : 0) - this.walkBlend, -dt * 4, dt * 4);
+-    if (!this.busy || !this.robot.userData.officialModel) return;
+-    const model = this.robot.userData.officialModel, set = this.robot.userData.robotProfile.setJointAngle;
+-    for (const [side, offset] of [["left", 0], ["right", Math.PI]]) {
+-      const wave = Math.sin(this.step + offset), swing = Math.max(0, wave);
+-      set(model, side + "_hip_pitch_link", -0.12 + wave * 0.20 * this.walkBlend);
+-      set(model, side + "_knee_link", 0.24 + swing * 0.30 * this.walkBlend);
+-      set(model, side + "_ankle_pitch_link", -0.12 - wave * 0.12 * this.walkBlend - swing * 0.15 * this.walkBlend);
+-    }
+-    this.robot.updateMatrixWorld(true);
+-  }
+-
+-  frame(delta, running) {
+-    const dt = running ? Math.min(0.05, Math.max(0, delta)) : 0;
+-    const state = this.options.getState();
+-    const moved = separation(state.player, this.previous), turned = Math.abs(angle(state.player.yaw, this.previous.yaw));
+-    this.drawWalking(dt, moved, turned);
+-    this.drawTorso();
+-    if (state.incident.phase === "loose" && this.lastIncidentPhase === "waiting") this.options.message("书架传来异响，书挡已松脱");
+-    this.lastIncidentPhase = state.incident.phase;
+-    this.previous = { ...state.player };
+-    const action = this.action;
+-    if (action && dt > 0) {
+-      action.time += dt;
+-      if (action.phase === "align") {
+-        action.stuck = moved + turned > 0.0001 || action.ready ? 0 : action.stuck + dt;
+-        if (action.stuck > 3 || action.time > 25) {
+-          this.options.message("靠近动作受阻，已停止");
+-          this.action = null;
+-        } else if (action.ready) this.beginLean();
+-      } else if (action.phase === "lean" && action.time >= 0.6) {
+-        this.drawTorso();
+-        this.beginReach();
+-      } else if (action.phase === "reach" && action.time >= 0.8 && this.settled()) {
+-        if (action.selected.type === "repair") {
+-          action.phase = "repair";
+-          action.time = 0;
+-        } else {
+-          const next = this.commit();
+-          this.gripRest = action.rest;
+-          this.lastResult = { type: next.attachment ? "gripped" : "blocked", id: action.selected.id };
+-          if (next.attachment) this.action = null;
+-          else this.beginRecovery();
+-        }
+-      } else if (action.phase === "repair" && action.time >= 1.4) {
+-        this.commit();
+-        this.lastResult = { type: "repaired", color: action.selected.color };
+-        this.beginRecovery();
+-      } else if (action.phase === "release" && action.time >= 0.45) {
+-        const next = this.commit();
+-        this.lastResult = { type: next.lastEvent, id: action.selected.id };
+-        this.beginRecovery();
+-      } else if (action.phase === "recover" && action.time >= 0.6 && this.settled()) {
+-        for (const arm of Object.values(this.arms)) arm.active = false;
+-        this.action = null;
+-        this.restoreTorso();
+-        if (this.pendingCompletion) {
+-          this.options.setState({ ...this.options.getState(), settling: false, complete: true });
+-          this.pendingCompletion = false;
+-        }
+-      }
+-    }
+-    for (const arm of Object.values(this.arms)) if (arm.active) {
+-      arm.update(dt);
+-      arm.apply();
+-    }
+-    if (this.options.getState().attachment || this.action?.selected) {
+-      const targets = this.targets();
+-      this.gripErrors = Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, this.arms[side]?.graspPose().position.distanceTo(target) ?? null]));
+-    }
+-    if (new URLSearchParams(location.search).get("qa") === "rf02-operations") {
+-      document.querySelector("#game-shell").dataset.furnitureAnimation = JSON.stringify(this.snapshot());
+-    }
+-  }
+-
+-  snapshot() {
+-    return { revision: "library-furniture-animation-v1", phase: this.action?.phase ?? (this.options.getState().attachment ? "push" : "idle"), gripErrors: this.gripErrors, lastResult: this.lastResult };
+-  }
+-}
++import * as THREE from "three";
++import { BrowserArmScript } from "../rf15/browser-arm-script.js";
++import { approachPath } from "../rf15/interaction-walk.js";
++import { BOOKENDS } from "./series-layout.js";
++
++const up = new THREE.Vector3(0, 1, 0);
++const idle = () => ({ move: 0, strafe: 0, turn: 0 });
++const separation = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++
++export function createFurnitureController(world, robot, options) {
++  return new FurnitureController(world, robot, options);
++}
++
++class FurnitureController {
++  constructor(world, robot, options) {
++    this.world = world;
++    this.robot = robot;
++    this.options = options;
++    this.arms = {};
++    if (robot.userData.officialModel && robot.userData.robotProfile?.setJointAngle) {
++      for (const side of ["left", "right"]) this.arms[side] = new BrowserArmScript(robot, side);
++    }
++    this.reset();
++    world.furnitureController = this;
++  }
++
++  reset() {
++    this.restoreTorso();
++    this.action = null;
++    this.path = null;
++    this.pendingCompletion = false;
++    this.step = 0;
++    this.walkBlend = 0;
++    this.previous = { ...this.options.getState().player };
++    this.lastResult = null;
++    for (const arm of Object.values(this.arms)) arm.active = false;
++  }
++
++  restoreTorso() {
++    if (this.torsoRest && this.robot.userData.officialModel) this.robot.userData.officialModel.getObjectByName("torso_link").quaternion.copy(this.torsoRest);
++    this.torsoRest = null;
++    this.torsoTarget = null;
++  }
++
++  cancel() {
++    this.options.stop();
++    if (this.options.getState().attachment) this.commit();
++    if (this.action || Object.values(this.arms).some((arm) => arm.active)) {
++      this.action ??= { phase: "recover", time: 0 };
++      this.beginRecovery();
++    }
++  }
++
++  beginLean() {
++    const torso = this.robot.userData.officialModel?.getObjectByName("torso_link");
++    if (torso && this.object()) {
++      this.torsoRest = torso.quaternion.clone();
++      const rest = this.robot.userData.officialModel.userData.restPose.get("torso_link");
++      this.torsoTarget = rest.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), this.action.selected.kind === "chair" ? 0.65 : 0.5));
++      this.action.phase = "lean";
++      this.action.time = 0;
++    } else this.beginReach();
++  }
++
++  drawTorso() {
++    if (!this.torsoRest || !this.torsoTarget) return;
++    const torso = this.robot.userData.officialModel.getObjectByName("torso_link");
++    const phase = this.action?.phase;
++    const blend = phase === "lean" ? Math.min(1, this.action.time / 0.55) : phase === "recover" ? Math.max(0, 1 - this.action.time / 0.55) : 1;
++    torso.quaternion.copy(this.torsoRest).slerp(this.torsoTarget, blend);
++    this.robot.updateMatrixWorld(true);
++  }
++
++  get busy() {
++    return Boolean(this.action || this.options.getState().attachment);
++  }
++
++  object(state = this.options.getState()) {
++    const attachment = state.attachment ?? this.action?.selected;
++    return attachment?.kind === "cart" ? state.cart : attachment?.kind === "chair" ? state.chairs[attachment.id] : null;
++  }
++
++  targets() {
++    const object = this.object();
++    if (object) {
++      return Object.fromEntries(["left", "right"].map((side) => {
++        const pushSide = (this.options.getState().attachment ?? this.action?.selected)?.side ?? 1;
++        const local = new THREE.Vector3((side === "left" ? object.handleHalfWidth : -object.handleHalfWidth) * pushSide, object.handleY, -object.handleBack * pushSide);
++        return [side, local.applyAxisAngle(up, object.yaw).add(new THREE.Vector3(object.x, 0, object.z))];
++      }));
++    }
++    const handle = BOOKENDS[this.action.selected.color].handle;
++    return { right: new THREE.Vector3(handle.x, handle.y, handle.z) };
++  }
++
++  interact() {
++    if (this.action) return true;
++    const state = this.options.getState();
++    if (state.attachment) {
++      this.options.stop();
++      this.action = { phase: "release", time: 0, selected: { ...state.attachment } };
++      return true;
++    }
++    const selected = this.options.runtime.getInteraction(state);
++    if (!selected || !["grip", "repair"].includes(selected.type)) return false;
++    const path = approachPath(state, selected.stand, this.options.runtime);
++    if (!path) {
++      this.options.message("操作位置被挡住，请从可通行的一侧靠近");
++      this.options.setState(this.options.runtime.interact(state));
++      return true;
++    }
++    this.options.stop();
++    this.path = path;
++    this.action = { phase: "align", time: 0, selected, index: 0, ready: false, stuck: 0 };
++    this.previous = { ...state.player };
++    return true;
++  }
++
++  motionInput(state, input = {}) {
++    if (!this.action) return state.attachment ? input : null;
++    if (this.action.phase !== "align") return idle();
++    const action = this.action;
++    while (action.index < this.path.length && separation(state.player, this.path[action.index]) < 0.02) action.index += 1;
++    if (action.index < this.path.length) {
++      const point = this.path[action.index], error = angle(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw);
++      if (Math.abs(error) > 0.06) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
++      return { ...idle(), move: Math.min(0.40, separation(state.player, point) * 3) / this.options.runtime.LEVEL.moveSpeed };
++    }
++    const error = angle(action.selected.stand.yaw, state.player.yaw);
++    if (Math.abs(error) > 0.012) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
++    action.ready = true;
++    return idle();
++  }
++
++  commit() {
++    const next = this.options.runtime.interact(this.options.getState());
++    if (next.complete) {
++      this.pendingCompletion = true;
++      next.complete = false;
++      next.settling = true;
++    }
++    this.options.setState(next);
++    const message = this.options.runtime.eventMessages?.[next.lastEvent];
++    if (message) this.options.message(message);
++    return next;
++  }
++
++  beginReach() {
++    const targets = this.targets();
++    this.action.rest = {};
++    for (const [side, target] of Object.entries(targets)) {
++      const arm = this.arms[side];
++      if (!arm) continue;
++      arm.capture();
++      this.action.rest[side] = [...arm.angles];
++      arm.error = arm.plan(target, null);
++    }
++    const invalid = Object.values(this.arms).some((arm) => arm.active && arm.error > 0.10);
++    if (invalid) {
++      this.lastResult = { type: "unreachable", solverErrors: Object.fromEntries(Object.entries(this.arms).map(([side, arm]) => [side, arm.error])), robotPosition: this.robot.position.toArray(), targets: Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, target.toArray()])) };
++      this.options.message("推行接触位置不可达，请调整站位");
++      this.beginRecovery();
++      return;
++    }
++    this.action.phase = "reach";
++    this.action.time = 0;
++  }
++
++  beginRecovery() {
++    const action = this.action;
++    for (const [side, arm] of Object.entries(this.arms)) {
++      if (action.rest?.[side]) arm.targetAngles = [...action.rest[side]];
++      else if (this.gripRest?.[side]) arm.targetAngles = [...this.gripRest[side]];
++    }
++    action.phase = "recover";
++    action.time = 0;
++  }
++
++  settled() {
++    return Object.values(this.arms).every((arm) => !arm.active || Math.max(...arm.angles.map((value, index) => Math.abs(value - arm.targetAngles[index]))) < 0.025);
++  }
++
++  drawWalking(dt, moved, turned) {
++    const moving = moved > 0.0001 || turned > 0.001;
++    this.step += (moved + turned * 0.16) * Math.PI * 2 / 0.55;
++    this.walkBlend += THREE.MathUtils.clamp((moving ? 1 : 0) - this.walkBlend, -dt * 4, dt * 4);
++    if (!this.busy || !this.robot.userData.officialModel) return;
++    const model = this.robot.userData.officialModel, set = this.robot.userData.robotProfile.setJointAngle;
++    for (const [side, offset] of [["left", 0], ["right", Math.PI]]) {
++      const wave = Math.sin(this.step + offset), swing = Math.max(0, wave);
++      set(model, side + "_hip_pitch_link", -0.12 + wave * 0.20 * this.walkBlend);
++      set(model, side + "_knee_link", 0.24 + swing * 0.30 * this.walkBlend);
++      set(model, side + "_ankle_pitch_link", -0.12 - wave * 0.12 * this.walkBlend - swing * 0.15 * this.walkBlend);
++    }
++    this.robot.updateMatrixWorld(true);
++  }
++
++  frame(delta, running) {
++    const dt = running ? Math.min(0.05, Math.max(0, delta)) : 0;
++    const state = this.options.getState();
++    const moved = separation(state.player, this.previous), turned = Math.abs(angle(state.player.yaw, this.previous.yaw));
++    this.drawWalking(dt, moved, turned);
++    this.drawTorso();
++    if (state.incident.phase === "loose" && this.lastIncidentPhase === "waiting") this.options.message("书架传来异响，书挡已松脱");
++    this.lastIncidentPhase = state.incident.phase;
++    this.previous = { ...state.player };
++    const action = this.action;
++    if (action && dt > 0) {
++      action.time += dt;
++      if (action.phase === "align") {
++        action.stuck = moved + turned > 0.0001 || action.ready ? 0 : action.stuck + dt;
++        if (action.stuck > 3 || action.time > 25) {
++          this.options.message("靠近动作受阻，已停止");
++          this.action = null;
++        } else if (action.ready) this.beginLean();
++      } else if (action.phase === "lean" && action.time >= 0.6) {
++        this.drawTorso();
++        this.beginReach();
++      } else if (action.phase === "reach" && action.time >= 0.8 && this.settled()) {
++        if (action.selected.type === "repair") {
++          action.phase = "repair";
++          action.time = 0;
++        } else {
++          const next = this.commit();
++          this.gripRest = action.rest;
++          this.lastResult = { type: next.attachment ? "gripped" : "blocked", id: action.selected.id };
++          if (next.attachment) this.action = null;
++          else this.beginRecovery();
++        }
++      } else if (action.phase === "repair" && action.time >= 1.4) {
++        this.commit();
++        this.lastResult = { type: "repaired", color: action.selected.color };
++        this.beginRecovery();
++      } else if (action.phase === "release" && action.time >= 0.45) {
++        const next = this.commit();
++        this.lastResult = { type: next.lastEvent, id: action.selected.id };
++        this.beginRecovery();
++      } else if (action.phase === "recover" && action.time >= 0.6 && this.settled()) {
++        for (const arm of Object.values(this.arms)) arm.active = false;
++        this.action = null;
++        this.restoreTorso();
++        if (this.pendingCompletion) {
++          this.options.setState({ ...this.options.getState(), settling: false, complete: true });
++          this.pendingCompletion = false;
++        }
++      }
++    }
++    for (const arm of Object.values(this.arms)) if (arm.active) {
++      arm.update(dt);
++      arm.apply();
++    }
++    if (this.options.getState().attachment || this.action?.selected) {
++      const targets = this.targets();
++      this.gripErrors = Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, this.arms[side]?.graspPose().position.distanceTo(target) ?? null]));
++    }
++    if (new URLSearchParams(location.search).get("qa") === "rf02-operations") {
++      document.querySelector("#game-shell").dataset.furnitureAnimation = JSON.stringify(this.snapshot());
++    }
++  }
++
++  snapshot() {
++    return { revision: "library-furniture-animation-v1", phase: this.action?.phase ?? (this.options.getState().attachment ? "push" : "idle"), gripErrors: this.gripErrors, lastResult: this.lastResult };
++  }
++}

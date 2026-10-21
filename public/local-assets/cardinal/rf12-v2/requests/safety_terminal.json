@@ -1,0 +1,16 @@
+{
+  "prompt": "Photorealistic high-detail game-ready GLB for a normally occupied contemporary Chinese urban apartment kitchen. Real-world metric proportions, physically based materials, restrained daily wear such as fingerprints, slight water spots and tiny edge scuffs, never stylized or abandoned. Y axis up, front facing positive Z, centered bottom-center pivot, one isolated asset only, clean watertight topology, no environment, no floor slab, no wall slab, no ceiling, no pedestal unless explicitly part of the object, no person, robot, hands, floating parts, extra props, readable text, fake logo, watermark, UI, neon, outline or baked lighting. One compact freestanding household safety checklist terminal: warm-gray pedestal cabinet, angled dark inactive screen, physical confirm button, small unlit status lamp, cable opening and bolted plinth. Screen faces +Z, bottom flat, no readable text.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false,
+  "targetSizeMeters": [
+    0.72,
+    1.08,
+    0.45
+  ]
+}

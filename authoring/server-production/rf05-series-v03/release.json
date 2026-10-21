@@ -1,0 +1,26 @@
+{
+  "allowedHosts": [
+    "127.0.0.1"
+  ],
+  "allowedRoot": "/path/to/arc-workspace",
+  "project": ".",
+  "sshUser": "chenhaoyuan",
+  "authorization": "User approved replacement of cup washing with shower leak shutoff and squeegee floor drainage",
+  "revision": "rf05-series-v03",
+  "stage": "completed",
+  "reportCardinalCost": false,
+  "deployment": {
+    "port": 4173,
+    "pid": 4146057,
+    "isolated": true
+  },
+  "pending": [],
+  "technicalPassed": true,
+  "visualStatus": "passed-affected-scope",
+  "userAcceptance": "not-received",
+  "release": "rf05-series-v03-r8",
+  "evidence": "evidence-index.json",
+  "commit": "a43843c1baa625d0563b6ec4ff76636004d5dce4",
+  "deploymentStatus": "deployed-isolated",
+  "pushed": false
+}

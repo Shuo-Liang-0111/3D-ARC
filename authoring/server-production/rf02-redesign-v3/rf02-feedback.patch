@@ -1,0 +1,914 @@
+diff --git a/game/levels/rf02/series-runtime.js b/game/levels/rf02/series-runtime.js
+--- a/game/levels/rf02/series-runtime.js
++++ b/game/levels/rf02/series-runtime.js
+@@ -1,52 +1,66 @@
+-import { createArchiveEngine } from "./series-engine.js";
+-import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
+-import { createLibraryCargoModel, setLibraryCargoModel } from "./scene.js";
+-import { createFurnitureController } from "./furniture-controller.js";
+-import { ASSET_ROOT } from "./series-layout.js";
+-
+-export function createArchiveRuntime(id) {
+-  const engine = createArchiveEngine(id), dynamic = engine.LEVEL.dynamic;
+-  return {
+-    ...engine,
+-    ui: Object.freeze({
+-      id, brand: "PUBLIC LIBRARY ARCHIVES", unit: id.toUpperCase() + " · MUNICIPAL LIBRARY",
+-      systemLabel: "LIBRARY", cargoLabel: "CARGO", gateLabel: "CLOSING",
+-      startKicker: "LEVEL " + id.toUpperCase() + " / PUBLIC LIBRARY",
+-      startTitle: dynamic ? "CLOSING<br />PATROL" : "CLOSING<br />RESET",
+-      startCopy: engine.getObjective(), completeKicker: "LIBRARY SECURED",
+-      completeTitle: dynamic ? "闭馆巡检完成" : "闭馆复位完成",
+-      completeCopy: dynamic ? "家具已复位，书挡已固定，全部落书已收回。" : "两把椅子已归桌，还书车已停稳。",
+-      terminalHeading: "CATALOG TERMINAL",
+-    }),
+-    rendering: Object.freeze({ pixelRatioCap: 1 }),
+-    camera: Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 }),
+-    audio: Object.freeze({ assets: {}, eventSounds: {}, volume: {} }),
+-    eventMessages: Object.freeze({}),
+-    createInteractionAnimation: createFurnitureController,
+-    createScene() {
+-      const world = createArchiveScene();
+-      if (dynamic) {
+-        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.flac");
+-        world.bookImpact.volume = 0.65;
+-        world.bookImpact.preload = "auto";
+-        const original = world.assetReady;
+-        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.flac").then((response) => response.ok).catch(() => false)])
+-          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.flac" }]);
+-      }
+-      return world;
+-    },
+-    syncVisuals: syncArchiveVisuals,
+-    createCargoModel: createLibraryCargoModel,
+-    syncRobotCargo(robot, state) {
+-      if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.books[state.carriedBook].color);
+-    },
+-    isCarrying: (state) => Boolean(state.carriedBook),
+-    getTelemetry(state) {
+-      return { system: state.complete ? "SECURED" : "ACTIVE", systemOnline: state.complete, cargo: state.carriedBook ? "BOOK" : state.attachment ? state.attachment.kind.toUpperCase() : "EMPTY", gate: state.complete ? "COMPLETE" : "IN PROGRESS" };
+-    },
+-    getProgressSteps: () => [],
+-    getTerminal: () => ({ title: "目录终端", copy: "", rows: [] }),
+-    getSoundPosition: (_before, state) => state.player,
+-    getDebugState: (state) => ({ revision: state.revision, chairs: state.chairs, cart: state.cart, incident: state.incident, attachment: state.attachment, carriedBook: state.carriedBook, minimumProgress: state.minimumProgress }),
+-  };
+-}
++import { createArchiveEngine } from "./series-engine.js";
++import { createArchiveScene, syncArchiveVisuals } from "./series-scene.js";
++import { createLibraryCargoModel, setLibraryCargoModel } from "./scene.js";
++import { createFurnitureController } from "./furniture-controller.js";
++import { ASSET_ROOT } from "./series-layout.js";
++
++export function createArchiveRuntime(id) {
++  const engine = createArchiveEngine(id), dynamic = engine.LEVEL.dynamic;
++  return {
++    ...engine,
++    ui: Object.freeze({
++      id, brand: "PUBLIC LIBRARY ARCHIVES", unit: id.toUpperCase() + " · MUNICIPAL LIBRARY",
++      systemLabel: "LIBRARY", cargoLabel: "CARGO", gateLabel: "CLOSING",
++      startKicker: "LEVEL " + id.toUpperCase() + " / PUBLIC LIBRARY",
++      startTitle: dynamic ? "CLOSING<br />PATROL" : "CLOSING<br />RESET",
++      startCopy: engine.getObjective(), completeKicker: "LIBRARY SECURED",
++      completeTitle: dynamic ? "闭馆巡检完成" : "闭馆复位完成",
++      completeCopy: dynamic ? "家具已复位，书挡已固定，全部落书已收回。" : "两把椅子已归桌，还书车已停稳。",
++      terminalHeading: "CATALOG TERMINAL",
++    }),
++    rendering: Object.freeze({ pixelRatioCap: 1 }),
++    camera: Object.freeze({ position: [0, 34, 11], lookAt: [0, 0.45, 0], fov: 34 }),
++    audio: Object.freeze({ assets: {}, eventSounds: {}, volume: {} }),
++    eventMessages: Object.freeze({
++      furniture_gripped: "已扶住家具 · 移动/转向键推行，F 松手",
++      chair_restored: "椅子已归桌",
++      cart_parked: "还书车已停稳",
++      furniture_released: "已松手，家具尚未归位",
++      furniture_path_blocked: "家具前方受阻",
++      bookend_fixed: "书挡已固定，不再掉书",
++      crate_collected: "已拾起落书",
++      crate_delivered: "落书已归架",
++      crate_dropped: "已放下书籍",
++      wrong_shelf: "这本书不属于该书架",
++      blocked_drop: "这里没有足够的放置空间",
++      empty_interaction: "附近没有可操作的任务物品",
++      alignment_required: "尚未到达扶手位置",
++    }),
++    createInteractionAnimation: createFurnitureController,
++    createScene() {
++      const world = createArchiveScene();
++      if (dynamic) {
++        world.bookImpact = new Audio(ASSET_ROOT + "/book-impact.flac");
++        world.bookImpact.volume = 0.65;
++        world.bookImpact.preload = "auto";
++        const original = world.assetReady;
++        world.assetReady = Promise.all([original, fetch(ASSET_ROOT + "/book-impact.flac").then((response) => response.ok).catch(() => false)])
++          .then(([results, loaded]) => [...results, { loaded, name: "book-impact-audio", url: ASSET_ROOT + "/book-impact.flac" }]);
++      }
++      return world;
++    },
++    syncVisuals: syncArchiveVisuals,
++    createCargoModel: createLibraryCargoModel,
++    syncRobotCargo(robot, state) {
++      if (state.carriedBook) setLibraryCargoModel(robot.userData.rackPayload, state.books[state.carriedBook].color);
++    },
++    isCarrying: (state) => Boolean(state.carriedBook),
++    getTelemetry(state) {
++      return { system: state.complete ? "SECURED" : "ACTIVE", systemOnline: state.complete, cargo: state.carriedBook ? "BOOK" : state.attachment ? state.attachment.kind.toUpperCase() : "EMPTY", gate: state.complete ? "COMPLETE" : "IN PROGRESS" };
++    },
++    getProgressSteps: () => [],
++    getTerminal: () => ({ title: "目录终端", copy: "", rows: [] }),
++    getSoundPosition: (_before, state) => state.player,
++    getDebugState: (state) => ({ revision: state.revision, chairs: state.chairs, cart: state.cart, incident: state.incident, attachment: state.attachment, carriedBook: state.carriedBook, minimumProgress: state.minimumProgress }),
++  };
++}
+diff --git a/game/levels/rf02/series-scene.js b/game/levels/rf02/series-scene.js
+--- a/game/levels/rf02/series-scene.js
++++ b/game/levels/rf02/series-scene.js
+@@ -1,116 +1,116 @@
+-import * as THREE from "three";
+-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+-import { createLibraryScene } from "./scene.js";
+-import { LEVEL } from "./level.js";
+-import { ASSET_ROOT, BOOKS, BOOKENDS, CART, CHAIRS, REVISION, shelfPose } from "./series-layout.js";
+-
+-export function createArchiveScene() {
+-  const world = createLibraryScene();
+-  world.revision = REVISION;
+-  world.archiveRoots = { ...world.bookRoots };
+-  world.fallenBooks = new Set();
+-  world.bookends = {};
+-  world.collisionRoots = new Map();
+-  const originalReady = world.assetReady;
+-  const collisionReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/library-collision.glb", (gltf) => {
+-    gltf.scene.visible = false;
+-    world.scene.add(gltf.scene);
+-    gltf.scene.updateMatrixWorld(true);
+-    const boxes = new Map();
+-    gltf.scene.traverse((node) => {
+-      if (node.userData.collision && node.isMesh) {
+-        boxes.set(node.name, new THREE.Box3().setFromObject(node));
+-        world.collisionRoots.set(node.name.replace("COLLIDER_", ""), node);
+-      }
+-    });
+-    const valid = LEVEL.staticColliders.every((rect) => {
+-      const bounds = boxes.get("COLLIDER_" + rect.id);
+-      return bounds && Math.abs(bounds.min.x - rect.minX) < 0.001 && Math.abs(bounds.max.x - rect.maxX) < 0.001
+-        && Math.abs(bounds.min.z - rect.minZ) < 0.001 && Math.abs(bounds.max.z - rect.maxZ) < 0.001;
+-    });
+-    resolve({ loaded: valid, name: "shared-library-collision", url: ASSET_ROOT + "/library-collision.glb" });
+-  }, undefined, () => resolve({ loaded: false, name: "shared-library-collision" })));
+-  world.collisionReady = collisionReady;
+-  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/ceiling-fixtures.glb", (gltf) => {
+-    world.scene.add(gltf.scene);
+-    resolve({ loaded: true, name: "ceiling-fixtures", url: ASSET_ROOT + "/ceiling-fixtures.glb" });
+-  }, undefined, () => resolve({ loaded: false, name: "ceiling-fixtures" })));
+-  const operationsReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/closing-fixtures.glb", (gltf) => {
+-    world.scene.add(gltf.scene);
+-    for (const color of ["red", "black", "white"]) world.bookends[color] = gltf.scene.getObjectByName("bookend-" + color);
+-    world.cartHandle = gltf.scene.getObjectByName("cart-handle");
+-    world.chairHandles = Object.fromEntries(CHAIRS.map((chair) => [chair.id, gltf.scene.getObjectByName("chair-handle-" + chair.id)]));
+-    resolve({ loaded: Object.values(world.bookends).every(Boolean) && Boolean(world.cartHandle), name: "closing-fixtures", url: ASSET_ROOT + "/closing-fixtures.glb" });
+-  }, undefined, () => resolve({ loaded: false, name: "closing-fixtures" })));
+-  world.assetReady = Promise.all([originalReady, collisionReady, fixturesReady, operationsReady]).then(([results, collision, fixtures, operations]) => {
+-    for (const book of BOOKS.filter((entry) => !world.archiveRoots[entry.id])) {
+-      const root = new THREE.Group();
+-      root.name = "archive-book-" + book.id;
+-      root.add(world.assetRoots.books[book.color].clone(true));
+-      world.scene.add(root);
+-      world.archiveRoots[book.id] = root;
+-    }
+-    world.chairRoots = Object.fromEntries(CHAIRS.map((chair) => [chair.id, world.assetRoots.staticSlice.getObjectByName(chair.model)]));
+-    world.cartRoot = world.assetRoots.staticSlice.getObjectByName("returnCart");
+-    const furnitureValid = Object.values(world.chairRoots).every(Boolean) && Boolean(world.cartRoot);
+-    return [...results, collision, fixtures, operations, { loaded: furnitureValid, name: "shared-furniture-bindings" }];
+-  });
+-  return world;
+-}
+-
+-function poseBook(root, book, state) {
+-  root.visible = book.location !== "carried";
+-  if (!root.visible) return;
+-  let pose = book.location === "shelved" ? shelfPose(book.color, book.id) : book;
+-  let tilt = 0;
+-  if (book.support === "return-cart" && state.cart) pose = { ...pose, x: state.cart.x, z: state.cart.z, rotation: state.cart.yaw - CART.yaw };
+-  if (book.location === "falling") {
+-    const source = shelfPose(book.color, book.id);
+-    const progress = Math.min(1, book.fallElapsed / 0.95);
+-    const travel = Math.min(1, progress / 0.8), falling = Math.max(0, (progress - 0.24) / 0.76);
+-    pose = {
+-      x: source.x + (book.landing.x - source.x) * travel,
+-      z: source.z + (book.landing.z - source.z) * travel,
+-      y: Math.max(0.012, source.y * (1 - falling * falling)), rotation: source.rotation,
+-    };
+-    tilt = Math.sin(Math.PI * falling) * 0.65;
+-  }
+-  root.position.set(pose.x, pose.y ?? 0.78, pose.z);
+-  root.rotation.set(tilt, pose.rotation ?? 0, 0);
+-}
+-
+-export function syncArchiveVisuals(world, state) {
+-  for (const definition of BOOKS) {
+-    const root = world.archiveRoots[definition.id];
+-    if (!root) continue;
+-    const book = state.books[definition.id] ? { ...definition, ...state.books[definition.id] } : definition;
+-    poseBook(root, book, state);
+-    if (book.fallen && book.location === "ground" && !world.fallenBooks.has(book.id)) {
+-      world.fallenBooks.add(book.id);
+-      if (world.bookImpact) { world.bookImpact.currentTime = 0; world.bookImpact.play().catch(() => {}); }
+-    }
+-  }
+-  if (!state.incident || state.incident.phase === "waiting") world.fallenBooks.clear();
+-  for (const definition of CHAIRS) {
+-    const chair = state.chairs?.[definition.id] ?? definition;
+-    const root = world.chairRoots?.[definition.id];
+-    if (root) { root.position.set(chair.x, 0, chair.z); root.rotation.y = definition.modelYaw + chair.yaw; }
+-    const handle = world.chairHandles?.[definition.id];
+-    if (handle) { handle.position.set(chair.x, 0, chair.z); handle.rotation.y = chair.yaw; }
+-    const collision = world.collisionRoots.get(definition.id);
+-    if (collision) { collision.position.x = chair.x; collision.position.z = chair.z; collision.rotation.y = chair.yaw; }
+-  }
+-  const cart = state.cart ?? CART;
+-  if (world.cartRoot) { world.cartRoot.position.set(cart.x, 0, cart.z); world.cartRoot.rotation.y = cart.yaw - CART.yaw; }
+-  if (world.cartHandle) { world.cartHandle.position.set(cart.x, 0, cart.z); world.cartHandle.rotation.y = cart.yaw; }
+-  const cartCollision = world.collisionRoots.get("return-cart");
+-  if (cartCollision) { cartCollision.position.x = cart.x; cartCollision.position.z = cart.z; cartCollision.rotation.y = cart.yaw - CART.yaw; }
+-  for (const [color, root] of Object.entries(world.bookends)) {
+-    const definition = BOOKENDS[color];
+-    const loose = state.incident?.color === color && state.incident.phase === "loose";
+-    root.position.set(definition.x, definition.y, definition.z);
+-    root.rotation.set(0, definition.rotation, 0);
+-    const rail = root.getObjectByName("rail-" + color);
+-    if (rail) rail.rotation.x = loose ? 1.05 : 0;
+-  }
+-}
++import * as THREE from "three";
++import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
++import { createLibraryScene } from "./scene.js";
++import { LEVEL } from "./level.js";
++import { ASSET_ROOT, BOOKS, BOOKENDS, CART, CHAIRS, REVISION, shelfPose } from "./series-layout.js";
++
++export function createArchiveScene() {
++  const world = createLibraryScene();
++  world.revision = REVISION;
++  world.archiveRoots = { ...world.bookRoots };
++  world.fallenBooks = new Set();
++  world.bookends = {};
++  world.collisionRoots = new Map();
++  const originalReady = world.assetReady;
++  const collisionReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/library-collision.glb", (gltf) => {
++    gltf.scene.visible = false;
++    world.scene.add(gltf.scene);
++    gltf.scene.updateMatrixWorld(true);
++    const boxes = new Map();
++    gltf.scene.traverse((node) => {
++      if (node.userData.collision && node.isMesh) {
++        boxes.set(node.name, new THREE.Box3().setFromObject(node));
++        world.collisionRoots.set(node.name.replace("COLLIDER_", ""), node);
++      }
++    });
++    const valid = LEVEL.staticColliders.every((rect) => {
++      const bounds = boxes.get("COLLIDER_" + rect.id);
++      return bounds && Math.abs(bounds.min.x - rect.minX) < 0.001 && Math.abs(bounds.max.x - rect.maxX) < 0.001
++        && Math.abs(bounds.min.z - rect.minZ) < 0.001 && Math.abs(bounds.max.z - rect.maxZ) < 0.001;
++    });
++    resolve({ loaded: valid, name: "shared-library-collision", url: ASSET_ROOT + "/library-collision.glb" });
++  }, undefined, () => resolve({ loaded: false, name: "shared-library-collision" })));
++  world.collisionReady = collisionReady;
++  const fixturesReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/ceiling-fixtures.glb", (gltf) => {
++    world.scene.add(gltf.scene);
++    resolve({ loaded: true, name: "ceiling-fixtures", url: ASSET_ROOT + "/ceiling-fixtures.glb" });
++  }, undefined, () => resolve({ loaded: false, name: "ceiling-fixtures" })));
++  const operationsReady = new Promise((resolve) => new GLTFLoader().load(ASSET_ROOT + "/closing-fixtures.glb", (gltf) => {
++    world.scene.add(gltf.scene);
++    for (const color of ["red", "black", "white"]) world.bookends[color] = gltf.scene.getObjectByName("bookend-" + color);
++    world.cartHandle = gltf.scene.getObjectByName("cart-handle");
++    world.chairHandles = Object.fromEntries(CHAIRS.map((chair) => [chair.id, gltf.scene.getObjectByName("chair-handle-" + chair.id)]));
++    resolve({ loaded: Object.values(world.bookends).every(Boolean) && Boolean(world.cartHandle), name: "closing-fixtures", url: ASSET_ROOT + "/closing-fixtures.glb" });
++  }, undefined, () => resolve({ loaded: false, name: "closing-fixtures" })));
++  world.assetReady = Promise.all([originalReady, collisionReady, fixturesReady, operationsReady]).then(([results, collision, fixtures, operations]) => {
++    for (const book of BOOKS.filter((entry) => !world.archiveRoots[entry.id])) {
++      const root = new THREE.Group();
++      root.name = "archive-book-" + book.id;
++      root.add(world.assetRoots.books[book.color].clone(true));
++      world.scene.add(root);
++      world.archiveRoots[book.id] = root;
++    }
++    world.chairRoots = Object.fromEntries(CHAIRS.map((chair) => [chair.id, world.assetRoots.staticSlice.getObjectByName(chair.model)]));
++    world.cartRoot = world.assetRoots.staticSlice.getObjectByName("returnCart");
++    const furnitureValid = Object.values(world.chairRoots).every(Boolean) && Boolean(world.cartRoot);
++    return [...results, collision, fixtures, operations, { loaded: furnitureValid, name: "shared-furniture-bindings" }];
++  });
++  return world;
++}
++
++function poseBook(root, book, state) {
++  root.visible = book.location !== "carried";
++  if (!root.visible) return;
++  let pose = book.location === "shelved" ? shelfPose(book.color, book.id) : book;
++  let tilt = 0;
++  if (book.support === "return-cart" && state.cart) pose = { ...pose, x: state.cart.x, z: state.cart.z, rotation: state.cart.yaw - CART.yaw };
++  if (book.location === "falling") {
++    const source = shelfPose(book.color, book.id);
++    const progress = Math.min(1, book.fallElapsed / 0.95);
++    const travel = Math.min(1, progress / 0.8), falling = Math.max(0, (progress - 0.24) / 0.76);
++    pose = {
++      x: source.x + (book.landing.x - source.x) * travel,
++      z: source.z + (book.landing.z - source.z) * travel,
++      y: Math.max(0.012, source.y * (1 - falling * falling)), rotation: source.rotation,
++    };
++    tilt = Math.sin(Math.PI * falling) * 0.65;
++  }
++  root.position.set(pose.x, pose.y ?? 0.78, pose.z);
++  root.rotation.set(tilt, pose.rotation ?? 0, 0);
++}
++
++export function syncArchiveVisuals(world, state) {
++  for (const definition of BOOKS) {
++    const root = world.archiveRoots[definition.id];
++    if (!root) continue;
++    const book = state.books[definition.id] ? { ...definition, ...state.books[definition.id] } : definition;
++    poseBook(root, book, state);
++    if (book.fallen && book.location === "ground" && !world.fallenBooks.has(book.id)) {
++      world.fallenBooks.add(book.id);
++      if (world.bookImpact) { world.bookImpact.currentTime = 0; world.bookImpact.play().catch(() => {}); }
++    }
++  }
++  if (!state.incident || state.incident.phase === "waiting") world.fallenBooks.clear();
++  for (const definition of CHAIRS) {
++    const chair = state.chairs?.[definition.id] ?? definition;
++    const root = world.chairRoots?.[definition.id];
++    if (root) { root.position.set(chair.x, 0, chair.z); root.rotation.y = definition.modelYaw + chair.yaw; }
++    const handle = world.chairHandles?.[definition.id];
++    if (handle) { handle.position.set(chair.x, 0, chair.z); handle.rotation.y = chair.yaw + (definition.modelYaw > 0 ? Math.PI : 0); }
++    const collision = world.collisionRoots.get(definition.id);
++    if (collision) { collision.position.x = chair.x; collision.position.z = chair.z; collision.rotation.y = chair.yaw; }
++  }
++  const cart = state.cart ?? CART;
++  if (world.cartRoot) { world.cartRoot.position.set(cart.x, 0, cart.z); world.cartRoot.rotation.y = cart.yaw - CART.yaw; }
++  if (world.cartHandle) { world.cartHandle.position.set(cart.x, 0, cart.z); world.cartHandle.rotation.y = cart.yaw; }
++  const cartCollision = world.collisionRoots.get("return-cart");
++  if (cartCollision) { cartCollision.position.x = cart.x; cartCollision.position.z = cart.z; cartCollision.rotation.y = cart.yaw - CART.yaw; }
++  for (const [color, root] of Object.entries(world.bookends)) {
++    const definition = BOOKENDS[color];
++    const loose = state.incident?.color === color && state.incident.phase === "loose";
++    root.position.set(definition.x, definition.y, definition.z);
++    root.rotation.set(0, definition.rotation, 0);
++    const rail = root.getObjectByName("rail-" + color);
++    if (rail) rail.rotation.x = loose ? 1.05 : 0;
++  }
++}
+diff --git a/tools/rf02-series/build-collision.mjs b/tools/rf02-series/build-collision.mjs
+--- a/tools/rf02-series/build-collision.mjs
++++ b/tools/rf02-series/build-collision.mjs
+@@ -1,110 +1,110 @@
+-import fs from "node:fs";
+-import path from "node:path";
+-import * as THREE from "three";
+-import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+-import { LEVEL } from "../../game/levels/rf02/level.js";
+-import { ASSET_ROOT, BOOKENDS, CART, CHAIRS } from "../../game/levels/rf02/series-layout.js";
+-
+-globalThis.FileReader = class {
+-  readAsArrayBuffer(blob) {
+-    blob.arrayBuffer().then((result) => { this.result = result; this.onloadend?.(); });
+-  }
+-};
+-const scene = new THREE.Scene();
+-for (const collider of LEVEL.staticColliders) {
+-  const height = collider.id.includes("wall") ? 3.6 : collider.id.includes("shelf") || collider.id.includes("stack") ? 1.8 : 1.1;
+-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(collider.maxX - collider.minX, height, collider.maxZ - collider.minZ), new THREE.MeshBasicMaterial());
+-  mesh.position.set((collider.minX + collider.maxX) / 2, height / 2, (collider.minZ + collider.maxZ) / 2);
+-  mesh.name = "COLLIDER_" + collider.id;
+-  mesh.userData = { collision: true, shape: "box", authoritative: "rf02/level.js" };
+-  scene.add(mesh);
+-}
+-const floor = new THREE.Mesh(new THREE.BoxGeometry(24, 0.1, 16), new THREE.MeshBasicMaterial());
+-floor.position.y = -0.05;
+-floor.name = "COLLIDER_floor";
+-floor.userData = { collision: true, shape: "box" };
+-scene.add(floor);
+-const result = await new GLTFExporter().parseAsync(scene, { binary: true });
+-const output = path.join("public", ASSET_ROOT, "library-collision.glb");
+-fs.mkdirSync(path.dirname(output), { recursive: true });
+-fs.writeFileSync(output, Buffer.from(result));
+-console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
+-const fixtures = new THREE.Scene();
+-const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(24, 16), new THREE.MeshStandardMaterial({ color: 0xe1dfd7, roughness: 0.95 }));
+-ceiling.name = "library-ceiling-interior-face";
+-ceiling.rotation.x = Math.PI / 2;
+-ceiling.position.y = 3.599;
+-fixtures.add(ceiling);
+-for (const positionX of [-9, -3, 3, 9]) {
+-  for (const positionZ of [-4.8, 0.2, 5.2]) {
+-    for (const offset of [-0.86, 0.86]) {
+-      const suspension = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.07, 8), new THREE.MeshStandardMaterial({ color: 0x6d7171, metalness: 0.65, roughness: 0.5 }));
+-      suspension.name = "luminaire-suspension-" + positionX + "-" + positionZ + "-" + offset;
+-      suspension.position.set(positionX + offset, 3.565, positionZ);
+-      fixtures.add(suspension);
+-    }
+-  }
+-}
+-const fixtureBytes = await new GLTFExporter().parseAsync(fixtures, { binary: true });
+-fs.writeFileSync(path.join("public", ASSET_ROOT, "ceiling-fixtures.glb"), Buffer.from(fixtureBytes));
+-
+-const operations = new THREE.Scene();
+-const steel = new THREE.MeshStandardMaterial({ color: 0x6b7477, metalness: 0.7, roughness: 0.38 });
+-const latchMaterial = new THREE.MeshStandardMaterial({ color: 0xc77f36, metalness: 0.5, roughness: 0.4 });
+-function box(parent, name, size, position, material = steel) {
+-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
+-  mesh.name = name;
+-  mesh.position.fromArray(position);
+-  mesh.castShadow = true;
+-  mesh.receiveShadow = true;
+-  parent.add(mesh);
+-  return mesh;
+-}
+-for (const [color, definition] of Object.entries(BOOKENDS)) {
+-  const root = new THREE.Group();
+-  root.name = "bookend-" + color;
+-  const rail = new THREE.Group();
+-  rail.name = "rail-" + color;
+-  box(rail, "retaining-lip-" + color, [2.96, 0.115, 0.014], [0, 0.0575, 0]);
+-  box(rail, "support-foot-" + color, [2.96, 0.008, 0.09], [0, 0.004, -0.038]);
+-  root.add(rail);
+-  for (const horizontal of [-1.37, 1.32]) {
+-    box(root, "mount-" + color + "-" + horizontal, [0.13, 0.16, 0.038], [horizontal, 0.08, -0.02]);
+-    box(root, "latch-lever-" + color + "-" + horizontal, [0.055, 0.025, 0.27], [horizontal, 0.10, 0.13], latchMaterial);
+-    const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.014, 12), steel);
+-    bolt.rotation.x = Math.PI / 2;
+-    bolt.position.set(horizontal, 0.03, 0.022);
+-    root.add(bolt);
+-  }
+-  root.position.set(definition.x, definition.y, definition.z);
+-  root.rotation.y = definition.rotation;
+-  operations.add(root);
+-}
+-for (const object of [...CHAIRS, CART]) {
+-  const handle = new THREE.Group();
+-  handle.name = object === CART ? "cart-handle" : "chair-handle-" + object.id;
+-  for (const lateral of [-object.handleHalfWidth, object.handleHalfWidth]) {
+-    const anchor = new THREE.Vector3(lateral, object === CART ? 0.85 : 0.77, object === CART ? -0.22 : -0.23);
+-    const endpoint = new THREE.Vector3(lateral, object.handleY, -object.handleBack);
+-    const upright = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, anchor.distanceTo(endpoint), 12), steel);
+-    upright.position.copy(anchor).add(endpoint).multiplyScalar(0.5);
+-    upright.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), endpoint.clone().sub(anchor).normalize());
+-    handle.add(upright);
+-  }
+-  const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.017, 0.017, object.handleHalfWidth * 2 + 0.025, 16), steel);
+-  grip.rotation.z = Math.PI / 2;
+-  grip.position.set(0, object.handleY, -object.handleBack);
+-  handle.add(grip);
+-  handle.position.set(object.x, 0, object.z);
+-  handle.rotation.y = object.yaw;
+-  operations.add(handle);
+-}
+-const parking = CART.parking;
+-const paint = new THREE.MeshStandardMaterial({ color: 0xb59f58, roughness: 0.95, polygonOffset: true, polygonOffsetFactor: -1 });
+-for (const side of [-1, 1]) {
+-  box(operations, "parking-side-" + side, [0.025, 0.003, parking.halfZ * 2], [parking.x + parking.halfX * side, 0.006, parking.z], paint);
+-  box(operations, "parking-end-" + side, [parking.halfX * 2, 0.003, 0.025], [parking.x, 0.006, parking.z + parking.halfZ * side], paint);
+-}
+-const operationBytes = await new GLTFExporter().parseAsync(operations, { binary: true });
+-fs.writeFileSync(path.join("public", ASSET_ROOT, "closing-fixtures.glb"), Buffer.from(operationBytes));
+-console.log(JSON.stringify({ revision: ASSET_ROOT, operationBytes: operationBytes.byteLength }));
++import fs from "node:fs";
++import path from "node:path";
++import * as THREE from "three";
++import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
++import { LEVEL } from "../../game/levels/rf02/level.js";
++import { ASSET_ROOT, BOOKENDS, CART, CHAIRS } from "../../game/levels/rf02/series-layout.js";
++
++globalThis.FileReader = class {
++  readAsArrayBuffer(blob) {
++    blob.arrayBuffer().then((result) => { this.result = result; this.onloadend?.(); });
++  }
++};
++const scene = new THREE.Scene();
++for (const collider of LEVEL.staticColliders) {
++  const height = collider.id.includes("wall") ? 3.6 : collider.id.includes("shelf") || collider.id.includes("stack") ? 1.8 : 1.1;
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(collider.maxX - collider.minX, height, collider.maxZ - collider.minZ), new THREE.MeshBasicMaterial());
++  mesh.position.set((collider.minX + collider.maxX) / 2, height / 2, (collider.minZ + collider.maxZ) / 2);
++  mesh.name = "COLLIDER_" + collider.id;
++  mesh.userData = { collision: true, shape: "box", authoritative: "rf02/level.js" };
++  scene.add(mesh);
++}
++const floor = new THREE.Mesh(new THREE.BoxGeometry(24, 0.1, 16), new THREE.MeshBasicMaterial());
++floor.position.y = -0.05;
++floor.name = "COLLIDER_floor";
++floor.userData = { collision: true, shape: "box" };
++scene.add(floor);
++const result = await new GLTFExporter().parseAsync(scene, { binary: true });
++const output = path.join("public", ASSET_ROOT, "library-collision.glb");
++fs.mkdirSync(path.dirname(output), { recursive: true });
++fs.writeFileSync(output, Buffer.from(result));
++console.log(JSON.stringify({ output, nodes: scene.children.length, bytes: result.byteLength }));
++const fixtures = new THREE.Scene();
++const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(24, 16), new THREE.MeshStandardMaterial({ color: 0xe1dfd7, roughness: 0.95 }));
++ceiling.name = "library-ceiling-interior-face";
++ceiling.rotation.x = Math.PI / 2;
++ceiling.position.y = 3.599;
++fixtures.add(ceiling);
++for (const positionX of [-9, -3, 3, 9]) {
++  for (const positionZ of [-4.8, 0.2, 5.2]) {
++    for (const offset of [-0.86, 0.86]) {
++      const suspension = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.07, 8), new THREE.MeshStandardMaterial({ color: 0x6d7171, metalness: 0.65, roughness: 0.5 }));
++      suspension.name = "luminaire-suspension-" + positionX + "-" + positionZ + "-" + offset;
++      suspension.position.set(positionX + offset, 3.565, positionZ);
++      fixtures.add(suspension);
++    }
++  }
++}
++const fixtureBytes = await new GLTFExporter().parseAsync(fixtures, { binary: true });
++fs.writeFileSync(path.join("public", ASSET_ROOT, "ceiling-fixtures.glb"), Buffer.from(fixtureBytes));
++
++const operations = new THREE.Scene();
++const steel = new THREE.MeshStandardMaterial({ color: 0x6b7477, metalness: 0.7, roughness: 0.38 });
++const latchMaterial = new THREE.MeshStandardMaterial({ color: 0xc77f36, metalness: 0.5, roughness: 0.4 });
++function box(parent, name, size, position, material = steel) {
++  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
++  mesh.name = name;
++  mesh.position.fromArray(position);
++  mesh.castShadow = true;
++  mesh.receiveShadow = true;
++  parent.add(mesh);
++  return mesh;
++}
++for (const [color, definition] of Object.entries(BOOKENDS)) {
++  const root = new THREE.Group();
++  root.name = "bookend-" + color;
++  const rail = new THREE.Group();
++  rail.name = "rail-" + color;
++  box(rail, "retaining-lip-" + color, [2.96, 0.115, 0.014], [0, 0.0575, 0]);
++  box(rail, "support-foot-" + color, [2.96, 0.008, 0.09], [0, 0.004, -0.038]);
++  root.add(rail);
++  for (const horizontal of [-1.37, 1.32]) {
++    box(root, "mount-" + color + "-" + horizontal, [0.13, 0.16, 0.038], [horizontal, 0.08, -0.02]);
++    box(root, "latch-lever-" + color + "-" + horizontal, [0.055, 0.025, 0.27], [horizontal, 0.10, 0.13], latchMaterial);
++    const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.014, 12), steel);
++    bolt.rotation.x = Math.PI / 2;
++    bolt.position.set(horizontal, 0.03, 0.022);
++    root.add(bolt);
++  }
++  root.position.set(definition.x, definition.y, definition.z);
++  root.rotation.y = definition.rotation;
++  operations.add(root);
++}
++for (const object of [...CHAIRS, CART]) {
++  const handle = new THREE.Group();
++  handle.name = object === CART ? "cart-handle" : "chair-handle-" + object.id;
++  for (const lateral of [-object.handleHalfWidth, object.handleHalfWidth]) {
++    const anchor = new THREE.Vector3(lateral, object === CART ? 0.85 : 0.77, object === CART ? -0.22 : -0.23);
++    const endpoint = new THREE.Vector3(lateral, object.handleY, -object.handleBack);
++    const upright = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, anchor.distanceTo(endpoint), 12), steel);
++    upright.position.copy(anchor).add(endpoint).multiplyScalar(0.5);
++    upright.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), endpoint.clone().sub(anchor).normalize());
++    handle.add(upright);
++  }
++  const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.017, 0.017, object.handleHalfWidth * 2 + 0.025, 16), steel);
++  grip.rotation.z = Math.PI / 2;
++  grip.position.set(0, object.handleY, -object.handleBack);
++  handle.add(grip);
++  handle.position.set(object.x, 0, object.z);
++  handle.rotation.y = object.yaw + (object.modelYaw > 0 ? Math.PI : 0);
++  operations.add(handle);
++}
++const parking = CART.parking;
++const paint = new THREE.MeshStandardMaterial({ color: 0xb59f58, roughness: 0.95, polygonOffset: true, polygonOffsetFactor: -1 });
++for (const side of [-1, 1]) {
++  box(operations, "parking-side-" + side, [0.025, 0.003, parking.halfZ * 2], [parking.x + parking.halfX * side, 0.006, parking.z], paint);
++  box(operations, "parking-end-" + side, [parking.halfX * 2, 0.003, 0.025], [parking.x, 0.006, parking.z + parking.halfZ * side], paint);
++}
++const operationBytes = await new GLTFExporter().parseAsync(operations, { binary: true });
++fs.writeFileSync(path.join("public", ASSET_ROOT, "closing-fixtures.glb"), Buffer.from(operationBytes));
++console.log(JSON.stringify({ revision: ASSET_ROOT, operationBytes: operationBytes.byteLength }));
+diff --git a/tools/rf02-series/browser-qa.js b/tools/rf02-series/browser-qa.js
+--- a/tools/rf02-series/browser-qa.js
++++ b/tools/rf02-series/browser-qa.js
+@@ -1,164 +1,164 @@
+-import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
+-import { CHAIRS, CART, BOOKENDS, REVISION } from "../../game/levels/rf02/series-layout.js";
+-import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
+-import { pathTo, interactionGoal } from "./route.mjs";
+-
+-const frame = document.querySelector("#game");
+-const status = document.querySelector("#status");
+-let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
+-const observedFalls = new Set();
+-const api = () => frame.contentWindow.__ARC_AGENT__;
+-const read = () => api().getState();
+-const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+-const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
+-const engine = () => createArchiveEngine(document.querySelector("#level").value);
+-
+-function capture(label) {
+-  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
+-  const image = document.createElement("img");
+-  image.src = data; image.alt = label;
+-  document.querySelector("#captures").append(image);
+-  images.push({ label, data });
+-}
+-
+-function observeFall() {
+-  for (const book of Object.values(read().books)) {
+-    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
+-    const key = book.id + "-" + book.location;
+-    if (!observedFalls.has(key)) {
+-      observedFalls.add(key);
+-      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
+-      capture(key);
+-    }
+-  }
+-}
+-
+-async function waitFor(predicate, timeout = 45000) {
+-  const started = performance.now();
+-  while (!predicate()) {
+-    if (stopped) throw new Error("Paused");
+-    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
+-    observeFall();
+-    await delay(100);
+-  }
+-  observeFall();
+-}
+-
+-function load() {
+-  stopped = true;
+-  operations = []; records = []; images = []; observedFalls.clear();
+-  document.querySelector("#captures").replaceChildren();
+-  status.removeAttribute("data-report");
+-  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
+-  readyAt = performance.now();
+-  status.value = "加载 " + document.querySelector("#level").value;
+-}
+-
+-async function prepare() {
+-  for (let attempt = 0; attempt < 300 && !api()?.ready().ready; attempt += 1) await delay(100);
+-  if (!api()?.ready().ready) throw new Error("Assets are not ready");
+-  if (operations.length || records.length) return;
+-  api().reset({ harness: "state" });
+-  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
+-    { type: "grip", kind: "chair", id: chair.id },
+-    { type: "push", kind: "chair", id: chair.id },
+-    { type: "release", kind: "chair", id: chair.id },
+-  ]);
+-  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
+-  if (engine().LEVEL.dynamic) operations.push({ type: "repair" });
+-  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
+-  capture("start");
+-}
+-
+-async function walkTo(goal) {
+-  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.045);
+-  for (const point of points.slice(1)) {
+-    let attempts = 0, blocked = 0;
+-    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.025) {
+-      if (stopped) throw new Error("Paused");
+-      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
+-      const before = read(), yaw = before.player.yaw;
+-      const dx = point.x - before.player.x, dz = point.z - before.player.z;
+-      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
+-      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
+-      const along = Math.abs(forward) >= Math.abs(lateral);
+-      const component = along ? forward : lateral;
+-      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
+-      const speed = along ? component >= 0 ? 1 : 0.5 : 0.3;
+-      await api().act({ action, durationMs: Math.max(40, Math.min(700, Math.abs(component) / speed * 1000)), harness: "state" });
+-      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
+-      blocked = travelled < 0.0005 ? blocked + 1 : 0;
+-      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
+-      observeFall();
+-      status.value = "行走 · 余量 " + read().progress.toFixed(1);
+-    }
+-  }
+-}
+-
+-async function interactAndWait(target) {
+-  await api().act({ action: "E", durationMs: 100, harness: "state" });
+-  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
+-  else if (target.type === "release" || target.type === "repair") await waitFor(() => animation().phase === "idle");
+-  if (read().failed) throw new Error("Reserve depleted");
+-}
+-
+-async function executeNext() {
+-  await prepare();
+-  const target = operations[0];
+-  if (!target) return;
+-  const state = read();
+-  if (target.type === "grip") {
+-    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+-    await walkTo(furnitureStand(object));
+-  } else if (target.type === "push") {
+-    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+-    await walkTo(furnitureStand({ ...object, ...(target.kind === "cart" ? CART.parking : object.home) }));
+-  } else if (target.type === "repair") {
+-    await walkTo(BOOKENDS[state.incident.color].stand);
+-  } else if (target.type === "book" || target.type === "shelf") {
+-    await walkTo(interactionGoal(engine(), read(), target));
+-  }
+-  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+-  if (target.type !== "push") await interactAndWait(target);
+-  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
+-  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
+-  if (target.type === "repair") {
+-    if (read().incident.phase !== "fixed") throw new Error("Fault not fixed");
+-    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
+-    operations.push(...Object.values(read().books).filter((book) => book.fallen && book.location !== "shelved")
+-      .flatMap((book) => [{ type: "book", bookId: book.id }, { type: "shelf", color: book.color }]));
+-  }
+-  if (target.type === "book" && read().carriedBook !== target.bookId) throw new Error("Wrong book picked up");
+-  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
+-  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+-  operations.shift();
+-  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
+-  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+-  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
+-}
+-
+-async function run(all) {
+-  if (busy) return;
+-  busy = true; stopped = false;
+-  try {
+-    do { await executeNext(); } while (all && !stopped && operations.length);
+-    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
+-  } catch (error) {
+-    status.value = error.message;
+-    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
+-  } finally { busy = false; }
+-}
+-
+-document.querySelector("#load").onclick = load;
+-document.querySelector("#next").onclick = () => run(false);
+-document.querySelector("#run").onclick = () => run(true);
+-document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
+-document.querySelector("#capture").onclick = () => capture("manual");
+-document.querySelector("#export").onclick = () => {
+-  const link = document.createElement("a");
+-  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
+-  link.download = document.querySelector("#level").value + "-operations-evidence.json";
+-  link.click();
+-  URL.revokeObjectURL(link.href);
+-};
+-load();
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++import { CHAIRS, CART, BOOKENDS, REVISION } from "../../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
++import { pathTo, interactionGoal } from "./route.mjs";
++
++const frame = document.querySelector("#game");
++const status = document.querySelector("#status");
++let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
++const observedFalls = new Set();
++const api = () => frame.contentWindow.__ARC_AGENT__;
++const read = () => api().getState();
++const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
++const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
++const engine = () => createArchiveEngine(document.querySelector("#level").value);
++
++function capture(label) {
++  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
++  const image = document.createElement("img");
++  image.src = data; image.alt = label;
++  document.querySelector("#captures").append(image);
++  images.push({ label, data });
++}
++
++function observeFall() {
++  for (const book of Object.values(read().books)) {
++    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
++    const key = book.id + "-" + book.location;
++    if (!observedFalls.has(key)) {
++      observedFalls.add(key);
++      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
++      capture(key);
++    }
++  }
++}
++
++async function waitFor(predicate, timeout = 45000) {
++  const started = performance.now();
++  while (!predicate()) {
++    if (stopped) throw new Error("Paused");
++    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
++    observeFall();
++    await delay(100);
++  }
++  observeFall();
++}
++
++function load() {
++  stopped = true;
++  operations = []; records = []; images = []; observedFalls.clear();
++  document.querySelector("#captures").replaceChildren();
++  status.removeAttribute("data-report");
++  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
++  readyAt = performance.now();
++  status.value = "加载 " + document.querySelector("#level").value;
++}
++
++async function prepare() {
++  for (let attempt = 0; attempt < 1200 && !api()?.ready().ready; attempt += 1) await delay(100);
++  if (!api()?.ready().ready) throw new Error("Assets are not ready");
++  if (operations.length || records.length) return;
++  api().reset({ harness: "state" });
++  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
++    { type: "grip", kind: "chair", id: chair.id },
++    { type: "push", kind: "chair", id: chair.id },
++    { type: "release", kind: "chair", id: chair.id },
++  ]);
++  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
++  if (engine().LEVEL.dynamic) operations.push({ type: "repair" });
++  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
++  capture("start");
++}
++
++async function walkTo(goal) {
++  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.045);
++  for (const point of points.slice(1)) {
++    let attempts = 0, blocked = 0;
++    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.025) {
++      if (stopped) throw new Error("Paused");
++      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
++      const before = read(), yaw = before.player.yaw;
++      const dx = point.x - before.player.x, dz = point.z - before.player.z;
++      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
++      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
++      const along = Math.abs(forward) >= Math.abs(lateral);
++      const component = along ? forward : lateral;
++      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
++      const speed = along ? component >= 0 ? 1 : 0.5 : 0.3;
++      await api().act({ action, durationMs: Math.max(40, Math.min(700, Math.abs(component) / speed * 1000)), harness: "state" });
++      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
++      blocked = travelled < 0.0005 ? blocked + 1 : 0;
++      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
++      observeFall();
++      status.value = "行走 · 余量 " + read().progress.toFixed(1);
++    }
++  }
++}
++
++async function interactAndWait(target) {
++  await api().act({ action: "E", durationMs: 100, harness: "state" });
++  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
++  else if (target.type === "release" || target.type === "repair") await waitFor(() => animation().phase === "idle");
++  if (read().failed) throw new Error("Reserve depleted");
++}
++
++async function executeNext() {
++  await prepare();
++  const target = operations[0];
++  if (!target) return;
++  const state = read();
++  if (target.type === "grip") {
++    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
++    await walkTo(furnitureStand(object));
++  } else if (target.type === "push") {
++    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
++    await walkTo(furnitureStand({ ...object, ...(target.kind === "cart" ? CART.parking : object.home) }));
++  } else if (target.type === "repair") {
++    await walkTo(BOOKENDS[state.incident.color].stand);
++  } else if (target.type === "book" || target.type === "shelf") {
++    await walkTo(interactionGoal(engine(), read(), target));
++  }
++  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
++  if (target.type !== "push") await interactAndWait(target);
++  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
++  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
++  if (target.type === "repair") {
++    if (read().incident.phase !== "fixed") throw new Error("Fault not fixed");
++    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
++    operations.push(...Object.values(read().books).filter((book) => book.fallen && book.location !== "shelved")
++      .flatMap((book) => [{ type: "book", bookId: book.id }, { type: "shelf", color: book.color }]));
++  }
++  if (target.type === "book" && read().carriedBook !== target.bookId) throw new Error("Wrong book picked up");
++  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
++  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
++  operations.shift();
++  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
++  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
++  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
++}
++
++async function run(all) {
++  if (busy) return;
++  busy = true; stopped = false;
++  try {
++    do { await executeNext(); } while (all && !stopped && operations.length);
++    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
++  } catch (error) {
++    status.value = error.message;
++    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
++  } finally { busy = false; }
++}
++
++document.querySelector("#load").onclick = load;
++document.querySelector("#next").onclick = () => run(false);
++document.querySelector("#run").onclick = () => run(true);
++document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
++document.querySelector("#capture").onclick = () => capture("manual");
++document.querySelector("#export").onclick = () => {
++  const link = document.createElement("a");
++  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
++  link.download = document.querySelector("#level").value + "-operations-evidence.json";
++  link.click();
++  URL.revokeObjectURL(link.href);
++};
++load();

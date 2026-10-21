@@ -1,0 +1,584 @@
+[
+  {
+    "release": "rf01-restored-carry-v1",
+    "metadataCommit": "7208dc80dadffd3b887faabf93d92beec9462648",
+    "comparisons": [
+      {
+        "file": "game/g1-articulated-collision.js",
+        "same": true,
+        "commitSha256": "8fd3c7bbf3ad4850ddd425b9281429cad1311aa6e592f473db3226f95ed03987",
+        "currentSha256": "8fd3c7bbf3ad4850ddd425b9281429cad1311aa6e592f473db3226f95ed03987"
+      },
+      {
+        "file": "game/g1-locomotion.js",
+        "same": true,
+        "commitSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+        "currentSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08"
+      },
+      {
+        "file": "game/level.js",
+        "same": false,
+        "commitSha256": "5a1b75778fefa72bc8a5ecd5ba97e8e37d634bbf0e12145ce53155313d6b3181",
+        "currentSha256": "690a87db3dba29b09cddff2f2d2894afa9eaa1e7f692ee86765a3a2550d01540"
+      },
+      {
+        "file": "game/levels/rf01-2/engine.js",
+        "same": true,
+        "commitSha256": "6236e2434465d1d0387b863cf5225205e946e85b043939af463aae28a6154996",
+        "currentSha256": "6236e2434465d1d0387b863cf5225205e946e85b043939af463aae28a6154996"
+      },
+      {
+        "file": "game/levels/rf01-2/level.js",
+        "same": true,
+        "commitSha256": "38dca5148c479d7c4d84eafd3aa944a521ded3b3ca048c0ab420b91d5b856141",
+        "currentSha256": "38dca5148c479d7c4d84eafd3aa944a521ded3b3ca048c0ab420b91d5b856141"
+      },
+      {
+        "file": "game/levels/rf01-2/runtime.js",
+        "same": true,
+        "commitSha256": "6831a65359ec7784afff9c638823515b96f8caa39c11638c329366e358cd8a03",
+        "currentSha256": "6831a65359ec7784afff9c638823515b96f8caa39c11638c329366e358cd8a03"
+      },
+      {
+        "file": "game/levels/rf01-3/engine.js",
+        "same": true,
+        "commitSha256": "6236e2434465d1d0387b863cf5225205e946e85b043939af463aae28a6154996",
+        "currentSha256": "6236e2434465d1d0387b863cf5225205e946e85b043939af463aae28a6154996"
+      },
+      {
+        "file": "game/levels/rf01-3/level.js",
+        "same": true,
+        "commitSha256": "a4933d1ed3148a1615d65375eefa8299163d1da5b0bb13b69806ef8f3e87bc6b",
+        "currentSha256": "a4933d1ed3148a1615d65375eefa8299163d1da5b0bb13b69806ef8f3e87bc6b"
+      },
+      {
+        "file": "game/levels/rf01-3/runtime.js",
+        "same": true,
+        "commitSha256": "6831a65359ec7784afff9c638823515b96f8caa39c11638c329366e358cd8a03",
+        "currentSha256": "6831a65359ec7784afff9c638823515b96f8caa39c11638c329366e358cd8a03"
+      },
+      {
+        "file": "game/levels/rf01/engine.js",
+        "same": true,
+        "commitSha256": "6236e2434465d1d0387b863cf5225205e946e85b043939af463aae28a6154996",
+        "currentSha256": "6236e2434465d1d0387b863cf5225205e946e85b043939af463aae28a6154996"
+      },
+      {
+        "file": "game/levels/rf01/level.js",
+        "same": true,
+        "commitSha256": "9dd3039f8f82fba46ef243910485b27e76f083267ad72170aacca54f61f20ccb",
+        "currentSha256": "9dd3039f8f82fba46ef243910485b27e76f083267ad72170aacca54f61f20ccb"
+      },
+      {
+        "file": "game/levels/rf01/runtime.js",
+        "same": true,
+        "commitSha256": "6831a65359ec7784afff9c638823515b96f8caa39c11638c329366e358cd8a03",
+        "currentSha256": "6831a65359ec7784afff9c638823515b96f8caa39c11638c329366e358cd8a03"
+      },
+      {
+        "file": "game/levels/rf03/level.js",
+        "same": true,
+        "commitSha256": "989d90544613cd20f12e9a81ceadb6e1ee53fac574c56a55a1af7e90530116da",
+        "currentSha256": "989d90544613cd20f12e9a81ceadb6e1ee53fac574c56a55a1af7e90530116da"
+      },
+      {
+        "file": "game/movement.js",
+        "same": true,
+        "commitSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+        "currentSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b"
+      },
+      {
+        "file": "game/rapier-runtime.js",
+        "same": true,
+        "commitSha256": "86a1d18e25aa6907beea0c3e38d65d8372b100321cfa15f2ea3fd04b44de406b",
+        "currentSha256": "86a1d18e25aa6907beea0c3e38d65d8372b100321cfa15f2ea3fd04b44de406b"
+      },
+      {
+        "file": "game/rf01-battery.js",
+        "same": true,
+        "commitSha256": "a84792c2e1a23d3b32e3e7a859756a8aa8315b500bfa95bebc2e07b86b1f8990",
+        "currentSha256": "a84792c2e1a23d3b32e3e7a859756a8aa8315b500bfa95bebc2e07b86b1f8990"
+      },
+      {
+        "file": "game/rf01-collision-proxies.js",
+        "same": true,
+        "commitSha256": "943a563162c20da5ff7ff1ebf0c47f952175b12bc162b1d70fa714c1a6f56ddf",
+        "currentSha256": "943a563162c20da5ff7ff1ebf0c47f952175b12bc162b1d70fa714c1a6f56ddf"
+      },
+      {
+        "file": "game/rf01-environment.js",
+        "same": true,
+        "commitSha256": "8acc573e1011c97023126f4c0b3f9e8010e79c6574ec845652dcc1d2efeb7aae",
+        "currentSha256": "8acc573e1011c97023126f4c0b3f9e8010e79c6574ec845652dcc1d2efeb7aae"
+      },
+      {
+        "file": "game/rf01-production-assets.js",
+        "same": true,
+        "commitSha256": "d055e2b418538085d661ed3ce7c5b7870e2fb7cf61c3f8bc55524bdd2e0097b6",
+        "currentSha256": "d055e2b418538085d661ed3ce7c5b7870e2fb7cf61c3f8bc55524bdd2e0097b6"
+      },
+      {
+        "file": "game/rf01-shared-engine.js",
+        "same": false,
+        "commitSha256": "4a1b322c13fb59869a93cc31d3f1230319310305793918c1c58b2c2108e2ffd7",
+        "currentSha256": "3a0e264af6d21559687c760a64ecff7590f3d23ee23e6331e63d2e62b49dc5b3"
+      },
+      {
+        "file": "game/rf01-shared-level.js",
+        "same": false,
+        "commitSha256": "7d795c0d18903dbfcbc60740b701ccac08f2f03befd909142fc65f8fcb4c5122",
+        "currentSha256": "91a7d6ea006f355b8597b80fb9fa5273ade3201d2d4f38f93368ab09d5f316c3"
+      },
+      {
+        "file": "game/rf01-shared-runtime.js",
+        "same": false,
+        "commitSha256": "fe0eaf4775f302cc3b6f28593fceb4910726401911360b1b4825209881d1df99",
+        "currentSha256": "048b3209291fdf01f6e18d50822675b6693ee311d3085c43e85afac70aea0e07"
+      },
+      {
+        "file": "game/rf01-shared-scene.js",
+        "same": false,
+        "commitSha256": "834aeccb2506de16a3d9c3e7123e3c234495bc4ee667978cfe83aad3e40d102e",
+        "currentSha256": "75b352120be06843f9f4760a232ff40d0d033c54e84005ced0db65a225d0d2a8"
+      },
+      {
+        "file": "game/rf01-sorting-assets.js",
+        "missingInCommit": true
+      },
+      {
+        "file": "game/rf01-sorting-layout.js",
+        "missingInCommit": true
+      },
+      {
+        "file": "game/rf01-sorting-scene.js",
+        "missingInCommit": true
+      },
+      {
+        "file": "game/rf01-workshop-rules.js",
+        "same": true,
+        "commitSha256": "4889ffcfeab9685c474902cd82f4eecff8eb752b95a059376e249d4cb1f0b200",
+        "currentSha256": "4889ffcfeab9685c474902cd82f4eecff8eb752b95a059376e249d4cb1f0b200"
+      },
+      {
+        "file": "game/rf01-workshop.js",
+        "same": true,
+        "commitSha256": "8d52e9590f1081887086d21588eaca6bbfc603a1eb67851a20026e205fc59296",
+        "currentSha256": "8d52e9590f1081887086d21588eaca6bbfc603a1eb67851a20026e205fc59296"
+      },
+      {
+        "file": "game/rf01-yard-layout.js",
+        "same": false,
+        "commitSha256": "9085841a9225131dad9eacc41bc47b1d6d59881e24d9968a6222cda5eecb0fee",
+        "currentSha256": "db139f76e941616b53211de43aa4ae17c2b1ab8a74df5e23df1f49ae9109e883"
+      },
+      {
+        "file": "game/robot.js",
+        "same": true,
+        "commitSha256": "9364751b4b5c8187255eeb0a7dc9b607784ac9e9686540f3bb8ad8894ea671a5",
+        "currentSha256": "9364751b4b5c8187255eeb0a7dc9b607784ac9e9686540f3bb8ad8894ea671a5"
+      },
+      {
+        "file": "game/scene.js",
+        "same": false,
+        "commitSha256": "adfbcc87774df6cd0d4f0853787b9aea4d5f5d670ac194855c32447477d1521c",
+        "currentSha256": "d9285555be20a769fbab7ae23e6698cc09223a6857e354cdc179d2654fb507f1"
+      },
+      {
+        "file": "game/unitree-g1-dex1-model.js",
+        "same": true,
+        "commitSha256": "d7b38f0c95ae7573e87cf1916f4f288706d5a4df6c58320221633f26603beb9a",
+        "currentSha256": "d7b38f0c95ae7573e87cf1916f4f288706d5a4df6c58320221633f26603beb9a"
+      },
+      {
+        "file": "game/unitree-r1-edu.js",
+        "same": true,
+        "commitSha256": "f7d06c92bec1b434e1dc9e2a866216279fa40ccb4b1a116c87e8a2c662fbd66a",
+        "currentSha256": "f7d06c92bec1b434e1dc9e2a866216279fa40ccb4b1a116c87e8a2c662fbd66a"
+      }
+    ],
+    "note": "Associated commit from deployment/task metadata; comparison does not prove bit-identical rebuild."
+  },
+  {
+    "release": "rf08-office-v1-r30",
+    "metadataCommit": "54e8045d7d56035a83a76d9b4443c6cef7f52274",
+    "comparisons": [
+      {
+        "file": "game/g1-locomotion.js",
+        "same": true,
+        "commitSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+        "currentSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08"
+      },
+      {
+        "file": "game/levels/rf09-2/office-entry.js",
+        "same": true,
+        "commitSha256": "1f032fcd308339133b31f1a0b2f1fd219fa6c13c86d144de4e15033a9475bdde",
+        "currentSha256": "1f032fcd308339133b31f1a0b2f1fd219fa6c13c86d144de4e15033a9475bdde"
+      },
+      {
+        "file": "game/levels/rf09-3/office-entry.js",
+        "same": true,
+        "commitSha256": "50b46dbbae3ed65eb3fd17227bea514d540af4ed5cff86aa7d7169d1e49ad1a8",
+        "currentSha256": "50b46dbbae3ed65eb3fd17227bea514d540af4ed5cff86aa7d7169d1e49ad1a8"
+      },
+      {
+        "file": "game/levels/rf09/cardinal-assets.js",
+        "same": true,
+        "commitSha256": "a2e85a195c34ecd966bc2e4e65d0e7bc9021aca87d25e30ce710103ca6d68b9a",
+        "currentSha256": "a2e85a195c34ecd966bc2e4e65d0e7bc9021aca87d25e30ce710103ca6d68b9a"
+      },
+      {
+        "file": "game/levels/rf09/level.js",
+        "same": true,
+        "commitSha256": "6b9c38725e0e316aac6658986b79d8f2324d8436db214e05f9dad2bb9eb68e5e",
+        "currentSha256": "6b9c38725e0e316aac6658986b79d8f2324d8436db214e05f9dad2bb9eb68e5e"
+      },
+      {
+        "file": "game/levels/rf09/office-animation.js",
+        "same": true,
+        "commitSha256": "063cc6e81dfb6b84b5548cd9594aacd323704641181f4a659e090d2270c405f3",
+        "currentSha256": "063cc6e81dfb6b84b5548cd9594aacd323704641181f4a659e090d2270c405f3"
+      },
+      {
+        "file": "game/levels/rf09/office-architecture.js",
+        "same": true,
+        "commitSha256": "dcd3d305be82b33139375cdb3a3942094bdccba5d2f9131bfd32111e3277c8e6",
+        "currentSha256": "dcd3d305be82b33139375cdb3a3942094bdccba5d2f9131bfd32111e3277c8e6"
+      },
+      {
+        "file": "game/levels/rf09/office-clock.js",
+        "same": false,
+        "commitSha256": "fff3c700dc99a6fde428333ef81cf02d869d8391208257f70f0920b670c5447d",
+        "currentSha256": "de4bca07af2d8693742518f8828787811fb21723a5637857acbdff6a9dde2c35"
+      },
+      {
+        "file": "game/levels/rf09/office-engine.js",
+        "same": false,
+        "commitSha256": "92d3f575b8c31e8ac6514c0842d6bdbac98e5512929db055d36fd7a5697be6da",
+        "currentSha256": "697545d569542ae746f38e120dac74a776bb34dcbda0ea2f7e54376e0abf5c57"
+      },
+      {
+        "file": "game/levels/rf09/office-entry.js",
+        "same": true,
+        "commitSha256": "d7cb94a434f923a1e053a06bdd406a619f6fc1819913941b516f5b12b3117f99",
+        "currentSha256": "d7cb94a434f923a1e053a06bdd406a619f6fc1819913941b516f5b12b3117f99"
+      },
+      {
+        "file": "game/levels/rf09/office-layout.js",
+        "same": true,
+        "commitSha256": "b2207fe206790a0c4c36214720c9669e17953ad05b9802648f5d380b905b5ed9",
+        "currentSha256": "b2207fe206790a0c4c36214720c9669e17953ad05b9802648f5d380b905b5ed9"
+      },
+      {
+        "file": "game/levels/rf09/office-phone.js",
+        "same": true,
+        "commitSha256": "7d59efb120ea89f4572f27f4462309a75d431d932e2a2baa4596789c30af8f8a",
+        "currentSha256": "7d59efb120ea89f4572f27f4462309a75d431d932e2a2baa4596789c30af8f8a"
+      },
+      {
+        "file": "game/levels/rf09/office-qa.js",
+        "same": true,
+        "commitSha256": "84edd8eb6850e1a332cec181ddc8a54c4449270844673f9ba94ae258590a00bb",
+        "currentSha256": "84edd8eb6850e1a332cec181ddc8a54c4449270844673f9ba94ae258590a00bb"
+      },
+      {
+        "file": "game/levels/rf09/office-runtime.js",
+        "same": true,
+        "commitSha256": "edd7eacbf46b35da3b693e2a7259afe6d132f5bdb202647df7812cbf93ba60d6",
+        "currentSha256": "edd7eacbf46b35da3b693e2a7259afe6d132f5bdb202647df7812cbf93ba60d6"
+      },
+      {
+        "file": "game/levels/rf09/office-scene.js",
+        "same": true,
+        "commitSha256": "6f1b39b2f59e6bd95fe636e1795cde528ca6466087c00346d22b8aed57ec0b07",
+        "currentSha256": "6f1b39b2f59e6bd95fe636e1795cde528ca6466087c00346d22b8aed57ec0b07"
+      },
+      {
+        "file": "game/levels/rf09/scene.js",
+        "same": true,
+        "commitSha256": "6f20735b4f5265e518764a077b681bfdf94e8872b23217ba0e589472d178a9ea",
+        "currentSha256": "6f20735b4f5265e518764a077b681bfdf94e8872b23217ba0e589472d178a9ea"
+      },
+      {
+        "file": "game/levels/rf09/surfaces.js",
+        "same": true,
+        "commitSha256": "aa1644402aab5854e6a14fe604ffb19d490d84e6dde68e19e8faf7df24df110d",
+        "currentSha256": "aa1644402aab5854e6a14fe604ffb19d490d84e6dde68e19e8faf7df24df110d"
+      },
+      {
+        "file": "game/levels/rf15/browser-arm-script.js",
+        "same": true,
+        "commitSha256": "d229b2b34970ab27fad44c8549125f416b3d6013a12c17c138cbc46f227d5663",
+        "currentSha256": "d229b2b34970ab27fad44c8549125f416b3d6013a12c17c138cbc46f227d5663"
+      },
+      {
+        "file": "game/levels/rf15/interaction-walk.js",
+        "same": true,
+        "commitSha256": "5ea298a2aae6b3d7fdfd8389d768b7b7621691e2c744bca9d25eec4e381edbda",
+        "currentSha256": "5ea298a2aae6b3d7fdfd8389d768b7b7621691e2c744bca9d25eec4e381edbda"
+      },
+      {
+        "file": "game/movement.js",
+        "same": true,
+        "commitSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+        "currentSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b"
+      },
+      {
+        "file": "game/mujoco-client.js",
+        "same": true,
+        "commitSha256": "94b83f3c3bcfd50f526536f6e7a35b3b8f29ec8119bdb72d8f2f58d1361de905",
+        "currentSha256": "94b83f3c3bcfd50f526536f6e7a35b3b8f29ec8119bdb72d8f2f58d1361de905"
+      }
+    ],
+    "note": "Associated commit from deployment/task metadata; comparison does not prove bit-identical rebuild."
+  },
+  {
+    "release": "rf11-clinic-series-v1-r12",
+    "metadataCommit": "1c025549c42b7230966e12d8a5f219d90a13839b",
+    "comparisons": [
+      {
+        "file": "game/g1-locomotion.js",
+        "same": true,
+        "commitSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+        "currentSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08"
+      },
+      {
+        "file": "game/level.js",
+        "same": false,
+        "commitSha256": "5a1b75778fefa72bc8a5ecd5ba97e8e37d634bbf0e12145ce53155313d6b3181",
+        "currentSha256": "690a87db3dba29b09cddff2f2d2894afa9eaa1e7f692ee86765a3a2550d01540"
+      },
+      {
+        "file": "game/levels/rf13-02/runtime.js",
+        "same": true,
+        "commitSha256": "3c070af8650a4555f35f974af94ac5d488aa47c4eb87ed370f2b1faac6823e21",
+        "currentSha256": "3c070af8650a4555f35f974af94ac5d488aa47c4eb87ed370f2b1faac6823e21"
+      },
+      {
+        "file": "game/levels/rf13-03/runtime.js",
+        "same": true,
+        "commitSha256": "08820d6598e1859e9da834ca2e5d67270bea9f8fe0f2646e37db69449abb5196",
+        "currentSha256": "08820d6598e1859e9da834ca2e5d67270bea9f8fe0f2646e37db69449abb5196"
+      },
+      {
+        "file": "game/levels/rf13/engine.js",
+        "same": true,
+        "commitSha256": "abff5f9509dfacfd251a06ae14ab795209672c1ac4136c6e3b376d7da34ab40d",
+        "currentSha256": "abff5f9509dfacfd251a06ae14ab795209672c1ac4136c6e3b376d7da34ab40d"
+      },
+      {
+        "file": "game/levels/rf13/furnishings.js",
+        "missingInCommit": true
+      },
+      {
+        "file": "game/levels/rf13/level.js",
+        "same": false,
+        "commitSha256": "7bf79263f861dc01a3ec4f1cb245ab2a449c73b34940a2334f0009d39fbabd3a",
+        "currentSha256": "36dcf34d9fd389df6cece7fbb6e4b0e0401ba0eae4c70f1ba39697f833f49bf2"
+      },
+      {
+        "file": "game/levels/rf13/review-metrics.js",
+        "missingInCommit": true
+      },
+      {
+        "file": "game/levels/rf13/scene.js",
+        "same": false,
+        "commitSha256": "d3c03aa7bc6c418d517b18014a1e6ec6c9661753f89eb3f1446de13467b7b20c",
+        "currentSha256": "7b26904c6b56acee4ab1c4be85cd45c21186d7d69be84c8f82b81fbbca69fbcc"
+      },
+      {
+        "file": "game/levels/rf13/series-animation.js",
+        "same": true,
+        "commitSha256": "962b15beacc42daf2cdb3bc950b903c9ad5aa5005c952d4dda389b8e25d41f5b",
+        "currentSha256": "962b15beacc42daf2cdb3bc950b903c9ad5aa5005c952d4dda389b8e25d41f5b"
+      },
+      {
+        "file": "game/levels/rf13/series-engine.js",
+        "same": true,
+        "commitSha256": "c945c7ddc3bd18d4a49298f80e811e038e5229d735c684b44f1862d5759fcee2",
+        "currentSha256": "c945c7ddc3bd18d4a49298f80e811e038e5229d735c684b44f1862d5759fcee2"
+      },
+      {
+        "file": "game/levels/rf13/series-entry.js",
+        "same": true,
+        "commitSha256": "1e7d18dc77ca8c95ef82d56b1bde8db95a18979e81214b08c8b3b91fff83e1b0",
+        "currentSha256": "1e7d18dc77ca8c95ef82d56b1bde8db95a18979e81214b08c8b3b91fff83e1b0"
+      },
+      {
+        "file": "game/levels/rf13/series-qa.js",
+        "same": true,
+        "commitSha256": "dd88a581d2310bdc061f062573ba0509341eecf4fe20e58261d8df5dd59ce42b",
+        "currentSha256": "dd88a581d2310bdc061f062573ba0509341eecf4fe20e58261d8df5dd59ce42b"
+      },
+      {
+        "file": "game/levels/rf13/series-runtime.js",
+        "same": true,
+        "commitSha256": "c160043071b3523310f84bc8149160d9b39c204c6e1bcecda5566178a3e8b941",
+        "currentSha256": "c160043071b3523310f84bc8149160d9b39c204c6e1bcecda5566178a3e8b941"
+      },
+      {
+        "file": "game/levels/rf13/series-scene.js",
+        "same": true,
+        "commitSha256": "56335e3350c6f5ad878a671e9fc07b33de24b8b0e18a32a5d75d7fcb94a80535",
+        "currentSha256": "56335e3350c6f5ad878a671e9fc07b33de24b8b0e18a32a5d75d7fcb94a80535"
+      },
+      {
+        "file": "game/levels/rf15/browser-arm-script.js",
+        "same": true,
+        "commitSha256": "d229b2b34970ab27fad44c8549125f416b3d6013a12c17c138cbc46f227d5663",
+        "currentSha256": "d229b2b34970ab27fad44c8549125f416b3d6013a12c17c138cbc46f227d5663"
+      },
+      {
+        "file": "game/levels/rf15/interaction-walk.js",
+        "same": true,
+        "commitSha256": "5ea298a2aae6b3d7fdfd8389d768b7b7621691e2c744bca9d25eec4e381edbda",
+        "currentSha256": "5ea298a2aae6b3d7fdfd8389d768b7b7621691e2c744bca9d25eec4e381edbda"
+      },
+      {
+        "file": "game/movement.js",
+        "same": true,
+        "commitSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+        "currentSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b"
+      },
+      {
+        "file": "game/mujoco-client.js",
+        "same": true,
+        "commitSha256": "94b83f3c3bcfd50f526536f6e7a35b3b8f29ec8119bdb72d8f2f58d1361de905",
+        "currentSha256": "94b83f3c3bcfd50f526536f6e7a35b3b8f29ec8119bdb72d8f2f58d1361de905"
+      },
+      {
+        "file": "game/rf01-yard-layout.js",
+        "same": false,
+        "commitSha256": "9085841a9225131dad9eacc41bc47b1d6d59881e24d9968a6222cda5eecb0fee",
+        "currentSha256": "db139f76e941616b53211de43aa4ae17c2b1ab8a74df5e23df1f49ae9109e883"
+      }
+    ],
+    "note": "Associated commit from deployment/task metadata; comparison does not prove bit-identical rebuild."
+  },
+  {
+    "release": "rf12-tennis-series-v1-r7",
+    "metadataCommit": "45896b360801846c75001e0b53ff704db70f1c6b",
+    "comparisons": [
+      {
+        "file": "game/g1-locomotion.js",
+        "same": true,
+        "commitSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+        "currentSha256": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08"
+      },
+      {
+        "file": "game/level.js",
+        "same": false,
+        "commitSha256": "5a1b75778fefa72bc8a5ecd5ba97e8e37d634bbf0e12145ce53155313d6b3181",
+        "currentSha256": "690a87db3dba29b09cddff2f2d2894afa9eaa1e7f692ee86765a3a2550d01540"
+      },
+      {
+        "file": "game/levels/rf14-2/runtime.js",
+        "same": true,
+        "commitSha256": "46594becb6345a4da2d4f1b524dce5beacce9e27accac5898aa632d96d23ffa4",
+        "currentSha256": "46594becb6345a4da2d4f1b524dce5beacce9e27accac5898aa632d96d23ffa4"
+      },
+      {
+        "file": "game/levels/rf14-3/runtime.js",
+        "same": true,
+        "commitSha256": "40675e95535348cdfe5da9ce6db951d72a0da29764254758d89b6c211ed2f0c3",
+        "currentSha256": "40675e95535348cdfe5da9ce6db951d72a0da29764254758d89b6c211ed2f0c3"
+      },
+      {
+        "file": "game/levels/rf14/level.js",
+        "same": true,
+        "commitSha256": "1f1217f20a286ba1df974de1cba775648ed2274b360bbe53bc7c1a81df575b76",
+        "currentSha256": "1f1217f20a286ba1df974de1cba775648ed2274b360bbe53bc7c1a81df575b76"
+      },
+      {
+        "file": "game/levels/rf14/review-metrics.js",
+        "same": true,
+        "commitSha256": "93c4a044a9293917419f02e2adb56ac6bff4e860d95875b8254f07307598f943",
+        "currentSha256": "93c4a044a9293917419f02e2adb56ac6bff4e860d95875b8254f07307598f943"
+      },
+      {
+        "file": "game/levels/rf14/runtime.js",
+        "same": true,
+        "commitSha256": "cf042060743173582c865ee05242db468b3d4f0e801c2250bd5c5616071e98c4",
+        "currentSha256": "cf042060743173582c865ee05242db468b3d4f0e801c2250bd5c5616071e98c4"
+      },
+      {
+        "file": "game/levels/rf14/scene.js",
+        "same": true,
+        "commitSha256": "b96e40249f599f534f3350e584adb71f6e2bfc71561e1ae4e24be3817d9e46b1",
+        "currentSha256": "b96e40249f599f534f3350e584adb71f6e2bfc71561e1ae4e24be3817d9e46b1"
+      },
+      {
+        "file": "game/levels/rf14/series-animation.js",
+        "same": true,
+        "commitSha256": "cc20cb1675231f977293c57484a7196d82e27a72396fb2693780fe6859599416",
+        "currentSha256": "cc20cb1675231f977293c57484a7196d82e27a72396fb2693780fe6859599416"
+      },
+      {
+        "file": "game/levels/rf14/series-base-runtime.js",
+        "same": true,
+        "commitSha256": "3842f33c6ba3848fad2f654456176f76367fc3f21436587394dbbdd20b9a275f",
+        "currentSha256": "3842f33c6ba3848fad2f654456176f76367fc3f21436587394dbbdd20b9a275f"
+      },
+      {
+        "file": "game/levels/rf14/series-engine.js",
+        "same": true,
+        "commitSha256": "90beb90fa6c65dcd222cd816126cce52d4394098f5e11a68808234f62a9fcd5d",
+        "currentSha256": "90beb90fa6c65dcd222cd816126cce52d4394098f5e11a68808234f62a9fcd5d"
+      },
+      {
+        "file": "game/levels/rf14/series-hud.css",
+        "same": true,
+        "commitSha256": "6004b059e2fbb823cf09dfd5af24389662548a118eeaf21d3eb6306a75037cbe",
+        "currentSha256": "6004b059e2fbb823cf09dfd5af24389662548a118eeaf21d3eb6306a75037cbe"
+      },
+      {
+        "file": "game/levels/rf14/series-layout.js",
+        "same": true,
+        "commitSha256": "8d765798a9ac6fe0b6fe9362b8401f68f56924e45baf7a13354a8cc02967d6f2",
+        "currentSha256": "8d765798a9ac6fe0b6fe9362b8401f68f56924e45baf7a13354a8cc02967d6f2"
+      },
+      {
+        "file": "game/levels/rf14/series-qa.js",
+        "same": true,
+        "commitSha256": "61ef18f49b7916d3cd8f7d10bfe00b912b90376e5ebf9e1ad3e6aaf30ed7d56d",
+        "currentSha256": "61ef18f49b7916d3cd8f7d10bfe00b912b90376e5ebf9e1ad3e6aaf30ed7d56d"
+      },
+      {
+        "file": "game/levels/rf14/series-runtime.js",
+        "same": true,
+        "commitSha256": "0f3bf03cb6bde8c4bb08fbb88a7db497ca8d9f084ac291dc73e55d35838dac84",
+        "currentSha256": "0f3bf03cb6bde8c4bb08fbb88a7db497ca8d9f084ac291dc73e55d35838dac84"
+      },
+      {
+        "file": "game/levels/rf14/series-scene.js",
+        "same": true,
+        "commitSha256": "fca14052e03451adfd6372d29602f6a7f197a5912a00a9910d16eaf6a8a5b2cf",
+        "currentSha256": "fca14052e03451adfd6372d29602f6a7f197a5912a00a9910d16eaf6a8a5b2cf"
+      },
+      {
+        "file": "game/levels/rf15/browser-arm-script.js",
+        "same": true,
+        "commitSha256": "d229b2b34970ab27fad44c8549125f416b3d6013a12c17c138cbc46f227d5663",
+        "currentSha256": "d229b2b34970ab27fad44c8549125f416b3d6013a12c17c138cbc46f227d5663"
+      },
+      {
+        "file": "game/levels/rf15/interaction-walk.js",
+        "same": true,
+        "commitSha256": "5ea298a2aae6b3d7fdfd8389d768b7b7621691e2c744bca9d25eec4e381edbda",
+        "currentSha256": "5ea298a2aae6b3d7fdfd8389d768b7b7621691e2c744bca9d25eec4e381edbda"
+      },
+      {
+        "file": "game/movement.js",
+        "same": true,
+        "commitSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+        "currentSha256": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b"
+      },
+      {
+        "file": "game/rf01-yard-layout.js",
+        "same": false,
+        "commitSha256": "9085841a9225131dad9eacc41bc47b1d6d59881e24d9968a6222cda5eecb0fee",
+        "currentSha256": "db139f76e941616b53211de43aa4ae17c2b1ab8a74df5e23df1f49ae9109e883"
+      }
+    ],
+    "note": "Associated commit from deployment/task metadata; comparison does not prove bit-identical rebuild."
+  }
+]

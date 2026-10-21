@@ -1,0 +1,145 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": 9.814027877038647,
+      "z": 0.0006708155649530554,
+      "yaw": 1.8148535894940303
+    },
+    "samples": {
+      "sampleA": {
+        "location": "case",
+        "x": -9.25,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleB": {
+        "location": "case",
+        "x": -7.35,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleC": {
+        "location": "case",
+        "x": -5.45,
+        "y": 0.98,
+        "z": -6.62
+      }
+    },
+    "caseSamples": [
+      "sampleA",
+      "sampleC",
+      "sampleB"
+    ],
+    "casePoint": {
+      "x": 6,
+      "y": 0,
+      "z": 3.43
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.98,
+      "z": 1.86
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.16,
+      "z": -1.98
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "case",
+    "casePhase": "delivered",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "container",
+      "device": "bsc-02",
+      "triggerAt": 146.85983562068986,
+      "status": "resolved",
+      "startedAt": null
+    },
+    "clock": 27.811500000000027,
+    "clockStamp": 35484.59999990463,
+    "elapsed": 26.527100000000132,
+    "complete": true,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 4,
+    "lastEvent": "cabinet",
+    "rewards": [
+      "delivered"
+    ],
+    "delivered": true,
+    "casePhaseBeforeDrop": "active",
+    "doorOpen": false
+  },
+  "animation": {
+    "fps": 24.688919615202963,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "cabinet",
+      "event": "cabinet",
+      "error": 0.021066500688196155,
+      "revision": "rf07-series-v1"
+    },
+    "contacts": [
+      {
+        "type": "case-pickup",
+        "event": "case-pickup",
+        "error": 0.015381653125909911,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "drop",
+        "event": "drop",
+        "error": 0.021863735564714788,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "case-pickup",
+        "event": "case-pickup",
+        "error": 0.01849229959076278,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "cabinet",
+        "event": "cabinet",
+        "error": 0.021066500688196155,
+        "revision": "rf07-series-v1"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.5140393891260004,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.0017954893753880912,
+          "position": [
+            9.667614899772998,
+            0.03520121301902755,
+            -0.12349875640549358
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0017654340501542588,
+          "position": [
+            9.677424420904247,
+            0.03523748906376681,
+            0.1915918390716808
+          ]
+        }
+      ]
+    }
+  }
+}

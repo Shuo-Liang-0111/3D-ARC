@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready single commercial public library reading chair for a contemporary Chinese municipal library. Real-world size approximately 0.52 m wide x 0.88 m high x 0.55 m deep, with a seat height of approximately 0.47 m. One isolated chair only, featuring a restrained ergonomic upholstered seat and back in muted teal blue-gray durable woven contract fabric, a clearly readable front and rear silhouette, slender dark graphite powder-coated steel four-leg frame, correctly attached legs, subtle edge piping, realistic joints and fasteners, and light normal-use wear. The seated person would face positive Z, so the backrest is toward negative Z. Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology and physically based fabric and metal materials. No table, second chair, armrests, wheels, floor, room, books, people, robot, hands, readable text, logo, trademark, neon, UI, floating parts, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

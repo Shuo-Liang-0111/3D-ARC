@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-08",
+  "server": "127.0.0.1",
+  "workspace": ".",
+  "url": "http://127.0.0.1:4173/?mode=play&level=rf01-3&view=third&robot=g1&control=velocity",
+  "commit": "236848be303da24a4fd716d5683aeb8f32480548",
+  "scope": [
+    "RF-01-2/3 workshop door controls require battery installed in power slot",
+    "Indoor parcels visible/targetable only with room lights on",
+    "RF-01 unpowered workshop door behavior preserved"
+  ],
+  "verification": {
+    "rf01Tests": 43,
+    "failed": 0,
+    "build": "passed (existing chunk-size warning)",
+    "httpModules": "200 and current rules present",
+    "browser": "Existing sorting preview: lit parcels visible, dark parcels hidden, lit again visible. Formal RF-01-3 fully loaded and started; OFF/OFF and shutter CLOSED. No robot route run.",
+    "fixtures": "Internal nearby-state setup; actual battery pickup/slot interactions, both controls, opening and collision clearance, reset, actual shared syncVisuals and parcel pickup gating"
+  },
+  "deployment": "Existing port 4173 Vite process serves updated source; build succeeded.",
+  "gitScope": "Only task deltas staged; pre-existing sorting implementation and other dirty work retained outside this commit. Test execution used the authoritative working tree.",
+  "sha256": {
+    "game/rf01-shared-engine.js": "b2ab09f92151bb54cdec23820e492528bd9c71a062a24c27b3abf5e4fb753e5d",
+    "game/rf01-shared-scene.js": "75b352120be06843f9f4760a232ff40d0d033c54e84005ced0db65a225d0d2a8",
+    "game/rf01-workshop-rules.js": "81bc8f724994c29beabf02b3096ef787ed3a7bc71371e09ef1fc1924805ac4a4",
+    "tests/rf01-2-lighting.test.mjs": "fdb17d0977628ded1739d37ba0a691e27866d37e38a3055cf3167f1f09df3aea",
+    "tests/rf01-workshop-power-light.test.mjs": "b73c505bf51e7c9af9e225a24114e602614147e0c7d535606ac3b83aa5a63b03"
+  }
+}

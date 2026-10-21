@@ -1,0 +1,12 @@
+[
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r20/local-assets/levels/rf04/architecture-v4/home.glb",
+    "sha256": "89c9d52d2aa351fb41e0d2e5e3b77630cb0d46b1e4afb782f9a09f08353c4603",
+    "bytes": 9449812
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r20/local-assets/levels/rf04/architecture-v4/collision.glb",
+    "sha256": "60e09ad30cc66dd07487cd9e04e68328e1bc4c1064a04b5d3dc773d213c1b5c1",
+    "bytes": 530980
+  }
+]

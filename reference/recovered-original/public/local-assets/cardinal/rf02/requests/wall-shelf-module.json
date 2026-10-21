@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready single-sided wall-aligned public library shelving bay for a contemporary Chinese municipal library during normal opening hours. Real-world size approximately 3.0 m wide x 1.8 m high x 0.58 m deep. One complete straight shelving unit with two durable end panels, five evenly spaced usable shelf levels, a stable recessed plinth, powder-coated dark graphite steel structure, restrained pale birch veneer end panels, and many individually modeled upright hardcover and paperback books in muted neutral red, charcoal, ivory, olive and kraft-paper colors. Keep every shelf opening visibly open and physically plausible, with the front facing positive Z. Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology, physically based materials, realistic fasteners and restrained everyday wear. One isolated object only. No floor, wall, room, bookcase row, second unit, doors, glass panels, signs, readable text, logo, trademark, neon, UI, people, robot, hands, floating pieces, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

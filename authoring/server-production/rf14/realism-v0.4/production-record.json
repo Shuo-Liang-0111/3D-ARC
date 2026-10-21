@@ -1,0 +1,32 @@
+{
+  "stage": "completed",
+  "requestedStyle": "Modern outdoor blue-green hard court, sunny afternoon",
+  "gameplay": "Eight balls returned individually; existing robot and controls frozen",
+  "sourceRevision": "realism-v0.3",
+  "candidateRevision": "realism-v0.4.4",
+  "activeRevision": "realism-v0.4.4",
+  "sourceCommit": "08e202f",
+  "authoritativeProject": ".",
+  "toolProvenance": {
+    "Cardinal": "High-highpoly chair, windscreen and storage hopper; generated surface and leaf textures",
+    "EmbodiedGen": "2.1.0 asset-process executed: uniform mesh/collision scale and URDF height metadata. No generated asset claimed from unavailable image-to-3D backend",
+    "Blender": "4.5.3 court/net/fence fixture/drainage/foliage rebuild and GLB export"
+  },
+  "rejected": [
+    "Cardinal plane-tree: oversized leaf groups and toy-like silhouette",
+    "First paving texture generation: failed task",
+    "realism-v0.4: pale court, white foliage edges",
+    "realism-v0.4.1: fine net disappeared at distance"
+  ],
+  "validation": {
+    "rf14Tests": "6 passed",
+    "colliders": "17 verified",
+    "build": "passed",
+    "fullBrowserRoute": "v0.4.2 eight balls passed; nine environment/collision/interaction assets byte-identical to v0.4.4",
+    "finalBrowserInteraction": "v0.4.4 pickup, carry, drop, re-pick, delivery and reset passed",
+    "assetGate": "40/40 assets; four missing-asset cases blocked start",
+    "deployedBytes": "source/build/served GLB and HDR hashes match"
+  },
+  "remaining": [],
+  "userAcceptance": "pending optional feedback"
+}

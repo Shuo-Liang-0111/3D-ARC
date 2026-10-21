@@ -1,0 +1,53 @@
+diff --git a/tools/rf02-series/optimize-assets.py b/tools/rf02-series/optimize-assets.py
+new file mode 100644
+--- /dev/null
++++ b/tools/rf02-series/optimize-assets.py
+@@ -0,0 +1,48 @@
++import bpy
++import json
++import sys
++from pathlib import Path
++
++project = Path(sys.argv[sys.argv.index("--") + 1]).resolve()
++revision = sys.argv[sys.argv.index("--") + 2]
++source_root = project / "public/local-assets/cardinal/rf02/models/runtime"
++output_root = source_root / revision
++output_root.mkdir(parents=True, exist_ok=True)
++targets = {
++    "return-sorting-table": 16000,
++    "catalog-terminal": 12000,
++    "security-gate-module": 10000,
++    "circulation-desk": 12000,
++    "return-cart": 12000,
++    "indoor-planter": 12000,
++    "suspended-linear-light": 3000,
++    "reading-table": 12000,
++    "reading-chair": 8000,
++    "red-book": 6000,
++}
++records = []
++for name, target in targets.items():
++    bpy.ops.object.select_all(action="SELECT")
++    bpy.ops.object.delete(use_global=False)
++    bpy.ops.import_scene.gltf(filepath=str(source_root / (name + ".glb")))
++    meshes = [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]
++    before = sum(len(obj.data.polygons) for obj in meshes)
++    for obj in meshes:
++        bpy.context.view_layer.objects.active = obj
++        modifier = obj.modifiers.new("Runtime silhouette simplification", "DECIMATE")
++        modifier.ratio = min(1.0, target / max(1, before))
++        modifier.use_collapse_triangulate = True
++        bpy.ops.object.modifier_apply(modifier=modifier.name)
++    after = sum(len(obj.data.polygons) for obj in meshes)
++    bpy.ops.export_scene.gltf(
++        filepath=str(output_root / (name + ".glb")), export_format="GLB",
++        export_draco_mesh_compression_enable=True,
++        export_draco_mesh_compression_level=6,
++        export_draco_position_quantization=14,
++        export_draco_normal_quantization=12,
++        export_draco_texcoord_quantization=12,
++    )
++    records.append({"asset": name, "sourceFaces": before, "runtimeFaces": after, "revision": revision})
++record_path = project.parent / "production/rf02-series-v1/optimization.json"
++record_path.write_text(json.dumps(records, indent=2) + "\n")
++print(json.dumps(records))

@@ -1,0 +1,85 @@
+{
+  "scope": "Internal point placement; formal F animation controller; no route/budget claim",
+  "rf12-2": {
+    "result": "passed",
+    "events": [
+      "simple_checklist_read",
+      "oil_collected",
+      "oil_placed",
+      "simple_kitchen_complete"
+    ],
+    "contactErrorsMeters": [
+      0.00036397199204052,
+      0.02310601948123964,
+      0.023804472748590613,
+      0.0003844952212576627
+    ]
+  },
+  "rf12": {
+    "result": "passed",
+    "events": [
+      "checklist_read",
+      "gas_knob_reset",
+      "hood_started",
+      "cloth_collected",
+      "cloth_secured",
+      "window_opened",
+      "gas_valve_closed",
+      "kitchen_safety_complete"
+    ],
+    "contactErrorsMeters": [
+      0.00023702745850605526,
+      0.00030920662652459313,
+      0.0002572132160233094,
+      0.02022568598017512,
+      0.02214412137476407,
+      0.0006532821597256802,
+      0.010050954650461066,
+      0.0002148948465999205
+    ]
+  },
+  "rf12-3": {
+    "result": "passed",
+    "cookAttempts": 3,
+    "shutdownSeconds": 58.76960000002421,
+    "complete": true,
+    "extinguisherAfterRecovery": {
+      "location": "floor",
+      "x": 1.7581587661152742,
+      "y": 0.006,
+      "z": -1.7272847129924007
+    },
+    "events": [
+      "pan_collected",
+      "pan_on_burner",
+      "hood_started",
+      "cooking_started",
+      "cooking_too_early_restart",
+      "cooking_started",
+      "extinguisher_collected",
+      "fire_extinguished_restart_required",
+      "hood_started",
+      "cooking_started",
+      "cooking_completed"
+    ],
+    "contactErrorsMeters": [
+      0.022057083994838397,
+      0.02491114080300072,
+      0.00025004465498758,
+      0.00024246253782581246,
+      0.00022468181958549703,
+      0.00021952988634676954,
+      0.022044728912680476,
+      0.02479714567498462,
+      0.0003089298481020003,
+      0.00027064347010020436,
+      0.00021781731732075036
+    ]
+  },
+  "views": {
+    "firstPerson": "ceiling visible; oil closeup inspected",
+    "thirdPerson": "ceiling and ceiling fixtures hidden; countertop support inspected",
+    "carry": "oil and pan visible; measured world grip offset numerically zero",
+    "screenshots": "Native browser tool images in task history; isolated asset PNGs under evidence"
+  }
+}

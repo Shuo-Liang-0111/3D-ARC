@@ -1,0 +1,639 @@
+{
+  "targetName": "Unitree G1 EDU2",
+  "sourceImage": ".img2threejs/references/unitree-official/g1-official-rgb/g1-03-rgb.png",
+  "preSpecAssessment": {
+    "objectClass": {
+      "primaryType": "articulated humanoid robot",
+      "primaryDomain": "hybrid",
+      "formLanguage": [
+        "hard-surface",
+        "mechanical",
+        "continuous-sculpt armour"
+      ],
+      "structureKind": [
+        "articulated assembly",
+        "layered shell",
+        "repeated bilateral modules"
+      ],
+      "motionPotential": [
+        "articulated",
+        "detachable",
+        "interactive"
+      ],
+      "materialFamilies": [
+        "painted metal",
+        "anodized metal",
+        "plastic",
+        "rubber",
+        "glazing"
+      ],
+      "notes": "Exact official G1 EDU image set: cyan sensor helmet, tapered torso shell, exposed waist/pelvis, continuous limb armour, Dex3-1 hands."
+    },
+    "complexity": {
+      "tier": "ultra-complex",
+      "scores": {
+        "silhouetteComplexity": 3,
+        "componentCount": 3,
+        "hierarchyDepth": 3,
+        "repetitionDensity": 2,
+        "materialLayerCount": 2,
+        "localDetailDensity": 3,
+        "occlusionRisk": 2,
+        "actionReadinessNeed": 3
+      },
+      "estimatedCounts": {
+        "macroComponents": 9,
+        "mesoComponents": 34,
+        "microFeatureGroups": 18,
+        "materialLayers": 6,
+        "repetitionSystems": 5
+      },
+      "reasoning": [
+        "Official full-body and close-up references show a deep bilateral articulated hierarchy; likeness depends on continuous shell profiles, joint placement, sensor head, Dex3 hands and independent material responses."
+      ]
+    },
+    "specDepthDecision": {
+      "requiredDepth": "ultra-complex",
+      "minimumComponentLevels": [
+        "macro",
+        "meso",
+        "micro"
+      ],
+      "needsRepetitionSystems": true,
+      "needsMaterialLocalOverrides": true,
+      "needsMultipleReviewViews": true,
+      "needsActionReadyHierarchy": true,
+      "rationale": "Choose simple/moderate/complex/ultra-complex from observed structure, not from a hardcoded domain."
+    },
+    "unknownsToResolveBeforeImplementation": [
+      "Rear compute cover and cable routing require an admitted rear video frame; until then label them inferred.",
+      "Official stills mix poses, so only g1-03 and g1-05 may drive neutral proportions.",
+      "GLB proves articulation hierarchy but does not prove EDU surface materials or exact external shell topology."
+    ],
+    "detailInventory": {
+      "scanMethod": "grid-3x3-plus-component-closeups",
+      "targetMinDetails": 16,
+      "details": [
+        {
+          "id": "sensor-cyan-perimeter",
+          "kind": "emissive light guide",
+          "description": "Continuous cyan rounded U-shaped perimeter around dark face cavity",
+          "region": "head",
+          "scale": "meso",
+          "affects": "material and identity",
+          "mapsTo": {
+            "type": "material.localOverrides",
+            "ref": "sensor-glazing.cyanPerimeter"
+          },
+          "evidenceRef": "g1-params-rgb.png:head-closeup",
+          "confidence": 0.98
+        },
+        {
+          "id": "sensor-horizontal-bar",
+          "kind": "emissive inset",
+          "description": "Single cyan horizontal sensor bar across upper face cavity; no eye pair",
+          "region": "head",
+          "scale": "meso",
+          "affects": "geometry and material",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "sensor-head.horizontalBar"
+          },
+          "evidenceRef": "g1-03-rgb.png:head",
+          "confidence": 0.98
+        },
+        {
+          "id": "helmet-rear-overhang",
+          "kind": "continuous shell contour",
+          "description": "Graphite helmet crown extends rearward beyond narrow neck pedestal",
+          "region": "head",
+          "scale": "macro",
+          "affects": "silhouette",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "sensor-head.rearOverhang"
+          },
+          "evidenceRef": "g1-05-rgb.png:head",
+          "confidence": 0.94
+        },
+        {
+          "id": "chest-triangle",
+          "kind": "recessed mark",
+          "description": "Small black downward triangle centered high on silver chest",
+          "region": "torso",
+          "scale": "micro",
+          "affects": "identity",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "torso-shell.chestTriangle"
+          },
+          "evidenceRef": "g1-03-rgb.png:torso",
+          "confidence": 0.99
+        },
+        {
+          "id": "torso-lower-lip",
+          "kind": "shell seam",
+          "description": "Curved lower torso lip with visible dark undercut above waist",
+          "region": "torso",
+          "scale": "meso",
+          "affects": "silhouette and depth",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "torso-shell.lowerLip"
+          },
+          "evidenceRef": "g1-08-rgb.png:torso-bottom",
+          "confidence": 0.96
+        },
+        {
+          "id": "battery-status-panel",
+          "kind": "service panel",
+          "description": "Dark vertical side panel with two recesses and four green indicators",
+          "region": "right torso side",
+          "scale": "meso",
+          "affects": "identity and emission",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "torso-shell.batteryPanel"
+          },
+          "evidenceRef": "g1-params-rgb.png:battery-panel",
+          "confidence": 0.96
+        },
+        {
+          "id": "waist-stacked-rings",
+          "kind": "repeated actuator rings",
+          "description": "Three exposed dark waist stages with distinct diameters and seams",
+          "region": "waist",
+          "scale": "meso",
+          "affects": "structure",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "waist-stack.actuatorRings"
+          },
+          "evidenceRef": "g1-08-rgb.png:waist",
+          "confidence": 0.99
+        },
+        {
+          "id": "pelvis-front-cover",
+          "kind": "raised service cover",
+          "description": "Trapezoidal front pelvis cover with lower tongue and perimeter fasteners",
+          "region": "pelvis",
+          "scale": "meso",
+          "affects": "identity",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "pelvis.frontServiceCover"
+          },
+          "evidenceRef": "g1-06-rgb.png:pelvis",
+          "confidence": 0.98
+        },
+        {
+          "id": "shoulder-round-cap",
+          "kind": "circular flush cap",
+          "description": "Silver circular cap centered on each rounded shoulder housing",
+          "region": "shoulders",
+          "scale": "micro",
+          "affects": "identity",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "shoulder-pair.circularCaps"
+          },
+          "evidenceRef": "g1-03-rgb.png:shoulders",
+          "confidence": 0.96
+        },
+        {
+          "id": "arm-s-profile",
+          "kind": "continuous load-link profile",
+          "description": "Silver upper and lower arm link shells form sculpted S curves around joint axes",
+          "region": "arms",
+          "scale": "macro",
+          "affects": "silhouette",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "arm-pair.sProfileLinks"
+          },
+          "evidenceRef": "g1-08-rgb.png:arms",
+          "confidence": 0.98
+        },
+        {
+          "id": "wrist-groove-stack",
+          "kind": "repeated annular grooves",
+          "description": "Three narrow black grooves around each wrist actuator",
+          "region": "wrists",
+          "scale": "micro",
+          "affects": "geometry and roughness",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "wrist-pair.annularGrooves"
+          },
+          "evidenceRef": "g1-06-rgb.png:wrists",
+          "confidence": 0.99
+        },
+        {
+          "id": "dex3-segments",
+          "kind": "articulated digit segments",
+          "description": "Two long fingers and opposable thumb with visibly separate black pads and joint pins",
+          "region": "hands",
+          "scale": "meso",
+          "affects": "structure and action",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "dex3-pair.segmentedDigits"
+          },
+          "evidenceRef": "g1-params-rgb.png:dex3-closeup",
+          "confidence": 0.99
+        },
+        {
+          "id": "thigh-cap-seam",
+          "kind": "panel seam",
+          "description": "Circular upper thigh cap and two transverse lower seam lines",
+          "region": "thighs",
+          "scale": "micro",
+          "affects": "identity",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "thigh-pair.capAndSeams"
+          },
+          "evidenceRef": "g1-06-rgb.png:thighs",
+          "confidence": 0.96
+        },
+        {
+          "id": "lateral-knee-disc",
+          "kind": "rotary joint cover",
+          "description": "Large black circular disc mounted laterally at each knee",
+          "region": "knees",
+          "scale": "meso",
+          "affects": "silhouette and articulation",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "knee-pair.lateralDiscs"
+          },
+          "evidenceRef": "g1-03-rgb.png:knees",
+          "confidence": 0.99
+        },
+        {
+          "id": "ankle-open-linkage",
+          "kind": "exposed linkage",
+          "description": "Perforated silver ankle bars and visible joint pins bridge shin shell to foot",
+          "region": "ankles",
+          "scale": "meso",
+          "affects": "negative space and structure",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "ankle-pair.openLinkage"
+          },
+          "evidenceRef": "g1-03-rgb.png:ankles",
+          "confidence": 0.96
+        },
+        {
+          "id": "shoe-profile",
+          "kind": "continuous foot shell",
+          "description": "Low dark shoe-like foot with raised heel and tapered rounded toe",
+          "region": "feet",
+          "scale": "macro",
+          "affects": "silhouette",
+          "mapsTo": {
+            "type": "component.localFeatures",
+            "ref": "foot-pair.shoeProfile"
+          },
+          "evidenceRef": "g1-03-rgb.png:feet",
+          "confidence": 0.98
+        },
+        {
+          "id": "silver-satin-response",
+          "kind": "PBR local override",
+          "description": "Cool high-value silver armour with broad satin highlight and subtle fine grain",
+          "region": "all armour",
+          "scale": "micro",
+          "affects": "material",
+          "mapsTo": {
+            "type": "material.localOverrides",
+            "ref": "silver-armour.satinGrain"
+          },
+          "evidenceRef": "g1-08-rgb.png:armour-closeup",
+          "confidence": 0.9
+        },
+        {
+          "id": "graphite-texture-zones",
+          "kind": "PBR local override",
+          "description": "Dark actuator housings vary from fine textured semi-matte to smoother ring edges",
+          "region": "waist pelvis joints",
+          "scale": "micro",
+          "affects": "material",
+          "mapsTo": {
+            "type": "material.localOverrides",
+            "ref": "graphite-mechanism.roughnessZones"
+          },
+          "evidenceRef": "g1-08-rgb.png:waist-closeup",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "anatomy": {
+      "applies": true,
+      "styleHeads": 7.1,
+      "proportions": {
+        "headUnit": 0.141,
+        "torso": 0.29,
+        "legs": 0.52,
+        "shoulderWidth": 0.341,
+        "hipWidth": 0.23
+      },
+      "pose": {
+        "type": "neutral-standing-reference",
+        "jointAngles": {}
+      },
+      "faceLandmarks": {
+        "eyeLine": 0.0,
+        "eyeSpacing": 0.0,
+        "noseBase": 0.0,
+        "mouthLine": 0.0,
+        "hairline": 0.0
+      },
+      "features": [
+        "sensor-head",
+        "tapered-torso",
+        "exposed-waist",
+        "long-leg-shells",
+        "dex3-hands"
+      ],
+      "confidence": 0.82,
+      "note": "Mechanical humanoid ratios measured approximately from neutral official standing views; face landmarks are non-applicable because the head is a sensor enclosure."
+    },
+    "sourceImage": ".img2threejs/references/unitree-official/g1-official-rgb/g1-03-rgb.png"
+  },
+  "qualityContract": {
+    "qualityBar": "ultra-complex",
+    "definitionOfDone": [
+      "At fixed official-reference cameras the model must read immediately as Unitree G1 EDU: no-eye cyan sensor helmet, single tapered silver torso shell with black triangle, exposed three-axis waist and compact pelvis, sculpted S-profile arms, continuous thigh/shin shells with lateral knee discs, exposed ankle links, long dark feet, side battery panel and correctly segmented Dex3-1 hands."
+    ],
+    "minimumSpecDepth": {
+      "macroComponents": 5,
+      "mesoComponents": 16,
+      "microFeatureGroups": 8,
+      "materialLayers": 4,
+      "repetitionSystems": 2,
+      "reviewViewpoints": 5
+    },
+    "featureGroups": [
+      {
+        "id": "overall-silhouette",
+        "name": "Overall silhouette and proportions",
+        "required": true,
+        "qualityCriteria": [
+          "At the fixed standing camera, total envelope is 1320:450:200 and the head/torso/pelvis/limb negative spaces match g1-03 within the silhouette hard gate."
+        ],
+        "evidenceRefs": [
+          "g1-03-rgb.png",
+          "g1-05-rgb.png"
+        ],
+        "failureModes": [
+          "head reads as a box or face with eyes",
+          "torso reads as a chest screen or box",
+          "joint spheres dominate the silhouette",
+          "limb armour remains cylindrical or cuboid"
+        ]
+      },
+      {
+        "id": "primary-structure",
+        "name": "Primary structure and hierarchy",
+        "required": true,
+        "qualityCriteria": [
+          "Head, neck, torso, 3-axis waist, pelvis, bilateral 5-DOF arms, bilateral 6-DOF legs, wrists, ankles and Dex3 digits are separate named scene-graph parts."
+        ],
+        "evidenceRefs": [
+          "g1-official-glb-probe.json",
+          "g1-06-rgb.png",
+          "g1-08-rgb.png"
+        ],
+        "failureModes": [
+          "large visible parts are merged into one mesh",
+          "component hierarchy is too shallow for the observed complexity"
+        ]
+      },
+      {
+        "id": "attachment-joint-correctness",
+        "name": "Attachment and joint correctness",
+        "required": true,
+        "qualityCriteria": [
+          "Every visible child appendage, branch, limb, handle, connector, tube, cable, horn, wing, leg, or hinged part has an attachment contract with parent socket, localStart/localEnd, contact type, embed/overlap, and gap tolerance."
+        ],
+        "evidenceRefs": [
+          "g1-official-glb-probe.json",
+          "g1-06-rgb.png"
+        ],
+        "failureModes": [
+          "child part root floats away from the parent",
+          "branch/limb/tube is centered in space instead of pivoting from its root",
+          "parent-child transform mixes world and local coordinates"
+        ]
+      },
+      {
+        "id": "surface-material-response",
+        "name": "Surface material response",
+        "required": true,
+        "qualityCriteria": [
+          "Silver armour, graphite mechanisms, black elastomer, sensor glazing and cyan emission use independent PBR channels and region-specific roughness.",
+          "No procedural dirt or wear is added because official product renders show clean surfaces."
+        ],
+        "evidenceRefs": [
+          "g1-03-rgb.png",
+          "g1-08-rgb.png",
+          "g1-params-rgb.png"
+        ],
+        "failureModes": [
+          "surface looks like flat plastic",
+          "local material variation is missing or not tied to image evidence"
+        ]
+      },
+      {
+        "id": "reference-lookdev",
+        "name": "Reference color, material, and lighting response",
+        "required": true,
+        "qualityCriteria": [
+          "Material-pass names the reference-derived albedo palette, roughness variation, tactile normal/bump/displacement response, and local masks.",
+          "When a source image is available, run reference PBR extraction and require confidence >= 0.7 before treating maps as implementation-ready.",
+          "Lighting-pass names key/fill/rim or environment light, exposure, tone mapping, background, and contact shadow behavior.",
+          "Neutral, grazing-angle, and reference-matched renders prove that surface relief survives relighting and is not painted into albedo."
+        ],
+        "evidenceRefs": [
+          "g1-03-rgb.png",
+          "g1-06-rgb.png",
+          "g1-08-rgb.png"
+        ],
+        "failureModes": [
+          "model has acceptable shape but reads as flat shaded or plastic",
+          "colors are a generic average instead of reference-observed local color zones",
+          "lighting is evenly ambient and cannot reproduce the source value range"
+        ]
+      },
+      {
+        "id": "g1-head-identity",
+        "name": "G1 sensor-head identity",
+        "required": true,
+        "qualityCriteria": [
+          "Continuous helmet shell, dark recessed face cavity, cyan perimeter and one horizontal bar; no eyes."
+        ],
+        "evidenceRefs": [
+          "g1-03-rgb.png",
+          "g1-params-rgb.png"
+        ],
+        "failureModes": [
+          "eyes or facial features present",
+          "cyan border disconnected",
+          "helmet rear overhang absent"
+        ]
+      },
+      {
+        "id": "g1-limb-shells",
+        "name": "G1 continuous limb shells",
+        "required": true,
+        "qualityCriteria": [
+          "S-profile arm links and tapered thigh/shin shells use continuous profiles around exposed rotary joints."
+        ],
+        "evidenceRefs": [
+          "g1-03-rgb.png",
+          "g1-08-rgb.png"
+        ],
+        "failureModes": [
+          "box or capsule stacks substitute continuous profiles",
+          "knee discs or ankle negative spaces absent"
+        ]
+      },
+      {
+        "id": "g1-dex3",
+        "name": "Dex3-1 hand identity",
+        "required": true,
+        "qualityCriteria": [
+          "Each hand has two long fingers plus an opposable thumb, segmented pads and articulation pivots."
+        ],
+        "evidenceRefs": [
+          "g1-params-rgb.png",
+          "g1-06-rgb.png"
+        ],
+        "failureModes": [
+          "five-finger hand used",
+          "digits are tiny sticks",
+          "palm and segment joints are fused"
+        ]
+      }
+    ],
+    "visualDeltaChecks": [
+      "front three-quarter silhouette against g1-03",
+      "neutral standing proportions against g1-05",
+      "head visible-footprint against parameter close-up",
+      "waist/pelvis/arm region against g1-06 and g1-08",
+      "Dex3 visible-footprint against parameter close-up",
+      "front/right/rear/left turntable non-degeneracy"
+    ],
+    "antiShallowSpecRules": [
+      "Do not proceed to code if qualityContract.qualityBar is unassessed.",
+      "Do not proceed to code if the spec only contains a root component for a moderate or complex object.",
+      "Do not proceed to code if required featureGroups are not represented by componentTree, materials, or repetitionSystems.",
+      "Do not proceed to code if visible local features are described only in prose and not attached to components/materials/evidenceRefs.",
+      "Do not proceed past structural-pass if attached child parts lack attachment.parentSocket, localStart, localEnd, embedDepth/overlap, and gapTolerance.",
+      "Do not pass material look-dev when albedo is reused as roughness, height, normal, or AO.",
+      "Do not pass material look-dev without macro, meso, and micro surface frequency bands for close-up materials.",
+      "Do not pass reference-fidelity material look-dev from a source image without usable referencePbr maps or an explicit documented limitation.",
+      "Do not patch a spec with extracted PBR maps when extraction confidence is below the target threshold unless the user explicitly accepts lower fidelity.",
+      "Do not place adjacent separate-geometry parts below 0.02 world-unit seam overlap (source: grimoire/build/geometry_patterns.md).",
+      "Do not satisfy raised or recessed relief, fasteners, or grip structure with a map alone when the feature affects form; use geometry or displacement (source: grimoire/build/geometry_patterns.md)."
+    ]
+  },
+  "authoringInstruction": "Fill observed object class, complexity reasoning, featureGroups, visualDeltaChecks, and unknowns before generating or implementing ObjectSculptSpec.",
+  "localSpecSearch": {
+    "collection": "core_3d",
+    "query": "Unitree G1 EDU2 articulated humanoid robot continuous armour shell painted metallic silver satin PBR rotary actuator joint attachment socket three finger dexterous hand articulated hierarchy real-time browser procedural mechanical character",
+    "index": {
+      "status": "rebuilt",
+      "reason": "missing",
+      "fingerprint": "6857e5ab528b42ac12f4f411f862610a0bffce8e47aee3610a7603c318072fe8"
+    },
+    "matches": [
+      {
+        "record_id": "core.socket-pivot",
+        "file_path": "grimoire/glossary/3d_vocabulary.md",
+        "heading": "Animation, Physics, And Destruction",
+        "key_path": null,
+        "score": 11.832755384904,
+        "snippets": [
+          "A pivot is a local rotation origin; a socket is an attachment point for a child part. In a runtime hierarchy, a socket Object3D is a child of the relevant pivot."
+        ],
+        "source_refs": [
+          {
+            "path": "grimoire/glossary/3d_vocabulary.md",
+            "heading": "Animation, Physics, And Destruction",
+            "key_path": null
+          },
+          {
+            "path": "grimoire/readiness/action_rigging.md",
+            "heading": "Hierarchy Pattern",
+            "key_path": null
+          }
+        ],
+        "evidence_refs": [
+          {
+            "kind": "source",
+            "ref": "grimoire/readiness/action_rigging.md"
+          },
+          {
+            "kind": "notebooklm-research",
+            "ref": "notebooklm:4b03c2f9-8393-411f-b5b4-039ab9532843",
+            "note": "Validated generic schema vocabulary; numeric claims remain backed by local source_refs."
+          }
+        ]
+      },
+      {
+        "record_id": "core.shader-mapping-uvcoordinate-system-conversion-attachment-hierarchy",
+        "file_path": "docs/raw/img2threejs-skill-dataset.json",
+        "heading": null,
+        "key_path": "categories.rendering_shader_mapping[14]",
+        "score": 11.10158437487,
+        "snippets": [
+          "Handling handedness/up-axis differences (Unity Y-up left-handed vs. USD/glTF right-handed) and representing sub-part attachment via parent-child scene-graph transforms. X\u1eed l\u00fd kh\u00e1c bi\u1ec7t tay thu\u1eadn/tr\u1ee5c l\u00ean (Unity Y-up tr\u00e1i vs. USD/glTF ph\u1ea3i) v\u00e0 ..."
+        ],
+        "source_refs": [
+          {
+            "path": "docs/raw/img2threejs-skill-dataset.json",
+            "heading": null,
+            "key_path": "categories.rendering_shader_mapping[14]"
+          }
+        ],
+        "evidence_refs": [
+          {
+            "kind": "source",
+            "ref": "docs/raw/img2threejs-skill-dataset.json",
+            "note": "img2threejs NotebookLM research distillation"
+          }
+        ]
+      },
+      {
+        "record_id": "core.attachment-contract",
+        "file_path": "grimoire/readiness/joint_attachment.md",
+        "heading": "Attachment Contract",
+        "key_path": null,
+        "score": 9.097721292368,
+        "snippets": [
+          "An attached child records its parent, parent socket, local start and end, contact type, and embed depth or overlap where applicable."
+        ],
+        "source_refs": [
+          {
+            "path": "grimoire/readiness/joint_attachment.md",
+            "heading": "Attachment Contract",
+            "key_path": null
+          }
+        ],
+        "evidence_refs": [
+          {
+            "kind": "source",
+            "ref": "grimoire/readiness/joint_attachment.md"
+          },
+          {
+            "kind": "notebooklm-research",
+            "ref": "notebooklm:4b03c2f9-8393-411f-b5b4-039ab9532843",
+            "note": "Validated generic schema vocabulary; numeric claims remain backed by local source_refs."
+          }
+        ]
+      }
+    ]
+  }
+}

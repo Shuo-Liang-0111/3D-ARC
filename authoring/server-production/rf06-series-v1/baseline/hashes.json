@@ -1,0 +1,9 @@
+{
+  "game/app.js": "998d77a0d3176ca2c729f777586e5f4fd4d5dea0d10c345bfde6050f55b94d02",
+  "index.html": "7304a0ede68f0215eeb11e728a043b51572e4a99d83fc276565323375604c4f7",
+  "vite.config.js": "aeaf9b456b5c643066a328282d0d3b0cdf9648195c717cf0b59ff8d8f8528173",
+  "game/levels/rf06/runtime.js": "5fba914e83eb411f54cb2a70ad04c35370ebd38e206043891efa9d3d14aa4ff2",
+  "game/levels/rf06/scene.js": "dab9a851a9057eb0bf9b203fa5cd4b27e45f77f38aaacceb2af7a7cdc5ed9360",
+  "game/unitree-g1-edu2.js": "dd76838ff6a38d84b9ea118061e457974ecb9094add5f17aec8d096cf8ffb9f4",
+  "game/operator-controls.js": "b8aa70691ceebfaae5e12075db40255c39737003dfb1d33ecb173c08df1b4a58"
+}

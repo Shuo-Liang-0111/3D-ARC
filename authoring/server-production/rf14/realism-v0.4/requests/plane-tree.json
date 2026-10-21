@@ -1,0 +1,10 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "faceLimit": 70000,
+  "prompt": "Single photorealistic mature London plane tree, 7 meters tall and 5 meters wide, irregular branching trunk with mottled pale gray brown exfoliating bark, dense natural summer green lobed leaves in varied clusters, realistic landscape tree for outdoor tennis club. Full tree including base, isolated, no ground slab, no planter, no grass, no background buildings. Fine branches visible through dense organic canopy, no polygonal clumps, no cartoon style."
+}

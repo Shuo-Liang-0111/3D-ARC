@@ -1,0 +1,275 @@
+import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
+import { CHAIRS, CART, REVISION } from "../../game/levels/rf02/series-layout.js";
+import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
+import { pathTo, interactionGoal } from "./route.mjs";
+
+const frame = document.querySelector("#game");
+const status = document.querySelector("#status");
+let keyboardNavigation = false;
+let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
+const observedFalls = new Set();
+const api = () => frame.contentWindow.__ARC_AGENT__;
+const read = () => api().getState();
+const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
+const engine = () => createArchiveEngine(document.querySelector("#level").value);
+async function key(code, duration) {
+  const target = frame.contentWindow;
+  target.dispatchEvent(new target.KeyboardEvent("keydown", { code, key: code.replace("Key", "").toLowerCase(), bubbles: true }));
+  try { await delay(duration); }
+  finally { target.dispatchEvent(new target.KeyboardEvent("keyup", { code, bubbles: true })); }
+  await delay(90);
+}
+
+function capture(label) {
+  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
+  const image = document.createElement("img");
+  image.src = data; image.alt = label;
+  document.querySelector("#captures").append(image);
+  images.push({ label, data });
+}
+
+function observeFall() {
+  for (const book of Object.values(read().books)) {
+    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
+    const key = book.id + "-" + book.location;
+    if (!observedFalls.has(key)) {
+      observedFalls.add(key);
+      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
+      capture(key);
+    }
+  }
+}
+
+async function waitFor(predicate, timeout = 45000) {
+  const started = performance.now();
+  while (!predicate()) {
+    if (stopped) throw new Error("Paused");
+    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
+    observeFall();
+    await delay(100);
+  }
+  observeFall();
+}
+
+function load() {
+  stopped = true;
+  keyboardNavigation = false;
+  operations = []; records = []; images = []; observedFalls.clear();
+  document.querySelector("#captures").replaceChildren();
+  status.removeAttribute("data-report");
+  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
+  readyAt = performance.now();
+  status.value = "加载 " + document.querySelector("#level").value;
+}
+
+async function prepare() {
+  for (let attempt = 0; attempt < 1200 && !api()?.ready().ready; attempt += 1) await delay(100);
+  if (!api()?.ready().ready) throw new Error("Assets are not ready");
+  if (operations.length || records.length) return;
+  api().reset({ harness: "state" });
+  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
+    { type: "grip", kind: "chair", id: chair.id },
+    { type: "push", kind: "chair", id: chair.id },
+    { type: "release", kind: "chair", id: chair.id },
+  ]);
+  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
+  if (engine().LEVEL.dynamic) operations.push({ type: "wait-falls" });
+  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
+  capture("start");
+}
+
+async function walkTo(goal) {
+  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.025);
+  for (const point of points.slice(1)) {
+    let attempts = 0, blocked = 0;
+    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.065) {
+      if (stopped) throw new Error("Paused");
+      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
+      const before = read(), yaw = before.player.yaw;
+      let dx = point.x - before.player.x, dz = point.z - before.player.z;
+      const previousPoint = points[Math.max(0, points.indexOf(point) - 1)];
+      if (Math.abs(point.x - previousPoint.x) < 0.001 && Math.abs(dx) > 0.045) dz = 0;
+      if (Math.abs(point.z - previousPoint.z) < 0.001 && Math.abs(dz) > 0.045) dx = 0;
+      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
+      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
+      const along = Math.abs(forward) >= Math.abs(lateral);
+      const component = along ? forward : lateral;
+      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
+      const speed = read().attachment ? engine().LEVEL.moveSpeed : along ? component >= 0 ? 1 : 0.5 : 0.3;
+      if (keyboardNavigation || read().attachment) await key("Key" + action, Math.max(18, Math.min(300, Math.abs(component) / speed * 800)));
+      else await api().act({ action, durationMs: Math.max(40, Math.min(700, Math.abs(component) / speed * 900)), harness: "state" });
+      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
+      blocked = travelled < 0.0005 ? blocked + 1 : 0;
+      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
+      observeFall();
+      status.value = "行走 · 余量 " + read().progress.toFixed(1);
+    }
+  }
+  if (Number.isFinite(goal.yaw) && !read().attachment) {
+    for (let count = 0; count < 100; count += 1) {
+      const error = Math.atan2(Math.sin(goal.yaw - read().player.yaw), Math.cos(goal.yaw - read().player.yaw));
+      if (Math.abs(error) < 0.02) break;
+      await key(error > 0 ? "KeyQ" : "KeyE", Math.max(18, Math.min(220, Math.abs(error) * 1000)));
+    }
+  }
+}
+
+async function interactAndWait(target) {
+  await key("KeyF", 70);
+  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
+  else if (target.type === "release" || target.type === "shelf" || target.type === "drop") await waitFor(() => animation().phase === "idle");
+  if (target.type === "book") await waitFor(() => animation().phase === "holding");
+  await waitFor(() => frame.contentDocument.querySelector("#game-shell").dataset.robotActionActive !== "true");
+  if (read().failed) throw new Error("Reserve depleted");
+}
+
+async function executeNext() {
+  await prepare();
+  const target = operations[0];
+  if (!target) return;
+  const state = read();
+  if (target.type === "grip") {
+    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+    await walkTo(furnitureStand(object));
+  } else if (target.type === "push") {
+    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+    const placement = target.kind === "cart" ? CART.parking : { ...object.home, x: object.home.x + 0.25, z: object.home.z - 0.20 };
+    await walkTo(furnitureStand({ ...object, ...placement }));
+  } else if (target.type === "wait-falls") {
+    await waitFor(() => read().incident.drops === 3 && !Object.values(read().books).some(book => book.location === "falling"), 300000);
+  } else if (target.type === "book" || target.type === "shelf") {
+    await walkTo(interactionGoal(engine(), read(), target));
+  }
+  if (target.type === "book" || target.type === "shelf") {
+    const matches = () => {
+      const selected = engine().getInteraction(read());
+      return selected?.type === target.type && (target.type === "book" ? selected.bookId === target.bookId : selected.color === target.color);
+    };
+    for (let attempt = 0; attempt < 2 && !matches(); attempt += 1) await walkTo(interactionGoal(engine(), read(), target));
+    if (!matches()) throw new Error("Requested object is not selected " + JSON.stringify(target));
+  }
+  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+  if (!["push", "wait-falls"].includes(target.type)) await interactAndWait(target);
+  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
+  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
+  if (target.type === "wait-falls") {
+    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
+    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
+    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
+  }
+  if (target.type === "book") {
+    if (!read().carriedBook || !read().books[read().carriedBook].fallen) throw new Error("No fallen book picked up");
+    target.pickedBookId = read().carriedBook;
+  }
+  if (target.type === "shelf") {
+    if (read().carriedBook) throw new Error("Book was not returned");
+    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
+    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
+  }
+  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
+  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+  operations.shift();
+  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
+  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
+}
+
+async function run(all) {
+  if (busy) return;
+  busy = true; stopped = false;
+  try {
+    do { await executeNext(); } while (all && !stopped && operations.length);
+    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
+  } catch (error) {
+    status.value = error.message;
+    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
+  } finally { busy = false; }
+}
+
+document.querySelector("#load").onclick = load;
+document.querySelector("#next").onclick = () => run(false);
+document.querySelector("#run").onclick = () => run(true);
+document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
+document.querySelector("#capture").onclick = () => capture("manual");
+document.querySelector("#export").onclick = () => {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
+  link.download = document.querySelector("#level").value + "-operations-evidence.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+};
+load();
+
+const regression = document.createElement("button");
+regression.id = "regress";
+regression.textContent = "缺陷回归";
+document.querySelector("header").append(regression);
+regression.onclick = async () => {
+  if (busy) return;
+  busy = true; stopped = false; keyboardNavigation = true;
+  try {
+    await prepare();
+    await walkTo(interactionGoal(engine(), read(), { type: "book", bookId: "black" }));
+    await interactAndWait({ type: "book" });
+    if (!read().carriedBook) throw new Error("Table pickup failed");
+    capture("table-book-carried");
+    records.push({ type: "table-pickup", state: read() });
+    api().reset({ harness: "state" });
+    const stand = furnitureStand(read().cart, -1);
+    await walkTo(stand);
+    await interactAndWait({ type: "grip" });
+    if (read().attachment?.kind !== "cart" || read().attachment.side !== -1) throw new Error("Native handle side unavailable");
+    const before = { ...read().cart };
+    await key("KeyW", 650);
+    if (Math.hypot(read().cart.x - before.x, read().cart.z - before.z) < 0.3) throw new Error("Keyboard cannot push cart");
+    capture("native-cart-push");
+    records.push({ type: "native-cart-contact", state: read(), animation: animation() });
+    await interactAndWait({ type: "release" });
+    records.push({ type: "front-cart-push", before, state: read(), animation: animation() });
+    if (engine().LEVEL.dynamic) {
+      await waitFor(() => read().incident.drops === 3 && Object.values(read().books).filter(book => book.fallen).every(book => book.location === "ground"), 300000);
+      records.push({ type: "three-automatic-falls", state: read() });
+      capture("three-automatic-falls");
+    }
+    status.value = "缺陷回归通过";
+    status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+  } catch (error) {
+    status.value = error.message;
+    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: read() });
+  } finally { busy = false; }
+};
+
+const bookCases = ["black", "red", "white", "red-reading", "black-reading", "white-cart"];
+const bookChoice = document.createElement("select");
+bookChoice.id = "bookcase";
+for (const bookId of ["all", ...bookCases]) bookChoice.add(new Option(bookId, bookId));
+document.querySelector("header").append(bookChoice);
+const bookCheck = document.createElement("button");
+bookCheck.id = "bookcheck";
+bookCheck.textContent = "桌面六本检查";
+document.querySelector("header").append(bookCheck);
+bookCheck.onclick = async () => {
+  if (busy) return;
+  busy = true; stopped = false; keyboardNavigation = false;
+  try {
+    await prepare();
+    for (const bookId of bookCases.filter(value => bookChoice.value === "all" || value === bookChoice.value)) {
+      api().reset({ harness: "state" });
+      const goal = bookId === "white-cart" ? { x: read().cart.x, z: read().cart.z + 1.1, yaw: Math.PI } : interactionGoal(engine(), read(), { type: "book", bookId });
+      await walkTo(goal);
+      records.push({ type: "book-approach", bookId, state: read(), selected: engine().getInteraction(read()) });
+      status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+      if (engine().getInteraction(read())?.bookId !== bookId) throw new Error("Wrong target at pickup approach " + bookId);
+      await interactAndWait({ type: "book" });
+      if (read().carriedBook !== bookId) throw new Error("Wrong tabletop book " + bookId);
+      records.push({ type: "table-pickup", bookId, state: read(), animation: animation() });
+      capture("table-book-carried-" + bookId);
+      status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+    }
+    status.value = "桌面取书通过 · " + bookChoice.value;
+  } catch (error) {
+    status.value = error.message;
+    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: read() });
+  } finally { busy = false; }
+};

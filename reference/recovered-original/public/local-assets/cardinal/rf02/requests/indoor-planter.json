@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready indoor public-library planter for a contemporary Chinese municipal library. Real-world overall size approximately 0.62 m wide x 1.45 m high x 0.62 m deep. One stable matte ceramic planter in warm gray, approximately 0.55 m high, filled with dark soil and one healthy restrained broad-leaf indoor plant similar to bird-of-paradise foliage. Include several individually modeled natural leaves with believable stems, subtle variation and no clipping; keep the silhouette tidy for a public circulation area. Y axis up, centered at world origin, bottom-center pivot. Clean game-usable topology and physically based ceramic, soil and leaf materials with no baked environment. One isolated object only. No floor, wall, room, saucer wider than the pot, flowers, extra pots, people, robot, readable text, logo, trademark, neon, UI, floating leaves, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,9 @@
+{
+  "prompt": "One realistic contemporary clinical handwash basin with attached chrome tall elbow-operated mixer tap. Isolated single sanitary fixture, no cabinet, no wall, no room or floor. White glazed ceramic rounded rectangular basin 0.60m wide and 0.46m deep, 0.14m thick, concave intact bowl, chrome circular drain, overflow hole. Tap at rear negative Z, total height including tap 0.38m. Clean subtle ceramic glaze, polished metal reflections, fine manufacturing details, front faces positive Z. No text, people or extra items.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

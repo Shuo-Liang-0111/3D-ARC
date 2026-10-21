@@ -1,0 +1,10 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "prompt": "Single realistic ordinary household blue plastic cleaning bucket, 0.32 m diameter and 0.30 m tall, fully OPEN TOP with deep continuous hollow interior basin and thin rounded rim, semicircular upright metal carrying handle with centered black grip 0.45 m above ground. Empty bucket, no water. Matte molded blue polypropylene, restrained scuffs and subtle roughness, realistic base. Y up, bottom center pivot. Isolated single object, no floor, no environment, no pedestal, no text, no logo, no hands or people.",
+  "negativePrompt": "lid, sealed top, solid cylinder, water, scenery, pedestal, text, logo"
+}

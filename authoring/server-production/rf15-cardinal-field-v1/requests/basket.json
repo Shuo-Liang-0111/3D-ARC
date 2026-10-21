@@ -1,0 +1,9 @@
+{
+  "prompt": "One empty rectangular reusable dark olive green plastic agricultural harvest crate, photorealistic worn produce basket, 65 cm wide 45 cm deep 32 cm tall, completely open top showing empty interior and perforated floor, actual open lattice ventilation slots in four walls, thick reinforced rounded rim, recessed open hand grips in short sides, ribs and feet, subtle scratches and dry soil in corners. Single isolated container, no vegetables, no contents, no ground, no text, no logo. PBR weathered matte polypropylene.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

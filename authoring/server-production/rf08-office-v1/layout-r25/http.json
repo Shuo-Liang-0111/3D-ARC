@@ -1,0 +1,17 @@
+[
+  {
+    "level": "rf09",
+    "sha256": "7fc8fc2c0261dd8b5385eff3ceaa99e2e4d9a28d08cf99281b07dd6d644b63f1",
+    "release": "rf08-office-v1-r25"
+  },
+  {
+    "level": "rf09-2",
+    "sha256": "7fc8fc2c0261dd8b5385eff3ceaa99e2e4d9a28d08cf99281b07dd6d644b63f1",
+    "release": "rf08-office-v1-r25"
+  },
+  {
+    "level": "rf09-3",
+    "sha256": "7fc8fc2c0261dd8b5385eff3ceaa99e2e4d9a28d08cf99281b07dd6d644b63f1",
+    "release": "rf08-office-v1-r25"
+  }
+]

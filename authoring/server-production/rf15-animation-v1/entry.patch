@@ -1,0 +1,23 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -379,4 +379,4 @@
+-const browserPhysicsReady = robotId === "g1" && ["rf15-1", "rf15-2", "rf15-3"].includes(levelId) && searchParams.get("physics") === "1"
++const browserPhysicsReady = robotId === "g1" && controlModeId === "velocity" && ["rf15-1", "rf15-2", "rf15-3"].includes(levelId)
+   ? Promise.all([robot.userData.assetReady, world.assetReady]).then(async () => {
+-    const { createBrowserPhysics } = await import("./levels/rf15/browser-physics.js");
+-    browserPhysics = await createBrowserPhysics(world, robot, {
++    const { createInteractionAnimation } = await import("./levels/rf15/interaction-animation.js");
++    browserPhysics = await createInteractionAnimation(world, robot, {
+diff --git a/game/levels/rf15/variant-engine.js b/game/levels/rf15/variant-engine.js
+--- a/game/levels/rf15/variant-engine.js
++++ b/game/levels/rf15/variant-engine.js
+@@ -77 +77 @@
+-  function interact(state) {
++  function interact(state, options = {}) {
+@@ -101 +101,4 @@
+-      case "pickup-crop": next.cuttingCrop = crop.id; next.cutElapsed = 0; next.lastEvent = "harvest_started"; break;
++      case "pickup-crop":
++        if (options.animationComplete) { crop.location = "carried"; next.carriedCrop = crop.id; next.lastEvent = "crop_picked"; }
++        else { next.cuttingCrop = crop.id; next.cutElapsed = 0; next.lastEvent = "harvest_started"; }
++        break;

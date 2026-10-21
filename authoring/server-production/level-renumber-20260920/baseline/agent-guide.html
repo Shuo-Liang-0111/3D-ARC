@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN" data-language="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="使用 OpenCode、Python 或 Node.js 将你自己的 AI Agent 接入 ARC 机器人游戏。" />
+    <title>ARC Agent 接入指南 / Integration Guide</title>
+    <link rel="stylesheet" href="/agent-guide.css" />
+  </head>
+  <body>
+    <header class="guide-header">
+      <a class="brand" href="/" aria-label="返回 ARC 游戏">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span><strong>ARC AGENT LAB</strong><small>BRING YOUR OWN AGENT</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Guide controls">
+        <a href="/" data-zh="返回游戏" data-en="Back to game">返回游戏</a>
+        <div class="language-switch" role="group" aria-label="Language">
+          <button type="button" data-language-button="zh" aria-pressed="true">中文</button>
+          <button type="button" data-language-button="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="live-game" class="agent-live-panel">
+        <div class="agent-live-heading">
+          <div>
+            <span class="eyebrow">AGENT VIEWPORT / SHARED RUNTIME</span>
+            <h1 data-zh="先看见，再接入" data-en="See it first, then connect">先看见，再接入</h1>
+            <p data-zh="这里显示的就是人类游玩时看到的同一套游戏画面。Agent 通过 Episode API 发送 W/A/S/D/E/WAIT，画面和状态会在每个动作后同步更新。" data-en="This is the same game runtime a human player sees. Your Agent sends W/A/S/D/E/WAIT through the Episode API, and the frame and state update after every action.">这里显示的就是人类游玩时看到的同一套游戏画面。Agent 通过 Episode API 发送 W/A/S/D/E/WAIT，画面和状态会在每个动作后同步更新。</p>
+          </div>
+          <span class="agent-live-status"><i></i> LIVE / LOCAL</span>
+        </div>
+        <div class="agent-level-strip" aria-label="Agent 预览关卡">
+          <span>LEVEL PREVIEW</span>
+          <a data-agent-level="rf01" href="/agent-guide.html?level=rf01#live-game">RF-01</a>
+          <a data-agent-level="rf02" href="/agent-guide.html?level=rf02#live-game">RF-02</a>
+          <a data-agent-level="rf03" href="/agent-guide.html?level=rf03#live-game">RF-03</a>
+          <a data-agent-level="rf04" href="/agent-guide.html?level=rf04#live-game">RF-04</a>
+          <a data-agent-level="rf05" href="/agent-guide.html?level=rf05#live-game">RF-05</a>
+          <a data-agent-level="rf06" href="/agent-guide.html?level=rf06#live-game">RF-06</a>
+          <a data-agent-level="rf07" href="/agent-guide.html?level=rf07#live-game">RF-07</a>
+          <a data-agent-level="rf08" href="/agent-guide.html?level=rf08#live-game">RF-08</a>
+          <a data-agent-level="rf09" href="/agent-guide.html?level=rf09#live-game">RF-09</a>
+          <a data-agent-level="rf10" href="/agent-guide.html?level=rf10#live-game">RF-10</a>
+          <a data-agent-level="test_zpf" href="/agent-guide.html?level=test_zpf#live-game">TEST-ZPF</a>
+          <a data-agent-level="test_zpf2" href="/agent-guide.html?level=test_zpf2#live-game">TEST-ZPF2</a>
+        </div>
+        <iframe id="agent-game-frame" title="ARC Agent live game" src="/?mode=agent&amp;level=rf01&amp;view=third"></iframe>
+      </section>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">ARC ENVIRONMENT PROTOCOL / V1</span>
+          <div data-language-panel="zh">
+            <h1>让你自己的 AI<br />进入机器人世界</h1>
+            <p>ARC 提供游戏环境、浏览器执行器和 Episode API。模型、Harness 和 API Key 全部由你控制；你的模型密钥不会发送给 ARC。</p>
+          </div>
+          <div data-language-panel="en">
+            <h1>Bring your own AI<br />into the robot world</h1>
+            <p>ARC provides the game environment, browser executor, and Episode API. You control the model, harness, and API key; your model credential is never sent to ARC.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="primary-action" href="#quickstart" data-zh="开始接入" data-en="Start integration">开始接入</a>
+            <a href="/agent-kit/" data-zh="下载 Starter Kit" data-en="Download Starter Kit">下载 Starter Kit</a>
+          </div>
+        </div>
+        <div class="protocol-visual" aria-label="Agent protocol flow">
+          <div><span>01</span><strong>YOUR AGENT</strong><small>OpenCode / Python / Node.js</small></div>
+          <i>→</i>
+          <div><span>02</span><strong>EPISODE API</strong><small>Token · Memory · Trajectory</small></div>
+          <i>→</i>
+          <div><span>03</span><strong>GAME BROWSER</strong><small>Observe · W A S D E WAIT</small></div>
+        </div>
+      </section>
+
+      <section class="security-banner">
+        <strong data-zh="密钥边界" data-en="Credential boundary">密钥边界</strong>
+        <p data-language-panel="zh">模型 API Key 只保存在你自己的电脑、服务器或 Agent 平台中。不要把 Key 填进 ARC 页面、Episode 请求、提示词或代码仓库。</p>
+        <p data-language-panel="en">Keep the model API key only on your computer, server, or agent platform. Never place it in the ARC page, Episode requests, prompts, or a source repository.</p>
+      </section>
+
+      <div class="guide-layout">
+        <aside class="guide-nav" aria-label="Guide navigation">
+          <span>CONTENTS</span>
+          <a href="#quickstart" data-zh="快速开始" data-en="Quick start">快速开始</a>
+          <a href="#harness" data-zh="选择 Harness" data-en="Choose a harness">选择 Harness</a>
+          <a href="#opencode">OpenCode</a>
+          <a href="#python">Python</a>
+          <a href="#nodejs">Node.js</a>
+          <a href="#protocol" data-zh="协议与记忆" data-en="Protocol & memory">协议与记忆</a>
+          <a href="#troubleshooting" data-zh="故障排查" data-en="Troubleshooting">故障排查</a>
+        </aside>
+
+        <article class="guide-content">
+          <section id="quickstart" class="guide-section">
+            <span class="section-index">01 / QUICK START</span>
+            <div data-language-panel="zh">
+              <h2>所有 Agent 共用四步闭环</h2>
+              <p>无论使用什么模型或 Harness，ARC 端的流程完全相同。</p>
+            </div>
+            <div data-language-panel="en">
+              <h2>One four-step loop for every agent</h2>
+              <p>The ARC-side workflow is identical regardless of model or harness.</p>
+            </div>
+            <ol class="step-grid">
+              <li><span>1</span><strong data-zh="创建 Episode" data-en="Create Episode">创建 Episode</strong><p data-zh="选择关卡、视角和 Harness，获取 Agent Token 与 gameUrl。" data-en="Choose a level, view, and harness; receive an Agent Token and gameUrl.">选择关卡、视角和 Harness，获取 Agent Token 与 gameUrl。</p></li>
+              <li><span>2</span><strong data-zh="打开游戏 URL" data-en="Open game URL">打开游戏 URL</strong><p data-zh="必须在浏览器打开返回的 gameUrl，让机器人世界连接 Episode。" data-en="Open the returned gameUrl in a browser so the robot world can attach to the Episode.">必须在浏览器打开返回的 gameUrl，让机器人世界连接 Episode。</p></li>
+              <li><span>3</span><strong data-zh="观察并动作" data-en="Observe and act">观察并动作</strong><p data-zh="读取观察，让模型只选择 W/A/S/D/E/WAIT，再等待动作完成。" data-en="Read an observation, let the model choose only W/A/S/D/E/WAIT, then wait for completion.">读取观察，让模型只选择 W/A/S/D/E/WAIT，再等待动作完成。</p></li>
+              <li><span>4</span><strong data-zh="更新记忆" data-en="Update memory">更新记忆</strong><p data-zh="记录目标、地标、失败尝试和下一计划，直到 WIN 或 GAME_OVER。" data-en="Record goals, landmarks, failed attempts, and the next plan until WIN or GAME_OVER.">记录目标、地标、失败尝试和下一计划，直到 WIN 或 GAME_OVER。</p></li>
+            </ol>
+
+            <h3 data-zh="先测试 Episode API" data-en="Test the Episode API first">先测试 Episode API</h3>
+            <div class="code-card">
+              <div class="code-heading"><span>Shell</span><button type="button" data-copy-target="create-episode" data-zh="复制" data-en="Copy">复制</button></div>
+              <pre id="create-episode"><code>export ARC_AGENT_API_URL="<span data-site-origin>https://your-arc-site.example</span>"
+
+curl -X POST "$ARC_AGENT_API_URL/api/v1/episodes" \
+  -H 'content-type: application/json' \
+  -d '{"level":"rf01","view":"dual","harness":"hybrid"}'</code></pre>
+            </div>
+            <p class="callout" data-zh="响应中的 agentToken 属于你的 Agent；gameUrl 中包含独立 Browser Token。两者都应视为临时凭据，不要公开分享。" data-en="The agentToken belongs to your agent; gameUrl contains a separate Browser Token. Treat both as temporary credentials and do not share them publicly.">响应中的 agentToken 属于你的 Agent；gameUrl 中包含独立 Browser Token。两者都应视为临时凭据，不要公开分享。</p>
+          </section>
+
+          <section id="harness" class="guide-section">
+            <span class="section-index">02 / HARNESS</span>
+            <div data-language-panel="zh"><h2>选择评测信息边界</h2><p>Harness 决定 Agent 能看到什么，不改变游戏规则和动作空间。</p></div>
+            <div data-language-panel="en"><h2>Choose the evaluation boundary</h2><p>The harness controls what the agent can see without changing game rules or the action space.</p></div>
+            <div class="harness-grid">
+              <article><span>VISUAL</span><strong data-zh="纯视觉评测" data-en="Vision-only evaluation">纯视觉评测</strong><p data-zh="截图 + 最少任务信息。适合测试真正的视觉理解，必须使用支持图片输入的模型。" data-en="Screenshot plus minimal task information. Best for genuine visual reasoning; requires an image-capable model.">截图 + 最少任务信息。适合测试真正的视觉理解，必须使用支持图片输入的模型。</p></article>
+              <article class="recommended"><span>HYBRID · DEFAULT</span><strong data-zh="多模态实用评测" data-en="Practical multimodal evaluation">多模态实用评测</strong><p data-zh="截图 + HUD + 玩家位置 + 互动与调试信号。推荐首次接入和复杂 Agent。" data-en="Screenshot, HUD, player position, interaction, and debug signals. Recommended for first integrations and capable agents.">截图 + HUD + 玩家位置 + 互动与调试信号。推荐首次接入和复杂 Agent。</p></article>
+              <article><span>STATE</span><strong data-zh="结构化状态评测" data-en="Structured-state evaluation">结构化状态评测</strong><p data-zh="无截图，返回完整可序列化状态。适合纯文本模型、规划器和确定性基线。" data-en="No screenshot; returns complete serializable state. Suitable for text-only models, planners, and deterministic baselines.">无截图，返回完整可序列化状态。适合纯文本模型、规划器和确定性基线。</p></article>
+            </div>
+          </section>
+
+          <section id="opencode" class="guide-section integration-section">
+            <span class="section-index">03 / OPENCODE</span>
+            <div data-language-panel="zh"><h2>使用 OpenCode 玩 ARC</h2><p>OpenCode 负责模型和会话，ARC MCP Adapter 负责游戏工具。你可以在 OpenCode 中选择任意已配置模型。</p></div>
+            <div data-language-panel="en"><h2>Play ARC with OpenCode</h2><p>OpenCode owns the model and session; the ARC MCP adapter provides game tools. Select any model configured in OpenCode.</p></div>
+            <div class="requirements"><span>REQUIRES</span><strong>OpenCode</strong><strong>Node.js 20+</strong><strong data-zh="你的模型 API Key" data-en="Your model API key">你的模型 API Key</strong></div>
+
+            <h3 data-zh="1. 下载本地 Adapter" data-en="1. Download the local adapter">1. 下载本地 Adapter</h3>
+            <div class="code-card">
+              <div class="code-heading"><span>Shell</span><button type="button" data-copy-target="download-opencode" data-zh="复制" data-en="Copy">复制</button></div>
+              <pre id="download-opencode"><code>mkdir -p arc-agent-kit &amp;&amp; cd arc-agent-kit
+curl -fsSLO "<span data-site-origin>https://your-arc-site.example</span>/agent-kit/arc-agent-client.mjs"
+curl -fsSLO "<span data-site-origin>https://your-arc-site.example</span>/agent-kit/arc-opencode-mcp.mjs"
+curl -fsSLO "<span data-site-origin>https://your-arc-site.example</span>/agent-kit/ARC_AGENT_PROMPT.md"</code></pre>
+            </div>
+
+            <h3 data-zh="2. 配置本地环境" data-en="2. Configure your local environment">2. 配置本地环境</h3>
+            <div class="code-card">
+              <div class="code-heading"><span>Shell</span><button type="button" data-copy-target="opencode-env" data-zh="复制" data-en="Copy">复制</button></div>
+              <pre id="opencode-env"><code>export ARC_AGENT_API_URL="<span data-site-origin>https://your-arc-site.example</span>"
+export YOUR_MODEL_API_KEY="replace-in-your-shell-only"
+opencode</code></pre>
+            </div>
+            <p data-language-panel="zh">把模型 Provider 配置在你自己的 OpenCode 中，并通过环境变量引用密钥。ARC 不要求 Packy，也不限制 OpenAI、Anthropic、GLM、Claude、Kimi 或其他 Provider。</p>
+            <p data-language-panel="en">Configure the model provider in your own OpenCode setup and reference its key through an environment variable. ARC does not require Packy and does not restrict OpenAI, Anthropic, GLM, Claude, Kimi, or other providers.</p>
+
+            <h3 data-zh="3. 在 opencode.json 添加 MCP" data-en="3. Add the MCP server to opencode.json">3. 在 opencode.json 添加 MCP</h3>
+            <div class="code-card">
+              <div class="code-heading"><span>JSON</span><button type="button" data-copy-target="opencode-config" data-zh="复制" data-en="Copy">复制</button></div>
+              <pre id="opencode-config"><code>{
+  "mcp": {
+    "arc-game": {
+      "type": "local",
+      "command": [
+        "node",
+        "/ABSOLUTE/PATH/arc-agent-kit/arc-opencode-mcp.mjs"
+      ],
+      "enabled": true
+    }
+  }
+}</code></pre>
+            </div>
+            <p class="callout" data-zh="启动后把 ARC_AGENT_PROMPT.md 交给 OpenCode。让它调用 start_episode，然后你需要打开工具返回的 gameUrl；之后 OpenCode 会循环 observe、act、update_memory。" data-en="After startup, give ARC_AGENT_PROMPT.md to OpenCode. Ask it to call start_episode, then open the returned gameUrl; OpenCode can then loop through observe, act, and update_memory.">启动后把 ARC_AGENT_PROMPT.md 交给 OpenCode。让它调用 start_episode，然后你需要打开工具返回的 gameUrl；之后 OpenCode 会循环 observe、act、update_memory。</p>
+          </section>
+
+          <section id="python" class="guide-section integration-section">
+            <span class="section-index">04 / PYTHON</span>
+            <div data-language-panel="zh"><h2>运行通用 Python Agent</h2><p>示例仅使用 Python 标准库，兼容提供 OpenAI Chat Completions 格式的模型服务。</p></div>
+            <div data-language-panel="en"><h2>Run a generic Python agent</h2><p>The example uses only the Python standard library and works with model services that expose an OpenAI Chat Completions-compatible endpoint.</p></div>
+            <div class="requirements"><span>REQUIRES</span><strong>Python 3.10+</strong><strong data-zh="兼容模型端点" data-en="Compatible model endpoint">兼容模型端点</strong></div>
+            <div class="download-card">
+              <div><strong>python-agent.py</strong><p data-zh="完整 Episode、模型决策、动作等待和记忆循环。" data-en="Complete Episode, model decision, action waiting, and memory loop.">完整 Episode、模型决策、动作等待和记忆循环。</p></div>
+              <a href="/agent-kit/python-agent.py" download data-zh="下载示例" data-en="Download example">下载示例</a>
+            </div>
+            <div class="code-card">
+              <div class="code-heading"><span>Shell</span><button type="button" data-copy-target="python-run" data-zh="复制" data-en="Copy">复制</button></div>
+              <pre id="python-run"><code>curl -fsSLO "<span data-site-origin>https://your-arc-site.example</span>/agent-kit/python-agent.py"
+
+export ARC_AGENT_API_URL="<span data-site-origin>https://your-arc-site.example</span>"
+export MODEL_API_URL="https://your-provider.example/v1/chat/completions"
+export MODEL_API_KEY="replace-in-your-shell-only"
+export MODEL_NAME="your-model-id"
+export ARC_HARNESS="state"
+
+python3 python-agent.py</code></pre>
+            </div>
+            <p data-language-panel="zh">脚本会打印 gameUrl 并等待浏览器连接。先打开这个 URL，再让终端继续运行。视觉模型可把 ARC_HARNESS 改为 hybrid 或 visual。</p>
+            <p data-language-panel="en">The script prints gameUrl and waits for the browser. Open that URL before letting the terminal continue. For a vision model, set ARC_HARNESS to hybrid or visual.</p>
+          </section>
+
+          <section id="nodejs" class="guide-section integration-section">
+            <span class="section-index">05 / NODE.JS</span>
+            <div data-language-panel="zh"><h2>运行通用 Node.js Agent</h2><p>示例使用内置 fetch，无第三方依赖；模型端点同样采用 OpenAI Chat Completions 兼容格式。</p></div>
+            <div data-language-panel="en"><h2>Run a generic Node.js agent</h2><p>The example uses built-in fetch with no third-party dependencies and targets an OpenAI Chat Completions-compatible model endpoint.</p></div>
+            <div class="requirements"><span>REQUIRES</span><strong>Node.js 20+</strong><strong data-zh="兼容模型端点" data-en="Compatible model endpoint">兼容模型端点</strong></div>
+            <div class="download-card">
+              <div><strong>node-agent.mjs</strong><p data-zh="可直接修改的通用 Agent 主循环。" data-en="An editable generic agent main loop.">可直接修改的通用 Agent 主循环。</p></div>
+              <a href="/agent-kit/node-agent.mjs" download data-zh="下载示例" data-en="Download example">下载示例</a>
+            </div>
+            <div class="code-card">
+              <div class="code-heading"><span>Shell</span><button type="button" data-copy-target="node-run" data-zh="复制" data-en="Copy">复制</button></div>
+              <pre id="node-run"><code>curl -fsSLO "<span data-site-origin>https://your-arc-site.example</span>/agent-kit/node-agent.mjs"
+
+export ARC_AGENT_API_URL="<span data-site-origin>https://your-arc-site.example</span>"
+export MODEL_API_URL="https://your-provider.example/v1/chat/completions"
+export MODEL_API_KEY="replace-in-your-shell-only"
+export MODEL_NAME="your-model-id"
+export ARC_HARNESS="hybrid"
+
+node node-agent.mjs</code></pre>
+            </div>
+          </section>
+
+          <section id="protocol" class="guide-section">
+            <span class="section-index">06 / PROTOCOL &amp; MEMORY</span>
+            <div data-language-panel="zh"><h2>动作协议与长期记忆</h2><p>一个 Episode 只允许一个未完成命令。Agent 必须等待返回观察的 commandId 与发送命令的 id 相同，再决定下一步。</p></div>
+            <div data-language-panel="en"><h2>Action protocol and persistent memory</h2><p>An Episode permits only one unfinished command. Wait until the returned observation commandId matches the sent command id before deciding the next move.</p></div>
+            <div class="protocol-grid">
+              <article><span>ACTIONS</span><strong>W · A · S · D · E · WAIT</strong><p data-zh="移动/转向、互动和等待。durationMs 范围为 50–1000。" data-en="Movement/turning, interaction, and waiting. durationMs ranges from 50–1000.">移动/转向、互动和等待。durationMs 范围为 50–1000。</p></article>
+              <article><span>TERMINAL STATUS</span><strong>WIN · GAME_OVER</strong><p data-zh="出现任一终止状态后停止发送动作。" data-en="Stop sending actions after either terminal state appears.">出现任一终止状态后停止发送动作。</p></article>
+              <article><span>MEMORY</span><strong>PATCH /memory</strong><p data-zh="保存 completed、inventory、landmarks、failedAttempts 和 nextPlan。" data-en="Persist completed, inventory, landmarks, failedAttempts, and nextPlan.">保存 completed、inventory、landmarks、failedAttempts 和 nextPlan。</p></article>
+            </div>
+            <p class="callout" data-zh="ARC 记忆属于 Episode，不属于某个大模型。更换模型、压缩上下文或重启 Agent 后，只要保留 Episode ID 和 Agent Token，就能重新读取。" data-en="ARC memory belongs to the Episode, not to a model. After switching models, compacting context, or restarting an agent, it can be recalled with the Episode ID and Agent Token.">ARC 记忆属于 Episode，不属于某个大模型。更换模型、压缩上下文或重启 Agent 后，只要保留 Episode ID 和 Agent Token，就能重新读取。</p>
+          </section>
+
+          <section id="troubleshooting" class="guide-section">
+            <span class="section-index">07 / TROUBLESHOOTING</span>
+            <div data-language-panel="zh"><h2>常见问题</h2></div>
+            <div data-language-panel="en"><h2>Common issues</h2></div>
+            <div class="faq-list">
+              <details><summary data-zh="Episode 一直是 waiting_for_browser" data-en="Episode remains waiting_for_browser">Episode 一直是 waiting_for_browser</summary><p data-zh="在普通浏览器中打开创建 Episode 后返回的完整 gameUrl，并等待机器人资源加载完成。不要删除 URL 中的 episode、harness 或 browser_token 参数。" data-en="Open the complete gameUrl returned by Episode creation in a regular browser and wait for robot assets to load. Do not remove episode, harness, or browser_token parameters.">在普通浏览器中打开创建 Episode 后返回的完整 gameUrl，并等待机器人资源加载完成。不要删除 URL 中的 episode、harness 或 browser_token 参数。</p></details>
+              <details><summary data-zh="返回 409：上一个动作尚未完成" data-en="409: previous action is unfinished">返回 409：上一个动作尚未完成</summary><p data-zh="不要并行发送动作。轮询 latest observation，直到 commandId 匹配上一次命令，再发送下一条。" data-en="Do not send actions in parallel. Poll the latest observation until commandId matches the previous command, then send the next one.">不要并行发送动作。轮询 latest observation，直到 commandId 匹配上一次命令，再发送下一条。</p></details>
+              <details><summary data-zh="模型没有收到截图" data-en="The model receives no screenshot">模型没有收到截图</summary><p data-zh="确认 Harness 是 visual 或 hybrid，并确认模型端点支持 image_url 输入。state Harness 按设计不返回截图。" data-en="Use visual or hybrid and verify that the model endpoint accepts image_url input. The state harness intentionally returns no screenshot.">确认 Harness 是 visual 或 hybrid，并确认模型端点支持 image_url 输入。state Harness 按设计不返回截图。</p></details>
+              <details><summary data-zh="OpenCode 工具无法连接 ARC" data-en="OpenCode tools cannot reach ARC">OpenCode 工具无法连接 ARC</summary><p data-zh="必须在启动 OpenCode 之前导出 ARC_AGENT_API_URL。确认 node 可用、MCP 脚本是绝对路径，并从浏览器直接打开 ARC 网站验证网络。" data-en="Export ARC_AGENT_API_URL before starting OpenCode. Verify node is available, the MCP script path is absolute, and the ARC site opens directly in a browser.">必须在启动 OpenCode 之前导出 ARC_AGENT_API_URL。确认 node 可用、MCP 脚本是绝对路径，并从浏览器直接打开 ARC 网站验证网络。</p></details>
+              <details><summary data-zh="如何公平比较不同 Agent？" data-en="How do I compare agents fairly?">如何公平比较不同 Agent？</summary><p data-zh="固定关卡、视角、Harness、动作时长上限和最大步数。视觉 Agent 不应与读取完整 state 的 Agent 混在同一排行榜。" data-en="Fix the level, view, harness, action-duration limit, and maximum steps. Do not rank vision-only agents together with agents receiving full state.">固定关卡、视角、Harness、动作时长上限和最大步数。视觉 Agent 不应与读取完整 state 的 Agent 混在同一排行榜。</p></details>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      <span>ARC AGENT ENVIRONMENT · V1</span>
+      <a href="/" data-zh="打开游戏" data-en="Open game">打开游戏</a>
+    </footer>
+    <div id="copy-status" class="copy-status" role="status" aria-live="polite"></div>
+    <script type="module" src="/agent-guide.js"></script>
+  </body>
+</html>

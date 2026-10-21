@@ -1,0 +1,13 @@
+{
+  "game/levels/rf05/series-animation.js": "53857c63cf98e700e855053f88f6200c5213dedab46f4f662a4755daf976a82d",
+  "game/levels/rf05/series-engine.js": "82aa9c47e435a1b7b50fb4900c7849e8a5305f3ad838ee719f35a90ba2d5376b",
+  "game/levels/rf05/series-layout.js": "64eff05fd1a2e614433b0eeffa9e4cbc399aee89e9ce6e62776976378de4e4d2",
+  "game/levels/rf05/series-qa.js": "32e88b159f24c063e2e209382bf2463899983c4d9c732bb45c2dc6714998b5bb",
+  "game/levels/rf05/series-runtime.js": "fffeb69659a9b415823ce469c182e61ce8f85676452aad09d50170c5b34312dd",
+  "game/levels/rf05/series-scene.js": "bf588d83b802b5fc9ef62c8c1cba2b343255851684857a2224c6d70f1b2cde30",
+  "game/levels/rf05/series-wind.js": "6e95fec228398a188af41f290deafd1e39094b09742eddfd8b777d3b8edbff48",
+  "tests/rf05-series.test.mjs": "b9ba10075121d80563782265ebd24959710181e805fcbeb9c256b75e25fd4c16",
+  "docs/levels/rf05-series-production-plan.md": "a68aada396a4585b6d35a00c28f37f2be3ddf7e3b1f0db1d2cb6b4e9f293a682",
+  "docs/levels/rf05-series-acceptance.md": "abc8dc50775cb10070bad7798e6fd397f4f1e185b4f74f4fedbf37dd6bfd3382",
+  "docs/levels/rf05-series-assets.json": "5b7e92d57e9d9e2de9883accb9a0ba881101219262c5c2ffb6305a100f27dbe3"
+}

@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world office asset. Simple three-seat corporate lounge bench sofa, 3.40 m wide x 0.88 m high x 1.10 m deep. One continuous muted-sage upholstered seat, one continuous supportive back, two broad upholstered arms and a recessed continuous black plinth. Symmetrical solid furniture with no loose cushions and no thin legs. Seated user faces positive Z and the entire plinth rests on one ground plane. Target dimensions approximately 3.4 m x 0.88 m x 1.1 m. Y axis up, front facing positive Z, metric scale, centered at world origin, bottom-center pivot. One isolated photorealistic game-ready object only. Real construction, believable thickness, manufactured edge radii, fasteners and physically based materials. All supporting feet or the flat base must share one ground plane. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

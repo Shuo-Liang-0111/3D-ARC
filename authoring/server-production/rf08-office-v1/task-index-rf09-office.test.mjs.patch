@@ -1,0 +1,11 @@
+--- a/tests/rf09-office.test.mjs
++++ b/tests/rf09-office.test.mjs
+@@ -74,7 +74,7 @@
+ 
+ test("RF-09 is registered and explains the new G1 controls", async () => {
+   const app = await readFile(new URL("../game/app.js", import.meta.url), "utf8"); const html = await readFile(new URL("../index.html", import.meta.url), "utf8"); const runtime = await readFile(new URL("../game/levels/rf09/runtime.js", import.meta.url), "utf8");
+-  assert.match(app, /rf09: \(\) => import\("\.\/levels\/rf09\/runtime\.js"\)/);
++  assert.ok(app.includes('rf09: () => import("/game/levels/rf09/office-entry.js")'));
+   assert.match(html, /data-level-option="rf09"/);
+   assert.match(runtime, /W\/S 前进后退，A\/D 左右平移/);
+   assert.match(runtime, /左右方向键转向且不消耗余量/);

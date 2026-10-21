@@ -1,0 +1,10 @@
+
+          const stableClinic = ["rf13", "rf13-02", "rf13-03"].includes(requestUrl.searchParams.get("level")) && requestUrl.searchParams.get("mode") === "play" && ["/", "/index.html"].includes(requestUrl.pathname);
+          if (stableClinic) {
+            const release = "rf11-clinic-series-v1-r8", entry = resolve("public", release, "index.html");
+            if (!existsSync(entry)) { res.statusCode = 503; res.end("Clinic release unavailable"); return; }
+            res.setHeader("content-type", "text/html; charset=utf-8");
+            res.setHeader("cache-control", "no-store");
+            res.setHeader("x-arc-release", release);
+            res.end(readFileSync(entry, "utf8").replaceAll("./assets/", "/" + release + "/assets/")); return;
+          }

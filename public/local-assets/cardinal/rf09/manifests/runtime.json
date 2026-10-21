@@ -1,0 +1,669 @@
+{
+  "assets": {
+    "conference_table": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/conference_table.highpoly.glb",
+      "sourceSha256": "4f86a8f567e0f8a026cc077f448e6c403c0dc64b71b0bd4a1178e0680957f966",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/conference_table.glb",
+      "runtimeSha256": "0fccfc189336755a4bcd93f182f22065ac3d076fba4f474666575890df7bf043",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        8.8,
+        0.78,
+        2.8
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.48966,
+          -0.31883,
+          -0.17253
+        ],
+        "max": [
+          0.48946,
+          0.31919,
+          0.17119
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -4.40005,
+          -1.40001,
+          0.0
+        ],
+        "max": [
+          4.39992,
+          1.39999,
+          0.78001
+        ]
+      },
+      "sourceFaces": 1923381,
+      "runtimeFaces": 260000,
+      "runtimeBytes": 9541920,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 260000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/conference_table/front.png",
+          "public/local-assets/cardinal/rf09/review/source/conference_table/right.png",
+          "public/local-assets/cardinal/rf09/review/source/conference_table/back.png",
+          "public/local-assets/cardinal/rf09/review/source/conference_table/left.png"
+        ]
+      }
+    },
+    "executive_chair": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/executive_chair.highpoly.glb",
+      "sourceSha256": "9047ce4e02c9169ca25f442932cbcfec898c246b944727cbbb4718c87438f107",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/executive_chair.glb",
+      "runtimeSha256": "9c26274f8e657d640ae21882544e0dd8a140a4bd3720b985497369963b9d0f11",
+      "frontCorrection": "right",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        0.62,
+        1.12,
+        0.62
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.30359,
+          -0.3186,
+          -0.48973
+        ],
+        "max": [
+          0.30371,
+          0.31869,
+          0.48977
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.31002,
+          -0.31015,
+          -6e-05
+        ],
+        "max": [
+          0.30994,
+          0.31003,
+          1.12
+        ]
+      },
+      "sourceFaces": 1988331,
+      "runtimeFaces": 160000,
+      "runtimeBytes": 7003124,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 160000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/executive_chair/front.png",
+          "public/local-assets/cardinal/rf09/review/source/executive_chair/right.png",
+          "public/local-assets/cardinal/rf09/review/source/executive_chair/back.png",
+          "public/local-assets/cardinal/rf09/review/source/executive_chair/left.png"
+        ]
+      }
+    },
+    "av_podium": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/av_podium.highpoly.glb",
+      "sourceSha256": "28d41fc1229a3f2ed19e5bba4cb9c3367df53533288bb94052f02ebad3407dfd",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/av_podium.glb",
+      "runtimeSha256": "07f06e667b6fc39ef8242e35a23f1b919c5ad8488ce75e908548e92f45222b50",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        0.84,
+        0.18,
+        0.5
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.41795,
+          -0.49047,
+          -0.11337
+        ],
+        "max": [
+          0.41859,
+          0.49082,
+          0.1132
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.42,
+          -0.24999,
+          -0.0
+        ],
+        "max": [
+          0.41999,
+          0.24999,
+          0.18002
+        ]
+      },
+      "sourceFaces": 1970534,
+      "runtimeFaces": 160000,
+      "runtimeBytes": 6945252,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 160000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/av_podium/front.png",
+          "public/local-assets/cardinal/rf09/review/source/av_podium/right.png",
+          "public/local-assets/cardinal/rf09/review/source/av_podium/back.png",
+          "public/local-assets/cardinal/rf09/review/source/av_podium/left.png"
+        ]
+      }
+    },
+    "conference_terminal": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/conference_terminal.highpoly.glb",
+      "sourceSha256": "bc3ce055b16c087abcc1c099d88bb1cf7b94847721f0ac352e922f67bcf42b70",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/conference_terminal.glb",
+      "runtimeSha256": "82421d0fe1c711cd2e005b9168e70c125e7535eac8c770fb46b11187a345bce8",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        0.72,
+        0.18,
+        0.48
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.40609,
+          -0.49238,
+          -0.20513
+        ],
+        "max": [
+          0.40537,
+          0.49247,
+          0.20502
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.36001,
+          -0.24001,
+          0.0
+        ],
+        "max": [
+          0.36003,
+          0.24001,
+          0.18
+        ]
+      },
+      "sourceFaces": 1988200,
+      "runtimeFaces": 159999,
+      "runtimeBytes": 6356604,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 160000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/conference_terminal/front.png",
+          "public/local-assets/cardinal/rf09/review/source/conference_terminal/right.png",
+          "public/local-assets/cardinal/rf09/review/source/conference_terminal/back.png",
+          "public/local-assets/cardinal/rf09/review/source/conference_terminal/left.png"
+        ]
+      }
+    },
+    "office_workstation": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/office_workstation.highpoly.glb",
+      "sourceSha256": "3424158972a765a9a75825bc4f481562436d442b1ec4d113b247bfcb0a5bdd6a",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/office_workstation.glb",
+      "runtimeSha256": "87ee1767c23a507b127cb4b0ace5faf96e4307b01ca38c3a442ab8fd4c6da8e7",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        3.4,
+        1.28,
+        1.45
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.49065,
+          -0.44773,
+          -0.40949
+        ],
+        "max": [
+          0.49049,
+          0.44727,
+          0.40986
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.70004,
+          -0.72504,
+          -1e-05
+        ],
+        "max": [
+          1.70006,
+          0.725,
+          1.28001
+        ]
+      },
+      "sourceFaces": 1866853,
+      "runtimeFaces": 239999,
+      "runtimeBytes": 9899092,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 240000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/office_workstation/front.png",
+          "public/local-assets/cardinal/rf09/review/source/office_workstation/right.png",
+          "public/local-assets/cardinal/rf09/review/source/office_workstation/back.png",
+          "public/local-assets/cardinal/rf09/review/source/office_workstation/left.png"
+        ]
+      }
+    },
+    "reception_desk": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/reception_desk.highpoly.glb",
+      "sourceSha256": "007381366e1b1f887b2edda18b6c65d21b79db755415266eead93e1dd50c1c4e",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/reception_desk.glb",
+      "runtimeSha256": "aef7021a2f3d8fd66c5350d01678d2ea91f23acb01f58f3815696acede0bcade",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        5.4,
+        1.1,
+        0.95
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.49048,
+          -0.21232,
+          -0.21538
+        ],
+        "max": [
+          0.48777,
+          0.21266,
+          0.21489
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -2.70006,
+          -0.47499,
+          0.0
+        ],
+        "max": [
+          2.69993,
+          0.47504,
+          1.1
+        ]
+      },
+      "sourceFaces": 1884517,
+      "runtimeFaces": 219999,
+      "runtimeBytes": 8842432,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 220000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/reception_desk/front.png",
+          "public/local-assets/cardinal/rf09/review/source/reception_desk/right.png",
+          "public/local-assets/cardinal/rf09/review/source/reception_desk/back.png",
+          "public/local-assets/cardinal/rf09/review/source/reception_desk/left.png"
+        ]
+      }
+    },
+    "it_equipment_locker": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/it_equipment_locker.highpoly.glb",
+      "sourceSha256": "e872e18eae7328016cc4fcfaa0e62e208c30e04ec6ba5eb6f8da6a84c98154b2",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/it_equipment_locker.glb",
+      "runtimeSha256": "5f3af284ca449cc02b63d1f8b5def10bd6dc9236e94423d71d43fa99720197e5",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        3,
+        2.4,
+        1.45
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.20441,
+          -0.40812,
+          -0.48935
+        ],
+        "max": [
+          0.20439,
+          0.40688,
+          0.489
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.50018,
+          -0.72502,
+          -0.00016
+        ],
+        "max": [
+          1.49987,
+          0.72507,
+          2.40001
+        ]
+      },
+      "sourceFaces": 1929318,
+      "runtimeFaces": 219999,
+      "runtimeBytes": 8579408,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 220000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/it_equipment_locker/front.png",
+          "public/local-assets/cardinal/rf09/review/source/it_equipment_locker/right.png",
+          "public/local-assets/cardinal/rf09/review/source/it_equipment_locker/back.png",
+          "public/local-assets/cardinal/rf09/review/source/it_equipment_locker/left.png"
+        ]
+      }
+    },
+    "lounge_sofa": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/lounge_sofa.highpoly.glb",
+      "sourceSha256": "f44650d92a2f951d374deb7cbe29a74f5313018950e9ea41ebc480913a96da8b",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/lounge_sofa.glb",
+      "runtimeSha256": "ead41acb7a6bc2205fcb27dacaeb07940ee50e11b6443a43b04e45c0f7b3693e",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        3.4,
+        0.88,
+        1.1
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.19106,
+          -0.48964,
+          -0.21485
+        ],
+        "max": [
+          0.19121,
+          0.48978,
+          0.21413
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.70005,
+          -0.55,
+          1e-05
+        ],
+        "max": [
+          1.7,
+          0.55,
+          0.88004
+        ]
+      },
+      "sourceFaces": 1869367,
+      "runtimeFaces": 179999,
+      "runtimeBytes": 6917320,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 180000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/lounge_sofa/front.png",
+          "public/local-assets/cardinal/rf09/review/source/lounge_sofa/right.png",
+          "public/local-assets/cardinal/rf09/review/source/lounge_sofa/back.png",
+          "public/local-assets/cardinal/rf09/review/source/lounge_sofa/left.png"
+        ]
+      }
+    },
+    "wireless_presenter": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/wireless_presenter.highpoly.glb",
+      "sourceSha256": "70157e19c8869dd815ebf19a2b766e7e88393c99c699013189f6469f5b6d023e",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/wireless_presenter.glb",
+      "runtimeSha256": "41b6d4145b8daa051ebf7fec3a4a0bd5716688344d4c33b8fc49400760c48b99",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        0.13,
+        0.06,
+        0.42
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.20133,
+          -0.23165,
+          -0.49126
+        ],
+        "max": [
+          0.20075,
+          0.23162,
+          0.49111
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.06501,
+          -0.21001,
+          0.0
+        ],
+        "max": [
+          0.065,
+          0.21002,
+          0.06
+        ]
+      },
+      "sourceFaces": 1884772,
+      "runtimeFaces": 120000,
+      "runtimeBytes": 4805592,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 120000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/wireless_presenter/front.png",
+          "public/local-assets/cardinal/rf09/review/source/wireless_presenter/right.png",
+          "public/local-assets/cardinal/rf09/review/source/wireless_presenter/back.png",
+          "public/local-assets/cardinal/rf09/review/source/wireless_presenter/left.png"
+        ]
+      }
+    },
+    "supply_cabinet": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/supply_cabinet.highpoly.glb",
+      "sourceSha256": "bb01a401c6249bf32c045d57628a46fc5f5668c6db43df419022073310968b4c",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/supply_cabinet.glb",
+      "runtimeSha256": "a76cb10367817bf95f8237ddb71b2648d82975db0bd376dec16b128598fa2b47",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        3.1,
+        2.35,
+        1.3
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.48999,
+          -0.17126,
+          -0.47528
+        ],
+        "max": [
+          0.49021,
+          0.17125,
+          0.47605
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -1.54997,
+          -0.65002,
+          1e-05
+        ],
+        "max": [
+          1.55002,
+          0.65006,
+          2.34999
+        ]
+      },
+      "sourceFaces": 1977933,
+      "runtimeFaces": 219999,
+      "runtimeBytes": 9294700,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 220000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/supply_cabinet/front.png",
+          "public/local-assets/cardinal/rf09/review/source/supply_cabinet/right.png",
+          "public/local-assets/cardinal/rf09/review/source/supply_cabinet/back.png",
+          "public/local-assets/cardinal/rf09/review/source/supply_cabinet/left.png"
+        ]
+      }
+    },
+    "usb_c_video_adapter": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/usb_c_video_adapter.highpoly.glb",
+      "sourceSha256": "9c72f511bee3f89e43d9bc9af1641e2ff1448b306a9aca6214b44e5fc2a22093",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/usb_c_video_adapter.glb",
+      "runtimeSha256": "b8593acddd24c2f66d695482b92d27438de152f464ebd2b57d561559b7876ae4",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        0.34,
+        0.07,
+        0.2
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.48947,
+          -0.45839,
+          -0.12663
+        ],
+        "max": [
+          0.49062,
+          0.45843,
+          0.12526
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.17001,
+          -0.1,
+          0.0
+        ],
+        "max": [
+          0.16999,
+          0.1,
+          0.07001
+        ]
+      },
+      "sourceFaces": 1933066,
+      "runtimeFaces": 120000,
+      "runtimeBytes": 5455136,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 120000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/usb_c_video_adapter/front.png",
+          "public/local-assets/cardinal/rf09/review/source/usb_c_video_adapter/right.png",
+          "public/local-assets/cardinal/rf09/review/source/usb_c_video_adapter/back.png",
+          "public/local-assets/cardinal/rf09/review/source/usb_c_video_adapter/left.png"
+        ]
+      }
+    },
+    "ceiling_light": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/ceiling_light.highpoly.glb",
+      "sourceSha256": "066a9a75f6809d3f6711756edd8bb3302177a80ecf9c0c393da2ddd2b048fe7f",
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/models/runtime/ceiling_light.glb",
+      "runtimeSha256": "eeae847d5fda6ffb35001a6599e2f0ab94adfad4cb68119916faf4c93c07c6a3",
+      "frontCorrection": "front",
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "targetSizeMeters": [
+        1.2,
+        0.08,
+        0.3
+      ],
+      "sourceBoundsBlender": {
+        "min": [
+          -0.14425,
+          -0.34478,
+          -0.23295
+        ],
+        "max": [
+          0.16765,
+          0.49038,
+          0.23297
+        ]
+      },
+      "runtimeBoundsBlender": {
+        "min": [
+          -0.59997,
+          -0.14999,
+          0.0
+        ],
+        "max": [
+          0.59999,
+          0.15001,
+          0.08
+        ]
+      },
+      "sourceFaces": 1814952,
+      "runtimeFaces": 100000,
+      "runtimeBytes": 4438808,
+      "optimization": {
+        "tool": "Blender 4.5.9 LTS",
+        "targetFaces": 100000,
+        "textureMaxPixels": 2048
+      },
+      "review": {
+        "status": "approved",
+        "screenshots": [
+          "public/local-assets/cardinal/rf09/review/source/ceiling_light/front.png",
+          "public/local-assets/cardinal/rf09/review/source/ceiling_light/right.png",
+          "public/local-assets/cardinal/rf09/review/source/ceiling_light/back.png",
+          "public/local-assets/cardinal/rf09/review/source/ceiling_light/left.png"
+        ]
+      }
+    }
+  },
+  "schemaVersion": 1,
+  "level": "RF-09",
+  "productionStatus": "runtime_candidate",
+  "units": "meters",
+  "upAxis": "Y"
+}

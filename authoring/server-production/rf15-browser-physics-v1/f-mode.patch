@@ -1,0 +1,43 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -387,1 +387,0 @@
+-      motorCommand: targets => mujocoClient?.send({ type: "arm_command", targets }),
+@@ -464,1 +463,2 @@
+   releaseAllControls();
++  browserPhysics?.cancel();
+@@ -999,2 +999,5 @@
+-    if (mujocoEnabled && mujocoOnline && controlModeId === "velocity") {
++    if (browserPhysics?.busy) {
++      mujocoClient?.setCommand({ forward: 0, lateral: 0, yaw: 0 }, levelId, { x: state.player.x, z: state.player.z, yaw: state.player.yaw });
++      state = runtime.updateMovement(state, input, delta);
++    } else if (mujocoEnabled && mujocoOnline && controlModeId === "velocity") {
+@@ -1022,1 +1025,1 @@
+-      if (movementInput) {
++      if (movementInput && !browserPhysics?.busy) {
+diff --git a/game/levels/rf15/field-layout.js b/game/levels/rf15/field-layout.js
+--- a/game/levels/rf15/field-layout.js
++++ b/game/levels/rf15/field-layout.js
+@@ -5,1 +5,1 @@
+-  beds: [{ x: 10.85, z: -1.6, width: 1.1, length: 5.2 }, { x: 13.75, z: -1.6, width: 1.1, length: 5.2 }],
++  beds: [{ x: 10.85, z: -1.6, width: .42, length: 5.2 }, { x: 13.75, z: -1.6, width: .42, length: 5.2 }],
+@@ -15,1 +15,1 @@
+-  ...FIELD.beds.map((bed, index) => ({ id: `vegetable-bed-${index}`, minX: bed.x - .55, maxX: bed.x + .55, minZ: -4.2, maxZ: 1 })),
++  ...FIELD.beds.map((bed, index) => ({ id: `vegetable-bed-${index}`, minX: bed.x - bed.width / 2, maxX: bed.x + bed.width / 2, minZ: -4.2, maxZ: 1 })),
+diff --git a/game/levels/rf15/field-scene.js b/game/levels/rf15/field-scene.js
+--- a/game/levels/rf15/field-scene.js
++++ b/game/levels/rf15/field-scene.js
+@@ -56,1 +56,13 @@
+   world.assetReady = Promise.all([previous, Promise.all(jobs)]).then(([base, added]) => {
++    const fieldAsset = added.find(asset => asset.name === "field-field");
++    fieldAsset?.model.traverse(node => {
++      const match = /^soil-bed-(\d+)$/.exec(node.name);
++      if (!match || !node.geometry) return;
++      const bed = FIELD.beds[Number(match[1])];
++      node.geometry = node.geometry.clone();
++      node.geometry.computeBoundingBox();
++      const center = node.geometry.boundingBox.getCenter(new THREE.Vector3());
++      const width = node.geometry.boundingBox.max.x - node.geometry.boundingBox.min.x;
++      node.geometry.translate(-center.x, 0, 0).scale(bed.width / width, 1, 1).translate(center.x, 0, 0);
++      node.geometry.computeBoundingBox();
++    });

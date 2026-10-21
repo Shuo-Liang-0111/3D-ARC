@@ -1,0 +1,67 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "783a52da66addb5ecadd9ca693e8ebab7deda6e74d8065f0245b6301ac3ad2d6",
+    "match": true
+  },
+  {
+    "path": "assets/GLTFLoader-IVsBsl1b.js",
+    "sha256": "19d6301cb9d2546ed6516d8554cf89dfce586c8180deb3a78b2add3407ed49e1",
+    "match": true
+  },
+  {
+    "path": "assets/animation-qa-BaRl5Wja.js",
+    "sha256": "16a57761c8fa32d869a6e3c61b578c287b6bd799328dce70b1dc4ef85cf24e0e",
+    "match": true
+  },
+  {
+    "path": "assets/g1-articulated-collision-CNcV_VqY.js",
+    "sha256": "8b2fcf7edf78c33ca146cf31d7f81c1520bb60c951a6e19c9ef709671b883796",
+    "match": true
+  },
+  {
+    "path": "assets/index-BURS8zFf.js",
+    "sha256": "a077bcfc64fc02d391faa69f54f40902da0f2c89211de87b0e38c1637cff4b8e",
+    "match": true
+  },
+  {
+    "path": "assets/index-CZDc2QqC.css",
+    "sha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5",
+    "match": true
+  },
+  {
+    "path": "assets/interaction-animation-BnKOQf1-.js",
+    "sha256": "be8994c64c4105c00309dc4496c89643dfbb1872c6a3db5119e2b3353db09f3f",
+    "match": true
+  },
+  {
+    "path": "assets/interaction-walk-Bnlrxph_.js",
+    "sha256": "f03942d945972ebe44d151b32f20b2b314a3a3108bb8d86f930ef2362beb2243",
+    "match": true
+  },
+  {
+    "path": "assets/runtime-BBMuQ4kY.js",
+    "sha256": "305b903cd964e61c460d5ce456114f682be8d6af318737a1e0776aded87cf56a",
+    "match": true
+  },
+  {
+    "path": "assets/runtime-DzGiMfun.js",
+    "sha256": "6a89865f1082a98d9ea7ffccca9762f7de56b29207a1cb27ba6dd78441d6d6e3",
+    "match": true
+  },
+  {
+    "path": "assets/series-entry-Gq8GseHM.js",
+    "sha256": "63853eb278f89d5d37e1ca6f473f219f1950c45f1b52cd3a9275d154c4b2921e",
+    "match": true
+  },
+  {
+    "path": "assets/series-qa-Do2e9vHn.js",
+    "sha256": "e33f108cca331f8889e225570d6b15b3341fce5c93f86eee9a9bd46534145453",
+    "match": true
+  },
+  {
+    "path": "assets/series-runtime-A_ATHSSM.js",
+    "sha256": "f505ecf04e68d38eb6d648d1c7138890a702a2adb9d0a43f75ca711b50ede64c",
+    "match": true
+  }
+]

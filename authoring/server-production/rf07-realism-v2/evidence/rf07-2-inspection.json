@@ -1,0 +1,132 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": 10.013086257506117,
+      "z": 0.3396411916029567,
+      "yaw": 1.8168392606131516
+    },
+    "samples": {
+      "sampleA": {
+        "location": "storage",
+        "x": -9.25,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleB": {
+        "location": "storage",
+        "x": -7.35,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleC": {
+        "location": "storage",
+        "x": -5.45,
+        "y": 0.9553,
+        "z": -6.77
+      }
+    },
+    "caseSamples": [],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.921,
+      "z": 1.6
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.921,
+      "z": 1.7
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.068,
+      "z": -2.22
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "prep-room",
+    "casePhase": "loading",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "device",
+      "device": "bsc-01",
+      "triggerAt": 21.43590819547124,
+      "status": "disabled",
+      "startedAt": null
+    },
+    "clock": 42.06609999990472,
+    "clockStamp": 48823.699999809265,
+    "elapsed": 34.40890000000014,
+    "complete": true,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 3,
+    "lastEvent": "cabinet-power",
+    "rewards": [],
+    "delivered": false,
+    "doorOpen": false
+  },
+  "animation": {
+    "fps": 21.10947471772214,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "cabinet-power",
+      "event": "cabinet-power",
+      "error": 0.003312773423275865,
+      "revision": "rf07-realism-v2"
+    },
+    "contacts": [
+      {
+        "type": "cabinet-power",
+        "event": "cabinet-power",
+        "error": 0.008102009392354795,
+        "revision": "rf07-realism-v2"
+      },
+      {
+        "type": "cabinet-power",
+        "event": "cabinet-power",
+        "error": 0.005232175101703198,
+        "revision": "rf07-realism-v2"
+      },
+      {
+        "type": "cabinet-power",
+        "event": "cabinet-power",
+        "error": 0.003312773423275865,
+        "revision": "rf07-realism-v2"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.7908427217564863,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.0015297256048182662,
+          "position": [
+            9.877312250935717,
+            0.03480209941651931,
+            0.21015795698054407
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0007687606273245769,
+          "position": [
+            9.867527251608163,
+            0.03484444493738263,
+            0.5356051626093905
+          ]
+        }
+      ]
+    }
+  }
+}

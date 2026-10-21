@@ -1,0 +1,1372 @@
+[
+  {
+    "airCatch": {
+      "id": "tissue1",
+      "range": 0.1433383444276341,
+      "before": {
+        "type": "tissue",
+        "location": "air",
+        "x": 2.2184334250221998,
+        "y": 0.7335379549184192,
+        "z": 0.07480766442378631,
+        "heading": -5.724494710660261,
+        "pitch": -0.5124814612134894,
+        "targetHeading": -5.724494710660261,
+        "targetPitch": -0.6113559460616671,
+        "turnIn": 0.3071999999284458,
+        "seed": 3378857023,
+        "fallTime": 0,
+        "clock": 6.892800000071548,
+        "turns": 17,
+        "forwardTurns": 14,
+        "verticalForwardTurns": 15,
+        "bounces": 11,
+        "vx": 1.6169218223721147,
+        "vy": -1.7161949815284794,
+        "vz": 2.5865495560134355
+      },
+      "hand": {
+        "x": 2.126401404510374,
+        "y": 0.6665810751768635,
+        "z": 0.1619441346245054
+      },
+      "player": {
+        "x": 2.017352476955325,
+        "z": 0.38013760408508673,
+        "yaw": 10.120562420375972
+      },
+      "afterPlayer": {
+        "x": 2.017352476955325,
+        "z": 0.38013760408508673,
+        "yaw": 10.120562420375972
+      },
+      "contact": {
+        "type": "tissue-catch",
+        "event": "tissue_caught",
+        "error": 0.03484888561960678,
+        "revision": "rf05-series-v06"
+      },
+      "attempt": 5
+    }
+  },
+  {
+    "requested": {
+      "type": "deliver",
+      "item": "tissue1",
+      "target": "bin"
+    },
+    "contact": {
+      "type": "deliver",
+      "event": "delivered",
+      "error": 0.006303237001287108,
+      "revision": "rf05-series-v06"
+    },
+    "state": {
+      "revision": "rf05-series-v06",
+      "items": {
+        "tissue1": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        "tissue2": {
+          "type": "tissue",
+          "location": "air",
+          "x": 1.1265595652597584,
+          "y": 1.3161265613837418,
+          "z": 4.8781273862715535,
+          "heading": 1.371298691938478,
+          "pitch": 0.505162907513439,
+          "targetHeading": 1.371298691938478,
+          "targetPitch": 0.49776436199899765,
+          "turnIn": 0.1791999999284171,
+          "seed": 2628284502,
+          "fallTime": 0,
+          "clock": 14.120800000071602,
+          "turns": 31,
+          "forwardTurns": 25,
+          "verticalForwardTurns": 25,
+          "bounces": 39,
+          "vx": 3.002087291994868,
+          "vy": 1.693825022403273,
+          "vz": 0.6069832656041462
+        },
+        "tissue3": {
+          "type": "tissue",
+          "location": "air",
+          "x": -0.5794205924239543,
+          "y": 2.4502781822382347,
+          "z": 2.8761925030593787,
+          "heading": 14.15994290867029,
+          "pitch": -0.5931275647222594,
+          "targetHeading": 14.15994290867029,
+          "targetPitch": -0.5931275647222594,
+          "turnIn": 0.1791999999284171,
+          "seed": 3601539765,
+          "fallTime": 0,
+          "clock": 15.620800000071606,
+          "turns": 31,
+          "forwardTurns": 23,
+          "verticalForwardTurns": 27,
+          "bounces": 32,
+          "vx": 2.9014352551785167,
+          "vy": -1.9563499142773777,
+          "vz": -0.06609442422829594
+        },
+        "towel": {
+          "type": "towel",
+          "x": -2.3,
+          "y": 0.414,
+          "z": -2.55,
+          "location": "room"
+        },
+        "cup": {
+          "type": "cup",
+          "x": -1,
+          "y": 0.544,
+          "z": -4.2,
+          "location": "room"
+        },
+        "trash": {
+          "type": "trash",
+          "x": 2.15,
+          "y": 0.025,
+          "z": 0.2,
+          "location": "room"
+        },
+        "towel1": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "towel2": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.145,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup1": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup2": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 3.06,
+          "location": "stock"
+        }
+      },
+      "carriedItem": null,
+      "attachment": null,
+      "wind": {
+        "clock": 12.620800000071597,
+        "opening": 1,
+        "latch": 0,
+        "latched": false,
+        "wind": 1
+      },
+      "catchHand": {
+        "x": 3.184633865549408,
+        "y": 0.6003134550254362,
+        "z": 3.6076181287860374
+      },
+      "slots": {},
+      "furniture": {
+        "cart": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 0.96,
+          "handleBack": 0.39,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.84,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "chair": {
+          "x": 2.45,
+          "z": -0.76,
+          "yaw": 1.5707963267948966,
+          "width": 0.58,
+          "depth": 0.58,
+          "height": 0.9,
+          "handleY": 0.84,
+          "handleBack": 0.258,
+          "handleHalfWidth": 0.19,
+          "standBack": 0.76,
+          "target": {
+            "x": 2.82,
+            "z": -1.87,
+            "yaw": 1.5707963267948966
+          }
+        }
+      }
+    }
+  },
+  {
+    "requested": {
+      "type": "window-close"
+    },
+    "contact": {
+      "type": "window-close",
+      "event": "window_closed",
+      "error": 0.04112522050072578,
+      "revision": "rf05-series-v06"
+    },
+    "state": {
+      "revision": "rf05-series-v06",
+      "items": {
+        "tissue1": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        "tissue2": {
+          "type": "tissue",
+          "location": "falling",
+          "x": 1.445671382372806,
+          "y": 1.4487623519088186,
+          "z": -0.8393313855703087,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 1.365399999999965,
+          "clock": 142.68070000007282,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": -0.005533306219370183,
+          "vy": -0.21932066529209254,
+          "vz": -0.10977330197463803
+        },
+        "tissue3": {
+          "type": "tissue",
+          "location": "falling",
+          "x": -3.6434858741820775,
+          "y": 0.7532475965071618,
+          "z": -3.944911554388577,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 1.365399999999965,
+          "clock": 144.18070000007305,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": -0.04644751236998411,
+          "vy": -0.24857407336195636,
+          "vz": 0.11873625721071977
+        },
+        "towel": {
+          "type": "towel",
+          "x": -2.3,
+          "y": 0.414,
+          "z": -2.55,
+          "location": "room"
+        },
+        "cup": {
+          "type": "cup",
+          "x": -1,
+          "y": 0.544,
+          "z": -4.2,
+          "location": "room"
+        },
+        "trash": {
+          "type": "trash",
+          "x": 2.15,
+          "y": 0.025,
+          "z": 0.2,
+          "location": "room"
+        },
+        "towel1": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "towel2": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.145,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup1": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup2": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 3.06,
+          "location": "stock"
+        }
+      },
+      "carriedItem": null,
+      "attachment": null,
+      "wind": {
+        "clock": 141.18070000007262,
+        "opening": 0,
+        "latch": 1,
+        "latched": true,
+        "wind": 0.01817510222544712
+      },
+      "catchHand": {
+        "x": 2.6835935770717168,
+        "y": 0.6019455412885713,
+        "z": -4.0868879737312245
+      },
+      "slots": {},
+      "furniture": {
+        "cart": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 0.96,
+          "handleBack": 0.39,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.84,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "chair": {
+          "x": 2.45,
+          "z": -0.76,
+          "yaw": 1.5707963267948966,
+          "width": 0.58,
+          "depth": 0.58,
+          "height": 0.9,
+          "handleY": 0.84,
+          "handleBack": 0.258,
+          "handleHalfWidth": 0.19,
+          "standBack": 0.76,
+          "target": {
+            "x": 2.82,
+            "z": -1.87,
+            "yaw": 1.5707963267948966
+          }
+        }
+      }
+    }
+  },
+  {
+    "landing": {
+      "before": [
+        {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        {
+          "type": "tissue",
+          "location": "falling",
+          "x": 1.4447179145585307,
+          "y": 1.3931691369255441,
+          "z": -0.8582468957824791,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 1.6000999999999768,
+          "clock": 142.91540000007285,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": -0.003150324635979806,
+          "vy": -0.2491447832448307,
+          "vz": -0.062498174486160164
+        },
+        {
+          "type": "tissue",
+          "location": "falling",
+          "x": -3.651489444984451,
+          "y": 0.6929007957798934,
+          "z": -3.924451598776208,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 1.6000999999999768,
+          "clock": 144.41540000007308,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": -0.026444360152508027,
+          "vy": -0.2591823262565757,
+          "vz": 0.06760113058003535
+        }
+      ],
+      "after": [
+        {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        {
+          "type": "tissue",
+          "location": "floor",
+          "x": 1.4434569194566103,
+          "y": 0.018,
+          "z": -0.8832633309161532,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 7.315299999999993,
+          "clock": 148.63060000007346,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        {
+          "type": "tissue",
+          "location": "floor",
+          "x": -3.6620627105284456,
+          "y": 0.018,
+          "z": -3.897422595216481,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 4.433500000000003,
+          "clock": 147.24880000007346,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        }
+      ]
+    }
+  },
+  {
+    "requested": {
+      "type": "pickup",
+      "item": "tissue2"
+    },
+    "contact": {
+      "type": "pickup",
+      "event": "picked_up",
+      "error": 0.04744369515697538,
+      "revision": "rf05-series-v06"
+    },
+    "state": {
+      "revision": "rf05-series-v06",
+      "items": {
+        "tissue1": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        "tissue2": {
+          "type": "tissue",
+          "location": "carried",
+          "x": 1.4434569194566103,
+          "y": 0.018,
+          "z": -0.8832633309161532,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 7.315299999999993,
+          "clock": 148.63060000007346,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "tissue3": {
+          "type": "tissue",
+          "location": "floor",
+          "x": -3.6620627105284456,
+          "y": 0.018,
+          "z": -3.897422595216481,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 4.433500000000003,
+          "clock": 147.24880000007346,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "towel": {
+          "type": "towel",
+          "x": -2.3,
+          "y": 0.414,
+          "z": -2.55,
+          "location": "room"
+        },
+        "cup": {
+          "type": "cup",
+          "x": -1,
+          "y": 0.544,
+          "z": -4.2,
+          "location": "room"
+        },
+        "trash": {
+          "type": "trash",
+          "x": 2.15,
+          "y": 0.025,
+          "z": 0.2,
+          "location": "room"
+        },
+        "towel1": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "towel2": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.145,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup1": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup2": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 3.06,
+          "location": "stock"
+        }
+      },
+      "carriedItem": "tissue2",
+      "attachment": null,
+      "wind": {
+        "clock": 155.6302000000743,
+        "opening": 0,
+        "latch": 1,
+        "latched": true,
+        "wind": 3.903031574048949e-13
+      },
+      "catchHand": {
+        "x": 1.3920579039308036,
+        "y": 0.9568629035395237,
+        "z": -1.0972095619874462
+      },
+      "slots": {},
+      "furniture": {
+        "cart": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 0.96,
+          "handleBack": 0.39,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.84,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "chair": {
+          "x": 2.45,
+          "z": -0.76,
+          "yaw": 1.5707963267948966,
+          "width": 0.58,
+          "depth": 0.58,
+          "height": 0.9,
+          "handleY": 0.84,
+          "handleBack": 0.258,
+          "handleHalfWidth": 0.19,
+          "standBack": 0.76,
+          "target": {
+            "x": 2.82,
+            "z": -1.87,
+            "yaw": 1.5707963267948966
+          }
+        }
+      }
+    }
+  },
+  {
+    "requested": {
+      "type": "deliver",
+      "item": "tissue2",
+      "target": "bin"
+    },
+    "contact": {
+      "type": "deliver",
+      "event": "delivered",
+      "error": 0.05401912300516704,
+      "revision": "rf05-series-v06"
+    },
+    "state": {
+      "revision": "rf05-series-v06",
+      "items": {
+        "tissue1": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        "tissue2": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 1.4434569194566103,
+          "y": 0.018,
+          "z": -0.8832633309161532,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 7.315299999999993,
+          "clock": 148.63060000007346,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "tissue3": {
+          "type": "tissue",
+          "location": "floor",
+          "x": -3.6620627105284456,
+          "y": 0.018,
+          "z": -3.897422595216481,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 4.433500000000003,
+          "clock": 147.24880000007346,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "towel": {
+          "type": "towel",
+          "x": -2.3,
+          "y": 0.414,
+          "z": -2.55,
+          "location": "room"
+        },
+        "cup": {
+          "type": "cup",
+          "x": -1,
+          "y": 0.544,
+          "z": -4.2,
+          "location": "room"
+        },
+        "trash": {
+          "type": "trash",
+          "x": 2.15,
+          "y": 0.025,
+          "z": 0.2,
+          "location": "room"
+        },
+        "towel1": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "towel2": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.145,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup1": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup2": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 3.06,
+          "location": "stock"
+        }
+      },
+      "carriedItem": null,
+      "attachment": null,
+      "wind": {
+        "clock": 160.6071000000747,
+        "opening": 0,
+        "latch": 1,
+        "latched": true,
+        "wind": 8.259499147753364e-17
+      },
+      "catchHand": {
+        "x": 3.3608965050472146,
+        "y": 0.9692365343260606,
+        "z": 4.148393740445331
+      },
+      "slots": {},
+      "furniture": {
+        "cart": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 0.96,
+          "handleBack": 0.39,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.84,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "chair": {
+          "x": 2.45,
+          "z": -0.76,
+          "yaw": 1.5707963267948966,
+          "width": 0.58,
+          "depth": 0.58,
+          "height": 0.9,
+          "handleY": 0.84,
+          "handleBack": 0.258,
+          "handleHalfWidth": 0.19,
+          "standBack": 0.76,
+          "target": {
+            "x": 2.82,
+            "z": -1.87,
+            "yaw": 1.5707963267948966
+          }
+        }
+      }
+    }
+  },
+  {
+    "requested": {
+      "type": "pickup",
+      "item": "tissue3"
+    },
+    "contact": {
+      "type": "pickup",
+      "event": "picked_up",
+      "error": 0.044099414936533486,
+      "revision": "rf05-series-v06"
+    },
+    "state": {
+      "revision": "rf05-series-v06",
+      "items": {
+        "tissue1": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        "tissue2": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 1.4434569194566103,
+          "y": 0.018,
+          "z": -0.8832633309161532,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 7.315299999999993,
+          "clock": 148.63060000007346,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "tissue3": {
+          "type": "tissue",
+          "location": "carried",
+          "x": -3.6620627105284456,
+          "y": 0.018,
+          "z": -3.897422595216481,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 4.433500000000003,
+          "clock": 147.24880000007346,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "towel": {
+          "type": "towel",
+          "x": -2.3,
+          "y": 0.414,
+          "z": -2.55,
+          "location": "room"
+        },
+        "cup": {
+          "type": "cup",
+          "x": -1,
+          "y": 0.544,
+          "z": -4.2,
+          "location": "room"
+        },
+        "trash": {
+          "type": "trash",
+          "x": 2.15,
+          "y": 0.025,
+          "z": 0.2,
+          "location": "room"
+        },
+        "towel1": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "towel2": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.145,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup1": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup2": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 3.06,
+          "location": "stock"
+        }
+      },
+      "carriedItem": "tissue3",
+      "attachment": null,
+      "wind": {
+        "clock": 169.2640000000754,
+        "opening": 0,
+        "latch": 1,
+        "latched": true,
+        "wind": 3.35396929223324e-23
+      },
+      "catchHand": {
+        "x": -3.712076558775645,
+        "y": 0.9548792853361198,
+        "z": -4.109956419325552
+      },
+      "slots": {},
+      "furniture": {
+        "cart": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 0.96,
+          "handleBack": 0.39,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.84,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "chair": {
+          "x": 2.45,
+          "z": -0.76,
+          "yaw": 1.5707963267948966,
+          "width": 0.58,
+          "depth": 0.58,
+          "height": 0.9,
+          "handleY": 0.84,
+          "handleBack": 0.258,
+          "handleHalfWidth": 0.19,
+          "standBack": 0.76,
+          "target": {
+            "x": 2.82,
+            "z": -1.87,
+            "yaw": 1.5707963267948966
+          }
+        }
+      }
+    }
+  },
+  {
+    "requested": {
+      "type": "deliver",
+      "item": "tissue3",
+      "target": "bin"
+    },
+    "contact": {
+      "type": "deliver",
+      "event": "delivered",
+      "error": 0.05428274418990472,
+      "revision": "rf05-series-v06"
+    },
+    "state": {
+      "revision": "rf05-series-v06",
+      "items": {
+        "tissue1": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        "tissue2": {
+          "type": "tissue",
+          "location": "bin",
+          "x": 1.4434569194566103,
+          "y": 0.018,
+          "z": -0.8832633309161532,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 7.315299999999993,
+          "clock": 148.63060000007346,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "tissue3": {
+          "type": "tissue",
+          "location": "bin",
+          "x": -3.6620627105284456,
+          "y": 0.018,
+          "z": -3.897422595216481,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 4.433500000000003,
+          "clock": 147.24880000007346,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        "towel": {
+          "type": "towel",
+          "x": -2.3,
+          "y": 0.414,
+          "z": -2.55,
+          "location": "room"
+        },
+        "cup": {
+          "type": "cup",
+          "x": -1,
+          "y": 0.544,
+          "z": -4.2,
+          "location": "room"
+        },
+        "trash": {
+          "type": "trash",
+          "x": 2.15,
+          "y": 0.025,
+          "z": 0.2,
+          "location": "room"
+        },
+        "towel1": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "towel2": {
+          "type": "towel",
+          "x": 0.965,
+          "y": 1.145,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup1": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 2.9,
+          "location": "stock"
+        },
+        "cup2": {
+          "type": "cup",
+          "x": 1.38,
+          "y": 1.005,
+          "z": 3.06,
+          "location": "stock"
+        }
+      },
+      "carriedItem": null,
+      "attachment": null,
+      "wind": {
+        "clock": 174.2434000000759,
+        "opening": 0,
+        "latch": 1,
+        "latched": true,
+        "wind": 7.06748635397263e-27
+      },
+      "catchHand": {
+        "x": 3.192899898080563,
+        "y": 0.5952864051079774,
+        "z": 3.607697306518326
+      },
+      "slots": {},
+      "furniture": {
+        "cart": {
+          "x": 1.05,
+          "z": 2.9,
+          "yaw": 0,
+          "width": 0.95,
+          "depth": 0.58,
+          "height": 1.05,
+          "handleY": 0.96,
+          "handleBack": 0.39,
+          "handleHalfWidth": 0.24,
+          "standBack": 0.84,
+          "target": {
+            "x": 1.4,
+            "z": 4.48,
+            "yaw": 0
+          }
+        },
+        "chair": {
+          "x": 2.45,
+          "z": -0.76,
+          "yaw": 1.5707963267948966,
+          "width": 0.58,
+          "depth": 0.58,
+          "height": 0.9,
+          "handleY": 0.84,
+          "handleBack": 0.258,
+          "handleHalfWidth": 0.19,
+          "standBack": 0.76,
+          "target": {
+            "x": 2.82,
+            "z": -1.87,
+            "yaw": 1.5707963267948966
+          }
+        }
+      }
+    }
+  },
+  {
+    "tissueTask": {
+      "window": {
+        "clock": 174.49200000007593,
+        "opening": 0,
+        "latch": 1,
+        "latched": true,
+        "wind": 4.631518943141539e-27
+      },
+      "items": [
+        {
+          "type": "tissue",
+          "location": "bin",
+          "x": 2.2184334250221998,
+          "y": 0.7335379549184192,
+          "z": 0.07480766442378631,
+          "heading": -5.724494710660261,
+          "pitch": -0.5124814612134894,
+          "targetHeading": -5.724494710660261,
+          "targetPitch": -0.6113559460616671,
+          "turnIn": 0.3071999999284458,
+          "seed": 3378857023,
+          "fallTime": 0,
+          "clock": 6.892800000071548,
+          "turns": 17,
+          "forwardTurns": 14,
+          "verticalForwardTurns": 15,
+          "bounces": 11,
+          "vx": 1.6169218223721147,
+          "vy": -1.7161949815284794,
+          "vz": 2.5865495560134355
+        },
+        {
+          "type": "tissue",
+          "location": "bin",
+          "x": 1.4434569194566103,
+          "y": 0.018,
+          "z": -0.8832633309161532,
+          "heading": -9.374413920963292,
+          "pitch": 0.5880171601230472,
+          "targetHeading": -9.310016446744305,
+          "targetPitch": 0.5935403438983485,
+          "turnIn": 0.18469999992816344,
+          "seed": 3261137902,
+          "fallTime": 7.315299999999993,
+          "clock": 148.63060000007346,
+          "turns": 349,
+          "forwardTurns": 278,
+          "verticalForwardTurns": 282,
+          "bounces": 403,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        },
+        {
+          "type": "tissue",
+          "location": "bin",
+          "x": -3.6620627105284456,
+          "y": 0.018,
+          "z": -3.897422595216481,
+          "heading": -44.35517895447681,
+          "pitch": 0.2647359929146341,
+          "targetHeading": -44.35517895447681,
+          "targetPitch": 0.2542041287873872,
+          "turnIn": 0.18469999992816344,
+          "seed": 1018925677,
+          "fallTime": 4.433500000000003,
+          "clock": 147.24880000007346,
+          "turns": 349,
+          "forwardTurns": 287,
+          "verticalForwardTurns": 267,
+          "bounces": 275,
+          "vx": 0,
+          "vy": 0,
+          "vz": 0
+        }
+      ],
+      "complete": false
+    }
+  }
+]

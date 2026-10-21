@@ -1,0 +1,14 @@
+[
+  {
+    "path": "local-assets/levels/rf12/kettle-v3/kettle.glb",
+    "sha256": "bf367abb86c561305e034b9624c535001772d9ac41f9bd7b1b833df8c0f20fe7",
+    "bytes": 583964,
+    "servedMatches": true
+  },
+  {
+    "path": "local-assets/levels/rf12/kettle-v3/sink-r3.glb",
+    "sha256": "fea5c05a817214622571dd5a99c4b71b85bda0e92927508933712d03bee5a64a",
+    "bytes": 631728,
+    "servedMatches": true
+  }
+]

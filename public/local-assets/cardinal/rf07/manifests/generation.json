@@ -1,0 +1,285 @@
+{
+  "level": "RF-07",
+  "provider": "Cardinal",
+  "assets": {
+    "class_ii_a2_bsc": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc_image_to_model.json",
+      "taskId": "aigc_36d1a0f692824b6692562752b80d11c9",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_51dd31b9062c4a5dbf14d3907c3108a6",
+          "status": "failed",
+          "error": "Task could not be completed."
+        },
+        {
+          "taskId": "aigc_180cf4893e86494eb5030f77ccada65c",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "taskType": "image_to_model",
+      "sourceImageId": "4e4cd0c73398459eb855755093140844",
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/class_ii_a2_bsc.highpoly.glb",
+      "sourceSha256": "aa995e227fcf3e83d6ebbc973217d75d16bde5cdd54bbc4a899bd2d3ec7b8b14",
+      "sourceBytes": 56061284
+    },
+    "receiving_bench_equipment_bank": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/receiving_bench_equipment_bank.json",
+      "taskId": "aigc_dca524eb08a742a4a8d1074a35ef4a12",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/receiving_bench_equipment_bank.highpoly.glb",
+      "sourceSha256": "670d534299038465c5780df36ade0722d5b877dcd582ae18ed6548c9bab65397",
+      "sourceBytes": 56556424
+    },
+    "specimen_transfer_cart": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/specimen_transfer_cart.json",
+      "taskId": "aigc_4f3b8b99fb6640498245819be89ebc93",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/specimen_transfer_cart.highpoly.glb",
+      "sourceSha256": "ae74085af2dcc90668341e87f6d5981957ff6042280274766e78231f058be00c",
+      "sourceBytes": 55041272
+    },
+    "cold_chain_packing_island": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/cold_chain_packing_island.json",
+      "taskId": "aigc_63c5724aabea4bcb95e5284940333aed",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/cold_chain_packing_island.highpoly.glb",
+      "sourceSha256": "de126d61e83b2996ab3d902bf4690495469a669d7278ceedcf9d538db91df20b",
+      "sourceBytes": 54756772
+    },
+    "dry_reagent_cabinet": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/dry_reagent_cabinet.json",
+      "taskId": "aigc_2e2e4eb56ea24eb7a630a045fefdb205",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/dry_reagent_cabinet.highpoly.glb",
+      "sourceSha256": "a6118eb7fdcf4789a9ccbe1ada6e37aa7941f603320022b622de1fc663678e3e",
+      "sourceBytes": 54654992
+    },
+    "handwash_eyewash_station": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/handwash_eyewash_station_image_to_model.json",
+      "taskId": "aigc_32bd6579a1854fe0b0a1b0bdf5e71957",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_237a98335afe43089276924226e1f2a0",
+          "status": "completed",
+          "error": null
+        }
+      ],
+      "taskType": "image_to_model",
+      "sourceImageId": "5bc26c2c49c0452894f29b3b39c71c56",
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/handwash_eyewash_station.highpoly.glb",
+      "sourceSha256": "911da40907fba848ba3cf9c2de22d24b057122840837dbe7eab02ec65881e1ee",
+      "sourceBytes": 55328768
+    },
+    "ppe_locker_bank": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/ppe_locker_bank.json",
+      "taskId": "aigc_419886cd0ca147b080f134f9ad4e5163",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/ppe_locker_bank.highpoly.glb",
+      "sourceSha256": "b26c8bfded391cf0c6e2b69a69de7f04d3b83c4341e4dd3ee1fbc8b1c7b077dd",
+      "sourceBytes": 57069812
+    },
+    "medical_refrigerator": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/medical_refrigerator.json",
+      "taskId": "aigc_f6052c3768ae4b32a264b054ae6b54e2",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/medical_refrigerator.highpoly.glb",
+      "sourceSha256": "af8666a8fe4341b6753b32d3951b8481fb7d71eed4b6a1270c5ef9a25966091d",
+      "sourceBytes": 55648012
+    },
+    "p650_transport_case": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/p650_transport_case_image_to_model.json",
+      "taskId": "aigc_3b5d6f69c8da41d78e07509607309624",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_e04d22d808ac45fdaf64bad4d8aede96",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "taskType": "image_to_model",
+      "sourceImageId": "24bf2773fb9b443b9645c21e78c4c14a",
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/p650_transport_case.highpoly.glb",
+      "sourceSha256": "c30a08140e9f2ea58c553df67f7b68205a2d9503ea96471c6d0982b9c0865cf5",
+      "sourceBytes": 56614096
+    },
+    "pcm_cooling_plate": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/pcm_cooling_plate_image_to_model.json",
+      "taskId": "aigc_da6eaf12eb1e4c23977db821f4c48e18",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_4db218956c964e5ea474c56e4480e551",
+          "status": "completed",
+          "error": null
+        }
+      ],
+      "taskType": "image_to_model",
+      "sourceImageId": "86c77906bca6407390c9b09d08e475b2",
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/pcm_cooling_plate.highpoly.glb",
+      "sourceSha256": "7f4c1155eedc3429975cae415944ae996402b29df883a15b241f72c43c1582b7",
+      "sourceBytes": 55497184
+    },
+    "secondary_specimen_carrier": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier_image_to_model.json",
+      "taskId": "aigc_e63c7fc07685438b9176e574c3e9dec0",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_e317e8ae36914e9a9a7f384e5af10596",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "taskType": "image_to_model",
+      "sourceImageId": "b407d3afcdfe491999468c8fec9dbd33",
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/secondary_specimen_carrier.highpoly.glb",
+      "sourceSha256": "6322b75ebd6b9547e1d396e21fe7cf6a1db9071a2234b7c69ba696ec1894bfe9",
+      "sourceBytes": 52765704
+    },
+    "medical_waste_bin": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/medical_waste_bin.json",
+      "taskId": "aigc_f4c141bc472c4149923579f58dccf249",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf07/models/source/medical_waste_bin.highpoly.glb",
+      "sourceSha256": "d85b81ce6cc63dbad7dd56413ca607f440df975e53cdd417bc2320073a976f3a",
+      "sourceBytes": 55840108
+    },
+    "epoxy_floor": {
+      "type": "image",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/epoxy_floor.json",
+      "taskId": "aigc_4c70ae0409294bd7aec418862858d09f",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_7566171d40ef45d0a11fe718d92ca168",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "sourceArtifact": "public/local-assets/cardinal/rf07/textures/source/epoxy_floor-basecolor.png",
+      "sourceSha256": "c941ae2ad5dace5d9fd8ebc55291629e255e43e5bd400357e8954d867420f8fd",
+      "sourceBytes": 21888568
+    },
+    "cleanroom_wall": {
+      "type": "image",
+      "requestFile": "public/local-assets/cardinal/rf07/requests/cleanroom_wall.json",
+      "taskId": "aigc_cad600afee704cd3b569c7fa8c625d0e",
+      "status": "failed",
+      "progress": 100,
+      "error": "Task could not be completed.",
+      "attempts": [
+        {
+          "taskId": "aigc_d71d630201904c679c2ed808e4897b13",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ]
+    }
+  },
+  "references": {
+    "class_ii_a2_bsc": {
+      "requestFile": "public/local-assets/cardinal/rf07/requests/class_ii_a2_bsc_reference.json",
+      "taskId": "aigc_6e5c5e7a12d24ed9a9d322e6ea3b892d",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "artifact": "public/local-assets/cardinal/rf07/references/class_ii_a2_bsc.png",
+      "sha256": "01c59a77ea79b9b815d0cc291f489e55d3593ec9748682523c9b14f3df6448df",
+      "bytes": 3696949,
+      "sourceImageId": "4e4cd0c73398459eb855755093140844"
+    },
+    "handwash_eyewash_station": {
+      "requestFile": "public/local-assets/cardinal/rf07/requests/handwash_eyewash_station_reference.json",
+      "taskId": "aigc_587148edced54bb9b69556b5a515fc6d",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "artifact": "public/local-assets/cardinal/rf07/references/handwash_eyewash_station.png",
+      "sha256": "90de49f0eb8bc67ce00a53e0a4ee231c558fac1c20ed0d0be49616e7098a9f43",
+      "bytes": 3661309,
+      "sourceImageId": "5bc26c2c49c0452894f29b3b39c71c56"
+    },
+    "pcm_cooling_plate": {
+      "requestFile": "public/local-assets/cardinal/rf07/requests/pcm_cooling_plate_reference.json",
+      "taskId": "aigc_7d5e9424936745cb884ae1e708958cfb",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "artifact": "public/local-assets/cardinal/rf07/references/pcm_cooling_plate.png",
+      "sha256": "6bbd76fc7fd81d71414b256f6e2e3da2ac110137790cfec44d9e7d6a1a1e7cc3",
+      "bytes": 3748224,
+      "sourceImageId": "86c77906bca6407390c9b09d08e475b2"
+    },
+    "p650_transport_case": {
+      "requestFile": "public/local-assets/cardinal/rf07/requests/p650_transport_case_reference.json",
+      "taskId": "aigc_2954773dfce34081a966ae64ecadfb83",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "artifact": "public/local-assets/cardinal/rf07/references/p650_transport_case.png",
+      "sha256": "93cd0076149a2878edffc6a238898ee8ce341c34aa9b75989ca8b7d4986c1e77",
+      "bytes": 3768989,
+      "sourceImageId": "24bf2773fb9b443b9645c21e78c4c14a"
+    },
+    "secondary_specimen_carrier": {
+      "requestFile": "public/local-assets/cardinal/rf07/requests/secondary_specimen_carrier_reference.json",
+      "taskId": "aigc_ae02da327d64438b904d3966e7c5d3f6",
+      "status": "completed",
+      "attempts": [
+        {
+          "taskId": "aigc_2dced89289d14181a21a7ceddb27d716",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "progress": 100,
+      "error": null,
+      "artifact": "public/local-assets/cardinal/rf07/references/secondary_specimen_carrier.png",
+      "sha256": "7b72e7765147e928036ebb7604689a4a97aa464b874dfb9b554716b1ef1332e2",
+      "bytes": 3605044,
+      "sourceImageId": "b407d3afcdfe491999468c8fec9dbd33"
+    }
+  }
+}

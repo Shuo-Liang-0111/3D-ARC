@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-09-22T10:25:41.9669094Z",
+  "estimatedWaitSeconds": 30,
+  "id": "aigc_d8ba811eb2e74ff3b812ded29ed44c1b",
+  "idempotentReplay": false,
+  "normalizations": [],
+  "normalizedInput": {
+    "durationSeconds": 20,
+    "generationType": "sound_effect"
+  },
+  "queuePosition": 1,
+  "queueReason": "scheduled",
+  "requestId": "aigc_d8ba811eb2e74ff3b812ded29ed44c1b",
+  "retryAfterSeconds": 30,
+  "status": "queued",
+  "taskId": "aigc_d8ba811eb2e74ff3b812ded29ed44c1b",
+  "type": "sound-effect"
+}

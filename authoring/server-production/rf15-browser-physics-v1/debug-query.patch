@@ -1,0 +1,8 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -857,1 +857,4 @@
+     gameplayUrl.searchParams.set("control", controlModeId);
++    for (const name of ["physics", "qa"]) {
++      if (searchParams.has(name)) gameplayUrl.searchParams.set(name, searchParams.get(name));
++    }

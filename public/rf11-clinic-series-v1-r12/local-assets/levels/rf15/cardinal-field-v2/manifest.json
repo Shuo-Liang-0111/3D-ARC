@@ -1,0 +1,59 @@
+{
+  "revision": "cardinal-field-v2",
+  "tasks": {
+    "lettuce": {
+      "taskId": "aigc_7e022fd2bf3a4ba8943a49c50b2e1d42",
+      "kind": "model3d",
+      "status": "completed"
+    },
+    "bok-choy": {
+      "taskId": "aigc_2bac7a012d6242ddb67b80e5bd8c615c",
+      "kind": "model3d",
+      "status": "completed"
+    },
+    "basket": {
+      "taskId": "aigc_b6f285173bb2478b8384ecf0a3eecc69",
+      "kind": "model3d",
+      "status": "completed"
+    },
+    "plaster": {
+      "taskId": "aigc_9e7e36d14bc342f78b70c169782ee91b",
+      "kind": "image",
+      "status": "completed"
+    },
+    "wood": {
+      "taskId": "aigc_3028bccc8ba045bf8c6f79872901112e",
+      "kind": "image",
+      "status": "completed"
+    },
+    "roof": {
+      "taskId": "aigc_2166155104e3451aa8c1f351611fbc08",
+      "kind": "image",
+      "status": "completed"
+    },
+    "soil": {
+      "taskId": "aigc_1f02d76e7b7440a088fdade7b757d44d",
+      "kind": "image",
+      "status": "completed"
+    }
+  },
+  "textures": "Cardinal generated base color; normal and roughness derived from base color, not scanned channels",
+  "geometry": "Cardinal plants and basket; Blender precise soil beds and existing hinged tool room",
+  "files": {
+    "lettuce.glb": "49e0a6692eacab10e036422b7af7e8a73b0db6803ea803cbccaf85098d66c6be",
+    "field.glb": "6e8be7276e32dfd4a5739a974866dfed3a64204e0d39e58a6070cc395552230d",
+    "basket.glb": "37724c9ecc5f8e1865ea4933b083d7fb0e2d7b82036ebc7c7126493b645008cc",
+    "door.glb": "f716cd4368386ee589b36826fedc3d3b745dd10ef4e77b46cdf94c8618a6a572",
+    "bok-choy.glb": "217efc68d73f3b7130ac3eb30f19518fd29b16918b28dc2d807e569f26679768",
+    "room.glb": "ce36949419a0bd76fc43caecfc72572793b9a5cbab236c35a7efa4d7dc8c2838"
+  },
+  "sourceHashes": {
+    "lettuce.glb": "b49d72251e9f1b9c9197ba08d2c730b4684a369769cbffaa97a2792403769f62",
+    "basket.glb": "f646e1b675c2d782dab504b5cff1dea685fb6303119b8c3b1dfb77175c353920",
+    "plaster.png": "99b7f297122989b9574b6df317b937f792399706e37579d94caef31172806357",
+    "soil.png": "e6663f6ab9b82a1a589ef0aead69483ae72f669793480920ee39badc54121541",
+    "roof.png": "469a78f9a06e124f010bc05da4879d5d882fcd6a33fde4d3e7cc3dbee403b080",
+    "wood.png": "cfd32e636230b4cff402662f6fadab5e866810f44252cf14541045777cf2d1ae",
+    "bok-choy.glb": "0adcdd914b2f85d033afccf0b26aae9d083bd0ee4949887ea3d4c5329d89719b"
+  }
+}

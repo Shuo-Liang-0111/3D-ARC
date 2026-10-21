@@ -1,0 +1,1 @@
+#game-shell[data-tennis-hud=minimal] .top-hud .system-state,#game-shell[data-tennis-hud=minimal] .telemetry-panel>div:has(#gate-state){display:none}

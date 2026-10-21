@@ -1,0 +1,10 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "prompt": "One isolated photoreal household insecticide aerosol spray can, cylindrical metal can 0.065 meter diameter and 0.24 meter tall. Muted olive green enamel body with cream label band, NO readable text or logo. Exposed black plastic push button actuator and tiny front-facing nozzle, NO cap. Realistic rolled metal bottom rim, shoulder neck, subtle handling scratches and fine roughness. Can stands upright Y up, nozzle faces +Z, bottom center pivot. Single object only, no ground, room, hand, accessories, spray cloud, pedestal or packaging.",
+  "negativePrompt": "lid, cap covering nozzle, hand, person, spray cloud, backdrop, text, logo, pedestal"
+}

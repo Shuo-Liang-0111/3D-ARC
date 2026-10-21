@@ -1,0 +1,22 @@
+{
+  "revision": "realism-v0.4.1",
+  "reviewedAt": "2026-09-09T20:11:00+08:00",
+  "visualStatus": "partial-pending-browser-access",
+  "url": "http://127.0.0.1:4173/?mode=play&level=rf13&view=first&robot=g1",
+  "state": "started; empty cargo; deliveries 0/4; returns 0/4; preparations 0/2",
+  "screenshot": "production/rf13/realism-v0.4.1/visual-20260909/formal-first.png",
+  "screenshotSha256": "b7d8c7060de49e2f4dd002c560667547ba32dd5d30f19354cbabbd73b86e6abe",
+  "observed": [
+    "Formal HUD identifies V0.4.1 and task starts successfully.",
+    "Normal D435 up control reveals corridor, open doorways, cabinet fronts and trolley.",
+    "Initial dual view exposes room interiors instead of an opaque roof.",
+    "Dual overview is small and substantially obscured by the existing operator console at this viewport; full third-person acceptance remains pending."
+  ],
+  "pending": [
+    "Basin support and worktop opening close-up",
+    "Diagnostic panel mounting, bed curtains and waiting area close-ups",
+    "Formal distant viewpoint and pickup/carry/place/return/preparation/completion screenshots",
+    "Measured final browser performance"
+  ],
+  "blocker": "User restored Chrome and authorized a new normal Chrome tab. Formal task and first-person screenshot succeeded. Automatic approval review subsequently denied access_browser_origin while clicking the treatment-room button on the preview page. No workaround attempted."
+}

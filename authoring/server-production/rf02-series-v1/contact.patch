@@ -1,0 +1,14 @@
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -22,2 +22,2 @@
+-  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.75, support: "west-reading-zone", location: "table" }),
+-  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.75, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
+diff --git a/tools/rf02-series/audit-supports.py b/tools/rf02-series/audit-supports.py
+--- a/tools/rf02-series/audit-supports.py
++++ b/tools/rf02-series/audit-supports.py
+@@ -20,1 +20,1 @@
+-    for sample_x in ([-0.82, 0.72] if name == "reading-table" else [0]):
++    for sample_x in ([-0.82, 0.72] if name == "reading-table" else [-0.62, 0, 0.62] if name == "return-sorting-table" else [0]):

@@ -1,0 +1,38 @@
+{
+  "meshes": [
+    {
+      "mesh": "tripo_node_16039b59-f1ae-4c45-8af7-c507f8ca35db",
+      "vertices": 33407,
+      "faces": 47688,
+      "emissiveFaces": 5737,
+      "geometryUnchanged": true,
+      "bounds": [
+        [
+          -1.099822759628296,
+          -0.17498430609703064,
+          2.592802047729492e-06
+        ],
+        [
+          1.100000023841858,
+          0.17494085431098938,
+          0.31996089220046997
+        ]
+      ]
+    }
+  ],
+  "lightsPerFixture": 2,
+  "downwardOnly": true,
+  "asset": "./public/local-assets/cardinal/rf02/models/runtime/library-lighting-v8/suspended-linear-light.glb",
+  "bytes": 1436556,
+  "checks": {
+    "fixtures": 12,
+    "downwardLights": 24,
+    "emissiveDiffuser": true,
+    "allTargetsBoundToOwnFixture": true,
+    "emittersWithinLampFootprint": true,
+    "meshFloorGapMillimeters": 6,
+    "noUpwardCone": true
+  },
+  "sha256": "fa0d1e5748833bc50238e4236a191bf43ef823f7478ff0423c3e34b90f6c67b6",
+  "revision": "library-lighting-v8"
+}

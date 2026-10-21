@@ -1,0 +1,9 @@
+diff --git a/docs/levels/rf15-browser-physics.md b/docs/levels/rf15-browser-physics.md
+--- a/docs/levels/rf15-browser-physics.md
++++ b/docs/levels/rf15-browser-physics.md
+@@ -3 +3,4 @@
+-Status: candidate integration; not accepted for the default route yet.
++Status: superseded by `rf15-interaction-animation.md` after the user explicitly
++requested visual choreography without object physics. This document records the
++historical prototype. The default F route and old `physics=1` links now use the
++animation controller described in that document.

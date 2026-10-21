@@ -1,0 +1,61 @@
+diff --git a/docs/levels/rf02-series-server-profile.json b/docs/levels/rf02-series-server-profile.json
+--- a/docs/levels/rf02-series-server-profile.json
++++ b/docs/levels/rf02-series-server-profile.json
+@@ -1,26 +1,31 @@
+-{
+-  "profile": "rf02-series-current-task",
+-  "allowedHosts": [
+-    "127.0.0.1"
+-  ],
+-  "allowedRoot": "/path/to/arc-workspace",
+-  "projectCandidate": ".",
+-  "requiresProjectVerification": true,
+-  "projectVerified": true,
+-  "sshUser": "chenhaoyuan",
+-  "authorizationEvidence": "Current task explicitly selects host, account, root, Cardinal, two harder shared-scene levels and deployment.",
+-  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
+-  "credentials": "Official private credential store; no secrets in project",
+-  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+-  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
+-  "embodiedgenEnvironmentCandidate": null,
+-  "previewPortCandidates": [
+-    4192
+-  ],
+-  "executionMode": "automatic-after-initial-scope",
+-  "qualityPreset": "high-highpoly",
+-  "reportCardinalCost": false,
+-  "cardinalExecution": "automatic-within-approved-level",
+-  "cardinalBatchApprovalRequired": false,
+-  "cardinalMaxRegenerationsPerAsset": 2
+-}
++{
++  "profile": "rf02-series-current-task",
++  "allowedHosts": [
++    "127.0.0.1"
++  ],
++  "allowedRoot": "/path/to/arc-workspace",
++  "projectCandidate": ".",
++  "requiresProjectVerification": true,
++  "projectVerified": true,
++  "sshUser": "chenhaoyuan",
++  "authorizationEvidence": "User selected closing reset then dynamic patrol, recurring falls capped at three with no global countdown, and authorized shared-scene improvements and deployment on this host.",
++  "deploymentScope": "RF-02/RF-02-2/RF-02-3; fixed release on 4192; preserve unrelated services and changes",
++  "credentials": "Official private credential store; no secrets in project",
++  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
++  "blenderCandidate": "/opt/arc-runtime/blender/blender-4.5.3-linux-x64/blender",
++  "embodiedgenEnvironmentCandidate": null,
++  "previewPortCandidates": [
++    4194
++  ],
++  "executionMode": "automatic-after-initial-scope",
++  "qualityPreset": "high-highpoly",
++  "reportCardinalCost": false,
++  "cardinalExecution": "automatic-within-approved-level",
++  "cardinalBatchApprovalRequired": false,
++  "cardinalMaxRegenerationsPerAsset": 2,
++  "revision": "library-operations-v3",
++  "releaseDirectory": "./authoring/server-production/rf02-redesign-v3/release-r3",
++  "taskArtifacts": "./authoring/server-production/rf02-redesign-v3",
++  "deployedPort": 4192,
++  "deploymentStatus": "verified gameplay, preparing switch"
++}

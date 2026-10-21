@@ -1,0 +1,20 @@
+{
+  "source": "./.tooling/unitree-assets/extracted/assets/robots/g1-29dof_wholebody_dex1/g1_29dof_with_dex1_rev_1_0.usd",
+  "sourceSha256": "4603ace0bf5c48a327b5a063ca10232bbb292f621bbb2c931d39f9ea609ca722",
+  "output": "./public/local-assets/unitree/g1-29dof-dex1-official.glb",
+  "outputSha256": "bdfbbab13e4f2ca6222cafe47050c84166344ed6ea4a9af3d88a821bdc98bb70",
+  "outputBytes": 34275096,
+  "objectCounts": {
+    "EMPTY": 206,
+    "MESH": 47
+  },
+  "meshVertices": 1302066,
+  "meshTriangles": 434022,
+  "materials": [
+    "DefaultMaterial",
+    "DefaultMaterial_0",
+    "material_4C4C4C",
+    "material_CAD1EE"
+  ],
+  "root": "unitree-g1-29dof-dex1-official"
+}

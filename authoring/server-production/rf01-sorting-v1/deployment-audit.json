@@ -1,0 +1,32 @@
+[
+  {
+    "asset": "automaticInfeed",
+    "sha256": "4c061dd4d3c57ec7fa0ee6c59bf6ce8da6b71e9649140244d774168f6de55713",
+    "buildMatches": true,
+    "servedMatches": true
+  },
+  {
+    "asset": "beltConveyor",
+    "sha256": "8973ed439cb409dda9caab05b26c0666548203b1a0f9558435d746ff24cf698a",
+    "buildMatches": true,
+    "servedMatches": true
+  },
+  {
+    "asset": "dwsGantry",
+    "sha256": "9aa0818060dcef70ce5039e899760e171bf382b39a06920e092c7ef5da87be97",
+    "buildMatches": true,
+    "servedMatches": true
+  },
+  {
+    "asset": "routeCage",
+    "sha256": "a7311d7ffc4d1839b94ee8df79921bc4b927cf9dbdc2cba4f99cc98f4e6dd058",
+    "buildMatches": true,
+    "servedMatches": true
+  },
+  {
+    "asset": "parcel",
+    "sha256": "7535dfd1d56b6a06ecd9f6ae14548bf340036e568443c4ad6c4a6ea154ae85e6",
+    "buildMatches": true,
+    "servedMatches": true
+  }
+]

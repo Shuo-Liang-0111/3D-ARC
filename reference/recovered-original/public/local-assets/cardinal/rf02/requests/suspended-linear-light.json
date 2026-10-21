@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready suspended linear LED light fixture module for a contemporary Chinese municipal public library. Real-world size approximately 2.2 m long x 0.32 m high x 0.18 m deep. One slim rectangular extruded aluminum luminaire with a matte black housing, continuous frosted opal diffuser on the downward face, subtle end caps and fasteners, plus exactly two short thin suspension stems aligned symmetrically above the housing and terminating in small ceiling mounts. The light is switched off in the texture; no baked glow, runtime controls illumination. Long axis along X, front facing positive Z, Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. One isolated standard module only. No ceiling, room, wires beyond the two stems, extra lamps, readable text, logo, trademark, neon, UI, people, robot, floating parts, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

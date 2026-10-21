@@ -1,0 +1,47 @@
+[
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/windscreen.glb",
+    "bytes": 2372624,
+    "sha256": "738517c41c8bc8ca7a4b045dc9ad820b05fb1e1896719ece76ff55b1c3a07cf4"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/umpire-chair.glb",
+    "bytes": 2612508,
+    "sha256": "a5993eb38fc7dee741f3716aa8f3a35b64d966ed4cf72f32217caf6f4fc356a2"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/collision.glb",
+    "bytes": 27620,
+    "sha256": "46f6dd2410bbb40a3208b89eae8ed7ac21fdcf84750d11af72f2ffba3f27d564"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/environment.glb",
+    "bytes": 19970400,
+    "sha256": "f4d08c6c1019cc36eb6fcfa046f02d56623538c8af59a0885d52bda08aa97849"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/ball.glb",
+    "bytes": 1021916,
+    "sha256": "06c46dbefc0b83eb31eb6bf50b52bfb637aabea40809a85a88ca083f37517a25"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/court-bench.glb",
+    "bytes": 3796532,
+    "sha256": "fb104a6043a63c418384f031e2918c0cbb83fba3d873f6cd697921846034d718"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/tennis-bag.glb",
+    "bytes": 2982796,
+    "sha256": "948faae5eaf9618fa8591dad042b737467f52c5bb82b463317691b6b7fec0cc3"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/cart.glb",
+    "bytes": 99204,
+    "sha256": "ef3c74675273c7017858e9031d191018cfeab9f389d511e447daeed75eac05d7"
+  },
+  {
+    "path": "local-assets/levels/rf14/realism-v0.4.8/plane-tree.glb",
+    "bytes": 2877160,
+    "sha256": "725ae2d2094f35dd9abb82b065924c13292a2339a7bb1fed8184c284d91c591f"
+  }
+]

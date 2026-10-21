@@ -1,0 +1,197 @@
+{
+  "revision": "rf05-series-v02",
+  "assets": [
+    {
+      "id": "bathroom_vanity",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/bathroom_vanity.glb",
+      "sha256": "126c32fb178cb6c7dfc516a9ee54b92c2fba56a1c3180e0952213b80cf88f99c",
+      "bytes": 1140576,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "bedside_table",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/bedside_table.glb",
+      "sha256": "6b16587fc319d881d5099e2033b1c3a34be8e4c52e6798f99b250a5b189dfef6",
+      "bytes": 1138332,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "ceiling_light",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/ceiling_light.glb",
+      "sha256": "727569915d96129e2c867dca36e2e9202f734b3c6977771020b7b6e0b0bc71bd",
+      "bytes": 1006832,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "cleaning_cart",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/cleaning_cart.glb",
+      "sha256": "e403de942cc977f9fff371a68d80e05cfdedd5e22d1c611dc98fa919a5b7a899",
+      "bytes": 1645240,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "curtain_window_module",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/curtain_window_module.glb",
+      "sha256": "dabbb62a9074ba444227bf8a724277947732c810477f578dfd54465d663acd02",
+      "bytes": 1737328,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "desk_chair",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/desk_chair.glb",
+      "sha256": "d1c43b2fcab52dc4f8c64dc8658586a2a6e27682451c905a9c54a3fbd4b4904a",
+      "bytes": 1338376,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "drinking_cup",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/drinking_cup.glb",
+      "sha256": "29a79b58c4df70ab2562efb388d805f699355934801ab64f02eaf3104b7b4160",
+      "bytes": 1951756,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "laundry_basket",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/laundry_basket.glb",
+      "sha256": "3f1c44bfe2905254ec69ab222052156ff7f3454ea0d2d6c1eea61bae5288273e",
+      "bytes": 2323804,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "luggage_bench",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/luggage_bench.glb",
+      "sha256": "bdcf803be45632b781e6401d321ec389b412172217d3793feb9bf43403372018",
+      "bytes": 1355096,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "paper_trash",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/paper_trash.glb",
+      "sha256": "c10c9cb465e47aa4a1312c7be1c5984efe272e5b82de2039bb055f4982515298",
+      "bytes": 2172056,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "shower_fixture",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/shower_fixture.glb",
+      "sha256": "ef3674e0f9a1273ce333754f899e5661e6413a794cd3d0c0dd9a8fff6aaf899f",
+      "bytes": 1750464,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "television_console",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/television_console.glb",
+      "sha256": "13dcf414ab123beacbc772dc033ee30bdbb755a39cde8e8456c77759bc1e7455",
+      "bytes": 1065488,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "toilet",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/toilet.glb",
+      "sha256": "db68937de8719e618590027d003d076f6fa11b70c867961be8c0510805fb5414",
+      "bytes": 1423672,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "towel",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/towel.glb",
+      "sha256": "4d6fb7e84c9fb0afc521f4f6c4e2da36e23d38757a186481a232ca9eb7c8ca50",
+      "bytes": 1904584,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "trash_bin",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/trash_bin.glb",
+      "sha256": "4bf6aa942a2bcd6c0b3bfe21935fa7fb8faf7e264538156711aa283c3fa37b2d",
+      "bytes": 1731544,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "twin_bed",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/twin_bed.glb",
+      "sha256": "4eaeefee265012b285561799aa97c516a5a55b01f6da75ed5398972cdd822b87",
+      "bytes": 1259528,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "wardrobe",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/wardrobe.glb",
+      "sha256": "d3e27fe13edd75ca7e0bd0ff056bf31311841a92de8117ac6d51bf8d7afe2388",
+      "bytes": 828128,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "writing_desk",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/models/runtime/writing_desk.glb",
+      "sha256": "f83434686d5c95cb1090eb633614b6a8ef3425a3bfbeca4b2ceaf5167bb1166c",
+      "bytes": 1001508,
+      "meshes": 1,
+      "embeddedTextures": true
+    },
+    {
+      "id": "bathroom_floor_tile",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+      "sha256": "9adda573e239a007207e68b6dbe16c204196837824b9599974093d79f500bfbb",
+      "bytes": 8932523
+    },
+    {
+      "id": "bathroom_wall_tile",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/textures/source/bathroom_wall_tile.png",
+      "sha256": "60520a8aaa3fc275d969b7994db545967c3eb72e9c31fd4cb1a1295daec5efee",
+      "bytes": 4907810
+    },
+    {
+      "id": "guestroom_wood_floor",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/textures/source/guestroom_wood_floor.png",
+      "sha256": "fea6e57ae5133ba92f288f3a87db4f6b5179e4e6c0ce05ecea0b11547689260d",
+      "bytes": 4942835
+    },
+    {
+      "id": "warm_gray_wall",
+      "provider": "Cardinal (existing RF05)",
+      "runtimePath": "public/local-assets/cardinal/rf05/textures/source/warm_gray_wall.png",
+      "sha256": "cc359c438c0803144ab378e0cd1cd3778d82f52b5cc421f06ca6b9ca648603be",
+      "bytes": 5556821
+    }
+  ],
+  "newGenerationTasks": [],
+  "newGeometry": "Three.js parameterized hollow basin, faucet, drain, water surface, furniture handles, parking outlines"
+}

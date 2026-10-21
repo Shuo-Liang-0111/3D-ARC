@@ -1,0 +1,22 @@
+[
+  {
+    "source": "./public/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+    "output": "./public/local-assets/cardinal/rf02/models/runtime/library-surfaces-v7/wall-shell.glb",
+    "changedNodes": [
+      "RF02 consolidated warm low VOC wall paint"
+    ],
+    "geometryBoundsPreserved": true,
+    "nodes": 12,
+    "bytes": 6574680
+  },
+  {
+    "source": "./public/local-assets/cardinal/rf02/models/runtime/library-operations-v5/ceiling-fixtures.glb",
+    "output": "./public/local-assets/cardinal/rf02/models/runtime/library-surfaces-v7/ceiling-fixtures.glb",
+    "changedNodes": [
+      "library-ceiling-interior-face"
+    ],
+    "geometryBoundsPreserved": true,
+    "nodes": 25,
+    "bytes": 4483036
+  }
+]

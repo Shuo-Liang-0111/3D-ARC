@@ -1,0 +1,16 @@
+{
+  "release": "rf06-series-v1-r11",
+  "level": "rf06-3",
+  "method": "Robot-only QA stations followed by normal pickup animation and live short sprays; no roach teleport or injected kills",
+  "run": "passed",
+  "complete": true,
+  "pickupErrorMetres": 0.024581779444146253,
+  "shots": 2,
+  "kills": 2,
+  "sprayDurationSeconds": 0.18,
+  "observedFps": 59.934,
+  "requiredAssetsReady": true,
+  "loadedAssets": 8,
+  "ceilingThirdPerson": false,
+  "water": 0
+}

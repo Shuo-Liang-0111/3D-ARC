@@ -1,0 +1,14 @@
+{
+  "admitted": true,
+  "reasons": [],
+  "provenance": {
+    "viewpoint": "g1-02-rgb.png",
+    "sourcePath": "./.img2threejs/references/unitree-official/g1-official-rgb/g1-02-rgb.png",
+    "width": 2740,
+    "height": 1720,
+    "foregroundCoverage": 0.5929,
+    "largestComponentFraction": 0.9989,
+    "pHash": 12297686450557005728,
+    "duplicateOfHash": null
+  }
+}

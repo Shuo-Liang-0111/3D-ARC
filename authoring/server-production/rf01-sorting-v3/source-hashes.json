@@ -1,0 +1,8 @@
+{
+  "game/rf01-sorting-layout.js": "8b1ed53b2d04565ef045019529ef74a306bbf7cc3f264aa37a76587c700685df",
+  "game/rf01-sorting-scene.js": "c24983c091dd27cbae54d7bdda93b77f17be4d56365e1a7333352e68c3d23c88",
+  "game/rf01-shared-engine.js": "7a2399ad7b4f466bad5044109daa387f20b2d65bed3eb6e4b258238adea0e5fe",
+  "game/levels/rf01-3/qa.js": "6b90bfa3937939a77b28682acda3bad8e8b9908c2aa552109ff6766a42e846c8",
+  "tests/rf01-sorting.test.mjs": "1da6db6264d6ad76cca7f0a21967e773fa137f882a88282c1b5d7a1bed00409e",
+  "tools/rf01-sorting-audit.mjs": "34bea937a7309d0073635de6747e5e76735b809c6b1307b93535cf266680ff99"
+}

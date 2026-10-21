@@ -1,0 +1,12 @@
+diff --git a/game/app.js b/game/app.js
+--- a/game/app.js
++++ b/game/app.js
+@@ -101,1 +101,1 @@
+-  "rf15-1": "去田里收割蔬菜并放到筐中",
++  "rf15-1": "用收割刀收割田里的蔬菜并放入收集筐",
+diff --git a/vite.config.js b/vite.config.js
+--- a/vite.config.js
++++ b/vite.config.js
+@@ -19,1 +19,2 @@
+   "levels/rf15/tool-room-v1",
++  "levels/rf15/cardinal-field-v2",

@@ -1,0 +1,2 @@
+import puppeteer from 'puppeteer-core';
+for(const angle of ['gl-egl','vulkan']){const b=await puppeteer.launch({executablePath:'/opt/arc-runtime/browser/chrome/linux-153.0.8010.36/chrome-linux64/chrome',headless:true,args:['--no-sandbox','--enable-gpu','--ignore-gpu-blocklist','--use-angle='+angle,'--disable-dev-shm-usage']});const p=await b.newPage();console.log(angle,await p.evaluate(()=>{const g=document.createElement('canvas').getContext('webgl2');return g?g.getParameter(g.getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL):null}));await b.close();}

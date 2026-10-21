@@ -1,0 +1,9 @@
+{
+  "release": "./authoring/server-production/rf02-interactions-v6/release-r2",
+  "rollback": "./authoring/server-production/rf02-usability-v5/release-r7",
+  "pid": 1907286,
+  "previousPid": 1232588,
+  "port": 4192,
+  "indexBytesMatch": true,
+  "deployedAt": "2026-09-20T13:12:48+0800"
+}

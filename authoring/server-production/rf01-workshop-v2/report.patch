@@ -1,0 +1,50 @@
+diff --git a/docs/levels/rf01-workshop-v2-acceptance.md b/docs/levels/rf01-workshop-v2-acceptance.md
+new file mode 100644
+--- /dev/null
++++ b/docs/levels/rf01-workshop-v2-acceptance.md
+@@ -0,0 +1,45 @@
++# RF-01 厂房布局与 Cardinal 开关返工验收
++
++当前版本：workshop-realism-v2。部署项目：.。
++正式入口：http://127.0.0.1:4173/?level=rf01-2&view=first
++本记录更新此前 workshop-light-v1 的场景布局与开关美术；任务仍为打开卷帘门、进入黑暗厂房、开启照明。
++
++## 本次修改
++- 两个货箱移到厂房内部左侧，位置与碰撞在 game/rf01-yard-layout.js 统一定义；地板到箱底间隙约 5 mm。
++- 两盆绿化移离电池架，几何包围盒净距均约 1.025 m。
++- 配电柜移离厂房侧墙，净距 0.225 m；供电底座移到配电区前方，距厂房侧墙 0.200 m。
++- 泵、配电柜底面落在原电气设备平台的 0.05 m 顶面；管道组件也移至平台。
++- RF-01 与 RF-01-2 共用上述布局。RF-01 原供电目标坐标跟随底座移动，原状态机未更改。
++- 卷帘门和照明开关均由 Cardinal 新生成，替换旧程序方块。两者校正正面轴向、米制尺寸，保留嵌入的 PBR 贴图和安装支架。
++- 两个新资产纳入正式加载门禁，未加载成功时不会报告就绪。机器人及共享控制/相机文件保持本轮初始字节。
++
++## Cardinal 记录
++- door-control：aigc_8da4ef4899ab427caaad02fda572891b，completed。
++- light-switch：aigc_9e5f4e598b39404c914d259f8370c258，completed。
++- 均为 high-highpoly 生成，Blender 后处理约 40000 面/件，贴图最多 2048。
++- 活动目录：public/local-assets/cardinal/rf01/models/runtime/workshop-v2-fit。
++- 门开关约 0.24 × 0.42 × 0.14 m；灯开关约 0.24 × 0.29 × 0.12 m。
++- 两个 GLB 的源文件、构建文件和 HTTP 响应 SHA256 分别一致，见 deployment.json。
++- 原始资产与请求记录在 ./authoring/server-production/rf01-workshop-v2；不进入 Git。
++
++## 验证
++- RF-01-2 原有 10 项测试全部通过，包括连续路线、三次错误、身体包络、门状态、奖励去重、失败冻结及重置。
++- 新增 tools/rf01-workshop-layout-audit.mjs 从实际 GLB 解码检查布局净空、箱子支撑/碰撞、开关尺寸与嵌入纹理，并用实际 RF-01 引擎连续移动完成取电与供电。
++- 门洞几何审计 9 个采样点通过，关闭命中卷帘门，打开不再命中建筑壳。
++- npm run build 通过（7.09 秒），有既有大分块提示。
++- 正式浏览器使用现有 Agent API 和实际 G1 连续行走，无传送：移动 15.936828 m，2 次交互，完成余量 48.627421，最低余量 45.627421。
++- 余量规则保持初始100、移动3.6/米、撞墙2/秒、错误5、首次开门/开灯各奖励3。引擎无错误路线终点52.678758、最低49.678758；三次错误路线终点37.678758、最低34.678758。
++- 已查看正式第一视角暗厂房和开灯后、第三视角室内箱子，以及独立近景的两个开关和园区布局。
++- 浏览器重置后门关闭、灯关闭、余量100、奖励记录清空。
++- 7 个受保护文件 SHA256 对比通过；新 GLB 源/构建/HTTP 哈希一致。
++
++## 证据
++目录 ./authoring/server-production/rf01-workshop-v2：
++- layout-audit.jsonl、door-geometry.json、tests.tap、build.log、deployment.json。
++- rf01-v2-yard.jpg、rf01-v2-inside.jpg、rf01-v2-door.jpg、rf01-v2-light.jpg 为布局/近景诊断截图。
++- formal-dark.jpg、formal-lit.jpg、formal-third.jpg、browser-trace.json 为正式关卡截图与实际轨迹。
++
++## 既有失败与限制
++组合测试22/23通过，唯一失败仍是 tests/facility-engine.test.mjs:58 的既有计费断言：期望0.05秒扣0.2，当前 RF-01 配置为2/秒。没有更改该断言或原引擎。按用户规则本轮不创建 Git 提交、不推送。
++未做低端设备帧率压测。按钮盒上的红色停止按钮属于生成美术，本任务仍沿用单次开门互动；没有新增独立停止卷帘门的玩法。
++用户最终验收尚未收到。RF-01-3 不在本次已验证范围内。

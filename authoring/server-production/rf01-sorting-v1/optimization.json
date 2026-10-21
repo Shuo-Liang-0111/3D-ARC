@@ -1,0 +1,57 @@
+[
+  {
+    "name": "automatic_infeed_machine",
+    "source": "public/local-assets/cardinal/rf03/models/runtime/automatic_infeed_machine.glb",
+    "runtime": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/automatic_infeed_machine.glb",
+    "ratio": 0.25,
+    "error": 0.001,
+    "lockBorder": true,
+    "before": 147516,
+    "after": 45694,
+    "textures": "preserved"
+  },
+  {
+    "name": "belt_conveyor_module",
+    "source": "public/local-assets/cardinal/rf03/models/runtime/belt_conveyor_module.glb",
+    "runtime": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/belt_conveyor_module.glb",
+    "ratio": 0.25,
+    "error": 0.001,
+    "lockBorder": true,
+    "before": 156578,
+    "after": 39144,
+    "textures": "preserved"
+  },
+  {
+    "name": "dws_scanner_gantry",
+    "source": "public/local-assets/cardinal/rf03/models/runtime/dws_scanner_gantry.glb",
+    "runtime": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/dws_scanner_gantry.glb",
+    "ratio": 0.25,
+    "error": 0.001,
+    "lockBorder": true,
+    "before": 154263,
+    "after": 38565,
+    "textures": "preserved"
+  },
+  {
+    "name": "route_roll_cage",
+    "source": "public/local-assets/cardinal/rf03/models/runtime/route_roll_cage.glb",
+    "runtime": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/route_roll_cage.glb",
+    "ratio": 0.4,
+    "error": 0.001,
+    "lockBorder": true,
+    "before": 139940,
+    "after": 75612,
+    "textures": "preserved"
+  },
+  {
+    "name": "corrugated_parcel",
+    "source": "public/local-assets/cardinal/rf03/models/runtime/corrugated_parcel.glb",
+    "runtime": "public/local-assets/cardinal/rf03/models/runtime/rf01-sorting-v1/corrugated_parcel.glb",
+    "ratio": 0.08,
+    "error": 0.001,
+    "lockBorder": true,
+    "before": 152245,
+    "after": 18113,
+    "textures": "preserved"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "prompt": "One single fresh ripe navel orange fruit, whole and unpeeled, photorealistic agricultural produce, irregular natural near spherical shape, finely dimpled orange peel with subtle greenish tiny stem scar and small navel underneath, physically based orange peel texture with pores and varied roughness, no leaf no branches no plate no background no text, isolated standalone game prop viewed from all sides",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "faceLimit": 18000,
+  "pivotToCenterBottom": true
+}

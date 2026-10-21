@@ -1,0 +1,38 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf12",
+  "units": "meters",
+  "upAxis": "Y",
+  "budgetMiB": 60,
+  "environment": {
+    "visual": "/local-assets/levels/rf12/models/runtime/rf12_final.glb",
+    "collision": "/local-assets/levels/rf12/models/runtime/rf12_collision.glb"
+  },
+  "interactables": [
+    { "id": "range-hood", "path": "/local-assets/levels/rf12/models/runtime/interactables/range_hood.glb", "dimensions": [1.8, 0.55, 0.48], "support": "wall", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "gas-knob", "path": "/local-assets/levels/rf12/models/runtime/interactables/gas_knob.glb", "dimensions": [0.12, 0.12, 0.08], "support": "counter", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "gas-valve", "path": "/local-assets/levels/rf12/models/runtime/interactables/gas_valve.glb", "dimensions": [0.28, 0.24, 0.2], "support": "wall", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "wet-cloth", "path": "/local-assets/levels/rf12/models/runtime/interactables/wet_cloth.glb", "dimensions": [0.42, 0.04, 0.32], "support": "counter", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "kitchen-window", "path": "/local-assets/levels/rf12/models/runtime/interactables/kitchen_window.glb", "dimensions": [1.35, 1.25, 0.12], "support": "wall", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "safety-terminal", "path": "/local-assets/levels/rf12/models/runtime/interactables/safety_terminal.glb", "dimensions": [0.72, 1.08, 0.45], "support": "floor", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "refrigerator", "path": "/local-assets/levels/rf12/models/runtime/interactables/refrigerator.glb", "dimensions": [0.92, 1.9, 0.68], "support": "floor", "frontAxis": "+Z", "pivot": "bottom-center" },
+    { "id": "kitchen-sink", "path": "/local-assets/levels/rf12/models/runtime/interactables/kitchen_sink.glb", "dimensions": [0.9, 0.42, 0.68], "support": "counter", "frontAxis": "+Z", "pivot": "bottom-center" }
+  ],
+  "optional": [],
+  "compression": { "geometry": "draco", "decoderPath": "/vendor/draco/", "texture": "webp" },
+  "validation": { "embeddedTextures": true, "stableNodeNames": true, "collisionReviewed": true, "dimensionsReviewed": true, "groundingReviewed": true },
+  "generation": {
+    "provider": "Cardinal",
+    "qualityPreset": "high-highpoly",
+    "environment": { "taskId": "aigc_8370d0efab9b46618137795496368c8d", "source": "models/source/rf12_environment.highpoly.glb", "runtime": "models/runtime/rf12_final.glb", "review": "pending" },
+    "range-hood": { "taskId": "aigc_3879656b8e344d6d8f27f0555ba036c2", "source": "models/source/range_hood.highpoly.glb", "runtime": "models/runtime/interactables/range_hood.glb", "review": "pending" },
+    "gas-knob": { "taskId": null, "source": "models/source/gas_knob.highpoly.glb", "runtime": "models/runtime/interactables/gas_knob.glb", "review": "pending" },
+    "gas-valve": { "taskId": null, "source": "models/source/gas_valve.highpoly.glb", "runtime": "models/runtime/interactables/gas_valve.glb", "review": "pending" },
+    "wet-cloth": { "taskId": null, "source": "models/source/wet_cloth.highpoly.glb", "runtime": "models/runtime/interactables/wet_cloth.glb", "review": "pending" },
+    "kitchen-window": { "taskId": null, "source": "models/source/kitchen_window.highpoly.glb", "runtime": "models/runtime/interactables/kitchen_window.glb", "review": "pending" },
+    "safety-terminal": { "taskId": "aigc_1cb705957a1a4b05a9c8a58657af45bb", "source": "models/source/safety_terminal.highpoly.glb", "runtime": "models/runtime/interactables/safety_terminal.glb", "review": "pending" },
+    "refrigerator": { "taskId": "aigc_746354f4b846480281c10028239919aa", "source": "models/source/refrigerator.highpoly.glb", "runtime": "models/runtime/interactables/refrigerator.glb", "review": "pending" },
+    "kitchen-sink": { "taskId": "aigc_90f4f72727ae464ab0fb45e64bcbaf4b", "source": "models/source/kitchen_sink.highpoly.glb", "runtime": "models/runtime/interactables/kitchen_sink.glb", "review": "pending" }
+  },
+  "validationReport": "public/local-assets/levels/rf12/models/runtime/validation.json"
+}

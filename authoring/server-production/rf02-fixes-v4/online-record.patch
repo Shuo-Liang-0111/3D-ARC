@@ -1,0 +1,117 @@
+--- a/docs/levels/rf02-series-acceptance.md
++++ b/docs/levels/rf02-series-acceptance.md
+@@ -1,57 +1,57 @@
+-# RF-02 fixes — library-operations-v4
+-
+-Status: completed. Fixed release: ./authoring/server-production/rf02-fixes-v4/release-r1, deployed on port 4192 (PID 625510). Both browser completion routes passed; optional user acceptance is pending. This report supersedes v3 claims about tabletop interaction and normal keyboard coverage.
+-
+-## Requested behavior and implementation
+-
+-- Removed every generated chair/cart handle from the shared closing-fixtures GLB and its scene bindings. All three levels retain the same furniture models.
+-- Chairs use their existing backs. The cart accepts approach from both ends. Collision-aware walking, runtime torso/arm animation, keyboard pushing and F release use the original surfaces.
+-- All six tabletop books are selectable in both variants. Visibility checks omit only the supporting surface; intervening obstacles still block selection. Cart-book coordinates follow the cart in authoritative state; pickup clears the support.
+-- RF-02-3 independently develops a randomly selected shelf fault after eight simulation seconds. Furniture work may trigger it earlier. The first book falls immediately; another falls every twelve seconds until repair or a total of three. No countdown or navigation clues were added.
+-- STOP now cancels and recovers furniture actions without calling a missing controller method.
+-
+-## Verification
+-
+-46/46 original-library and series tests pass. Coverage includes all six tabletop pickup routes in both levels; both cart ends; carried cart-book detachment; absent added handles; autonomous fault timing; all three random shelf branches; recurring/capped falls; repair interruption; full routes with zero/two errors; collision, orientation, rewards, reset and failure freezing. Production build passes with the pre-existing bundle-size warning.
+-
+-Nine robot/shared-control/camera hashes match the protected baseline. All 17 resources (4,854,347 bytes) match source/build/HTTP on deployed port 4192.
+-
+-Browser evidence uses the fixed candidate release and the ordinary F handler. RF-02-2 keyboard-only regression picked up the desk book and pushed the cart from the front by 0.909 m. Its complete route restored both chairs and parked the cart: transit uses the supported agent movement API, while furniture pushing and every interaction use normal keyboard events. First-person screenshots show hands at the existing chair back and cart frame. Chair contact errors were 0.007–0.043 m; cart rear contact errors approximately 0.021–0.023 m.
+-
+-RF-02-3 keyboard diagnosis successfully picked up a desk book and recorded falling/ground transitions for three books without furniture work. Its automated navigation later stalled in the narrow passage beside the cart; this diagnostic is retained as a failure, not represented as a complete keyboard route. The separate full route passed: both chairs restored, cart parked, red shelf repaired, and all three fallen books recovered. It recorded 16 operations, final reserve 18.293, minimum 11.982, and 73.701 m of movement. RF-02-2 recorded nine operations, final reserve 44.223, minimum 36.223, and 50.881 m.
+-
+-## Reserve
+-
+-Initial/maximum reserve 100. RF-02-2 movement 1.45 points/m, error 3, chair reward 5, cart reward 8. RF-02-3 movement 1.38 points/m, error 5, chair reward 3, cart reward 5, repair 3, first pickup/return 1 each. Idle/free turn cost zero; blocked movement and repeated actions are charged. Rewards are deduplicated.
+-
+-Measured engine routes:
+-| Level / fault | Clean final / minimum | Two-error final / minimum |
+-| --- | --- | --- |
+-| RF-02-2 | 44.47 / 36.47 | 38.47 / 30.47 |
+-| RF-02-3 red | 18.26 / 12.24 | 8.26 / 2.24 |
+-| RF-02-3 black | 32.60 / 26.52 | 22.60 / 16.52 |
+-| RF-02-3 white | 42.12 / 36.02 | 32.12 / 26.02 |
+-
+-## Scope, evidence and limitations
+-
+-Authoritative project: . on user-selected 127.0.0.1. Task artifacts and evidence: ./authoring/server-production/rf02-fixes-v4. No credentials, runtime environments, assets, builds or logs are committed. The Mac remains a control/evidence surface.
+-
+-The broader shared-controls test still has three pre-existing failures: RF-08 strafe, RF-08 turn, and an exact-source-string F-key assertion. They are outside this change; per repository instructions no commit is made while verification has failures. No push.
+-
+-The v3 release remains available at ./authoring/server-production/rf02-redesign-v3/release-r3 for rollback. Previous v3 screenshots and performance measurements are historical, not current v4 evidence. User acceptance of this corrected version has not yet been received.
+-
+-## Delivery and reproduction
+-
+-Both deployed pages expose revision library-operations-v4. Production asset hashes match the reviewed candidate. Formal first-person evidence: chair-contact-first.png, cart-contact-first.jpg and route-after-repair-.jpg. Completion evidence: rf02-2-complete.png and rf02-3-complete.png. Full reports: rf02-2-full-route.json and rf02-3-full-route.json. The keyboard diagnostic with its navigation failure remains separately labelled.
+-
+-Reproduce:
+-- node --test tests/rf02-library.test.mjs tests/rf02-series.test.mjs
+-- node tools/rf02-series/measure-routes.mjs <task-directory>/routes.json
+-- npm run build -- --outDir <new-release-directory>
+-- Copy dist/local-assets, dist/vendor and dist/agent-kit into the new release; the existing build plugin writes those assets to dist.
+-- node tools/rf02-series/prepare-browser-qa.mjs <new-release-directory>
+-- node tools/rf02-series/write-manifest.mjs <release-directory> http://127.0.0.1:4192
+-
+-Playable URLs:
+-- http://127.0.0.1:4192/?mode=play&level=rf02-2&view=third&robot=g1&control=velocity
+-- http://127.0.0.1:4192/?mode=play&level=rf02-3&view=third&robot=g1&control=velocity
++# RF-02 fixes — library-operations-v4
++
++Status: completed. Fixed release: ./authoring/server-production/rf02-fixes-v4/release-r1, deployed on port 4192 (PID 625510). Both browser completion routes passed; optional user acceptance is pending. This report supersedes v3 claims about tabletop interaction and normal keyboard coverage.
++
++## Requested behavior and implementation
++
++- Removed every generated chair/cart handle from the shared closing-fixtures GLB and its scene bindings. All three levels retain the same furniture models.
++- Chairs use their existing backs. The cart accepts approach from both ends. Collision-aware walking, runtime torso/arm animation, keyboard pushing and F release use the original surfaces.
++- All six tabletop books are selectable in both variants. Visibility checks omit only the supporting surface; intervening obstacles still block selection. Cart-book coordinates follow the cart in authoritative state; pickup clears the support.
++- RF-02-3 independently develops a randomly selected shelf fault after eight simulation seconds. Furniture work may trigger it earlier. The first book falls immediately; another falls every twelve seconds until repair or a total of three. No countdown or navigation clues were added.
++- STOP now cancels and recovers furniture actions without calling a missing controller method.
++
++## Verification
++
++46/46 original-library and series tests pass. Coverage includes all six tabletop pickup routes in both levels; both cart ends; carried cart-book detachment; absent added handles; autonomous fault timing; all three random shelf branches; recurring/capped falls; repair interruption; full routes with zero/two errors; collision, orientation, rewards, reset and failure freezing. Production build passes with the pre-existing bundle-size warning.
++
++Nine robot/shared-control/camera hashes match the protected baseline. All 17 resources (4,854,347 bytes) match source/build/HTTP on deployed port 4192.
++
++Browser evidence uses the fixed candidate release and the ordinary F handler. RF-02-2 keyboard-only regression picked up the desk book and pushed the cart from the front by 0.909 m. Its complete route restored both chairs and parked the cart: transit uses the supported agent movement API, while furniture pushing and every interaction use normal keyboard events. First-person screenshots show hands at the existing chair back and cart frame. Chair contact errors were 0.007–0.043 m; cart rear contact errors approximately 0.021–0.023 m.
++
++RF-02-3 keyboard diagnosis successfully picked up a desk book and recorded falling/ground transitions for three books without furniture work. Its automated navigation later stalled in the narrow passage beside the cart; this diagnostic is retained as a failure, not represented as a complete keyboard route. The separate full route passed: both chairs restored, cart parked, red shelf repaired, and all three fallen books recovered. It recorded 16 operations, final reserve 18.293, minimum 11.982, and 73.701 m of movement. RF-02-2 recorded nine operations, final reserve 44.223, minimum 36.223, and 50.881 m.
++
++## Reserve
++
++Initial/maximum reserve 100. RF-02-2 movement 1.45 points/m, error 3, chair reward 5, cart reward 8. RF-02-3 movement 1.38 points/m, error 5, chair reward 3, cart reward 5, repair 3, first pickup/return 1 each. Idle/free turn cost zero; blocked movement and repeated actions are charged. Rewards are deduplicated.
++
++Measured engine routes:
++| Level / fault | Clean final / minimum | Two-error final / minimum |
++| --- | --- | --- |
++| RF-02-2 | 44.47 / 36.47 | 38.47 / 30.47 |
++| RF-02-3 red | 18.26 / 12.24 | 8.26 / 2.24 |
++| RF-02-3 black | 32.60 / 26.52 | 22.60 / 16.52 |
++| RF-02-3 white | 42.12 / 36.02 | 32.12 / 26.02 |
++
++## Scope, evidence and limitations
++
++Authoritative project: . on user-selected 127.0.0.1. Task artifacts and evidence: ./authoring/server-production/rf02-fixes-v4. No credentials, runtime environments, assets, builds or logs are committed. The Mac remains a control/evidence surface.
++
++The broader shared-controls test still has three pre-existing failures: RF-08 strafe, RF-08 turn, and an exact-source-string F-key assertion. They are outside this change; per repository instructions no commit is made while verification has failures. No push.
++
++The v3 release remains available at ./authoring/server-production/rf02-redesign-v3/release-r3 for rollback. Previous v3 screenshots and performance measurements are historical, not current v4 evidence. User acceptance of this corrected version has not yet been received.
++
++## Delivery and reproduction
++
++Both deployed pages expose revision library-operations-v4. A fresh deployed RF-02-3 session remained stationary at the entrance with reserve 100 and independently reached three ground books; evidence is deployed-autonomous-falls.json. Deployed first/third/dual screenshots were inspected. Production asset hashes match the reviewed candidate. Formal first-person evidence: chair-contact-first.png, cart-contact-first.jpg and route-after-repair-.jpg. Completion evidence: rf02-2-complete.png and rf02-3-complete.png. Full reports: rf02-2-full-route.json and rf02-3-full-route.json. The keyboard diagnostic with its navigation failure remains separately labelled.
++
++Reproduce:
++- node --test tests/rf02-library.test.mjs tests/rf02-series.test.mjs
++- node tools/rf02-series/measure-routes.mjs <task-directory>/routes.json
++- npm run build -- --outDir <new-release-directory>
++- Copy dist/local-assets, dist/vendor and dist/agent-kit into the new release; the existing build plugin writes those assets to dist.
++- node tools/rf02-series/prepare-browser-qa.mjs <new-release-directory>
++- node tools/rf02-series/write-manifest.mjs <release-directory> http://127.0.0.1:4192
++
++Playable URLs:
++- http://127.0.0.1:4192/?mode=play&level=rf02-2&view=third&robot=g1&control=velocity
++- http://127.0.0.1:4192/?mode=play&level=rf02-3&view=third&robot=g1&control=velocity

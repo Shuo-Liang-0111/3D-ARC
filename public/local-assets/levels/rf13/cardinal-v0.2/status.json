@@ -1,0 +1,70 @@
+{
+  "gloves": {
+    "taskId": "aigc_1df365b9ab9f4d8db0119d01f274d244",
+    "status": "completed",
+    "progress": 100,
+    "queueReason": null,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "updatedAt": "2026-09-09T05:44:58.166379Z",
+    "bytes": 56559356,
+    "sha256": "af5cd84b5dfe197d0b4b870fbcd4b28a81c66cff9a87bc1669d44adb7c6cdcb7"
+  },
+  "gauze": {
+    "taskId": "aigc_1933bdd124484043b2b2d4468a0fa191",
+    "status": "completed",
+    "progress": 100,
+    "queueReason": null,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "updatedAt": "2026-09-09T05:34:29.114962Z",
+    "bytes": 55792364,
+    "sha256": "11b19abb2ca890936c679621e7e53b0d99edafaa4b4be04ba3bc5755773d6f45"
+  },
+  "dressings": {
+    "taskId": "aigc_39892fb05c8246f89117acf475a834b5",
+    "status": "completed",
+    "progress": 100,
+    "queueReason": null,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "updatedAt": "2026-09-09T05:48:13.677294Z",
+    "downloaded": true,
+    "bytes": 57210812,
+    "sha256": "c74f1e2179e604c752f53a64500360f4466022910b914d74b7fdc513a15cb21e"
+  },
+  "forms": {
+    "taskId": "aigc_cf38905121ec4e8db426f7919e6918b8",
+    "status": "completed",
+    "progress": 100,
+    "queueReason": null,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "updatedAt": "2026-09-09T05:37:38.268458Z",
+    "bytes": 55584412,
+    "sha256": "6c665bc27610d6326cca3e672a76f7d9d5b47a51c257862ae631de2006aa05f8"
+  },
+  "empty-box": {
+    "taskId": "aigc_2d2b26ea33624f209dd07da95ae1e116",
+    "status": "completed",
+    "progress": 100,
+    "queueReason": null,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "updatedAt": "2026-09-09T05:41:18.752444Z",
+    "bytes": 55385256,
+    "sha256": "476ddd044c18ff74b35a604556542979744834d3c6354720408d1b411bc17f3a"
+  },
+  "opening-terminal": {
+    "taskId": "aigc_283240179a504146b55250992ceacbc1",
+    "status": "completed",
+    "progress": 100,
+    "queueReason": null,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "updatedAt": "2026-09-09T05:51:36.314166Z",
+    "downloaded": true,
+    "bytes": 55183332,
+    "sha256": "7ef3556539fcfb18b087e301678ee80c08edc8c3860f88d85cadb0995a0efdbc"
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "rfId": "RF-03",
+  "productionStatus": "visual_complete",
+  "visualReview": "pass",
+  "humanVisualReview": "pending_user_confirmation",
+  "referenceMatch": "pass",
+  "generationPipeline": "RF-04/RF-06 compatible Blender static environment plus independent interactables",
+  "units": "meters",
+  "upAxis": "Y",
+  "layout": {
+    "type": "Chinese express parcel hub DWS and swing-wheel sorting line",
+    "dimensionsMeters": [
+      26.0,
+      4.6,
+      16.0
+    ],
+    "mainConveyor": {
+      "widthMeters": 1.0,
+      "beltHeightMeters": 0.82,
+      "workingLengthMeters": 19.0
+    },
+    "infeedMachine": "west-end enclosed automatic singulation and induction machine with roller discharge",
+    "dws": "over-belt barcode camera, light bar, photoeyes and scale deck before the sorter",
+    "sorter": "modular swing-wheel node with three north gravity roller chutes",
+    "manualExceptionArea": "three south-side galvanized route cages on a 1.35m pedestrian lane",
+    "clearances": {
+      "pedestrianLaneMeters": 1.35,
+      "conveyorSafetyOffsetMeters": 0.25
+    }
+  },
+  "referenceSources": [
+    "https://www.zssorter.com/fenjianji/8-291.html",
+    "Chinese domestic 800mm-class parcel conveyor product listings reviewed 2026-08-09"
+  ],
+  "assets": [
+    {
+      "id": "environment",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/rf03_final.glb",
+      "role": "static_environment",
+      "bytes": 335368,
+      "sha256": "723c8c8b38b375f832ee78bf6a006ede48f4249e898012b67fb46a82a4ddc921",
+      "dimensions": [
+        26.0,
+        4.78,
+        16.0
+      ],
+      "bounds": {
+        "min": [
+          -13.0,
+          -0.18,
+          -8.0
+        ],
+        "max": [
+          13.0,
+          4.6,
+          8.0
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "world_origin",
+      "source": "server_blender_chinese_parcel_hub_reference_assembly",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 161,
+      "visualReview": "pass"
+    },
+    {
+      "id": "red_parcel",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/red_parcel.glb",
+      "role": "interactive_object",
+      "bytes": 26744,
+      "sha256": "aa7c70e821838338af53d3378f9db210d995362b95ab3d4e958e70e8cd2145ef",
+      "dimensions": [
+        0.528,
+        0.334,
+        0.392
+      ],
+      "bounds": {
+        "min": [
+          -0.268,
+          0.0,
+          -0.196
+        ],
+        "max": [
+          0.26,
+          0.334,
+          0.196
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_corrugated_parcel",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 7,
+      "visualReview": "pass"
+    },
+    {
+      "id": "yellow_parcel",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/yellow_parcel.glb",
+      "role": "interactive_object",
+      "bytes": 26848,
+      "sha256": "2038f0edf775bc9753b6fd3ab2478ff9ed058aae80f6e8017961b7551528dd7f",
+      "dimensions": [
+        0.448,
+        0.274,
+        0.332
+      ],
+      "bounds": {
+        "min": [
+          -0.228,
+          0.0,
+          -0.166
+        ],
+        "max": [
+          0.22,
+          0.274,
+          0.166
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_corrugated_parcel",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 7,
+      "visualReview": "pass"
+    },
+    {
+      "id": "blue_parcel",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/blue_parcel.glb",
+      "role": "interactive_object",
+      "bytes": 26676,
+      "sha256": "079cbd5a1b26aa9e736b0ae811973e9a6f4034547c6cdab88621ad564ab4fc99",
+      "dimensions": [
+        0.588,
+        0.394,
+        0.432
+      ],
+      "bounds": {
+        "min": [
+          -0.298,
+          0.0,
+          -0.216
+        ],
+        "max": [
+          0.29,
+          0.394,
+          0.216
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_corrugated_parcel",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 7,
+      "visualReview": "pass"
+    },
+    {
+      "id": "red_route_cage",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/red_route_cage.glb",
+      "role": "interactive_target",
+      "bytes": 78624,
+      "sha256": "e528deb0614930fd8e608bdec09e5b51ff9ad216e3aa18c4d0e52913d7f9eda3",
+      "dimensions": [
+        1.12,
+        1.734,
+        0.824
+      ],
+      "bounds": {
+        "min": [
+          -0.56,
+          -0.025,
+          -0.414
+        ],
+        "max": [
+          0.56,
+          1.709,
+          0.41
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_galvanized_roll_cage",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 38,
+      "visualReview": "pass"
+    },
+    {
+      "id": "yellow_route_cage",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/yellow_route_cage.glb",
+      "role": "interactive_target",
+      "bytes": 78612,
+      "sha256": "70e55930d65f0029a249e2916a28c857117ffde91ec1100e02ed64c972735743",
+      "dimensions": [
+        1.12,
+        1.734,
+        0.824
+      ],
+      "bounds": {
+        "min": [
+          -0.56,
+          -0.025,
+          -0.414
+        ],
+        "max": [
+          0.56,
+          1.709,
+          0.41
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_galvanized_roll_cage",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 38,
+      "visualReview": "pass"
+    },
+    {
+      "id": "blue_route_cage",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/blue_route_cage.glb",
+      "role": "interactive_target",
+      "bytes": 78600,
+      "sha256": "1ab6054b273d6aa7171a6d95fd090844cc3479baa01d90c0a04b1098d666a42b",
+      "dimensions": [
+        1.12,
+        1.734,
+        0.824
+      ],
+      "bounds": {
+        "min": [
+          -0.56,
+          -0.025,
+          -0.414
+        ],
+        "max": [
+          0.56,
+          1.709,
+          0.41
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_galvanized_roll_cage",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 38,
+      "visualReview": "pass"
+    },
+    {
+      "id": "dws_terminal",
+      "path": "/local-assets/embodiedgen/rf03/models/runtime/interactables/dws_terminal.glb",
+      "role": "interactive_target",
+      "bytes": 23580,
+      "sha256": "7362346a6c2642fc0b81274d9f97ea0ae9394e56311196204f97f7661832d3e9",
+      "dimensions": [
+        0.64,
+        1.5909,
+        0.7124
+      ],
+      "bounds": {
+        "min": [
+          -0.32,
+          0.0,
+          -0.4524
+        ],
+        "max": [
+          0.32,
+          1.5909,
+          0.26
+        ]
+      },
+      "units": "meters",
+      "upAxis": "Y",
+      "pivot": "bottom_center",
+      "source": "server_blender_meter_scale_industrial_terminal",
+      "texturesEmbedded": true,
+      "draco": true,
+      "primitiveCount": 6,
+      "visualReview": "pass"
+    }
+  ],
+  "totalBytes": 675052
+}

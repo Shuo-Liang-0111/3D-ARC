@@ -1,0 +1,273 @@
+{
+  "state": {
+    "level": "rf09",
+    "player": {
+      "x": -1.6659393803382196,
+      "z": 4.6007058016012685,
+      "yaw": 0.2617993877991494
+    },
+    "items": {
+      "folder": {
+        "id": "folder",
+        "type": "folder",
+        "x": -4,
+        "y": 0.84,
+        "z": 2.16,
+        "location": "surface"
+      },
+      "tray": {
+        "id": "tray",
+        "type": "tray",
+        "x": -1.5,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "surface",
+        "yaw": 0.2617993877991494
+      },
+      "remote": {
+        "id": "remote",
+        "type": "remote",
+        "x": 4,
+        "y": 0.84,
+        "z": 2.16,
+        "location": "surface"
+      },
+      "paper": {
+        "id": "paper",
+        "type": "paper",
+        "x": 8.45,
+        "y": 0.965,
+        "z": 4.02,
+        "location": "surface"
+      },
+      "printed": {
+        "id": "printed",
+        "type": "printed",
+        "x": 6.5,
+        "y": 1.02,
+        "z": 5.03,
+        "location": "printer",
+        "available": false
+      },
+      "used": {
+        "id": "used",
+        "type": "used",
+        "x": -4.12,
+        "y": 0.79,
+        "z": -5.65,
+        "location": "surface"
+      },
+      "docs-1": {
+        "id": "docs-1",
+        "type": "documents",
+        "x": -10.3,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-1": {
+        "id": "water-1",
+        "type": "water",
+        "x": -8.99,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-2": {
+        "id": "docs-2",
+        "type": "documents",
+        "x": -9.940000000000001,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-2": {
+        "id": "water-2",
+        "type": "water",
+        "x": -8.82,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-3": {
+        "id": "docs-3",
+        "type": "documents",
+        "x": -9.58,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-3": {
+        "id": "water-3",
+        "type": "water",
+        "x": -8.65,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-4": {
+        "id": "docs-4",
+        "type": "documents",
+        "x": -9.22,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-4": {
+        "id": "water-4",
+        "type": "water",
+        "x": -8.48,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "water-5": {
+        "id": "water-5",
+        "type": "water",
+        "x": 9.22,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      },
+      "water-6": {
+        "id": "water-6",
+        "type": "water",
+        "x": 9.47,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      }
+    },
+    "chairs": {
+      "chair-a": {
+        "id": "chair-a",
+        "x": -3,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": -3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      },
+      "chair-b": {
+        "id": "chair-b",
+        "x": 3,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": 3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      }
+    },
+    "carriedItem": null,
+    "attachment": null,
+    "seats": [
+      {
+        "id": "1",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "2",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "3",
+        "doc": null,
+        "water": null
+      },
+      {
+        "id": "4",
+        "doc": null,
+        "water": null
+      }
+    ],
+    "returned": {
+      "folder": false,
+      "tray": true,
+      "remote": false
+    },
+    "printer": {
+      "paper": false,
+      "phase": "empty",
+      "time": 0
+    },
+    "requests": [
+      {
+        "id": "print",
+        "status": "active"
+      },
+      {
+        "id": "water",
+        "status": "pending",
+        "count": 0
+      },
+      {
+        "id": "collect",
+        "status": "pending"
+      }
+    ],
+    "progress": 100,
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "terminalOpen": false,
+    "elapsed": 221.79760000001488,
+    "clock": 221.79760000001488,
+    "interactions": 2,
+    "motion": "idle",
+    "lastEvent": "return"
+  },
+  "snapshot": {
+    "revision": "rf08-office-v1-realism",
+    "phase": "idle",
+    "error": null,
+    "fps": 59.936733448820135,
+    "robotPose": {
+      "position": [
+        -1.6659393803382196,
+        0,
+        4.6007058016012685
+      ],
+      "rotation": [
+        0,
+        0.2617993877991494,
+        0
+      ]
+    },
+    "lastResult": {
+      "type": "return",
+      "item": "tray",
+      "event": "return",
+      "error": 0.03432066045873906,
+      "revision": "rf08-office-v1-realism"
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "item": "tray",
+        "event": "pickup",
+        "error": 0.03175862443189174,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "return",
+        "item": "tray",
+        "event": "return",
+        "error": 0.03432066045873906,
+        "revision": "rf08-office-v1-realism"
+      }
+    ],
+    "ceiling": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "revision": "rf05-series-v06-r5",
+  "commit": "86929291e6823312799632ce4e6c64e482ca14bb",
+  "testsPassed": 29,
+  "normalEntryQAAbsent": true,
+  "protectedFilesUnchanged": 18,
+  "evidence": "http://127.0.0.1:4173/rf05-series-v06-evidence/index.html"
+}

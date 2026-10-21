@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world office asset. Simple surface-mounted rectangular office LED panel light, 1.20 m wide x 0.08 m high x 0.30 m deep. One white powder-coated rectangular frame, one continuous opal diffuser on the underside and one shallow solid housing. No clips, no cable and no detachable parts. Diffuser faces downward and the entire flat top mounts flush to the ceiling. Target dimensions approximately 1.2 m x 0.08 m x 0.3 m. Y axis up, front facing positive Z, metric scale, centered at world origin, bottom-center pivot. One isolated photorealistic game-ready object only. Real construction, believable thickness, manufactured edge radii, fasteners and physically based materials. All supporting feet or the flat base must share one ground plane. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

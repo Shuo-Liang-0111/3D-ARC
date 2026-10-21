@@ -1,0 +1,557 @@
+TAP version 13
+# Subtest: RF-12 can pass through the entrance plane into the landing
+ok 1 - RF-12 can pass through the entrance plane into the landing
+  ---
+  duration_ms: 0.976562
+  type: 'test'
+  ...
+# Subtest: RF-12 does not collide with the old invisible terminal cabinet
+ok 2 - RF-12 does not collide with the old invisible terminal cabinet
+  ---
+  duration_ms: 0.127788
+  type: 'test'
+  ...
+# Subtest: RF-12 counter does not have a walk-through gap
+ok 3 - RF-12 counter does not have a walk-through gap
+  ---
+  duration_ms: 0.394324
+  type: 'test'
+  ...
+# Subtest: RF-12 fridge collision follows the visible 92 by 68 cm appliance
+ok 4 - RF-12 fridge collision follows the visible 92 by 68 cm appliance
+  ---
+  duration_ms: 0.186743
+  type: 'test'
+  ...
+# Subtest: RF-12 sliding door clears the entrance and lies parallel to its wall
+ok 5 - RF-12 sliding door clears the entrance and lies parallel to its wall
+  ---
+  duration_ms: 0.610005
+  type: 'test'
+  ...
+# Subtest: RF-12 cupboard clears window opening and sill
+ok 6 - RF-12 cupboard clears window opening and sill
+  ---
+  duration_ms: 0.151516
+  type: 'test'
+  ...
+# Subtest: RF-12 cupboard bodies do not overlap
+ok 7 - RF-12 cupboard bodies do not overlap
+  ---
+  duration_ms: 0.084763
+  type: 'test'
+  ...
+# Subtest: RF-12 replacement basin closes all sampled bottom positions
+ok 8 - RF-12 replacement basin closes all sampled bottom positions
+  ---
+  duration_ms: 1.250836
+  type: 'test'
+  ...
+# Subtest: RF-12 preview and gameplay reuse repaired assets and cloth clones
+not ok 9 - RF-12 preview and gameplay reuse repaired assets and cloth clones
+  ---
+  duration_ms: 1.363436
+  type: 'test'
+  location: './tests/rf12-layout.test.mjs:61:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /kitchen_environment_installed\.glb/. Input:
+    
+    'import * as THREE from "three";\n' +
+      'import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";\n' +
+      'import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";\n' +
+      'import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";\n' +
+      'import { HAZARD_TYPES, LEVEL } from "./level.js";\n' +
+      '\n' +
+      'const ROOT = "/local-assets/cardinal/rf12-v2/models/runtime";\n' +
+      'const ASSETS = Object.freeze({\n' +
+      '  environment: "/local-assets/levels/rf12/window-v5/kitchen-environment.glb",\n' +
+      '  collision: "/local-assets/levels/rf12/window-v5/kitchen-collision.glb",\n' +
+      '  hood: `${ROOT}/range_hood_repaired.glb`,\n' +
+      '  gasKnob: `/local-assets/levels/rf12/interaction-v2/gas-knob-precision.glb`,\n' +
+      '  gasValve: `/local-assets/levels/rf12/interaction-v2/gas_valve.glb`,\n' +
+      '  cloth: `/local-assets/levels/rf12/interaction-v2/wet_cloth.glb`,\n' +
+      '  window: `${ROOT}/kitchen_window_refined.glb`,\n' +
+      '  safetyWindow: "/local-assets/levels/rf12/window-v5/sliding-window.glb",\n' +
+      '  terminal: `/local-assets/levels/rf12/interaction-v2/safety_terminal.glb`,\n' +
+      '  refrigerator: `/local-assets/levels/rf12/interaction-v2/refrigerator.glb`,\n' +
+      '  sink: `/local-assets/levels/rf12/kettle-v3/sink-r3.glb`,\n' +
+      '  stove: `/local-assets/levels/rf12/interaction-v2/stove-precision.glb`,\n' +
+      '  doorHandle: `${ROOT}/kitchen_door_handle.glb`,\n' +
+      '});\n' +
+      '\n' +
+      'const draco = new DRACOLoader();\n' +
+      'draco.setWorkerLimit(2);\n' +
+      'draco.setDecoderPath("/vendor/draco/");\n' +
+      'const loader = new GLTFLoader();\n' +
+      'loader.setDRACOLoader(draco);\n' +
+      'const textureLoader = new THREE.TextureLoader();\n' +
+      'const assetCache = new Map();\n' +
+      '\n' +
+      'function material(color, roughness = 0.72, metalness = 0.04, map = null) {\n' +
+      '  return new THREE.MeshStandardMaterial({ color, roughness, metalness, map });\n' +
+      '}\n' +
+      '\n' +
+      'function tileTexture(kind) {\n' +
+      '  const canvas = document.createElement("canvas");\n' +
+      '  canvas.width = canvas.height = 512;\n' +
+      '  const context = canvas.getContext("2d");\n' +
+      '  context.fillStyle = kind === "floor" ? "#a8ada8" : "#e9e5df";\n' +
+      '  context.fillRect(0, 0, 512, 512);\n' +
+      '  context.strokeStyle = kind === "floor" ? "rgba(72,82,78,.28)" : "rgba(130,118,108,.24)";\n' +
+      '  context.lineWidth = kind === "floor" ? 3 : 2;\n' +
+      '  const step = kind === "floor" ? 128 : 256;\n' +
+      '  for (let offset = 0; offset <= 512; offset += step) {\n' +
+      '    context.beginPath(); context.moveTo(offset, 0); context.lineTo(offset, 512); context.stroke();\n' +
+      '    context.beginPath(); context.moveTo(0, offset); context.lineTo(512, offset); context.stroke();\n' +
+      '  }\n' +
+      '  const texture = new THREE.CanvasTexture(canvas);\n' +
+      '  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;\n' +
+      '  texture.repeat.set(kind === "floor" ? 6 : 3, kind === "floor" ? 5 : 2);\n' +
+      '  texture.colorSpace = THREE.SRGBColorSpace;\n' +
+      '  texture.anisotropy = 8;\n' +
+      '  return texture;\n' +
+      '}\n' +
+      '\n' +
+      'const floorMaterial = material(0xffffff, 0.9, 0.02, tileTexture("floor"));\n' +
+      'const wallMaterial = material(0xffffff, 0.78, 0.01, tileTexture("wall"));\n' +
+      'function upgradeTileMaterial(entryMaterial, kind) {\n' +
+      '  const url = `/local-assets/levels/rf12/textures/${kind}_tile_cardinal.png`;\n' +
+      '  textureLoader.load(url, (texture) => {\n' +
+      '    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;\n' +
+      '    texture.repeat.set(kind === "floor" ? 6 : 3, kind === "floor" ? 5 : 2);\n' +
+      '    texture.colorSpace = THREE.SRGBColorSpace;\n' +
+      '    texture.anisotropy = 8;\n' +
+      '    entryMaterial.map = texture;\n' +
+      '    entryMaterial.needsUpdate = true;\n' +
+      '  });\n' +
+      '}\n' +
+      'upgradeTileMaterial(floorMaterial, "floor");\n' +
+      'upgradeTileMaterial(wallMaterial, "wall");\n' +
+      'const cabinetMaterial = material(0x9f8065, 0.56, 0.02);\n' +
+      'const counterMaterial = material(0xe3ded3, 0.34, 0.03);\n' +
+      'const steelMaterial = material(0xb6c0be, 0.34, 0.22);\n' +
+      'const darkMaterial = material(0x252b2c, 0.74, 0.08);\n' +
+      'const glassMaterial = new THREE.MeshPhysicalMaterial({ color: 0x9db9b7, roughness: 0.16, metalness: 0.08, transmission: 0.22, transparent: true, opacity: 0.72 });\n' +
+      'const hazardMaterial = material(0xd04c3f, 0.45, 0.04);\n' +
+      'const clearMaterial = material(0x4d9c6a, 0.4, 0.04);\n' +
+      '\n' +
+      'function box(parent, size, position, entryMaterial, name, rotationY = 0) {\n' +
+      '  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), entryMaterial);\n' +
+      '  mesh.position.set(...position); mesh.rotation.y = rotationY; mesh.name = name; mesh.castShadow = true; mesh.receiveShadow = true; parent.add(mesh); return mesh;\n' +
+      '}\n' +
+      '\n' +
+      'function cylinder(parent, radius, height, position, entryMaterial, name) {\n' +
+      '  const mesh = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius * 0.94, height, 24), entryMaterial);\n' +
+      '  mesh.position.set(...position); mesh.name = name; mesh.castShadow = true; mesh.receiveShadow = true; parent.add(mesh); return mesh;\n' +
+      '}\n' +
+      '\n' +
+      'function fallbackEnvironment(scene) {\n' +
+      '  const root = new THREE.Group(); root.name = "rf12-graybox-baseline"; scene.add(root);\n' +
+      '  const architecture = new THREE.Group(); architecture.name = "rf12-architecture"; root.add(architecture);\n' +
+      '  box(architecture, [8.4, 0.12, 6.8], [0, -0.06, 0], floorMaterial, "RF12_FLOOR");\n' +
+      '  box(architecture, [8.4, 2.8, 0.16], [0, 1.4, -3.32], wallMaterial, "RF12_BACK_WALL");\n' +
+      '  box(architecture, [0.16, 2.8, 4.55], [-4.12, 1.4, -0.95], wallMaterial, "RF12_WEST_WALL_REAR");\n' +
+      '  box(architecture, [0.16, 2.8, 0.72], [-4.12, 1.4, 3.04], wallMaterial, "RF12_WEST_WALL_FRONT");\n' +
+      '  box(architecture, [0.16, 2.8, 6.8], [4.12, 1.4, 0], wallMaterial, "RF12_EAST_WALL");\n' +
+      '  box(architecture, [3.25, 2.8, 0.16], [-2.58, 1.4, 3.32], wallMaterial, "RF12_SOUTH_WALL_WEST");\n' +
+      '  box(architecture, [3.25, 2.8, 0.16], [2.58, 1.4, 3.32], wallMaterial, "RF12_SOUTH_WALL_EAST");\n' +
+      '  box(architecture, [0.95, 2.16, 0.07], [-1.0, 1.08, 3.18], cabinetMaterial, "RF12_DOOR_FRAME_LEFT");\n' +
+      '  box(architecture, [0.95, 2.16, 0.07], [1.0, 1.08, 3.18], cabinetMaterial, "RF12_DOOR_FRAME_RIGHT");\n' +
+      '  box(architecture, [0.06, 2.02, 1.86], [0, 1.01, 3.18], glassMaterial, "RF12_GLASS_DOOR");\n' +
+      '  box(architecture, [0.06, 0.06, 1.75], [0, 1.7, 3.11], steelMaterial, "RF12_DOOR_RAIL");\n' +
+      '  box(architecture, [0.06, 0.08, 1.2], [-0.75, 1.62, -3.2], glassMaterial, "RF12_WINDOW_GLASS");\n' +
+      '  box(architecture, [0.06, 0.06, 1.32], [-0.75, 2.25, -3.13], cabinetMaterial, "RF12_WINDOW_TOP");\n' +
+      '  box(architecture, [0.06, 0.06, 1.32], [-0.75, 1.0, -3.13], cabinetMaterial, "RF12_WINDOW_SILL");\n' +
+      '  box(architecture, [0.06, 1.28, 0.06], [-1.42, 1.62, -3.13], cabinetMaterial, "RF12_WINDOW_LEFT");\n' +
+      '  box(architecture, [0.06, 1.28, 0.06], [-0.08, 1.62, -3.13], cabinetMaterial, "RF12_WINDOW_RIGHT");\n' +
+      '  box(architecture, [0.04, 1.18, 0.04], [-0.75, 1.62, -3.08], cabinetMaterial, "RF12_WINDOW_MULLION");\n' +
+      '  const cabinets = new THREE.Group(); cabinets.name = "rf12-cabinetry"; root.add(cabinets);\n' +
+      '  box(cabinets, [3.65, 0.82, 0.72], [-2.0, 0.41, -2.58], cabinetMaterial, "RF12_BASE_CABINET_WEST");\n' +
+      '  box(cabinets, [3.6, 0.82, 0.72], [1.55, 0.41, -2.58], cabinetMaterial, "RF12_BASE_CABINET_EAST");\n' +
+      '  box(cabinets, [7.25, 0.08, 0.82], [-0.2, 0.86, -2.58], counterMaterial, "RF12_QUARTZ_COUNTER");\n' +
+      '  for (const [center, count, width] of [[-2.0, 4, 3.42], [1.55, 4, 3.36]]) {\n' +
+      '    for (let index = 0; index < count; index += 1) {\n' +
+      '      const panelWidth = width / count - 0.04;\n' +
+      '      const x = center - width / 2 + panelWidth / 2 + index * (width / count);\n' +
+      '      box(cabinets, [panelWidth, 0.64, 0.035], [x, 0.46, -2.2], cabinetMaterial, `RF12_BASE_DOOR_${center}_${index}`);\n' +
+      '      box(cabinets, [0.12, 0.025, 0.025], [x, 0.52, -2.16], steelMaterial, `RF12_BASE_HANDLE_${center}_${index}`);\n' +
+      '    }\n' +
+      '  }\n' +
+      '  box(cabinets, [2.55, 0.72, 0.68], [-2.5, 1.68, -2.78], cabinetMaterial, "RF12_UPPER_CABINET");\n' +
+      '  for (let index = 0; index < 3; index += 1) box(cabinets, [0.78, 0.62, 0.035], [-3.3 + index * 0.8, 1.68, -2.42], cabinetMaterial, `RF12_UPPER_DOOR_${index}`);\n' +
+      '  box(cabinets, [0.85, 0.07, 0.58], [-0.45, 0.93, -2.58], steelMaterial, "RF12_SINK_BASIN");\n' +
+      '  cylinder(cabinets, 0.04, 0.34, [-0.12, 1.14, -2.72], steelMaterial, "RF12_SINK_FAUCET");\n' +
+      '  box(cabinets, [0.34, 0.05, 0.05], [-0.26, 1.3, -2.72], steelMaterial, "RF12_SINK_SPOUT");\n' +
+      '  const fixtures = new THREE.Group(); fixtures.name = "rf12-fixtures"; root.add(fixtures);\n' +
+      '  box(fixtures, [0.92, 1.9, 0.68], [-3.55, 0.95, -1.0], steelMaterial, "RF12_REFRIGERATOR");\n' +
+      '  box(fixtures, [0.75, 0.02, 0.03], [-3.06, 1.42, -1.0], darkMaterial, "RF12_FRIDGE_HANDLE");\n' +
+      '  box(fixtures, [1.65, 0.08, 0.7], [2.25, 0.93, -2.58], steelMaterial, "RF12_STOVE");\n' +
+      '  for (const [x, z] of [[1.86, -2.78], [2.58, -2.78], [1.86, -2.37], [2.58, -2.37]]) { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.022, 8, 24), darkMaterial); ring.rotation.x = Math.PI / 2; ring.position.set(x, 0.99, z); fixtures.add(ring); }\n' +
+      '  box(fixtures, [1.75, 0.46, 0.48], [2.25, 2.15, -2.98], steelMaterial, "RF12_RANGE_HOOD");\n' +
+      '  box(fixtures, [0.18, 1.15, 0.18], [2.25, 1.65, -2.98], steelMaterial, "RF12_RANGE_HOOD_CHIMNEY");\n' +
+      '  box(fixtures, [0.62, 0.04, 0.04], [2.25, 1.0, -2.12], hazardMaterial, "RF12_GAS_KNOB_PANEL");\n' +
+      '  box(fixtures, [0.72, 1.08, 0.45], [-3.3, 0.54, 2.5], darkMaterial, "RF12_SAFETY_TERMINAL");\n' +
+      '  box(fixtures, [0.5, 0.05, 0.03], [-3.3, 0.95, 2.28], clearMaterial, "RF12_TERMINAL_STATUS");\n' +
+      '  return root;\n' +
+      '}\n' +
+      '\n' +
+      'function fallbackCloth() {\n' +
+      '  const root = new THREE.Group(); root.name = "rf12-wet-cloth-fallback";\n' +
+      '  const cloth = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.035, 0.32), material(0x5b8c91, 0.9, 0.01));\n' +
+      '  cloth.rotation.z = -0.08; cloth.position.y = 0.02; cloth.castShadow = true; cloth.receiveShadow = true; root.add(cloth); return root;\n' +
+      '}\n' +
+      '\n' +
+      'export function loadAsset(url) {\n' +
+      '  if (!assetCache.has(url)) assetCache.set(url, new Promise((resolve) => loader.load(url, (gltf) => resolve(gltf.scene), undefined, () => resolve(null))));\n' +
+      '  return assetCache.get(url);\n' +
+      '}\n' +
+      '\n' +
+      'function attachAsset(url, parent, name, position = [0, 0, 0], yaw = 0) {\n' +
+      '  const slot = new THREE.Group(); slot.name = name; slot.position.set(...position); slot.rotation.y = yaw; parent.add(slot);\n' +
+      '  const ready = loadAsset(url).then((source) => {\n' +
+      '    if (!source) return { loaded: false, name, url, model: null };\n' +
+      '    const model = source.clone(true);\n' +
+      '    model.traverse((object) => { if (object.isMesh) { object.castShadow = true; object.receiveShadow = true; } });\n' +
+      '    slot.add(model); return { loaded: true, name, url, model };\n' +
+      '  });\n' +
+      '  return { slot, ready };\n'... 10093 more characters
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    import * as THREE from "three";
+    import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+    import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+    import { HAZARD_TYPES, LEVEL } from "./level.js";
+    
+    const ROOT = "/local-assets/cardinal/rf12-v2/models/runtime";
+    const ASSETS = Object.freeze({
+      environment: "/local-assets/levels/rf12/window-v5/kitchen-environment.glb",
+      collision: "/local-assets/levels/rf12/window-v5/kitchen-collision.glb",
+      hood: `${ROOT}/range_hood_repaired.glb`,
+      gasKnob: `/local-assets/levels/rf12/interaction-v2/gas-knob-precision.glb`,
+      gasValve: `/local-assets/levels/rf12/interaction-v2/gas_valve.glb`,
+      cloth: `/local-assets/levels/rf12/interaction-v2/wet_cloth.glb`,
+      window: `${ROOT}/kitchen_window_refined.glb`,
+      safetyWindow: "/local-assets/levels/rf12/window-v5/sliding-window.glb",
+      terminal: `/local-assets/levels/rf12/interaction-v2/safety_terminal.glb`,
+      refrigerator: `/local-assets/levels/rf12/interaction-v2/refrigerator.glb`,
+      sink: `/local-assets/levels/rf12/kettle-v3/sink-r3.glb`,
+      stove: `/local-assets/levels/rf12/interaction-v2/stove-precision.glb`,
+      doorHandle: `${ROOT}/kitchen_door_handle.glb`,
+    });
+    
+    const draco = new DRACOLoader();
+    draco.setWorkerLimit(2);
+    draco.setDecoderPath("/vendor/draco/");
+    const loader = new GLTFLoader();
+    loader.setDRACOLoader(draco);
+    const textureLoader = new THREE.TextureLoader();
+    const assetCache = new Map();
+    
+    function material(color, roughness = 0.72, metalness = 0.04, map = null) {
+      return new THREE.MeshStandardMaterial({ color, roughness, metalness, map });
+    }
+    
+    function tileTexture(kind) {
+      const canvas = document.createElement("canvas");
+      canvas.width = canvas.height = 512;
+      const context = canvas.getContext("2d");
+      context.fillStyle = kind === "floor" ? "#a8ada8" : "#e9e5df";
+      context.fillRect(0, 0, 512, 512);
+      context.strokeStyle = kind === "floor" ? "rgba(72,82,78,.28)" : "rgba(130,118,108,.24)";
+      context.lineWidth = kind === "floor" ? 3 : 2;
+      const step = kind === "floor" ? 128 : 256;
+      for (let offset = 0; offset <= 512; offset += step) {
+        context.beginPath(); context.moveTo(offset, 0); context.lineTo(offset, 512); context.stroke();
+        context.beginPath(); context.moveTo(0, offset); context.lineTo(512, offset); context.stroke();
+      }
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      texture.repeat.set(kind === "floor" ? 6 : 3, kind === "floor" ? 5 : 2);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.anisotropy = 8;
+      return texture;
+    }
+    
+    const floorMaterial = material(0xffffff, 0.9, 0.02, tileTexture("floor"));
+    const wallMaterial = material(0xffffff, 0.78, 0.01, tileTexture("wall"));
+    function upgradeTileMaterial(entryMaterial, kind) {
+      const url = `/local-assets/levels/rf12/textures/${kind}_tile_cardinal.png`;
+      textureLoader.load(url, (texture) => {
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(kind === "floor" ? 6 : 3, kind === "floor" ? 5 : 2);
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.anisotropy = 8;
+        entryMaterial.map = texture;
+        entryMaterial.needsUpdate = true;
+      });
+    }
+    upgradeTileMaterial(floorMaterial, "floor");
+    upgradeTileMaterial(wallMaterial, "wall");
+    const cabinetMaterial = material(0x9f8065, 0.56, 0.02);
+    const counterMaterial = material(0xe3ded3, 0.34, 0.03);
+    const steelMaterial = material(0xb6c0be, 0.34, 0.22);
+    const darkMaterial = material(0x252b2c, 0.74, 0.08);
+    const glassMaterial = new THREE.MeshPhysicalMaterial({ color: 0x9db9b7, roughness: 0.16, metalness: 0.08, transmission: 0.22, transparent: true, opacity: 0.72 });
+    const hazardMaterial = material(0xd04c3f, 0.45, 0.04);
+    const clearMaterial = material(0x4d9c6a, 0.4, 0.04);
+    
+    function box(parent, size, position, entryMaterial, name, rotationY = 0) {
+      const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), entryMaterial);
+      mesh.position.set(...position); mesh.rotation.y = rotationY; mesh.name = name; mesh.castShadow = true; mesh.receiveShadow = true; parent.add(mesh); return mesh;
+    }
+    
+    function cylinder(parent, radius, height, position, entryMaterial, name) {
+      const mesh = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius * 0.94, height, 24), entryMaterial);
+      mesh.position.set(...position); mesh.name = name; mesh.castShadow = true; mesh.receiveShadow = true; parent.add(mesh); return mesh;
+    }
+    
+    function fallbackEnvironment(scene) {
+      const root = new THREE.Group(); root.name = "rf12-graybox-baseline"; scene.add(root);
+      const architecture = new THREE.Group(); architecture.name = "rf12-architecture"; root.add(architecture);
+      box(architecture, [8.4, 0.12, 6.8], [0, -0.06, 0], floorMaterial, "RF12_FLOOR");
+      box(architecture, [8.4, 2.8, 0.16], [0, 1.4, -3.32], wallMaterial, "RF12_BACK_WALL");
+      box(architecture, [0.16, 2.8, 4.55], [-4.12, 1.4, -0.95], wallMaterial, "RF12_WEST_WALL_REAR");
+      box(architecture, [0.16, 2.8, 0.72], [-4.12, 1.4, 3.04], wallMaterial, "RF12_WEST_WALL_FRONT");
+      box(architecture, [0.16, 2.8, 6.8], [4.12, 1.4, 0], wallMaterial, "RF12_EAST_WALL");
+      box(architecture, [3.25, 2.8, 0.16], [-2.58, 1.4, 3.32], wallMaterial, "RF12_SOUTH_WALL_WEST");
+      box(architecture, [3.25, 2.8, 0.16], [2.58, 1.4, 3.32], wallMaterial, "RF12_SOUTH_WALL_EAST");
+      box(architecture, [0.95, 2.16, 0.07], [-1.0, 1.08, 3.18], cabinetMaterial, "RF12_DOOR_FRAME_LEFT");
+      box(architecture, [0.95, 2.16, 0.07], [1.0, 1.08, 3.18], cabinetMaterial, "RF12_DOOR_FRAME_RIGHT");
+      box(architecture, [0.06, 2.02, 1.86], [0, 1.01, 3.18], glassMaterial, "RF12_GLASS_DOOR");
+      box(architecture, [0.06, 0.06, 1.75], [0, 1.7, 3.11], steelMaterial, "RF12_DOOR_RAIL");
+      box(architecture, [0.06, 0.08, 1.2], [-0.75, 1.62, -3.2], glassMaterial, "RF12_WINDOW_GLASS");
+      box(architecture, [0.06, 0.06, 1.32], [-0.75, 2.25, -3.13], cabinetMaterial, "RF12_WINDOW_TOP");
+      box(architecture, [0.06, 0.06, 1.32], [-0.75, 1.0, -3.13], cabinetMaterial, "RF12_WINDOW_SILL");
+      box(architecture, [0.06, 1.28, 0.06], [-1.42, 1.62, -3.13], cabinetMaterial, "RF12_WINDOW_LEFT");
+      box(architecture, [0.06, 1.28, 0.06], [-0.08, 1.62, -3.13], cabinetMaterial, "RF12_WINDOW_RIGHT");
+      box(architecture, [0.04, 1.18, 0.04], [-0.75, 1.62, -3.08], cabinetMaterial, "RF12_WINDOW_MULLION");
+      const cabinets = new THREE.Group(); cabinets.name = "rf12-cabinetry"; root.add(cabinets);
+      box(cabinets, [3.65, 0.82, 0.72], [-2.0, 0.41, -2.58], cabinetMaterial, "RF12_BASE_CABINET_WEST");
+      box(cabinets, [3.6, 0.82, 0.72], [1.55, 0.41, -2.58], cabinetMaterial, "RF12_BASE_CABINET_EAST");
+      box(cabinets, [7.25, 0.08, 0.82], [-0.2, 0.86, -2.58], counterMaterial, "RF12_QUARTZ_COUNTER");
+      for (const [center, count, width] of [[-2.0, 4, 3.42], [1.55, 4, 3.36]]) {
+        for (let index = 0; index < count; index += 1) {
+          const panelWidth = width / count - 0.04;
+          const x = center - width / 2 + panelWidth / 2 + index * (width / count);
+          box(cabinets, [panelWidth, 0.64, 0.035], [x, 0.46, -2.2], cabinetMaterial, `RF12_BASE_DOOR_${center}_${index}`);
+          box(cabinets, [0.12, 0.025, 0.025], [x, 0.52, -2.16], steelMaterial, `RF12_BASE_HANDLE_${center}_${index}`);
+        }
+      }
+      box(cabinets, [2.55, 0.72, 0.68], [-2.5, 1.68, -2.78], cabinetMaterial, "RF12_UPPER_CABINET");
+      for (let index = 0; index < 3; index += 1) box(cabinets, [0.78, 0.62, 0.035], [-3.3 + index * 0.8, 1.68, -2.42], cabinetMaterial, `RF12_UPPER_DOOR_${index}`);
+      box(cabinets, [0.85, 0.07, 0.58], [-0.45, 0.93, -2.58], steelMaterial, "RF12_SINK_BASIN");
+      cylinder(cabinets, 0.04, 0.34, [-0.12, 1.14, -2.72], steelMaterial, "RF12_SINK_FAUCET");
+      box(cabinets, [0.34, 0.05, 0.05], [-0.26, 1.3, -2.72], steelMaterial, "RF12_SINK_SPOUT");
+      const fixtures = new THREE.Group(); fixtures.name = "rf12-fixtures"; root.add(fixtures);
+      box(fixtures, [0.92, 1.9, 0.68], [-3.55, 0.95, -1.0], steelMaterial, "RF12_REFRIGERATOR");
+      box(fixtures, [0.75, 0.02, 0.03], [-3.06, 1.42, -1.0], darkMaterial, "RF12_FRIDGE_HANDLE");
+      box(fixtures, [1.65, 0.08, 0.7], [2.25, 0.93, -2.58], steelMaterial, "RF12_STOVE");
+      for (const [x, z] of [[1.86, -2.78], [2.58, -2.78], [1.86, -2.37], [2.58, -2.37]]) { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.022, 8, 24), darkMaterial); ring.rotation.x = Math.PI / 2; ring.position.set(x, 0.99, z); fixtures.add(ring); }
+      box(fixtures, [1.75, 0.46, 0.48], [2.25, 2.15, -2.98], steelMaterial, "RF12_RANGE_HOOD");
+      box(fixtures, [0.18, 1.15, 0.18], [2.25, 1.65, -2.98], steelMaterial, "RF12_RANGE_HOOD_CHIMNEY");
+      box(fixtures, [0.62, 0.04, 0.04], [2.25, 1.0, -2.12], hazardMaterial, "RF12_GAS_KNOB_PANEL");
+      box(fixtures, [0.72, 1.08, 0.45], [-3.3, 0.54, 2.5], darkMaterial, "RF12_SAFETY_TERMINAL");
+      box(fixtures, [0.5, 0.05, 0.03], [-3.3, 0.95, 2.28], clearMaterial, "RF12_TERMINAL_STATUS");
+      return root;
+    }
+    
+    function fallbackCloth() {
+      const root = new THREE.Group(); root.name = "rf12-wet-cloth-fallback";
+      const cloth = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.035, 0.32), material(0x5b8c91, 0.9, 0.01));
+      cloth.rotation.z = -0.08; cloth.position.y = 0.02; cloth.castShadow = true; cloth.receiveShadow = true; root.add(cloth); return root;
+    }
+    
+    export function loadAsset(url) {
+      if (!assetCache.has(url)) assetCache.set(url, new Promise((resolve) => loader.load(url, (gltf) => resolve(gltf.scene), undefined, () => resolve(null))));
+      return assetCache.get(url);
+    }
+    
+    function attachAsset(url, parent, name, position = [0, 0, 0], yaw = 0) {
+      const slot = new THREE.Group(); slot.name = name; slot.position.set(...position); slot.rotation.y = yaw; parent.add(slot);
+      const ready = loadAsset(url).then((source) => {
+        if (!source) return { loaded: false, name, url, model: null };
+        const model = source.clone(true);
+        model.traverse((object) => { if (object.isMesh) { object.castShadow = true; object.receiveShadow = true; } });
+        slot.add(model); return { loaded: true, name, url, model };
+      });
+      return { slot, ready };
+    }
+    
+    function hideFallbackForAsset(root, name) {
+      const prefixes = {
+        hood: ["RF12_RANGE_HOOD"],
+        gasKnob: ["RF12_GAS_KNOB_PANEL"],
+        gasValve: [],
+        window: ["RF12_WINDOW_"],
+        terminal: ["RF12_SAFETY_TERMINAL", "RF12_TERMINAL_STATUS"],
+        refrigerator: ["RF12_REFRIGERATOR", "RF12_FRIDGE_HANDLE"],
+        sink: ["RF12_SINK_"],
+        stove: ["RF12_STOVE", "RF12_STOVE_", "RF12_GAS_KNOB_PANEL"],
+      }[name] ?? [];
+      root.traverse((object) => { if (object.name && prefixes.some((prefix) => object.name.startsWith(prefix))) object.visible = false; });
+    }
+    
+    function applyEnvironmentMaterials(model) {
+      const floorTexture = textureLoader.load("/local-assets/cardinal/rf12-v2/textures/floor_tile_cardinal.png");
+      floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
+      floorTexture.repeat.set(1, 1); floorTexture.colorSpace = THREE.SRGBColorSpace; floorTexture.anisotropy = 8;
+      const wallTexture = textureLoader.load("/local-assets/cardinal/rf12-v2/textures/wall_tile_cardinal.png");
+      wallTexture.wrapS = wallTexture.wrapT = THREE.RepeatWrapping;
+      wallTexture.repeat.set(1, 1); wallTexture.colorSpace = THREE.SRGBColorSpace; wallTexture.anisotropy = 8;
+      const oakTexture = textureLoader.load("/local-assets/cardinal/rf12-v2/textures/oak_cardinal.png");
+      oakTexture.wrapS = oakTexture.wrapT = THREE.RepeatWrapping;
+      oakTexture.repeat.set(1, 1); oakTexture.colorSpace = THREE.SRGBColorSpace; oakTexture.anisotropy = 8;
+      model.traverse((object) => {
+        if (!object.isMesh) return;
+        const name = object.name.toLowerCase();
+        object.material = Array.isArray(object.material) ? object.material.map((entry) => entry.clone()) : object.material.clone();
+        const entryMaterial = Array.isArray(object.material) ? object.material[0] : object.material;
+        if (!entryMaterial) return;
+        entryMaterial.side = THREE.DoubleSide;
+        if (name.includes("floor")) { entryMaterial.map = floorTexture; entryMaterial.color.set(0xffffff); entryMaterial.roughness = 0.82; }
+        if (name.includes("wall") || name.includes("backsplash")) { entryMaterial.map = wallTexture; entryMaterial.color.set(0xffffff); entryMaterial.roughness = 0.7; }
+        if ((name.includes("base_") || name.includes("upper_") || name.includes("backboard")) && !name.includes("handle") && !name.endsWith("_top")) { entryMaterial.map = oakTexture; entryMaterial.color.set(0xffffff); entryMaterial.roughness = 0.62; }
+        if (name.includes("upper_east")) object.visible = false;
+        entryMaterial.needsUpdate = true;
+      });
+    }
+    
+    function addKitchenDetails(scene) {
+      const details = new THREE.Group(); details.name = "rf12-realism-details"; scene.add(details);
+      const trim = material(0x7d6855, 0.52, 0.02);
+      const edge = material(0xd7d0c3, 0.34, 0.03);
+      const dark = material(0x353b39, 0.62, 0.08);
+      const warm = new THREE.PointLight(0xffd9a8, 0.7, 5.5, 2); warm.position.set(0, 2.05, -2.25); details.add(warm);
+      box(details, [7.2, 0.12, 0.08], [-0.2, 0.075, -2.22], dark, "RF12_CABINET_TOE_KICK");
+        const ceiling = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.035, 32), material(0xf1e2c5, 0.35, 0.02));
+      ceiling.name = "RF12_CEILING_DECOR"; ceiling.position.set(0, 2.78, 0.3); ceiling.castShadow = true; details.add(ceiling);
+      const ceilingGlow = new THREE.PointLight(0xffedcf, 0.45, 7, 2); ceilingGlow.position.set(0, 2.62, 0.3); details.add(ceilingGlow);
+      const hallLight = new THREE.PointLight(0xffeddb, 6, 4, 2); hallLight.position.set(0, 2.65, 5.1); details.add(hallLight);
+    }
+    
+    export function createKitchenScene() {
+      const scene = new THREE.Scene();
+      scene.onBeforeRender = (renderer) => {
+        scene.onBeforeRender = () => {};
+        const environment = new RoomEnvironment();
+        const generator = new THREE.PMREMGenerator(renderer);
+        const reflection = generator.fromScene(environment, 0.04);
+        scene.environment = reflection.texture;
+        scene.environmentIntensity = 0.45;
+        scene.userData.reflectionTarget = reflection;
+        environment.dispose();
+        generator.dispose();
+      };
+      scene.background = new THREE.Color(0xb8c0bc);
+      scene.fog = new THREE.Fog(0xb8c0bc, 16, 32);
+      scene.add(new THREE.HemisphereLight(0xfff7ea, 0x59645f, 0.8));
+      const sun = new THREE.DirectionalLight(0xfff4e4, 1.35); sun.position.set(-4, 9, 5); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.normalBias = 0.02; sun.shadow.bias = -0.0001; scene.add(sun);
+      const fallback = fallbackEnvironment(scene);
+      addKitchenDetails(scene);
+      const visualRoot = new THREE.Group(); visualRoot.name = "rf12-cardinal-runtime"; scene.add(visualRoot);
+      const collisionRoot = new THREE.Group(); collisionRoot.name = "RF12_COLLISION_HIDDEN"; collisionRoot.visible = false; scene.add(collisionRoot);
+      const itemRoot = new THREE.Group(); itemRoot.name = "rf12-interactables"; scene.add(itemRoot);
+      const clothRoot = new THREE.Group(); clothRoot.name = "rf12-cloth"; clothRoot.add(fallbackCloth()); scene.add(clothRoot);
+      const fixed = {};
+      const fixedEntries = [
+        ["environment", ASSETS.environment, visualRoot, [0, 0, 0], 0],
+        ["collision", ASSETS.collision, collisionRoot, [0, 0, 0], 0],
+        ["hood", ASSETS.hood, visualRoot, [2.25, 1.65, -3.0], 0],
+        ["gasKnob", ASSETS.gasKnob, visualRoot, [LEVEL.gasKnob.x, 0.95, LEVEL.gasKnob.z], 0],
+        ["gasValve", ASSETS.gasValve, visualRoot, [LEVEL.gasValve.x, 0.78, LEVEL.gasValve.z], Math.PI / 2],
+        ["window", ASSETS.window, visualRoot, [-.75, 1.15, -3.32], 0],
+        ["safetyWindow", ASSETS.safetyWindow, visualRoot, [4.12, .85, .4], -Math.PI/2],
+        ["terminal", ASSETS.terminal, visualRoot, [LEVEL.terminal.x, 0, LEVEL.terminal.z], 0],
+        ["refrigerator", ASSETS.refrigerator, visualRoot, [-3.55, 0, -1.0], 0],
+        ["sink", ASSETS.sink, visualRoot, [-0.45, 0.78, -2.55], 0],
+        ["stove", ASSETS.stove, visualRoot, [2.25, 0.90, -2.58], 0],
+        ["doorHandle", ASSETS.doorHandle, visualRoot, [1.18, 1.05, 3.02], Math.PI],
+      ];
+      const fixedReady = fixedEntries.map(([name, url, parent, position, yaw]) => { const entry = attachAsset(url, parent, name, position, yaw); fixed[name] = entry.slot; return entry.ready; });
+      clothRoot.position.set(LEVEL.cloth.x, 0.9, LEVEL.cloth.z);
+      const clothEntry = attachAsset(ASSETS.cloth, clothRoot, "cloth-cardinal");
+      const assetReady = Promise.all([...fixedReady, clothEntry.ready]).then((results) => {
+        if (results.find((result) => result.name === "environment")?.loaded) {
+          fixed.environment.visible = true;
+          fallback.visible = false;
+          const environment = fixed.environment.children[0];
+          if (environment) applyEnvironmentMaterials(environment);
+        }
+        for (const result of results) if (result.loaded && !["hood", "window", "refrigerator"].includes(result.name)) hideFallbackForAsset(fallback, result.name);
+        if (fixed.refrigerator) fixed.refrigerator.visible = true;
+        if (results.find((result) => result.name === "cloth-cardinal")?.loaded) clothRoot.children[0].visible = false;
+        return results;
+      });
+      const world = { scene, fallback, visualRoot, collisionRoot, clothRoot, fixed, assetReady, collisionReady: assetReady.then((results) => results.find((result) => result.name === "collision") ?? { loaded: false }), assetRoots: { environment: visualRoot, collision: collisionRoot, interactables: { cloth: clothRoot }, fixed } };
+      world.assetRoots.hazardIndicators = Object.fromEntries(HAZARD_TYPES.map((type) => [type, hazardIndicator(scene, type)]));
+      return world;
+    }
+    
+    function hazardIndicator(scene, type) {
+      const positions = { gasKnob: [LEVEL.gasKnob.x, 1.08, LEVEL.gasKnob.z], hood: [LEVEL.hood.x, 1.38, LEVEL.hood.z], cloth: [LEVEL.sink.x, 1.06, LEVEL.sink.z], window: [LEVEL.window.x, 2.25, LEVEL.window.z], gasValve: [LEVEL.gasValve.x, 1.05, LEVEL.gasValve.z] };
+      const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 8), hazardMaterial.clone()); mesh.name = `RF12_HAZARD_INDICATOR_${type}`; mesh.position.set(...positions[type]); mesh.castShadow = true; mesh.visible = false; scene.add(mesh); return mesh;
+    }
+    
+    function setPose(root, pose) { root.position.set(pose.x, pose.y, pose.z); root.rotation.y = pose.yaw ?? 0; }
+    
+    export function syncKitchenVisuals(world, state) {
+      const cloth = world.clothRoot;
+      const clothOnSurface = state.cloth.location === "counter" || state.cloth.location === "floor" || state.cloth.location === "sink";
+      cloth.visible = clothOnSurface;
+      if (state.cloth.location === "counter") setPose(cloth, { x: LEVEL.cloth.x, y: 0.9, z: LEVEL.cloth.z, yaw: 0 });
+      if (state.cloth.location === "floor") setPose(cloth, { x: state.cloth.x, y: 0, z: state.cloth.z, yaw: 0 });
+      if (state.cloth.location === "sink") setPose(cloth, { x: LEVEL.sink.x, y: 0.83, z: LEVEL.sink.z, yaw: 0 });
+      const status = state.hazards;
+      const windowSash = world.fixed.safetyWindow?.getObjectByName("RF12_WINDOW_MOVING_SASH");
+      if (windowSash) windowSash.position.x = -(world.windowSlide ?? (status.window ? .56 : 0));
+      for (const type of HAZARD_TYPES) { const indicator = world.assetRoots.hazardIndicators[type]; indicator.material.color.set(status[type] ? clearMaterial.color : hazardMaterial.color); }
+      if (world.fixed.hood) world.fixed.hood.userData.active = status.hood;
+    }
+    
+    export function createKitchenCargoModel() {
+      const root = new THREE.Group(); root.name = "rf12-cargo"; const fallback = fallbackCloth(); root.add(fallback); root.userData.fallback = fallback;
+      const slot = new THREE.Group(); slot.visible = false; root.add(slot); root.userData.slot = slot;
+      root.userData.assetReady = loadAsset(ASSETS.cloth).then((source) => { if (!source) return { loaded: false, name: "cloth-cargo", url: ASSETS.cloth }; const model = source.clone(true); slot.add(model); fallback.visible = false; return { loaded: true, name: "cloth-cargo", url: ASSETS.cloth, model }; });
+      return root;
+    }
+    
+    export function syncKitchenCargoModel(root, state) { if (!root) return; const carrying = state.carriedItem === "cloth"; root.visible = carrying; if (root.userData.slot) root.userData.slot.visible = carrying; if (root.userData.fallback) root.userData.fallback.visible = carrying && root.userData.slot?.children.length === 0; }
+    
+    export { ASSETS };
+    
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file://./tests/rf12-layout.test.mjs:63:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: RF-12 range hood has a closed housing and mounted chimney
+ok 10 - RF-12 range hood has a closed housing and mounted chimney
+  ---
+  duration_ms: 1.528472
+  type: 'test'
+  ...
+# Subtest: RF-12 entrance has a full depth hall and matching end wall
+ok 11 - RF-12 entrance has a full depth hall and matching end wall
+  ---
+  duration_ms: 0.185403
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 10
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 96.286334

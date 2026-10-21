@@ -1,0 +1,131 @@
+{
+  "productionStatus": "visual_complete",
+  "humanVisualReview": "pass",
+  "referenceMatch": "pass",
+  "generationPipeline": "RF-04/RF-06 style Blender static assembly + EmbodiedGen SAM3D interactables",
+  "units": "meters",
+  "upAxis": "Y",
+  "layout": {
+    "type": "Chinese standard business-hotel twin room",
+    "dimensionsMeters": [
+      8.4,
+      2.8,
+      10.8
+    ],
+    "entrance": "south, 1.3m clear opening",
+    "bathroom": "entry-side wet room with vanity, shower tray, room-side partition wall and glass partition",
+    "beds": "two 1.86m x 2.65m twin beds"
+  },
+  "assets": {
+    "environment": {
+      "dimensionsMeters": [
+        8.4,
+        2.8,
+        10.8
+      ],
+      "role": "static_environment",
+      "bounds": {
+        "min": [
+          -4.289999961853027,
+          -0.18000000715255737,
+          -5.490000247955322
+        ],
+        "max": [
+          4.289999961853027,
+          2.924999952316284,
+          5.490000247955322
+        ]
+      }
+    },
+    "towel": {
+      "dimensionsMeters": [
+        0.5464,
+        0.3366,
+        0.68
+      ],
+      "targetDimensionsMeters": [
+        0.68,
+        0.14,
+        0.45
+      ],
+      "role": "interactive_object",
+      "source": "./external/EmbodiedGen/outputs/rf05/interactables_sam3d_v5/sample_4/result/sample_4.glb",
+      "normalizedBottomCenter": true
+    },
+    "cup": {
+      "dimensionsMeters": [
+        0.0714,
+        0.12,
+        0.0856
+      ],
+      "targetDimensionsMeters": [
+        0.11,
+        0.12,
+        0.11
+      ],
+      "role": "interactive_object",
+      "source": "./external/EmbodiedGen/outputs/rf05/interactables_sam3d_v4/cup/result/cup.glb",
+      "normalizedBottomCenter": true
+    },
+    "trash": {
+      "dimensionsMeters": [
+        0.18,
+        0.1515,
+        0.1799
+      ],
+      "targetDimensionsMeters": [
+        0.16,
+        0.18,
+        0.16
+      ],
+      "role": "interactive_object",
+      "source": "./external/EmbodiedGen/outputs/rf05/interactables_sam3d_v4/trash/result/trash.glb",
+      "normalizedBottomCenter": true
+    },
+    "laundry_basket": {
+      "dimensionsMeters": [
+        0.72,
+        0.4225,
+        0.7199
+      ],
+      "targetDimensionsMeters": [
+        0.72,
+        0.62,
+        0.72
+      ],
+      "role": "interactive_object",
+      "source": "./external/EmbodiedGen/outputs/rf05/interactables_sam3d_v4/laundry_basket/result/laundry_basket.glb",
+      "normalizedBottomCenter": true
+    },
+    "cleaning_cart": {
+      "dimensionsMeters": [
+        0.512,
+        1.05,
+        1.0288
+      ],
+      "targetDimensionsMeters": [
+        0.95,
+        1.05,
+        0.55
+      ],
+      "role": "interactive_object",
+      "source": "./external/EmbodiedGen/outputs/rf05/interactables_sam3d_v4/cleaning_cart/result/cleaning_cart.glb",
+      "normalizedBottomCenter": true
+    },
+    "trash_bin": {
+      "dimensionsMeters": [
+        0.54,
+        0.615,
+        0.54
+      ],
+      "targetDimensionsMeters": [
+        0.54,
+        0.62,
+        0.54
+      ],
+      "role": "interactive_object",
+      "source": "server_blender_detail_asset",
+      "normalizedBottomCenter": true
+    }
+  }
+}

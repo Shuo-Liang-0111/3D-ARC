@@ -1,0 +1,35 @@
+{
+  "revision": "tennis-series-v1",
+  "sourceScene": "realism-v0.4.8",
+  "assets": [
+    {
+      "id": "collision",
+      "path": "public/local-assets/levels/rf14/series-v1/collision.glb",
+      "sha256": "1d3abe0feeca1125a30054f0728f6d0a76797229a52ba08e727646959bba01cd",
+      "bytes": 8040,
+      "source": "Blender 4.5.3"
+    },
+    {
+      "id": "rain",
+      "path": "public/local-assets/levels/rf14/series-v1/rain.mp3",
+      "sha256": "79b7c9569edc538ccd0d7bfbedee850e2e4aefdc2b3fe9782a47b91f35cf7c44",
+      "bytes": 698886,
+      "source": "Cardinal"
+    },
+    {
+      "id": "shelter",
+      "path": "public/local-assets/levels/rf14/series-v1/shelter.glb",
+      "sha256": "98b9bdb98d4963ff7053c52a8b21b35b28ecb29e6e7a7c0d5ada07262a819d4e",
+      "bytes": 635456,
+      "source": "Blender 4.5.3"
+    }
+  ],
+  "generationTasks": [
+    {
+      "assetId": "rain-ambience",
+      "provider": "Cardinal",
+      "taskId": "aigc_d8ba811eb2e74ff3b812ded29ed44c1b",
+      "status": "completed"
+    }
+  ]
+}

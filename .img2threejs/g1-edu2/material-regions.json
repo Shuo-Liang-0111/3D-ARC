@@ -1,0 +1,55 @@
+{
+  "referenceId": "unitree-g1-official-multiview",
+  "regions": [
+    {
+      "componentId": "torso-shell",
+      "regionId": "silver-armour-clean",
+      "sourceImage": "../references/unitree-official/g1-official-rgb/g1-08-rgb.png",
+      "bbox": {"x": 1580, "y": 40, "width": 330, "height": 260},
+      "family": "coating",
+      "subtype": "paint-over-metal",
+      "finish": "gloss-or-satin",
+      "materialSpecId": "silver-armour"
+    },
+    {
+      "componentId": "waist-mid",
+      "regionId": "graphite-actuator-clean",
+      "sourceImage": "../references/unitree-official/g1-official-rgb/g1-08-rgb.png",
+      "bbox": {"x": 700, "y": 650, "width": 470, "height": 330},
+      "family": "metal",
+      "subtype": "aluminum",
+      "finish": "satin",
+      "materialSpecId": "graphite-mechanism"
+    },
+    {
+      "componentId": "palm-l",
+      "regionId": "dex3-black-elastomer",
+      "sourceImage": "../references/unitree-official/g1-official-rgb/g1-params-rgb.png",
+      "bbox": {"x": 110, "y": 260, "width": 450, "height": 255},
+      "family": "rubber",
+      "subtype": "generic-elastomer",
+      "finish": "matte",
+      "materialSpecId": "black-elastomer"
+    },
+    {
+      "componentId": "face-glazing",
+      "regionId": "sensor-dark-glazing",
+      "sourceImage": "../references/unitree-official/g1-official-rgb/g1-params-rgb.png",
+      "bbox": {"x": 1480, "y": 810, "width": 270, "height": 355},
+      "family": "glass",
+      "subtype": "clear",
+      "finish": "polished",
+      "materialSpecId": "sensor-glazing"
+    },
+    {
+      "componentId": "cyan-perimeter",
+      "regionId": "cyan-light-guide",
+      "sourceImage": "../references/unitree-official/g1-official-rgb/g1-params-rgb.png",
+      "bbox": {"x": 1490, "y": 925, "width": 245, "height": 135},
+      "family": "plastic",
+      "subtype": "generic-polymer",
+      "finish": "glossy",
+      "materialSpecId": "cyan-emission"
+    }
+  ]
+}

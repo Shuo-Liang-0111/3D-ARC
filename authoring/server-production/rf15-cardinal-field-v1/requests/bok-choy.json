@@ -1,0 +1,9 @@
+{
+  "prompt": "One whole mature Chinese bok choy plant growing upright, photorealistic botanical specimen, eight separate dark green spoon shaped leaves, thick pale cream green stalks joining a short basal stem, natural branching leaf veins, irregular curled leaf margins, realistic waxy roughness, 28 cm wide 32 cm tall. Only the vegetable, no pot, no ground slab, no container, no background. PBR natural coloration, not stylized.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true
+}

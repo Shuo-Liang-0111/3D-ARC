@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh"><meta charset="UTF-8"><title>RF15 Cardinal 资产验收</title><style>body{margin:0;background:#afbec3;font:16px sans-serif}nav{position:absolute;top:20px;left:20px;z-index:2;background:#eee;padding:12px}button{margin:4px;padding:8px}#status{display:block}</style><nav><strong>Cardinal 资产验收</strong><div id="controls"></div><span id="status">加载中</span></nav><script type="module">
+import * as THREE from '/node_modules/three/build/three.module.js';
+import {GLTFLoader} from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
+import {RoomEnvironment} from '/node_modules/three/examples/jsm/environments/RoomEnvironment.js';
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.shadowMap.enabled=true;renderer.toneMapping=THREE.ACESFilmicToneMapping;document.body.append(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#acb9bb');scene.add(new THREE.HemisphereLight(0xffffff,0x6b6052,2));const light=new THREE.DirectionalLight(0xffebce,2.6);light.position.set(5,10,6);scene.add(light);
+const generator=new THREE.PMREMGenerator(renderer);scene.environment=generator.fromScene(new RoomEnvironment(),.04).texture;scene.environmentIntensity=.4;
+const camera=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.01,150);const controls=new OrbitControls(camera,renderer.domElement);const loader=new GLTFLoader();let model;
+async function show(name){document.querySelector('#status').textContent='加载 '+name;try{const asset=await loader.loadAsync('/local-assets/levels/rf15/cardinal-field-v2/'+name+'.glb');if(model)scene.remove(model);model=asset.scene;scene.add(model);const bounds=new THREE.Box3().setFromObject(model);const center=bounds.getCenter(new THREE.Vector3());const size=bounds.getSize(new THREE.Vector3());const extent=Math.max(...size.toArray());camera.position.copy(center).add(new THREE.Vector3(extent*.95,extent*.7,extent*1.4));controls.target.copy(center);controls.update();document.querySelector('#status').textContent=name+' · '+size.toArray().map(value=>value.toFixed(2)).join(' × ')+' m';}catch(error){document.querySelector('#status').textContent=String(error);}}
+for(const name of ['lettuce','bok-choy','basket','room','door','field']){const button=document.createElement('button');button.textContent=name;button.onclick=()=>show(name);document.querySelector('#controls').append(button);}show('lettuce');renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+</script></html>

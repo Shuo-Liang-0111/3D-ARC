@@ -1,0 +1,28 @@
+--- a/vite.config.js
++++ b/vite.config.js
+@@ -39,6 +39,9 @@
+   "embodiedgen/rf07/models/runtime",
+   "cardinal/rf07/models/runtime",
+   "cardinal/rf07/textures/runtime",
++  "cardinal/rf09/models/runtime",
++  "cardinal/rf09/textures/runtime",
++  "levels/rf09/office-v1",
+   "levels/rf07/series-v1",
+   "levels/rf07/realism-v2",
+   "gaussian/rf10",
+@@ -69,6 +72,15 @@
+       configureServer(server) {
+         server.middlewares.use((req, res, next) => {
+           const requestUrl = new URL(req.url, "http://localhost");
++          const stableRF08 = ["rf09", "rf09-2", "rf09-3"].includes(requestUrl.searchParams.get("level")) && requestUrl.searchParams.get("mode") === "play" && ["/", "/index.html"].includes(requestUrl.pathname);
++          if (stableRF08) {
++            const release = "rf08-office-v1-r13", entry = resolve("public", release, "index.htm");
++            if (!existsSync(entry)) { res.statusCode = 503; res.end("RF-08 release unavailable"); return; }
++            res.setHeader("content-type", "text/html; charset=utf-8");
++            res.setHeader("cache-control", "no-store");
++            res.setHeader("x-arc-release", release);
++            res.end(readFileSync(entry, "utf8")); return;
++          }
+           const stableRF07 = ['rf07', 'rf07-2', 'rf07-3'].includes(requestUrl.searchParams.get('level')) && requestUrl.searchParams.get('mode') === 'play' && ['/', '/index.html'].includes(requestUrl.pathname);
+           if (stableRF07) {
+             const release = 'rf07-alarm-visibility-r1', entry = resolve('public', release, 'index.html');

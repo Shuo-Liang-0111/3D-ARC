@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic isolated precision servo pump transport case for a Chinese manufacturing workshop. Real-world size approximately 0.9 m wide × 0.48 m high × 0.64 m deep. Rugged pale gray polymer case with dark aluminum edge rails, four recessed latches, two side handles, a visible sealed connector panel on the short front side, realistic fasteners and restrained factory wear. The object sits on its own four flush feet; bottom-center pivot, Y axis up, front facing positive Z. Clean watertight topology, physically based embedded PBR materials. One isolated object only. No floor, wall, dolly, robot, hands, floating parts, animation, text, logo, arrows, UI or baked lighting. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,132 @@
+{
+  "level": "RF-07",
+  "standard": "Chinese BSL-2 biological laboratory cold-chain transfer room",
+  "units": "meters",
+  "upAxis": "Y",
+  "room": {
+    "width": 24,
+    "depth": 16,
+    "clearHeight": 3.3,
+    "mainAisle": 1.5,
+    "secondaryAisle": 1.2
+  },
+  "environment": {
+    "min": [
+      -12.12,
+      -0.16,
+      -8.12
+    ],
+    "max": [
+      12.12,
+      3.3,
+      8.12
+    ],
+    "fileBytes": 2774936
+  },
+  "interactables": {
+    "sample_a17": {
+      "min": [
+        -0.09,
+        0.0,
+        -0.0688
+      ],
+      "max": [
+        0.09,
+        0.159,
+        0.0704
+      ],
+      "fileBytes": 175972
+    },
+    "sample_b12": {
+      "min": [
+        -0.09,
+        0.0,
+        -0.0688
+      ],
+      "max": [
+        0.09,
+        0.159,
+        0.0704
+      ],
+      "fileBytes": 281764
+    },
+    "sample_c04": {
+      "min": [
+        -0.09,
+        0.0,
+        -0.0688
+      ],
+      "max": [
+        0.09,
+        0.159,
+        0.0704
+      ],
+      "fileBytes": 287816
+    },
+    "transport_case": {
+      "min": [
+        -0.31,
+        0.0,
+        -0.246
+      ],
+      "max": [
+        0.31,
+        0.468,
+        0.2591
+      ],
+      "fileBytes": 469720
+    },
+    "cooling_module": {
+      "min": [
+        -0.095,
+        0.0,
+        -0.065
+      ],
+      "max": [
+        0.095,
+        0.0464,
+        0.065
+      ],
+      "fileBytes": 360828
+    },
+    "cold_01": {
+      "min": [
+        -0.38,
+        0.0,
+        -0.5175
+      ],
+      "max": [
+        0.38,
+        1.98,
+        0.41
+      ],
+      "fileBytes": 334304
+    },
+    "cold_02": {
+      "min": [
+        -0.38,
+        0.0,
+        -0.5175
+      ],
+      "max": [
+        0.38,
+        1.98,
+        0.41
+      ],
+      "fileBytes": 384632
+    },
+    "cold_03": {
+      "min": [
+        -0.38,
+        0.0,
+        -0.5175
+      ],
+      "max": [
+        0.38,
+        1.98,
+        0.41
+      ],
+      "fileBytes": 419152
+    }
+  }
+}

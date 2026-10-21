@@ -1,0 +1,38 @@
+{
+  "head": "45896b360801846c75001e0b53ff704db70f1c6b",
+  "files": [
+    "game/app.js",
+    "index.html",
+    "vite.config.js",
+    "game/levels/rf13/series-scene.js",
+    "game/levels/rf13/series-entry.js",
+    "game/levels/rf13/series-animation.js",
+    "game/levels/rf13/series-engine.js",
+    "game/levels/rf13/series-qa.js",
+    "game/levels/rf13/series-runtime.js",
+    "game/levels/rf13-02/runtime.js",
+    "game/levels/rf13-03/runtime.js",
+    "tests/rf11-clinic-series.test.mjs",
+    "tools/rf11-clinic-series/request-chime.json",
+    "docs/levels/rf11-clinic-series.md",
+    "docs/levels/rf11-clinic-series-acceptance.md"
+  ],
+  "blobs": {
+    "game/app.js": "e61f1cbb6ca438c9cb0b94e86e4e155aa62375bf",
+    "index.html": "f819d44003a11e2eba84f8a1fd49a050c14db5d9",
+    "vite.config.js": "fb3edac77ffe42a4575a13d22518764c7ed1d7d4",
+    "game/levels/rf13/series-scene.js": "40c74ea9aa0b8b3e92ab3d81cdef796f9984200e",
+    "game/levels/rf13/series-entry.js": "478f5b45449e610f5a6700b98b9b2bf203be9c17",
+    "game/levels/rf13/series-animation.js": "a1ac550dd16531eb0c4a3b0de7f139d4a90cc69c",
+    "game/levels/rf13/series-engine.js": "b5ce17b32da686833a1e0bac2c76c3257c7f3a66",
+    "game/levels/rf13/series-qa.js": "5db61b636ad64ab1562690beaa791469a312cf02",
+    "game/levels/rf13/series-runtime.js": "f7413005197167959fed14b08162ee9b1d8747e8",
+    "game/levels/rf13-02/runtime.js": "9d48b86b74d638da873c73d6e0c02a395a62a37c",
+    "game/levels/rf13-03/runtime.js": "a2623b4991c876ef977313a34e357b43152121d8",
+    "tests/rf11-clinic-series.test.mjs": "7738899c914e8ace2152ed0af2ab8655011ed767",
+    "tools/rf11-clinic-series/request-chime.json": "7a0df4d1259f4ca9a0d67ccce3f56ff7cc1227f8",
+    "docs/levels/rf11-clinic-series.md": "a21c760e18f8bb86656255bde73109ed640e2966",
+    "docs/levels/rf11-clinic-series-acceptance.md": "dfd8ef01bc0be68730a0e29783b1fd108c10ae40"
+  },
+  "index": "./authoring/server-production/rf11-clinic-series-v1/task-commit.index"
+}

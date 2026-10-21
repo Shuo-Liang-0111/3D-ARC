@@ -1,0 +1,12 @@
+{
+  "unchanged": [
+    "game/movement.js",
+    "game/g1-locomotion.js",
+    "game/robot.js",
+    "game/mujoco-client.js",
+    "game/view-mode.js",
+    "game/unitree-g1-edu2.js",
+    "game/levels/rf09/office-animation.js",
+    "game/levels/rf09/office-scene.js"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "level": "rf13",
+  "revision": "cardinal-v0.2",
+  "grayboxApproval": "graybox-v0.2 approved by user",
+  "cardinalAuthorization": "automatic within approved RF-13 scope, no further batch approval",
+  "qualityPreset": "high-highpoly",
+  "tasks": {
+    "gloves": "aigc_1df365b9ab9f4d8db0119d01f274d244",
+    "gauze": "aigc_1933bdd124484043b2b2d4468a0fa191",
+    "dressings": "aigc_39892fb05c8246f89117acf475a834b5",
+    "forms": "aigc_cf38905121ec4e8db426f7919e6918b8",
+    "empty-box": "aigc_2d2b26ea33624f209dd07da95ae1e116",
+    "opening-terminal": "aigc_283240179a504146b55250992ceacbc1"
+  }
+}

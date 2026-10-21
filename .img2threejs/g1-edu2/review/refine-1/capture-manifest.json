@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-12T08:33:54.192726Z",
+  "runtime": {
+    "url": "http://127.0.0.1:4175/g1-edu2.html?review=1",
+    "route": "http://127.0.0.1:4175/g1-edu2.html?review=1",
+    "viewport": [
+      900,
+      1100
+    ],
+    "devicePixelRatio": 1.0,
+    "renderer": "WebGLRenderer",
+    "threeVersion": "project-pinned",
+    "readySignal": "window.__IMG2THREEJS_READY__",
+    "captureContract": "window.__IMG2THREEJS_CAPTURE__"
+  },
+  "reference": {
+    "kind": "image",
+    "path": "./.img2threejs/references/unitree-official/g1-official-rgb/g1-03-rgb.png",
+    "sha256": "931f7c3816ee833173afcc7d35ffbca9eadd49de78490b01e7b193945c52bbc9",
+    "image": {
+      "path": "./.img2threejs/references/unitree-official/g1-official-rgb/g1-03-rgb.png",
+      "type": "png",
+      "bytes": 436108,
+      "width": 2740,
+      "height": 1720,
+      "aspectRatio": 1.5930232558139534,
+      "technicalSuitability": "pass",
+      "warnings": [],
+      "note": "This is only technical image probing. Semantic object suitability still requires visual inspection."
+    },
+    "comparisonBasis": "source-image",
+    "renderRequired": false
+  },
+  "captures": [
+    {
+      "id": "hero",
+      "role": "reference-match",
+      "azimuthDegrees": 0,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/hero/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "orbit-plus35",
+      "role": "orbit",
+      "azimuthDegrees": 35,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-plus35/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "orbit-minus35",
+      "role": "orbit",
+      "azimuthDegrees": -35,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/orbit-minus35/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "profile",
+      "role": "orbit",
+      "azimuthDegrees": 78,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/profile/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "rear",
+      "role": "orbit",
+      "azimuthDegrees": 180,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/rear/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "head-hero",
+      "role": "head-closeup",
+      "azimuthDegrees": 0,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-hero/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "head-threequarter",
+      "role": "head-closeup",
+      "azimuthDegrees": 35,
+      "elevationDegrees": 0,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "near": 0.01,
+      "far": 100,
+      "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter.png",
+      "status": "pending",
+      "passes": {
+        "beauty": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter/beauty.png",
+          "status": "pending"
+        },
+        "alpha-silhouette": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter/alpha-silhouette.png",
+          "status": "pending"
+        },
+        "semantic-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter/semantic-id.png",
+          "status": "pending"
+        },
+        "depth": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter/depth.png",
+          "status": "pending"
+        },
+        "normal": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter/normal.png",
+          "status": "pending"
+        },
+        "roughness-material-id": {
+          "path": ".img2threejs/g1-edu2/review/refine-1/captures/head-threequarter/roughness-material-id.png",
+          "status": "pending"
+        }
+      }
+    }
+  ],
+  "evidence": {
+    "browser": null,
+    "diagnostics": [],
+    "comparisonSheet": null
+  },
+  "fidelityTrack": "glb-mediated-v2",
+  "renderProfile": {
+    "path": "./.img2threejs/g1-edu2/render-profile-v2.json",
+    "sha256": "bd8213619002845bff903893b880fda2724748c787f81157d1984e322379dd20",
+    "schemaVersion": "render-profile.v2",
+    "sharedBy": [
+      "glb-reference",
+      "procedural"
+    ]
+  }
+}

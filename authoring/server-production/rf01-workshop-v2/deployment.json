@@ -1,0 +1,12 @@
+[
+  {
+    "asset": "door-control.glb",
+    "sha256": "fd238179d9ae124c08ddb07151ff45b990fcf15f98bd463c1df71477575b2b62",
+    "sourceBuildHttpMatch": true
+  },
+  {
+    "asset": "light-switch.glb",
+    "sha256": "2fe0c7f13a8895135b8b5a397635dd74bd95b560d0e0f783bdeb04fff8640512",
+    "sourceBuildHttpMatch": true
+  }
+]

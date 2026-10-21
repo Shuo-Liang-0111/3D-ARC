@@ -1,0 +1,195 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
+import { BOOKS, CART, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
+import { BookController } from "../game/levels/rf02/book-controller.js";
+import { furnitureStand } from "../game/levels/rf02/furnishings-layout.js";
+import { walkRoute, approach, interactionGoal } from "../tools/rf02-series/route.mjs";
+
+function advance(engine, state, seconds) {
+  let current = state;
+  for (let index = 0; index < Math.ceil(seconds / 0.05); index += 1) current = engine.updateEnvironment(current, 0.05);
+  return current;
+}
+
+for (const id of ["rf02-2", "rf02-3"]) {
+  const engine = createArchiveEngine(id);
+  test(id + " all six tabletop books remain reachable and selectable", () => {
+    for (const book of BOOKS.filter(entry => entry.location === "table")) {
+      let state = engine.createInitialState();
+      state = approach(engine, state, interactionGoal(engine, state, { type: "book", bookId: book.id }));
+      const stand = BookController.prototype.standFor.call({ options: { runtime: engine } }, state, { ...book, y: book.y + 0.025 }, { type: "book", bookId: book.id });
+      assert.ok(stand, "No collision-safe hand pickup stance for " + book.id);
+      state = engine.interact(state, { type: "book", bookId: book.id });
+      assert.equal(state.carriedBook, book.id);
+      assert.equal(state.books[book.id].support, null);
+    }
+  });
+  test(id + " supports both original cart handles without snapping or losing cart books", () => {
+    for (const side of [1, -1]) {
+      let state = engine.createInitialState();
+      state.player = furnitureStand(state.cart, side);
+      assert.ok(Math.abs(state.player.x - state.cart.x) > 0.9);
+      assert.ok(Math.abs(state.player.z - state.cart.z) < 1e-6);
+      const before = { ...state.cart };
+      state = engine.interact(state);
+      assert.equal(state.attachment?.kind, "cart");
+      state = engine.updateMovement(state, {}, 0.05);
+      assert.ok(Math.hypot(state.cart.x - before.x, state.cart.z - before.z) < 1e-8);
+      for (let index = 0; index < 8; index += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
+      assert.ok(Math.hypot(state.cart.x - before.x, state.cart.z - before.z) > 0.3);
+      assert.equal(state.books["white-cart"].x, state.cart.x);
+      assert.equal(state.books["white-cart"].z, state.cart.z);
+      state = engine.interact(state);
+      assert.equal(state.attachment, null);
+      assert.equal(state.cart.parked, false);
+    }
+  });
+  test(id + " accepts a chair near its table without precise position or heading", () => {
+    let state = engine.createInitialState();
+    const chair = state.chairs["west-north"];
+    Object.assign(chair, { x: chair.home.x + 0.35, z: chair.home.z - 0.27, yaw: 0.38 });
+    assert.ok(engine.chairBesideTable(chair));
+    state.player = furnitureStand(chair);
+    state = engine.interact(state);
+    assert.equal(state.attachment?.id, chair.id);
+    state = engine.interact(state);
+    assert.equal(state.chairs[chair.id].restored, true);
+    assert.equal(engine.chairBesideTable({ ...chair, z: 0.4 }), false);
+  });
+  test(id + " accepts a cart inside the clearly marked bay and rejects distant placement", () => {
+    let state = engine.createInitialState();
+    Object.assign(state.cart, { x: CART.parking.x + 0.30, z: CART.parking.z - 0.20, yaw: Math.PI });
+    state.player = furnitureStand(state.cart);
+    state = engine.interact(engine.interact(state));
+    assert.equal(state.cart.parked, true);
+    assert.equal(state.complete, false);
+  });
+  test(id + " preferred shelf cannot silently become a ground drop", () => {
+    let state = engine.createInitialState();
+    state.carriedBook = "black";
+    state.books.black.location = "carried";
+    assert.equal(engine.getInteraction(state, { type: "shelf", color: "black" }), null);
+    const after = engine.interact(state, { type: "shelf", color: "black" });
+    assert.equal(after.carriedBook, "black");
+    assert.equal(after.lastEvent, "empty_interaction");
+  });
+  test(id + " rotated cart must fit its whole footprint inside the bay", () => {
+    let state = engine.createInitialState();
+    Object.assign(state.cart, { x: CART.parking.x, z: CART.parking.z + 0.40, yaw: Math.PI / 2 });
+    state.player = furnitureStand(state.cart);
+    state = engine.interact(engine.interact(state));
+    assert.equal(state.cart.parked, false);
+  });
+  test(id + " pushing into a wall is blocked and consumes reserve", () => {
+    let state = engine.createInitialState();
+    Object.assign(state.cart, { x: 6, z: 6.8, yaw: Math.PI });
+    state.player = furnitureStand(state.cart);
+    state = engine.interact(state);
+    assert.equal(state.attachment?.kind, "cart");
+    let after = state;
+    for (let index = 0; index < 20; index += 1) after = engine.updateMovement(after, { strafe: 1 }, 0.05);
+    assert.ok(after.cart.z + after.cart.halfZ <= engine.LEVEL.bounds.maxZ);
+    assert.ok(after.blockedTime > 0);
+    assert.ok(after.progress < state.progress);
+  });
+  test(id + " idle and turn are free; movement and empty F are charged", () => {
+    const state = engine.createInitialState();
+    assert.equal(engine.updateMovement(state, {}, 0.05).progress, engine.LEVEL.progress.initial);
+    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, engine.LEVEL.progress.initial);
+    assert.ok(engine.updateMovement(state, { move: 1 }, 0.05).progress < engine.LEVEL.progress.initial);
+    assert.equal(engine.interact(state).progress, engine.LEVEL.progress.initial - engine.LEVEL.progress.errorCost);
+  });
+  test(id + " failure freezes state, and reset clears actions", () => {
+    const state = { ...engine.createInitialState(), progress: 0.5 };
+    const failed = engine.interact(state);
+    assert.equal(failed.failed, true);
+    assert.equal(failed.progress, 0);
+    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
+    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
+    assert.deepEqual(engine.interact(failed), failed);
+    assert.deepEqual(engine.createInitialState().rewardedActions, {});
+  });
+  test(id + " successful furniture rewards are capped and deduplicated", () => {
+    let state = { ...engine.createInitialState(), progress: engine.LEVEL.progress.maximum };
+    Object.assign(state.chairs["west-north"], state.chairs["west-north"].home);
+    state.player = furnitureStand(state.chairs["west-north"]);
+    state = engine.interact(engine.interact(state));
+    assert.equal(state.progress, 100);
+    state.progress = 50;
+    state.chairs["west-north"].restored = false;
+    state = engine.interact(engine.interact(state));
+    assert.equal(state.progress, 50);
+  });
+  test(id + " has no catalog clues or shelf repair interaction", () => {
+    let state = engine.createInitialState();
+    state = advance(engine, state, 280);
+    for (const point of [{ x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, engine.LEVEL.terminal]) {
+      assert.notEqual(engine.getInteraction({ ...state, player: point })?.type, "repair");
+    }
+  });
+  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) for (const errors of id === "rf02-2" ? [0, 1] : [0, 2]) {
+    test(id + " complete route, random " + sample + ", errors " + errors, () => {
+      const route = walkRoute(id, sample, errors);
+      assert.equal(route.state.complete, true);
+      assert.equal(route.state.failed, false);
+      assert.ok(route.minimumReserve > 0);
+      assert.ok(route.finalReserve < 70);
+      assert.equal(route.blockedTime, 0);
+      assert.ok(Object.values(route.state.chairs).every(chair => chair.restored));
+      assert.equal(route.state.cart.parked, true);
+      if (id === "rf02-3") {
+        assert.equal(route.state.incident.drops, 3);
+        const fallen = Object.values(route.state.books).filter(book => book.fallen);
+        assert.equal(new Set(fallen.map(book => book.color)).size, 3);
+        assert.ok(fallen.every(book => book.location === "shelved"));
+      }
+    });
+  }
+}
+
+test("each scheduled drop is 60–90 seconds after the previous one and from a different shelf", () => {
+  const engine = createArchiveEngine("rf02-3");
+  for (const sample of [0, 0.23, 0.65, 0.999999]) {
+    const initial = engine.createInitialState({ random: () => sample });
+    let previous = 0;
+    for (const event of initial.incident.schedule) {
+      assert.ok(event.at - previous >= 60 && event.at - previous <= 90);
+      previous = event.at;
+    }
+    assert.equal(new Set(initial.incident.schedule.map(event => event.color)).size, 3);
+    let state = advance(engine, initial, 59);
+    assert.equal(state.incident.drops, 0);
+    state = advance(engine, state, 32);
+    assert.equal(state.incident.drops, 1);
+    state = advance(engine, state, 190);
+    assert.equal(state.incident.drops, 3);
+    assert.equal(Object.values(state.books).filter(book => book.fallen && book.location === "ground").length, 3);
+    state = advance(engine, state, 200);
+    assert.equal(state.incident.drops, 3);
+    assert.equal(state.progress, 100);
+  }
+});
+
+test("furniture actions cannot trigger early falls and completion waits for all three recoveries", () => {
+  const engine = createArchiveEngine("rf02-3");
+  let state = engine.createInitialState({ random: () => 0 });
+  for (const chair of Object.values(state.chairs)) Object.assign(chair, chair.home, { restored: true });
+  Object.assign(state.cart, { x: CART.parking.x, z: CART.parking.z, parked: true });
+  state = advance(engine, state, 10);
+  assert.equal(state.incident.drops, 0);
+  assert.equal(state.complete, false);
+  state = advance(engine, state, 190);
+  assert.equal(state.complete, false);
+  for (const book of Object.values(state.books).filter(book => book.fallen)) book.location = "shelved";
+  state = engine.updateEnvironment(state, 0.05);
+  assert.equal(state.complete, true);
+});
+
+test("shared fixtures contain the parking frame but no repair rails or added handles", () => {
+  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/closing-fixtures.glb");
+  const gltf = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+  assert.ok(gltf.nodes.some(node => node.name === "parking-side-1"));
+  assert.ok(gltf.nodes.every(node => !/^(cart-handle|chair-handle|bookend-|rail-|latch-)/.test(node.name ?? "")));
+});

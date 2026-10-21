@@ -1,0 +1,165 @@
+{
+  "schema": "arc-rf12-cardinal/v2",
+  "level": "rf12",
+  "provider": "Cardinal",
+  "qualityPreset": "high-highpoly",
+  "operation": "cardinal_model3d_text",
+  "environment": {
+    "visual": "/local-assets/cardinal/rf12-v2/models/runtime/kitchen_environment.glb",
+    "collision": "/local-assets/cardinal/rf12-v2/models/runtime/kitchen_collision.glb",
+    "source": "procedural-metric-environment-with-cardinal-materials"
+  },
+  "assets": {
+    "range_hood": {
+      "id": "range_hood",
+      "role": "static",
+      "requestFile": "requests/range_hood.json",
+      "targetSizeMeters": [
+        1.8,
+        0.55,
+        0.48
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/range_hood.highpoly.glb",
+      "runtimeArtifact": "models/runtime/range_hood.glb",
+      "status": "planned"
+    },
+    "gas_knob": {
+      "id": "gas_knob",
+      "role": "interactive",
+      "requestFile": "requests/gas_knob.json",
+      "targetSizeMeters": [
+        0.12,
+        0.12,
+        0.08
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/gas_knob.highpoly.glb",
+      "runtimeArtifact": "models/runtime/gas_knob.glb",
+      "status": "planned"
+    },
+    "gas_valve": {
+      "id": "gas_valve",
+      "role": "interactive",
+      "requestFile": "requests/gas_valve.json",
+      "targetSizeMeters": [
+        0.28,
+        0.24,
+        0.2
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/gas_valve.highpoly.glb",
+      "runtimeArtifact": "models/runtime/gas_valve.glb",
+      "status": "planned"
+    },
+    "wet_cloth": {
+      "id": "wet_cloth",
+      "role": "interactive",
+      "requestFile": "requests/wet_cloth.json",
+      "targetSizeMeters": [
+        0.42,
+        0.04,
+        0.32
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/wet_cloth.highpoly.glb",
+      "runtimeArtifact": "models/runtime/wet_cloth.glb",
+      "status": "planned"
+    },
+    "kitchen_window": {
+      "id": "kitchen_window",
+      "role": "interactive",
+      "requestFile": "requests/kitchen_window.json",
+      "targetSizeMeters": [
+        1.35,
+        1.25,
+        0.12
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/kitchen_window.highpoly.glb",
+      "runtimeArtifact": "models/runtime/kitchen_window.glb",
+      "status": "planned"
+    },
+    "safety_terminal": {
+      "id": "safety_terminal",
+      "role": "interactive",
+      "requestFile": "requests/safety_terminal.json",
+      "targetSizeMeters": [
+        0.72,
+        1.08,
+        0.45
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/safety_terminal.highpoly.glb",
+      "runtimeArtifact": "models/runtime/safety_terminal.glb",
+      "status": "planned"
+    },
+    "refrigerator": {
+      "id": "refrigerator",
+      "role": "static",
+      "requestFile": "requests/refrigerator.json",
+      "targetSizeMeters": [
+        0.92,
+        1.9,
+        0.68
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/refrigerator.highpoly.glb",
+      "runtimeArtifact": "models/runtime/refrigerator.glb",
+      "status": "planned"
+    },
+    "kitchen_sink": {
+      "id": "kitchen_sink",
+      "role": "static",
+      "requestFile": "requests/kitchen_sink.json",
+      "targetSizeMeters": [
+        0.9,
+        0.42,
+        0.68
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/kitchen_sink.highpoly.glb",
+      "runtimeArtifact": "models/runtime/kitchen_sink.glb",
+      "status": "planned"
+    },
+    "stove_module": {
+      "id": "stove_module",
+      "role": "static",
+      "requestFile": "requests/stove_module.json",
+      "targetSizeMeters": [
+        0.9,
+        0.12,
+        0.65
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/stove_module.highpoly.glb",
+      "runtimeArtifact": "models/runtime/stove_module.glb",
+      "status": "planned"
+    },
+    "kitchen_door_handle": {
+      "id": "kitchen_door_handle",
+      "role": "static",
+      "requestFile": "requests/kitchen_door_handle.json",
+      "targetSizeMeters": [
+        0.08,
+        0.6,
+        0.06
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/kitchen_door_handle.highpoly.glb",
+      "runtimeArtifact": "models/runtime/kitchen_door_handle.glb",
+      "status": "planned"
+    }
+  },
+  "requestRoot": "requests"
+}

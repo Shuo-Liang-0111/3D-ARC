@@ -1,0 +1,62 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf14",
+  "revision": "realism-v0.4.2",
+  "units": "meters",
+  "upAxis": "Y",
+  "budgetMiB": 60,
+  "environment": {
+    "visual": "/local-assets/levels/rf14/realism-v0.4.2/environment.glb",
+    "collision": "/local-assets/levels/rf14/realism-v0.4.2/collision.glb"
+  },
+  "interactables": [
+    {
+      "id": "ball",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/ball.glb"
+    },
+    {
+      "id": "cart",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/cart.glb"
+    },
+    {
+      "id": "plane-tree",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/plane-tree.glb"
+    },
+    {
+      "id": "umpire-chair",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/umpire-chair.glb"
+    },
+    {
+      "id": "windscreen",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/windscreen.glb"
+    },
+    {
+      "id": "ball-hopper",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/ball-hopper.glb"
+    },
+    {
+      "id": "court-bench",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/court-bench.glb"
+    },
+    {
+      "id": "tennis-bag",
+      "path": "/local-assets/levels/rf14/realism-v0.4.2/tennis-bag.glb"
+    }
+  ],
+  "compression": {
+    "geometry": "none",
+    "decoderPath": "/vendor/draco/"
+  },
+  "hashes": {
+    "windscreen.glb": "738517c41c8bc8ca7a4b045dc9ad820b05fb1e1896719ece76ff55b1c3a07cf4",
+    "umpire-chair.glb": "a5993eb38fc7dee741f3716aa8f3a35b64d966ed4cf72f32217caf6f4fc356a2",
+    "collision.glb": "c714cf56c1ceb0c26f93524b3fd6b1994656e07935eb33c164140f5b13bbd6f3",
+    "environment.glb": "f4d08c6c1019cc36eb6fcfa046f02d56623538c8af59a0885d52bda08aa97849",
+    "ball.glb": "06c46dbefc0b83eb31eb6bf50b52bfb637aabea40809a85a88ca083f37517a25",
+    "court-bench.glb": "fb104a6043a63c418384f031e2918c0cbb83fba3d873f6cd697921846034d718",
+    "ball-hopper.glb": "ec3ad08301ea34471158712f4a9bbb58eada89da33e4878f5cc027c6c5a335cf",
+    "tennis-bag.glb": "948faae5eaf9618fa8591dad042b737467f52c5bb82b463317691b6b7fec0cc3",
+    "cart.glb": "ef3c74675273c7017858e9031d191018cfeab9f389d511e447daeed75eac05d7",
+    "plane-tree.glb": "c9a350d4db4ba30e436a87316ae592442307d09fa20d4086e0bee4ec27564191"
+  }
+}

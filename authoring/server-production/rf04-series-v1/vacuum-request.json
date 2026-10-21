@@ -1,0 +1,10 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "prompt": "One isolated realistic modern circular robot vacuum cleaner for a contemporary Chinese apartment. Diameter 0.35 meters, total height 0.095 meters. Low flat round white matte ABS body, continuous dark charcoal bumper ring, small centered raised circular lidar turret, two tiny top control buttons, front glossy infrared sensor strip, recessed rubber wheels underneath, a small side brush. Accurate consumer appliance proportions and PBR textures. The disk lies flat on the ground, vertical axis Y. Subtle household wear, fine seams and vents. No charging dock, no base platform, no floor, no room, no text, no logo, no additional objects.",
+  "negativePrompt": "room, person, pedestal, square body, tall cylinder, floating parts, text, logo"
+}

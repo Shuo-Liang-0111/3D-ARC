@@ -1,0 +1,28 @@
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { createCourtScene, syncCourtVisuals } from "./scene.js";
+import { createInitialState } from "./engine.js";
+import { REVISION } from "./level.js";
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+document.body.append(renderer.domElement);
+const revision = new URLSearchParams(location.search).get("revision") || REVISION;
+if (!/^[a-z0-9.-]+$/.test(revision)) throw new Error("Invalid revision");
+const world = createCourtScene(renderer, revision);
+const camera = new THREE.PerspectiveCamera(43, innerWidth / innerHeight, 0.1, 150);
+camera.position.set(-27, 27, 32);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0.8, 0);
+controls.update();
+syncCourtVisuals(world, createInitialState());
+const results = await world.assetReady;
+const status = document.querySelector("#preview-status");
+status.textContent = results.every(result => result.loaded) ? `RF-14 · ${revision} · 拖动环绕 / 滚轮缩放` : JSON.stringify(results.filter(result => !result.loaded));
+status.dataset.ready = String(results.every(result => result.loaded));
+addEventListener("resize", () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+renderer.setAnimationLoop(() => { controls.update(); renderer.render(world.scene, camera); });

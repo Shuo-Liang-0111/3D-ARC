@@ -1,0 +1,27 @@
+[
+  {
+    "level": "rf09",
+    "release": "rf08-office-v1-r29",
+    "menuCount": 40
+  },
+  {
+    "level": "rf09-2",
+    "release": "rf08-office-v1-r29",
+    "menuCount": 40
+  },
+  {
+    "level": "rf09-3",
+    "release": "rf08-office-v1-r29",
+    "menuCount": 40
+  },
+  {
+    "asset": "office-runtime-DHC8suE8.js",
+    "httpMatchesBuild": true,
+    "sha256": "e553d311a137e9804b774ebc9cd8519104c69bd67df8527902687fa8d1ab693d"
+  },
+  {
+    "asset": "index-CU38Mzf4.js",
+    "httpMatchesBuild": true,
+    "sha256": "5e39ebc7c49b434890429a531fcd3eff98e045e82b9f2b79994ef00644dfc15a"
+  }
+]

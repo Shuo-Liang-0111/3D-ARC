@@ -1,0 +1,121 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": 0.0005784381474542201,
+      "z": -5.802908871795292,
+      "yaw": 3.386358598074545
+    },
+    "samples": {
+      "sampleA": {
+        "location": "storage",
+        "x": -9.25,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleB": {
+        "location": "storage",
+        "x": -7.35,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleC": {
+        "location": "storage",
+        "x": -5.45,
+        "y": 0.98,
+        "z": -6.62
+      }
+    },
+    "caseSamples": [],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.96,
+      "z": 2.04
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.98,
+      "z": 2.04
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.16,
+      "z": -1.98
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "prep-room",
+    "casePhase": "loading",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "device",
+      "device": "bsc-02",
+      "status": "resolved",
+      "triggerAt": 0,
+      "startedAt": 0
+    },
+    "clock": 12.455599999904628,
+    "clockStamp": 21268.599999904633,
+    "elapsed": 9.532200000000003,
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 1,
+    "lastEvent": "device-off",
+    "rewards": [
+      "alarm"
+    ],
+    "delivered": false
+  },
+  "animation": {
+    "fps": 16.19234543670265,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "device-off",
+      "event": "device-off",
+      "error": 0.013452700209549275,
+      "revision": "rf07-series-v1"
+    },
+    "contacts": [
+      {
+        "type": "device-off",
+        "event": "device-off",
+        "error": 0.013452700209549275,
+        "revision": "rf07-series-v1"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.602918274140254,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.0019984676745399906,
+          "position": [
+            -0.08127858464229075,
+            0.035396314110171995,
+            -5.618202548700872
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0009263327404918288,
+          "position": [
+            0.16132815639538445,
+            0.03540863212540531,
+            -5.672763680428157
+          ]
+        }
+      ]
+    }
+  }
+}

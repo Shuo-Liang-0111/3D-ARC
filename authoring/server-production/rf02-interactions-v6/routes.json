@@ -1,0 +1,82 @@
+[
+  {
+    "id": "rf02-2",
+    "color": null,
+    "errors": 0,
+    "distance": 41.13705727027498,
+    "finalReserve": 8.35126695810086,
+    "minimumReserve": 3.3512669581008594,
+    "complete": true,
+    "drops": 0
+  },
+  {
+    "id": "rf02-2",
+    "color": null,
+    "errors": 1,
+    "distance": 41.13705727027498,
+    "finalReserve": 5.351266958100902,
+    "minimumReserve": 0.3512669581009017,
+    "complete": true,
+    "drops": 0
+  },
+  {
+    "id": "rf02-3",
+    "color": "red",
+    "errors": 0,
+    "distance": 71.43151614175582,
+    "finalReserve": 46.99711418107619,
+    "minimumReserve": 45.859786193573946,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "red",
+    "errors": 2,
+    "distance": 71.43151614175582,
+    "finalReserve": 36.99711418107659,
+    "minimumReserve": 35.859786193574344,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "black",
+    "errors": 0,
+    "distance": 71.43151614175582,
+    "finalReserve": 46.99711418107619,
+    "minimumReserve": 45.859786193573946,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "black",
+    "errors": 2,
+    "distance": 71.43151614175582,
+    "finalReserve": 36.99711418107659,
+    "minimumReserve": 35.859786193574344,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "white",
+    "errors": 0,
+    "distance": 71.43151614175582,
+    "finalReserve": 46.99711418107619,
+    "minimumReserve": 45.859786193573946,
+    "complete": true,
+    "drops": 3
+  },
+  {
+    "id": "rf02-3",
+    "color": "white",
+    "errors": 2,
+    "distance": 71.43151614175582,
+    "finalReserve": 36.99711418107659,
+    "minimumReserve": 35.859786193574344,
+    "complete": true,
+    "drops": 3
+  }
+]

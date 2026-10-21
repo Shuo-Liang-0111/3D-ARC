@@ -1,0 +1,128 @@
+[
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/class_ii_a2_bsc.glb",
+    "bytes": 8976412,
+    "sha256": "7108dabae55c0b567f433d166391321db55da97e819eef6dc2dd08e34ab6ab03",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/cold_chain_packing_island.glb",
+    "bytes": 9469300,
+    "sha256": "8f0a110baac31592cc663abd45b82a3c29404f50f91e7bb01cd808377272d68c",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/dry_reagent_cabinet.glb",
+    "bytes": 8298208,
+    "sha256": "196170bf8cc8946e7373d8e2d46ad11c9fc7284454885857c1fd5a8ed1a30076",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/handwash_eyewash_station.glb",
+    "bytes": 9125644,
+    "sha256": "bf0f2b805b3d8acf5ddf736e51f9592da702569db42540cf6164b750259863db",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/medical_waste_bin.glb",
+    "bytes": 5783880,
+    "sha256": "8a853cada2bcb550f911472f83a0e7a00789b4b615f84372d4c1bad4b69cf681",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/p650_transport_case.glb",
+    "bytes": 6901532,
+    "sha256": "71c4da269aeba0feeb26ca32b899f3cf51aaa4a9cb981056beeac3862511adbb",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/pcm_cooling_plate.glb",
+    "bytes": 4644612,
+    "sha256": "615b1aef4ef0017baa704bf2b5eb13c93d7b7adcc422aa7ac95adf0a05a5f27f",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/ppe_locker_bank.glb",
+    "bytes": 7845320,
+    "sha256": "df90f869a51364c09c4f8f0f3ab4773d704c4ade88d1cab39244b8392bfaf0a6",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/receiving_bench_equipment_bank.glb",
+    "bytes": 10173388,
+    "sha256": "1b071466ea6fc7c1ac257982ff45a172d7b3fcfbd64812ad8dc2ca6a4704a60c",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/secondary_specimen_carrier.glb",
+    "bytes": 6193060,
+    "sha256": "a5078c9209da42ed96107ffc8ce218bb3a5d3a812cfa0b0558ff67537f20e6a4",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/models/runtime/specimen_transfer_cart.glb",
+    "bytes": 7589268,
+    "sha256": "05d857fd32a2d7f0d6c390302271785c0ed3cff4ed10e2c186348dd5cef68af9",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/textures/runtime/epoxy_floor-ao.webp",
+    "bytes": 36548,
+    "sha256": "5ab0854655b32b9d0f6adc6184706adccf0e048f35241829ded91c948367b6ba",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/textures/runtime/epoxy_floor-basecolor.webp",
+    "bytes": 325330,
+    "sha256": "d6ba61d0cdd58fb9adb8538ab5bd84b749bcabb9330a2ae180fde0694145f0e5",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/textures/runtime/epoxy_floor-normal.webp",
+    "bytes": 238662,
+    "sha256": "2caa5847c0fe6bd167369e9aee18296ce1a7e706ef2a36c8a5a09ffc1546c398",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/cardinal/rf07/textures/runtime/epoxy_floor-roughness.webp",
+    "bytes": 46522,
+    "sha256": "5fc0619555111c972e56cb70f74b946cf6170a26440861a6fa75df55ab28701f",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/embodiedgen/rf07/models/runtime/rf07_realistic_bsl2_lab.glb",
+    "bytes": 2774936,
+    "sha256": "792008e99074b7432d48cd13c6fa22b708a867cd4887905af6063d147dc209e1",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/levels/rf07/series-v1/medical_refrigerator.glb",
+    "bytes": 7950188,
+    "sha256": "9a5b9ccd749fb5b6c3b596008c1f89c39e3eb7aee14dfe798ac84cd5781173c3",
+    "servedMatch": true
+  },
+  {
+    "path": "local-assets/unitree/g1/g1_29dof_official.glb",
+    "bytes": 17684664,
+    "sha256": "4e8e83e42cb7a9d1d93c46eb0da821eb54ebf3596923bee087cf7e614ae367b9",
+    "servedMatch": true
+  },
+  {
+    "path": "vendor/draco/draco_decoder.js",
+    "bytes": 719410,
+    "sha256": "30e4d486fa020737af10e3c56197693e5b904bdc05b8bfa5d7b06751dec6da04",
+    "servedMatch": true
+  },
+  {
+    "path": "vendor/draco/draco_decoder.wasm",
+    "bytes": 285747,
+    "sha256": "c55a594e8ffd18426d36b27fea9618af3df5e173640a3e56d46f09d76f0574f2",
+    "servedMatch": true
+  },
+  {
+    "path": "vendor/draco/draco_wasm_wrapper.js",
+    "bytes": 58763,
+    "sha256": "e8049906ef3f8f75d3456c22a3f31bfdfe5b5b5bd09ccdec613b9e9a49d554d8",
+    "servedMatch": true
+  }
+]

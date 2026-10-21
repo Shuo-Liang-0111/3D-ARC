@@ -1,0 +1,17 @@
+{
+  "task": "rf02-lighting-v8",
+  "host": "127.0.0.1",
+  "workspace": ".",
+  "livePort": 4192,
+  "previousPid": 551112,
+  "rollback": "./authoring/server-production/rf02-surfaces-v7/release",
+  "release": "./authoring/server-production/rf02-lighting-v8/release",
+  "status": "completed",
+  "scope": "Fixture emission and downward illumination only; no navigation or reserve tests",
+  "pid": 792545,
+  "deployedAt": "2026-09-21T16:30:58+0800",
+  "commit": "989cee08cbcb82b83b5936547d0f60fff1210d2d",
+  "previewStopped": true,
+  "visual": "First-person lamp emission and third-person cutaway inspected; live first-person verified",
+  "userAcceptance": "not-received"
+}

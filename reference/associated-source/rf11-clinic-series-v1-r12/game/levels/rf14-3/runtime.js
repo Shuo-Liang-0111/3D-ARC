@@ -1,0 +1,2 @@
+import { createSeriesRuntime } from "../rf14/series-runtime.js";
+export const { LEVEL,ui,camera,audio,eventMessages,createInitialState,resetWeatherClock,updateEnvironment,updateMovement,isWalkable,canReach,getInteraction,interact,chargeInteraction,dropPose,getObjective,closeTerminal,createScene,syncVisuals,createInteractionAnimation,createCargoModel,syncRobotCargo,isCarrying,getTelemetry,getProgressSteps,getTerminal,getFailureMessage,getSoundPosition,getDebugState } = createSeriesRuntime("rf14-3");

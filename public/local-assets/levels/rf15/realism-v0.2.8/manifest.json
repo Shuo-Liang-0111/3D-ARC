@@ -1,0 +1,317 @@
+{
+  "level": "rf15",
+  "revision": "realism-v0.2.8",
+  "status": "internal-review",
+  "assets": [
+    {
+      "id": "apple-box",
+      "provider": "Blender",
+      "taskId": null,
+      "sourcePath": "./authoring/server-production/rf15/rf15-build-assets.py",
+      "sourceSha256": "391bafd375baaed986b29652ff4aedbd150eb3725004418e6a180c0b98fbd0ef",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/apple-box.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/apple-box.glb",
+      "runtimeSha256": "b49d1b4a7fe25af1a01622a0b972a37cafd1e3396d1dfb5c88b90ed5a526e007",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/apple-box.glb",
+      "bytes": 123672,
+      "size": [
+        0.5899999737739563,
+        0.3645000159740448,
+        0.43940000236034393
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 0,
+      "triangles": 2582,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "apple-crate",
+      "provider": "Cardinal",
+      "taskId": "aigc_b763943c529d4b8aabb8e332e8035a3b",
+      "sourcePath": "./authoring/server-production/rf15/v0.2/source/apple-crate.glb",
+      "sourceSha256": "5098cdb6d4d5eb0974684a008068a95f26c6c84da39288723d0d11015ecd25b5",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/apple-crate.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/apple-crate.glb",
+      "runtimeSha256": "a5b93d15d0ded2736819979f2dca4702738cd52f481d66967ec9bf043912592b",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/apple-crate.glb",
+      "bytes": 2933424,
+      "size": [
+        0.5906037092208862,
+        0.3019477995549096,
+        0.4467642307281494
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 3,
+      "triangles": 60000,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "pallet-jack",
+      "provider": "Cardinal",
+      "taskId": "aigc_bb2b149db5054db48a9961caed19b6ac",
+      "sourcePath": "./authoring/server-production/rf15/v0.2/source/pallet-jack.glb",
+      "sourceSha256": "b8484f87b262fd8ef4199cbbf34cd201730e397567e3deb430e706f928fc91f5",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/pallet-jack.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/pallet-jack.glb",
+      "runtimeSha256": "b65d53222872c5d19f11f01b5854bd7f13b97882e52097dd0e2fa2ba609a8e68",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/pallet-jack.glb",
+      "bytes": 2663648,
+      "size": [
+        0.700121134519577,
+        1.0516143538379765,
+        1.161192238330841
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 3,
+      "triangles": 60000,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "plane-tree",
+      "provider": "RF14 reuse",
+      "taskId": null,
+      "sourcePath": "./public/local-assets/levels/rf14/realism-v0.4.8/plane-tree.glb",
+      "sourceSha256": "725ae2d2094f35dd9abb82b065924c13292a2339a7bb1fed8184c284d91c591f",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/plane-tree.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/plane-tree.glb",
+      "runtimeSha256": "725ae2d2094f35dd9abb82b065924c13292a2339a7bb1fed8184c284d91c591f",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/plane-tree.glb",
+      "bytes": 2877160,
+      "size": [
+        7.118412733078003,
+        7.396923139691353,
+        7.1982502937316895
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 3,
+      "triangles": 3148,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "platform-scale",
+      "provider": "Cardinal",
+      "taskId": "aigc_b83b4e0d8c814d739e96f93afb333fe6",
+      "sourcePath": "./authoring/server-production/rf15/v0.2/source/platform-scale.glb",
+      "sourceSha256": "19737a62396463d1d187271782c7db98f170adcd206b7df7e8e3953b6cd7f2cb",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/platform-scale.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/platform-scale.glb",
+      "runtimeSha256": "8eb84045dc874568c854b8b23b4b7b146115e937bbd1ab0077d1b0d1dc77a48b",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/platform-scale.glb",
+      "bytes": 3567144,
+      "size": [
+        0.6199519634246826,
+        0.8616202920891283,
+        0.5270881056785583
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 3,
+      "triangles": 60000,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "rf15_collision",
+      "provider": "Blender",
+      "taskId": null,
+      "sourcePath": "./authoring/server-production/rf15/rf15-build-assets.py",
+      "sourceSha256": "391bafd375baaed986b29652ff4aedbd150eb3725004418e6a180c0b98fbd0ef",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/rf15_collision.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/rf15_collision.glb",
+      "runtimeSha256": "d017c41d00f264a5bd7b8eefdf6f97c82181795d1041f87443c3e9a6d1468967",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/rf15_collision.glb",
+      "bytes": 21980,
+      "size": [
+        17.200000762939453,
+        4.319999806582928,
+        14.400000095367432
+      ],
+      "pivot": "scene-origin",
+      "embeddedImages": 0,
+      "triangles": 168,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "rf15_final",
+      "provider": "Blender",
+      "taskId": null,
+      "sourcePath": "./authoring/server-production/rf15/rf15-build-assets.py",
+      "sourceSha256": "391bafd375baaed986b29652ff4aedbd150eb3725004418e6a180c0b98fbd0ef",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/rf15_final.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/rf15_final.glb",
+      "runtimeSha256": "bf2fb5bc499ade826f3b5c40ef0c5ff3f8a7877cbe88718f741b337dd2ba0b40",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/rf15_final.glb",
+      "bytes": 10209432,
+      "size": [
+        44.0,
+        4.819927141070366,
+        40.0
+      ],
+      "pivot": "scene-origin",
+      "embeddedImages": 6,
+      "triangles": 87892,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "tail-lift",
+      "provider": "Blender",
+      "taskId": null,
+      "sourcePath": "./authoring/server-production/rf15/rf15-build-assets.py",
+      "sourceSha256": "391bafd375baaed986b29652ff4aedbd150eb3725004418e6a180c0b98fbd0ef",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/tail-lift.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/tail-lift.glb",
+      "runtimeSha256": "41fa03cf1886c209e4f215fb90d39a27d8b7cfb119fc63d5b29fb66bc14e1f98",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/tail-lift.glb",
+      "bytes": 41316,
+      "size": [
+        2.299999952316284,
+        0.1354999989271164,
+        1.850000023841858
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 0,
+      "triangles": 540,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "tomato-box",
+      "provider": "Blender",
+      "taskId": null,
+      "sourcePath": "./authoring/server-production/rf15/rf15-build-assets.py",
+      "sourceSha256": "391bafd375baaed986b29652ff4aedbd150eb3725004418e6a180c0b98fbd0ef",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/tomato-box.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/tomato-box.glb",
+      "runtimeSha256": "6311d234818fb7ca5e3532c7b9ed5feb0a6ffd99a99ec432b46a88f03faf8dcf",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/tomato-box.glb",
+      "bytes": 123004,
+      "size": [
+        0.5899999737739563,
+        0.3645000159740448,
+        0.43940000236034393
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 0,
+      "triangles": 2540,
+      "byteCheck": "passed"
+    },
+    {
+      "id": "tomato-crate",
+      "provider": "Cardinal",
+      "taskId": "aigc_6b695d9bd55f45f59472b76577e87e9d",
+      "sourcePath": "./authoring/server-production/rf15/v0.2/source/tomato-crate.glb",
+      "sourceSha256": "7a34190866e437719f182262443e644f1ef5224fff0fbcf8ad6b411733d809f2",
+      "runtimePath": "public/local-assets/levels/rf15/realism-v0.2.8/tomato-crate.glb",
+      "buildPath": "dist/local-assets/levels/rf15/realism-v0.2.8/tomato-crate.glb",
+      "runtimeSha256": "fe09f4552dfa10c1087d00fe8b75746446710af2a7e8de109e27f295af30f60a",
+      "deployedUrl": "http://127.0.0.1:4173/local-assets/levels/rf15/realism-v0.2.8/tomato-crate.glb",
+      "bytes": 3278200,
+      "size": [
+        0.5899063944816589,
+        0.3155283257365227,
+        0.4135112911462784
+      ],
+      "pivot": "bottom-center",
+      "embeddedImages": 3,
+      "triangles": 60000,
+      "byteCheck": "passed"
+    }
+  ],
+  "generationTasks": [
+    {
+      "assetId": "tomato-crate",
+      "taskId": "aigc_6b695d9bd55f45f59472b76577e87e9d",
+      "status": "completed",
+      "quality": "high-highpoly"
+    },
+    {
+      "assetId": "apple-crate",
+      "taskId": "aigc_b763943c529d4b8aabb8e332e8035a3b",
+      "status": "completed",
+      "quality": "high-highpoly"
+    },
+    {
+      "assetId": "platform-scale",
+      "taskId": "aigc_b83b4e0d8c814d739e96f93afb333fe6",
+      "status": "completed",
+      "quality": "high-highpoly"
+    },
+    {
+      "assetId": "pallet-jack",
+      "taskId": "aigc_bb2b149db5054db48a9961caed19b6ac",
+      "status": "completed",
+      "quality": "high-highpoly"
+    }
+  ],
+  "protectedFiles": {
+    "game/robot.js": true,
+    "game/level.js": true,
+    "game/movement.js": true,
+    "game/g1-locomotion.js": true,
+    "game/unitree-g1-dex1-model.js": true,
+    "game/unitree-g1-edu2.js": true,
+    "game/robot-action.js": true,
+    "game/view-mode.js": true,
+    "game/operator-controls.js": true,
+    "game/third-person-view-controls.js": true
+  },
+  "collisionGeometry": "passed: 13 structures, 5 mm tolerance; floor node also exported",
+  "textures": {
+    "provider": "Poly Haven",
+    "license": "CC0",
+    "reusedFrom": "public/local-assets/polyhaven/rf01/textures",
+    "assets": [
+      "hangar_concrete_floor",
+      "aerial_asphalt_01"
+    ]
+  },
+  "userAcceptance": "not_received",
+  "completedAt": "2026-09-15T02:12:50.286807+00:00",
+  "internalGates": {
+    "gameplay": "passed",
+    "collision": "passed",
+    "assets": "passed",
+    "formalVisuals": "passed",
+    "build": "passed",
+    "protectedFiles": "passed",
+    "broaderRegression": "19/22: three preexisting failures; no commit"
+  },
+  "evidence": {
+    "directory": "./authoring/server-production/rf15/v0.2/evidence",
+    "route": "final-route.json",
+    "telemetry": "final-telemetry.json",
+    "screenshots": [
+      "final-first.png",
+      "final-third.png",
+      "final-packed.png",
+      "final-tail.png",
+      "final-complete.png",
+      "final-dual.png"
+    ]
+  },
+  "codeSha256": {
+    "game/levels/rf15/level.js": "b80da196f438164a77b3424df2067663a551d0d873bb888a764fe7ca8af88688",
+    "game/levels/rf15/preview.js": "be1d621f46a932a6348bd99fb830fea88571916ff955ba347fd6e1df56197ad4",
+    "game/levels/rf15/scene.js": "4c461f1ab256d4d2c4df2c18a2c87803772ff972f47c234bd5edf84134f7c9ec",
+    "game/levels/rf15/engine.js": "a7c5ca500f36955b484fe00f05f8e92d5abb85b1bdaa1f92e4df4667a80a19ac",
+    "game/levels/rf15/qa.js": "44da03c6c84f3d3d0640cdc5f1c3e960391bb3a8cda31390e4ff24da0eb2bfa4",
+    "game/levels/rf15/runtime.js": "873a3806d1e357f74080b7ef4d19d726f4718024cdc573df5a4b0e31e3e9c5a5"
+  },
+  "wallRepair": {
+    "revision": "realism-v0.2.8",
+    "source": "realism-v0.2.7",
+    "removedWallFaces": 216,
+    "wallUnionVolumeM3": 14.364036385535332,
+    "wallWatertight": true,
+    "collisionUnchanged": true,
+    "requiredAssetHashes": {
+      "rf15_final": "bf2fb5bc499ade826f3b5c40ef0c5ff3f8a7877cbe88718f741b337dd2ba0b40",
+      "rf15_collision": "d017c41d00f264a5bd7b8eefdf6f97c82181795d1041f87443c3e9a6d1468967",
+      "tail-lift": "41fa03cf1886c209e4f215fb90d39a27d8b7cfb119fc63d5b29fb66bc14e1f98",
+      "platform-scale": "8eb84045dc874568c854b8b23b4b7b146115e937bbd1ab0077d1b0d1dc77a48b",
+      "pallet-jack": "b65d53222872c5d19f11f01b5854bd7f13b97882e52097dd0e2fa2ba609a8e68",
+      "plane-tree": "725ae2d2094f35dd9abb82b065924c13292a2339a7bb1fed8184c284d91c591f",
+      "apple-crate": "a5b93d15d0ded2736819979f2dca4702738cd52f481d66967ec9bf043912592b",
+      "tomato-crate": "fe09f4552dfa10c1087d00fe8b75746446710af2a7e8de109e27f295af30f60a",
+      "apple-box": "b49d1b4a7fe25af1a01622a0b972a37cafd1e3396d1dfb5c88b90ed5a526e007",
+      "tomato-box": "6311d234818fb7ca5e3532c7b9ed5feb0a6ffd99a99ec432b46a88f03faf8dcf"
+    }
+  }
+}

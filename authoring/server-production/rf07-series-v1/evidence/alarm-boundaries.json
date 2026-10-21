@@ -1,0 +1,258 @@
+{
+  "errors": [],
+  "interrupt": {
+    "state": {
+      "player": {
+        "x": -9.25,
+        "z": -5.881070999917978,
+        "yaw": 3.141592653589793
+      },
+      "samples": {
+        "sampleA": {
+          "location": "storage",
+          "x": -9.25,
+          "y": 0.98,
+          "z": -6.62
+        },
+        "sampleB": {
+          "location": "storage",
+          "x": -7.35,
+          "y": 0.98,
+          "z": -6.62
+        },
+        "sampleC": {
+          "location": "storage",
+          "x": -5.45,
+          "y": 0.98,
+          "z": -6.62
+        }
+      },
+      "caseSamples": [],
+      "casePoint": {
+        "x": 1.2,
+        "y": 0.96,
+        "z": 1.78
+      },
+      "modulePoint": {
+        "x": 3.65,
+        "y": 0.98,
+        "z": 1.86
+      },
+      "containerPoint": {
+        "x": -6.65,
+        "y": 1.16,
+        "z": -1.98
+      },
+      "containerLocation": "storage",
+      "carriedItem": null,
+      "coolingModuleLocation": "prep-room",
+      "casePhase": "loading",
+      "cabinetPower": {
+        "cold-01": true,
+        "cold-02": true,
+        "cold-03": true
+      },
+      "alarm": {
+        "type": "device",
+        "device": "bsc-02",
+        "status": "active",
+        "triggerAt": 1,
+        "startedAt": 1
+      },
+      "clock": 5.502900000095367,
+      "clockStamp": 12389.5,
+      "elapsed": 2.3229999998092663,
+      "complete": false,
+      "failed": false,
+      "settling": false,
+      "progress": 98.74045000028606,
+      "motion": "idle",
+      "interactions": 0,
+      "lastEvent": "leak_alarm",
+      "rewards": [],
+      "delivered": false,
+      "doorOpen": false
+    },
+    "animation": {
+      "fps": 23.913909926545045,
+      "phase": "idle",
+      "error": null,
+      "lastResult": null,
+      "contacts": [],
+      "walk": {
+        "stage": "walk",
+        "ready": false,
+        "travel": 0.3610709999179784,
+        "waypoints": 1,
+        "feet": [
+          {
+            "side": "left",
+            "error": 0.0005923820864900984,
+            "position": [
+              -9.368501454999999,
+              0.03298073440950843,
+              -5.656874130412179
+            ]
+          },
+          {
+            "side": "right",
+            "error": 0.0003773064090134367,
+            "position": [
+              -9.131488545000002,
+              0.05210944180588102,
+              -5.816551020476257
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "timeout": {
+    "state": {
+      "player": {
+        "x": -9.25,
+        "z": -5.881070999917978,
+        "yaw": 3.141592653589793
+      },
+      "samples": {
+        "sampleA": {
+          "location": "storage",
+          "x": -9.25,
+          "y": 0.98,
+          "z": -6.62
+        },
+        "sampleB": {
+          "location": "storage",
+          "x": -7.35,
+          "y": 0.98,
+          "z": -6.62
+        },
+        "sampleC": {
+          "location": "storage",
+          "x": -5.45,
+          "y": 0.98,
+          "z": -6.62
+        }
+      },
+      "caseSamples": [],
+      "casePoint": {
+        "x": 1.2,
+        "y": 0.96,
+        "z": 1.78
+      },
+      "modulePoint": {
+        "x": 3.65,
+        "y": 0.98,
+        "z": 1.86
+      },
+      "containerPoint": {
+        "x": -6.65,
+        "y": 1.16,
+        "z": -1.98
+      },
+      "containerLocation": "storage",
+      "carriedItem": null,
+      "coolingModuleLocation": "prep-room",
+      "casePhase": "loading",
+      "cabinetPower": {
+        "cold-01": true,
+        "cold-02": true,
+        "cold-03": true
+      },
+      "alarm": {
+        "type": "device",
+        "device": "bsc-02",
+        "status": "active",
+        "startedAt": -113.49709999990463,
+        "triggerAt": 0
+      },
+      "clock": 6.5261000003814695,
+      "clockStamp": 13412.700000286102,
+      "elapsed": 2.3229999998092663,
+      "complete": false,
+      "failed": true,
+      "settling": false,
+      "progress": 98.74045000028606,
+      "motion": "idle",
+      "interactions": 0,
+      "lastEvent": "alarm_timeout",
+      "rewards": [],
+      "delivered": false,
+      "doorOpen": false
+    },
+    "overlay": true,
+    "text": "未及时处置泄漏，任务终止。",
+    "visibleText": "02\nARC / TACTICAL OVERVIEW\n滚轮缩放 · 中键旋转\nLABORATORY OPERATIONS\nRF07-3 · BIO LAB\nMISSION RESERVE\n99%\nSYSTEM\nALARM\nCURRENT DIRECTIVE\n完成冷链转运并处置泄漏报警\nROBOT STATE\nIDLE\nCARGO\nEMPTY\nCABINETS\n3/3\nPILOT CONTROL\nWASD + Q/E / 直接控制\nSTANDBY\nVIEW\n第一视角\n第三视角\n双视角\nTRANSLATE\n按住移动 · 松开停止\nW\n前进\nA\n左移\nS\n后退\nD\n右移\nYAW\nQ/E 转向\nQ\n左转\nYAW\nE\n右转\n↑\nD435 抬头\n按住调整视角\n↓\nD435 低头\n按住调整视角\nF\n任务互动\n拾取 / 放置 / 操作\nR\n重置关卡\n恢复任务初始状态\nROBOT MOTION\nIDLE\nMISSION INPUT\nLOCKED\nSTOP\n立即释放全部移动输入\nW\nS\n前后 ·\nA\nD\n平移\nQ\nE\n转向（不耗余量）\n↑\n↓\n调整 D435 视角\nF\n互动\nR\n重置\nRUNNING\n13:27:30\nRF07-3 → LOCAL SIM → G1\n泄漏报警，请先放下手持物并处置异常。\nMISSION FAILED\n行动终止\n\n未及时处置泄漏，任务终止。\n\n重新开始\nLEGACY 2D ↗\n← 返回选关"
+  },
+  "reset": {
+    "player": {
+      "x": 0,
+      "z": 6.65,
+      "yaw": 3.141592653589793
+    },
+    "samples": {
+      "sampleA": {
+        "location": "storage",
+        "x": -9.25,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleB": {
+        "location": "storage",
+        "x": -7.35,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleC": {
+        "location": "storage",
+        "x": -5.45,
+        "y": 0.98,
+        "z": -6.62
+      }
+    },
+    "caseSamples": [],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.96,
+      "z": 1.78
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.98,
+      "z": 1.86
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.16,
+      "z": -1.98
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "prep-room",
+    "casePhase": "loading",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "container",
+      "device": "bsc-01",
+      "triggerAt": 95.49204271302062,
+      "status": "pending",
+      "startedAt": null
+    },
+    "clock": 0.7508000001907348,
+    "clockStamp": 15413.700000286102,
+    "elapsed": 0,
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 0,
+    "lastEvent": "started",
+    "rewards": [],
+    "delivered": false
+  }
+}

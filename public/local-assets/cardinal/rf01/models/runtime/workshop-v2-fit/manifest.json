@@ -1,0 +1,35 @@
+{
+  "revision": "workshop-realism-v2",
+  "assets": [
+    {
+      "name": "door-control",
+      "source_extent_blender": [
+        0.7015180587768555,
+        0.29728519916534424,
+        0.9799495935440063
+      ],
+      "target_xyz": [
+        0.24,
+        0.42,
+        0.14
+      ],
+      "triangles": 40000,
+      "bytes": 2614884
+    },
+    {
+      "name": "light-switch",
+      "source_extent_blender": [
+        0.9707794189453125,
+        0.744505763053894,
+        0.9793788194656372
+      ],
+      "target_xyz": [
+        0.24,
+        0.29,
+        0.12
+      ],
+      "triangles": 40000,
+      "bytes": 2072920
+    }
+  ]
+}

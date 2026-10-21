@@ -1,0 +1,10 @@
+{
+  "capabilityCount": 6,
+  "credential": {
+    "configured": true,
+    "source": "local-store"
+  },
+  "ready": true,
+  "runtime": "ready",
+  "service": "reachable"
+}

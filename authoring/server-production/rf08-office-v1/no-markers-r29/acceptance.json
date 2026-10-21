@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "release": "rf08-office-v1-r29",
+  "levels": [
+    "RF-08",
+    "RF-08-2",
+    "RF-08-3"
+  ],
+  "changes": [
+    "Removed document, water and chair target outline meshes from the shared office scene",
+    "Updated RF-08-2 objective to refer to the conference table instead of a yellow frame"
+  ],
+  "tests": {
+    "passed": 18,
+    "failed": 0,
+    "log": "tests.log"
+  },
+  "build": {
+    "passed": true,
+    "log": "build.log"
+  },
+  "verification": {
+    "canonicalEntries": 3,
+    "menuEntries": 40,
+    "servedAssetsMatchRelease": true,
+    "browser": "CUA screenshot of official RF-08-2 after starting, no document/water/chair target outlines; updated objective visible"
+  },
+  "deploymentMethod": "r29 copied from immutable r28 with only target marker creation/sync removed and objective text updated; all other published gameplay code preserved. Source updated for future builds.",
+  "userAcceptance": "optional; not yet supplied",
+  "commit": "99b584f"
+}

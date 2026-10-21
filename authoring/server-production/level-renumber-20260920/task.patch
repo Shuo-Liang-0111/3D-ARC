@@ -1,0 +1,289 @@
+--- a/index.html
++++ b/index.html
+@@ -155,17 +155,17 @@
+             <a data-level-option="rf05" href="/?mode=play&amp;level=rf05"><span>RF-05</span><strong>酒店整理</strong></a>
+             <a data-level-option="rf06" href="/?mode=play&amp;level=rf06"><span>RF-06</span><strong>家庭漏水</strong></a>
+             <a data-level-option="rf07" href="/?mode=play&amp;level=rf07"><span>RF-07</span><strong>冷链转运</strong></a>
+-            <a data-level-option="rf08" href="/?mode=play&amp;level=rf08"><span>RF-08</span><strong>办公室灰盒</strong></a>
+-            <a data-level-option="rf09" href="/?mode=play&amp;level=rf09"><span>RF-09</span><strong>会议准备</strong></a>
+-            <a data-level-option="rf10" href="/?mode=play&amp;level=rf10"><span>RF-10</span><strong>会议室自由探索</strong></a>
+-            <a data-level-option="rf11" href="/?mode=play&amp;level=rf11"><span>RF-11</span><strong>双机器人协作搬运</strong></a>
+-            <a data-level-option="rf12" href="/?mode=play&amp;level=rf12"><span>RF-12</span><strong>中国家庭厨房</strong></a>
+-            <a data-level-option="rf13" href="/?mode=play&amp;level=rf13"><span>RF-13</span><strong>社区诊所开诊</strong></a>
+-            <a data-level-option="rf14" href="/?mode=play&amp;level=rf14"><span>RF-14</span><strong>网球场捡球归筐</strong></a>
+-            <a data-level-option="rf15" href="/?mode=play&amp;level=rf15"><span>RF-15</span><strong>农产品冷链装运</strong></a>
+-            <a data-level-option="rf15-1" href="/?mode=play&amp;level=rf15-1"><span>RF-15-1</span><strong>手推车归位</strong></a>
+-            <a data-level-option="rf15-2" href="/?mode=play&amp;level=rf15-2"><span>RF-15-2</span><strong>田间收割入筐</strong></a>
+-            <a data-level-option="rf15-3" href="/?mode=play&amp;level=rf15-3"><span>RF-15-3</span><strong>动态称重装车</strong></a>
++            <a data-level-option="rf08" href="/?mode=play&amp;level=rf08"><strong>真实场景互动测试</strong></a>
++            <a data-level-option="rf09" href="/?mode=play&amp;level=rf09"><span>RF-08</span><strong>会议准备</strong></a>
++            <a data-level-option="rf10" href="/?mode=play&amp;level=rf10"><strong>真实场景验证</strong></a>
++            <a data-level-option="rf11" href="/?mode=play&amp;level=rf11"><span>RF-09</span><strong>双机器人协作搬运</strong></a>
++            <a data-level-option="rf12" href="/?mode=play&amp;level=rf12"><span>RF-10</span><strong>中国家庭厨房</strong></a>
++            <a data-level-option="rf13" href="/?mode=play&amp;level=rf13"><span>RF-11</span><strong>社区诊所开诊</strong></a>
++            <a data-level-option="rf14" href="/?mode=play&amp;level=rf14"><span>RF-12</span><strong>网球场捡球归筐</strong></a>
++            <a data-level-option="rf15" href="/?mode=play&amp;level=rf15"><span>RF-13</span><strong>农产品冷链装运</strong></a>
++            <a data-level-option="rf15-1" href="/?mode=play&amp;level=rf15-1"><span>RF-13-1</span><strong>手推车归位</strong></a>
++            <a data-level-option="rf15-2" href="/?mode=play&amp;level=rf15-2"><span>RF-13-2</span><strong>田间收割入筐</strong></a>
++            <a data-level-option="rf15-3" href="/?mode=play&amp;level=rf15-3"><span>RF-13-3</span><strong>动态称重装车</strong></a>
+             <a data-level-option="test_zpf" href="/?mode=play&amp;level=test_zpf"><span>TEST-ZPF</span><strong>小办公室巡检</strong></a>
+             <a data-level-option="test_zpf2" href="/?mode=play&amp;level=test_zpf2"><span>TEST-ZPF2</span><strong>小办公室实景</strong></a>
+           </nav>
+--- a/agent-guide.html
++++ b/agent-guide.html
+@@ -41,9 +41,9 @@
+           <a data-agent-level="rf05" href="/agent-guide.html?level=rf05#live-game">RF-05</a>
+           <a data-agent-level="rf06" href="/agent-guide.html?level=rf06#live-game">RF-06</a>
+           <a data-agent-level="rf07" href="/agent-guide.html?level=rf07#live-game">RF-07</a>
+-          <a data-agent-level="rf08" href="/agent-guide.html?level=rf08#live-game">RF-08</a>
+-          <a data-agent-level="rf09" href="/agent-guide.html?level=rf09#live-game">RF-09</a>
+-          <a data-agent-level="rf10" href="/agent-guide.html?level=rf10#live-game">RF-10</a>
++          <a data-agent-level="rf08" href="/agent-guide.html?level=rf08#live-game">真实场景互动测试</a>
++          <a data-agent-level="rf09" href="/agent-guide.html?level=rf09#live-game">RF-08</a>
++          <a data-agent-level="rf10" href="/agent-guide.html?level=rf10#live-game">真实场景验证</a>
+           <a data-agent-level="test_zpf" href="/agent-guide.html?level=test_zpf#live-game">TEST-ZPF</a>
+           <a data-agent-level="test_zpf2" href="/agent-guide.html?level=test_zpf2#live-game">TEST-ZPF2</a>
+         </div>
+--- a/game/app.js
++++ b/game/app.js
+@@ -956,7 +956,7 @@
+     motion: (isCooperativeLevel ? `${state.motion.alpha}/${state.motion.beta}` : state.motion).toUpperCase(),
+     input: controlModeId === "joint" ? "JOINT API" : externalSimulation ? "AGENT" : controlsReady ? "READY" : "LOCKED",
+     feed: externalSimulation ? "AGENT" : running ? "RUNNING" : "STANDBY",
+-    level: levelId.toUpperCase(),
++    level: runtime.ui.levelLabel ?? levelId.toUpperCase(),
+   });
+ }
+ 
+--- a/vite.config.js
++++ b/vite.config.js
+@@ -60,7 +60,7 @@
+             && requestUrl.searchParams.get("mode") === "play"
+             && ["/", "/index.html"].includes(requestUrl.pathname);
+           if (stableRF01) {
+-            const release = "rf01-sorting-build-v4";
++            const release = "rf01-sorting-build-v4-navigation-v1";
+             const releaseIndex = resolve("public", release, "index.html");
+             if (!existsSync(releaseIndex)) {
+               res.statusCode = 503;
+@@ -69,7 +69,7 @@
+             }
+             res.setHeader("content-type", "text/html; charset=utf-8");
+             res.setHeader("cache-control", "no-store");
+-            res.setHeader("x-arc-release", "rf01-sorting-v4");
++            res.setHeader("x-arc-release", "rf01-sorting-v4-navigation-v1");
+             res.end(readFileSync(releaseIndex, "utf8").replaceAll("./assets/", "/" + release + "/assets/"));
+             return;
+           }
+--- a/game/levels/rf08/runtime.js
++++ b/game/levels/rf08/runtime.js
+@@ -7,23 +7,24 @@
+ 
+ export const ui = Object.freeze({
+   id: "rf08",
+-  brand: "SCANNED OFFICE",
+-  unit: "UNIT R-08 · LAYOUT REVIEW",
++  levelLabel: "真实场景互动测试",
++  brand: "真实场景互动测试",
++  unit: "实景互动 · OFFICE",
+   systemLabel: "SCENE MODE",
+   cargoLabel: "INTERACTION",
+   gateLabel: "COLLISION",
+-  startKicker: "LEVEL RF-08 / SCANNED OFFICE",
+-  startTitle: "OPEN<br />OFFICE",
++  startKicker: "真实场景互动测试",
++  startTitle: "真实场景互动测试",
+   startCopy: "探索 3DGS 实景办公室，靠近黑色垃圾桶按 F 拿起或放下。",
+   completeKicker: "LAYOUT REVIEW",
+   completeTitle: "自由探索模式",
+   completeCopy: "当前版本不包含任务完成条件。",
+-  terminalHeading: "RF-08 SCAN STATUS",
++  terminalHeading: "实景互动状态",
+ });
+ 
+ export const camera = Object.freeze({ position: [0, 8.8, 6.2], lookAt: [0, 0.55, 0], fov: 39 });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+-export const eventMessages = Object.freeze({ free_exploration_started: 'RF-08 扫描场景自由探索已开始', office_bin_picked_up: '已拿起垃圾桶', office_bin_placed: '已放下垃圾桶', office_bin_place_blocked: '前方空间不足，请面向空地再放下', bin_out_of_reach: '请靠近垃圾桶' });
++export const eventMessages = Object.freeze({ free_exploration_started: '真实场景互动测试已开始', office_bin_picked_up: '已拿起垃圾桶', office_bin_placed: '已放下垃圾桶', office_bin_place_blocked: '前方空间不足，请面向空地再放下', bin_out_of_reach: '请靠近垃圾桶' });
+ export function createScene(renderer) { return createOfficeScan(renderer); }
+ export function syncVisuals(world, state) { syncOfficeBin(world,state); return world; }
+ export function createCargoModel() { const root=createBinModel(); root.children.forEach((child)=>{child.position.y-=0.155;}); return root; }
+@@ -38,7 +39,7 @@
+   ];
+ }
+ export function getTerminal() {
+-  return { title: "RF-08 实景办公室", copy: "办公室使用 3DGS 显示，垃圾桶为独立网格，支持按 F 拾放及碰撞。", rows: [["ROOM", "6.2 × 3.8 M（估算）"], ["WORKSTATIONS", "8"], ["COLLISION", "ENABLED"]] };
++  return { title: "真实场景互动测试", copy: "办公室使用 3DGS 显示，垃圾桶为独立网格，支持按 F 拾放及碰撞。", rows: [["ROOM", "6.2 × 3.8 M（估算）"], ["WORKSTATIONS", "8"], ["COLLISION", "ENABLED"]] };
+ }
+ export function getSoundPosition(_before, state) { return state.player; }
+ export function getDebugState(state) { return { mode: "scan-free-roam", collision: true, player: state.player, bin: state.bin, carriedItem: state.carriedItem }; }
+--- a/game/levels/rf09/runtime.js
++++ b/game/levels/rf09/runtime.js
+@@ -4,19 +4,19 @@
+ 
+ export { LEVEL, closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement };
+ export const ui = Object.freeze({
+-  id: "rf09",
++  id: "rf09", levelLabel: "RF-08",
+   brand: "EXECUTIVE MEETING SETUP",
+-  unit: "UNIT R-09 · OFFICE SERVICES",
++  unit: "UNIT R-08 · OFFICE SERVICES",
+   systemLabel: "PRESENTATION",
+   cargoLabel: "DEVICE",
+   gateLabel: "SETUP ORDER",
+-  startKicker: "LEVEL RF-09 / MODERN OFFICE",
++  startKicker: "LEVEL RF-08 / MODERN OFFICE",
+   startTitle: "MEETING<br />SETUP",
+   startCopy: "使用 G1 的第一、第三或双视角，在办公室内先取得 USB-C 视频转接器并连接讲台，再取无线演示器。两件设备按顺序就位后，打开会议终端并启动演示。W/S 前进后退，A/D 左右平移，Q/E 转向且不消耗余量，上下方向键调整 D435 观察角度。",
+   completeKicker: "MEETING READY",
+   completeTitle: "演示已启动",
+   completeCopy: "视频链路和无线演示器均已按顺序完成检查，会议室现已就绪。",
+-  terminalHeading: "CONFERENCE CONTROL / RF-09",
++  terminalHeading: "CONFERENCE CONTROL / RF-08",
+ });
+ export const camera = Object.freeze({ position: [0, 28, 8.5], lookAt: [0, 0.4, -0.4], fov: 34 });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+--- a/game/levels/rf10/runtime.js
++++ b/game/levels/rf10/runtime.js
+@@ -5,18 +5,19 @@
+ export { LEVEL, closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement };
+ export const ui = Object.freeze({
+   id: "rf10",
+-  brand: "GAUSSIAN ROOM EXPLORER",
+-  unit: "UNIT R-10 · ROOM RECONSTRUCTION",
++  levelLabel: "真实场景验证",
++  brand: "真实场景验证",
++  unit: "实景验证 · ROOM",
+   systemLabel: "SCENE",
+   cargoLabel: "MODE",
+   gateLabel: "COLLISION",
+-  startKicker: "LEVEL RF-10 / SOG RECONSTRUCTION",
+-  startTitle: "ROOM<br />EXPLORER",
++  startKicker: "真实场景验证",
++  startTitle: "真实场景验证",
+   startCopy: "在新 3DGS 会议室场景中自由探索。",
+   completeKicker: "EXPLORATION",
+   completeTitle: "探索进行中",
+   completeCopy: "你可以继续在房间内移动。",
+-  terminalHeading: "ROOM RECONSTRUCTION",
++  terminalHeading: "真实场景验证",
+ });
+ export const camera = Object.freeze({ position: [2.5, 0.35, 0], lookAt: [4.2, -0.2, -0.2], fov: 58 });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+@@ -27,6 +28,6 @@
+ export function isCarrying() { return false; }
+ export function getTelemetry() { return { system: "READY", systemOnline: true, cargo: "FREE EXPLORE", gate: "BOUNDS" }; }
+ export function getProgressSteps() { return [{ label: "自由探索", done: false, active: true }]; }
+-export function getTerminal() { return { title: "RF-10 ROOM RECONSTRUCTION", copy: "PlayCanvas GSplat 渲染完整真实会议室 PLY。当前使用经场景包围盒校准的探索边界，精确碰撞体积稍后重建。", rows: [["SOURCE", "rf10-room-full.ply"], ["FORMAT", "PLY / PLAYCANVAS GSPLAT"], ["MODE", "FREE EXPLORATION"]] }; }
++export function getTerminal() { return { title: "真实场景验证", copy: "PlayCanvas GSplat 渲染完整真实会议室 PLY。当前使用经场景包围盒校准的探索边界，精确碰撞体积稍后重建。", rows: [["SOURCE", "rf10-room-full.ply"], ["FORMAT", "PLY / PLAYCANVAS GSPLAT"], ["MODE", "FREE EXPLORATION"]] }; }
+ export function getSoundPosition(_beforeState, state) { return state.player; }
+ export function getDebugState(state) { return { mode: "free-exploration", player: state.player }; }
+--- a/game/levels/rf11/runtime.js
++++ b/game/levels/rf11/runtime.js
+@@ -2,7 +2,7 @@
+ import * as engine from "./engine.js";
+ import { createCargoModel, createRF11Scene, syncRF11Visuals } from "./scene.js";
+ export { LEVEL, ROBOTS, CARGO_META };
+-export const ui = Object.freeze({ id: "rf11", brand: "COOPERATIVE SERVO CELL", unit: "UNIT R-11 · TWO ROBOT LIFT", systemLabel: "CELL STATUS", cargoLabel: "PAYLOAD", gateLabel: "PAIR CONFIRM", startKicker: "LEVEL RF-11 / PRECISION MANUFACTURING", startTitle: "COOPERATIVE<br />LIFT", startCopy: "两台 G1 同时协作搬运精密伺服泵箱。", completeKicker: "CELL COMPLETE", completeTitle: "协作搬运完成", completeCopy: "伺服泵箱已稳定放置到装配基座。", terminalHeading: "SERVO CELL / RF-11" });
++export const ui = Object.freeze({ id: "rf11", levelLabel: "RF-09", brand: "COOPERATIVE SERVO CELL", unit: "UNIT R-09 · TWO ROBOT LIFT", systemLabel: "CELL STATUS", cargoLabel: "PAYLOAD", gateLabel: "PAIR CONFIRM", startKicker: "LEVEL RF-09 / PRECISION MANUFACTURING", startTitle: "COOPERATIVE<br />LIFT", startCopy: "两台 G1 同时协作搬运精密伺服泵箱。", completeKicker: "CELL COMPLETE", completeTitle: "协作搬运完成", completeCopy: "伺服泵箱已稳定放置到装配基座。", terminalHeading: "SERVO CELL / RF-09" });
+ export const camera = Object.freeze({ position: [0, 5.8, 7.0], lookAt: [0, 0.8, 0.0], fov: 64 });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+ export const eventMessages = engine.eventMessages;
+--- a/game/levels/rf12/runtime.js
++++ b/game/levels/rf12/runtime.js
+@@ -5,19 +5,19 @@
+ export { LEVEL, closeTerminal, createInitialState, getInteraction, getObjective, interact, updateMovement };
+ 
+ export const ui = Object.freeze({
+-  id: "rf12",
++  id: "rf12", levelLabel: "RF-10",
+   brand: "HOUSEHOLD KITCHEN SAFETY",
+-  unit: "UNIT RF-12 · CHINESE HOME",
++  unit: "UNIT RF-10 · CHINESE HOME",
+   systemLabel: "SAFETY STATUS",
+   cargoLabel: "CARGO",
+   gateLabel: "CHECKLIST",
+-  startKicker: "LEVEL RF-12 / CHINESE HOME",
++  startKicker: "LEVEL RF-10 / CHINESE HOME",
+   startTitle: "厨房安全<br />检查",
+   startCopy: "进入一间正常使用的中国城市家庭厨房，先读取入口旁检查单，再处理五项风险：复位燃气旋钮、开启油烟机、把炉边湿抹布移入水槽、打开窗户通风、关闭燃气总阀。完成后回到入口终端确认。",
+   completeKicker: "KITCHEN SAFETY COMPLETE",
+   completeTitle: "检查完成",
+   completeCopy: "五项厨房安全风险均已处理，入口终端确认完成。",
+-  terminalHeading: "HOUSEHOLD SAFETY / RF-12",
++  terminalHeading: "HOUSEHOLD SAFETY / RF-10",
+ });
+ 
+ export const camera = Object.freeze({ position: [0, 11.8, 8.6], lookAt: [0, 0.55, -0.45], fov: 38 });
+--- a/game/levels/rf13/runtime.js
++++ b/game/levels/rf13/runtime.js
+@@ -4,9 +4,9 @@
+ export { LEVEL, createInitialState, getInteraction, getObjective, interact, updateMovement, closeTerminal };
+ export const camera = Object.freeze({ position: [0, 18.5, 16], lookAt: [0, 0.6, 0], fov: 43 });
+ export const ui = Object.freeze({
+-  id: "rf13", brand: "社区诊所 · 开诊准备", unit: `RF-13 · 真实化 ${LEVEL.revision.split("-").at(-1)}`,
++  id: "rf13", levelLabel: "RF-11", brand: "社区诊所 · 开诊准备", unit: `RF-11 · 真实化 ${LEVEL.revision.split("-").at(-1)}`,
+   systemLabel: "诊所", cargoLabel: "携带", gateLabel: "清单",
+-  startKicker: "RF-13 / 社区卫生服务", startTitle: "社区诊所<br />开诊准备",
++  startKicker: "RF-11 / 社区卫生服务", startTitle: "社区诊所<br />开诊准备",
+   startCopy: "从储物间领取四类用品并送到对应工位，回收四个空周转盒；归正候诊椅、移走通道推车，最后在前台确认开诊。WASD 移动，Q/E 转向，F 交互，上下方向键调整观察角度。",
+   completeKicker: "CLINIC READY", completeTitle: "开诊准备完成",
+   completeCopy: "四站补给、四盒回收、候诊椅和推车归位均已完成。",
+--- a/game/levels/rf14/runtime.js
++++ b/game/levels/rf14/runtime.js
+@@ -4,9 +4,9 @@
+ export { createInitialState, getInteraction, getObjective, interact, updateMovement, closeTerminal } from "./engine.js";
+ export const camera = Object.freeze({ position: [0, 18.5, 16], lookAt: [0, 0.6, 0], fov: 43 });
+ export const ui = Object.freeze({
+-  id: "rf14", brand: "网球场 · 捡球归筐", unit: "RF-14 · Court 01",
++  id: "rf14", levelLabel: "RF-12", brand: "网球场 · 捡球归筐", unit: "RF-12 · Court 01",
+   systemLabel: "球场", cargoLabel: "携带", gateLabel: "归筐",
+-  startKicker: "RF-14 / AFTERNOON TENNIS", startTitle: "训练结束<br />捡球归筐",
++  startKicker: "RF-12 / AFTERNOON TENNIS", startTitle: "训练结束<br />捡球归筐",
+   startCopy: "在这片蓝绿硬地球场寻找 8 颗散落网球，逐个送回东侧休息区的球车。WASD 移动，Q/E 转向，F 拾取或放下，方向键上下观察，R 重置。没有倒计时，放错位置可以重新拾取。",
+   completeKicker: "COURT READY", completeTitle: "球场收拾完成", completeCopy: "8 颗网球已全部归筐，准备迎接下一场训练。",
+   terminalHeading: "网球场 / 收集记录",
+--- a/game/levels/rf15/runtime.js
++++ b/game/levels/rf15/runtime.js
+@@ -3,7 +3,7 @@
+ export { createInitialState, cloneState, updateMovement, getInteraction, interact, closeTerminal, getObjective, isWalkable } from "./engine.js";
+ export { createScene, createCargoModel, syncVisuals, syncCargo as syncRobotCargo } from "./scene.js";
+ export const camera = Object.freeze({ position: [0, 18.5, 16], lookAt: [0, .6, 0], fov: 43 });
+-export const ui = Object.freeze({ id: "rf15", brand: "乡野合作社 · 冷链装运", unit: "RF-15 · HARVEST TO TRUCK", systemLabel: "出库状态", cargoLabel: "携带", gateLabel: "装车", startKicker: "RF-15 / MORNING HARVEST", startTitle: "采摘入筐<br />称重装车", startCopy: "领取番茄与苹果采摘筐，逐筐称重记录，在包装工位封箱，再操作冷藏车尾板完成装车。最后返回出库台确认清单。", completeKicker: "COLD CHAIN READY", completeTitle: "两箱鲜品 · 装车完成", completeCopy: "番茄 8.6 kg 与苹果 9.4 kg 已称重、封箱并装入冷藏货车。出库记录完成。", terminalHeading: "RF-15 / 装运记录" });
++export const ui = Object.freeze({ id: "rf15", levelLabel: "RF-13", brand: "乡野合作社 · 冷链装运", unit: "RF-13 · HARVEST TO TRUCK", systemLabel: "出库状态", cargoLabel: "携带", gateLabel: "装车", startKicker: "RF-13 / MORNING HARVEST", startTitle: "采摘入筐<br />称重装车", startCopy: "领取番茄与苹果采摘筐，逐筐称重记录，在包装工位封箱，再操作冷藏车尾板完成装车。最后返回出库台确认清单。", completeKicker: "COLD CHAIN READY", completeTitle: "两箱鲜品 · 装车完成", completeCopy: "番茄 8.6 kg 与苹果 9.4 kg 已称重、封箱并装入冷藏货车。出库记录完成。", terminalHeading: "RF-13 / 装运记录" });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+ export const eventMessages = Object.freeze({ harvest_started: "先到收货台领取采摘筐", basket_picked: "已拿起，请按任务提示送往下一工位", on_scale: "已放上电子秤，再按 F 记录净重", weight_recorded: "净重已记录，再按 F 取回采摘筐", on_pack: "已放到包装台，按 F 装箱封签", box_sealed: "纸箱已封好，重量标签已贴上", on_tail: "货箱已放上尾板，前往右侧控制按钮", lift_started: "尾板升起，货箱进入冷藏车厢", load_finished: "装车完成，尾板已复位", harvest_complete: "两箱农产品已装车，出库记录完成", empty_interaction: "请靠近并面向任务物品 · 余量 -5", wrong_station: "当前工位不接收此物品 · 余量 -5", weigh_first: "请先称重记录，再到空闲包装工位 · 余量 -5", pack_first: "请先装箱，尾板上同时只能放一箱 · 余量 -5", tail_not_ready: "先将封好的纸箱放到空闲尾板 · 余量 -5", dispatch_not_ready: "两箱农产品尚未全部装车 · 余量 -5", drop_blocked: "前方空间不足，无法放置 · 余量 -5", pickup_blocked: "携带空间不足，请调整站位 · 余量 -5", basket_dropped: "已安全放下，可再次拾取", progress_depleted: "余量耗尽，按 R 重置" });
+ export function isCarrying(state) { return Boolean(state.carriedItem); }
+--- a/game/levels/rf15-1/runtime.js
++++ b/game/levels/rf15-1/runtime.js
+@@ -3,7 +3,7 @@
+ export * from "./engine.js";
+ export * from "./scene.js";
+ export const camera = Object.freeze({ position: [0,18.5,16], lookAt: [0,.6,0], fov: 43 });
+-export const ui = Object.freeze({ id: "rf15-1", brand: "乡野合作社 · 冷链装运", unit: "RF15-1 · CART RETURN", systemLabel: "任务状态", cargoLabel: "携带", gateLabel: "完成", startKicker: "RF15-1", startTitle: "手推车归位", startCopy: "手推车归位", completeKicker: "TASK COMPLETE", completeTitle: "手推车归位 · 完成", completeCopy: "任务已完成。", terminalHeading: "RF15-1 / 记录" });
++export const ui = Object.freeze({ id: "rf15-1", levelLabel: "RF-13-1", brand: "乡野合作社 · 冷链装运", unit: "RF-13-1 · CART RETURN", systemLabel: "任务状态", cargoLabel: "携带", gateLabel: "完成", startKicker: "RF-13-1", startTitle: "手推车归位", startCopy: "手推车归位", completeKicker: "TASK COMPLETE", completeTitle: "手推车归位 · 完成", completeCopy: "任务已完成。", terminalHeading: "RF-13-1 / 记录" });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+ export const eventMessages = Object.freeze({ cart_gripped: "已扶住车把", cart_parked: "手推车已停放到果栏旁", cart_path_blocked: "推车通路受阻", cart_align_required: "请靠近车把后按 F", cart_parking_required: "请将车停到果栏旁", tool_room_opened: "工具房门已打开", tool_room_closed: "工具房门已关闭", tool_door_blocked: "请离开门扇摆动范围", harvest_tool_taken: "已拿取收割工具", harvest_tool_returned: "工具已放回", sprayer_picked: "已拿取农药喷剂", harvest_started: "正在用收割刀采收", harvest_knife_required: "需要携带收割刀", crop_picked: "蔬菜已收割", crop_basketed: "蔬菜已放入田边收集筐", crop_sprayed: "喷洒完成", already_sprayed: "这株作物已喷洒", weight_not_ready: "重量尚未达到 5 kg", weight_ok: "5 kg 称重记录已确认", packed: "包装已完成", loaded: "已放入装车位", nothing_in_reach: "附近没有可操作物体", progress_depleted: "余量耗尽，按 R 重置" });
+ export function isCarrying(state) { return Boolean(state.carriedItem || state.carriedCrop || state.heldTool || state.sprayer); }
+--- a/game/levels/rf15-2/runtime.js
++++ b/game/levels/rf15-2/runtime.js
+@@ -3,7 +3,7 @@
+ export * from "./engine.js";
+ export * from "./scene.js";
+ export const camera = Object.freeze({ position: [0,18.5,16], lookAt: [0,.6,0], fov: 43 });
+-export const ui = Object.freeze({ id: "rf15-2", brand: "乡野合作社 · 冷链装运", unit: "RF15-2 · HARVEST", systemLabel: "任务状态", cargoLabel: "携带", gateLabel: "完成", startKicker: "RF15-2", startTitle: "田间收割入筐", startCopy: "田间收割入筐", completeKicker: "TASK COMPLETE", completeTitle: "田间收割入筐 · 完成", completeCopy: "任务已完成。", terminalHeading: "RF15-2 / 记录" });
++export const ui = Object.freeze({ id: "rf15-2", levelLabel: "RF-13-2", brand: "乡野合作社 · 冷链装运", unit: "RF-13-2 · HARVEST", systemLabel: "任务状态", cargoLabel: "携带", gateLabel: "完成", startKicker: "RF-13-2", startTitle: "田间收割入筐", startCopy: "田间收割入筐", completeKicker: "TASK COMPLETE", completeTitle: "田间收割入筐 · 完成", completeCopy: "任务已完成。", terminalHeading: "RF-13-2 / 记录" });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+ export const eventMessages = Object.freeze({ tool_room_opened: "工具房门已打开", tool_room_closed: "工具房门已关闭", tool_door_blocked: "请离开门扇摆动范围", harvest_tool_taken: "已拿取收割工具", harvest_tool_returned: "工具已放回", sprayer_picked: "已拿取农药喷剂", harvest_started: "正在用收割刀采收", harvest_knife_required: "需要携带收割刀", crop_picked: "蔬菜已收割", crop_basketed: "蔬菜已放入田边收集筐", crop_sprayed: "喷洒完成", already_sprayed: "这株作物已喷洒", weight_not_ready: "重量尚未达到 5 kg", weight_ok: "5 kg 称重记录已确认", packed: "包装已完成", loaded: "已放入装车位", nothing_in_reach: "附近没有可操作物体", progress_depleted: "余量耗尽，按 R 重置" });
+ export function isCarrying(state) { return Boolean(state.carriedItem || state.carriedCrop || state.heldTool || state.sprayer); }
+--- a/game/levels/rf15-3/runtime.js
++++ b/game/levels/rf15-3/runtime.js
+@@ -3,7 +3,7 @@
+ export * from "./engine.js";
+ export * from "./scene.js";
+ export const camera = Object.freeze({ position: [0,18.5,16], lookAt: [0,.6,0], fov: 43 });
+-export const ui = Object.freeze({ id: "rf15-3", brand: "乡野合作社 · 冷链装运", unit: "RF15-3 · WEIGH", systemLabel: "任务状态", cargoLabel: "携带", gateLabel: "完成", startKicker: "RF15-3", startTitle: LEVEL.objective, startCopy: LEVEL.objective, completeKicker: "TASK COMPLETE", completeTitle: "称重装车 · 完成", completeCopy: "任务已完成。", terminalHeading: "RF15-3 / 记录" });
++export const ui = Object.freeze({ id: "rf15-3", levelLabel: "RF-13-3", brand: "乡野合作社 · 冷链装运", unit: "RF-13-3 · WEIGH", systemLabel: "任务状态", cargoLabel: "携带", gateLabel: "完成", startKicker: "RF-13-3", startTitle: LEVEL.objective, startCopy: LEVEL.objective, completeKicker: "TASK COMPLETE", completeTitle: "称重装车 · 完成", completeCopy: "任务已完成。", terminalHeading: "RF-13-3 / 记录" });
+ export const audio = Object.freeze({ assets: {}, eventSounds: {}, volume: {} });
+ export const eventMessages = Object.freeze({ tool_room_opened: "工具房门已打开", tool_room_closed: "工具房门已关闭", tool_door_blocked: "请离开门扇摆动范围", harvest_tool_taken: "已拿取收割工具", harvest_tool_returned: "工具已放回", sprayer_picked: "已拿取农药喷剂", harvest_started: "正在用收割刀采收", harvest_knife_required: "需要携带收割刀", crop_picked: "蔬菜已收割", crop_basketed: "蔬菜已放入田边收集筐", crop_sprayed: "喷洒完成", already_sprayed: "这株作物已喷洒", orange_weighing: "电子秤读数正在稳定", weight_stabilizing: "电子秤读数稳定中，请等待", weight_not_ready: "重量尚未稳定在 5 kg", weight_ok: "5 kg 稳定称重记录已确认", packed: "包装已完成", loaded: "已放入装车位", nothing_in_reach: "附近没有可操作物体", progress_depleted: "余量耗尽，按 R 重置" });
+ export function isCarrying(state) { return Boolean(state.carriedItem || state.carriedCrop || state.heldTool || state.sprayer); }

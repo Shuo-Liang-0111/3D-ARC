@@ -1,0 +1,2234 @@
+{
+  "schemaVersion": 1,
+  "kind": "img2threejs.material-analysis",
+  "referenceId": "unitree-g1-official-multiview",
+  "manifest": "./.img2threejs/g1-edu2/material-regions.json",
+  "registry": "/path/to/arc-workspace/img2threejs-skill/docs/materials/material-reference.json",
+  "targetThreshold": 0.7,
+  "notObservedMaterials": [],
+  "unresolvedNotObservedMaterials": [],
+  "regions": [
+    {
+      "componentId": "torso-shell",
+      "regionId": "silver-armour-clean",
+      "materialSpecId": "silver-armour",
+      "hypothesis": {
+        "componentId": "torso-shell",
+        "regionId": "silver-armour-clean",
+        "materialId": null,
+        "family": "coating",
+        "subtype": "paint-over-metal",
+        "finish": "gloss-or-satin",
+        "aliases": [],
+        "confidence": 0.834,
+        "source": "vision"
+      },
+      "assignment": {
+        "materialId": "coating.painted-metal",
+        "status": "proceed",
+        "source": "vision",
+        "confidence": 0.834,
+        "method": "family-subtype-finish",
+        "alternatives": [],
+        "evidence": {
+          "crop": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/00-silver-armour-clean.png",
+            "bbox": {
+              "x": 1580,
+              "y": 40,
+              "width": 330,
+              "height": 260
+            },
+            "sourceWidth": 2740,
+            "sourceHeight": 1720,
+            "loaderWarnings": [],
+            "coverage": 0.0182
+          },
+          "pbr": {
+            "ok": true,
+            "verdict": "pass",
+            "confidence": 0.834,
+            "estimatedFidelity": 0.834,
+            "targetThreshold": 0.7,
+            "materialId": "silver-armour",
+            "sourceImage": "./.img2threejs/g1-edu2/material-evidence/00-silver-armour-clean.png",
+            "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean",
+            "palette": [
+              "#787783",
+              "#80808B",
+              "#8B8B96",
+              "#9C9CA6",
+              "#35353B"
+            ],
+            "maps": {
+              "albedo": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_albedo.png",
+                "url": "silver-armour_albedo.png",
+                "channel": "albedo",
+                "source": "reference-pixel-extraction"
+              },
+              "roughness": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_roughness.png",
+                "url": "silver-armour_roughness.png",
+                "channel": "roughness",
+                "source": "reference-pixel-extraction"
+              },
+              "height": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_height.png",
+                "url": "silver-armour_height.png",
+                "channel": "height",
+                "source": "reference-pixel-extraction"
+              },
+              "normal": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_normal.png",
+                "url": "silver-armour_normal.png",
+                "channel": "normal",
+                "source": "reference-pixel-extraction"
+              },
+              "ao": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_ao.png",
+                "url": "silver-armour_ao.png",
+                "channel": "ao",
+                "source": "reference-pixel-extraction"
+              }
+            },
+            "diagnostics": {
+              "sourceWidth": 330,
+              "sourceHeight": 260,
+              "mapSize": 512,
+              "cropBBoxPixels": {
+                "x": 233,
+                "y": 0,
+                "width": 97,
+                "height": 260
+              },
+              "mask": {
+                "backgroundColor": "#646573",
+                "backgroundNoise": 12.207,
+                "transparentPixelFraction": 0.0,
+                "foregroundCoverage": 0.11
+              },
+              "mapStats": {
+                "valueRange": 0.1787,
+                "heightP90Gradient": 0.01936,
+                "roughnessBase": 0.68,
+                "roughnessVariation": 0.05,
+                "normalStrength": 0.179,
+                "blurRadius": 10
+              },
+              "palette": [
+                "#787783",
+                "#80808B",
+                "#8B8B96",
+                "#9C9CA6",
+                "#35353B"
+              ]
+            },
+            "warnings": [
+              "low value range weakens height/roughness inference"
+            ],
+            "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+          },
+          "texture": {
+            "finishClass": "worn-composite",
+            "recipe": {
+              "metalness": 0.0,
+              "roughness": 0.9,
+              "clearcoat": 0.0,
+              "clearcoatRoughness": 0.0,
+              "transmission": 0.0,
+              "ior": 1.5,
+              "envMapIntensity": 0.5,
+              "anisotropy": 0.0,
+              "procedural": "mottle"
+            },
+            "palette": [
+              "#62626A",
+              "#787882",
+              "#787882",
+              "#757580",
+              "#6D6D7A"
+            ],
+            "paletteHueRisk": [],
+            "gradientAxis": "vertical",
+            "stats": {
+              "meanLum": 119.7,
+              "meanSaturation": 0.082,
+              "gradientStrength": 0.122,
+              "mottle": 0.005,
+              "streakRatio": 0.75,
+              "hueSpread": 0.006,
+              "specularFraction": 0.0
+            }
+          }
+        },
+        "profileId": "coating.painted-metal",
+        "family": "coating",
+        "subtype": "paint-over-metal",
+        "finish": "gloss-or-satin",
+        "renderPrior": {
+          "metalness": 0.0,
+          "roughness": 0.45,
+          "clearcoat": 0.75,
+          "clearcoatRoughness": 0.12,
+          "ior": 1.5
+        },
+        "requiredMaps": [
+          "map",
+          "roughnessMap"
+        ],
+        "optionalMaps": [
+          "normalMap",
+          "clearcoatMap",
+          "clearcoatRoughnessMap",
+          "metalnessMap"
+        ],
+        "validationViews": [
+          "albedo-unlit",
+          "neutral-studio",
+          "grazing",
+          "environment-reflection",
+          "reference-beauty"
+        ],
+        "sourceRefs": [
+          "three.mesh-physical",
+          "gltf.2",
+          "khronos.gltf-pbr",
+          "adobe.pbr-guide-1",
+          "adobe.pbr-guide-2"
+        ],
+        "visualCues": [
+          "diffuse paint colour under a separate glossy coat",
+          "chips may expose metallic substrate"
+        ]
+      },
+      "observations": [
+        "near-neutral colour response",
+        "single-image PBR inference requires controlled render validation"
+      ],
+      "crop": {
+        "path": "./.img2threejs/g1-edu2/material-evidence/00-silver-armour-clean.png",
+        "bbox": {
+          "x": 1580,
+          "y": 40,
+          "width": 330,
+          "height": 260
+        },
+        "sourceWidth": 2740,
+        "sourceHeight": 1720,
+        "loaderWarnings": [],
+        "coverage": 0.0182
+      },
+      "textureAnalysis": {
+        "finishClass": "worn-composite",
+        "recipe": {
+          "metalness": 0.0,
+          "roughness": 0.9,
+          "clearcoat": 0.0,
+          "clearcoatRoughness": 0.0,
+          "transmission": 0.0,
+          "ior": 1.5,
+          "envMapIntensity": 0.5,
+          "anisotropy": 0.0,
+          "procedural": "mottle"
+        },
+        "palette": [
+          "#62626A",
+          "#787882",
+          "#787882",
+          "#757580",
+          "#6D6D7A"
+        ],
+        "paletteHueRisk": [],
+        "gradientAxis": "vertical",
+        "stats": {
+          "meanLum": 119.7,
+          "meanSaturation": 0.082,
+          "gradientStrength": 0.122,
+          "mottle": 0.005,
+          "streakRatio": 0.75,
+          "hueSpread": 0.006,
+          "specularFraction": 0.0
+        }
+      },
+      "pbrReport": {
+        "ok": true,
+        "verdict": "pass",
+        "confidence": 0.834,
+        "estimatedFidelity": 0.834,
+        "targetThreshold": 0.7,
+        "materialId": "silver-armour",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/00-silver-armour-clean.png",
+        "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean",
+        "palette": [
+          "#787783",
+          "#80808B",
+          "#8B8B96",
+          "#9C9CA6",
+          "#35353B"
+        ],
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_albedo.png",
+            "url": "silver-armour_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_roughness.png",
+            "url": "silver-armour_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_height.png",
+            "url": "silver-armour_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_normal.png",
+            "url": "silver-armour_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_ao.png",
+            "url": "silver-armour_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 330,
+          "sourceHeight": 260,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 233,
+            "y": 0,
+            "width": 97,
+            "height": 260
+          },
+          "mask": {
+            "backgroundColor": "#646573",
+            "backgroundNoise": 12.207,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.11
+          },
+          "mapStats": {
+            "valueRange": 0.1787,
+            "heightP90Gradient": 0.01936,
+            "roughnessBase": 0.68,
+            "roughnessVariation": 0.05,
+            "normalStrength": 0.179,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#787783",
+            "#80808B",
+            "#8B8B96",
+            "#9C9CA6",
+            "#35353B"
+          ]
+        },
+        "warnings": [
+          "low value range weakens height/roughness inference"
+        ],
+        "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+      },
+      "referencePbr": {
+        "version": "1.0",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/00-silver-armour-clean.png",
+        "extractor": "stage1_intake/extract_pbr_evidence.py",
+        "method": "single-image pixel evidence with de-lighting estimate; not photogrammetry",
+        "usable": true,
+        "verdict": "pass",
+        "confidence": 0.834,
+        "estimatedFidelity": 0.834,
+        "targetThreshold": 0.7,
+        "hardLimit": "A single image cannot uniquely recover true albedo/roughness/normal/AO; maps are reference-derived estimates.",
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_albedo.png",
+            "url": "silver-armour_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_roughness.png",
+            "url": "silver-armour_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_height.png",
+            "url": "silver-armour_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_normal.png",
+            "url": "silver-armour_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_ao.png",
+            "url": "silver-armour_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 330,
+          "sourceHeight": 260,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 233,
+            "y": 0,
+            "width": 97,
+            "height": 260
+          },
+          "mask": {
+            "backgroundColor": "#646573",
+            "backgroundNoise": 12.207,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.11
+          },
+          "mapStats": {
+            "valueRange": 0.1787,
+            "heightP90Gradient": 0.01936,
+            "roughnessBase": 0.68,
+            "roughnessVariation": 0.05,
+            "normalStrength": 0.179,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#787783",
+            "#80808B",
+            "#8B8B96",
+            "#9C9CA6",
+            "#35353B"
+          ]
+        },
+        "warnings": [
+          "low value range weakens height/roughness inference"
+        ]
+      },
+      "maps": {
+        "albedo": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_albedo.png",
+          "url": "silver-armour_albedo.png",
+          "channel": "albedo",
+          "source": "reference-pixel-extraction"
+        },
+        "roughness": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_roughness.png",
+          "url": "silver-armour_roughness.png",
+          "channel": "roughness",
+          "source": "reference-pixel-extraction"
+        },
+        "height": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_height.png",
+          "url": "silver-armour_height.png",
+          "channel": "height",
+          "source": "reference-pixel-extraction"
+        },
+        "normal": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_normal.png",
+          "url": "silver-armour_normal.png",
+          "channel": "normal",
+          "source": "reference-pixel-extraction"
+        },
+        "ao": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-00-silver-armour-clean/silver-armour_ao.png",
+          "url": "silver-armour_ao.png",
+          "channel": "ao",
+          "source": "reference-pixel-extraction"
+        }
+      }
+    },
+    {
+      "componentId": "waist-mid",
+      "regionId": "graphite-actuator-clean",
+      "materialSpecId": "graphite-mechanism",
+      "hypothesis": {
+        "componentId": "waist-mid",
+        "regionId": "graphite-actuator-clean",
+        "materialId": null,
+        "family": "metal",
+        "subtype": "aluminum",
+        "finish": "satin",
+        "aliases": [],
+        "confidence": 0.909,
+        "source": "vision"
+      },
+      "assignment": {
+        "materialId": "metal.aluminum",
+        "status": "proceed",
+        "source": "vision",
+        "confidence": 0.909,
+        "method": "family-subtype-finish",
+        "alternatives": [],
+        "evidence": {
+          "crop": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/01-graphite-actuator-clean.png",
+            "bbox": {
+              "x": 700,
+              "y": 650,
+              "width": 470,
+              "height": 330
+            },
+            "sourceWidth": 2740,
+            "sourceHeight": 1720,
+            "loaderWarnings": [],
+            "coverage": 0.0329
+          },
+          "pbr": {
+            "ok": true,
+            "verdict": "pass",
+            "confidence": 0.909,
+            "estimatedFidelity": 0.909,
+            "targetThreshold": 0.7,
+            "materialId": "graphite-mechanism",
+            "sourceImage": "./.img2threejs/g1-edu2/material-evidence/01-graphite-actuator-clean.png",
+            "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean",
+            "palette": [
+              "#0E0D12",
+              "#848491",
+              "#B9B9C4",
+              "#393947",
+              "#5B596F"
+            ],
+            "maps": {
+              "albedo": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_albedo.png",
+                "url": "graphite-mechanism_albedo.png",
+                "channel": "albedo",
+                "source": "reference-pixel-extraction"
+              },
+              "roughness": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_roughness.png",
+                "url": "graphite-mechanism_roughness.png",
+                "channel": "roughness",
+                "source": "reference-pixel-extraction"
+              },
+              "height": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_height.png",
+                "url": "graphite-mechanism_height.png",
+                "channel": "height",
+                "source": "reference-pixel-extraction"
+              },
+              "normal": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_normal.png",
+                "url": "graphite-mechanism_normal.png",
+                "channel": "normal",
+                "source": "reference-pixel-extraction"
+              },
+              "ao": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_ao.png",
+                "url": "graphite-mechanism_ao.png",
+                "channel": "ao",
+                "source": "reference-pixel-extraction"
+              }
+            },
+            "diagnostics": {
+              "sourceWidth": 470,
+              "sourceHeight": 330,
+              "mapSize": 512,
+              "cropBBoxPixels": {
+                "x": 0,
+                "y": 0,
+                "width": 470,
+                "height": 330
+              },
+              "mask": {
+                "backgroundColor": "#232227",
+                "backgroundNoise": 60.737,
+                "transparentPixelFraction": 0.0,
+                "foregroundCoverage": 0.3417
+              },
+              "mapStats": {
+                "valueRange": 0.7222,
+                "heightP90Gradient": 0.1259,
+                "roughnessBase": 0.704,
+                "roughnessVariation": 0.197,
+                "normalStrength": 0.304,
+                "blurRadius": 10
+              },
+              "palette": [
+                "#0E0D12",
+                "#848491",
+                "#B9B9C4",
+                "#393947",
+                "#5B596F"
+              ]
+            },
+            "warnings": [],
+            "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+          },
+          "texture": {
+            "finishClass": "worn-composite",
+            "recipe": {
+              "metalness": 0.0,
+              "roughness": 0.9,
+              "clearcoat": 0.0,
+              "clearcoatRoughness": 0.0,
+              "transmission": 0.0,
+              "ior": 1.5,
+              "envMapIntensity": 0.5,
+              "anisotropy": 0.0,
+              "procedural": "mottle"
+            },
+            "palette": [
+              "#6E6E7A",
+              "#585761",
+              "#3E3D46",
+              "#3F3F44",
+              "#1D1C21"
+            ],
+            "paletteHueRisk": [
+              {
+                "stop": "#1D1C21",
+                "hueRisk": "blue-collapse",
+                "suggestedRgb": [
+                  33,
+                  28,
+                  29
+                ]
+              }
+            ],
+            "gradientAxis": "horizontal",
+            "stats": {
+              "meanLum": 69.3,
+              "meanSaturation": 0.123,
+              "gradientStrength": 0.329,
+              "mottle": 0.037,
+              "streakRatio": 0.97,
+              "hueSpread": 0.007,
+              "specularFraction": 0.003
+            }
+          }
+        },
+        "profileId": "metal.aluminum",
+        "family": "metal",
+        "subtype": "aluminum",
+        "finish": "satin",
+        "renderPrior": {
+          "metalness": 1.0,
+          "roughness": 0.3,
+          "anisotropy": 0.2
+        },
+        "requiredMaps": [
+          "map",
+          "roughnessMap"
+        ],
+        "optionalMaps": [
+          "normalMap",
+          "anisotropyMap"
+        ],
+        "validationViews": [
+          "neutral-studio",
+          "environment-reflection",
+          "grazing"
+        ],
+        "sourceRefs": [
+          "three.mesh-standard",
+          "three.pmrem",
+          "gltf.2",
+          "khronos.gltf-pbr",
+          "adobe.pbr-guide-2",
+          "google.filament-pbr"
+        ],
+        "visualCues": [
+          "bright neutral conductor",
+          "soft satin highlight unless polished",
+          "often fine machining direction"
+        ]
+      },
+      "observations": [
+        "near-neutral colour response",
+        "strong image-space gradient; verify it is material pattern, not lighting",
+        "single-image PBR inference requires controlled render validation"
+      ],
+      "crop": {
+        "path": "./.img2threejs/g1-edu2/material-evidence/01-graphite-actuator-clean.png",
+        "bbox": {
+          "x": 700,
+          "y": 650,
+          "width": 470,
+          "height": 330
+        },
+        "sourceWidth": 2740,
+        "sourceHeight": 1720,
+        "loaderWarnings": [],
+        "coverage": 0.0329
+      },
+      "textureAnalysis": {
+        "finishClass": "worn-composite",
+        "recipe": {
+          "metalness": 0.0,
+          "roughness": 0.9,
+          "clearcoat": 0.0,
+          "clearcoatRoughness": 0.0,
+          "transmission": 0.0,
+          "ior": 1.5,
+          "envMapIntensity": 0.5,
+          "anisotropy": 0.0,
+          "procedural": "mottle"
+        },
+        "palette": [
+          "#6E6E7A",
+          "#585761",
+          "#3E3D46",
+          "#3F3F44",
+          "#1D1C21"
+        ],
+        "paletteHueRisk": [
+          {
+            "stop": "#1D1C21",
+            "hueRisk": "blue-collapse",
+            "suggestedRgb": [
+              33,
+              28,
+              29
+            ]
+          }
+        ],
+        "gradientAxis": "horizontal",
+        "stats": {
+          "meanLum": 69.3,
+          "meanSaturation": 0.123,
+          "gradientStrength": 0.329,
+          "mottle": 0.037,
+          "streakRatio": 0.97,
+          "hueSpread": 0.007,
+          "specularFraction": 0.003
+        }
+      },
+      "pbrReport": {
+        "ok": true,
+        "verdict": "pass",
+        "confidence": 0.909,
+        "estimatedFidelity": 0.909,
+        "targetThreshold": 0.7,
+        "materialId": "graphite-mechanism",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/01-graphite-actuator-clean.png",
+        "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean",
+        "palette": [
+          "#0E0D12",
+          "#848491",
+          "#B9B9C4",
+          "#393947",
+          "#5B596F"
+        ],
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_albedo.png",
+            "url": "graphite-mechanism_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_roughness.png",
+            "url": "graphite-mechanism_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_height.png",
+            "url": "graphite-mechanism_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_normal.png",
+            "url": "graphite-mechanism_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_ao.png",
+            "url": "graphite-mechanism_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 470,
+          "sourceHeight": 330,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 0,
+            "y": 0,
+            "width": 470,
+            "height": 330
+          },
+          "mask": {
+            "backgroundColor": "#232227",
+            "backgroundNoise": 60.737,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.3417
+          },
+          "mapStats": {
+            "valueRange": 0.7222,
+            "heightP90Gradient": 0.1259,
+            "roughnessBase": 0.704,
+            "roughnessVariation": 0.197,
+            "normalStrength": 0.304,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#0E0D12",
+            "#848491",
+            "#B9B9C4",
+            "#393947",
+            "#5B596F"
+          ]
+        },
+        "warnings": [],
+        "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+      },
+      "referencePbr": {
+        "version": "1.0",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/01-graphite-actuator-clean.png",
+        "extractor": "stage1_intake/extract_pbr_evidence.py",
+        "method": "single-image pixel evidence with de-lighting estimate; not photogrammetry",
+        "usable": true,
+        "verdict": "pass",
+        "confidence": 0.909,
+        "estimatedFidelity": 0.909,
+        "targetThreshold": 0.7,
+        "hardLimit": "A single image cannot uniquely recover true albedo/roughness/normal/AO; maps are reference-derived estimates.",
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_albedo.png",
+            "url": "graphite-mechanism_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_roughness.png",
+            "url": "graphite-mechanism_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_height.png",
+            "url": "graphite-mechanism_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_normal.png",
+            "url": "graphite-mechanism_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_ao.png",
+            "url": "graphite-mechanism_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 470,
+          "sourceHeight": 330,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 0,
+            "y": 0,
+            "width": 470,
+            "height": 330
+          },
+          "mask": {
+            "backgroundColor": "#232227",
+            "backgroundNoise": 60.737,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.3417
+          },
+          "mapStats": {
+            "valueRange": 0.7222,
+            "heightP90Gradient": 0.1259,
+            "roughnessBase": 0.704,
+            "roughnessVariation": 0.197,
+            "normalStrength": 0.304,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#0E0D12",
+            "#848491",
+            "#B9B9C4",
+            "#393947",
+            "#5B596F"
+          ]
+        },
+        "warnings": []
+      },
+      "maps": {
+        "albedo": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_albedo.png",
+          "url": "graphite-mechanism_albedo.png",
+          "channel": "albedo",
+          "source": "reference-pixel-extraction"
+        },
+        "roughness": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_roughness.png",
+          "url": "graphite-mechanism_roughness.png",
+          "channel": "roughness",
+          "source": "reference-pixel-extraction"
+        },
+        "height": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_height.png",
+          "url": "graphite-mechanism_height.png",
+          "channel": "height",
+          "source": "reference-pixel-extraction"
+        },
+        "normal": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_normal.png",
+          "url": "graphite-mechanism_normal.png",
+          "channel": "normal",
+          "source": "reference-pixel-extraction"
+        },
+        "ao": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-01-graphite-actuator-clean/graphite-mechanism_ao.png",
+          "url": "graphite-mechanism_ao.png",
+          "channel": "ao",
+          "source": "reference-pixel-extraction"
+        }
+      }
+    },
+    {
+      "componentId": "palm-l",
+      "regionId": "dex3-black-elastomer",
+      "materialSpecId": "black-elastomer",
+      "hypothesis": {
+        "componentId": "palm-l",
+        "regionId": "dex3-black-elastomer",
+        "materialId": null,
+        "family": "rubber",
+        "subtype": "generic-elastomer",
+        "finish": "matte",
+        "aliases": [],
+        "confidence": 0.909,
+        "source": "vision"
+      },
+      "assignment": {
+        "materialId": "rubber.matte",
+        "status": "proceed",
+        "source": "vision",
+        "confidence": 0.909,
+        "method": "family-subtype-finish",
+        "alternatives": [],
+        "evidence": {
+          "crop": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/02-dex3-black-elastomer.png",
+            "bbox": {
+              "x": 110,
+              "y": 260,
+              "width": 450,
+              "height": 255
+            },
+            "sourceWidth": 2004,
+            "sourceHeight": 1470,
+            "loaderWarnings": [],
+            "coverage": 0.039
+          },
+          "pbr": {
+            "ok": true,
+            "verdict": "pass",
+            "confidence": 0.909,
+            "estimatedFidelity": 0.909,
+            "targetThreshold": 0.7,
+            "materialId": "black-elastomer",
+            "sourceImage": "./.img2threejs/g1-edu2/material-evidence/02-dex3-black-elastomer.png",
+            "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer",
+            "palette": [
+              "#2B2B2C",
+              "#161618",
+              "#4D4F53",
+              "#070707",
+              "#83868C"
+            ],
+            "maps": {
+              "albedo": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_albedo.png",
+                "url": "black-elastomer_albedo.png",
+                "channel": "albedo",
+                "source": "reference-pixel-extraction"
+              },
+              "roughness": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_roughness.png",
+                "url": "black-elastomer_roughness.png",
+                "channel": "roughness",
+                "source": "reference-pixel-extraction"
+              },
+              "height": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_height.png",
+                "url": "black-elastomer_height.png",
+                "channel": "height",
+                "source": "reference-pixel-extraction"
+              },
+              "normal": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_normal.png",
+                "url": "black-elastomer_normal.png",
+                "channel": "normal",
+                "source": "reference-pixel-extraction"
+              },
+              "ao": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_ao.png",
+                "url": "black-elastomer_ao.png",
+                "channel": "ao",
+                "source": "reference-pixel-extraction"
+              }
+            },
+            "diagnostics": {
+              "sourceWidth": 450,
+              "sourceHeight": 255,
+              "mapSize": 512,
+              "cropBBoxPixels": {
+                "x": 0,
+                "y": 68,
+                "width": 450,
+                "height": 187
+              },
+              "mask": {
+                "backgroundColor": "#F0F1F3",
+                "backgroundNoise": 51.981,
+                "transparentPixelFraction": 0.0,
+                "foregroundCoverage": 0.3438
+              },
+              "mapStats": {
+                "valueRange": 0.5012,
+                "heightP90Gradient": 0.06848,
+                "roughnessBase": 0.688,
+                "roughnessVariation": 0.118,
+                "normalStrength": 0.237,
+                "blurRadius": 10
+              },
+              "palette": [
+                "#2B2B2C",
+                "#161618",
+                "#4D4F53",
+                "#070707",
+                "#83868C"
+              ]
+            },
+            "warnings": [],
+            "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+          },
+          "texture": {
+            "finishClass": "brushed-steel",
+            "recipe": {
+              "metalness": 1.0,
+              "roughness": 0.35,
+              "clearcoat": 0.0,
+              "clearcoatRoughness": 0.0,
+              "transmission": 0.0,
+              "ior": 1.5,
+              "envMapIntensity": 1.0,
+              "anisotropy": 1.0,
+              "procedural": "brushed"
+            },
+            "palette": [
+              "#E5E6E9",
+              "#4E4E50",
+              "#59595B",
+              "#B4B5B7",
+              "#EBECEE"
+            ],
+            "paletteHueRisk": [],
+            "gradientAxis": "horizontal",
+            "stats": {
+              "meanLum": 148.8,
+              "meanSaturation": 0.028,
+              "gradientStrength": 0.773,
+              "mottle": 0.05,
+              "streakRatio": 1.27,
+              "hueSpread": 0.0,
+              "specularFraction": 0.502
+            }
+          }
+        },
+        "profileId": "rubber.matte",
+        "family": "rubber",
+        "subtype": "generic-elastomer",
+        "finish": "matte",
+        "renderPrior": {
+          "metalness": 0.0,
+          "roughness": 0.88,
+          "ior": 1.48
+        },
+        "requiredMaps": [
+          "map",
+          "roughnessMap",
+          "normalMap"
+        ],
+        "optionalMaps": [
+          "aoMap"
+        ],
+        "validationViews": [
+          "albedo-unlit",
+          "neutral-studio",
+          "grazing",
+          "reference-beauty"
+        ],
+        "sourceRefs": [
+          "three.mesh-standard",
+          "adobe.pbr-guide-1",
+          "google.filament-pbr",
+          "mit.material-recognition"
+        ],
+        "visualCues": [
+          "dark diffuse body",
+          "weak broad highlight",
+          "molded or grippy microtexture"
+        ]
+      },
+      "observations": [
+        "near-neutral colour response",
+        "visible meso/micro variation",
+        "strong image-space gradient; verify it is material pattern, not lighting",
+        "single-image PBR inference requires controlled render validation"
+      ],
+      "crop": {
+        "path": "./.img2threejs/g1-edu2/material-evidence/02-dex3-black-elastomer.png",
+        "bbox": {
+          "x": 110,
+          "y": 260,
+          "width": 450,
+          "height": 255
+        },
+        "sourceWidth": 2004,
+        "sourceHeight": 1470,
+        "loaderWarnings": [],
+        "coverage": 0.039
+      },
+      "textureAnalysis": {
+        "finishClass": "brushed-steel",
+        "recipe": {
+          "metalness": 1.0,
+          "roughness": 0.35,
+          "clearcoat": 0.0,
+          "clearcoatRoughness": 0.0,
+          "transmission": 0.0,
+          "ior": 1.5,
+          "envMapIntensity": 1.0,
+          "anisotropy": 1.0,
+          "procedural": "brushed"
+        },
+        "palette": [
+          "#E5E6E9",
+          "#4E4E50",
+          "#59595B",
+          "#B4B5B7",
+          "#EBECEE"
+        ],
+        "paletteHueRisk": [],
+        "gradientAxis": "horizontal",
+        "stats": {
+          "meanLum": 148.8,
+          "meanSaturation": 0.028,
+          "gradientStrength": 0.773,
+          "mottle": 0.05,
+          "streakRatio": 1.27,
+          "hueSpread": 0.0,
+          "specularFraction": 0.502
+        }
+      },
+      "pbrReport": {
+        "ok": true,
+        "verdict": "pass",
+        "confidence": 0.909,
+        "estimatedFidelity": 0.909,
+        "targetThreshold": 0.7,
+        "materialId": "black-elastomer",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/02-dex3-black-elastomer.png",
+        "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer",
+        "palette": [
+          "#2B2B2C",
+          "#161618",
+          "#4D4F53",
+          "#070707",
+          "#83868C"
+        ],
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_albedo.png",
+            "url": "black-elastomer_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_roughness.png",
+            "url": "black-elastomer_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_height.png",
+            "url": "black-elastomer_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_normal.png",
+            "url": "black-elastomer_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_ao.png",
+            "url": "black-elastomer_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 450,
+          "sourceHeight": 255,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 0,
+            "y": 68,
+            "width": 450,
+            "height": 187
+          },
+          "mask": {
+            "backgroundColor": "#F0F1F3",
+            "backgroundNoise": 51.981,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.3438
+          },
+          "mapStats": {
+            "valueRange": 0.5012,
+            "heightP90Gradient": 0.06848,
+            "roughnessBase": 0.688,
+            "roughnessVariation": 0.118,
+            "normalStrength": 0.237,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#2B2B2C",
+            "#161618",
+            "#4D4F53",
+            "#070707",
+            "#83868C"
+          ]
+        },
+        "warnings": [],
+        "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+      },
+      "referencePbr": {
+        "version": "1.0",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/02-dex3-black-elastomer.png",
+        "extractor": "stage1_intake/extract_pbr_evidence.py",
+        "method": "single-image pixel evidence with de-lighting estimate; not photogrammetry",
+        "usable": true,
+        "verdict": "pass",
+        "confidence": 0.909,
+        "estimatedFidelity": 0.909,
+        "targetThreshold": 0.7,
+        "hardLimit": "A single image cannot uniquely recover true albedo/roughness/normal/AO; maps are reference-derived estimates.",
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_albedo.png",
+            "url": "black-elastomer_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_roughness.png",
+            "url": "black-elastomer_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_height.png",
+            "url": "black-elastomer_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_normal.png",
+            "url": "black-elastomer_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_ao.png",
+            "url": "black-elastomer_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 450,
+          "sourceHeight": 255,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 0,
+            "y": 68,
+            "width": 450,
+            "height": 187
+          },
+          "mask": {
+            "backgroundColor": "#F0F1F3",
+            "backgroundNoise": 51.981,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.3438
+          },
+          "mapStats": {
+            "valueRange": 0.5012,
+            "heightP90Gradient": 0.06848,
+            "roughnessBase": 0.688,
+            "roughnessVariation": 0.118,
+            "normalStrength": 0.237,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#2B2B2C",
+            "#161618",
+            "#4D4F53",
+            "#070707",
+            "#83868C"
+          ]
+        },
+        "warnings": []
+      },
+      "maps": {
+        "albedo": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_albedo.png",
+          "url": "black-elastomer_albedo.png",
+          "channel": "albedo",
+          "source": "reference-pixel-extraction"
+        },
+        "roughness": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_roughness.png",
+          "url": "black-elastomer_roughness.png",
+          "channel": "roughness",
+          "source": "reference-pixel-extraction"
+        },
+        "height": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_height.png",
+          "url": "black-elastomer_height.png",
+          "channel": "height",
+          "source": "reference-pixel-extraction"
+        },
+        "normal": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_normal.png",
+          "url": "black-elastomer_normal.png",
+          "channel": "normal",
+          "source": "reference-pixel-extraction"
+        },
+        "ao": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-02-dex3-black-elastomer/black-elastomer_ao.png",
+          "url": "black-elastomer_ao.png",
+          "channel": "ao",
+          "source": "reference-pixel-extraction"
+        }
+      }
+    },
+    {
+      "componentId": "face-glazing",
+      "regionId": "sensor-dark-glazing",
+      "materialSpecId": "sensor-glazing",
+      "hypothesis": {
+        "componentId": "face-glazing",
+        "regionId": "sensor-dark-glazing",
+        "materialId": null,
+        "family": "glass",
+        "subtype": "clear",
+        "finish": "polished",
+        "aliases": [],
+        "confidence": 0.909,
+        "source": "vision"
+      },
+      "assignment": {
+        "materialId": "glass.clear",
+        "status": "proceed",
+        "source": "vision",
+        "confidence": 0.909,
+        "method": "family-subtype-finish",
+        "alternatives": [],
+        "evidence": {
+          "crop": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/03-sensor-dark-glazing.png",
+            "bbox": {
+              "x": 1480,
+              "y": 810,
+              "width": 270,
+              "height": 355
+            },
+            "sourceWidth": 2004,
+            "sourceHeight": 1470,
+            "loaderWarnings": [],
+            "coverage": 0.0325
+          },
+          "pbr": {
+            "ok": true,
+            "verdict": "pass",
+            "confidence": 0.909,
+            "estimatedFidelity": 0.909,
+            "targetThreshold": 0.7,
+            "materialId": "sensor-glazing",
+            "sourceImage": "./.img2threejs/g1-edu2/material-evidence/03-sensor-dark-glazing.png",
+            "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing",
+            "palette": [
+              "#353A46",
+              "#1D1F25",
+              "#5B626E",
+              "#94A5B2",
+              "#1D3568"
+            ],
+            "maps": {
+              "albedo": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_albedo.png",
+                "url": "sensor-glazing_albedo.png",
+                "channel": "albedo",
+                "source": "reference-pixel-extraction"
+              },
+              "roughness": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_roughness.png",
+                "url": "sensor-glazing_roughness.png",
+                "channel": "roughness",
+                "source": "reference-pixel-extraction"
+              },
+              "height": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_height.png",
+                "url": "sensor-glazing_height.png",
+                "channel": "height",
+                "source": "reference-pixel-extraction"
+              },
+              "normal": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_normal.png",
+                "url": "sensor-glazing_normal.png",
+                "channel": "normal",
+                "source": "reference-pixel-extraction"
+              },
+              "ao": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_ao.png",
+                "url": "sensor-glazing_ao.png",
+                "channel": "ao",
+                "source": "reference-pixel-extraction"
+              }
+            },
+            "diagnostics": {
+              "sourceWidth": 270,
+              "sourceHeight": 355,
+              "mapSize": 512,
+              "cropBBoxPixels": {
+                "x": 75,
+                "y": 8,
+                "width": 195,
+                "height": 347
+              },
+              "mask": {
+                "backgroundColor": "#F0F1F6",
+                "backgroundNoise": 27.185,
+                "transparentPixelFraction": 0.0,
+                "foregroundCoverage": 0.2737
+              },
+              "mapStats": {
+                "valueRange": 0.5877,
+                "heightP90Gradient": 0.12345,
+                "roughnessBase": 0.696,
+                "roughnessVariation": 0.198,
+                "normalStrength": 0.301,
+                "blurRadius": 10
+              },
+              "palette": [
+                "#353A46",
+                "#1D1F25",
+                "#5B626E",
+                "#94A5B2",
+                "#1D3568"
+              ]
+            },
+            "warnings": [],
+            "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+          },
+          "texture": {
+            "finishClass": "brushed-steel",
+            "recipe": {
+              "metalness": 1.0,
+              "roughness": 0.35,
+              "clearcoat": 0.0,
+              "clearcoatRoughness": 0.0,
+              "transmission": 0.0,
+              "ior": 1.5,
+              "envMapIntensity": 1.0,
+              "anisotropy": 1.0,
+              "procedural": "brushed"
+            },
+            "palette": [
+              "#DFE0E4",
+              "#F3F4F6",
+              "#919294",
+              "#797B82",
+              "#58739A"
+            ],
+            "paletteHueRisk": [
+              {
+                "stop": "#58739A",
+                "hueRisk": "blue-collapse",
+                "suggestedRgb": [
+                  154,
+                  115,
+                  88
+                ]
+              }
+            ],
+            "gradientAxis": "vertical",
+            "stats": {
+              "meanLum": 175.6,
+              "meanSaturation": 0.108,
+              "gradientStrength": 0.64,
+              "mottle": 0.082,
+              "streakRatio": 0.74,
+              "hueSpread": 0.009,
+              "specularFraction": 0.485
+            }
+          }
+        },
+        "profileId": "glass.clear",
+        "family": "glass",
+        "subtype": "clear",
+        "finish": "polished",
+        "renderPrior": {
+          "metalness": 0.0,
+          "roughness": 0.05,
+          "transmission": 1.0,
+          "ior": 1.5
+        },
+        "requiredMaps": [
+          "roughnessMap",
+          "thicknessMap"
+        ],
+        "optionalMaps": [
+          "map",
+          "normalMap",
+          "transmissionMap"
+        ],
+        "validationViews": [
+          "neutral-studio",
+          "environment-reflection",
+          "backlight-transmission",
+          "reference-beauty"
+        ],
+        "sourceRefs": [
+          "three.mesh-physical",
+          "three.pmrem",
+          "gltf.2",
+          "khronos.transmission",
+          "khronos.volume",
+          "google.filament-pbr"
+        ],
+        "visualCues": [
+          "background distortion",
+          "bright interface reflection",
+          "visible thickness or absorption"
+        ]
+      },
+      "observations": [
+        "near-neutral colour response",
+        "visible meso/micro variation",
+        "strong image-space gradient; verify it is material pattern, not lighting",
+        "single-image PBR inference requires controlled render validation"
+      ],
+      "crop": {
+        "path": "./.img2threejs/g1-edu2/material-evidence/03-sensor-dark-glazing.png",
+        "bbox": {
+          "x": 1480,
+          "y": 810,
+          "width": 270,
+          "height": 355
+        },
+        "sourceWidth": 2004,
+        "sourceHeight": 1470,
+        "loaderWarnings": [],
+        "coverage": 0.0325
+      },
+      "textureAnalysis": {
+        "finishClass": "brushed-steel",
+        "recipe": {
+          "metalness": 1.0,
+          "roughness": 0.35,
+          "clearcoat": 0.0,
+          "clearcoatRoughness": 0.0,
+          "transmission": 0.0,
+          "ior": 1.5,
+          "envMapIntensity": 1.0,
+          "anisotropy": 1.0,
+          "procedural": "brushed"
+        },
+        "palette": [
+          "#DFE0E4",
+          "#F3F4F6",
+          "#919294",
+          "#797B82",
+          "#58739A"
+        ],
+        "paletteHueRisk": [
+          {
+            "stop": "#58739A",
+            "hueRisk": "blue-collapse",
+            "suggestedRgb": [
+              154,
+              115,
+              88
+            ]
+          }
+        ],
+        "gradientAxis": "vertical",
+        "stats": {
+          "meanLum": 175.6,
+          "meanSaturation": 0.108,
+          "gradientStrength": 0.64,
+          "mottle": 0.082,
+          "streakRatio": 0.74,
+          "hueSpread": 0.009,
+          "specularFraction": 0.485
+        }
+      },
+      "pbrReport": {
+        "ok": true,
+        "verdict": "pass",
+        "confidence": 0.909,
+        "estimatedFidelity": 0.909,
+        "targetThreshold": 0.7,
+        "materialId": "sensor-glazing",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/03-sensor-dark-glazing.png",
+        "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing",
+        "palette": [
+          "#353A46",
+          "#1D1F25",
+          "#5B626E",
+          "#94A5B2",
+          "#1D3568"
+        ],
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_albedo.png",
+            "url": "sensor-glazing_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_roughness.png",
+            "url": "sensor-glazing_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_height.png",
+            "url": "sensor-glazing_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_normal.png",
+            "url": "sensor-glazing_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_ao.png",
+            "url": "sensor-glazing_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 270,
+          "sourceHeight": 355,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 75,
+            "y": 8,
+            "width": 195,
+            "height": 347
+          },
+          "mask": {
+            "backgroundColor": "#F0F1F6",
+            "backgroundNoise": 27.185,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.2737
+          },
+          "mapStats": {
+            "valueRange": 0.5877,
+            "heightP90Gradient": 0.12345,
+            "roughnessBase": 0.696,
+            "roughnessVariation": 0.198,
+            "normalStrength": 0.301,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#353A46",
+            "#1D1F25",
+            "#5B626E",
+            "#94A5B2",
+            "#1D3568"
+          ]
+        },
+        "warnings": [],
+        "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+      },
+      "referencePbr": {
+        "version": "1.0",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/03-sensor-dark-glazing.png",
+        "extractor": "stage1_intake/extract_pbr_evidence.py",
+        "method": "single-image pixel evidence with de-lighting estimate; not photogrammetry",
+        "usable": true,
+        "verdict": "pass",
+        "confidence": 0.909,
+        "estimatedFidelity": 0.909,
+        "targetThreshold": 0.7,
+        "hardLimit": "A single image cannot uniquely recover true albedo/roughness/normal/AO; maps are reference-derived estimates.",
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_albedo.png",
+            "url": "sensor-glazing_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_roughness.png",
+            "url": "sensor-glazing_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_height.png",
+            "url": "sensor-glazing_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_normal.png",
+            "url": "sensor-glazing_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_ao.png",
+            "url": "sensor-glazing_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 270,
+          "sourceHeight": 355,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 75,
+            "y": 8,
+            "width": 195,
+            "height": 347
+          },
+          "mask": {
+            "backgroundColor": "#F0F1F6",
+            "backgroundNoise": 27.185,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.2737
+          },
+          "mapStats": {
+            "valueRange": 0.5877,
+            "heightP90Gradient": 0.12345,
+            "roughnessBase": 0.696,
+            "roughnessVariation": 0.198,
+            "normalStrength": 0.301,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#353A46",
+            "#1D1F25",
+            "#5B626E",
+            "#94A5B2",
+            "#1D3568"
+          ]
+        },
+        "warnings": []
+      },
+      "maps": {
+        "albedo": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_albedo.png",
+          "url": "sensor-glazing_albedo.png",
+          "channel": "albedo",
+          "source": "reference-pixel-extraction"
+        },
+        "roughness": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_roughness.png",
+          "url": "sensor-glazing_roughness.png",
+          "channel": "roughness",
+          "source": "reference-pixel-extraction"
+        },
+        "height": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_height.png",
+          "url": "sensor-glazing_height.png",
+          "channel": "height",
+          "source": "reference-pixel-extraction"
+        },
+        "normal": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_normal.png",
+          "url": "sensor-glazing_normal.png",
+          "channel": "normal",
+          "source": "reference-pixel-extraction"
+        },
+        "ao": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-03-sensor-dark-glazing/sensor-glazing_ao.png",
+          "url": "sensor-glazing_ao.png",
+          "channel": "ao",
+          "source": "reference-pixel-extraction"
+        }
+      }
+    },
+    {
+      "componentId": "cyan-perimeter",
+      "regionId": "cyan-light-guide",
+      "materialSpecId": "cyan-emission",
+      "hypothesis": {
+        "componentId": "cyan-perimeter",
+        "regionId": "cyan-light-guide",
+        "materialId": null,
+        "family": "plastic",
+        "subtype": "generic-polymer",
+        "finish": "glossy",
+        "aliases": [],
+        "confidence": 0.831,
+        "source": "vision"
+      },
+      "assignment": {
+        "materialId": "plastic.glossy",
+        "status": "proceed",
+        "source": "vision",
+        "confidence": 0.831,
+        "method": "family-subtype-finish",
+        "alternatives": [],
+        "evidence": {
+          "crop": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/04-cyan-light-guide.png",
+            "bbox": {
+              "x": 1490,
+              "y": 925,
+              "width": 245,
+              "height": 135
+            },
+            "sourceWidth": 2004,
+            "sourceHeight": 1470,
+            "loaderWarnings": [],
+            "coverage": 0.0112
+          },
+          "pbr": {
+            "ok": true,
+            "verdict": "pass",
+            "confidence": 0.831,
+            "estimatedFidelity": 0.831,
+            "targetThreshold": 0.7,
+            "materialId": "cyan-emission",
+            "sourceImage": "./.img2threejs/g1-edu2/material-evidence/04-cyan-light-guide.png",
+            "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide",
+            "palette": [
+              "#242526",
+              "#181819",
+              "#1D1D1F",
+              "#0F0F10",
+              "#2C2D2D"
+            ],
+            "maps": {
+              "albedo": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_albedo.png",
+                "url": "cyan-emission_albedo.png",
+                "channel": "albedo",
+                "source": "reference-pixel-extraction"
+              },
+              "roughness": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_roughness.png",
+                "url": "cyan-emission_roughness.png",
+                "channel": "roughness",
+                "source": "reference-pixel-extraction"
+              },
+              "height": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_height.png",
+                "url": "cyan-emission_height.png",
+                "channel": "height",
+                "source": "reference-pixel-extraction"
+              },
+              "normal": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_normal.png",
+                "url": "cyan-emission_normal.png",
+                "channel": "normal",
+                "source": "reference-pixel-extraction"
+              },
+              "ao": {
+                "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_ao.png",
+                "url": "cyan-emission_ao.png",
+                "channel": "ao",
+                "source": "reference-pixel-extraction"
+              }
+            },
+            "diagnostics": {
+              "sourceWidth": 245,
+              "sourceHeight": 135,
+              "mapSize": 512,
+              "cropBBoxPixels": {
+                "x": 88,
+                "y": 0,
+                "width": 157,
+                "height": 135
+              },
+              "mask": {
+                "backgroundColor": "#F2F3F5",
+                "backgroundNoise": 139.793,
+                "transparentPixelFraction": 0.0,
+                "foregroundCoverage": 0.0895
+              },
+              "mapStats": {
+                "valueRange": 0.1101,
+                "heightP90Gradient": 0.11018,
+                "roughnessBase": 0.68,
+                "roughnessVariation": 0.176,
+                "normalStrength": 0.285,
+                "blurRadius": 10
+              },
+              "palette": [
+                "#242526",
+                "#181819",
+                "#1D1D1F",
+                "#0F0F10",
+                "#2C2D2D"
+              ]
+            },
+            "warnings": [
+              "low value range weakens height/roughness inference"
+            ],
+            "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+          },
+          "texture": {
+            "finishClass": "brushed-steel",
+            "recipe": {
+              "metalness": 1.0,
+              "roughness": 0.35,
+              "clearcoat": 0.0,
+              "clearcoatRoughness": 0.0,
+              "transmission": 0.0,
+              "ior": 1.5,
+              "envMapIntensity": 1.0,
+              "anisotropy": 1.0,
+              "procedural": "brushed"
+            },
+            "palette": [
+              "#8F9092",
+              "#F2F3F5",
+              "#7F7F81",
+              "#F1F2F4",
+              "#8C8E93"
+            ],
+            "paletteHueRisk": [],
+            "gradientAxis": "vertical",
+            "stats": {
+              "meanLum": 193.5,
+              "meanSaturation": 0.024,
+              "gradientStrength": 0.586,
+              "mottle": 0.097,
+              "streakRatio": 0.98,
+              "hueSpread": 0.0,
+              "specularFraction": 0.683
+            }
+          }
+        },
+        "profileId": "plastic.glossy",
+        "family": "plastic",
+        "subtype": "generic-polymer",
+        "finish": "glossy",
+        "renderPrior": {
+          "metalness": 0.0,
+          "roughness": 0.28,
+          "clearcoat": 0.2,
+          "clearcoatRoughness": 0.18,
+          "ior": 1.5
+        },
+        "requiredMaps": [
+          "map",
+          "roughnessMap"
+        ],
+        "optionalMaps": [
+          "normalMap",
+          "clearcoatMap"
+        ],
+        "validationViews": [
+          "neutral-studio",
+          "grazing",
+          "environment-reflection",
+          "reference-beauty"
+        ],
+        "sourceRefs": [
+          "three.mesh-physical",
+          "three.mesh-standard",
+          "adobe.pbr-guide-1",
+          "google.filament-pbr",
+          "mit.material-recognition"
+        ],
+        "visualCues": [
+          "untinted or light-coloured specular over coloured diffuse body",
+          "smooth molded surface"
+        ]
+      },
+      "observations": [
+        "near-neutral colour response",
+        "visible meso/micro variation",
+        "strong image-space gradient; verify it is material pattern, not lighting",
+        "single-image PBR inference requires controlled render validation"
+      ],
+      "crop": {
+        "path": "./.img2threejs/g1-edu2/material-evidence/04-cyan-light-guide.png",
+        "bbox": {
+          "x": 1490,
+          "y": 925,
+          "width": 245,
+          "height": 135
+        },
+        "sourceWidth": 2004,
+        "sourceHeight": 1470,
+        "loaderWarnings": [],
+        "coverage": 0.0112
+      },
+      "textureAnalysis": {
+        "finishClass": "brushed-steel",
+        "recipe": {
+          "metalness": 1.0,
+          "roughness": 0.35,
+          "clearcoat": 0.0,
+          "clearcoatRoughness": 0.0,
+          "transmission": 0.0,
+          "ior": 1.5,
+          "envMapIntensity": 1.0,
+          "anisotropy": 1.0,
+          "procedural": "brushed"
+        },
+        "palette": [
+          "#8F9092",
+          "#F2F3F5",
+          "#7F7F81",
+          "#F1F2F4",
+          "#8C8E93"
+        ],
+        "paletteHueRisk": [],
+        "gradientAxis": "vertical",
+        "stats": {
+          "meanLum": 193.5,
+          "meanSaturation": 0.024,
+          "gradientStrength": 0.586,
+          "mottle": 0.097,
+          "streakRatio": 0.98,
+          "hueSpread": 0.0,
+          "specularFraction": 0.683
+        }
+      },
+      "pbrReport": {
+        "ok": true,
+        "verdict": "pass",
+        "confidence": 0.831,
+        "estimatedFidelity": 0.831,
+        "targetThreshold": 0.7,
+        "materialId": "cyan-emission",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/04-cyan-light-guide.png",
+        "outDir": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide",
+        "palette": [
+          "#242526",
+          "#181819",
+          "#1D1D1F",
+          "#0F0F10",
+          "#2C2D2D"
+        ],
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_albedo.png",
+            "url": "cyan-emission_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_roughness.png",
+            "url": "cyan-emission_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_height.png",
+            "url": "cyan-emission_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_normal.png",
+            "url": "cyan-emission_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_ao.png",
+            "url": "cyan-emission_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 245,
+          "sourceHeight": 135,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 88,
+            "y": 0,
+            "width": 157,
+            "height": 135
+          },
+          "mask": {
+            "backgroundColor": "#F2F3F5",
+            "backgroundNoise": 139.793,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.0895
+          },
+          "mapStats": {
+            "valueRange": 0.1101,
+            "heightP90Gradient": 0.11018,
+            "roughnessBase": 0.68,
+            "roughnessVariation": 0.176,
+            "normalStrength": 0.285,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#242526",
+            "#181819",
+            "#1D1D1F",
+            "#0F0F10",
+            "#2C2D2D"
+          ]
+        },
+        "warnings": [
+          "low value range weakens height/roughness inference"
+        ],
+        "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+      },
+      "referencePbr": {
+        "version": "1.0",
+        "sourceImage": "./.img2threejs/g1-edu2/material-evidence/04-cyan-light-guide.png",
+        "extractor": "stage1_intake/extract_pbr_evidence.py",
+        "method": "single-image pixel evidence with de-lighting estimate; not photogrammetry",
+        "usable": true,
+        "verdict": "pass",
+        "confidence": 0.831,
+        "estimatedFidelity": 0.831,
+        "targetThreshold": 0.7,
+        "hardLimit": "A single image cannot uniquely recover true albedo/roughness/normal/AO; maps are reference-derived estimates.",
+        "maps": {
+          "albedo": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_albedo.png",
+            "url": "cyan-emission_albedo.png",
+            "channel": "albedo",
+            "source": "reference-pixel-extraction"
+          },
+          "roughness": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_roughness.png",
+            "url": "cyan-emission_roughness.png",
+            "channel": "roughness",
+            "source": "reference-pixel-extraction"
+          },
+          "height": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_height.png",
+            "url": "cyan-emission_height.png",
+            "channel": "height",
+            "source": "reference-pixel-extraction"
+          },
+          "normal": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_normal.png",
+            "url": "cyan-emission_normal.png",
+            "channel": "normal",
+            "source": "reference-pixel-extraction"
+          },
+          "ao": {
+            "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_ao.png",
+            "url": "cyan-emission_ao.png",
+            "channel": "ao",
+            "source": "reference-pixel-extraction"
+          }
+        },
+        "diagnostics": {
+          "sourceWidth": 245,
+          "sourceHeight": 135,
+          "mapSize": 512,
+          "cropBBoxPixels": {
+            "x": 88,
+            "y": 0,
+            "width": 157,
+            "height": 135
+          },
+          "mask": {
+            "backgroundColor": "#F2F3F5",
+            "backgroundNoise": 139.793,
+            "transparentPixelFraction": 0.0,
+            "foregroundCoverage": 0.0895
+          },
+          "mapStats": {
+            "valueRange": 0.1101,
+            "heightP90Gradient": 0.11018,
+            "roughnessBase": 0.68,
+            "roughnessVariation": 0.176,
+            "normalStrength": 0.285,
+            "blurRadius": 10
+          },
+          "palette": [
+            "#242526",
+            "#181819",
+            "#1D1D1F",
+            "#0F0F10",
+            "#2C2D2D"
+          ]
+        },
+        "warnings": [
+          "low value range weakens height/roughness inference"
+        ]
+      },
+      "maps": {
+        "albedo": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_albedo.png",
+          "url": "cyan-emission_albedo.png",
+          "channel": "albedo",
+          "source": "reference-pixel-extraction"
+        },
+        "roughness": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_roughness.png",
+          "url": "cyan-emission_roughness.png",
+          "channel": "roughness",
+          "source": "reference-pixel-extraction"
+        },
+        "height": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_height.png",
+          "url": "cyan-emission_height.png",
+          "channel": "height",
+          "source": "reference-pixel-extraction"
+        },
+        "normal": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_normal.png",
+          "url": "cyan-emission_normal.png",
+          "channel": "normal",
+          "source": "reference-pixel-extraction"
+        },
+        "ao": {
+          "path": "./.img2threejs/g1-edu2/material-evidence/pbr-04-cyan-light-guide/cyan-emission_ao.png",
+          "url": "cyan-emission_ao.png",
+          "channel": "ao",
+          "source": "reference-pixel-extraction"
+        }
+      }
+    }
+  ],
+  "status": "proceed",
+  "limitations": [
+    "PBR extraction is reference-derived inference, not inverse rendering.",
+    "A crop must be checked against the component visible footprint before accepting material scores."
+  ],
+  "artifact": "./.img2threejs/g1-edu2/material-analysis.json"
+}

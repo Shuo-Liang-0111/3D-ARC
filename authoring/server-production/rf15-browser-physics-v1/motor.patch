@@ -1,0 +1,36 @@
+diff --git a/simulation/g1_simulation.py b/simulation/g1_simulation.py
+--- a/simulation/g1_simulation.py
++++ b/simulation/g1_simulation.py
+@@ -14,1 +14,3 @@
+ import yaml
++
++from browser_arm_control import BrowserArmControl
+@@ -175,1 +177,2 @@
+         self.history: list[deque[np.ndarray]] = []
++        self.browser_arms = BrowserArmControl(resources)
+@@ -181,1 +184,2 @@
+     def reset(self, spawn: dict | None = None) -> None:
++        self.browser_arms.clear()
+@@ -235,1 +239,2 @@
+         self.control_mode = mode
++        self.browser_arms.clear()
+@@ -337,1 +342,2 @@
+     def _step_physics(self) -> None:
++        scripted_arms = self.browser_arms.apply(self.target_joint_pos, self.resources.model.opt.timestep)
+@@ -344,1 +350,3 @@
+         control_range = self.resources.model.actuator_ctrlrange[self.resources.robot_actuators]
++        if scripted_arms:
++            torque[scripted_arms] += self.data.qfrc_bias[self.resources.robot_dofs[scripted_arms]]
+diff --git a/simulation/mujoco_server.py b/simulation/mujoco_server.py
+--- a/simulation/mujoco_server.py
++++ b/simulation/mujoco_server.py
+@@ -165,1 +165,9 @@
++            elif message_type == "arm_command":
++                try:
++                    if simulation.control_mode != "velocity_policy":
++                        raise ValueError("F arm scripts require velocity_policy mode")
++                    simulation.browser_arms.set_targets(message.get("targets"), simulation.data.qpos[simulation.resources.robot_qpos])
++                except (TypeError, ValueError) as error:
++                    await self._send_command_error(websocket, str(error))
++                    continue
+             elif message_type == "joint_command":

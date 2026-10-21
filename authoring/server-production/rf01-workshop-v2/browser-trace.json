@@ -1,0 +1,203 @@
+[
+  {
+    "label": "初始：门关闭，照明 OFF",
+    "state": {
+      "player": {
+        "x": 0,
+        "z": 4.8,
+        "yaw": 3.141592653589793
+      },
+      "battery": {
+        "location": "ground",
+        "x": -6.8,
+        "z": -0.35
+      },
+      "powered": false,
+      "doorOpen": false,
+      "terminalOpen": false,
+      "shutterRequested": false,
+      "shutterLift": 0,
+      "enteredWorkshop": false,
+      "lightsOn": false,
+      "complete": false,
+      "failed": false,
+      "progress": 100,
+      "minimumReserve": 100,
+      "rewardedMilestones": {},
+      "motion": "idle",
+      "elapsed": 0,
+      "interactions": 0,
+      "distanceMoved": 0,
+      "lastEvent": "workshop_dark"
+    }
+  },
+  {
+    "label": "到达门外按钮",
+    "state": {
+      "player": {
+        "x": -0.6165424974169972,
+        "z": 0.020565615405757378,
+        "yaw": 3.1649230166513314
+      },
+      "battery": {
+        "location": "ground",
+        "x": -6.8,
+        "z": -0.35
+      },
+      "powered": false,
+      "doorOpen": false,
+      "terminalOpen": false,
+      "shutterRequested": false,
+      "shutterLift": 0,
+      "enteredWorkshop": false,
+      "lightsOn": false,
+      "complete": false,
+      "failed": false,
+      "progress": 80.624692414598,
+      "minimumReserve": 80.624692414598,
+      "rewardedMilestones": {},
+      "motion": "moving",
+      "elapsed": 8.029201910390169,
+      "interactions": 0,
+      "distanceMoved": 5.382029884833754,
+      "lastEvent": "workshop_dark"
+    }
+  },
+  {
+    "label": "卷帘门升起中",
+    "state": {
+      "player": {
+        "x": -0.617603682904654,
+        "z": -0.03039459604971882,
+        "yaw": 3.1683670778587603
+      },
+      "battery": {
+        "location": "ground",
+        "x": -6.8,
+        "z": -0.35
+      },
+      "powered": false,
+      "doorOpen": false,
+      "terminalOpen": false,
+      "shutterRequested": true,
+      "shutterLift": 0.15733333333333333,
+      "enteredWorkshop": false,
+      "lightsOn": false,
+      "complete": false,
+      "failed": false,
+      "progress": 83.43770428416647,
+      "minimumReserve": 80.43923666980436,
+      "rewardedMilestones": {
+        "shutter": true
+      },
+      "motion": "moving",
+      "elapsed": 8.330649598897446,
+      "interactions": 1,
+      "distanceMoved": 5.433971032175842,
+      "lastEvent": "shutter_opening"
+    }
+  },
+  {
+    "label": "已进入，照明仍 OFF",
+    "state": {
+      "player": {
+        "x": 1.544196261792895,
+        "z": -2.954980210794848,
+        "yaw": 3.2437716584836402
+      },
+      "battery": {
+        "location": "ground",
+        "x": -6.8,
+        "z": -0.35
+      },
+      "powered": false,
+      "doorOpen": false,
+      "terminalOpen": false,
+      "shutterRequested": true,
+      "shutterLift": 2.36,
+      "enteredWorkshop": true,
+      "lightsOn": false,
+      "complete": false,
+      "failed": false,
+      "progress": 63.83191099863976,
+      "minimumReserve": 63.83191099863976,
+      "rewardedMilestones": {
+        "shutter": true
+      },
+      "motion": "moving",
+      "elapsed": 24.47741322861094,
+      "interactions": 1,
+      "distanceMoved": 10.88002472259972,
+      "lastEvent": "shutter_opening"
+    }
+  },
+  {
+    "label": "到达室内开关",
+    "state": {
+      "player": {
+        "x": 3.7316836260533113,
+        "z": -5.463561850572284,
+        "yaw": 3.295140328094665
+      },
+      "battery": {
+        "location": "ground",
+        "x": -6.8,
+        "z": -0.35
+      },
+      "powered": false,
+      "doorOpen": false,
+      "terminalOpen": false,
+      "shutterRequested": true,
+      "shutterLift": 2.36,
+      "enteredWorkshop": true,
+      "lightsOn": false,
+      "complete": false,
+      "failed": false,
+      "progress": 45.627420858802125,
+      "minimumReserve": 45.627420858802125,
+      "rewardedMilestones": {
+        "shutter": true
+      },
+      "motion": "moving",
+      "elapsed": 37.89578219682405,
+      "interactions": 1,
+      "distanceMoved": 15.936827539221316,
+      "lastEvent": "shutter_opening"
+    }
+  },
+  {
+    "label": "开灯结果",
+    "state": {
+      "player": {
+        "x": 3.7316836260533113,
+        "z": -5.463561850572284,
+        "yaw": 3.295140328094665
+      },
+      "battery": {
+        "location": "ground",
+        "x": -6.8,
+        "z": -0.35
+      },
+      "powered": false,
+      "doorOpen": false,
+      "terminalOpen": false,
+      "shutterRequested": true,
+      "shutterLift": 2.36,
+      "enteredWorkshop": true,
+      "lightsOn": true,
+      "complete": true,
+      "failed": false,
+      "progress": 48.627420858802125,
+      "minimumReserve": 45.627420858802125,
+      "rewardedMilestones": {
+        "shutter": true,
+        "lights": true
+      },
+      "motion": "idle",
+      "elapsed": 37.89578219682405,
+      "interactions": 2,
+      "distanceMoved": 15.936827539221316,
+      "lastEvent": "workshop_lit"
+    }
+  }
+]

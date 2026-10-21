@@ -1,0 +1,34 @@
+{
+  "level": "RF-07",
+  "surfaces": {
+    "epoxy_floor": {
+      "source": "public/local-assets/cardinal/rf07/textures/source/epoxy_floor-basecolor.png",
+      "tileSizePixels": [
+        2048,
+        2048
+      ],
+      "maps": {
+        "baseColor": {
+          "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-basecolor.webp",
+          "bytes": 325330,
+          "sha256": "d6ba61d0cdd58fb9adb8538ab5bd84b749bcabb9330a2ae180fde0694145f0e5"
+        },
+        "normal": {
+          "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-normal.webp",
+          "bytes": 238662,
+          "sha256": "2caa5847c0fe6bd167369e9aee18296ce1a7e706ef2a36c8a5a09ffc1546c398"
+        },
+        "roughness": {
+          "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-roughness.webp",
+          "bytes": 46522,
+          "sha256": "5fc0619555111c972e56cb70f74b946cf6170a26440861a6fa75df55ab28701f"
+        },
+        "ao": {
+          "path": "public/local-assets/cardinal/rf07/textures/runtime/epoxy_floor-ao.webp",
+          "bytes": 36548,
+          "sha256": "5ab0854655b32b9d0f6adc6184706adccf0e048f35241829ded91c948367b6ba"
+        }
+      }
+    }
+  }
+}

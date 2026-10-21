@@ -1,0 +1,823 @@
+{
+  "suite": {
+    "steps": [
+      {
+        "station": "door",
+        "drive": {
+          "move": 1
+        },
+        "seconds": 1.5,
+        "blocked": true
+      },
+      {
+        "station": "grip",
+        "expect": "grip"
+      },
+      {
+        "drive": {
+          "move": 1
+        },
+        "seconds": 1.5
+      },
+      {
+        "expect": "chair_parked"
+      },
+      {
+        "station": "door",
+        "drive": {
+          "move": 1
+        },
+        "seconds": 1.5,
+        "passes": true
+      },
+      {
+        "station": "pickup:docs-1",
+        "expect": "pickup"
+      },
+      {
+        "station": "seat:doc",
+        "expect": "phone_ringing"
+      },
+      {
+        "waitFailure": true
+      }
+    ],
+    "index": 8,
+    "stage": "next",
+    "results": [
+      {
+        "step": {
+          "station": "door",
+          "drive": {
+            "move": 1
+          },
+          "seconds": 1.5,
+          "blocked": true
+        },
+        "before": {
+          "player": {
+            "x": 0,
+            "z": -0.9,
+            "yaw": 3.141592653589793
+          },
+          "contacts": 0,
+          "progress": 100,
+          "clock": 3.096900000095368,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "player": {
+            "x": 1.8581565883462833e-16,
+            "z": -1.449200000000004,
+            "yaw": 3.141592653589793
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": 0,
+              "z": -2.1,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 0,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3,
+              "z": -3.6,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "idle",
+        "phone": {
+          "status": "pending",
+          "deadline": null,
+          "remaining": 30
+        }
+      },
+      {
+        "step": {
+          "station": "grip",
+          "expect": "grip"
+        },
+        "before": {
+          "player": {
+            "x": -1.3960973510279825e-16,
+            "z": -0.9600000000000001,
+            "yaw": 3.141592653589793
+          },
+          "contacts": 0,
+          "progress": 98.17924000000002,
+          "clock": 4.626500000000003,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "type": "grip",
+          "event": "grip",
+          "error": 0.02963050774336651,
+          "revision": "rf08-office-v2-simple"
+        },
+        "phase": "push",
+        "phone": {
+          "status": "pending",
+          "deadline": null,
+          "remaining": 30
+        }
+      },
+      {
+        "step": {
+          "drive": {
+            "move": 1
+          },
+          "seconds": 1.5
+        },
+        "before": {
+          "player": {
+            "x": -1.0304717539685065e-16,
+            "z": -1.2585559569616636,
+            "yaw": 3.141592653589793
+          },
+          "contacts": 1,
+          "progress": 92.96087999999999,
+          "clock": 8.98490000009537,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "player": {
+            "x": 8.269500462982799e-17,
+            "z": -2.7752559569616606,
+            "yaw": 3.141592653589793
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": 1.8311604215991095e-16,
+              "z": -3.5952559569616604,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 0,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3,
+              "z": -3.6,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "push",
+        "phone": {
+          "status": "pending",
+          "deadline": null,
+          "remaining": 30
+        }
+      },
+      {
+        "step": {
+          "expect": "chair_parked"
+        },
+        "before": {
+          "player": {
+            "x": 8.269500462982799e-17,
+            "z": -2.7752559569616606,
+            "yaw": 3.141592653589793
+          },
+          "contacts": 1,
+          "progress": 91.14084000000003,
+          "clock": 10.514000000000005,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "type": "release",
+          "event": "chair_parked",
+          "error": 0.0036141103972209374,
+          "revision": "rf08-office-v2-simple"
+        },
+        "phase": "idle",
+        "phone": {
+          "status": "pending",
+          "deadline": null,
+          "remaining": 30
+        }
+      },
+      {
+        "step": {
+          "station": "door",
+          "drive": {
+            "move": 1
+          },
+          "seconds": 1.5,
+          "passes": true
+        },
+        "before": {
+          "player": {
+            "x": 0,
+            "z": -0.9,
+            "yaw": 3.141592653589793
+          },
+          "contacts": 2,
+          "progress": 100,
+          "clock": 12.268900000095371,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "player": {
+            "x": 1.8572993355868747e-16,
+            "z": -2.416599999999999,
+            "yaw": 3.141592653589793
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": 1.8311604215991095e-16,
+              "z": -3.5952559569616604,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 0,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3,
+              "z": -3.6,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          }
+        },
+        "phase": "idle",
+        "phone": {
+          "status": "pending",
+          "deadline": null,
+          "remaining": 30
+        }
+      },
+      {
+        "step": {
+          "station": "pickup:docs-1",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": -0.8323794316045273,
+            "z": 4.025778327993363,
+            "yaw": 6.1850105367549055
+          },
+          "contacts": 2,
+          "progress": 98.18007999999998,
+          "clock": 13.818999999999996,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "type": "pickup",
+          "item": "docs-1",
+          "event": "pickup",
+          "error": 0.030694304625573432,
+          "revision": "rf08-office-v2-simple"
+        },
+        "phase": "holding",
+        "phone": {
+          "status": "pending",
+          "deadline": null,
+          "remaining": 30
+        }
+      },
+      {
+        "step": {
+          "station": "seat:doc",
+          "expect": "phone_ringing"
+        },
+        "before": {
+          "player": {
+            "x": -2.8016583872946454,
+            "z": -2.8216715971213495,
+            "yaw": 3.436116964863836
+          },
+          "contacts": 3,
+          "progress": 100,
+          "clock": 21.791100000023825,
+          "phone": {
+            "status": "pending",
+            "deadline": null,
+            "remaining": 30
+          }
+        },
+        "result": {
+          "type": "seat",
+          "item": "docs-1",
+          "event": "phone_ringing",
+          "error": 0.03340317479201453,
+          "revision": "rf08-office-v2-simple"
+        },
+        "phase": "idle",
+        "phone": {
+          "status": "ringing",
+          "deadline": 56.803300000071516,
+          "remaining": 28.700899999976173
+        }
+      },
+      {
+        "step": {
+          "waitFailure": true
+        },
+        "before": {
+          "player": {
+            "x": -2.9580866583546257,
+            "z": -3.342071545420503,
+            "yaw": 3.6473385344103555
+          },
+          "contacts": 4,
+          "progress": 100,
+          "clock": 28.1193000000715,
+          "phone": {
+            "status": "ringing",
+            "deadline": 56.803300000071516,
+            "remaining": 28.684000000000015
+          }
+        },
+        "state": {
+          "level": "rf09-3",
+          "player": {
+            "x": -2.9580866583546257,
+            "z": -3.342071545420503,
+            "yaw": 3.6473385344103555
+          },
+          "items": {
+            "folder": {
+              "id": "folder",
+              "type": "folder",
+              "x": -10.85,
+              "y": 0.965,
+              "z": 4.4,
+              "location": "surface"
+            },
+            "tray": {
+              "id": "tray",
+              "type": "tray",
+              "x": -1.5,
+              "y": 0.965,
+              "z": 5.22,
+              "location": "surface"
+            },
+            "remote": {
+              "id": "remote",
+              "type": "remote",
+              "x": 8.85,
+              "y": 0.965,
+              "z": 3.95,
+              "location": "surface"
+            },
+            "paper": {
+              "id": "paper",
+              "type": "paper",
+              "x": 8.45,
+              "y": 0.965,
+              "z": 4.02,
+              "location": "surface"
+            },
+            "printed": {
+              "id": "printed",
+              "type": "printed",
+              "x": 6.5,
+              "y": 1.02,
+              "z": 5.03,
+              "location": "printer",
+              "available": false
+            },
+            "used": {
+              "id": "used",
+              "type": "used",
+              "x": -4.12,
+              "y": 0.79,
+              "z": -5.65,
+              "location": "surface"
+            },
+            "docs-1": {
+              "id": "docs-1",
+              "type": "documents",
+              "x": -3.15,
+              "y": 0.79,
+              "z": -3.97,
+              "location": "surface",
+              "yaw": 3.6473385344103555
+            },
+            "water-1": {
+              "id": "water-1",
+              "type": "water",
+              "x": -0.5,
+              "y": 0.965,
+              "z": 5.22,
+              "location": "surface"
+            },
+            "docs-2": {
+              "id": "docs-2",
+              "type": "documents",
+              "x": -9.940000000000001,
+              "y": 0.965,
+              "z": 4.42,
+              "location": "surface"
+            },
+            "water-2": {
+              "id": "water-2",
+              "type": "water",
+              "x": -8.82,
+              "y": 0.965,
+              "z": 4.38,
+              "location": "surface"
+            },
+            "docs-3": {
+              "id": "docs-3",
+              "type": "documents",
+              "x": -9.58,
+              "y": 0.965,
+              "z": 4.42,
+              "location": "surface"
+            },
+            "water-3": {
+              "id": "water-3",
+              "type": "water",
+              "x": -8.65,
+              "y": 0.965,
+              "z": 4.38,
+              "location": "surface"
+            },
+            "docs-4": {
+              "id": "docs-4",
+              "type": "documents",
+              "x": -9.22,
+              "y": 0.965,
+              "z": 4.42,
+              "location": "surface"
+            },
+            "water-4": {
+              "id": "water-4",
+              "type": "water",
+              "x": -8.48,
+              "y": 0.965,
+              "z": 4.38,
+              "location": "surface"
+            },
+            "water-5": {
+              "id": "water-5",
+              "type": "water",
+              "x": 9.22,
+              "y": 0.965,
+              "z": 4.03,
+              "location": "surface"
+            },
+            "water-6": {
+              "id": "water-6",
+              "type": "water",
+              "x": 9.47,
+              "y": 0.965,
+              "z": 4.03,
+              "location": "surface"
+            }
+          },
+          "chairs": {
+            "chair-a": {
+              "id": "chair-a",
+              "x": 1.8311604215991095e-16,
+              "z": -3.5952559569616604,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 0,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            },
+            "chair-b": {
+              "id": "chair-b",
+              "x": 3,
+              "z": -3.6,
+              "yaw": 3.141592653589793,
+              "target": {
+                "x": 3,
+                "z": -3.6,
+                "yaw": 3.141592653589793
+              },
+              "width": 0.6,
+              "depth": 0.62,
+              "handleY": 0.94
+            }
+          },
+          "carriedItem": null,
+          "attachment": null,
+          "seats": [
+            {
+              "id": "1",
+              "doc": "docs-1",
+              "water": null
+            }
+          ],
+          "phone": {
+            "status": "missed",
+            "deadline": 56.803300000071516,
+            "remaining": 0
+          },
+          "progress": 100,
+          "rewarded": {
+            "chair:chair-a": true,
+            "pickup:docs-1": true,
+            "seat:doc": true
+          },
+          "complete": false,
+          "failed": true,
+          "failureReason": "phone_timeout",
+          "settling": false,
+          "terminalOpen": false,
+          "elapsed": 24.832799999999764,
+          "clock": 56.81000000000058,
+          "interactions": 4,
+          "motion": "idle",
+          "lastEvent": "phone_timeout"
+        }
+      }
+    ],
+    "status": "passed",
+    "started": 42440.10000002384,
+    "before": {
+      "player": {
+        "x": -2.9580866583546257,
+        "z": -3.342071545420503,
+        "yaw": 3.6473385344103555
+      },
+      "contacts": 4,
+      "progress": 100,
+      "clock": 28.1193000000715,
+      "phone": {
+        "status": "ringing",
+        "deadline": 56.803300000071516,
+        "remaining": 28.684000000000015
+      }
+    },
+    "deadline": 102481.20000004768
+  },
+  "state": {
+    "level": "rf09-3",
+    "player": {
+      "x": -2.9580866583546257,
+      "z": -3.342071545420503,
+      "yaw": 3.6473385344103555
+    },
+    "items": {
+      "folder": {
+        "id": "folder",
+        "type": "folder",
+        "x": -10.85,
+        "y": 0.965,
+        "z": 4.4,
+        "location": "surface"
+      },
+      "tray": {
+        "id": "tray",
+        "type": "tray",
+        "x": -1.5,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "surface"
+      },
+      "remote": {
+        "id": "remote",
+        "type": "remote",
+        "x": 8.85,
+        "y": 0.965,
+        "z": 3.95,
+        "location": "surface"
+      },
+      "paper": {
+        "id": "paper",
+        "type": "paper",
+        "x": 8.45,
+        "y": 0.965,
+        "z": 4.02,
+        "location": "surface"
+      },
+      "printed": {
+        "id": "printed",
+        "type": "printed",
+        "x": 6.5,
+        "y": 1.02,
+        "z": 5.03,
+        "location": "printer",
+        "available": false
+      },
+      "used": {
+        "id": "used",
+        "type": "used",
+        "x": -4.12,
+        "y": 0.79,
+        "z": -5.65,
+        "location": "surface"
+      },
+      "docs-1": {
+        "id": "docs-1",
+        "type": "documents",
+        "x": -3.15,
+        "y": 0.79,
+        "z": -3.97,
+        "location": "surface",
+        "yaw": 3.6473385344103555
+      },
+      "water-1": {
+        "id": "water-1",
+        "type": "water",
+        "x": -0.5,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "surface"
+      },
+      "docs-2": {
+        "id": "docs-2",
+        "type": "documents",
+        "x": -9.940000000000001,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-2": {
+        "id": "water-2",
+        "type": "water",
+        "x": -8.82,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-3": {
+        "id": "docs-3",
+        "type": "documents",
+        "x": -9.58,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-3": {
+        "id": "water-3",
+        "type": "water",
+        "x": -8.65,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "docs-4": {
+        "id": "docs-4",
+        "type": "documents",
+        "x": -9.22,
+        "y": 0.965,
+        "z": 4.42,
+        "location": "surface"
+      },
+      "water-4": {
+        "id": "water-4",
+        "type": "water",
+        "x": -8.48,
+        "y": 0.965,
+        "z": 4.38,
+        "location": "surface"
+      },
+      "water-5": {
+        "id": "water-5",
+        "type": "water",
+        "x": 9.22,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      },
+      "water-6": {
+        "id": "water-6",
+        "type": "water",
+        "x": 9.47,
+        "y": 0.965,
+        "z": 4.03,
+        "location": "surface"
+      }
+    },
+    "chairs": {
+      "chair-a": {
+        "id": "chair-a",
+        "x": 1.8311604215991095e-16,
+        "z": -3.5952559569616604,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": 0,
+          "z": -3.6,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      },
+      "chair-b": {
+        "id": "chair-b",
+        "x": 3,
+        "z": -3.6,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": 3,
+          "z": -3.6,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      }
+    },
+    "carriedItem": null,
+    "attachment": null,
+    "seats": [
+      {
+        "id": "1",
+        "doc": "docs-1",
+        "water": null
+      }
+    ],
+    "phone": {
+      "status": "missed",
+      "deadline": 56.803300000071516,
+      "remaining": 0
+    },
+    "progress": 100,
+    "rewarded": {
+      "chair:chair-a": true,
+      "pickup:docs-1": true,
+      "seat:doc": true
+    },
+    "complete": false,
+    "failed": true,
+    "failureReason": "phone_timeout",
+    "settling": false,
+    "terminalOpen": false,
+    "elapsed": 24.832799999999764,
+    "clock": 56.81000000000058,
+    "interactions": 4,
+    "motion": "idle",
+    "lastEvent": "phone_timeout"
+  }
+}

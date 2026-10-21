@@ -1,0 +1,121 @@
+{
+  "revision": "rf06-series-v1",
+  "sharedBy": [
+    "rf06",
+    "rf06-2",
+    "rf06-3"
+  ],
+  "assets": [
+    {
+      "runtimePath": "public/local-assets/embodiedgen/rf06/models/runtime/rf06_final.glb",
+      "url": "/local-assets/embodiedgen/rf06/models/runtime/rf06_final.glb",
+      "bytes": 5556544,
+      "sha256": "871f8750455618df1940caf74504c2ee01eedc943c433f0e0ebb623762915d7c",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/wrench.glb",
+      "url": "/local-assets/embodiedgen/rf06/models/runtime/interactables/wrench.glb",
+      "bytes": 442936,
+      "sha256": "7213cf5d3b8f3fee6755d809b4766b448143f2af71a8fa0415c518773db7b219",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/mop.glb",
+      "url": "/local-assets/embodiedgen/rf06/models/runtime/interactables/mop.glb",
+      "bytes": 441212,
+      "sha256": "327ac0d823d3b87e372e17142db172674adca777dd93f41767bf58c8c029e8cc",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "url": "/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "bytes": 229756,
+      "sha256": "c36fac23b43e48927cc982ed97faed8fac25b56a6db0e604b1979a7bd4c99e6c",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/tool_rack.glb",
+      "url": "/local-assets/embodiedgen/rf06/models/runtime/interactables/tool_rack.glb",
+      "bytes": 673272,
+      "sha256": "13f5efe74b540d88227b3ed825bfdea49cdabf983c930c41ff14b4708e35b3f7",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "url": "/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "bytes": 199072,
+      "sha256": "ff0b1602079244a81d24103e75938ba5ed77c6fa9dbd4462dcced4ef8bedff41",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/levels/rf06/series-v1/bucket.glb",
+      "url": "/local-assets/levels/rf06/series-v1/bucket.glb",
+      "bytes": 304152,
+      "sha256": "46adbffd6999b19e7e151965a9701d2af59afe69472156072d828356de13167e",
+      "source": "Cardinal aigc_87d9148e67d34f60884ad8c7f2eaceb1, Blender normalized"
+    },
+    {
+      "runtimePath": "public/local-assets/levels/rf06/series-v1/sofa.glb",
+      "url": "/local-assets/levels/rf06/series-v1/sofa.glb",
+      "bytes": 437164,
+      "sha256": "6861287149407f9a2ee42111cc36294b345c01c8b1ec6352ca2fd7752fd1737d",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/levels/rf06/series-v1/coffee_table.glb",
+      "url": "/local-assets/levels/rf06/series-v1/coffee_table.glb",
+      "bytes": 448468,
+      "sha256": "8fe2f22242d407d408329ab5b2ecf0b10cc46e99e8b7fc70e84f38aae59f9de0",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/cardinal/rf04/textures/warm-oak-floor.png",
+      "url": "/local-assets/cardinal/rf04/textures/warm-oak-floor.png",
+      "bytes": 5453708,
+      "sha256": "65703c6967cd4a205a7b243e535864ffbc4c780c227ee39a2a47f098f1fdfba5",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/cardinal/rf04/textures/realistic-warm-plaster-wall.png",
+      "url": "/local-assets/cardinal/rf04/textures/realistic-warm-plaster-wall.png",
+      "bytes": 5563157,
+      "sha256": "962ac9718e7854c1b1361cecc9f0f7777d8c85c6f4628019f1ee3b31efbf4bd6",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+      "url": "/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+      "bytes": 8932523,
+      "sha256": "9adda573e239a007207e68b6dbe16c204196837824b9599974093d79f500bfbb",
+      "source": "Reused existing RF-06/source assets; furniture optimized without layout changes"
+    },
+    {
+      "runtimePath": "public/local-assets/levels/rf06/pest-v2/insecticide.glb",
+      "url": "/local-assets/levels/rf06/pest-v2/insecticide.glb",
+      "bytes": 270316,
+      "sha256": "7b5f904b3c987b23a1d034cd98412123d354b57571491f8f72e64cf2d2366914",
+      "source": "Cardinal aigc_4502b8541f6f4af0b8f6e69835ead0b0; normalized Blender export"
+    },
+    {
+      "runtimePath": "public/local-assets/levels/rf06/pest-v2/cockroach.glb",
+      "url": "/local-assets/levels/rf06/pest-v2/cockroach.glb",
+      "bytes": 214012,
+      "sha256": "fbe0d4ef866ec8b448e253fc7a5d227932da8645955dfaa07a95bf4301de51f0",
+      "source": "Blender procedural segmented mesh with animated leg and antenna pivots"
+    }
+  ],
+  "generationTasks": [
+    {
+      "assetId": "bucket",
+      "provider": "Cardinal",
+      "taskId": "aigc_87d9148e67d34f60884ad8c7f2eaceb1",
+      "status": "completed",
+      "regenerations": 0,
+      "request": "tools/rf06-series/requests/bucket.json",
+      "source": "./authoring/server-production/rf06-series-v1/source/bucket.glb",
+      "visualReview": "open mouth, continuous basin, upright handle; bucket-review.png"
+    }
+  ],
+  "release": "rf06-series-v1-r6"
+}

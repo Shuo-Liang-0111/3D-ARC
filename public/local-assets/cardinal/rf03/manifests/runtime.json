@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "rfId": "RF-03",
+  "productionStatus": "visual_complete",
+  "visualReview": "pass",
+  "referenceMatch": "pass",
+  "units": "meters",
+  "upAxis": "Y",
+  "source": "Cardinal image-to-3D high-highpoly",
+  "layout": {
+    "hallMeters": [
+      26,
+      4.6,
+      16
+    ],
+    "mainConveyor": {
+      "lengthMeters": 19,
+      "widthMeters": 1,
+      "beltHeightMeters": 0.82
+    },
+    "infeedMachine": "automatic west-end parcel infeed"
+  },
+  "sharedInstances": {
+    "corrugated_parcel": [
+      "red",
+      "yellow",
+      "blue"
+    ],
+    "route_roll_cage": [
+      "A-01",
+      "B-02",
+      "C-03"
+    ]
+  },
+  "assets": [
+    {
+      "id": "automatic_infeed_machine",
+      "path": "/local-assets/cardinal/rf03/models/runtime/automatic_infeed_machine.glb",
+      "bytes": 1149764,
+      "sha256": "9faf4c418b793f8ba53f4f7f517f60ac26ee11cffa68917920e67a87c728c1cc",
+      "dimensions": [
+        2.5,
+        2.04,
+        1.8
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "belt_conveyor_module",
+      "path": "/local-assets/cardinal/rf03/models/runtime/belt_conveyor_module.glb",
+      "bytes": 1156360,
+      "sha256": "0a79a91f9d7dfa69bca96695afb4191d9a5b8f20b9b2574048f0e7e51fa4fc46",
+      "dimensions": [
+        2.0,
+        1.02,
+        1.1
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "dws_scanner_gantry",
+      "path": "/local-assets/cardinal/rf03/models/runtime/dws_scanner_gantry.glb",
+      "bytes": 875564,
+      "sha256": "c0e7aaf29a78a7dfd7b7491920a58fc3d2e23eb06d2b7d71599050c1d9948258",
+      "dimensions": [
+        1.32,
+        2.85,
+        1.78
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "swing_wheel_sorter",
+      "path": "/local-assets/cardinal/rf03/models/runtime/swing_wheel_sorter.glb",
+      "bytes": 1165496,
+      "sha256": "dfc3ebdcaa5f19b99c33cebcd74b3d83609e03f0226863e0f0744e465c2a6fa5",
+      "dimensions": [
+        1.65,
+        0.95,
+        1.12
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "gravity_roller_chute",
+      "path": "/local-assets/cardinal/rf03/models/runtime/gravity_roller_chute.glb",
+      "bytes": 1441652,
+      "sha256": "83fd8c8f45818a288c417895f248524b1c2d48c669b9713f8f4b32f6aeaf5547",
+      "dimensions": [
+        1.08,
+        0.95,
+        3.0
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "route_roll_cage",
+      "path": "/local-assets/cardinal/rf03/models/runtime/route_roll_cage.glb",
+      "bytes": 1105040,
+      "sha256": "e4caa2fb620d673fd2e10aa80536a45aaa1469b20bfe5e9202844bc0d29339a2",
+      "dimensions": [
+        1.12,
+        1.72,
+        0.82
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "corrugated_parcel",
+      "path": "/local-assets/cardinal/rf03/models/runtime/corrugated_parcel.glb",
+      "bytes": 746152,
+      "sha256": "4a538f95595a0e1f2f648777586ee8d5b03a4ee3b11a24ad3dcb26383ed93bea",
+      "dimensions": [
+        0.52,
+        0.32,
+        0.38
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "dws_control_terminal",
+      "path": "/local-assets/cardinal/rf03/models/runtime/dws_control_terminal.glb",
+      "bytes": 805232,
+      "sha256": "afc9cf873019e81e0da33bc8a5621d025fb9d580dfae9efaf723726029a8322c",
+      "dimensions": [
+        0.64,
+        1.58,
+        0.62
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "industrial_electrical_cabinet",
+      "path": "/local-assets/cardinal/rf03/models/runtime/industrial_electrical_cabinet.glb",
+      "bytes": 925212,
+      "sha256": "3d1d46ed78108baf43229c14ddf6598016d1ed29484f4c0f79fe92e201697942",
+      "dimensions": [
+        0.72,
+        2.12,
+        0.72
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "palletized_carton_stack",
+      "path": "/local-assets/cardinal/rf03/models/runtime/palletized_carton_stack.glb",
+      "bytes": 1136668,
+      "sha256": "e5bcb16c98f06da7003a52a5c21821927d488383815cc7aab76bcc55e212ce1a",
+      "dimensions": [
+        1.2,
+        1.35,
+        1.0
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "fire_safety_station",
+      "path": "/local-assets/cardinal/rf03/models/runtime/fire_safety_station.glb",
+      "bytes": 977044,
+      "sha256": "cae289e314178ac956d725992298063f59d895a25474b1f14abe3e4570500d57",
+      "dimensions": [
+        0.85,
+        1.8,
+        0.35
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "industrial_led_fixture",
+      "path": "/local-assets/cardinal/rf03/models/runtime/industrial_led_fixture.glb",
+      "bytes": 831472,
+      "sha256": "61ebcf70391a3b0710bf7c42de8126f9e4983c4a82b1dc6c0291418ee6708525",
+      "dimensions": [
+        1.2,
+        0.12,
+        0.24
+      ],
+      "texturesEmbedded": true,
+      "draco": true,
+      "visualReview": "pass"
+    }
+  ],
+  "totalBytes": 12315656
+}

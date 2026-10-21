@@ -1,0 +1,34 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "packy/glm-5",
+  "provider": {
+    "packy": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "PackyAPI",
+      "options": {
+        "baseURL": "https://www.packyapi.ai/v1",
+        "apiKey": "{env:PACKY_API_KEY}"
+      },
+      "models": {
+        "glm-5": { "name": "GLM-5" },
+        "gpt-5.4": { "name": "GPT-5.4" },
+        "gpt-5.5": { "name": "GPT-5.5" },
+        "claude-sonnet-4-6": { "name": "Claude Sonnet 4.6" },
+        "claude-opus-4-6": { "name": "Claude Opus 4.6" },
+        "kimi-k2.5": { "name": "Kimi K2.5" },
+        "mimo-v2-omni": { "name": "MiMo V2 Omni" },
+        "qwen3.5-plus": { "name": "Qwen 3.5 Plus" }
+      }
+    }
+  },
+  "mcp": {
+    "arc-game": {
+      "type": "local",
+      "command": [
+        "./.tooling/node/bin/node",
+        "./tools/arc-opencode-mcp.mjs"
+      ],
+      "enabled": true
+    }
+  }
+}

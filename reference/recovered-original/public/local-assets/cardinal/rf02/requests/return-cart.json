@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready mobile library book return cart used by staff in a contemporary Chinese municipal public library. Real-world size approximately 0.86 m wide x 1.12 m high x 0.54 m deep. One compact heavy-duty cart with a dark powder-coated steel frame, three pale birch shelves with raised retaining lips, two ergonomic push handles on the back, four small swiveling rubber casters attached correctly under the frame, realistic brackets and fasteners, and light normal-use wear. Empty shelves, no books. Front facing positive Z, Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. One isolated object only. No floor, wall, room, second cart, person, robot, hands, readable text, logo, trademark, neon, UI, floating pieces, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

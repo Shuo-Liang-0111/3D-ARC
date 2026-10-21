@@ -1,0 +1,5559 @@
+{
+  "changes": [
+    {
+      "path": "server.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "integrations/opencode/opencode.json.example",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/arc-level-goals.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/rf06-series-v1-r16/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "changes": [
+        "portable-path-or-host",
+        "glb-json-metadata-only"
+      ]
+    },
+    {
+      "path": "public/rf11-clinic-series-v1-r12/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "changes": [
+        "portable-path-or-host",
+        "glb-json-metadata-only"
+      ]
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "changes": [
+        "portable-path-or-host",
+        "glb-json-metadata-only"
+      ]
+    },
+    {
+      "path": "public/rf06-series-v1-r16/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "changes": [
+        "portable-path-or-host",
+        "glb-json-metadata-only"
+      ]
+    },
+    {
+      "path": "public/rf11-clinic-series-v1-r12/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "changes": [
+        "portable-path-or-host",
+        "glb-json-metadata-only"
+      ]
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "changes": [
+        "portable-path-or-host",
+        "glb-json-metadata-only"
+      ]
+    },
+    {
+      "path": "public/rf11-clinic-series-v1-r12/local-assets/levels/rf12/kettle-v3/kettle.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf12/kettle-v3/kettle.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/rf11-clinic-series-v1-r12/local-assets/embodiedgen/rf05/models/runtime/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf05/models/runtime/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/rf11-clinic-series-v1-r12/local-assets/embodiedgen/rf01/models/runtime/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf01/models/runtime/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.2/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.6/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.3/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.7/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.5/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.4/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.8/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "public/local-assets/levels/rf15/realism-v0.2.9/manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/glb-export-report.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/object-sculpt-spec.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/material-analysis.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/usd-probe.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/review/refine-1/capture-manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-07-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-01-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-03-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-04-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-06-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-02-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-08-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-params-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/admission/g1-05-rgb.png.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": ".img2threejs/evidence/g1-official-glb-probe.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tests/arc-managed-browser.test.mjs",
+      "changes": [
+        "user-directory"
+      ]
+    },
+    {
+      "path": "tools/rf12-v2-cardinal-poll.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf01-compose-embodiedgen-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf01-compose-embodiedgen-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf01-compose-embodiedgen-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf01-compose-embodiedgen-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf01-compose-embodiedgen-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-hood-repair.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-baseline-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-baseline-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-baseline-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-baseline-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-baseline-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-blender-refine.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-browser-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-browser-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-browser-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-browser-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-browser-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/opencode-arc.sh",
+      "changes": [
+        "user-directory"
+      ]
+    },
+    {
+      "path": "tools/rf12-orient-window.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-collision-sync.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-v04-capture.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-v04-capture.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-v04-capture.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-v04-capture.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-v04-capture.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-v2-cardinal-queue.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf15-live-pose-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-full-playtest.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-full-playtest.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-full-playtest.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-full-playtest.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-full-playtest.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-release-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-release-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-release-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-release-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-release-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf13-production-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf13-production-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf13-production-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf13-production-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf13-production-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-render-audit.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf01-infeed-prepare.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-entry-services.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf01-sorting-optimize.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-blender-audit.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-surface-repair.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/arc-web-gateway.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/arc-web-gateway.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/arc-web-gateway.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/arc-web-gateway.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/arc-web-gateway.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf13-orient-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf13-orient-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf13-orient-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf13-orient-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf13-orient-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-layout-environment.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-v2-build-environment.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/arc.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/arc.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/arc.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/arc.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/arc.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf13-build-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf13-build-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf13-build-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf13-build-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf13-build-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/start-production.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/start-production.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/start-production.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/start-production.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/start-production.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf11-generate-proxies.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf11-generate-proxies.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf11-generate-proxies.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf11-generate-proxies.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf11-generate-proxies.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf09-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf09-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf09-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf09-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf09-cardinal-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf01-sorting-audit.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-build-collision.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf12-sink-repair.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf01-normalize-controls.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf01-normalize-controls.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf01-normalize-controls.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf01-normalize-controls.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf01-normalize-controls.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/arc-mujoco.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/arc-mujoco.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/arc-mujoco.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/arc-mujoco.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/arc-mujoco.service",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf13-collect-cardinal.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf13-collect-cardinal.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf13-collect-cardinal.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf13-collect-cardinal.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf13-collect-cardinal.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf05-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf05-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf05-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf05-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf05-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf05-series/optimize-assets.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf05-series/optimize-assets.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf05-series/optimize-assets.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf05-series/optimize-assets.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf05-series/optimize-assets.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-series/integrate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-series/integrate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-series/integrate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-series/integrate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-series/integrate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-series/build-release.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-series/build-release.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-series/build-release.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-series/build-release.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-series/build-release.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-series/audit-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-series/audit-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-series/audit-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-series/audit-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-series/audit-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf14-series/build-shelter.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf14-series/build-shelter.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf14-series/build-shelter.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf14-series/build-shelter.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf14-series/build-shelter.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/ik-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/package-doorframe-collision.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/package-doorframe-collision.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/package-doorframe-collision.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/package-doorframe-collision.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/package-doorframe-collision.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/build-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/build-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/build-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/build-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/build-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/build-vacuum.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/build-vacuum.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/build-vacuum.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/build-vacuum.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/build-vacuum.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/browser-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/optimize-props.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/optimize-props.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/optimize-props.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/optimize-props.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/optimize-props.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/ik-vacuum-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/refine-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/refine-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/refine-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/refine-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/refine-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/repair-doorframes.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/repair-doorframes.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/repair-doorframes.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/repair-doorframes.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/repair-doorframes.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf04-series/package-architecture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf04-series/package-architecture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf04-series/package-architecture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf04-series/package-architecture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf04-series/package-architecture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/measure-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/measure-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/measure-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/measure-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/measure-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/pest-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/pest-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/pest-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/pest-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/pest-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/build-home-v3.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/build-home-v3.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/build-home-v3.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/build-home-v3.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/build-home-v3.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/home-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/home-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/home-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/home-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/home-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/optimize-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/optimize-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/optimize-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/optimize-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/optimize-furniture.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/tool-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/tool-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/tool-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/tool-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/tool-evidence.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/build.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/prepare-bucket.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/prepare-bucket.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/prepare-bucket.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/prepare-bucket.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/prepare-bucket.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/prepare-insecticide.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/prepare-insecticide.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/prepare-insecticide.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/prepare-insecticide.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/prepare-insecticide.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf06-series/build-cockroach.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf06-series/build-cockroach.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf06-series/build-cockroach.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf06-series/build-cockroach.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf06-series/build-cockroach.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf08-office/build-candidate.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf08-office/build-candidate.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf08-office/build-candidate.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf08-office/build-candidate.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf08-office/build-candidate.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf10-series/prepare-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf10-series/prepare-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf10-series/prepare-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf10-series/prepare-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf10-series/prepare-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf10-series/build-stove.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf10-series/build-stove.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf10-series/build-stove.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf10-series/build-stove.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf10-series/build-stove.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/alarm-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/alarm-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/alarm-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/alarm-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/alarm-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/package-release.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/package-release.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/package-release.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/package-release.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/package-release.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/inspect.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/alarm-visibility-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/alarm-visibility-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/alarm-visibility-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/alarm-visibility-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/alarm-visibility-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/build.config.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/build.config.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/build.config.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/build.config.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/build.config.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/browser-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/fixture-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/fixture-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/fixture-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/fixture-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/fixture-review.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/realism-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/realism-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/realism-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/realism-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/realism-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/audit-supports.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/audit-supports.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/audit-supports.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/audit-supports.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/audit-supports.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/refine-fixtures.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/refine-fixtures.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/refine-fixtures.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/refine-fixtures.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/refine-fixtures.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/hinge-cabinet.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/hinge-cabinet.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/hinge-cabinet.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/hinge-cabinet.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/hinge-cabinet.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/online-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/online-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/online-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/online-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/online-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/gpu-check.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/audit-footprints.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/audit-footprints.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/audit-footprints.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/audit-footprints.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/audit-footprints.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/package-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/package-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/package-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/package-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/package-realism.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "tools/rf07-series/visual-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf07-series/visual-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf07-series/visual-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf07-series/visual-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf07-series/visual-qa.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/ARC_PROJECT_OVERVIEW.md",
+      "changes": [
+        "portable-path-or-host",
+        "user-directory"
+      ]
+    },
+    {
+      "path": "docs/ARC_PROJECT_OVERVIEW.html",
+      "changes": [
+        "portable-path-or-host",
+        "user-directory"
+      ]
+    },
+    {
+      "path": "docs/WEB_LEVEL_PRODUCTION_PIPELINE.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/WEB_LEVEL_PRODUCTION_PIPELINE.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/WEB_LEVEL_PRODUCTION_PIPELINE.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/WEB_LEVEL_PRODUCTION_PIPELINE.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/WEB_LEVEL_PRODUCTION_PIPELINE.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-surfaces-v7.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf02-surfaces-v7.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf02-surfaces-v7.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf02-surfaces-v7.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf02-surfaces-v7.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-surfaces-v7.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf02-surfaces-v7.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf02-surfaces-v7.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf02-surfaces-v7.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf02-surfaces-v7.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-workshop-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-workshop-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-workshop-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-workshop-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-workshop-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-v3-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-restored-carry-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-restored-carry-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-gs-return.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-fire-v4.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-fire-v4/acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-fire-v4.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-fire-v4.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-fire-v4.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf10-fire-v4.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-series-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-series-v1/rf10-series-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-series-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-series-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-series-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf10-series-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf04-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf04-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf04-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf04-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf04-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-series-v1/rf10-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf10-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-series-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-series-v2/rf10-series-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-series-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-series-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-series-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf10-series-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-interactions-v6-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf14-realism-brief.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf14-realism-brief.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf14-realism-brief.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf14-realism-brief.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf14-realism-brief.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-realism-v2.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-realism-v2.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-realism-v2.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-realism-v2.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-realism-v2.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf04-architecture-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf04-architecture-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf04-architecture-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf04-architecture-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf04-architecture-v2-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-shared-v3-design.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-shared-v3-design.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-shared-v3-design.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-shared-v3-design.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-shared-v3-design.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-tool-room-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf15-tool-room-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf15-tool-room-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf15-tool-room-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf15-tool-room-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-3-pest-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-3-pest-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-3-pest-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-3-pest-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-3-pest-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf13-realism-v04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-static.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-window-v5.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-window-v5/acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-window-v5.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-window-v5.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-window-v5.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-v4-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf04-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf04-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf04-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf04-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf04-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf05-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf05-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf05-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf05-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf05-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-asset-manifest.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-cardinal-field.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf15-cardinal-field.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf15-cardinal-field.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf15-cardinal-field.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf15-cardinal-field.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-cargo-actions-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-cargo-actions-v1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-home-realism.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-home-realism.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-home-realism.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-home-realism.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-home-realism.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-tools-r16.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-tools-r16.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-tools-r16.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-tools-r16.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-tools-r16.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-2-lighting-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-2-lighting-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-2-lighting-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-2-lighting-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-2-lighting-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-lighting-v8.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf02-lighting-v8.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf02-lighting-v8.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf02-lighting-v8.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf02-lighting-v8.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf11-clinic-series.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf11-clinic-series.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf11-clinic-series.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf11-clinic-series.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf14-realism-v04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf14-realism-v04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf14-realism-v04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf14-realism-v04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf14-realism-v04.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-power-release-correction.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-power-release-correction.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-v2-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf11-clinic-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf11-clinic-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf11-clinic-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf11-clinic-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf05-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf05-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf05-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf05-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf05-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-contact-grasp.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-kettle-v3.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-kettle-v3/source-snapshot/docs/levels/rf10-kettle-v3.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-kettle-v3.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-kettle-v3.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-kettle-v3.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf10-kettle-v3.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-lighting-v8.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf02-lighting-v8.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf02-lighting-v8.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf02-lighting-v8.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf02-lighting-v8.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf14/realism-v0.4.5/layout-detail.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf14/realism-v0.4.5/acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.3/record-final.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.3/environment.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4/tasks.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4/environment.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.2/basin-support.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.2/environment.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.3/tasks.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.3/environment.blend1",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.3/environment.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.1/environment.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.1/visual-20260909/record.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.1/visual-20260909/review.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-lighting-v8/lamp-geometry.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-lighting-v8/profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-lighting-v8/inspect-lamp.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-surfaces-v7/profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-surfaces-v7/geometry-check.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-surfaces-v7/baseline/tracked.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-plan-v3.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-profile-v3.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-acceptance-v3.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-final-record.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-browser-physics-v1/crop-grip-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-browser-physics-v1/f-integration.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-browser-physics-v1/crouch-pose-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-browser-physics-v1/stage-fixed.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-2-light-v1/report.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-2-light-v1/source.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-2-light-v1/deployment.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-interactions-v6/deployment.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-series-v2/generate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-series-v2/measure.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/unified-level-menu-v1/acceptance-report.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/unified-level-menu-v1/verify-http.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-animation-v1/commit-animation.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-animation-v1/integration.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-pickup-20261008/deployment.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/reserve.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/records.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/cartreach.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/final-record.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/cart-inspect.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v04/baseline/rf05-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v04/baseline/rf05-series-production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf06-tools-v2/inspect-wrench.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-restore-carry-20261008/deployment.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/report.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/plan.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/manifest.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/rf02-series-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/plan-final.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/rf02-series-acceptance.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/manifest-final.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-cart-v1/integration.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-series-20260921-proposal/production-plan-v0.1.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/realism-v0.4/production-record.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/realism-v0.4/tasks.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/realism-v0.4/acceptance.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/realism-v0.4/acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/realism-v0.4/review/browser.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/realism-v0.4/normalized/measurements.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/baseline-tests/robot-action.test.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf14/baseline-tests/shared-movement-controls.test.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/plan.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/online-record.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/final-record.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/acceptance.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/browser-evidence/deployed-autonomous-falls.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v03/release.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v03/evidence-index.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/activate-materials.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/activate-candidate.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/readable-labels.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/write-game.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/write-scene.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/install-wall-physics.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/rf15-normalize-prop.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/documentation.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/write-tests.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/rf15-wall-audit.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/finalize.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/rf15-build-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/scale-measure.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/normalize-prop.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/rf15-write-game.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/package-records.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/final-integration.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/rf15-write-scene.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/write-preview.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/inspect-wall-fixed.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/production-start.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/activate-wall.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/list-all.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/qa-install.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/v0.2/tasks.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf07-series-v1/measure-cabinet.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-reserve-v9/stage.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-reserve-v9/profile.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-kettle-v3/verify-assets.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-kettle-v3/inspect-geometry.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-kettle-v3/logs/build.txt",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/audit-r20.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r22-http.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r20-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/baseline.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r23-http.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/audit-refined.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r17-http.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r18-http.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r21-http.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/r19-http.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf04-series-v1/audit-home.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-sorting-v2/baseline/tools/rf01-sorting-audit.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/delivery.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/stage-task.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/motion-reserve-fix/before/docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/simple-tasks/before/docs/levels/rf08-office-series/README.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/logs/baseline-tests.txt",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf08-office-v1/layout-r25/replenishment.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v02/correction-r22/inspect.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v02/correction-r22/inspect2.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v02/evidence/complete-r9.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf06-home-v3/evidence/actions-r11.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-fire-v4/build.txt",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-workshop-v2/report.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-workshop-v2/tools.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-workshop-v2/fit.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-power-light-20261008/acceptance.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-window-v5/layout-tests.txt",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-window-v5/plan.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-window-v5/build.txt",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/release.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/reach-upright.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/reach-probe.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/cart-inspect.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/cart-inspect.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf07-realism-v2/footprint.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf07-realism-v2/receiving-audit.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf07-realism-v2/evidence/network-assets.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-shared-v3/design.patch",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf13/graybox-v0.2/review/browser-evidence.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-sorting-v4/infeed-normalization.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-sorting-v4/asset-audit.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-sorting-v4/baseline/rf01-sorting-audit.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/production-plan.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/shelter-source.blend",
+      "changes": [
+        "blend-packed-path-metadata"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/acceptance-report.md",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/hud-reserve-r6/before.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf11-clinic-series-v1/measure.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf11-clinic-series-v1/commit-stage.json",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/balance-bench-probe.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/planner-probe.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/kinematics-probe.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/full-probe.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/ik-search.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/waypoints.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15-contact-v1/balance-probe.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-sorting-v3/baseline/rf01-sorting-audit.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/server.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/server.mjs",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/opencode-arc.sh",
+      "changes": [
+        "user-directory"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/opencode-arc.sh",
+      "changes": [
+        "user-directory"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/opencode-arc.sh",
+      "changes": [
+        "user-directory"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/opencode-arc.sh",
+      "changes": [
+        "user-directory"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf08-build-dataset.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf08-build-dataset.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf08-build-dataset.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf08-build-dataset.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf08-photorealize.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf08-photorealize.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf08-photorealize.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf08-photorealize.py",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/tools/rf08-run-gaussian.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/tools/rf08-run-gaussian.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/tools/rf08-run-gaussian.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/tools/rf08-run-gaussian.sh",
+      "changes": [
+        "portable-path-or-host"
+      ]
+    },
+    {
+      "path": "vite.config.js",
+      "changes": [
+        "optional-api-proxy-environment-override"
+      ]
+    },
+    {
+      "path": ".img2threejs/g1-edu2/generated/createUnitreeG1Edu2.ts",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-2-light-v1/report.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-2-light-v1/source.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-2-light-v1/tests.tap",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-power-light-20261008/acceptance.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-shared-v3/initial-tests.tap",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-shared-v3/shared-tests.tap",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf01-workshop-v2/tests.tap",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/acceptance.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/final-record.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/online-record.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-fixes-v4/plan.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-lighting-v8/profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-acceptance-v3.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-final-record.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-plan-v3.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-redesign-v3/rf02-profile-v3.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-reserve-v9/profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/plan-final.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/plan.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/report.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-series-v1/rf02-series-acceptance.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-surfaces-v7/profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/cartreach.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/final-record.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/records.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf02-usability-v5/reserve.patch",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v03/release.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v04/baseline/rf05-series-acceptance.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v04/baseline/rf05-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/cart-inspect.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/cart-native.png",
+      "changes": [
+        "png-text-metadata-only"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-window-v5/acceptance.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf10-window-v5.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf10-window-v5.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf10-window-v5.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf10-window-v5.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf10-window-v5/plan.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/acceptance-report.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/hud-reserve-r6/before.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf12-tennis-series-v1/shelter-source.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/documentation.py",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "authoring/server-production/rf15/production-start.py",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/ARC_PROJECT_OVERVIEW.html",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/ARC_PROJECT_OVERVIEW.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-2-lighting.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-sorting-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf01-workshop-refinement.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-interactions-v6-acceptance.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-acceptance.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf02-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf04-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-series-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf07-series-server-profile.json",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf08-color-cleanup.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-gs-return.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf08-gs-return.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf08-static.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf12-tennis-series-v1.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf15-production-plan.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.3/environment.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.3/environment.blend1",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.1/environment.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.2/environment.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4.3/environment.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf13/realism-v0.4/environment.blend",
+      "changes": [
+        "blend-fixed-width-private-path-metadata"
+      ]
+    },
+    {
+      "path": "production/rf14/realism-v0.4.5/acceptance-report.md",
+      "changes": [
+        "remaining-text-host-or-path"
+      ]
+    },
+    {
+      "path": "docs/levels/rf06-series-assets.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf06/models/runtime/manifest.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "public/rf06-series-v1-r16/local-assets/embodiedgen/rf06/models/runtime/manifest.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "public/rf11-clinic-series-v1-r12/local-assets/embodiedgen/rf06/models/runtime/manifest.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf01-restored-carry-v1/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf08-office-v1-r30/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf11-clinic-series-v1-r12/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    },
+    {
+      "path": "reference/associated-source/rf12-tennis-series-v1-r7/docs/levels/rf06-series-assets.json",
+      "changes": [
+        "refresh-sanitized-asset-integrity-metadata"
+      ]
+    }
+  ],
+  "taskLogicChanged": false,
+  "portabilityChanges": [
+    "Optional ARC_API_URL override in root vite.config.js",
+    "Host-specific path examples and endpoints sanitized",
+    "Blender packed image path metadata sanitized"
+  ],
+  "excluded": [
+    "Our subsequent scene/evaluation projects",
+    ".codex",
+    ".claude",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "3DGS experiment data",
+    "Private sessions/credentials/runtime databases"
+  ]
+}

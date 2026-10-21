@@ -1,0 +1,224 @@
+{
+  "schema": "arc-rf12-cardinal/v2",
+  "level": "rf12",
+  "provider": "Cardinal",
+  "qualityPreset": "high-highpoly",
+  "operation": "cardinal_model3d_text",
+  "environment": {
+    "visual": "/local-assets/cardinal/rf12-v2/models/runtime/kitchen_environment.glb",
+    "collision": "/local-assets/cardinal/rf12-v2/models/runtime/kitchen_collision.glb",
+    "source": "procedural-metric-environment-with-cardinal-materials"
+  },
+  "assets": {
+    "range_hood": {
+      "id": "range_hood",
+      "role": "static",
+      "requestFile": "requests/range_hood.json",
+      "targetSizeMeters": [
+        1.8,
+        0.55,
+        0.48
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/range_hood.highpoly.glb",
+      "runtimeArtifact": "models/runtime/range_hood.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_8b48b82a1e3349fe8a69c4b48e7b58d2",
+      "requestId": "aigc_8b48b82a1e3349fe8a69c4b48e7b58d2",
+      "sourceBytes": 55771048,
+      "sourceSha256": "d22df9454313f2a040144aa0bc66c9f0b638acab00288d1610f6cb695a8f9897",
+      "runtimeBytes": 2004264,
+      "runtimeSha256": "946135f9c53a57626e16e79fe59d3549e873876976e3174f13e8b03e73cba28f"
+    },
+    "gas_knob": {
+      "id": "gas_knob",
+      "role": "interactive",
+      "requestFile": "requests/gas_knob.json",
+      "targetSizeMeters": [
+        0.12,
+        0.12,
+        0.08
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/gas_knob.highpoly.glb",
+      "runtimeArtifact": "models/runtime/gas_knob.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_f83a729b11554a8abb62dffc990a0404",
+      "requestId": "aigc_f83a729b11554a8abb62dffc990a0404",
+      "sourceBytes": 57245848,
+      "sourceSha256": "14e3090d911963043efda36dafe1dac9536081d8444471985fb79e58d2af5bdb",
+      "runtimeBytes": 2372452,
+      "runtimeSha256": "eb57f93c161788ec1373d6bf6fabdda133729475fb306fa61ee05e0069e61d23"
+    },
+    "gas_valve": {
+      "id": "gas_valve",
+      "role": "interactive",
+      "requestFile": "requests/gas_valve.json",
+      "targetSizeMeters": [
+        0.28,
+        0.24,
+        0.2
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/gas_valve.highpoly.glb",
+      "runtimeArtifact": "models/runtime/gas_valve.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_355ec473fe804c759c43fdd08c8dff90",
+      "requestId": "aigc_355ec473fe804c759c43fdd08c8dff90",
+      "sourceBytes": 55196920,
+      "sourceSha256": "6ade7e5361bbf0babb98317c988a88d15afacd502aece522ca2b789361e7b1eb",
+      "runtimeBytes": 2221892,
+      "runtimeSha256": "fb0d8a93b12a71bad697705fea7648ce6df0df66d3f462df2f798d481139f2a5"
+    },
+    "wet_cloth": {
+      "id": "wet_cloth",
+      "role": "interactive",
+      "requestFile": "requests/wet_cloth.json",
+      "targetSizeMeters": [
+        0.42,
+        0.04,
+        0.32
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/wet_cloth.highpoly.glb",
+      "runtimeArtifact": "models/runtime/wet_cloth.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_1bd2e812b1b146ee82d84d7d4a910777",
+      "requestId": "aigc_1bd2e812b1b146ee82d84d7d4a910777",
+      "sourceBytes": 57586456,
+      "sourceSha256": "1416557272b6192768f35d35df80d48cc17ec3b7af8883dd9af02b4c9beb4018",
+      "runtimeBytes": 2309904,
+      "runtimeSha256": "8d54c55c0b958da88a7dd5b1862f98f64ff25b177e0ae4b9f9474ec59ea4d8a6"
+    },
+    "kitchen_window": {
+      "id": "kitchen_window",
+      "role": "interactive",
+      "requestFile": "requests/kitchen_window.json",
+      "targetSizeMeters": [
+        1.35,
+        1.25,
+        0.12
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/kitchen_window.highpoly.glb",
+      "runtimeArtifact": "models/runtime/kitchen_window.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_ae7bc7c5c4de41fbaefccb340caac0f4",
+      "requestId": "aigc_ae7bc7c5c4de41fbaefccb340caac0f4",
+      "sourceBytes": 55855592,
+      "sourceSha256": "9d4bc25a126f63f80e2b10e9b06929ebe9721219bcdf715cdcfe3f0064ae48c7",
+      "runtimeBytes": 1948940,
+      "runtimeSha256": "61b31a98388fd73564637fd46e388c800616713789df8390e0dd980435346003"
+    },
+    "safety_terminal": {
+      "id": "safety_terminal",
+      "role": "interactive",
+      "requestFile": "requests/safety_terminal.json",
+      "targetSizeMeters": [
+        0.72,
+        1.08,
+        0.45
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/safety_terminal.highpoly.glb",
+      "runtimeArtifact": "models/runtime/safety_terminal.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_f56ecc83b36746b2acc676934fe5ac93",
+      "requestId": "aigc_f56ecc83b36746b2acc676934fe5ac93",
+      "sourceBytes": 56878136,
+      "sourceSha256": "dccfe9b8376a7567f5294a52b227b6d8d79b264a980898225dbf788aa3bbaecc",
+      "runtimeBytes": 2088648,
+      "runtimeSha256": "f1c4ed2fea84bab4d7e84792e3a16331a76f1bc6b60ce8d4f77c12f240009018"
+    },
+    "refrigerator": {
+      "id": "refrigerator",
+      "role": "static",
+      "requestFile": "requests/refrigerator.json",
+      "targetSizeMeters": [
+        0.92,
+        1.9,
+        0.68
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/refrigerator.highpoly.glb",
+      "runtimeArtifact": "models/runtime/refrigerator.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_3dba1acf7f5e433f85abd5f41f426e47",
+      "requestId": "aigc_3dba1acf7f5e433f85abd5f41f426e47",
+      "sourceBytes": 55775044,
+      "sourceSha256": "dda6692d228d194fe147e773201c0b7e5bee526a67d77f072de0bb063272dc5a",
+      "runtimeBytes": 1880168,
+      "runtimeSha256": "e8029542c37abb08b2751c74990ca0a0ff84d7225d548556c0aecb5993e1bd17"
+    },
+    "kitchen_sink": {
+      "id": "kitchen_sink",
+      "role": "static",
+      "requestFile": "requests/kitchen_sink.json",
+      "targetSizeMeters": [
+        0.9,
+        0.42,
+        0.68
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/kitchen_sink.highpoly.glb",
+      "runtimeArtifact": "models/runtime/kitchen_sink.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_897d15baa769426189d8ba942424ced1",
+      "requestId": "aigc_897d15baa769426189d8ba942424ced1",
+      "sourceBytes": 56512380,
+      "sourceSha256": "4065d6c1c322b57e35091711e81a5a03a5b07cb03db796e5d80e7c876364a76e",
+      "runtimeBytes": 2132164,
+      "runtimeSha256": "d04522fbf7c37eddc1095fe2a59842158745e9fad5dc59f3236e039085a22bdb"
+    },
+    "stove_module": {
+      "id": "stove_module",
+      "role": "static",
+      "requestFile": "requests/stove_module.json",
+      "targetSizeMeters": [
+        0.9,
+        0.12,
+        0.65
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/stove_module.highpoly.glb",
+      "runtimeArtifact": "models/runtime/stove_module.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_964686cd18d94f1c990416f789acb4c8",
+      "requestId": "aigc_964686cd18d94f1c990416f789acb4c8",
+      "sourceBytes": 56287976,
+      "sourceSha256": "53fe1957d52a06100046b2ff25dbe10fcd0b2f0839e0243dc9baa7a368d856b3",
+      "runtimeBytes": 1994964,
+      "runtimeSha256": "48549f66c68d7e615fd33a3953249a01f9af910fc7cbca9cc8e9ac198e61f2b5"
+    },
+    "kitchen_door_handle": {
+      "id": "kitchen_door_handle",
+      "role": "static",
+      "requestFile": "requests/kitchen_door_handle.json",
+      "targetSizeMeters": [
+        0.08,
+        0.6,
+        0.06
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/kitchen_door_handle.highpoly.glb",
+      "runtimeArtifact": "models/runtime/kitchen_door_handle.glb",
+      "status": "runtime-ready",
+      "taskId": "aigc_c4a2f27ed57c4f8497f00f1a1835f108",
+      "requestId": "aigc_c4a2f27ed57c4f8497f00f1a1835f108",
+      "sourceBytes": 55860108,
+      "sourceSha256": "3ec37a8120b7f3a70c079cd5e59299c0d19da9e40843f1c5441787c65d9403cf",
+      "runtimeBytes": 1842164,
+      "runtimeSha256": "e2142ab6a77e0776004fd6402049f9c1c6e051e6b9e0dcf63dc264978eb2c690"
+    }
+  }
+}

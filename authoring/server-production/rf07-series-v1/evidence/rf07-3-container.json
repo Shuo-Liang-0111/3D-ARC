@@ -1,0 +1,128 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": -9.267535544380769,
+      "z": 4.0859359245984805,
+      "yaw": -1.3230356944028636
+    },
+    "samples": {
+      "sampleA": {
+        "location": "storage",
+        "x": -9.25,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleB": {
+        "location": "storage",
+        "x": -7.35,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleC": {
+        "location": "storage",
+        "x": -5.45,
+        "y": 0.98,
+        "z": -6.62
+      }
+    },
+    "caseSamples": [],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.96,
+      "z": 1.78
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.98,
+      "z": 1.86
+    },
+    "containerPoint": {
+      "x": -9.82,
+      "y": 0.96,
+      "z": 4.1
+    },
+    "containerLocation": "contained",
+    "carriedItem": null,
+    "coolingModuleLocation": "prep-room",
+    "casePhase": "loading",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "container",
+      "device": "bsc-02",
+      "status": "resolved",
+      "triggerAt": 0,
+      "startedAt": 0
+    },
+    "clock": 23.759199999809272,
+    "clockStamp": 35365.199999809265,
+    "elapsed": 17.76480000000009,
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "progress": 100,
+    "motion": "idle",
+    "interactions": 2,
+    "lastEvent": "contain",
+    "rewards": [
+      "alarm"
+    ],
+    "delivered": false,
+    "doorOpen": false
+  },
+  "animation": {
+    "fps": 16.462958343726616,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "contain",
+      "event": "contain",
+      "error": 0.015986533844458136,
+      "revision": "rf07-series-v1"
+    },
+    "contacts": [
+      {
+        "type": "container",
+        "event": "container",
+        "error": 0.019649795015907096,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "contain",
+        "event": "contain",
+        "error": 0.015986533844458136,
+        "revision": "rf07-series-v1"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.5481315015738127,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.0018710650700555938,
+          "position": [
+            -9.110265328804198,
+            0.035088759014077,
+            4.201542407138006
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0008629029835695816,
+          "position": [
+            -9.13760637618709,
+            0.03511836083934429,
+            3.9007070329791107
+          ]
+        }
+      ]
+    }
+  }
+}

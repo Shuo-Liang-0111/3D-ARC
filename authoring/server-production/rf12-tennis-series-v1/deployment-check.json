@@ -1,0 +1,35 @@
+[
+  {
+    "asset": "series-v1/shelter.glb",
+    "bytes": 635456,
+    "sha256": "98b9bdb98d4963ff7053c52a8b21b35b28ecb29e6e7a7c0d5ada07262a819d4e",
+    "sourceBuildHttpIdentical": true
+  },
+  {
+    "asset": "series-v1/collision.glb",
+    "bytes": 8040,
+    "sha256": "1d3abe0feeca1125a30054f0728f6d0a76797229a52ba08e727646959bba01cd",
+    "sourceBuildHttpIdentical": true
+  },
+  {
+    "asset": "series-v1/rain.mp3",
+    "bytes": 698886,
+    "sha256": "79b7c9569edc538ccd0d7bfbedee850e2e4aefdc2b3fe9782a47b91f35cf7c44",
+    "sourceBuildHttpIdentical": true
+  },
+  {
+    "route": "rf14",
+    "release": "rf12-tennis-series-v1-r5",
+    "exactEntry": true
+  },
+  {
+    "route": "rf14-2",
+    "release": "rf12-tennis-series-v1-r5",
+    "exactEntry": true
+  },
+  {
+    "route": "rf14-3",
+    "release": "rf12-tennis-series-v1-r5",
+    "exactEntry": true
+  }
+]

@@ -1,0 +1,23 @@
+diff --git a/server.mjs b/server.mjs
+index f9aa187..d62b364 100644
+--- a/server.mjs
++++ b/server.mjs
+@@ -96,6 +106,7 @@ server.on("upgrade", (request, socket, head) => {
+     const closeBoth = () => {
+       if (client.readyState === WebSocket.OPEN) client.close();
+       if (upstream.readyState === WebSocket.OPEN) upstream.close();
++      else if (upstream.readyState === WebSocket.CONNECTING) upstream.terminate();
+     };
+     client.on("message", (message, isBinary) => {
+       if (upstream.readyState === WebSocket.OPEN) upstream.send(message, { binary: isBinary });
+@@ -105,6 +116,10 @@ server.on("upgrade", (request, socket, head) => {
+       }
+     });
+     upstream.on("open", () => {
++      if (client.readyState !== WebSocket.OPEN) {
++        upstream.close();
++        return;
++      }
+       pendingMessages.splice(0).forEach(([message, isBinary]) => upstream.send(message, { binary: isBinary }));
+     });
+     upstream.on("message", (message, isBinary) => {

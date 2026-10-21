@@ -1,0 +1,32 @@
+diff --git a/docs/levels/rf02-series-production-plan.md b/docs/levels/rf02-series-production-plan.md
+new file mode 100644
+--- /dev/null
++++ b/docs/levels/rf02-series-production-plan.md
+@@ -0,0 +1,27 @@
++# RF-02 series / shared-library-v1
++
++## Scope and authorization
++
++User requested RF-02-2 and RF-02-3, increasing difficulty, reusing and consistently improving RF-02. Dynamic shelf-book falling is requested for at least one level. No terminal clues or step navigation. Cardinal generation and deployment are authorized; do not report costs. Credentials are private, never part of this record.
++
++Authoritative host: 127.0.0.1; SSH user: chenhaoyuan; allowed root: /path/to/arc-workspace; verified project: .. Existing public Vite entry: port 4173, PID 1716789, cwd matching the project. Production static server: PID 2978983, localhost 4176, same cwd. Both current source and build are verified at delivery. Existing unrelated changes remain untouched. Task artifacts: ./authoring/server-production/rf02-series-v1.
++
++## Proposed rules
++
++- RF-02 preserves the original three-book task and original reserve rules.
++- RF-02-2: six books, two of each color, on the return table, reading tables and return cart. One book carried at a time. Match each to the shelf collection color.
++- RF-02-3: same six books and initial arrangement; after the second correct return, one of three shelf books falls. The shelf is selected randomly each reset. The incident must be recovered before success. One incident per episode is the default pending the optional initial choice.
++- Every level renders the same nine individual books and the same room/furniture collection. RF-02 treats the six added books as background; RF-02-2 treats three shelf books as background. Only mission state and book pose vary.
++- New levels show only their final objective. No route markers, highlights, navigation, dynamic location hints or catalog clues. Pickup/return/error/result feedback remains.
++- Movement costs reserve by actual distance; blocked translation also costs reserve. Idle and pure rotation are free. Invalid interactions and repeated drop/pickup cost reserve. First correct pickup/return rewards are deduplicated by item and task node; completion does not refill reserve.
++- Initial and maximum reserve: 100. Calibrate RF-02-2 to about 30–40 remaining on a verified normal route; RF-02-3 about 18–28 across all random shelf branches. Exact rates follow engine-route measurements, not guesses.
++
++## Shared scene and frozen contract
++
++Reuse current 24 × 16 m library, 3.6 m walls, 2 m entrance, 0.78 m return table, 0.75 m reading tables, 1.2+ m aisles, original spawn and three collection shelves. Inherit all camera, robot, socket, body, input, speed and action contracts. Baseline hashes and pre-existing diffs are in the task artifact directory. Existing Cardinal static GLBs and three book GLBs are reused; add a separate authoritative collision GLB sourced from the same layout, if needed. A short book-impact sound may be generated with the authorized Cardinal helper. No new room or robot assets.
++
++## Execution and verification
++
++Use immutable shared-library-v1 asset paths beneath the existing RF-02 runtime directory, already included by the build. Scripts, source, tests and documentation live in the verified project; generated media, environments, logs and baselines stay untracked. Preserve prior runtime assets. Target desktop 1080p, 30 FPS; measured results must name the actual test viewport.
++
++Required gates: original-level regression; successful full engine navigation with movement/collisions for both variants and all random branches; wrong shelf, empty interaction, repeated rewards, blocked movement, low reserve, freeze/reset and falling-book state tests; actual first/third/dual browser screenshots; visible fall/ground/recovery and complete outcomes; asset hashes and source/build/HTTP correspondence; protected-file hashes; build. Commit task-only source/docs after verification. Do not push without current user authorization (the current user-supplied repository instructions control this).

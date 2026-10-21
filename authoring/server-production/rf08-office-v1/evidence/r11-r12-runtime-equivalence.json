@@ -1,0 +1,10 @@
+[
+  {
+    "chunk": "office-runtime-*.js",
+    "sameCodeAfterBuildImportNames": true
+  },
+  {
+    "chunk": "office-qa-*.js",
+    "sameCodeAfterBuildImportNames": true
+  }
+]

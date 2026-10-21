@@ -1,0 +1,3900 @@
+[
+  {
+    "name": "bathroom_0/0.floor",
+    "tri": 20,
+    "min": [
+      -1.3093479871749878,
+      0.014140785671770573,
+      -1.6046032905578613
+    ],
+    "max": [
+      0.47499194741249084,
+      0.014140785671770573,
+      1.963856816291809
+    ],
+    "materials": [
+      "shader_ceramic_shader_staggered_tile_tile"
+    ]
+  },
+  {
+    "name": "bathroom_0/0.wall",
+    "tri": 130,
+    "min": [
+      -1.3093478679656982,
+      0.014140844345092773,
+      -1.6046032905578613
+    ],
+    "max": [
+      0.4749920964241028,
+      2.5790905952453613,
+      1.963856816291809
+    ],
+    "materials": [
+      "shader_wood_shader_hexagon_tile_tile",
+      "shader_plaster.183"
+    ]
+  },
+  {
+    "name": "BedFactory(2300198).spawn_asset(8681352)",
+    "tri": 44184,
+    "min": [
+      6.449592113494873,
+      0.014138996601104736,
+      1.3084073066711426
+    ],
+    "max": [
+      7.783583164215088,
+      1.2593746185302734,
+      3.44534969329834
+    ],
+    "materials": [
+      "shader_wood.028",
+      "shader_rough_plastic.011"
+    ]
+  },
+  {
+    "name": "BedFactory(4854695).spawn_asset(8771781)",
+    "tri": 35046,
+    "min": [
+      -3.780672550201416,
+      0.02264990657567978,
+      0.8456027507781982
+    ],
+    "max": [
+      -1.5989118814468384,
+      1.1894903182983398,
+      2.290036201477051
+    ],
+    "materials": [
+      "shader_wood.091",
+      "shader_wood.093"
+    ]
+  },
+  {
+    "name": "BedFactory(7482537).spawn_asset(9624483)",
+    "tri": 37978,
+    "min": [
+      3.0322556495666504,
+      0.01429930329322815,
+      3.7635703086853027
+    ],
+    "max": [
+      5.201092720031738,
+      1.588003396987915,
+      5.613627910614014
+    ],
+    "materials": [
+      "shader_wood.047",
+      "shader_wood.049"
+    ]
+  },
+  {
+    "name": "BedFactory(8880793).spawn_asset(8320512)",
+    "tri": 47990,
+    "min": [
+      -3.5869274139404297,
+      0.014153808355331421,
+      -1.6245821714401245
+    ],
+    "max": [
+      -1.6072884798049927,
+      1.0689623355865479,
+      -0.14689141511917114
+    ],
+    "materials": [
+      "shader_rough_plastic.055",
+      "shader_rough_plastic.056"
+    ]
+  },
+  {
+    "name": "bedroom_0/0.floor",
+    "tri": 34,
+    "min": [
+      2.8499903678894043,
+      -3.725290298461914e-09,
+      1.2453962564468384
+    ],
+    "max": [
+      9.384221076965332,
+      0.013959466479718685,
+      7.188941955566406
+    ],
+    "materials": [
+      "shader_ceramic_shader_hexagon_tile_tile.001"
+    ]
+  },
+  {
+    "name": "bedroom_0/0.wall",
+    "tri": 232,
+    "min": [
+      2.849989652633667,
+      0.0,
+      1.1296260356903076
+    ],
+    "max": [
+      9.499991416931152,
+      2.5933499336242676,
+      7.304715156555176
+    ],
+    "materials": [
+      "shader_ceramic_shader_rectangle_tile_tile",
+      "shader_dark_art.029"
+    ]
+  },
+  {
+    "name": "bedroom_0/1.floor",
+    "tri": 48,
+    "min": [
+      -8.909435272216797,
+      0.004442946054041386,
+      -3.0296316146850586
+    ],
+    "max": [
+      -1.5407546758651733,
+      0.0140363909304142,
+      4.454627513885498
+    ],
+    "materials": [
+      "shader_wood_shader_staggered_tile_tile.001"
+    ]
+  },
+  {
+    "name": "bedroom_0/1.wall",
+    "tri": 388,
+    "min": [
+      -9.024782180786133,
+      0.004442930221557617,
+      -3.1453747749328613
+    ],
+    "max": [
+      -1.5407538414001465,
+      2.5888047218322754,
+      4.45462703704834
+    ],
+    "materials": [
+      "shader_plaster.179",
+      "shader_plaster.184"
+    ]
+  },
+  {
+    "name": "BlanketFactory(2300198).spawn_asset(8681352)",
+    "tri": 36864,
+    "min": [
+      6.461729049682617,
+      0.678987979888916,
+      2.2772722244262695
+    ],
+    "max": [
+      7.746023178100586,
+      0.8554480671882629,
+      2.855961561203003
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.025"
+    ]
+  },
+  {
+    "name": "BlanketFactory(4854695).spawn_asset(8771781)",
+    "tri": 24000,
+    "min": [
+      -2.8318846225738525,
+      0.23292700946331024,
+      0.7784751057624817
+    ],
+    "max": [
+      -1.5475417375564575,
+      0.670352041721344,
+      2.3344950675964355
+    ],
+    "materials": [
+      "shader_coarse_knit_fabric.034"
+    ]
+  },
+  {
+    "name": "BlanketFactory(4854695).spawn_asset(8771781).001",
+    "tri": 38912,
+    "min": [
+      -3.208345890045166,
+      0.12697923183441162,
+      0.7402819395065308
+    ],
+    "max": [
+      -2.5238654613494873,
+      0.6823002099990845,
+      2.3729522228240967
+    ],
+    "materials": [
+      "shader_art_composite.018"
+    ]
+  },
+  {
+    "name": "BlanketFactory(7482537).spawn_asset(9624483)",
+    "tri": 24000,
+    "min": [
+      3.425368070602417,
+      0.3792651891708374,
+      3.6969151496887207
+    ],
+    "max": [
+      5.262838840484619,
+      1.117491602897644,
+      5.72175407409668
+    ],
+    "materials": [
+      "shader_coarse_knit_fabric.033"
+    ]
+  },
+  {
+    "name": "BlanketFactory(7482537).spawn_asset(9624483).001",
+    "tri": 32768,
+    "min": [
+      3.8452980518341064,
+      0.009337574243545532,
+      3.7068557739257812
+    ],
+    "max": [
+      4.757942199707031,
+      0.904340386390686,
+      5.6864471435546875
+    ],
+    "materials": [
+      "shader_leather.005"
+    ]
+  },
+  {
+    "name": "BlanketFactory(8880793).spawn_asset(8320512)",
+    "tri": 38912,
+    "min": [
+      -2.852463960647583,
+      0.7853493690490723,
+      -1.3964935541152954
+    ],
+    "max": [
+      -2.475856304168701,
+      1.0777921676635742,
+      -0.2502998113632202
+    ],
+    "materials": [
+      "shader_coarse_knit_fabric.035"
+    ]
+  },
+  {
+    "name": "BookColumnFactory(3734283).spawn_asset(9163282)",
+    "tri": 744,
+    "min": [
+      -0.9213845133781433,
+      0.5230976343154907,
+      1.6297504901885986
+    ],
+    "max": [
+      -0.7254231572151184,
+      0.7643976211547852,
+      1.7865961790084839
+    ],
+    "materials": [
+      "shader_plaster.015",
+      "shader_text.074",
+      "shader_plaster.016",
+      "shader_text.075",
+      "shader_plaster.017",
+      "shader_plaster.018",
+      "shader_plaster.019",
+      "shader_plaster.020",
+      "shader_text.076",
+      "shader_plaster.021",
+      "shader_plaster.022",
+      "shader_plaster.023",
+      "shader_plaster.024",
+      "shader_plaster.025"
+    ]
+  },
+  {
+    "name": "BookColumnFactory(4249080).spawn_asset(5423123)",
+    "tri": 666,
+    "min": [
+      -0.8575736284255981,
+      1.4986525774002075,
+      1.603554368019104
+    ],
+    "max": [
+      -0.6935074925422668,
+      1.7705885171890259,
+      1.7696903944015503
+    ],
+    "materials": [
+      "shader_plaster.004",
+      "shader_text.073",
+      "shader_plaster.005",
+      "shader_text.072",
+      "shader_plaster.006",
+      "shader_plaster.007",
+      "shader_plaster.008",
+      "shader_plaster.009",
+      "shader_plaster.010",
+      "shader_plaster.011",
+      "shader_plaster.012",
+      "shader_plaster.013",
+      "shader_plaster.014"
+    ]
+  },
+  {
+    "name": "BookColumnFactory(6457158).spawn_asset(4569339)",
+    "tri": 198,
+    "min": [
+      4.767772197723389,
+      0.09010938555002213,
+      1.3865666389465332
+    ],
+    "max": [
+      4.9477715492248535,
+      0.35553935170173645,
+      1.5554839372634888
+    ],
+    "materials": [
+      "shader_plaster.038",
+      "shader_text.133",
+      "shader_plaster.039",
+      "shader_plaster.040",
+      "shader_text.132",
+      "shader_plaster.041",
+      "shader_plaster.042",
+      "shader_plaster.043",
+      "shader_plaster.044",
+      "shader_plaster.045",
+      "shader_plaster.046",
+      "shader_plaster.047",
+      "shader_plaster.048"
+    ]
+  },
+  {
+    "name": "BookColumnFactory(7132576).spawn_asset(5070186)",
+    "tri": 960,
+    "min": [
+      6.995964527130127,
+      0.7607059478759766,
+      -1.4846832752227783
+    ],
+    "max": [
+      7.209893226623535,
+      1.0359156131744385,
+      -1.2785489559173584
+    ],
+    "materials": [
+      "shader_plaster.150",
+      "shader_text.305",
+      "shader_plaster.151",
+      "shader_plaster.152",
+      "shader_plaster.153",
+      "shader_plaster.154",
+      "shader_plaster.155",
+      "shader_plaster.156",
+      "shader_plaster.157",
+      "shader_plaster.158",
+      "shader_plaster.159"
+    ]
+  },
+  {
+    "name": "BookColumnFactory(7602687).spawn_asset(4603018)",
+    "tri": 1182,
+    "min": [
+      4.862520694732666,
+      1.0949538946151733,
+      1.363752007484436
+    ],
+    "max": [
+      5.148951530456543,
+      1.3654018640518188,
+      1.5412049293518066
+    ],
+    "materials": [
+      "shader_plaster.049",
+      "shader_text.138",
+      "shader_plaster.050",
+      "shader_plaster.051",
+      "shader_text.136",
+      "shader_plaster.052",
+      "shader_plaster.053",
+      "shader_plaster.054",
+      "shader_text.137",
+      "shader_plaster.055",
+      "shader_plaster.056",
+      "shader_plaster.057",
+      "shader_plaster.058",
+      "shader_plaster.059",
+      "shader_plaster.060",
+      "shader_plaster.061",
+      "shader_plaster.062",
+      "shader_plaster.063",
+      "shader_plaster.064",
+      "shader_plaster.065",
+      "shader_plaster.066"
+    ]
+  },
+  {
+    "name": "BookColumnFactory(8630195).spawn_asset(232501)",
+    "tri": 1008,
+    "min": [
+      -1.8747092485427856,
+      0.13999608159065247,
+      -2.6172986030578613
+    ],
+    "max": [
+      -1.7169171571731567,
+      0.37009483575820923,
+      -2.3796000480651855
+    ],
+    "materials": [
+      "shader_plaster.105",
+      "shader_text.182",
+      "shader_plaster.106",
+      "shader_text.183",
+      "shader_plaster.107",
+      "shader_plaster.108",
+      "shader_text.184",
+      "shader_plaster.109",
+      "shader_plaster.110",
+      "shader_plaster.111",
+      "shader_plaster.112",
+      "shader_plaster.113",
+      "shader_plaster.114",
+      "shader_plaster.115",
+      "shader_plaster.116",
+      "shader_plaster.117",
+      "shader_plaster.118",
+      "shader_plaster.119",
+      "shader_plaster.120",
+      "shader_plaster.121"
+    ]
+  },
+  {
+    "name": "BookStackFactory(1490004).spawn_asset(5147471)",
+    "tri": 672,
+    "min": [
+      -0.4969199001789093,
+      1.4986525774002075,
+      1.5735784769058228
+    ],
+    "max": [
+      -0.31254589557647705,
+      1.6180955171585083,
+      1.880581021308899
+    ],
+    "materials": [
+      "shader_plaster.026",
+      "shader_text.080",
+      "shader_plaster.027",
+      "shader_plaster.028",
+      "shader_plaster.029",
+      "shader_plaster.030",
+      "shader_plaster.031",
+      "shader_plaster.032"
+    ]
+  },
+  {
+    "name": "BookStackFactory(1568207).spawn_asset(7770532)",
+    "tri": 90,
+    "min": [
+      -4.314809322357178,
+      0.9044784307479858,
+      4.046492576599121
+    ],
+    "max": [
+      -4.097639560699463,
+      1.0037246942520142,
+      4.21539831161499
+    ],
+    "materials": [
+      "shader_plaster.137",
+      "shader_text.210",
+      "shader_plaster.138",
+      "shader_plaster.139",
+      "shader_plaster.140",
+      "shader_plaster.141"
+    ]
+  },
+  {
+    "name": "BookStackFactory(1712391).spawn_asset(4581569)",
+    "tri": 1056,
+    "min": [
+      6.828899383544922,
+      0.4370645582675934,
+      -1.4638105630874634
+    ],
+    "max": [
+      6.982140064239502,
+      0.6151680946350098,
+      -1.253846526145935
+    ],
+    "materials": [
+      "shader_plaster.160",
+      "shader_text.319",
+      "shader_plaster.161",
+      "shader_plaster.162",
+      "shader_plaster.163",
+      "shader_plaster.164",
+      "shader_plaster.165",
+      "shader_plaster.166",
+      "shader_plaster.167",
+      "shader_plaster.168",
+      "shader_plaster.169",
+      "shader_plaster.170"
+    ]
+  },
+  {
+    "name": "BookStackFactory(2965399).spawn_asset(632369)",
+    "tri": 378,
+    "min": [
+      -1.8020243644714355,
+      0.4403321444988251,
+      -2.4889519214630127
+    ],
+    "max": [
+      -1.6325503587722778,
+      0.5760125517845154,
+      -2.199270725250244
+    ],
+    "materials": [
+      "shader_plaster.122",
+      "shader_text.191",
+      "shader_plaster.123",
+      "shader_plaster.124",
+      "shader_plaster.125",
+      "shader_text.190",
+      "shader_plaster.126",
+      "shader_plaster.127",
+      "shader_text.192",
+      "shader_plaster.128",
+      "shader_plaster.129"
+    ]
+  },
+  {
+    "name": "BookStackFactory(2981707).spawn_asset(4431652)",
+    "tri": 204,
+    "min": [
+      4.7041826248168945,
+      0.4250575006008148,
+      1.3656977415084839
+    ],
+    "max": [
+      4.974298477172852,
+      0.556585431098938,
+      1.5373663902282715
+    ],
+    "materials": [
+      "shader_plaster.067",
+      "shader_text.164",
+      "shader_plaster.068",
+      "shader_text.163",
+      "shader_plaster.069",
+      "shader_plaster.070",
+      "shader_text.165",
+      "shader_plaster.071",
+      "shader_plaster.072",
+      "shader_plaster.073"
+    ]
+  },
+  {
+    "name": "BookStackFactory(3780866).spawn_asset(4945701)",
+    "tri": 360,
+    "min": [
+      -4.2259721755981445,
+      0.11298703402280807,
+      4.042224407196045
+    ],
+    "max": [
+      -3.9605419635772705,
+      0.2418372631072998,
+      4.211178302764893
+    ],
+    "materials": [
+      "shader_plaster.130",
+      "shader_text.202",
+      "shader_plaster.131",
+      "shader_text.203",
+      "shader_plaster.132",
+      "shader_plaster.133",
+      "shader_plaster.134",
+      "shader_plaster.135",
+      "shader_plaster.136"
+    ]
+  },
+  {
+    "name": "BookStackFactory(5140064).spawn_asset(4564909)",
+    "tri": 90,
+    "min": [
+      -0.3231174349784851,
+      0.419290691614151,
+      -1.4804660081863403
+    ],
+    "max": [
+      -0.031807657331228256,
+      0.4780931770801544,
+      -1.2431222200393677
+    ],
+    "materials": [
+      "shader_plaster.033",
+      "shader_text.085",
+      "shader_plaster.034",
+      "shader_plaster.035",
+      "shader_plaster.036",
+      "shader_plaster.037"
+    ]
+  },
+  {
+    "name": "BookStackFactory(5260787).spawn_asset(6399350)",
+    "tri": 672,
+    "min": [
+      5.674285411834717,
+      0.42769160866737366,
+      1.4052540063858032
+    ],
+    "max": [
+      5.907905101776123,
+      0.5444372892379761,
+      1.5582627058029175
+    ],
+    "materials": [
+      "shader_plaster.098",
+      "shader_text.178",
+      "shader_plaster.099",
+      "shader_plaster.100",
+      "shader_plaster.101",
+      "shader_plaster.102",
+      "shader_plaster.103",
+      "shader_plaster.104"
+    ]
+  },
+  {
+    "name": "BookStackFactory(571753).spawn_asset(1955268)",
+    "tri": 1344,
+    "min": [
+      5.829473495483398,
+      1.6851965188980103,
+      1.3501635789871216
+    ],
+    "max": [
+      6.080592155456543,
+      1.8966313600540161,
+      1.5033979415893555
+    ],
+    "materials": [
+      "shader_plaster.074",
+      "shader_text.172",
+      "shader_plaster.075",
+      "shader_plaster.076",
+      "shader_plaster.077",
+      "shader_plaster.078",
+      "shader_plaster.079",
+      "shader_plaster.080",
+      "shader_plaster.081",
+      "shader_plaster.082",
+      "shader_plaster.083",
+      "shader_plaster.084",
+      "shader_plaster.085",
+      "shader_plaster.086",
+      "shader_plaster.087"
+    ]
+  },
+  {
+    "name": "BookStackFactory(6202257).spawn_asset(9499020)",
+    "tri": 768,
+    "min": [
+      -1.0804436206817627,
+      0.11031034588813782,
+      -4.068023204803467
+    ],
+    "max": [
+      -0.9004569053649902,
+      0.25695735216140747,
+      -3.7758090496063232
+    ],
+    "materials": [
+      "shader_plaster.142",
+      "shader_text.279",
+      "shader_plaster.143",
+      "shader_plaster.144",
+      "shader_plaster.145",
+      "shader_plaster.146",
+      "shader_plaster.147",
+      "shader_plaster.148",
+      "shader_plaster.149"
+    ]
+  },
+  {
+    "name": "BookStackFactory(8406766).spawn_asset(7679551)",
+    "tri": 180,
+    "min": [
+      5.507590293884277,
+      1.6851965188980103,
+      1.3708021640777588
+    ],
+    "max": [
+      5.724760055541992,
+      1.8563024997711182,
+      1.5397077798843384
+    ],
+    "materials": [
+      "shader_plaster.088",
+      "shader_text.177",
+      "shader_plaster.089",
+      "shader_plaster.090",
+      "shader_plaster.091",
+      "shader_plaster.092",
+      "shader_plaster.093",
+      "shader_text.176",
+      "shader_plaster.094",
+      "shader_plaster.095",
+      "shader_plaster.096",
+      "shader_plaster.097"
+    ]
+  },
+  {
+    "name": "BottleFactory(3101776).spawn_asset(7007391)",
+    "tri": 35584,
+    "min": [
+      -0.40673956274986267,
+      1.0321409702301025,
+      -1.3553045988082886
+    ],
+    "max": [
+      -0.31917473673820496,
+      1.2162081003189087,
+      -1.2677396535873413
+    ],
+    "materials": [
+      "shader_rough_plastic.195",
+      "shader_text.086",
+      "shader_metal.108"
+    ]
+  },
+  {
+    "name": "BottleFactory(4034973).spawn_asset(3506947)",
+    "tri": 46968,
+    "min": [
+      4.154410362243652,
+      0.46137329936027527,
+      -2.30135440826416
+    ],
+    "max": [
+      4.257597923278809,
+      0.6756911277770996,
+      -2.198167324066162
+    ],
+    "materials": [
+      "shader_rough_plastic.196",
+      "shader_text.285",
+      "shader_brushed_metal.080"
+    ]
+  },
+  {
+    "name": "BottleFactory(4537331).spawn_asset(6420130)",
+    "tri": 31368,
+    "min": [
+      4.022319316864014,
+      1.1625778675079346,
+      -2.469987630844116
+    ],
+    "max": [
+      4.107069492340088,
+      1.3393445014953613,
+      -2.385236978530884
+    ],
+    "materials": [
+      "shader_rough_plastic.198",
+      "shader_text.303",
+      "shader_metal.114"
+    ]
+  },
+  {
+    "name": "BottleFactory(5059037).spawn_asset(2507595)",
+    "tri": 48000,
+    "min": [
+      9.123549461364746,
+      1.159097671508789,
+      -7.086023330688477
+    ],
+    "max": [
+      9.236571311950684,
+      1.3950870037078857,
+      -6.973001480102539
+    ],
+    "materials": [
+      "shader_rough_plastic.197",
+      "shader_text.301",
+      "shader_metal.113"
+    ]
+  },
+  {
+    "name": "BottleFactory(628540).spawn_asset(2172598)",
+    "tri": 23288,
+    "min": [
+      -1.0379611253738403,
+      1.2550609111785889,
+      -1.6694977283477783
+    ],
+    "max": [
+      -0.9806678295135498,
+      1.4343886375427246,
+      -1.6122044324874878
+    ],
+    "materials": [
+      "shader_rough_plastic.191",
+      "shader_text.065",
+      "shader_brushed_metal.078"
+    ]
+  },
+  {
+    "name": "BottleFactory(8180256).spawn_asset(5017928)",
+    "tri": 21288,
+    "min": [
+      -0.2144659161567688,
+      0.11286557465791702,
+      -1.2875487804412842
+    ],
+    "max": [
+      -0.1623084843158722,
+      0.2729869484901428,
+      -1.23539137840271
+    ],
+    "materials": [
+      "shader_rough_plastic.193",
+      "shader_text.082",
+      "shader_brushed_metal.079"
+    ]
+  },
+  {
+    "name": "BottleFactory(9076703).spawn_asset(9354890)",
+    "tri": 22088,
+    "min": [
+      -1.1047285795211792,
+      1.2550609111785889,
+      -1.4935842752456665
+    ],
+    "max": [
+      -1.0464527606964111,
+      1.4136911630630493,
+      -1.4353084564208984
+    ],
+    "materials": [
+      "shader_translucent_plastic.120",
+      "shader_text.049",
+      "shader_metal.106"
+    ]
+  },
+  {
+    "name": "BottleFactory(9693584).spawn_asset(8755106)",
+    "tri": 45416,
+    "min": [
+      -0.31996721029281616,
+      0.7257158160209656,
+      -1.3672475814819336
+    ],
+    "max": [
+      -0.21978813409805298,
+      0.9401094317436218,
+      -1.2670685052871704
+    ],
+    "materials": [
+      "shader_rough_plastic.194",
+      "shader_text.083",
+      "shader_grained_metal.084"
+    ]
+  },
+  {
+    "name": "BottleFactory(9840993).spawn_asset(891895)",
+    "tri": 48000,
+    "min": [
+      4.143823623657227,
+      0.46137329936027527,
+      -2.431148052215576
+    ],
+    "max": [
+      4.249189376831055,
+      0.6940135359764099,
+      -2.325782060623169
+    ],
+    "materials": [
+      "shader_translucent_plastic.123",
+      "shader_text.284",
+      "shader_galvanized_metal.064"
+    ]
+  },
+  {
+    "name": "BottleFactory(9896490).spawn_asset(1320550)",
+    "tri": 29552,
+    "min": [
+      -0.2784208655357361,
+      0.5230976343154907,
+      1.7291486263275146
+    ],
+    "max": [
+      -0.20549122989177704,
+      0.7053551077842712,
+      1.8020782470703125
+    ],
+    "materials": [
+      "shader_rough_plastic.192",
+      "shader_text.081",
+      "shader_galvanized_metal.063"
+    ]
+  },
+  {
+    "name": "BowlFactory(5925125).spawn_asset(8014730)",
+    "tri": 42080,
+    "min": [
+      -1.1446291208267212,
+      1.4372609853744507,
+      -2.1842362880706787
+    ],
+    "max": [
+      -0.9786716103553772,
+      1.5654443502426147,
+      -2.0182785987854004
+    ],
+    "materials": [
+      "shader_glass.101"
+    ]
+  },
+  {
+    "name": "BoxComforterFactory(8880793).spawn_asset(8320512)",
+    "tri": 23999,
+    "min": [
+      -3.973672389984131,
+      0.41233131289482117,
+      -1.7215880155563354
+    ],
+    "max": [
+      -2.1802515983581543,
+      1.0702760219573975,
+      0.20773160457611084
+    ],
+    "materials": [
+      "shader_art_composite.020"
+    ]
+  },
+  {
+    "name": "CellShelfFactory(529396).spawn_asset(337718)",
+    "tri": 1144,
+    "min": [
+      -1.2432154417037964,
+      0.014140911400318146,
+      -2.8424978256225586
+    ],
+    "max": [
+      -0.8688403367996216,
+      1.4396331310272217,
+      -1.8719407320022583
+    ],
+    "materials": [
+      "shader_metal.065",
+      "shader_shelves_wood.017"
+    ]
+  },
+  {
+    "name": "CellShelfFactory(8661459).spawn_asset(8835674)",
+    "tri": 1144,
+    "min": [
+      -1.122450590133667,
+      0.014140799641609192,
+      1.5826811790466309
+    ],
+    "max": [
+      -0.11021339893341064,
+      1.4991414546966553,
+      1.897833228111267
+    ],
+    "materials": [
+      "shader_metal.062",
+      "shader_shelves_white"
+    ]
+  },
+  {
+    "name": "ChairFactory(7302019).spawn_asset(1603951)",
+    "tri": 47945,
+    "min": [
+      2.035412311553955,
+      0.025338729843497276,
+      -5.210819721221924
+    ],
+    "max": [
+      2.6093082427978516,
+      0.9375602602958679,
+      -4.67329740524292
+    ],
+    "materials": [
+      "shader_rough_plastic.154",
+      "shader_brushed_black_metal.019"
+    ]
+  },
+  {
+    "name": "ChairFactory(7302019).spawn_asset(2542516)",
+    "tri": 47945,
+    "min": [
+      2.0378975868225098,
+      0.023639529943466187,
+      -4.207808017730713
+    ],
+    "max": [
+      2.6168153285980225,
+      0.9665775299072266,
+      -3.674184799194336
+    ],
+    "materials": [
+      "shader_rough_plastic.154",
+      "shader_brushed_black_metal.019"
+    ]
+  },
+  {
+    "name": "ChairFactory(7302019).spawn_asset(4597419)",
+    "tri": 47945,
+    "min": [
+      1.364638328552246,
+      0.025012439116835594,
+      -5.8762946128845215
+    ],
+    "max": [
+      1.9015893936157227,
+      0.9597960710525513,
+      -5.296345233917236
+    ],
+    "materials": [
+      "shader_rough_plastic.154",
+      "shader_brushed_black_metal.019"
+    ]
+  },
+  {
+    "name": "ChairFactory(7302019).spawn_asset(796526)",
+    "tri": 47945,
+    "min": [
+      0.2696618139743805,
+      0.018350526690483093,
+      -4.877995014190674
+    ],
+    "max": [
+      0.8487710356712341,
+      0.9568006992340088,
+      -4.344371318817139
+    ],
+    "materials": [
+      "shader_rough_plastic.154",
+      "shader_brushed_black_metal.019"
+    ]
+  },
+  {
+    "name": "ComforterFactory(2300198).spawn_asset(8681352)",
+    "tri": 24000,
+    "min": [
+      6.311863422393799,
+      0.30367085337638855,
+      1.2417950630187988
+    ],
+    "max": [
+      7.894683837890625,
+      0.9770950078964233,
+      3.319127082824707
+    ],
+    "materials": [
+      "shader_sofa_fabric.023"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(1136111).spawn_asset(6055534)",
+    "tri": 48894,
+    "min": [
+      -4.344564437866211,
+      1.3021240234375,
+      4.031968116760254
+    ],
+    "max": [
+      -4.128569602966309,
+      1.7817455530166626,
+      4.247962951660156
+    ],
+    "materials": [
+      "shader_lampshade.033",
+      "shader_brushed_black_metal.048"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(2274508).spawn_asset(6144509)",
+    "tri": 48894,
+    "min": [
+      7.91352653503418,
+      0.49612435698509216,
+      1.4780393838882446
+    ],
+    "max": [
+      8.207244873046875,
+      0.9188272953033447,
+      1.771757960319519
+    ],
+    "materials": [
+      "shader_sofa_fabric.012",
+      "shader_shelves_black_wood.086"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(3359152).spawn_asset(1189876)",
+    "tri": 48894,
+    "min": [
+      -0.4834873676300049,
+      1.33856201171875,
+      -1.4505360126495361
+    ],
+    "max": [
+      -0.23662738502025604,
+      1.7959706783294678,
+      -1.2038136720657349
+    ],
+    "materials": [
+      "shader_sofa_fabric.011",
+      "shader_brushed_black_metal.038"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(4280623).spawn_asset(683737)",
+    "tri": 48894,
+    "min": [
+      -8.708996772766113,
+      0.6835769414901733,
+      0.7235792875289917
+    ],
+    "max": [
+      -8.444657325744629,
+      1.2194536924362183,
+      0.9842846989631653
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.017",
+      "shader_wood.310"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(574207).spawn_asset(1653768)",
+    "tri": 48894,
+    "min": [
+      5.856157302856445,
+      1.4079887866973877,
+      -1.4843586683273315
+    ],
+    "max": [
+      6.122524261474609,
+      1.9078243970870972,
+      -1.2179914712905884
+    ],
+    "materials": [
+      "shader_lampshade.080",
+      "shader_shelves_black_wood.126"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(7090513).spawn_asset(1263524)",
+    "tri": 48894,
+    "min": [
+      -4.0783820152282715,
+      1.3021240234375,
+      4.032546043395996
+    ],
+    "max": [
+      -3.8749091625213623,
+      1.7105591297149658,
+      4.236019134521484
+    ],
+    "materials": [
+      "shader_lampshade.038",
+      "shader_glass_volume.085"
+    ]
+  },
+  {
+    "name": "DeskLampFactory(8376388).spawn_asset(100451)",
+    "tri": 48894,
+    "min": [
+      -0.22730328142642975,
+      1.3385450839996338,
+      -1.4804739952087402
+    ],
+    "max": [
+      -0.005567603744566441,
+      1.7072439193725586,
+      -1.2589417695999146
+    ],
+    "materials": [
+      "shader_lampshade.017",
+      "shader_rough_plastic.157"
+    ]
+  },
+  {
+    "name": "dining-room_0/0.floor",
+    "tri": 40,
+    "min": [
+      -1.309239387512207,
+      0.001875249668955803,
+      -6.82960319519043
+    ],
+    "max": [
+      3.799992084503174,
+      0.01403785403817892,
+      -1.7203720808029175
+    ],
+    "materials": [
+      "shader_cobblestone_shader_crossed_tile_tile"
+    ]
+  },
+  {
+    "name": "dining-room_0/0.wall",
+    "tri": 278,
+    "min": [
+      -1.383548617362976,
+      0.0018752813339233398,
+      -6.94537353515625
+    ],
+    "max": [
+      3.799992322921753,
+      2.591571807861328,
+      -1.720371961593628
+    ],
+    "materials": [
+      "shader_plaster.171"
+    ]
+  },
+  {
+    "name": "DishwasherFactory(5640506).spawn_asset(6071969)",
+    "tri": 46906,
+    "min": [
+      5.110332489013672,
+      0.014125227928161621,
+      -7.238110065460205
+    ],
+    "max": [
+      6.171173572540283,
+      0.9661460518836975,
+      -6.142096519470215
+    ],
+    "materials": [
+      "shader_brushed_metal.031",
+      "shader_metal.031",
+      "shader_galvanized_metal.026",
+      "shader_hammered_metal.029",
+      "shader_glass.023"
+    ]
+  },
+  {
+    "name": "door",
+    "tri": 12,
+    "min": [
+      -10.453694343566895,
+      -1.2327778339385986,
+      -5.464351177215576
+    ],
+    "max": [
+      -8.546283721923828,
+      1.0295190811157227,
+      -4.626431941986084
+    ],
+    "materials": []
+  },
+  {
+    "name": "door.001",
+    "tri": 12,
+    "min": [
+      -10.453694343566895,
+      -1.2327778339385986,
+      -5.464351177215576
+    ],
+    "max": [
+      -8.546283721923828,
+      1.0295190811157227,
+      -4.626431941986084
+    ],
+    "materials": []
+  },
+  {
+    "name": "door.002",
+    "tri": 12,
+    "min": [
+      -10.453694343566895,
+      -1.2327778339385986,
+      -5.464351177215576
+    ],
+    "max": [
+      -8.546283721923828,
+      1.0295190811157227,
+      -4.626431941986084
+    ],
+    "materials": []
+  },
+  {
+    "name": "door.003",
+    "tri": 12,
+    "min": [
+      -10.453694343566895,
+      -1.2327778339385986,
+      -5.464351177215576
+    ],
+    "max": [
+      -8.546283721923828,
+      1.0295190811157227,
+      -4.626431941986084
+    ],
+    "materials": []
+  },
+  {
+    "name": "door.004",
+    "tri": 12,
+    "min": [
+      -10.453694343566895,
+      -1.2327778339385986,
+      -5.464351177215576
+    ],
+    "max": [
+      -8.546283721923828,
+      1.0295190811157227,
+      -4.626431941986084
+    ],
+    "materials": []
+  },
+  {
+    "name": "entrance",
+    "tri": 12,
+    "min": [
+      -10.150556564331055,
+      -1.2327778339385986,
+      -5.464350700378418
+    ],
+    "max": [
+      -8.849491119384766,
+      1.0295190811157227,
+      -4.626432418823242
+    ],
+    "materials": []
+  },
+  {
+    "name": "FloorLampFactory(6075755).spawn_asset(7993982)",
+    "tri": 48894,
+    "min": [
+      -5.779978275299072,
+      0.01410297304391861,
+      4.062839984893799
+    ],
+    "max": [
+      -5.570493221282959,
+      1.227652907371521,
+      4.272325038909912
+    ],
+    "materials": [
+      "shader_lampshade.003",
+      "shader_brushed_black_metal.010"
+    ]
+  },
+  {
+    "name": "FoodBagFactory(1430275).spawn_asset(3526772)",
+    "tri": 48000,
+    "min": [
+      9.163100242614746,
+      0.4603913426399231,
+      -7.116687297821045
+    ],
+    "max": [
+      9.198925018310547,
+      0.6446627974510193,
+      -7.057558059692383
+    ],
+    "materials": [
+      "shader_text.300"
+    ]
+  },
+  {
+    "name": "FoodBagFactory(68979).spawn_asset(739815)",
+    "tri": 48000,
+    "min": [
+      4.0944414138793945,
+      1.1625778675079346,
+      -2.1211814880371094
+    ],
+    "max": [
+      4.141110420227051,
+      1.4030113220214844,
+      -2.0736758708953857
+    ],
+    "materials": [
+      "shader_text.283"
+    ]
+  },
+  {
+    "name": "FoodBagFactory(9048095).spawn_asset(5951337)",
+    "tri": 48000,
+    "min": [
+      9.21558666229248,
+      0.11103823781013489,
+      -7.053313732147217
+    ],
+    "max": [
+      9.238286972045898,
+      0.3048403561115265,
+      -7.017080307006836
+    ],
+    "materials": [
+      "shader_text.302"
+    ]
+  },
+  {
+    "name": "FoodBoxFactory(1810688).spawn_asset(6637329)",
+    "tri": 44,
+    "min": [
+      4.173364162445068,
+      0.8119757175445557,
+      -2.0871944427490234
+    ],
+    "max": [
+      4.227879047393799,
+      0.9692704677581787,
+      -2.0340237617492676
+    ],
+    "materials": [
+      "shader_text.304"
+    ]
+  },
+  {
+    "name": "HardwareFactory(1069416).spawn_asset(6512371)",
+    "tri": 60,
+    "min": [
+      -0.6374966502189636,
+      1.7168734073638916,
+      -1.6046031713485718
+    ],
+    "max": [
+      -0.07151129841804504,
+      1.7653430700302124,
+      -1.5260082483291626
+    ],
+    "materials": [
+      "shader_metal.117"
+    ]
+  },
+  {
+    "name": "HardwareFactory(2704789).spawn_asset(5661088)",
+    "tri": 620,
+    "min": [
+      0.26561295986175537,
+      1.5691848993301392,
+      0.09317711740732193
+    ],
+    "max": [
+      0.35922133922576904,
+      1.607757568359375,
+      0.8048171401023865
+    ],
+    "materials": [
+      "shader_metal.116"
+    ]
+  },
+  {
+    "name": "HardwareFactory(335654).spawn_asset(7388548)",
+    "tri": 620,
+    "min": [
+      -1.0061556100845337,
+      2.0774824619293213,
+      -1.6046031713485718
+    ],
+    "max": [
+      -0.34765657782554626,
+      2.1286494731903076,
+      -1.5312488079071045
+    ],
+    "materials": [
+      "shader_metal.119"
+    ]
+  },
+  {
+    "name": "HardwareFactory(9868057).spawn_asset(5071953)",
+    "tri": 620,
+    "min": [
+      -1.3092386722564697,
+      2.456956386566162,
+      -0.3173835873603821
+    ],
+    "max": [
+      -1.2278037071228027,
+      2.508577585220337,
+      0.3072177469730377
+    ],
+    "materials": [
+      "shader_metal.118"
+    ]
+  },
+  {
+    "name": "kitchen_0/0.floor",
+    "tri": 32,
+    "min": [
+      3.79999041557312,
+      0.0141318179666996,
+      -7.304627895355225
+    ],
+    "max": [
+      9.384239196777344,
+      0.0141318179666996,
+      -1.8362702131271362
+    ],
+    "materials": [
+      "shader_rug.039"
+    ]
+  },
+  {
+    "name": "kitchen_0/0.wall",
+    "tri": 214,
+    "min": [
+      3.7999908924102783,
+      0.014131903648376465,
+      -7.420373439788818
+    ],
+    "max": [
+      9.499992370605469,
+      2.579010009765625,
+      -1.720371961593628
+    ],
+    "materials": [
+      "shader_plaster.180"
+    ]
+  },
+  {
+    "name": "KitchenCabinetFactory(5037858).spawn_asset(2686328)",
+    "tri": 4772,
+    "min": [
+      -1.2427399158477783,
+      0.014140799641609192,
+      -1.922178030014038
+    ],
+    "max": [
+      -0.906038224697113,
+      1.2569611072540283,
+      -1.2207731008529663
+    ],
+    "materials": [
+      "shader_shelves_white.120",
+      "shader_shelves_black_wood.063",
+      "shader_rough_plastic.130",
+      "shader_shelves_wood.041",
+      "shader_shelves_wood_z.018"
+    ]
+  },
+  {
+    "name": "KitchenCabinetFactory(7376127).spawn_asset(9775689)",
+    "tri": 24000,
+    "min": [
+      4.506378173828125,
+      0.014109380543231964,
+      1.3119226694107056
+    ],
+    "max": [
+      5.401098251342773,
+      1.0968537330627441,
+      1.640586018562317
+    ],
+    "materials": [
+      "shader_shelves_black_wood_z.016",
+      "shader_shelves_black_wood.065"
+    ]
+  },
+  {
+    "name": "KitchenSpaceFactory(4500384).spawn_asset(9274375)",
+    "tri": 24740,
+    "min": [
+      4.01959228515625,
+      0.014149405062198639,
+      -7.297931671142578
+    ],
+    "max": [
+      4.703681468963623,
+      2.250159978866577,
+      -4.89495325088501
+    ],
+    "materials": [
+      "shader_marble.092",
+      "shader_shelves_white.141",
+      "shader_shelves_white.142",
+      "shader_shelves_white.143",
+      "shader_shelves_white.144",
+      "shader_shelves_white.148",
+      "shader_shelves_white.147",
+      "shader_shelves_white.145",
+      "shader_shelves_white.146",
+      "shader_shelves_white.149",
+      "shader_shelves_white.150",
+      "shader_shelves_white.151",
+      "shader_shelves_white.152",
+      "shader_shelves_white.156",
+      "shader_shelves_white.155",
+      "shader_shelves_white.153",
+      "shader_shelves_white.154"
+    ]
+  },
+  {
+    "name": "LargePlantContainerFactory(2134145).spawn_asset(7666039)",
+    "tri": 90154,
+    "min": [
+      3.149001359939575,
+      0.021364526823163033,
+      1.3332656621932983
+    ],
+    "max": [
+      3.9520766735076904,
+      1.3478666543960571,
+      2.240140676498413
+    ],
+    "materials": [
+      "shader_ceramic.005",
+      "shader_soil.001",
+      "shader_monocot.033",
+      "shader_ear.002"
+    ]
+  },
+  {
+    "name": "LargePlantContainerFactory(2381667).spawn_asset(684222)",
+    "tri": 101739,
+    "min": [
+      5.796187877655029,
+      0.02312329411506653,
+      -2.592191696166992
+    ],
+    "max": [
+      6.485621929168701,
+      1.0343117713928223,
+      -2.071892738342285
+    ],
+    "materials": [
+      "shader_vase_ceramic.058",
+      "shader_dirt.001",
+      "shader_monocot.173"
+    ]
+  },
+  {
+    "name": "LargePlantContainerFactory(3744700).spawn_asset(6649688)",
+    "tri": 107209,
+    "min": [
+      4.739769458770752,
+      0.02587154135107994,
+      -1.495633840560913
+    ],
+    "max": [
+      5.32383394241333,
+      1.0448012351989746,
+      -1.0055789947509766
+    ],
+    "materials": [
+      "shader_colored_glass.025",
+      "shader_soil.002",
+      "shader_monocot.199"
+    ]
+  },
+  {
+    "name": "LargePlantContainerFactory(497267).spawn_asset(8885827)",
+    "tri": 219957,
+    "min": [
+      -0.29161107540130615,
+      0.02560427412390709,
+      0.5476048588752747
+    ],
+    "max": [
+      0.1577833890914917,
+      1.2232869863510132,
+      1.131941556930542
+    ],
+    "materials": [
+      "shader_vase_ceramic",
+      "shader_soil",
+      "shader_monocot"
+    ]
+  },
+  {
+    "name": "LargePlantContainerFactory(7154373).spawn_asset(8858354)",
+    "tri": 109071,
+    "min": [
+      3.0833535194396973,
+      0.027809670194983482,
+      -4.457984447479248
+    ],
+    "max": [
+      3.527804136276245,
+      0.5569714307785034,
+      -4.055349349975586
+    ],
+    "materials": [
+      "shader_marble.012",
+      "shader_SAND",
+      "shader_monocot.134"
+    ]
+  },
+  {
+    "name": "LargePlantContainerFactory(9191650).spawn_asset(9139930)",
+    "tri": 58320,
+    "min": [
+      -4.425388336181641,
+      0.024786338210105896,
+      -2.919626235961914
+    ],
+    "max": [
+      -3.5819132328033447,
+      1.1928695440292358,
+      -2.041595697402954
+    ],
+    "materials": [
+      "shader_galvanized_metal.013",
+      "shader_dirt",
+      "shader_monocot.110"
+    ]
+  },
+  {
+    "name": "LargeShelfFactory(126624).spawn_asset(5646678)",
+    "tri": 3192,
+    "min": [
+      5.349334239959717,
+      0.014087118208408356,
+      1.3118257522583008
+    ],
+    "max": [
+      6.166487216949463,
+      1.687096357345581,
+      1.5871378183364868
+    ],
+    "materials": [
+      "shader_shelves_black_wood.066",
+      "shader_shelves_black_wood_z.017"
+    ]
+  },
+  {
+    "name": "LargeShelfFactory(3997567).spawn_asset(1163128)",
+    "tri": 5324,
+    "min": [
+      5.826803684234619,
+      0.014090403914451599,
+      -1.5380964279174805
+    ],
+    "max": [
+      7.232936382293701,
+      1.4099235534667969,
+      -1.2112600803375244
+    ],
+    "materials": [
+      "shader_shelves_white.129",
+      "shader_shelves_white.128"
+    ]
+  },
+  {
+    "name": "LargeShelfFactory(6960367).spawn_asset(6355884)",
+    "tri": 3192,
+    "min": [
+      9.053430557250977,
+      0.01423819363117218,
+      -7.246945381164551
+    ],
+    "max": [
+      9.317696571350098,
+      1.8597036600112915,
+      -6.891324520111084
+    ],
+    "materials": [
+      "shader_shelves_wood.046",
+      "shader_shelves_wood_z.023"
+    ]
+  },
+  {
+    "name": "LargeShelfFactory(7679103).spawn_asset(4156928)",
+    "tri": 6408,
+    "min": [
+      -4.46182918548584,
+      0.014140799641609192,
+      3.9840126037597656
+    ],
+    "max": [
+      -2.817575693130493,
+      1.3021039962768555,
+      4.272356986999512
+    ],
+    "materials": [
+      "shader_shelves_white.121",
+      "shader_shelves_white.119"
+    ]
+  },
+  {
+    "name": "living-room_0/0.floor",
+    "tri": 101,
+    "min": [
+      -9.384241104125977,
+      0.01412880327552557,
+      -1.720375657081604
+    ],
+    "max": [
+      7.484222412109375,
+      0.01412880327552557,
+      7.304354667663574
+    ],
+    "materials": [
+      "shader_hardwood_floor.001"
+    ]
+  },
+  {
+    "name": "living-room_0/0.wall",
+    "tri": 352,
+    "min": [
+      -9.50001049041748,
+      0.014128804206848145,
+      -1.720375657081604
+    ],
+    "max": [
+      7.599991321563721,
+      2.579702854156494,
+      7.305064678192139
+    ],
+    "materials": [
+      "shader_plaster.175"
+    ]
+  },
+  {
+    "name": "MattressFactory(2300198).spawn_asset(8681352)",
+    "tri": 8256,
+    "min": [
+      6.49258279800415,
+      0.4139980375766754,
+      1.3609373569488525
+    ],
+    "max": [
+      7.740560531616211,
+      0.7829866409301758,
+      3.396338701248169
+    ],
+    "materials": [
+      "shader_sofa_fabric.022"
+    ]
+  },
+  {
+    "name": "MattressFactory(4854695).spawn_asset(8771781)",
+    "tri": 8012,
+    "min": [
+      -3.6662044525146484,
+      0.30446332693099976,
+      0.9179458618164062
+    ],
+    "max": [
+      -1.7122211456298828,
+      0.6326922178268433,
+      2.217919111251831
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.030"
+    ]
+  },
+  {
+    "name": "MattressFactory(7482537).spawn_asset(9624483)",
+    "tri": 10016,
+    "min": [
+      3.101391077041626,
+      0.4726172387599945,
+      3.856393814086914
+    ],
+    "max": [
+      5.132009506225586,
+      0.8344175815582275,
+      5.520750045776367
+    ],
+    "materials": [
+      "shader_coarse_knit_fabric.032"
+    ]
+  },
+  {
+    "name": "MattressFactory(8880793).spawn_asset(8320512)",
+    "tri": 24000,
+    "min": [
+      -3.509624481201172,
+      0.5044751167297363,
+      -1.5418332815170288
+    ],
+    "max": [
+      -1.6845811605453491,
+      0.7047697901725769,
+      -0.22966881096363068
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.032"
+    ]
+  },
+  {
+    "name": "MirrorFactory(7634665).spawn_asset(7641461)",
+    "tri": 610,
+    "min": [
+      -7.590246200561523,
+      0.611519455909729,
+      1.9385944604873657
+    ],
+    "max": [
+      -6.905276298522949,
+      1.0607236623764038,
+      1.9543569087982178
+    ],
+    "materials": [
+      "shader_mirror.023",
+      "shader_brushed_metal.081"
+    ]
+  },
+  {
+    "name": "MirrorFactory(9826308).spawn_asset(3249409)",
+    "tri": 610,
+    "min": [
+      -1.2997381687164307,
+      0.8228203654289246,
+      0.33349281549453735
+    ],
+    "max": [
+      -1.2857064008712769,
+      2.0017125606536865,
+      1.3689002990722656
+    ],
+    "materials": [
+      "shader_mirror.001",
+      "shader_galvanized_metal.066"
+    ]
+  },
+  {
+    "name": "MonitorFactory(3627011).spawn_asset(2010752)",
+    "tri": 5308,
+    "min": [
+      -8.791732788085938,
+      0.6801339983940125,
+      1.0276951789855957
+    ],
+    "max": [
+      -8.621251106262207,
+      1.3393226861953735,
+      1.6833133697509766
+    ],
+    "materials": [
+      "shader_metal.121",
+      "shader_text.320"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(150369).spawn_asset(9317302)",
+    "tri": 36857,
+    "min": [
+      -1.7380727529525757,
+      0.7407162189483643,
+      -2.2622487545013428
+    ],
+    "max": [
+      -1.6686961650848389,
+      0.8531490564346313,
+      -2.125602960586548
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.004",
+      "shader_bone.003",
+      "shader_tongue.003",
+      "shader_spots_sparse_attr.005",
+      "shader_nose.002"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(182994).spawn_asset(7700535)",
+    "tri": 31702,
+    "min": [
+      -1.0707378387451172,
+      1.4391844272613525,
+      -2.513021945953369
+    ],
+    "max": [
+      -1.0141122341156006,
+      1.4890615940093994,
+      -2.404949188232422
+    ],
+    "materials": [
+      "shader_mollusk.006"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(3616110).spawn_asset(9103856)",
+    "tri": 37008,
+    "min": [
+      -1.2131961584091187,
+      0.04865214228630066,
+      -2.4847700595855713
+    ],
+    "max": [
+      -1.186922550201416,
+      0.12627261877059937,
+      -2.3892877101898193
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.006",
+      "shader_bone.004",
+      "shader_tongue.004",
+      "shader_spots_sparse_attr.007",
+      "shader_nose.003"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(3783154).spawn_asset(866126)",
+    "tri": 40331,
+    "min": [
+      5.883790016174316,
+      0.7607008814811707,
+      -1.3391962051391602
+    ],
+    "max": [
+      6.018939971923828,
+      0.854810893535614,
+      -1.2941031455993652
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.018",
+      "shader_bone.011",
+      "shader_tongue.011",
+      "shader_spots_sparse_attr.019",
+      "shader_nose.007"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(3958830).spawn_asset(837411)",
+    "tri": 38219,
+    "min": [
+      6.01108980178833,
+      0.11331547796726227,
+      1.3429160118103027
+    ],
+    "max": [
+      6.056003570556641,
+      0.24166694283485413,
+      1.4834480285644531
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.002",
+      "shader_bone.002",
+      "shader_tongue.002",
+      "shader_spots_sparse_attr.003"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(4146620).spawn_asset(924261)",
+    "tri": 51614,
+    "min": [
+      8.92628288269043,
+      0.11333709210157394,
+      3.9285595417022705
+    ],
+    "max": [
+      9.027322769165039,
+      0.21002595126628876,
+      4.056522369384766
+    ],
+    "materials": [
+      "shader_monocot.203"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(4812630).spawn_asset(5636129)",
+    "tri": 24000,
+    "min": [
+      -3.8096110820770264,
+      0.11295726895332336,
+      4.096917629241943
+    ],
+    "max": [
+      -3.710979700088501,
+      0.17594218254089355,
+      4.18225622177124
+    ],
+    "materials": [
+      "shader_mollusk.004"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(4822302).spawn_asset(9177473)",
+    "tri": 36671,
+    "min": [
+      4.17335319519043,
+      1.1625778675079346,
+      -2.3437891006469727
+    ],
+    "max": [
+      4.214110374450684,
+      1.2876203060150146,
+      -2.2372374534606934
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.016",
+      "shader_bone.010",
+      "shader_tongue.010",
+      "shader_spots_sparse_attr.017",
+      "shader_nose.006"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(4883027).spawn_asset(3668766)",
+    "tri": 31702,
+    "min": [
+      9.164788246154785,
+      1.8577860593795776,
+      -7.126698970794678
+    ],
+    "max": [
+      9.302046775817871,
+      1.9350237846374512,
+      -7.046092987060547
+    ],
+    "materials": [
+      "shader_mollusk.009"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(5082127).spawn_asset(8102265)",
+    "tri": 31714,
+    "min": [
+      5.985225200653076,
+      0.7420179843902588,
+      1.4371737241744995
+    ],
+    "max": [
+      6.102071762084961,
+      0.8378244042396545,
+      1.5524581670761108
+    ],
+    "materials": [
+      "shader_mollusk.001"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(561111).spawn_asset(6626651)",
+    "tri": 37327,
+    "min": [
+      -0.5361213684082031,
+      0.1539796143770218,
+      -5.311537265777588
+    ],
+    "max": [
+      -0.5002391934394836,
+      0.2168799191713333,
+      -5.176908493041992
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.008",
+      "shader_tongue.006",
+      "shader_spots_sparse_attr.009",
+      "shader_bone.006",
+      "shader_nose.005"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(5781933).spawn_asset(1608402)",
+    "tri": 24576,
+    "min": [
+      -1.131042242050171,
+      0.04862874001264572,
+      -2.1421453952789307
+    ],
+    "max": [
+      -1.08785879611969,
+      0.09251954406499863,
+      -2.0073883533477783
+    ],
+    "materials": [
+      "shader_mollusk.005"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(6371857).spawn_asset(5443550)",
+    "tri": 160251,
+    "min": [
+      -1.2318915128707886,
+      1.2550373077392578,
+      -1.695974588394165
+    ],
+    "max": [
+      -1.1294595003128052,
+      1.2774670124053955,
+      -1.6284164190292358
+    ],
+    "materials": [
+      "shader_coral",
+      "shader_tentacles"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(7006776).spawn_asset(8129694)",
+    "tri": 24000,
+    "min": [
+      -1.7855364084243774,
+      0.7401294112205505,
+      -2.653944492340088
+    ],
+    "max": [
+      -1.7055137157440186,
+      0.808724045753479,
+      -2.550539255142212
+    ],
+    "materials": [
+      "shader_mollusk.002"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(731196).spawn_asset(3416053)",
+    "tri": 222640,
+    "min": [
+      -1.8602927923202515,
+      0.7400165796279907,
+      -2.483830213546753
+    ],
+    "max": [
+      -1.7277143001556396,
+      0.7862177491188049,
+      -2.348416328430176
+    ],
+    "materials": [
+      "shader_coral.001"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(7372015).spawn_asset(3221704)",
+    "tri": 31702,
+    "min": [
+      -3.594838857650757,
+      1.3002285957336426,
+      3.9949660301208496
+    ],
+    "max": [
+      -3.4755632877349854,
+      1.3547664880752563,
+      4.085323810577393
+    ],
+    "materials": [
+      "shader_mollusk.003"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(7684722).spawn_asset(8451615)",
+    "tri": 38567,
+    "min": [
+      4.0621418952941895,
+      0.11077094078063965,
+      -2.3391342163085938
+    ],
+    "max": [
+      4.172830104827881,
+      0.20250767469406128,
+      -2.2929415702819824
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.014",
+      "shader_bone.009",
+      "shader_tongue.009",
+      "shader_spots_sparse_attr.015"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(8434608).spawn_asset(8430381)",
+    "tri": 37557,
+    "min": [
+      4.113880157470703,
+      0.11077094823122025,
+      -2.208820343017578
+    ],
+    "max": [
+      4.221353530883789,
+      0.1975080668926239,
+      -2.1779420375823975
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.010",
+      "shader_bone.007",
+      "shader_tongue.007",
+      "shader_spots_sparse_attr.011"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(8666885).spawn_asset(7490052)",
+    "tri": 36780,
+    "min": [
+      4.12526798248291,
+      0.4613705575466156,
+      -2.116682767868042
+    ],
+    "max": [
+      4.241663932800293,
+      0.5574756860733032,
+      -2.0599091053009033
+    ],
+    "materials": [
+      "shader_spots_sparse_attr.012",
+      "shader_bone.008",
+      "shader_tongue.008",
+      "shader_spots_sparse_attr.013"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(8907685).spawn_asset(9681847)",
+    "tri": 35894,
+    "min": [
+      -0.3847024142742157,
+      0.155464306473732,
+      -5.503517150878906
+    ],
+    "max": [
+      -0.35874155163764954,
+      0.20276692509651184,
+      -5.408308506011963
+    ],
+    "materials": [
+      "shader_tiger_attr.002",
+      "shader_tongue.005",
+      "shader_bone.005",
+      "shader_tiger_attr.003",
+      "shader_nose.004"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(9071522).spawn_asset(4709146)",
+    "tri": 31714,
+    "min": [
+      4.192267894744873,
+      0.81194007396698,
+      -2.29424786567688
+    ],
+    "max": [
+      4.3016839027404785,
+      0.9358704686164856,
+      -2.1659882068634033
+    ],
+    "materials": [
+      "shader_mollusk.008"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(9206685).spawn_asset(6471539)",
+    "tri": 31702,
+    "min": [
+      -1.1151014566421509,
+      0.9615021347999573,
+      -2.150320053100586
+    ],
+    "max": [
+      -1.0164406299591064,
+      1.0437043905258179,
+      -2.05380916595459
+    ],
+    "materials": [
+      "shader_mollusk.007"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(9571922).spawn_asset(1486891)",
+    "tri": 35379,
+    "min": [
+      -0.4380931258201599,
+      0.7257132530212402,
+      -1.3893831968307495
+    ],
+    "max": [
+      -0.32642674446105957,
+      0.8284391760826111,
+      -1.3441210985183716
+    ],
+    "materials": [
+      "shader_spots_sparse_attr",
+      "shader_bone.001",
+      "shader_tongue.001",
+      "shader_spots_sparse_attr.001",
+      "shader_nose.001"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(961429).spawn_asset(1946965)",
+    "tri": 37500,
+    "min": [
+      6.2112040519714355,
+      0.4370645582675934,
+      -1.3708629608154297
+    ],
+    "max": [
+      6.261451721191406,
+      0.5459313988685608,
+      -1.2338218688964844
+    ],
+    "materials": [
+      "shader_tiger_attr.004",
+      "shader_tongue.012",
+      "shader_tiger_attr.005",
+      "shader_bone.012",
+      "shader_nose.008"
+    ]
+  },
+  {
+    "name": "NatureShelfTrinketsFactory(9821711).spawn_asset(3735403)",
+    "tri": 37056,
+    "min": [
+      -0.5919416546821594,
+      0.048899464309215546,
+      1.6983848810195923
+    ],
+    "max": [
+      -0.4927977919578552,
+      0.11437816917896271,
+      1.7283706665039062
+    ],
+    "materials": [
+      "shader_tiger_attr",
+      "shader_tongue",
+      "shader_tiger_attr.001",
+      "shader_bone",
+      "shader_nose"
+    ]
+  },
+  {
+    "name": "OvenFactory(3234085).spawn_asset(5110096)",
+    "tri": 44760,
+    "min": [
+      6.524621486663818,
+      0.014110557734966278,
+      -3.1135127544403076
+    ],
+    "max": [
+      7.628595352172852,
+      1.41953444480896,
+      -1.9041228294372559
+    ],
+    "materials": [
+      "shader_hammered_metal.027",
+      "shader_grained_metal.029",
+      "shader_metal.025",
+      "shader_glass.020"
+    ]
+  },
+  {
+    "name": "PanFactory(8800454).spawn_asset(7334437)",
+    "tri": 48068,
+    "min": [
+      1.3276185989379883,
+      0.7571631669998169,
+      -4.133563041687012
+    ],
+    "max": [
+      1.5842951536178589,
+      0.8793269991874695,
+      -3.705744743347168
+    ],
+    "materials": [
+      "shader_translucent_plastic.111",
+      "shader_shelves_black_wood.111"
+    ]
+  },
+  {
+    "name": "PillowFactory(2300198).spawn_asset(8681352)",
+    "tri": 47998,
+    "min": [
+      6.59138822555542,
+      0.7765247821807861,
+      1.3108195066452026
+    ],
+    "max": [
+      7.202162742614746,
+      0.9542264342308044,
+      1.7721964120864868
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.026"
+    ]
+  },
+  {
+    "name": "PillowFactory(2300198).spawn_asset(8681352).001",
+    "tri": 47998,
+    "min": [
+      7.151932239532471,
+      0.8137983083724976,
+      1.700110912322998
+    ],
+    "max": [
+      7.642151832580566,
+      0.9914999604225159,
+      2.3287854194641113
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.026"
+    ]
+  },
+  {
+    "name": "PillowFactory(2300198).spawn_asset(8681352).002",
+    "tri": 47998,
+    "min": [
+      6.739444255828857,
+      0.8651036024093628,
+      1.6561187505722046
+    ],
+    "max": [
+      7.383396148681641,
+      1.0428051948547363,
+      2.350728750228882
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.026"
+    ]
+  },
+  {
+    "name": "PillowFactory(4854695).spawn_asset(8771781)",
+    "tri": 48000,
+    "min": [
+      -2.6265552043914795,
+      0.6637381911277771,
+      1.1499966382980347
+    ],
+    "max": [
+      -2.077575445175171,
+      0.8049747943878174,
+      1.7154467105865479
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.031"
+    ]
+  },
+  {
+    "name": "PillowFactory(4854695).spawn_asset(8771781).001",
+    "tri": 48000,
+    "min": [
+      -2.337402105331421,
+      0.6585911512374878,
+      1.5152372121810913
+    ],
+    "max": [
+      -1.8621361255645752,
+      0.7993720173835754,
+      2.065487861633301
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.031"
+    ]
+  },
+  {
+    "name": "PillowFactory(4854695).spawn_asset(8771781).002",
+    "tri": 48000,
+    "min": [
+      -2.2296078205108643,
+      0.6387030482292175,
+      1.1475105285644531
+    ],
+    "max": [
+      -1.764525294303894,
+      0.7799972295761108,
+      1.4798587560653687
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.031"
+    ]
+  },
+  {
+    "name": "PillowFactory(7482537).spawn_asset(9624483)",
+    "tri": 48000,
+    "min": [
+      3.5823771953582764,
+      0.9112923741340637,
+      4.72438383102417
+    ],
+    "max": [
+      3.9590306282043457,
+      1.046770453453064,
+      5.0298261642456055
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.028"
+    ]
+  },
+  {
+    "name": "PillowFactory(7482537).spawn_asset(9624483).001",
+    "tri": 48000,
+    "min": [
+      3.529572010040283,
+      0.8483174443244934,
+      4.187942981719971
+    ],
+    "max": [
+      3.9413678646087646,
+      0.9837955832481384,
+      4.539255142211914
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.028"
+    ]
+  },
+  {
+    "name": "PillowFactory(7482537).spawn_asset(9624483).002",
+    "tri": 48000,
+    "min": [
+      3.2320289611816406,
+      0.8231250643730164,
+      4.901993274688721
+    ],
+    "max": [
+      3.6106958389282227,
+      0.9586032032966614,
+      5.333281517028809
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.028"
+    ]
+  },
+  {
+    "name": "PillowFactory(8880793).spawn_asset(8320512)",
+    "tri": 48000,
+    "min": [
+      -2.2077245712280273,
+      0.7090616822242737,
+      -1.4854928255081177
+    ],
+    "max": [
+      -1.6587355136871338,
+      0.881047248840332,
+      -0.8882916569709778
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.033"
+    ]
+  },
+  {
+    "name": "PillowFactory(8880793).spawn_asset(8320512).001",
+    "tri": 48000,
+    "min": [
+      -2.185577869415283,
+      0.7132918238639832,
+      -0.9889428019523621
+    ],
+    "max": [
+      -1.6067562103271484,
+      0.8852773904800415,
+      -0.3953375816345215
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.033"
+    ]
+  },
+  {
+    "name": "PlantContainerFactory(5756030).spawn_asset(8326516)",
+    "tri": 518737,
+    "min": [
+      6.307041645050049,
+      1.430566668510437,
+      -1.526611089706421
+    ],
+    "max": [
+      6.513111591339111,
+      1.9444572925567627,
+      -1.3163834810256958
+    ],
+    "materials": [
+      "shader_colored_glass.070",
+      "shader_cactus.017",
+      "shader_spikes"
+    ]
+  },
+  {
+    "name": "PlantContainerFactory(7990459).spawn_asset(9634878)",
+    "tri": 84531,
+    "min": [
+      7.003290176391602,
+      1.4230401515960693,
+      -1.510608434677124
+    ],
+    "max": [
+      7.244438171386719,
+      1.6019277572631836,
+      -1.2694604396820068
+    ],
+    "materials": [
+      "shader_ceramic.064",
+      "shader_dirt.003",
+      "shader_spider_plant.001"
+    ]
+  },
+  {
+    "name": "PlantContainerFactory(9210286).spawn_asset(8921741)",
+    "tri": 153829,
+    "min": [
+      6.6999664306640625,
+      1.4219036102294922,
+      -1.4934622049331665
+    ],
+    "max": [
+      6.982660293579102,
+      1.619910717010498,
+      -1.2107681035995483
+    ],
+    "materials": [
+      "shader_marble.090",
+      "shader_SAND.001",
+      "shader_simple_greenery"
+    ]
+  },
+  {
+    "name": "RugFactory(3908758).spawn_asset(7449973)",
+    "tri": 508,
+    "min": [
+      4.313187122344971,
+      0.014118209481239319,
+      1.528940200805664
+    ],
+    "max": [
+      7.763004779815674,
+      0.027805455029010773,
+      4.978758335113525
+    ],
+    "materials": [
+      "shader_rug"
+    ]
+  },
+  {
+    "name": "RugFactory(4197361).spawn_asset(3344508)",
+    "tri": 508,
+    "min": [
+      -4.6072916984558105,
+      0.020437976345419884,
+      0.7642618417739868
+    ],
+    "max": [
+      -2.3994321823120117,
+      0.0572674497961998,
+      2.9721171855926514
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.006"
+    ]
+  },
+  {
+    "name": "SideTableFactory(2166085).spawn_asset(699051)",
+    "tri": 23348,
+    "min": [
+      7.831084251403809,
+      0.02362990751862526,
+      1.3284130096435547
+    ],
+    "max": [
+      8.374239921569824,
+      0.49612683057785034,
+      1.8715691566467285
+    ],
+    "materials": [
+      "shader_wood.231",
+      "shader_wood_tiled.019"
+    ]
+  },
+  {
+    "name": "SimpleBookcaseFactory(4525821).spawn_asset(4546597)",
+    "tri": 4616,
+    "min": [
+      -1.2150505781173706,
+      0.02833721414208412,
+      -4.341434001922607
+    ],
+    "max": [
+      -0.7981870174407959,
+      0.8120414018630981,
+      -3.688524007797241
+    ],
+    "materials": [
+      "shader_metal.064",
+      "shader_shelves_white.123"
+    ]
+  },
+  {
+    "name": "SimpleBookcaseFactory(4562347).spawn_asset(1333270)",
+    "tri": 4616,
+    "min": [
+      -1.8990756273269653,
+      0.027237817645072937,
+      -2.778855800628662
+    ],
+    "max": [
+      -1.6082186698913574,
+      0.7413710355758667,
+      -2.1238503456115723
+    ],
+    "materials": [
+      "shader_metal.063",
+      "shader_rough_plastic.131"
+    ]
+  },
+  {
+    "name": "SimpleBookcaseFactory(6163857).spawn_asset(6071709)",
+    "tri": 4616,
+    "min": [
+      -0.7991334795951843,
+      0.02144017070531845,
+      -5.649265766143799
+    ],
+    "max": [
+      -0.22830143570899963,
+      0.7026138305664062,
+      -4.977605819702148
+    ],
+    "materials": [
+      "shader_brushed_metal.043",
+      "shader_shelves_white.122"
+    ]
+  },
+  {
+    "name": "SimpleDeskFactory(4659002).spawn_asset(2507082)",
+    "tri": 2044,
+    "min": [
+      -8.84370231628418,
+      0.029400084167718887,
+      0.3315642178058624
+    ],
+    "max": [
+      -8.287782669067383,
+      0.6863234043121338,
+      1.9325510263442993
+    ],
+    "materials": [
+      "shader_shelves_black_metallic.009",
+      "shader_shelves_white.140"
+    ]
+  },
+  {
+    "name": "SingleCabinetFactory(5775291).spawn_asset(7872566)",
+    "tri": 24000,
+    "min": [
+      8.663602828979492,
+      0.01414085179567337,
+      3.674825429916382
+    ],
+    "max": [
+      9.265463829040527,
+      1.5201587677001953,
+      4.276007652282715
+    ],
+    "materials": [
+      "shader_shelves_wood.042",
+      "shader_shelves_wood_z.019",
+      "shader_shelves_wood_z.020",
+      "shader_shelves_wood.043"
+    ]
+  },
+  {
+    "name": "SingleCabinetFactory(7766346).spawn_asset(243668)",
+    "tri": 24000,
+    "min": [
+      4.005367279052734,
+      0.01410818099975586,
+      -4.8347320556640625
+    ],
+    "max": [
+      4.34077787399292,
+      1.4447135925292969,
+      -4.180717945098877
+    ],
+    "materials": [
+      "shader_shelves_white.125",
+      "shader_shelves_white.124",
+      "shader_shelves_white.127",
+      "shader_shelves_white.126"
+    ]
+  },
+  {
+    "name": "SingleCabinetFactory(7870410).spawn_asset(8995682)",
+    "tri": 24000,
+    "min": [
+      4.009231090545654,
+      0.014140799641609192,
+      -2.5192129611968994
+    ],
+    "max": [
+      4.364765167236328,
+      1.1644779443740845,
+      -1.9961482286453247
+    ],
+    "materials": [
+      "shader_shelves_wood.044",
+      "shader_shelves_wood_z.021",
+      "shader_glass.055",
+      "shader_shelves_wood_z.022",
+      "shader_shelves_wood.045"
+    ]
+  },
+  {
+    "name": "SingleCabinetFactory(9484588).spawn_asset(701428)",
+    "tri": 23998,
+    "min": [
+      -0.5743374228477478,
+      0.014140799641609192,
+      -1.5142894983291626
+    ],
+    "max": [
+      0.10404142737388611,
+      1.340466022491455,
+      -1.1670747995376587
+    ],
+    "materials": [
+      "shader_shelves_black_wood.064",
+      "shader_shelves_black_wood_z.012",
+      "shader_shelves_black_wood_z.015",
+      "shader_shelves_black_wood_z.014",
+      "shader_shelves_black_wood_z.013"
+    ]
+  },
+  {
+    "name": "SofaFactory(5703245).spawn_asset(2633789)",
+    "tri": 48000,
+    "min": [
+      -0.2988968789577484,
+      0.014274314045906067,
+      4.5640153884887695
+    ],
+    "max": [
+      2.5334978103637695,
+      0.7213786840438843,
+      6.067780017852783
+    ],
+    "materials": [
+      "shader_fine_knit_fabric"
+    ]
+  },
+  {
+    "name": "StandingSinkFactory(7735177).spawn_asset(9789476)",
+    "tri": 34293,
+    "min": [
+      -1.2427393198013306,
+      0.014140784740447998,
+      0.5361734628677368
+    ],
+    "max": [
+      -0.7143977880477905,
+      0.8847726583480835,
+      1.1886320114135742
+    ],
+    "materials": [
+      "shader_ceramic.065",
+      "shader_metal.001"
+    ]
+  },
+  {
+    "name": "TableDiningFactory(3514619).spawn_asset(1376566)",
+    "tri": 49618,
+    "min": [
+      0.9172999858856201,
+      0.019271882250905037,
+      -5.228531360626221
+    ],
+    "max": [
+      1.9673258066177368,
+      0.7653664350509644,
+      -3.1396870613098145
+    ],
+    "materials": [
+      "shader_glass.039",
+      "shader_wood.181"
+    ]
+  },
+  {
+    "name": "ToiletFactory(9907704).spawn_asset(2989862)",
+    "tri": 48123,
+    "min": [
+      -0.09339185059070587,
+      0.013624757528305054,
+      1.17324960231781
+    ],
+    "max": [
+      0.3412626087665558,
+      0.7553895711898804,
+      1.897356629371643
+    ],
+    "materials": [
+      "shader_ceramic.066",
+      "shader_metal.115"
+    ]
+  },
+  {
+    "name": "TowelFactory(2300198).spawn_asset(8681352)",
+    "tri": 48000,
+    "min": [
+      6.690062522888184,
+      0.8419733643531799,
+      2.288647174835205
+    ],
+    "max": [
+      6.880733013153076,
+      0.9271261692047119,
+      2.491586923599243
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.027"
+    ]
+  },
+  {
+    "name": "TowelFactory(4854695).spawn_asset(8771781)",
+    "tri": 48000,
+    "min": [
+      -3.224635124206543,
+      0.6134741306304932,
+      0.9105426669120789
+    ],
+    "max": [
+      -3.0100488662719727,
+      0.6985530853271484,
+      1.3982294797897339
+    ],
+    "materials": [
+      "shader_art_composite.019"
+    ]
+  },
+  {
+    "name": "TowelFactory(7482537).spawn_asset(9624483)",
+    "tri": 48000,
+    "min": [
+      4.389723300933838,
+      0.8484485745429993,
+      4.060878276824951
+    ],
+    "max": [
+      4.925019264221191,
+      0.9221744537353516,
+      4.233438014984131
+    ],
+    "materials": [
+      "shader_fine_knit_fabric.029"
+    ]
+  },
+  {
+    "name": "TowelFactory(8880793).spawn_asset(8320512)",
+    "tri": 48000,
+    "min": [
+      -2.7445573806762695,
+      0.8763002753257751,
+      -1.2644826173782349
+    ],
+    "max": [
+      -2.527158737182617,
+      0.981326162815094,
+      -1.0231971740722656
+    ],
+    "materials": [
+      "shader_rug.037"
+    ]
+  },
+  {
+    "name": "TVFactory(8613134).spawn_asset(6511187)",
+    "tri": 2932,
+    "min": [
+      -1.1894855499267578,
+      0.419094979763031,
+      2.574279308319092
+    ],
+    "max": [
+      -1.0888365507125854,
+      1.5151745080947876,
+      3.790306568145752
+    ],
+    "materials": [
+      "shader_metal.123",
+      "shader_text.321"
+    ]
+  },
+  {
+    "name": "TVStandFactory(4798868).spawn_asset(2984389)",
+    "tri": 1504,
+    "min": [
+      -1.2427388429641724,
+      0.014140956103801727,
+      2.4770450592041016
+    ],
+    "max": [
+      -0.8410844802856445,
+      0.4257524907588959,
+      3.9501376152038574
+    ],
+    "materials": [
+      "shader_galvanized_metal.065",
+      "shader_shelves_white.070"
+    ]
+  },
+  {
+    "name": "WallArtFactory(3225602).spawn_asset(2829134)",
+    "tri": 34,
+    "min": [
+      -6.06451416015625,
+      1.0813874006271362,
+      2.069063186645508
+    ],
+    "max": [
+      -6.049727916717529,
+      1.6643264293670654,
+      2.953185558319092
+    ],
+    "materials": [
+      "shader_dark_art.011",
+      "shader_shelves_black_wood.128"
+    ]
+  },
+  {
+    "name": "WallArtFactory(8450785).spawn_asset(5986281)",
+    "tri": 610,
+    "min": [
+      -0.423015832901001,
+      1.681020975112915,
+      1.9434072971343994
+    ],
+    "max": [
+      0.0077688139863312244,
+      2.2055506706237793,
+      1.9543571472167969
+    ],
+    "materials": [
+      "shader_text.002",
+      "shader_wood.365"
+    ]
+  },
+  {
+    "name": "window",
+    "tri": 12,
+    "min": [
+      8.005341529846191,
+      1.0315005779266357,
+      -1.9519368410110474
+    ],
+    "max": [
+      9.165085792541504,
+      2.1320641040802,
+      -1.4888321161270142
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.001",
+    "tri": 12,
+    "min": [
+      9.268410682678223,
+      1.0315005779266357,
+      -4.819677352905273
+    ],
+    "max": [
+      9.731532096862793,
+      2.1320762634277344,
+      -3.267444610595703
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.002",
+    "tri": 12,
+    "min": [
+      4.462682723999023,
+      1.0315005779266357,
+      -7.651913166046143
+    ],
+    "max": [
+      8.752582550048828,
+      2.13205885887146,
+      -7.188961505889893
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.003",
+    "tri": 12,
+    "min": [
+      3.1470248699188232,
+      1.0315005779266357,
+      7.0731072425842285
+    ],
+    "max": [
+      5.140797138214111,
+      2.132012128829956,
+      7.536167144775391
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.004",
+    "tri": 12,
+    "min": [
+      6.7560529708862305,
+      1.0315005779266357,
+      5.299786567687988
+    ],
+    "max": [
+      8.179797172546387,
+      2.1320669651031494,
+      6.7235307693481445
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.005",
+    "tri": 12,
+    "min": [
+      9.268460273742676,
+      1.0315005779266357,
+      1.4821966886520386
+    ],
+    "max": [
+      9.731532096862793,
+      2.1320691108703613,
+      2.9744269847869873
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.006",
+    "tri": 12,
+    "min": [
+      7.954751491546631,
+      1.0315005779266357,
+      0.8980867266654968
+    ],
+    "max": [
+      9.268836975097656,
+      2.132066249847412,
+      1.3611408472061157
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.007",
+    "tri": 12,
+    "min": [
+      0.7844297885894775,
+      1.0315005779266357,
+      -7.130801200866699
+    ],
+    "max": [
+      1.7357044219970703,
+      2.1320645809173584,
+      -6.505395412445068
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.008",
+    "tri": 12,
+    "min": [
+      -0.40337178111076355,
+      1.0315005779266357,
+      -6.749120712280273
+    ],
+    "max": [
+      0.553145170211792,
+      2.1320645809173584,
+      -5.896877288818359
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.009",
+    "tri": 12,
+    "min": [
+      -1.2479393482208252,
+      1.0315005779266357,
+      -5.905640602111816
+    ],
+    "max": [
+      -0.3886042535305023,
+      2.1320645809173584,
+      -4.938510894775391
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.010",
+    "tri": 12,
+    "min": [
+      -1.6106687784194946,
+      1.0315005779266357,
+      -4.7275896072387695
+    ],
+    "max": [
+      -0.9866911768913269,
+      2.1320645809173584,
+      -3.783496618270874
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.011",
+    "tri": 12,
+    "min": [
+      2.414158582687378,
+      1.0315005779266357,
+      -7.176913261413574
+    ],
+    "max": [
+      3.3051297664642334,
+      2.1320645809173584,
+      -6.713860988616943
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.012",
+    "tri": 12,
+    "min": [
+      -6.420828342437744,
+      1.0315005779266357,
+      -3.3537752628326416
+    ],
+    "max": [
+      -5.830498218536377,
+      2.1320645809173584,
+      -2.824922800064087
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.013",
+    "tri": 12,
+    "min": [
+      -7.403198719024658,
+      1.0315005779266357,
+      -3.202315330505371
+    ],
+    "max": [
+      -6.5774312019348145,
+      2.1320645809173584,
+      -2.505866527557373
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.014",
+    "tri": 12,
+    "min": [
+      -8.03062629699707,
+      1.0315005779266357,
+      -2.7696921825408936
+    ],
+    "max": [
+      -7.370022296905518,
+      2.1320645809173584,
+      -2.111729145050049
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.015",
+    "tri": 12,
+    "min": [
+      -8.662521362304688,
+      1.0315005779266357,
+      -2.2166714668273926
+    ],
+    "max": [
+      -7.940966606140137,
+      2.1320645809173584,
+      -1.4731926918029785
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.016",
+    "tri": 12,
+    "min": [
+      -9.143484115600586,
+      1.0315005779266357,
+      -1.396605372428894
+    ],
+    "max": [
+      -8.438089370727539,
+      2.1320645809173584,
+      -0.5492398142814636
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.017",
+    "tri": 12,
+    "min": [
+      -9.235406875610352,
+      1.0315005779266357,
+      -0.5192373394966125
+    ],
+    "max": [
+      -8.707448959350586,
+      2.1320645809173584,
+      0.0642993152141571
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.018",
+    "tri": 12,
+    "min": [
+      -9.256549835205078,
+      1.0315005779266357,
+      0.49764034152030945
+    ],
+    "max": [
+      -8.793435096740723,
+      2.132068634033203,
+      1.813263177871704
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.019",
+    "tri": 12,
+    "min": [
+      -3.1208269596099854,
+      1.0315005779266357,
+      -3.376913547515869
+    ],
+    "max": [
+      -1.9094130992889404,
+      2.132073402404785,
+      -2.913806438446045
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.020",
+    "tri": 12,
+    "min": [
+      -9.731524467468262,
+      1.0315005779266357,
+      2.401352643966675
+    ],
+    "max": [
+      -9.268467903137207,
+      2.132068395614624,
+      4.087558746337891
+    ],
+    "materials": []
+  },
+  {
+    "name": "window.021",
+    "tri": 12,
+    "min": [
+      7.368498802185059,
+      1.0315005779266357,
+      -1.4587699174880981
+    ],
+    "max": [
+      7.8315324783325195,
+      2.1320509910583496,
+      0.12756803631782532
+    ],
+    "materials": []
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(12)",
+    "tri": 13502,
+    "min": [
+      -6.405268669128418,
+      1.0195801258087158,
+      -3.0533666610717773
+    ],
+    "max": [
+      -5.802180767059326,
+      2.1439850330352783,
+      -2.792302370071411
+    ],
+    "materials": [
+      "shader_wood.378",
+      "shader_fine_knit_fabric.035",
+      "shader_grained_metal.087"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(13)",
+    "tri": 11652,
+    "min": [
+      -7.311955451965332,
+      1.0223203897476196,
+      -2.931941270828247
+    ],
+    "max": [
+      -6.5405097007751465,
+      2.141244649887085,
+      -2.4668784141540527
+    ],
+    "materials": [
+      "shader_shelves_white.160",
+      "shader_fine_knit_fabric.036",
+      "shader_metal.127",
+      "shader_window_glass.012"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(14)",
+    "tri": 236,
+    "min": [
+      -7.844703674316406,
+      1.0243479013442993,
+      -2.524331569671631
+    ],
+    "max": [
+      -7.414995193481445,
+      2.1392171382904053,
+      -2.1733591556549072
+    ],
+    "materials": [
+      "shader_shelves_white.161",
+      "shader_window_glass.013"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(15)",
+    "tri": 236,
+    "min": [
+      -8.426087379455566,
+      1.0225096940994263,
+      -2.038153648376465
+    ],
+    "max": [
+      -7.9937357902526855,
+      2.1410553455352783,
+      -1.5107252597808838
+    ],
+    "materials": [
+      "shader_wood.379",
+      "shader_window_glass.014"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(16)",
+    "tri": 12361,
+    "min": [
+      -8.869850158691406,
+      1.0166946649551392,
+      -1.3007218837738037
+    ],
+    "max": [
+      -8.370039939880371,
+      2.1468706130981445,
+      -0.503609836101532
+    ],
+    "materials": [
+      "shader_wood.380",
+      "shader_rough_plastic.201",
+      "shader_grained_metal.088"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(17)",
+    "tri": 236,
+    "min": [
+      -8.933917999267578,
+      1.0189688205718994,
+      -0.491729199886322
+    ],
+    "max": [
+      -8.7793550491333,
+      2.1445963382720947,
+      0.06707364320755005
+    ],
+    "materials": [
+      "shader_wood.381",
+      "shader_window_glass.015"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(18)",
+    "tri": 1424,
+    "min": [
+      -8.944310188293457,
+      1.0086264610290527,
+      0.4747730493545532
+    ],
+    "max": [
+      -8.874176979064941,
+      2.1549320220947266,
+      1.8361304998397827
+    ],
+    "materials": [
+      "shader_wood.382"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(19)",
+    "tri": 236,
+    "min": [
+      -3.1452112197875977,
+      1.0071083307266235,
+      -3.0721447467803955
+    ],
+    "max": [
+      -1.8850287199020386,
+      2.15644907951355,
+      -2.9870710372924805
+    ],
+    "materials": [
+      "shader_wood.383",
+      "shader_window_glass.016"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(3)",
+    "tri": 252,
+    "min": [
+      3.1255764961242676,
+      1.0100544691085815,
+      7.15618896484375
+    ],
+    "max": [
+      5.162245273590088,
+      2.153513193130493,
+      7.221579551696777
+    ],
+    "materials": [
+      "shader_shelves_wood.056",
+      "shader_window_glass.005"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(4)",
+    "tri": 236,
+    "min": [
+      6.806270599365234,
+      1.0189229249954224,
+      5.350004196166992
+    ],
+    "max": [
+      7.96590518951416,
+      2.1446115970611572,
+      6.50963830947876
+    ],
+    "materials": [
+      "shader_shelves_white.158",
+      "shader_window_glass.006"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(5)",
+    "tri": 1116,
+    "min": [
+      9.360173225402832,
+      1.017927885055542,
+      1.4686675071716309
+    ],
+    "max": [
+      9.408304214477539,
+      2.1455938816070557,
+      2.9879560470581055
+    ],
+    "materials": [
+      "shader_wood.370"
+    ]
+  },
+  {
+    "name": "WindowFactory(25654).spawn_asset(6)",
+    "tri": 12344,
+    "min": [
+      7.926687717437744,
+      1.017928957939148,
+      1.2070667743682861
+    ],
+    "max": [
+      9.296900749206543,
+      2.145618438720703,
+      1.419450283050537
+    ],
+    "materials": [
+      "shader_wood.371",
+      "shader_wood.372",
+      "shader_brushed_metal.083",
+      "shader_window_glass.007"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(0)",
+    "tri": 12272,
+    "min": [
+      7.976314067840576,
+      1.0118460655212402,
+      -2.0075135231018066
+    ],
+    "max": [
+      9.194113731384277,
+      2.1517527103424072,
+      -1.8063796758651733
+    ],
+    "materials": [
+      "shader_shelves_white.157",
+      "shader_wood.367",
+      "shader_metal.124",
+      "shader_window_glass.002"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(1)",
+    "tri": 268,
+    "min": [
+      9.353205680847168,
+      1.0102401971817017,
+      -4.840933322906494
+    ],
+    "max": [
+      9.415212631225586,
+      2.153320550918579,
+      -3.2461888790130615
+    ],
+    "materials": [
+      "shader_wood.368",
+      "shader_window_glass.003"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(10)",
+    "tri": 13090,
+    "min": [
+      -1.3191823959350586,
+      1.021401047706604,
+      -4.69338846206665
+    ],
+    "max": [
+      -0.9399658441543579,
+      2.1421639919281006,
+      -3.750424861907959
+    ],
+    "materials": [
+      "shader_shelves_white.159",
+      "shader_rough_plastic.200",
+      "shader_metal.126"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(11)",
+    "tri": 236,
+    "min": [
+      2.401660203933716,
+      1.0190075635910034,
+      -6.87346076965332
+    ],
+    "max": [
+      3.3175995349884033,
+      2.144557476043701,
+      -6.7857279777526855
+    ],
+    "materials": [
+      "shader_wood.377",
+      "shader_window_glass.011"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(2)",
+    "tri": 20658,
+    "min": [
+      4.435923099517822,
+      1.004767894744873,
+      -7.341114044189453
+    ],
+    "max": [
+      8.779341697692871,
+      2.1588242053985596,
+      -7.119814872741699
+    ],
+    "materials": [
+      "shader_wood.369",
+      "shader_glass_volume.114",
+      "shader_grained_metal.086",
+      "shader_window_glass.004"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(20)",
+    "tri": 252,
+    "min": [
+      -9.65298843383789,
+      1.011609435081482,
+      2.381424903869629
+    ],
+    "max": [
+      -9.578605651855469,
+      2.1519925594329834,
+      4.107486724853516
+    ],
+    "materials": [
+      "shader_wood.384",
+      "shader_window_glass.017"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(21)",
+    "tri": 1424,
+    "min": [
+      7.441849708557129,
+      1.0150445699691772,
+      -1.4752531051635742
+    ],
+    "max": [
+      7.526556491851807,
+      2.148547887802124,
+      0.14405131340026855
+    ],
+    "materials": [
+      "shader_wood.385"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(7)",
+    "tri": 236,
+    "min": [
+      0.8310341238975525,
+      1.0181021690368652,
+      -6.8329548835754395
+    ],
+    "max": [
+      1.7342547178268433,
+      2.145462989807129,
+      -6.57609224319458
+    ],
+    "materials": [
+      "shader_wood.373",
+      "shader_window_glass.008"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(8)",
+    "tri": 252,
+    "min": [
+      -0.2415674328804016,
+      1.0217797756195068,
+      -6.500230312347412
+    ],
+    "max": [
+      0.5199612379074097,
+      2.1417853832244873,
+      -5.953195095062256
+    ],
+    "materials": [
+      "shader_wood.374",
+      "shader_window_glass.009"
+    ]
+  },
+  {
+    "name": "WindowFactory(91915).spawn_asset(9)",
+    "tri": 11411,
+    "min": [
+      -0.9989447593688965,
+      1.0123518705368042,
+      -5.755709648132324
+    ],
+    "max": [
+      -0.3476261794567108,
+      2.1512131690979004,
+      -4.894708156585693
+    ],
+    "materials": [
+      "shader_wood.375",
+      "shader_wood.376",
+      "shader_metal.125",
+      "shader_window_glass.010"
+    ]
+  },
+  {
+    "name": "WineglassFactory(1623357).spawn_asset(2519893)",
+    "tri": 45822,
+    "min": [
+      1.452581524848938,
+      0.7561436295509338,
+      -3.4933407306671143
+    ],
+    "max": [
+      1.6769063472747803,
+      1.076711654663086,
+      -3.269242763519287
+    ],
+    "materials": [
+      "shader_glass.103"
+    ]
+  }
+]

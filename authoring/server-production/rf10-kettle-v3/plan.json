@@ -1,0 +1,30 @@
+{
+  "revision": "rf10-kettle-v3",
+  "level": "RF-10-3",
+  "route": "rf12-3",
+  "sequence": [
+    "pickup kettle",
+    "fill water",
+    "place kettle",
+    "burner on",
+    "burner off at 55\u201365s"
+  ],
+  "early": "retain water, reset elapsed",
+  "fire": "extinguish, pickup, refill, replace, restart",
+  "sharedScene": [
+    "rf12",
+    "rf12-2",
+    "rf12-3"
+  ],
+  "gates": {
+    "engine": "passed",
+    "animation": "passed",
+    "visual": "passed",
+    "build": "passed"
+  },
+  "userAcceptance": "not_requested",
+  "status": "completed",
+  "generationTaskId": "aigc_3e1c3f1decff4c84aba3a51ce9b75683",
+  "commit": "6f76337",
+  "push": "not_pushed_remote_credentials_unavailable"
+}

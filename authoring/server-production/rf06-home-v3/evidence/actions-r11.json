@@ -1,0 +1,54 @@
+{
+  "release": "rf06-series-v1-r11",
+  "url": "http://127.0.0.1:4173/rf06-series-v1-r11/?mode=play&level=rf06-2&view=third&rf06qa=1",
+  "method": "Robot-only QA stations, normal interaction controller and animations; not end-to-end navigation",
+  "run": "passed",
+  "complete": true,
+  "water": 0,
+  "valveClosed": true,
+  "bucketPlaced": true,
+  "returned": {
+    "wrench": true,
+    "mop": true
+  },
+  "observedFps": 59.976,
+  "contacts": [
+    {
+      "action": "pickup-wrench",
+      "errorMetres": 0.023136087151739045
+    },
+    {
+      "action": "valve",
+      "errorMetres": 0.010201550508982292
+    },
+    {
+      "action": "return-wrench",
+      "errorMetres": 0.023866542465846657
+    },
+    {
+      "action": "pickup-bucket",
+      "errorMetres": 0.02042195762993462
+    },
+    {
+      "action": "bucket-place",
+      "errorMetres": 0.023645855085805564
+    },
+    {
+      "action": "pickup-mop",
+      "errorMetres": 0.02398500943947586
+    },
+    {
+      "action": "mop-pass",
+      "errorMetres": 0.08492228906165925
+    },
+    {
+      "action": "mop-clean",
+      "errorMetres": 0.0853668194097214
+    },
+    {
+      "action": "return-mop",
+      "errorMetres": 0.024091896553665677
+    }
+  ],
+  "source": "CUA read-only rendered QA DOM and game-shell state"
+}

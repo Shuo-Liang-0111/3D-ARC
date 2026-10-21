@@ -1,0 +1,19 @@
+--- a/game/levels/rf02/scene.js
++++ b/game/levels/rf02/scene.js
+@@ -2,6 +2,7 @@
+ import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+ import { BOOK_COLORS, LEVEL } from "./level.js";
++import { LIBRARY_SURFACES } from "./surface-assets.js";
+ 
+ const ASSET_REVISION = "cardinal-realism-slice-20260817-v5";
+ const revised = (path) => `${path}?v=${ASSET_REVISION}`;
+@@ -9,7 +10,7 @@
+ const CHAIR_FACE_NEGATIVE_Z = Math.PI / 2;
+ 
+ export const ASSETS = Object.freeze({
+-  environment: revised("/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb"),
++  environment: LIBRARY_SURFACES.environment,
+   returnSortingTable: revised("/local-assets/cardinal/rf02/models/runtime/return-sorting-table.glb"),
+   catalogTerminal: revised("/local-assets/cardinal/rf02/models/runtime/catalog-terminal.glb"),
+   securityGateModule: revised("/local-assets/cardinal/rf02/models/runtime/security-gate-module.glb"),

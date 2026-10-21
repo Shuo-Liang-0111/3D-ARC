@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready isolated clinic opening confirmation terminal for a contemporary Chinese community clinic. Real-world size approximately 0.30 m wide x 0.22 m high x 0.15 m deep. Compact matte gray-green countertop terminal with angled dark display, tactile confirmation button, small status light and rear cable connection, stable bottom support, restrained realistic wear, front facing positive Z, Y axis up, centered bottom pivot. Physically based materials, one isolated object only. No room, desk, floor, wall, character, robot, hands, pedestal, floating parts, animation, readable text, logo, trademark, arrows, UI, baked environment, or background geometry. Export as GLB.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,24 @@
+{
+  "level": "rf12",
+  "status": "fail",
+  "checkedAt": "2026-09-04T08:48:04.783Z",
+  "totalBytes": 0,
+  "totalMiB": 0,
+  "assets": [
+    {
+      "id": "environment",
+      "path": "/local-assets/levels/rf12/models/runtime/rf12_final.glb",
+      "role": "environment"
+    },
+    {
+      "id": "collision",
+      "path": "/local-assets/levels/rf12/models/runtime/rf12_collision.glb",
+      "role": "collision",
+      "collision": true
+    }
+  ],
+  "errors": [
+    "environment: missing /local-assets/levels/rf12/models/runtime/rf12_final.glb",
+    "collision: missing /local-assets/levels/rf12/models/runtime/rf12_collision.glb"
+  ]
+}

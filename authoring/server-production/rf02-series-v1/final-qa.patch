@@ -1,0 +1,25 @@
+diff --git a/public/rf02-performance-qa.html b/public/rf02-performance-qa.html
+--- a/public/rf02-performance-qa.html
++++ b/public/rf02-performance-qa.html
+@@ -6 +6 @@
+-<header><button id="first">第一视角采样</button><button id="third">第三视角采样</button><button id="dual">双视角采样</button><output id="result">等待资源</output></header>
++<header><button id="first">第一视角采样</button><button id="third">第三视角采样</button><button id="dual">双视角采样</button><button id="baseline">空页面基线</button><output id="result">等待资源</output></header>
+@@ -10,0 +11,2 @@
++const selectedLevel = new URLSearchParams(location.search).get("level");
++if (["rf01", "rf02", "rf02-2", "rf02-3"].includes(selectedLevel)) frame.src = "/?level=" + selectedLevel + "&view=third";
+@@ -55,0 +58,15 @@
++document.querySelector("#baseline").onclick = async () => {
++  frame.src = "about:blank";
++  await new Promise((resolve) => { frame.onload = resolve; });
++  const timestamps = [];
++  await new Promise((resolve) => {
++    function step(now) {
++      timestamps.push(now);
++      if (timestamps.length < 181) requestAnimationFrame(step);
++      else resolve();
++    }
++    requestAnimationFrame(step);
++  });
++  output.textContent = JSON.stringify({ view: "blank", fps: 180000 / (timestamps[180] - timestamps[0]) });
++  output.dataset.baseline = output.textContent;
++};

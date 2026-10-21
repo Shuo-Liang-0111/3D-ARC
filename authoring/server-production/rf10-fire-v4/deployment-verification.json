@@ -1,0 +1,37 @@
+[
+  {
+    "file": "game/levels/rf12-3/engine.js",
+    "sha256": "45a2fc86fe4c34e48be8713eb077eea3736718862bd8b93a56a2d9084b3fda05",
+    "httpSourceMatches": true
+  },
+  {
+    "file": "game/levels/rf12-3/runtime.js",
+    "sha256": "18edcee5bed958efb5be0f8a6fccb77f9c82f76d95efb72a156216fbc51a50bf",
+    "httpSourceMatches": true
+  },
+  {
+    "file": "game/levels/rf12/variants-scene.js",
+    "sha256": "c1144178d7047a4b533b930706789bebf6916b8d3e4f2c0629bbfc5ca8113093",
+    "httpSourceMatches": true
+  },
+  {
+    "file": "game/levels/rf12/interaction-layout.js",
+    "sha256": "f6bb306b214523a7d22d5aee9adcce7a74c1000a5fac2fc1e93d078019f928fe",
+    "httpSourceMatches": true
+  },
+  {
+    "file": "game/levels/rf12/interaction-animation.js",
+    "sha256": "f01da7fcff9362a217d62ac85740bf85ee21f34403fea9cf21188bd80d7e6b0f",
+    "httpSourceMatches": true
+  },
+  {
+    "file": "local-assets/levels/rf12/kettle-v3/kettle.glb",
+    "sha256": "bf367abb86c561305e034b9624c535001772d9ac41f9bd7b1b833df8c0f20fe7",
+    "releaseAndHTTPMatch": true
+  },
+  {
+    "file": "local-assets/levels/rf12/kettle-v3/sink-r3.glb",
+    "sha256": "fea5c05a817214622571dd5a99c4b71b85bda0e92927508933712d03bee5a64a",
+    "releaseAndHTTPMatch": true
+  }
+]

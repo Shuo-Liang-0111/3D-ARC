@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RF-12 Kitchen Preview</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #c4c7c2; }
+      canvas { display: block; width: 100%; height: 100%; }
+      #status { position: fixed; inset: 16px auto auto 16px; padding: 8px 12px; border-radius: 6px; background: rgba(24, 29, 28, .72); color: #f5f1e8; font: 13px/1.4 system-ui, sans-serif; letter-spacing: .02em; transition: opacity .4s ease; }
+      #status.ready { opacity: 0; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="status">正在加载 RF-12 厨房场景…</div>
+    <script type="module" src="/game/levels/rf12/preview.js"></script>
+  </body>
+</html>

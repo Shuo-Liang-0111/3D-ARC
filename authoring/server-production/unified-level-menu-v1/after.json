@@ -1,0 +1,282 @@
+[
+  {
+    "id": "rf01",
+    "count": 40,
+    "release": "rf01-sorting-v4-navigation-v1",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf01-2",
+    "count": 40,
+    "release": "rf01-sorting-v4-navigation-v1",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf01-3",
+    "count": 40,
+    "release": "rf01-sorting-v4-navigation-v1",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf02",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf02-2",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf02-3",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf03",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf04",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf04-2",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf04-3",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf05",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf05-2",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf05-3",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf06",
+    "count": 40,
+    "release": "rf06-series-v1-r16",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf06-2",
+    "count": 40,
+    "release": "rf06-series-v1-r16",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf06-3",
+    "count": 40,
+    "release": "rf06-series-v1-r16",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf07",
+    "count": 40,
+    "release": "rf073-pickup-finish-r1",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf07-2",
+    "count": 40,
+    "release": "rf073-pickup-finish-r1",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf07-3",
+    "count": 40,
+    "release": "rf073-pickup-finish-r1",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf08",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf09",
+    "count": 40,
+    "release": "rf08-office-v1-r28",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf09-2",
+    "count": 40,
+    "release": "rf08-office-v1-r28",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf09-3",
+    "count": 40,
+    "release": "rf08-office-v1-r28",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf10",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf11",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf12",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf12-2",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf12-3",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf13",
+    "count": 40,
+    "release": "rf11-clinic-series-v1-r12",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf13-02",
+    "count": 40,
+    "release": "rf11-clinic-series-v1-r12",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf13-03",
+    "count": 40,
+    "release": "rf11-clinic-series-v1-r12",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf14",
+    "count": 40,
+    "release": "rf12-tennis-series-v1-r7",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf14-2",
+    "count": 40,
+    "release": "rf12-tennis-series-v1-r7",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf14-3",
+    "count": 40,
+    "release": "rf12-tennis-series-v1-r7",
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf15",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf15-1",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf15-2",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "rf15-3",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "test_zpf",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  },
+  {
+    "id": "test_zpf2",
+    "count": 40,
+    "release": null,
+    "canonicalMenu": true,
+    "navigationScript": true
+  }
+]

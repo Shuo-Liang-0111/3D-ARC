@@ -1,0 +1,28 @@
+{
+  "tennis-bag": {
+    "status": "completed",
+    "provider": "Cardinal",
+    "qualityPreset": "high-highpoly",
+    "request": "production/rf14/realism-v0.1/requests/tennis-bag.json",
+    "regenerations": 0,
+    "taskId": "aigc_bf1481b69ebf4eaea7757ae05073274f",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "25e260a3705476b5f8a0658068ae014ce4657d73ea93f0532ef94499b572c2ad",
+    "path": "production/rf14/realism-v0.1/source/tennis-bag.glb"
+  },
+  "court-bench": {
+    "status": "completed",
+    "provider": "Cardinal",
+    "qualityPreset": "high-highpoly",
+    "request": "production/rf14/realism-v0.1/requests/court-bench.json",
+    "regenerations": 0,
+    "taskId": "aigc_e0c37423e9664eafb7615bbf2388dcbc",
+    "progress": 100,
+    "retryAfterSeconds": null,
+    "errorCode": null,
+    "sourceSha256": "f6d57044429ecf095788b705190ba5dbcf74d082c172c34d611ff75dc9984f39",
+    "path": "production/rf14/realism-v0.1/source/court-bench.glb"
+  }
+}

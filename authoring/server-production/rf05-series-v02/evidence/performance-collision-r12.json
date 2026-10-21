@@ -1,0 +1,17 @@
+{
+  "version": "rf05-series-v02-r12",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "view": "third",
+  "durationSeconds": 10,
+  "samples": 20,
+  "minFPS": 59.9280862935901,
+  "meanFPS": 59.95064538164602,
+  "wallContact": {
+    "stopX": -3.3832178292385024,
+    "retreatX": -3.247877153478231
+  },
+  "method": "QA station teleport only, formal towel pickup, real W/S keyboard inputs"
+}

@@ -1,0 +1,212 @@
+{
+  "level": "RF-09",
+  "provider": "Cardinal",
+  "assets": {
+    "conference_table": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/conference_table.json",
+      "taskId": "aigc_c4ac8e7c71b549cfa010ff816cccb55b",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/conference_table.highpoly.glb",
+      "sourceSha256": "4f86a8f567e0f8a026cc077f448e6c403c0dc64b71b0bd4a1178e0680957f966",
+      "sourceBytes": 55578836
+    },
+    "executive_chair": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/executive_chair.json",
+      "taskId": "aigc_cf89cfe8773143e5b9ddcd7bec3ee3ec",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/executive_chair.highpoly.glb",
+      "sourceSha256": "9047ce4e02c9169ca25f442932cbcfec898c246b944727cbbb4718c87438f107",
+      "sourceBytes": 58701924
+    },
+    "av_podium": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/av_podium.json",
+      "taskId": "aigc_cb3b7bb8acd54823894f520ee0a5a1e1",
+      "status": "completed",
+      "attempts": [
+        {
+          "taskId": "aigc_67d7841c384b49ceb2a393e5b716c324",
+          "status": "completed",
+          "error": null
+        }
+      ],
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/av_podium.highpoly.glb",
+      "sourceSha256": "28d41fc1229a3f2ed19e5bba4cb9c3367df53533288bb94052f02ebad3407dfd",
+      "sourceBytes": 57327268
+    },
+    "conference_terminal": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/conference_terminal.json",
+      "taskId": "aigc_cdf7086eadc04a1aa0baacb7fcc6eb74",
+      "status": "completed",
+      "attempts": [
+        {
+          "taskId": "aigc_fc4ea0d206ff4649a97715c8adeed19f",
+          "status": "completed",
+          "error": null
+        }
+      ],
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/conference_terminal.highpoly.glb",
+      "sourceSha256": "bc3ce055b16c087abcc1c099d88bb1cf7b94847721f0ac352e922f67bcf42b70",
+      "sourceBytes": 57541868
+    },
+    "office_workstation": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/office_workstation.json",
+      "taskId": "aigc_3f7098abea8e43d495983b08c77fac96",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/office_workstation.highpoly.glb",
+      "sourceSha256": "3424158972a765a9a75825bc4f481562436d442b1ec4d113b247bfcb0a5bdd6a",
+      "sourceBytes": 54987756
+    },
+    "reception_desk": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/reception_desk.json",
+      "taskId": "aigc_6af5958a68e64658b1acc95650cf8f17",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/reception_desk.highpoly.glb",
+      "sourceSha256": "007381366e1b1f887b2edda18b6c65d21b79db755415266eead93e1dd50c1c4e",
+      "sourceBytes": 54818528
+    },
+    "supply_cabinet": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/supply_cabinet.json",
+      "taskId": "aigc_69d8fc9cabb442999cf83e05b75b4e61",
+      "status": "completed",
+      "attempts": [
+        {
+          "taskId": "aigc_d04240954b0e4d31a6fc12168a2d1cb7",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/supply_cabinet.highpoly.glb",
+      "sourceSha256": "bb01a401c6249bf32c045d57628a46fc5f5668c6db43df419022073310968b4c",
+      "sourceBytes": 57264008
+    },
+    "it_equipment_locker": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/it_equipment_locker.json",
+      "taskId": "aigc_a894fb9c95594b61b5071814c030de54",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/it_equipment_locker.highpoly.glb",
+      "sourceSha256": "e872e18eae7328016cc4fcfaa0e62e208c30e04ec6ba5eb6f8da6a84c98154b2",
+      "sourceBytes": 56263552
+    },
+    "lounge_sofa": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/lounge_sofa.json",
+      "taskId": "aigc_5adf72eeeeac45aaa7cdf32d211b739b",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "attempts": [
+        {
+          "taskId": "aigc_69cc812932984ea7b453cef9674aba76",
+          "status": "failed",
+          "error": "Task could not be completed."
+        },
+        {
+          "taskId": "aigc_69cc812932984ea7b453cef9674aba76",
+          "status": "failed",
+          "error": "Task could not be completed."
+        },
+        {
+          "taskId": "aigc_863a6f70995d43998186c1cb9135a20b",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/lounge_sofa.highpoly.glb",
+      "sourceSha256": "f44650d92a2f951d374deb7cbe29a74f5313018950e9ea41ebc480913a96da8b",
+      "sourceBytes": 54039160
+    },
+    "usb_c_video_adapter": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/usb_c_video_adapter.json",
+      "taskId": "aigc_b488755912834c69bdc5d5913e48cabc",
+      "status": "completed",
+      "attempts": [
+        {
+          "taskId": "aigc_ed2597fc054d41ea8277154c7573a3e3",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/usb_c_video_adapter.highpoly.glb",
+      "sourceSha256": "9c72f511bee3f89e43d9bc9af1641e2ff1448b306a9aca6214b44e5fc2a22093",
+      "sourceBytes": 55825296
+    },
+    "wireless_presenter": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/wireless_presenter.json",
+      "taskId": "aigc_c49043f7af05432d87fb2293799f15d7",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/wireless_presenter.highpoly.glb",
+      "sourceSha256": "70157e19c8869dd815ebf19a2b766e7e88393c99c699013189f6469f5b6d023e",
+      "sourceBytes": 54013096
+    },
+    "ceiling_light": {
+      "type": "model3d",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/ceiling_light.json",
+      "taskId": "aigc_a54d98f2790f4f76bb75a0c5b3927779",
+      "status": "completed",
+      "attempts": [
+        {
+          "taskId": "aigc_faf8e5b5809747cdbec09caae5ae2117",
+          "status": "failed",
+          "error": "Task could not be completed."
+        }
+      ],
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/models/source/ceiling_light.highpoly.glb",
+      "sourceSha256": "066a9a75f6809d3f6711756edd8bb3302177a80ecf9c0c393da2ddd2b048fe7f",
+      "sourceBytes": 52042172
+    },
+    "carpet_floor": {
+      "type": "image",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/carpet_floor.json",
+      "taskId": "aigc_3bcde8a118f448eea90e39bd8fc9987b",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/textures/source/carpet_floor-basecolor.png",
+      "sourceSha256": "b2e390c5a2b6639c9adfff1f5cde24c38ee1bf0c252f123b79df97955fc5e797",
+      "sourceBytes": 33342321
+    },
+    "painted_wall": {
+      "type": "image",
+      "requestFile": "public/local-assets/cardinal/rf09/requests/painted_wall.json",
+      "taskId": "aigc_55db23fce7474506a25dcae7360b9d8f",
+      "status": "completed",
+      "progress": 100,
+      "error": null,
+      "sourceArtifact": "public/local-assets/cardinal/rf09/textures/source/painted_wall-basecolor.png",
+      "sourceSha256": "9295c0a7d999fc997554e0fd262cc54119023fca20902eab0002c8b75c68c32d",
+      "sourceBytes": 18320781
+    }
+  }
+}

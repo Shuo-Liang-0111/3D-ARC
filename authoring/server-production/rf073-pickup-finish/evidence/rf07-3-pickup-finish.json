@@ -1,0 +1,123 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": 1.200659281337895,
+      "z": 2.3302286166106474,
+      "yaw": 3.386182850353895
+    },
+    "samples": {
+      "sampleA": {
+        "location": "case",
+        "x": -9.25,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleB": {
+        "location": "case",
+        "x": -7.35,
+        "y": 0.9553,
+        "z": -6.77
+      },
+      "sampleC": {
+        "location": "case",
+        "x": -5.45,
+        "y": 0.9553,
+        "z": -6.77
+      }
+    },
+    "caseSamples": [
+      "sampleA",
+      "sampleC",
+      "sampleB"
+    ],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.921,
+      "z": 1.6
+    },
+    "modulePoint": {
+      "x": 3.65,
+      "y": 0.921,
+      "z": 1.7
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.068,
+      "z": -2.22
+    },
+    "containerLocation": "storage",
+    "carriedItem": "transport-case",
+    "coolingModuleLocation": "case",
+    "casePhase": "active",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "device",
+      "device": "bsc-03",
+      "triggerAt": 97.79201224194043,
+      "status": "resolved",
+      "startedAt": null
+    },
+    "clock": 6.905800000190734,
+    "clockStamp": 16440.699999809265,
+    "elapsed": 6.899700000000008,
+    "complete": true,
+    "failed": false,
+    "settling": false,
+    "progress": 93.20030000000001,
+    "motion": "carrying",
+    "interactions": 1,
+    "lastEvent": "case-pickup",
+    "rewards": [],
+    "delivered": false
+  },
+  "animation": {
+    "fps": 33.14370516942864,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "case-pickup",
+      "event": "case-pickup",
+      "error": 0.02219181267740358,
+      "revision": "rf07-realism-v2"
+    },
+    "contacts": [
+      {
+        "type": "case-pickup",
+        "event": "case-pickup",
+        "error": 0.02219181267740358,
+        "revision": "rf07-realism-v2"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.3697835401932273,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.001532223264461076,
+          "position": [
+            1.118988470366842,
+            0.03546818230514185,
+            2.5150575939746687
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0010980777773591495,
+          "position": [
+            1.3612497084704194,
+            0.035484879074107356,
+            2.460487237824934
+          ]
+        }
+      ]
+    }
+  }
+}

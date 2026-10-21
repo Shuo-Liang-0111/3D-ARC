@@ -1,0 +1,225 @@
+{
+  "url": "http://127.0.0.1:4192/?mode=play&level=rf02-3&view=third&robot=g1&control=velocity&qa=rf02-operations",
+  "incident": {
+    "color": "red",
+    "phase": "loose",
+    "elapsed": 91.3094999999985,
+    "drops": 3,
+    "nextDrop": 36
+  },
+  "books": {
+    "red": {
+      "id": "red",
+      "color": "red",
+      "x": -0.62,
+      "z": 3.05,
+      "y": 0.677,
+      "support": "return-table",
+      "location": "table"
+    },
+    "black": {
+      "id": "black",
+      "color": "black",
+      "x": 0,
+      "z": 3.05,
+      "y": 0.681,
+      "support": "return-table",
+      "location": "table"
+    },
+    "white": {
+      "id": "white",
+      "color": "white",
+      "x": 0.62,
+      "z": 3.05,
+      "y": 0.677,
+      "support": "return-table",
+      "location": "table"
+    },
+    "red-reading": {
+      "id": "red-reading",
+      "color": "red",
+      "x": -5.82,
+      "z": 2.35,
+      "y": 0.686,
+      "support": "west-reading-zone",
+      "location": "table"
+    },
+    "black-reading": {
+      "id": "black-reading",
+      "color": "black",
+      "x": 6.12,
+      "z": 2.35,
+      "y": 0.686,
+      "support": "east-reading-zone",
+      "location": "table"
+    },
+    "white-cart": {
+      "id": "white-cart",
+      "color": "white",
+      "x": 2.45,
+      "z": 4.55,
+      "y": 1.01,
+      "support": "return-cart",
+      "location": "table"
+    },
+    "shelf-red-0": {
+      "id": "shelf-red-0",
+      "color": "red",
+      "x": -9.22,
+      "y": 0.012,
+      "z": -1.85,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": -9.22,
+        "y": 0.012,
+        "z": -1.85
+      },
+      "support": null,
+      "location": "ground",
+      "background": true,
+      "shelfIndex": 0,
+      "fallen": true,
+      "fallElapsed": 0.95
+    },
+    "shelf-red-1": {
+      "id": "shelf-red-1",
+      "color": "red",
+      "x": -9.22,
+      "y": 0.012,
+      "z": -1.25,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": -9.22,
+        "y": 0.012,
+        "z": -1.25
+      },
+      "support": null,
+      "location": "ground",
+      "background": true,
+      "shelfIndex": 1,
+      "fallen": true,
+      "fallElapsed": 0.95
+    },
+    "shelf-red-2": {
+      "id": "shelf-red-2",
+      "color": "red",
+      "x": -9.22,
+      "y": 0.012,
+      "z": -0.6500000000000001,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": -9.22,
+        "y": 0.012,
+        "z": -0.6500000000000001
+      },
+      "support": null,
+      "location": "ground",
+      "background": true,
+      "shelfIndex": 2,
+      "fallen": true,
+      "fallElapsed": 0.95
+    },
+    "shelf-black-0": {
+      "id": "shelf-black-0",
+      "color": "black",
+      "x": -0.7,
+      "y": 1.16,
+      "z": -6.43,
+      "rotation": 0,
+      "landing": {
+        "x": -0.75,
+        "y": 0.012,
+        "z": -5.18
+      },
+      "support": "black-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 0
+    },
+    "shelf-black-1": {
+      "id": "shelf-black-1",
+      "color": "black",
+      "x": -0.33999999999999997,
+      "y": 1.16,
+      "z": -6.43,
+      "rotation": 0,
+      "landing": {
+        "x": -0.08999999999999997,
+        "y": 0.012,
+        "z": -5.18
+      },
+      "support": "black-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 1
+    },
+    "shelf-black-2": {
+      "id": "shelf-black-2",
+      "color": "black",
+      "x": 0.020000000000000018,
+      "y": 1.16,
+      "z": -6.43,
+      "rotation": 0,
+      "landing": {
+        "x": 0.5700000000000001,
+        "y": 0.012,
+        "z": -5.18
+      },
+      "support": "black-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 2
+    },
+    "shelf-white-0": {
+      "id": "shelf-white-0",
+      "color": "white",
+      "x": 10.43,
+      "y": 1.16,
+      "z": -1.75,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": 9.22,
+        "y": 0.012,
+        "z": -1.85
+      },
+      "support": "white-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 0
+    },
+    "shelf-white-1": {
+      "id": "shelf-white-1",
+      "color": "white",
+      "x": 10.43,
+      "y": 1.16,
+      "z": -1.3900000000000001,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": 9.22,
+        "y": 0.012,
+        "z": -1.25
+      },
+      "support": "white-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 1
+    },
+    "shelf-white-2": {
+      "id": "shelf-white-2",
+      "color": "white",
+      "x": 10.43,
+      "y": 1.16,
+      "z": -1.03,
+      "rotation": 1.5707963267948966,
+      "landing": {
+        "x": 9.22,
+        "y": 0.012,
+        "z": -0.6500000000000001
+      },
+      "support": "white-target-shelf",
+      "location": "shelved",
+      "background": true,
+      "shelfIndex": 2
+    }
+  }
+}

@@ -1,0 +1,1 @@
+<robot name="umpire-chair"><link name="base"><visual><geometry><mesh filename="mesh/umpire-chair.glb"/></geometry></visual><collision><geometry><mesh filename="mesh/umpire-chair_collision.obj"/></geometry></collision></link></robot>

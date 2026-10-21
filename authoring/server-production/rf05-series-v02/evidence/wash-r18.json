@@ -1,0 +1,56 @@
+{
+  "build": "r18",
+  "result": "PASSED",
+  "actions": [
+    [
+      "pickup",
+      "picked_up",
+      0.04933810859656466
+    ],
+    [
+      "sink-place",
+      "cup_in_sink",
+      0.05430050362804356
+    ],
+    [
+      "tap",
+      "water_on",
+      0.05021133224571203
+    ],
+    [
+      "tap",
+      "water_off",
+      0.052579913534223886
+    ],
+    [
+      "wash",
+      "cup_clean",
+      0.022088337681550847
+    ],
+    [
+      "drain",
+      "draining",
+      0.051166336792166076
+    ],
+    [
+      "sink-take",
+      "picked_up",
+      0.05482686982266497
+    ],
+    [
+      "deliver",
+      "delivered",
+      0.049219708104660746
+    ]
+  ],
+  "sink": {
+    "water": 0,
+    "faucet": false,
+    "draining": false,
+    "clean": true,
+    "washed": true
+  },
+  "phase": "idle",
+  "visual": "Reviewed actual first-person wash frame: cup and water visible, wrist descends from above rim.",
+  "scope": "r18 basin-only retest; retain r13 passed non-basin production actions"
+}

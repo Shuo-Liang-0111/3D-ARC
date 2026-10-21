@@ -1,0 +1,83 @@
+{
+  "level": "RF-01",
+  "standard": "compact Chinese light-industrial park service yard",
+  "production": "EmbodiedGen Kolors + SAM3D, Blender meter normalization",
+  "units": "meters",
+  "upAxis": "Y",
+  "site": {
+    "width": 20,
+    "depth": 16,
+    "workshop": [
+      10.4,
+      4.6,
+      6.0
+    ],
+    "mainRoadWidth": 3.7,
+    "slidingGateClearWidth": 4.0
+  },
+  "assetBoundary": {
+    "environment": "EmbodiedGen workshop plus fixed yard, fence, kiosk and fire equipment",
+    "interactables": [
+      "battery",
+      "power_slot",
+      "sliding_gate",
+      "terminal"
+    ]
+  },
+  "source": {
+    "referenceImage": "./external/EmbodiedGen/outputs/rf01_v2/rf01_service_yard_reference.png",
+    "staticGlb": "./external/EmbodiedGen/outputs/rf01_v2/static_environment_v2/result/rf01_service_yard_reference.glb",
+    "interactableRoot": "./external/EmbodiedGen/outputs/rf01_v2/interactables_3d",
+    "seeds": {
+      "conditioning": 60101,
+      "interactables": 60102
+    }
+  },
+  "assets": {
+    "environment": {
+      "fileBytes": 4262420,
+      "sha256": "647a34649d2025be55842dc10cc758875e2e434702594c24a7f4b9cd51f30b1b",
+      "dimensions": [
+        20.0,
+        4.76,
+        16.0
+      ]
+    },
+    "battery": {
+      "fileBytes": 4070072,
+      "sha256": "ec4f7219102cab5f21cf57c916e6debc341971ee22388b6e5f0db9e42e594020",
+      "dimensions": [
+        0.7,
+        0.28,
+        0.42
+      ]
+    },
+    "power_slot": {
+      "fileBytes": 4597936,
+      "sha256": "8d3656e342a1dec80da2420a5fee74ae01bd3e2dced13fd5ba455343d52f964f",
+      "dimensions": [
+        1.25,
+        0.36,
+        0.9
+      ]
+    },
+    "sliding_gate": {
+      "fileBytes": 7701264,
+      "sha256": "89f6f263fd406cf49265df0ad8cf0841bc3b388c03a067961106c246a66fd431",
+      "dimensions": [
+        4.0,
+        2.0,
+        0.15
+      ]
+    },
+    "terminal": {
+      "fileBytes": 2952852,
+      "sha256": "f4921716c5f70f104d77e96b7ace679629ed8bff7662a8bf86e876620485442e",
+      "dimensions": [
+        0.55,
+        1.25,
+        0.45
+      ]
+    }
+  }
+}

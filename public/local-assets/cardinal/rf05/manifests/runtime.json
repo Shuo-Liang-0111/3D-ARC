@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "rfId": "RF-05",
+  "productionStatus": "visual_complete",
+  "visualReview": "pass",
+  "referenceMatch": "pass",
+  "units": "meters",
+  "upAxis": "Y",
+  "source": "Cardinal image-to-3D high-highpoly plus Cardinal advanced surface images",
+  "layout": {
+    "roomMeters": [
+      8.4,
+      2.8,
+      10.8
+    ],
+    "type": "contemporary Chinese midscale business-hotel twin room",
+    "operationState": "daily use with restrained local clutter"
+  },
+  "sharedInstances": {
+    "twin_bed": 2,
+    "ceiling_light": "array"
+  },
+  "assets": [
+    {
+      "id": "twin_bed",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/twin_bed.glb",
+      "bytes": 1259528,
+      "sha256": "4eaeefee265012b285561799aa97c516a5a55b01f6da75ed5398972cdd822b87",
+      "dimensions": [
+        1.86,
+        0.68,
+        2.65
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "bedside_table",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/bedside_table.glb",
+      "bytes": 1138332,
+      "sha256": "6b16587fc319d881d5099e2033b1c3a34be8e4c52e6798f99b250a5b189dfef6",
+      "dimensions": [
+        0.55,
+        0.55,
+        0.45
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "writing_desk",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/writing_desk.glb",
+      "bytes": 1001508,
+      "sha256": "f83434686d5c95cb1090eb633614b6a8ef3425a3bfbeca4b2ceaf5167bb1166c",
+      "dimensions": [
+        1.6,
+        0.76,
+        0.62
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "desk_chair",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/desk_chair.glb",
+      "bytes": 1338376,
+      "sha256": "d1c43b2fcab52dc4f8c64dc8658586a2a6e27682451c905a9c54a3fbd4b4904a",
+      "dimensions": [
+        0.58,
+        0.9,
+        0.58
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "television_console",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/television_console.glb",
+      "bytes": 1065488,
+      "sha256": "13dcf414ab123beacbc772dc033ee30bdbb755a39cde8e8456c77759bc1e7455",
+      "dimensions": [
+        1.7,
+        1.25,
+        0.45
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "wardrobe",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/wardrobe.glb",
+      "bytes": 828128,
+      "sha256": "d3e27fe13edd75ca7e0bd0ff056bf31311841a92de8117ac6d51bf8d7afe2388",
+      "dimensions": [
+        1.55,
+        2.55,
+        0.72
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "luggage_bench",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/luggage_bench.glb",
+      "bytes": 1355096,
+      "sha256": "bdcf803be45632b781e6401d321ec389b412172217d3793feb9bf43403372018",
+      "dimensions": [
+        1.5,
+        0.52,
+        0.62
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "curtain_window_module",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/curtain_window_module.glb",
+      "bytes": 1737328,
+      "sha256": "dabbb62a9074ba444227bf8a724277947732c810477f578dfd54465d663acd02",
+      "dimensions": [
+        2.6,
+        2.5,
+        0.25
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "bathroom_vanity",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/bathroom_vanity.glb",
+      "bytes": 1140576,
+      "sha256": "126c32fb178cb6c7dfc516a9ee54b92c2fba56a1c3180e0952213b80cf88f99c",
+      "dimensions": [
+        1.2,
+        0.85,
+        0.55
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "toilet",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/toilet.glb",
+      "bytes": 1423672,
+      "sha256": "db68937de8719e618590027d003d076f6fa11b70c867961be8c0510805fb5414",
+      "dimensions": [
+        0.42,
+        0.78,
+        0.7
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "shower_fixture",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/shower_fixture.glb",
+      "bytes": 1750464,
+      "sha256": "ef3674e0f9a1273ce333754f899e5661e6413a794cd3d0c0dd9a8fff6aaf899f",
+      "dimensions": [
+        0.32,
+        2.1,
+        0.22
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "ceiling_light",
+      "role": "static",
+      "path": "/local-assets/cardinal/rf05/models/runtime/ceiling_light.glb",
+      "bytes": 1006832,
+      "sha256": "727569915d96129e2c867dca36e2e9202f734b3c6977771020b7b6e0b0bc71bd",
+      "dimensions": [
+        0.8,
+        0.1,
+        0.8
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "towel",
+      "role": "interactive",
+      "path": "/local-assets/cardinal/rf05/models/runtime/towel.glb",
+      "bytes": 1904584,
+      "sha256": "4d6fb7e84c9fb0afc521f4f6c4e2da36e23d38757a186481a232ca9eb7c8ca50",
+      "dimensions": [
+        0.68,
+        0.14,
+        0.45
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "drinking_cup",
+      "role": "interactive",
+      "path": "/local-assets/cardinal/rf05/models/runtime/drinking_cup.glb",
+      "bytes": 1951756,
+      "sha256": "29a79b58c4df70ab2562efb388d805f699355934801ab64f02eaf3104b7b4160",
+      "dimensions": [
+        0.11,
+        0.12,
+        0.11
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "paper_trash",
+      "role": "interactive",
+      "path": "/local-assets/cardinal/rf05/models/runtime/paper_trash.glb",
+      "bytes": 2172056,
+      "sha256": "c10c9cb465e47aa4a1312c7be1c5984efe272e5b82de2039bb055f4982515298",
+      "dimensions": [
+        0.16,
+        0.18,
+        0.16
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "laundry_basket",
+      "role": "target",
+      "path": "/local-assets/cardinal/rf05/models/runtime/laundry_basket.glb",
+      "bytes": 2323804,
+      "sha256": "3f1c44bfe2905254ec69ab222052156ff7f3454ea0d2d6c1eea61bae5288273e",
+      "dimensions": [
+        0.72,
+        0.62,
+        0.72
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "cleaning_cart",
+      "role": "target",
+      "path": "/local-assets/cardinal/rf05/models/runtime/cleaning_cart.glb",
+      "bytes": 1645240,
+      "sha256": "e403de942cc977f9fff371a68d80e05cfdedd5e22d1c611dc98fa919a5b7a899",
+      "dimensions": [
+        0.95,
+        1.05,
+        0.55
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    },
+    {
+      "id": "trash_bin",
+      "role": "target",
+      "path": "/local-assets/cardinal/rf05/models/runtime/trash_bin.glb",
+      "bytes": 1731544,
+      "sha256": "4bf6aa942a2bcd6c0b3bfe21935fa7fb8faf7e264538156711aa283c3fa37b2d",
+      "dimensions": [
+        0.54,
+        0.62,
+        0.54
+      ],
+      "texturesEmbedded": true,
+      "visualReview": "pass"
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "guestroom_wood_floor",
+      "path": "/local-assets/cardinal/rf05/textures/source/guestroom_wood_floor.png",
+      "bytes": 4942835,
+      "sha256": "fea6e57ae5133ba92f288f3a87db4f6b5179e4e6c0ce05ecea0b11547689260d",
+      "visualReview": "pass"
+    },
+    {
+      "id": "warm_gray_wall",
+      "path": "/local-assets/cardinal/rf05/textures/source/warm_gray_wall.png",
+      "bytes": 5556821,
+      "sha256": "cc359c438c0803144ab378e0cd1cd3778d82f52b5cc421f06ca6b9ca648603be",
+      "visualReview": "pass"
+    },
+    {
+      "id": "bathroom_floor_tile",
+      "path": "/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+      "bytes": 8932523,
+      "sha256": "9adda573e239a007207e68b6dbe16c204196837824b9599974093d79f500bfbb",
+      "visualReview": "pass"
+    },
+    {
+      "id": "bathroom_wall_tile",
+      "path": "/local-assets/cardinal/rf05/textures/source/bathroom_wall_tile.png",
+      "bytes": 4907810,
+      "sha256": "60520a8aaa3fc275d969b7994db545967c3eb72e9c31fd4cb1a1295daec5efee",
+      "visualReview": "pass"
+    }
+  ],
+  "totalBytes": 51114301
+}

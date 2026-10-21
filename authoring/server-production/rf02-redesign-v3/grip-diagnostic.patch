@@ -1,0 +1,441 @@
+diff --git a/game/levels/rf02/furniture-controller.js b/game/levels/rf02/furniture-controller.js
+--- a/game/levels/rf02/furniture-controller.js
++++ b/game/levels/rf02/furniture-controller.js
+@@ -1,218 +1,219 @@
+-import * as THREE from "three";
+-import { BrowserArmScript } from "../rf15/browser-arm-script.js";
+-import { approachPath } from "../rf15/interaction-walk.js";
+-import { BOOKENDS } from "./series-layout.js";
+-
+-const up = new THREE.Vector3(0, 1, 0);
+-const idle = () => ({ move: 0, strafe: 0, turn: 0 });
+-const separation = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
+-const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
+-
+-export function createFurnitureController(world, robot, options) {
+-  return new FurnitureController(world, robot, options);
+-}
+-
+-class FurnitureController {
+-  constructor(world, robot, options) {
+-    this.world = world;
+-    this.robot = robot;
+-    this.options = options;
+-    this.arms = {};
+-    if (robot.userData.officialModel && robot.userData.robotProfile?.setJointAngle) {
+-      for (const side of ["left", "right"]) this.arms[side] = new BrowserArmScript(robot, side);
+-    }
+-    this.reset();
+-    world.furnitureController = this;
+-  }
+-
+-  reset() {
+-    this.action = null;
+-    this.path = null;
+-    this.pendingCompletion = false;
+-    this.step = 0;
+-    this.walkBlend = 0;
+-    this.previous = { ...this.options.getState().player };
+-    this.lastResult = null;
+-    for (const arm of Object.values(this.arms)) arm.active = false;
+-  }
+-
+-  get busy() {
+-    return Boolean(this.action || this.options.getState().attachment);
+-  }
+-
+-  object(state = this.options.getState()) {
+-    const attachment = state.attachment ?? this.action?.selected;
+-    return attachment?.kind === "cart" ? state.cart : attachment?.kind === "chair" ? state.chairs[attachment.id] : null;
+-  }
+-
+-  targets() {
+-    const object = this.object();
+-    if (object) {
+-      return Object.fromEntries(["left", "right"].map((side) => {
+-        const local = new THREE.Vector3(side === "left" ? object.handleHalfWidth : -object.handleHalfWidth, object.handleY, -object.handleBack);
+-        return [side, local.applyAxisAngle(up, object.yaw).add(new THREE.Vector3(object.x, 0, object.z))];
+-      }));
+-    }
+-    const handle = BOOKENDS[this.action.selected.color].handle;
+-    return { right: new THREE.Vector3(handle.x, handle.y, handle.z) };
+-  }
+-
+-  interact() {
+-    if (this.action) return true;
+-    const state = this.options.getState();
+-    if (state.attachment) {
+-      this.options.stop();
+-      this.action = { phase: "release", time: 0, selected: { ...state.attachment } };
+-      return true;
+-    }
+-    const selected = this.options.runtime.getInteraction(state);
+-    if (!selected || !["grip", "repair"].includes(selected.type)) return false;
+-    const path = approachPath(state, selected.stand, this.options.runtime);
+-    if (!path) {
+-      this.options.message("操作位置被挡住，请从可通行的一侧靠近");
+-      this.options.setState(this.options.runtime.interact(state));
+-      return true;
+-    }
+-    this.options.stop();
+-    this.path = path;
+-    this.action = { phase: "align", time: 0, selected, index: 0, ready: false, stuck: 0 };
+-    this.previous = { ...state.player };
+-    return true;
+-  }
+-
+-  motionInput(state, input = {}) {
+-    if (!this.action) return state.attachment ? input : null;
+-    if (this.action.phase !== "align") return idle();
+-    const action = this.action;
+-    while (action.index < this.path.length && separation(state.player, this.path[action.index]) < 0.02) action.index += 1;
+-    if (action.index < this.path.length) {
+-      const point = this.path[action.index], error = angle(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw);
+-      if (Math.abs(error) > 0.06) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
+-      return { ...idle(), move: Math.min(0.40, separation(state.player, point) * 3) / this.options.runtime.LEVEL.moveSpeed };
+-    }
+-    const error = angle(action.selected.stand.yaw, state.player.yaw);
+-    if (Math.abs(error) > 0.012) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
+-    action.ready = true;
+-    return idle();
+-  }
+-
+-  commit() {
+-    const next = this.options.runtime.interact(this.options.getState());
+-    if (next.complete) {
+-      this.pendingCompletion = true;
+-      next.complete = false;
+-      next.settling = true;
+-    }
+-    this.options.setState(next);
+-    return next;
+-  }
+-
+-  beginReach() {
+-    const targets = this.targets();
+-    this.action.rest = {};
+-    for (const [side, target] of Object.entries(targets)) {
+-      const arm = this.arms[side];
+-      if (!arm) continue;
+-      arm.capture();
+-      this.action.rest[side] = [...arm.angles];
+-      arm.plan(target, null);
+-    }
+-    const invalid = Object.values(this.arms).some((arm) => arm.active && arm.error > 0.10);
+-    if (invalid) {
+-      this.options.message("把手超出手臂可达范围，请调整站位");
+-      this.beginRecovery();
+-      return;
+-    }
+-    this.action.phase = "reach";
+-    this.action.time = 0;
+-  }
+-
+-  beginRecovery() {
+-    const action = this.action;
+-    for (const [side, arm] of Object.entries(this.arms)) {
+-      if (action.rest?.[side]) arm.targetAngles = [...action.rest[side]];
+-      else if (this.gripRest?.[side]) arm.targetAngles = [...this.gripRest[side]];
+-    }
+-    action.phase = "recover";
+-    action.time = 0;
+-  }
+-
+-  settled() {
+-    return Object.values(this.arms).every((arm) => !arm.active || Math.max(...arm.angles.map((value, index) => Math.abs(value - arm.targetAngles[index]))) < 0.025);
+-  }
+-
+-  drawWalking(dt, moved, turned) {
+-    const moving = moved > 0.0001 || turned > 0.001;
+-    this.step += (moved + turned * 0.16) * Math.PI * 2 / 0.55;
+-    this.walkBlend += THREE.MathUtils.clamp((moving ? 1 : 0) - this.walkBlend, -dt * 4, dt * 4);
+-    if (!this.busy || !this.robot.userData.officialModel) return;
+-    const model = this.robot.userData.officialModel, set = this.robot.userData.robotProfile.setJointAngle;
+-    for (const [side, offset] of [["left", 0], ["right", Math.PI]]) {
+-      const wave = Math.sin(this.step + offset), swing = Math.max(0, wave);
+-      set(model, side + "_hip_pitch_link", -0.12 + wave * 0.20 * this.walkBlend);
+-      set(model, side + "_knee_link", 0.24 + swing * 0.30 * this.walkBlend);
+-      set(model, side + "_ankle_pitch_link", -0.12 - wave * 0.12 * this.walkBlend - swing * 0.15 * this.walkBlend);
+-    }
+-    this.robot.updateMatrixWorld(true);
+-  }
+-
+-  frame(delta, running) {
+-    const dt = running ? Math.min(0.05, Math.max(0, delta)) : 0;
+-    const state = this.options.getState();
+-    const moved = separation(state.player, this.previous), turned = Math.abs(angle(state.player.yaw, this.previous.yaw));
+-    this.drawWalking(dt, moved, turned);
+-    this.previous = { ...state.player };
+-    const action = this.action;
+-    if (action && dt > 0) {
+-      action.time += dt;
+-      if (action.phase === "align") {
+-        action.stuck = moved + turned > 0.0001 || action.ready ? 0 : action.stuck + dt;
+-        if (action.stuck > 3 || action.time > 25) {
+-          this.options.message("靠近动作受阻，已停止");
+-          this.action = null;
+-        } else if (action.ready) this.beginReach();
+-      } else if (action.phase === "reach" && action.time >= 0.8 && this.settled()) {
+-        if (action.selected.type === "repair") {
+-          action.phase = "repair";
+-          action.time = 0;
+-        } else {
+-          const next = this.commit();
+-          this.gripRest = action.rest;
+-          this.lastResult = { type: next.attachment ? "gripped" : "blocked", id: action.selected.id };
+-          if (next.attachment) this.action = null;
+-          else this.beginRecovery();
+-        }
+-      } else if (action.phase === "repair" && action.time >= 1.4) {
+-        this.commit();
+-        this.lastResult = { type: "repaired", color: action.selected.color };
+-        this.beginRecovery();
+-      } else if (action.phase === "release" && action.time >= 0.45) {
+-        const next = this.commit();
+-        this.lastResult = { type: next.lastEvent, id: action.selected.id };
+-        this.beginRecovery();
+-      } else if (action.phase === "recover" && action.time >= 0.5 && this.settled()) {
+-        for (const arm of Object.values(this.arms)) arm.active = false;
+-        this.action = null;
+-        if (this.pendingCompletion) {
+-          this.options.setState({ ...this.options.getState(), settling: false, complete: true });
+-          this.pendingCompletion = false;
+-        }
+-      }
+-    }
+-    for (const arm of Object.values(this.arms)) if (arm.active) {
+-      arm.update(dt);
+-      arm.apply();
+-    }
+-    if (this.options.getState().attachment || this.action) {
+-      const targets = this.targets();
+-      this.gripErrors = Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, this.arms[side]?.graspPose().position.distanceTo(target) ?? null]));
+-    }
+-    if (new URLSearchParams(location.search).get("qa") === "rf02-operations") {
+-      document.querySelector("#game-shell").dataset.furnitureAnimation = JSON.stringify(this.snapshot());
+-    }
+-  }
+-
+-  snapshot() {
+-    return { revision: "library-furniture-animation-v1", phase: this.action?.phase ?? (this.options.getState().attachment ? "push" : "idle"), gripErrors: this.gripErrors, lastResult: this.lastResult };
+-  }
+-}
++import * as THREE from "three";
++import { BrowserArmScript } from "../rf15/browser-arm-script.js";
++import { approachPath } from "../rf15/interaction-walk.js";
++import { BOOKENDS } from "./series-layout.js";
++
++const up = new THREE.Vector3(0, 1, 0);
++const idle = () => ({ move: 0, strafe: 0, turn: 0 });
++const separation = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++
++export function createFurnitureController(world, robot, options) {
++  return new FurnitureController(world, robot, options);
++}
++
++class FurnitureController {
++  constructor(world, robot, options) {
++    this.world = world;
++    this.robot = robot;
++    this.options = options;
++    this.arms = {};
++    if (robot.userData.officialModel && robot.userData.robotProfile?.setJointAngle) {
++      for (const side of ["left", "right"]) this.arms[side] = new BrowserArmScript(robot, side);
++    }
++    this.reset();
++    world.furnitureController = this;
++  }
++
++  reset() {
++    this.action = null;
++    this.path = null;
++    this.pendingCompletion = false;
++    this.step = 0;
++    this.walkBlend = 0;
++    this.previous = { ...this.options.getState().player };
++    this.lastResult = null;
++    for (const arm of Object.values(this.arms)) arm.active = false;
++  }
++
++  get busy() {
++    return Boolean(this.action || this.options.getState().attachment);
++  }
++
++  object(state = this.options.getState()) {
++    const attachment = state.attachment ?? this.action?.selected;
++    return attachment?.kind === "cart" ? state.cart : attachment?.kind === "chair" ? state.chairs[attachment.id] : null;
++  }
++
++  targets() {
++    const object = this.object();
++    if (object) {
++      return Object.fromEntries(["left", "right"].map((side) => {
++        const local = new THREE.Vector3(side === "left" ? object.handleHalfWidth : -object.handleHalfWidth, object.handleY, -object.handleBack);
++        return [side, local.applyAxisAngle(up, object.yaw).add(new THREE.Vector3(object.x, 0, object.z))];
++      }));
++    }
++    const handle = BOOKENDS[this.action.selected.color].handle;
++    return { right: new THREE.Vector3(handle.x, handle.y, handle.z) };
++  }
++
++  interact() {
++    if (this.action) return true;
++    const state = this.options.getState();
++    if (state.attachment) {
++      this.options.stop();
++      this.action = { phase: "release", time: 0, selected: { ...state.attachment } };
++      return true;
++    }
++    const selected = this.options.runtime.getInteraction(state);
++    if (!selected || !["grip", "repair"].includes(selected.type)) return false;
++    const path = approachPath(state, selected.stand, this.options.runtime);
++    if (!path) {
++      this.options.message("操作位置被挡住，请从可通行的一侧靠近");
++      this.options.setState(this.options.runtime.interact(state));
++      return true;
++    }
++    this.options.stop();
++    this.path = path;
++    this.action = { phase: "align", time: 0, selected, index: 0, ready: false, stuck: 0 };
++    this.previous = { ...state.player };
++    return true;
++  }
++
++  motionInput(state, input = {}) {
++    if (!this.action) return state.attachment ? input : null;
++    if (this.action.phase !== "align") return idle();
++    const action = this.action;
++    while (action.index < this.path.length && separation(state.player, this.path[action.index]) < 0.02) action.index += 1;
++    if (action.index < this.path.length) {
++      const point = this.path[action.index], error = angle(Math.atan2(point.x - state.player.x, point.z - state.player.z), state.player.yaw);
++      if (Math.abs(error) > 0.06) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
++      return { ...idle(), move: Math.min(0.40, separation(state.player, point) * 3) / this.options.runtime.LEVEL.moveSpeed };
++    }
++    const error = angle(action.selected.stand.yaw, state.player.yaw);
++    if (Math.abs(error) > 0.012) return { ...idle(), turn: THREE.MathUtils.clamp(error * 3, -0.6, 0.6) };
++    action.ready = true;
++    return idle();
++  }
++
++  commit() {
++    const next = this.options.runtime.interact(this.options.getState());
++    if (next.complete) {
++      this.pendingCompletion = true;
++      next.complete = false;
++      next.settling = true;
++    }
++    this.options.setState(next);
++    return next;
++  }
++
++  beginReach() {
++    const targets = this.targets();
++    this.action.rest = {};
++    for (const [side, target] of Object.entries(targets)) {
++      const arm = this.arms[side];
++      if (!arm) continue;
++      arm.capture();
++      this.action.rest[side] = [...arm.angles];
++      arm.plan(target, null);
++    }
++    const invalid = Object.values(this.arms).some((arm) => arm.active && arm.error > 0.10);
++    if (invalid) {
++      this.lastResult = { type: "unreachable", solverErrors: Object.fromEntries(Object.entries(this.arms).map(([side, arm]) => [side, arm.error])), robotPosition: this.robot.position.toArray(), targets: Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, target.toArray()])) };
++      this.options.message("把手超出手臂可达范围，请调整站位");
++      this.beginRecovery();
++      return;
++    }
++    this.action.phase = "reach";
++    this.action.time = 0;
++  }
++
++  beginRecovery() {
++    const action = this.action;
++    for (const [side, arm] of Object.entries(this.arms)) {
++      if (action.rest?.[side]) arm.targetAngles = [...action.rest[side]];
++      else if (this.gripRest?.[side]) arm.targetAngles = [...this.gripRest[side]];
++    }
++    action.phase = "recover";
++    action.time = 0;
++  }
++
++  settled() {
++    return Object.values(this.arms).every((arm) => !arm.active || Math.max(...arm.angles.map((value, index) => Math.abs(value - arm.targetAngles[index]))) < 0.025);
++  }
++
++  drawWalking(dt, moved, turned) {
++    const moving = moved > 0.0001 || turned > 0.001;
++    this.step += (moved + turned * 0.16) * Math.PI * 2 / 0.55;
++    this.walkBlend += THREE.MathUtils.clamp((moving ? 1 : 0) - this.walkBlend, -dt * 4, dt * 4);
++    if (!this.busy || !this.robot.userData.officialModel) return;
++    const model = this.robot.userData.officialModel, set = this.robot.userData.robotProfile.setJointAngle;
++    for (const [side, offset] of [["left", 0], ["right", Math.PI]]) {
++      const wave = Math.sin(this.step + offset), swing = Math.max(0, wave);
++      set(model, side + "_hip_pitch_link", -0.12 + wave * 0.20 * this.walkBlend);
++      set(model, side + "_knee_link", 0.24 + swing * 0.30 * this.walkBlend);
++      set(model, side + "_ankle_pitch_link", -0.12 - wave * 0.12 * this.walkBlend - swing * 0.15 * this.walkBlend);
++    }
++    this.robot.updateMatrixWorld(true);
++  }
++
++  frame(delta, running) {
++    const dt = running ? Math.min(0.05, Math.max(0, delta)) : 0;
++    const state = this.options.getState();
++    const moved = separation(state.player, this.previous), turned = Math.abs(angle(state.player.yaw, this.previous.yaw));
++    this.drawWalking(dt, moved, turned);
++    this.previous = { ...state.player };
++    const action = this.action;
++    if (action && dt > 0) {
++      action.time += dt;
++      if (action.phase === "align") {
++        action.stuck = moved + turned > 0.0001 || action.ready ? 0 : action.stuck + dt;
++        if (action.stuck > 3 || action.time > 25) {
++          this.options.message("靠近动作受阻，已停止");
++          this.action = null;
++        } else if (action.ready) this.beginReach();
++      } else if (action.phase === "reach" && action.time >= 0.8 && this.settled()) {
++        if (action.selected.type === "repair") {
++          action.phase = "repair";
++          action.time = 0;
++        } else {
++          const next = this.commit();
++          this.gripRest = action.rest;
++          this.lastResult = { type: next.attachment ? "gripped" : "blocked", id: action.selected.id };
++          if (next.attachment) this.action = null;
++          else this.beginRecovery();
++        }
++      } else if (action.phase === "repair" && action.time >= 1.4) {
++        this.commit();
++        this.lastResult = { type: "repaired", color: action.selected.color };
++        this.beginRecovery();
++      } else if (action.phase === "release" && action.time >= 0.45) {
++        const next = this.commit();
++        this.lastResult = { type: next.lastEvent, id: action.selected.id };
++        this.beginRecovery();
++      } else if (action.phase === "recover" && action.time >= 0.5 && this.settled()) {
++        for (const arm of Object.values(this.arms)) arm.active = false;
++        this.action = null;
++        if (this.pendingCompletion) {
++          this.options.setState({ ...this.options.getState(), settling: false, complete: true });
++          this.pendingCompletion = false;
++        }
++      }
++    }
++    for (const arm of Object.values(this.arms)) if (arm.active) {
++      arm.update(dt);
++      arm.apply();
++    }
++    if (this.options.getState().attachment || this.action) {
++      const targets = this.targets();
++      this.gripErrors = Object.fromEntries(Object.entries(targets).map(([side, target]) => [side, this.arms[side]?.graspPose().position.distanceTo(target) ?? null]));
++    }
++    if (new URLSearchParams(location.search).get("qa") === "rf02-operations") {
++      document.querySelector("#game-shell").dataset.furnitureAnimation = JSON.stringify(this.snapshot());
++    }
++  }
++
++  snapshot() {
++    return { revision: "library-furniture-animation-v1", phase: this.action?.phase ?? (this.options.getState().attachment ? "push" : "idle"), gripErrors: this.gripErrors, lastResult: this.lastResult };
++  }
++}

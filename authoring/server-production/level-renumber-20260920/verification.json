@@ -1,0 +1,26 @@
+{
+  "labels": {
+    "rf08": "真实场景互动测试",
+    "rf09": "RF-08",
+    "rf10": "真实场景验证",
+    "rf11": "RF-09",
+    "rf12": "RF-10",
+    "rf13": "RF-11",
+    "rf14": "RF-12",
+    "rf15": "RF-13",
+    "rf15-1": "RF-13-1",
+    "rf15-2": "RF-13-2",
+    "rf15-3": "RF-13-3"
+  },
+  "menuRoutesPreserved": true,
+  "build": "passed",
+  "runtimeSyntax": "passed",
+  "stableReleaseAssetFilesUnchanged": 77,
+  "baselineFailures": [
+    "RF-09 is registered and explains the new G1 controls",
+    "RF-10 uses the room Gaussian asset and calibrated transform"
+  ],
+  "browserMenu": "confirmed in accessibility tree",
+  "browserFollowup": "automatic approval service returned HTTP 503; screenshot and click did not execute",
+  "gitCommit": "not created due to existing test failures"
+}

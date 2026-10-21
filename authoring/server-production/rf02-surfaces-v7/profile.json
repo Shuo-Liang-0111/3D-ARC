@@ -1,0 +1,17 @@
+{
+  "task": "rf02-surfaces-v7",
+  "host": "127.0.0.1",
+  "workspace": ".",
+  "livePort": 4192,
+  "previousPid": 1907286,
+  "rollback": "./authoring/server-production/rf02-interactions-v6/release-r2",
+  "scope": "Shared wall and ceiling textures only; visual checks; no route or reserve tests",
+  "status": "completed",
+  "pid": 551112,
+  "release": "./authoring/server-production/rf02-surfaces-v7/release",
+  "deployedAt": "2026-09-21T15:37:04+0800",
+  "previewStopped": true,
+  "commit": "9f07dd15cf2af5c8a83be9cc0cdcf6a8e251d198",
+  "visual": "passed first-person and cutaway third-person",
+  "userAcceptance": "not-received"
+}

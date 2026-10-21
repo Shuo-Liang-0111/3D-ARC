@@ -1,0 +1,79 @@
+{
+ "revision": "tennis-series-v1",
+ "player": {
+  "x": 7.926984616659873,
+  "z": 9.168640908620505,
+  "yaw": 0.4105984062693014
+ },
+ "carried": "ball-2",
+ "delivered": [],
+ "weather": {
+  "enabled": false,
+  "seed": 4027819825,
+  "raining": false,
+  "storm": 0,
+  "exposure": 0,
+  "sheltered": false,
+  "remaining": 87.2009947069455
+ },
+ "failed": false,
+ "complete": false,
+ "animation": {
+  "revision": "tennis-series-v1",
+  "phase": "contact",
+  "selected": {
+   "type": "deliver",
+   "item": "ball-2",
+   "bin": "orange",
+   "label": "放入橙色 · 训练球筐"
+  },
+  "stand": {
+   "x": 7.9479871412457905,
+   "z": 9.164862315358288,
+   "yaw": 0.39269908169872414
+  },
+  "error": 0.015507768879583796,
+  "contacts": [
+   {
+    "type": "pickup",
+    "item": "ball-2",
+    "error": 0.000468207339540167,
+    "revision": "tennis-series-v1"
+   }
+  ],
+  "lastResult": {
+   "type": "pickup",
+   "item": "ball-2",
+   "error": 0.000468207339540167,
+   "revision": "tennis-series-v1"
+  },
+  "crouch": 0,
+  "bend": 1,
+  "walk": {
+   "stage": "settle",
+   "ready": true,
+   "travel": 1.5933517775645112,
+   "waypoints": 2,
+   "feet": [
+    {
+     "side": "left",
+     "error": 0.0017217332563226218,
+     "position": [
+      8.012036326221123,
+      0.03496180992339651,
+      8.991864372408141
+     ]
+    },
+    {
+     "side": "right",
+     "error": 0.001581699581535086,
+     "position": [
+      7.725576321760497,
+      0.034989117508171255,
+      9.071390406120512
+     ]
+    }
+   ]
+  }
+ }
+}

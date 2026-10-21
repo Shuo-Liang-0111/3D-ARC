@@ -1,0 +1,31 @@
+{
+  "artifactUrl": "/api/aigc/v1/artifacts/aigc_359afaf902d444e6a982d405c1ef6b61",
+  "createdAt": "2026-09-21T07:13:16.340918Z",
+  "downloadUrl": "/api/aigc/v1/artifacts/aigc_359afaf902d444e6a982d405c1ef6b61",
+  "error": null,
+  "errorCode": null,
+  "errorReason": null,
+  "estimatedWaitSeconds": 0,
+  "finishedAt": "2026-09-21T07:14:50.512815Z",
+  "id": "aigc_359afaf902d444e6a982d405c1ef6b61",
+  "normalizations": [],
+  "normalizedInput": {
+    "aspectRatio": "1:1",
+    "mode": "text-to-image",
+    "quality": null,
+    "referenceImageSource": null,
+    "resolution": "2k",
+    "style": null,
+    "transparentBackground": null
+  },
+  "progress": 100,
+  "queuePosition": 0,
+  "queueReason": null,
+  "requestId": "aigc_359afaf902d444e6a982d405c1ef6b61",
+  "retryAfterSeconds": null,
+  "startedAt": "2026-09-21T07:13:18.329219Z",
+  "status": "completed",
+  "taskId": "aigc_359afaf902d444e6a982d405c1ef6b61",
+  "type": "image",
+  "updatedAt": "2026-09-21T07:14:50.512815Z"
+}

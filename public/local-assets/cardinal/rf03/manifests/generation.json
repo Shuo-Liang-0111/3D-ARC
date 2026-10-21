@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "level": "rf03",
+  "qualityPreset": "high-highpoly",
+  "operation": "cardinal_model3d_image",
+  "tokenCostPerAsset": 5200,
+  "confirmedTokenCost": 66000,
+  "assets": {
+    "automatic_infeed_machine": {
+      "role": "static",
+      "requestFile": "requests/automatic_infeed_machine.json",
+      "targetSizeMeters": [
+        2.5,
+        2.04,
+        1.8
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/automatic_infeed_machine.highpoly.glb",
+      "runtimeArtifact": "models/runtime/automatic_infeed_machine.glb",
+      "taskId": "aigc_7a22be7dde2145cb8478965eff2fa61a",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/automatic_infeed_machine_reference.json",
+      "reference": {
+        "taskId": "aigc_f856011207fc40ac8a6ca32c39243545",
+        "status": "uploaded",
+        "sourceImageId": "ea76cc3647144d268a15b27d6d7e9fd3",
+        "artifact": "references/automatic_infeed_machine.png"
+      },
+      "imageModelRequestFile": "requests/automatic_infeed_machine_image_to_model.json",
+      "sourceBytes": 54913704,
+      "sourceSha256": "482277248a232524ddceb3931d98d8a02e04e2b41ec6f13834644b5a35eb8201",
+      "runtimeBytes": 1149764,
+      "runtimeSha256": "9faf4c418b793f8ba53f4f7f517f60ac26ee11cffa68917920e67a87c728c1cc"
+    },
+    "belt_conveyor_module": {
+      "role": "static",
+      "requestFile": "requests/belt_conveyor_module.json",
+      "targetSizeMeters": [
+        2.0,
+        1.02,
+        1.1
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/belt_conveyor_module.highpoly.glb",
+      "runtimeArtifact": "models/runtime/belt_conveyor_module.glb",
+      "taskId": "aigc_eb1dbd0396834eb8baf52208d743563f",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/belt_conveyor_module_reference.json",
+      "reference": {
+        "taskId": "aigc_d0fcf63f5b524293a836719d880958c5",
+        "status": "uploaded",
+        "sourceImageId": "a657d60cfb19456482e0a0d66f070276",
+        "artifact": "references/belt_conveyor_module.png"
+      },
+      "imageModelRequestFile": "requests/belt_conveyor_module_image_to_model.json",
+      "sourceBytes": 57928580,
+      "sourceSha256": "5cf99ea7ad1fa29e54c82e8e0c29956576691d6414e15285696e3fb7cf40c209",
+      "runtimeBytes": 1156360,
+      "runtimeSha256": "0a79a91f9d7dfa69bca96695afb4191d9a5b8f20b9b2574048f0e7e51fa4fc46"
+    },
+    "dws_scanner_gantry": {
+      "role": "static",
+      "requestFile": "requests/dws_scanner_gantry.json",
+      "targetSizeMeters": [
+        1.32,
+        2.85,
+        1.78
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/dws_scanner_gantry.highpoly.glb",
+      "runtimeArtifact": "models/runtime/dws_scanner_gantry.glb",
+      "taskId": "aigc_43931c276ff84f2bb437cba537754a3d",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/dws_scanner_gantry_reference.json",
+      "reference": {
+        "taskId": "aigc_501e85fb1f474ec2bda04b2d05351aa2",
+        "status": "uploaded",
+        "sourceImageId": "1dcfc07960974cccb0f824e5f03cf388",
+        "artifact": "references/dws_scanner_gantry.png"
+      },
+      "imageModelRequestFile": "requests/dws_scanner_gantry_image_to_model.json",
+      "sourceBytes": 56272144,
+      "sourceSha256": "025026190c8dea193e97a99e56dd2a4e2c0391cbe74b63ce6e4eecc6b3327d74",
+      "runtimeBytes": 875564,
+      "runtimeSha256": "c0e7aaf29a78a7dfd7b7491920a58fc3d2e23eb06d2b7d71599050c1d9948258"
+    },
+    "swing_wheel_sorter": {
+      "role": "static",
+      "requestFile": "requests/swing_wheel_sorter.json",
+      "targetSizeMeters": [
+        1.65,
+        0.95,
+        1.12
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/swing_wheel_sorter.highpoly.glb",
+      "runtimeArtifact": "models/runtime/swing_wheel_sorter.glb",
+      "taskId": "aigc_260d21d99e7540279f1a006fc174d62a",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/swing_wheel_sorter_reference.json",
+      "reference": {
+        "taskId": "aigc_c055a95c32764b9f887ffe8460cad8ac",
+        "status": "uploaded",
+        "sourceImageId": "25c263a5570d4ae1852362bec2625edf",
+        "artifact": "references/swing_wheel_sorter.png"
+      },
+      "imageModelRequestFile": "requests/swing_wheel_sorter_image_to_model.json",
+      "sourceBytes": 56014116,
+      "sourceSha256": "bd6a6e02238a0192640febe19f484cdd0b30b957a1db62673ab631f6a8d1cc46",
+      "runtimeBytes": 1165496,
+      "runtimeSha256": "dfc3ebdcaa5f19b99c33cebcd74b3d83609e03f0226863e0f0744e465c2a6fa5"
+    },
+    "gravity_roller_chute": {
+      "role": "static",
+      "requestFile": "requests/gravity_roller_chute.json",
+      "targetSizeMeters": [
+        1.08,
+        0.95,
+        3.0
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/gravity_roller_chute.highpoly.glb",
+      "runtimeArtifact": "models/runtime/gravity_roller_chute.glb",
+      "taskId": "aigc_2da8cb997fc94af78eeb1d943e642332",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/gravity_roller_chute_reference.json",
+      "reference": {
+        "taskId": "aigc_a3503602959e49708a96d691a712220e",
+        "status": "uploaded",
+        "sourceImageId": "9dd67733513c4382ad08b6653a2cc332",
+        "artifact": "references/gravity_roller_chute.png"
+      },
+      "imageModelRequestFile": "requests/gravity_roller_chute_image_to_model.json",
+      "sourceBytes": 57275848,
+      "sourceSha256": "c056e51c212d4c24210141e392c1dea25da749ca6391541931e612a4b650c813",
+      "runtimeBytes": 1441652,
+      "runtimeSha256": "83fd8c8f45818a288c417895f248524b1c2d48c669b9713f8f4b32f6aeaf5547"
+    },
+    "route_roll_cage": {
+      "role": "interactive",
+      "requestFile": "requests/route_roll_cage.json",
+      "targetSizeMeters": [
+        1.12,
+        1.72,
+        0.82
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/route_roll_cage.highpoly.glb",
+      "runtimeArtifact": "models/runtime/route_roll_cage.glb",
+      "taskId": "aigc_c1c7c9ffaa0042a5a87ffca6ddaed837",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/route_roll_cage_reference.json",
+      "reference": {
+        "taskId": "aigc_470e7314e79442fc91fafdc72808f558",
+        "status": "uploaded",
+        "sourceImageId": "6ff36c19debe4a8b82640a2a1d265727",
+        "artifact": "references/route_roll_cage.png"
+      },
+      "imageModelRequestFile": "requests/route_roll_cage_image_to_model.json",
+      "sourceBytes": 58694560,
+      "sourceSha256": "7c11a03674fd232bf2606a73fb152eb2efab131341226d65a17fbc57c85b4a93",
+      "runtimeBytes": 1105040,
+      "runtimeSha256": "e4caa2fb620d673fd2e10aa80536a45aaa1469b20bfe5e9202844bc0d29339a2"
+    },
+    "corrugated_parcel": {
+      "role": "interactive",
+      "requestFile": "requests/corrugated_parcel.json",
+      "targetSizeMeters": [
+        0.52,
+        0.32,
+        0.38
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/corrugated_parcel.highpoly.glb",
+      "runtimeArtifact": "models/runtime/corrugated_parcel.glb",
+      "taskId": "aigc_1910f049424b444e8b8cb96c1ad12da3",
+      "status": "downloaded",
+      "sourceBytes": 54874832,
+      "sourceSha256": "2d7ed7a3641b2785b6dd641db30fadcaca13aa84aaffd1443fd967183186e99d",
+      "referenceRequestFile": "requests/corrugated_parcel_reference.json",
+      "runtimeBytes": 746152,
+      "runtimeSha256": "4a538f95595a0e1f2f648777586ee8d5b03a4ee3b11a24ad3dcb26383ed93bea"
+    },
+    "dws_control_terminal": {
+      "role": "interactive",
+      "requestFile": "requests/dws_control_terminal.json",
+      "targetSizeMeters": [
+        0.64,
+        1.58,
+        0.62
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/dws_control_terminal.highpoly.glb",
+      "runtimeArtifact": "models/runtime/dws_control_terminal.glb",
+      "taskId": "aigc_4eec2d168f354edcb48e74a4bc2ca400",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/dws_control_terminal_reference.json",
+      "reference": {
+        "taskId": "aigc_1977bae943b548e287f40e376e8c78b9",
+        "status": "uploaded",
+        "sourceImageId": "7243fe2576194f4aa5c0fee3c168aa26",
+        "artifact": "references/dws_control_terminal.png"
+      },
+      "imageModelRequestFile": "requests/dws_control_terminal_image_to_model.json",
+      "sourceBytes": 56914040,
+      "sourceSha256": "c7ac3438afead125058e5215f79da5ca1c464dfa2d5947ffa821e46ab7e90c67",
+      "runtimeBytes": 805232,
+      "runtimeSha256": "afc9cf873019e81e0da33bc8a5621d025fb9d580dfae9efaf723726029a8322c"
+    },
+    "industrial_electrical_cabinet": {
+      "role": "static",
+      "requestFile": "requests/industrial_electrical_cabinet.json",
+      "targetSizeMeters": [
+        0.72,
+        2.12,
+        0.72
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/industrial_electrical_cabinet.highpoly.glb",
+      "runtimeArtifact": "models/runtime/industrial_electrical_cabinet.glb",
+      "taskId": "aigc_89590504b0e2410b81e3e688391c1410",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/industrial_electrical_cabinet_reference.json",
+      "reference": {
+        "taskId": "aigc_6458735e99a6435ba83104fb5e4f4905",
+        "status": "uploaded",
+        "sourceImageId": "e9fa363154c9451c9fde3c7c242e95f9",
+        "artifact": "references/industrial_electrical_cabinet.png"
+      },
+      "imageModelRequestFile": "requests/industrial_electrical_cabinet_image_to_model.json",
+      "sourceBytes": 55651712,
+      "sourceSha256": "3f99eb42e861bd65b5db3267fd27efeea4fe1ab6534a84623c5c960dbe37d23c",
+      "runtimeBytes": 925212,
+      "runtimeSha256": "3d1d46ed78108baf43229c14ddf6598016d1ed29484f4c0f79fe92e201697942"
+    },
+    "palletized_carton_stack": {
+      "role": "static",
+      "requestFile": "requests/palletized_carton_stack.json",
+      "targetSizeMeters": [
+        1.2,
+        1.35,
+        1.0
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/palletized_carton_stack.highpoly.glb",
+      "runtimeArtifact": "models/runtime/palletized_carton_stack.glb",
+      "taskId": "aigc_4fc6f6acb47d428f8aa1f5c37eab26ec",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/palletized_carton_stack_reference.json",
+      "reference": {
+        "taskId": "aigc_977b00b224224d5f8eff7b9a30df0401",
+        "status": "uploaded",
+        "sourceImageId": "133012c7318549409b42bf92964457cc",
+        "artifact": "references/palletized_carton_stack.png"
+      },
+      "imageModelRequestFile": "requests/palletized_carton_stack_image_to_model.json",
+      "sourceBytes": 56019572,
+      "sourceSha256": "e99fdeac1fdf43ebee594efbd3218678124df1488c8385eb1818f3974cadc6da",
+      "runtimeBytes": 1136668,
+      "runtimeSha256": "e5bcb16c98f06da7003a52a5c21821927d488383815cc7aab76bcc55e212ce1a"
+    },
+    "fire_safety_station": {
+      "role": "static",
+      "requestFile": "requests/fire_safety_station.json",
+      "targetSizeMeters": [
+        0.85,
+        1.8,
+        0.35
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/fire_safety_station.highpoly.glb",
+      "runtimeArtifact": "models/runtime/fire_safety_station.glb",
+      "taskId": "aigc_44df73c73c1f489cbee91a77a42fb889",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/fire_safety_station_reference.json",
+      "reference": {
+        "taskId": "aigc_06244282e528442cb5e9aa0b659bc076",
+        "status": "uploaded",
+        "sourceImageId": "38edce4a9cab403eb2e8d420c3589aad",
+        "artifact": "references/fire_safety_station.png"
+      },
+      "imageModelRequestFile": "requests/fire_safety_station_image_to_model.json",
+      "sourceBytes": 56171808,
+      "sourceSha256": "9a50d5eceb8317327066500f54a52de128f583bec30020f15747a435b7d3b28b",
+      "runtimeBytes": 977044,
+      "runtimeSha256": "cae289e314178ac956d725992298063f59d895a25474b1f14abe3e4570500d57"
+    },
+    "industrial_led_fixture": {
+      "role": "static",
+      "requestFile": "requests/industrial_led_fixture.json",
+      "targetSizeMeters": [
+        1.2,
+        0.12,
+        0.24
+      ],
+      "frontAxis": "+Z",
+      "pivot": "bottom-center",
+      "sourceArtifact": "models/source/industrial_led_fixture.highpoly.glb",
+      "runtimeArtifact": "models/runtime/industrial_led_fixture.glb",
+      "taskId": "aigc_3f61cfc112f444809d6d8ecbaa9baf3a",
+      "status": "downloaded",
+      "referenceRequestFile": "requests/industrial_led_fixture_reference.json",
+      "reference": {
+        "taskId": "aigc_f18615d456b84abf8efb3727fed65295",
+        "status": "uploaded",
+        "sourceImageId": "1376e28010c245678d01afec8a2adf92",
+        "artifact": "references/industrial_led_fixture.png"
+      },
+      "imageModelRequestFile": "requests/industrial_led_fixture_image_to_model.json",
+      "sourceBytes": 55563684,
+      "sourceSha256": "149fa01023e7ead71dc5fc918325f0a3231fbcf048867da52a7ad7797a1e4701",
+      "runtimeBytes": 831472,
+      "runtimeSha256": "61ebcf70391a3b0710bf7c42de8126f9e4983c4a82b1dc6c0291418ee6708525"
+    }
+  },
+  "referenceTokenCostPerAsset": 300
+}

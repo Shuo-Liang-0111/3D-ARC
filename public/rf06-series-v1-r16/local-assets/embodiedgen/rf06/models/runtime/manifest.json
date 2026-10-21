@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "rfId": "RF-06",
+  "productionStatus": "visual_complete",
+  "humanVisualReview": "pass",
+  "referenceMatch": "pass",
+  "visualBaseline": "RF-06 Chinese home v13 compact apartment; Blender and GLB readback review passed",
+  "units": "meters",
+  "upAxis": "Y",
+  "totalBytes": 8411108,
+  "assets": [
+    {
+      "id": "environment",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/rf06_final.glb",
+      "bytes": 5556544,
+      "sha256": "871f8750455618df1940caf74504c2ee01eedc943c433f0e0ebb623762915d7c",
+      "source": "EmbodiedGen RF-06 Chinese home v13; Blender procedural PBR environment with 1.08 m internal kitchen doorway and RF-04 furniture readback",
+      "pivot": "world origin; floor-aligned frozen compact apartment layout",
+      "dimensions": [
+        10.8,
+        2.87,
+        8
+      ],
+      "humanVisualReview": "pass"
+    },
+    {
+      "id": "wrench",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/interactables/wrench.glb",
+      "bytes": 442936,
+      "sha256": "7213cf5d3b8f3fee6755d809b4766b448143f2af71a8fa0415c518773db7b219",
+      "source": "RF-04-compatible SAM3D base + Blender realism v2",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        0.32,
+        0.045519,
+        0.118564
+      ],
+      "humanVisualReview": "pass"
+    },
+    {
+      "id": "bucket",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/interactables/bucket.glb",
+      "bytes": 868316,
+      "sha256": "5efbdaab33d455c08507aed092513d4fa8ca73e339c06e6f5aa0dfd5ee45cf97",
+      "source": "RF-04-compatible SAM3D base + Blender realism v2",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        0.36,
+        0.274675,
+        0.333559
+      ],
+      "humanVisualReview": "pass"
+    },
+    {
+      "id": "mop",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/interactables/mop.glb",
+      "bytes": 441212,
+      "sha256": "327ac0d823d3b87e372e17142db172674adca777dd93f41767bf58c8c029e8cc",
+      "source": "RF-04-compatible SAM3D base + Blender realism v2",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        0.59918,
+        1.35,
+        0.303626
+      ],
+      "humanVisualReview": "pass"
+    },
+    {
+      "id": "valve",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "bytes": 229756,
+      "sha256": "c36fac23b43e48927cc982ed97faed8fac25b56a6db0e604b1979a7bd4c99e6c",
+      "source": "RF-04-compatible Blender realism v2 reconstruction",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        0.28,
+        0.224876,
+        0.196843
+      ],
+      "humanVisualReview": "pass"
+    },
+    {
+      "id": "leak",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "bytes": 199072,
+      "sha256": "ff0b1602079244a81d24103e75938ba5ed77c6fa9dbd4462dcced4ef8bedff41",
+      "source": "RF-04-compatible Blender realism v2 reconstruction",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        1.4,
+        0.015,
+        1.321927
+      ],
+      "humanVisualReview": "pass"
+    },
+    {
+      "id": "tool_rack",
+      "path": "/local-assets/embodiedgen/rf06/models/runtime/interactables/tool_rack.glb",
+      "bytes": 673272,
+      "sha256": "13f5efe74b540d88227b3ed825bfdea49cdabf983c930c41ff14b4708e35b3f7",
+      "source": "EmbodiedGen RF-06 Chinese home v13; independent Blender procedural household storage rack",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        0.72,
+        1.5,
+        0.22
+      ],
+      "humanVisualReview": "pass"
+    }
+  ]
+}

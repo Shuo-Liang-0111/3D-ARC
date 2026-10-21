@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready freestanding double-sided public library book stack module for a contemporary Chinese municipal library. Real-world size approximately 3.1 m wide x 1.8 m high x 0.72 m deep. One stable rectangular double-sided shelving island with five accessible shelf levels on both long faces, powder-coated dark graphite steel uprights and shelves, pale birch veneer end panels, a recessed anti-tip plinth, discreet mechanical fasteners, and densely but naturally arranged individual library books with varied height and thickness in muted ivory, charcoal, burgundy, olive and kraft-paper colors. Both long faces must be usable and the aisle-facing openings must remain open. Front long face toward positive Z, Y axis up, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials with restrained everyday wear. One isolated module only. No floor, wall, room, extra bookcase, signs, readable text, logo, trademark, neon, UI, people, robot, hands, floating pieces, baked lighting or contact-shadow plane. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

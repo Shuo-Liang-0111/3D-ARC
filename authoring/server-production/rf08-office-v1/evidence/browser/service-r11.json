@@ -1,0 +1,646 @@
+{
+  "suite": {
+    "steps": [
+      {
+        "station": "pickup:paper",
+        "expect": "pickup"
+      },
+      {
+        "station": "paper-load",
+        "expect": "paper-load"
+      },
+      {
+        "station": "printer",
+        "expect": "printer"
+      },
+      {
+        "waitPrinter": true
+      },
+      {
+        "station": "pickup:printed",
+        "expect": "pickup"
+      },
+      {
+        "station": "deliver:print",
+        "expect": "deliver"
+      },
+      {
+        "station": "pickup:water-5",
+        "expect": "pickup"
+      },
+      {
+        "station": "deliver:water",
+        "expect": "deliver"
+      },
+      {
+        "station": "pickup:water-6",
+        "expect": "pickup"
+      },
+      {
+        "station": "deliver:water",
+        "expect": "deliver"
+      },
+      {
+        "station": "pickup:used",
+        "expect": "pickup"
+      },
+      {
+        "station": "deliver:collect",
+        "expect": "deliver"
+      }
+    ],
+    "index": 12,
+    "stage": "next",
+    "results": [
+      {
+        "step": {
+          "station": "pickup:paper",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": 7.341344560986455,
+            "z": 3.560779881161892,
+            "yaw": 1.1780972450961724
+          },
+          "contacts": 0
+        },
+        "result": {
+          "type": "pickup",
+          "item": "paper",
+          "event": "pickup",
+          "error": 0.03206273493336522,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "paper-load",
+          "expect": "paper-load"
+        },
+        "before": {
+          "player": {
+            "x": 7.1000000000000005,
+            "z": 3.8607695154586743,
+            "yaw": 5.759586531581287
+          },
+          "contacts": 1
+        },
+        "result": {
+          "type": "paper-load",
+          "item": "paper",
+          "event": "paper-load",
+          "error": 0.016100673349733023,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "printer",
+          "expect": "printer"
+        },
+        "before": {
+          "player": {
+            "x": 6.881040764008565,
+            "z": 4.348959235991435,
+            "yaw": 5.497787143782138
+          },
+          "contacts": 2
+        },
+        "result": {
+          "type": "printer",
+          "event": "printer",
+          "error": 0.0002086035298423253,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:printed",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": 6.389052736612956,
+            "z": 4.187271867832261,
+            "yaw": 0.1308996938995747
+          },
+          "contacts": 3
+        },
+        "result": {
+          "type": "pickup",
+          "item": "printed",
+          "event": "pickup",
+          "error": 0.03140758539501297,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "deliver:print",
+          "expect": "deliver"
+        },
+        "before": {
+          "player": {
+            "x": 5.072024008349482,
+            "z": -4.919486285189535,
+            "yaw": 4.057890510886816
+          },
+          "contacts": 4
+        },
+        "result": {
+          "type": "deliver",
+          "item": "printed",
+          "event": "deliver",
+          "error": 0.03355541714334587,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:water-5",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": 9.22,
+            "z": 2.9800000000000004,
+            "yaw": 0
+          },
+          "contacts": 5
+        },
+        "result": {
+          "type": "pickup",
+          "item": "water-5",
+          "event": "pickup",
+          "error": 0.032876298453619765,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "deliver:water",
+          "expect": "deliver"
+        },
+        "before": {
+          "player": {
+            "x": 4.72,
+            "z": -3.4107695154586737,
+            "yaw": 3.665191429188092
+          },
+          "contacts": 6
+        },
+        "result": {
+          "type": "deliver",
+          "item": "water-5",
+          "event": "deliver",
+          "error": 0.00010495518632116513,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:water-6",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": 9.313368569335939,
+            "z": 2.840266166351428,
+            "yaw": 0.1308996938995747
+          },
+          "contacts": 7
+        },
+        "result": {
+          "type": "pickup",
+          "item": "water-6",
+          "event": "pickup",
+          "error": 0.03118626763066222,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "deliver:water",
+          "expect": "deliver"
+        },
+        "before": {
+          "player": {
+            "x": 4.72,
+            "z": -3.4107695154586737,
+            "yaw": 3.665191429188092
+          },
+          "contacts": 8
+        },
+        "result": {
+          "type": "deliver",
+          "item": "water-6",
+          "event": "deliver",
+          "error": 0.00010505289055317467,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      },
+      {
+        "step": {
+          "station": "pickup:used",
+          "expect": "pickup"
+        },
+        "before": {
+          "player": {
+            "x": -4.759199500459157,
+            "z": -4.816978992694203,
+            "yaw": 2.4870941840919194
+          },
+          "contacts": 9
+        },
+        "result": {
+          "type": "pickup",
+          "item": "used",
+          "event": "pickup",
+          "error": 0.027383215360850827,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "holding"
+      },
+      {
+        "step": {
+          "station": "deliver:collect",
+          "expect": "deliver"
+        },
+        "before": {
+          "player": {
+            "x": -2.560582854123025,
+            "z": 4.060889008453118,
+            "yaw": 0.2617993877991494
+          },
+          "contacts": 10
+        },
+        "result": {
+          "type": "deliver",
+          "item": "used",
+          "event": "deliver",
+          "error": 0.032173122641951706,
+          "revision": "rf08-office-v1-realism"
+        },
+        "phase": "idle"
+      }
+    ],
+    "status": "passed",
+    "started": 38368.89999997616,
+    "before": {
+      "player": {
+        "x": -2.560582854123025,
+        "z": 4.060889008453118,
+        "yaw": 0.2617993877991494
+      },
+      "contacts": 10
+    },
+    "deadline": 174089.60000002384
+  },
+  "state": {
+    "level": "rf09-3",
+    "player": {
+      "x": -2.438717958053043,
+      "z": 4.591660523634483,
+      "yaw": 0.5058094923604534
+    },
+    "items": {
+      "folder": {
+        "id": "folder",
+        "type": "folder",
+        "x": -10.85,
+        "y": 0.965,
+        "z": 4.4,
+        "location": "surface"
+      },
+      "tray": {
+        "id": "tray",
+        "type": "tray",
+        "x": -1.5,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "surface"
+      },
+      "remote": {
+        "id": "remote",
+        "type": "remote",
+        "x": 8.85,
+        "y": 0.965,
+        "z": 3.95,
+        "location": "surface"
+      },
+      "paper": {
+        "id": "paper",
+        "type": "paper",
+        "x": 6.5,
+        "y": 0.79,
+        "z": 4.9,
+        "location": "printer-loaded",
+        "yaw": 6.004603954640926
+      },
+      "printed": {
+        "id": "printed",
+        "type": "printed",
+        "x": 4.12,
+        "y": 0.79,
+        "z": -5.65,
+        "location": "delivered",
+        "available": true,
+        "yaw": 4.69510562342415
+      },
+      "used": {
+        "id": "used",
+        "type": "used",
+        "x": -2.25,
+        "y": 0.965,
+        "z": 5.22,
+        "location": "delivered",
+        "yaw": 0.5058094923604534
+      },
+      "docs-1": {
+        "id": "docs-1",
+        "type": "documents",
+        "x": -2.8,
+        "y": 0.79,
+        "z": -6.35,
+        "location": "surface"
+      },
+      "water-1": {
+        "id": "water-1",
+        "type": "water",
+        "x": -2.45,
+        "y": 0.79,
+        "z": -6.3,
+        "location": "surface"
+      },
+      "docs-2": {
+        "id": "docs-2",
+        "type": "documents",
+        "x": -0.8,
+        "y": 0.79,
+        "z": -6.35,
+        "location": "surface"
+      },
+      "water-2": {
+        "id": "water-2",
+        "type": "water",
+        "x": -0.44999999999999996,
+        "y": 0.79,
+        "z": -6.3,
+        "location": "surface"
+      },
+      "docs-3": {
+        "id": "docs-3",
+        "type": "documents",
+        "x": 1.2,
+        "y": 0.79,
+        "z": -6.35,
+        "location": "surface"
+      },
+      "water-3": {
+        "id": "water-3",
+        "type": "water",
+        "x": 1.55,
+        "y": 0.79,
+        "z": -6.3,
+        "location": "surface"
+      },
+      "docs-4": {
+        "id": "docs-4",
+        "type": "documents",
+        "x": 3.2,
+        "y": 0.79,
+        "z": -6.35,
+        "location": "surface"
+      },
+      "water-4": {
+        "id": "water-4",
+        "type": "water",
+        "x": 3.55,
+        "y": 0.79,
+        "z": -6.3,
+        "location": "surface"
+      },
+      "water-5": {
+        "id": "water-5",
+        "type": "water",
+        "x": 4.12,
+        "y": 0.79,
+        "z": -4.45,
+        "location": "delivered",
+        "yaw": 4.695975898285162
+      },
+      "water-6": {
+        "id": "water-6",
+        "type": "water",
+        "x": 4.25,
+        "y": 0.79,
+        "z": -4.45,
+        "location": "delivered",
+        "yaw": 4.694461568717568
+      }
+    },
+    "chairs": {
+      "chair-a": {
+        "id": "chair-a",
+        "x": -3,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": -3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      },
+      "chair-b": {
+        "id": "chair-b",
+        "x": 3,
+        "z": -3.45,
+        "yaw": 3.141592653589793,
+        "target": {
+          "x": 3,
+          "z": -3.45,
+          "yaw": 3.141592653589793
+        },
+        "width": 0.6,
+        "depth": 0.62,
+        "handleY": 0.94
+      }
+    },
+    "carriedItem": null,
+    "attachment": null,
+    "seats": [
+      {
+        "id": "1",
+        "doc": "docs-1",
+        "water": "water-1"
+      },
+      {
+        "id": "2",
+        "doc": "docs-2",
+        "water": "water-2"
+      },
+      {
+        "id": "3",
+        "doc": "docs-3",
+        "water": "water-3"
+      },
+      {
+        "id": "4",
+        "doc": "docs-4",
+        "water": "water-4"
+      }
+    ],
+    "returned": {
+      "folder": true,
+      "tray": true,
+      "remote": true
+    },
+    "printer": {
+      "paper": true,
+      "phase": "ready",
+      "time": 6.004600000000009
+    },
+    "requests": [
+      {
+        "id": "print",
+        "status": "done"
+      },
+      {
+        "id": "water",
+        "status": "done",
+        "count": 2
+      },
+      {
+        "id": "collect",
+        "status": "done"
+      }
+    ],
+    "progress": 100,
+    "complete": true,
+    "failed": false,
+    "settling": false,
+    "terminalOpen": false,
+    "elapsed": 103.65960000000665,
+    "clock": 102.35810000000652,
+    "interactions": 11,
+    "motion": "idle",
+    "lastEvent": "deliver"
+  },
+  "snapshot": {
+    "revision": "rf08-office-v1-realism",
+    "phase": "idle",
+    "error": null,
+    "fps": 59.960026651281744,
+    "robotPose": {
+      "position": [
+        -2.438717958053043,
+        0,
+        4.591660523634483
+      ],
+      "rotation": [
+        0,
+        0.5058094923604534,
+        0
+      ]
+    },
+    "lastResult": {
+      "type": "deliver",
+      "item": "used",
+      "event": "deliver",
+      "error": 0.032173122641951706,
+      "revision": "rf08-office-v1-realism"
+    },
+    "contacts": [
+      {
+        "type": "pickup",
+        "item": "paper",
+        "event": "pickup",
+        "error": 0.03206273493336522,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "paper-load",
+        "item": "paper",
+        "event": "paper-load",
+        "error": 0.016100673349733023,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "printer",
+        "event": "printer",
+        "error": 0.0002086035298423253,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "printed",
+        "event": "pickup",
+        "error": 0.03140758539501297,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "deliver",
+        "item": "printed",
+        "event": "deliver",
+        "error": 0.03355541714334587,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "water-5",
+        "event": "pickup",
+        "error": 0.032876298453619765,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "deliver",
+        "item": "water-5",
+        "event": "deliver",
+        "error": 0.00010495518632116513,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "water-6",
+        "event": "pickup",
+        "error": 0.03118626763066222,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "deliver",
+        "item": "water-6",
+        "event": "deliver",
+        "error": 0.00010505289055317467,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "pickup",
+        "item": "used",
+        "event": "pickup",
+        "error": 0.027383215360850827,
+        "revision": "rf08-office-v1-realism"
+      },
+      {
+        "type": "deliver",
+        "item": "used",
+        "event": "deliver",
+        "error": 0.032173122641951706,
+        "revision": "rf08-office-v1-realism"
+      }
+    ],
+    "ceiling": true
+  }
+}

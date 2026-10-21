@@ -1,0 +1,80 @@
+{
+  "release": "rf05-series-v03-r8",
+  "sourceURL": "http://127.0.0.1:4173/rf05-series-v03-r8/index.html?mode=play&level=rf05-3&view=first&robot=g1&control=velocity",
+  "assetManifest": "../../arc-game/docs/levels/rf05-series-assets.json",
+  "captureMethod": "Official game canvas exported through isolated QA DOM image, read through CUA; images inspected; originals preserved",
+  "files": [
+    {
+      "file": "rf05-actions-r5.json",
+      "sha256": "205cdf2d47ddf67d9f1dd617e93f167223a193e7dd4f6ae76b666ca43c43093a",
+      "bytes": 9574,
+      "revision": "r5"
+    },
+    {
+      "file": "rf05-actions-r8.json",
+      "sha256": "8264354f86c36b1f8252993f4f86ccc41ab4348a61e9ccd58322f94ea9983f20",
+      "bytes": 9933,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-floor-clean-r8.png",
+      "sha256": "15e4a1e1c52004abb154871ac247557bdbe6ca3b374a926a811b9a2c67f2eb56",
+      "bytes": 798097,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-leak-before-r6.png",
+      "sha256": "db824297132c123b26c514907f025115e7e272e88e226dce264b9a0075a7a06f",
+      "bytes": 733312,
+      "revision": "r6"
+    },
+    {
+      "file": "rf05-leak-before-r8.png",
+      "sha256": "ae891ab732f5aab0cbe731a310b5717ea836dbf3bc267c8623fd4757da89e3c3",
+      "bytes": 750764,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-performance-r8.json",
+      "sha256": "8c6203ca0dde4aa40eef80bfd9e38c9b27bdeb911bf6707d852c3c221ec0b922",
+      "bytes": 470,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-reset-r8.json",
+      "sha256": "b26c3948e8765c34eacc5fa10859e5e5bd934df05053968656af7121b6ea25c6",
+      "bytes": 384,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-squeegee-action-r8.png",
+      "sha256": "470dc299080b2b2ce0c96dbf8c75e2a39a12f7f122e9cd1482b2c54746104d7e",
+      "bytes": 846236,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-thirdperson-r8.png",
+      "sha256": "19fe5c26aee5cf7a2a61bf4b98b101601284586a501d1365f540696354eea30e",
+      "bytes": 260396,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-tool-grip-evidence-r8.png",
+      "sha256": "9882a900df1ee10e9cdf8d91644d0156ea9227deb0268d912c3a98beb87300e2",
+      "bytes": 952866,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-water-after-r8.png",
+      "sha256": "562c340be6dc95123ee53489e220c4a17c3e7fa15a8b6a506292d4603a724a42",
+      "bytes": 879965,
+      "revision": "r8"
+    },
+    {
+      "file": "rf05-water-before-r8.png",
+      "sha256": "fd6b7415dcbda32fae2465f18903712690c4ef9664232e6a2590dbff9f05c54c",
+      "bytes": 774208,
+      "revision": "r8"
+    }
+  ]
+}

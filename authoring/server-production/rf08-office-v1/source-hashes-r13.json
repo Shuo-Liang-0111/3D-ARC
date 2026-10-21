@@ -1,0 +1,15 @@
+{
+  "game/levels/rf09/office-runtime.js": "1661a4e0e714bac0749e5509b52c4554500507b93ca272bf5b77a2826cdb40db",
+  "game/levels/rf09/office-entry.js": "b6e84104e66d6cd3e757ad4a4fb469846aeef581534743bd531c76d3a48759d1",
+  "game/levels/rf09/office-animation.js": "e363f27823552e254adc609a909e9c5b526deaedfb4684f0dc2e05df8eee1731",
+  "game/levels/rf09/office-layout.js": "3d1372c53547e5c7262d39a7fae0fe7df6a939ac1753907f244aafd781f7dc4a",
+  "game/levels/rf09/office-qa.js": "d3032ba29c40d0e86c42a472ed63b0bcf215fbce88da04ceb1cbe7057f48cfba",
+  "game/levels/rf09/office-engine.js": "430798a0bc9bf4c2f29a296017a13df5f940cef59ea12d4c676b8fbb7c8e8c30",
+  "game/levels/rf09/office-scene.js": "207527813232031b01421a9f3d9005541bb65b98a83ec065c52c68f79221997d",
+  "game/levels/rf09/office-architecture.js": "b367a8129585873eac56eb7b49b56c0d0d6d9e9b48f7673427925b641a3d9a82",
+  "game/levels/rf09-2/office-entry.js": "c1edd9558ce0e81d936d8a8c6812b367f25793bdce320ed3baa50098138f8fda",
+  "game/levels/rf09-3/office-entry.js": "beae1948ec259782e19535ceddbee33f54b1f18b6be84c6c410d46745cbc9d01",
+  "game/app.js": "53edd1d570d435e20970c6e440f4ed35b2fb3816a6657a10c145eb25b10c4f69",
+  "index.html": "ad1a5a5896327b3b1ae86ffd8e8b7c35297c5fe570dce8bcb45627ccdd420610",
+  "vite.config.js": "6e9efc7344a8948d3627c80816e301e36a630014b160bb61d4cecfa577daedab"
+}

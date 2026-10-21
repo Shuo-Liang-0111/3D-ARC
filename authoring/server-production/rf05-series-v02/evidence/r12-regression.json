@@ -1,0 +1,12 @@
+{
+  "build": "r12",
+  "objectiveComplete": true,
+  "formalCommits": 27,
+  "visualAnimationStatus": "failed",
+  "failure": {
+    "item": "towel1",
+    "phase": "lift",
+    "type": "timeout"
+  },
+  "fix": "r13 re-seeds carry IK after posture returns upright, QA rejects timeout outcomes"
+}

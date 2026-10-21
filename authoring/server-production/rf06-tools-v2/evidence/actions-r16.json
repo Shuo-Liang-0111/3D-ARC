@@ -1,0 +1,56 @@
+{
+  "release": "rf06-series-v1-r16",
+  "level": "rf06-2",
+  "run": "passed",
+  "method": "Robot-only QA station placement, then normal approach/arm animations and authoritative interactions; not a route or reserve benchmark",
+  "complete": true,
+  "water": 0,
+  "returned": {
+    "wrench": true,
+    "mop": true
+  },
+  "bucketPlaced": true,
+  "contacts": [
+    {
+      "action": "pickup-wrench",
+      "errorMetres": 0.02456814087675175
+    },
+    {
+      "action": "valve-jaw",
+      "errorMetres": 0.00038708676509270715
+    },
+    {
+      "action": "return-wrench",
+      "errorMetres": 0.022235075919531975
+    },
+    {
+      "action": "pickup-bucket",
+      "errorMetres": 0.02210819795432849
+    },
+    {
+      "action": "bucket-place",
+      "errorMetres": 0.02440006818187835
+    },
+    {
+      "action": "pickup-mop",
+      "errorMetres": 0.02493678775005283
+    },
+    {
+      "action": "mop-pass",
+      "errorMetres": 0.08426116847167615
+    },
+    {
+      "action": "mop-pass",
+      "errorMetres": 0.08487081046275405
+    },
+    {
+      "action": "mop-clean",
+      "errorMetres": 0.08715973465845724
+    },
+    {
+      "action": "return-mop",
+      "errorMetres": 0.0237588951183558
+    }
+  ],
+  "visuals": "Actual first-person CUA screenshots inspected after wrench pickup and shutoff. Handle sits in hand; tool follows wrist with jaw pointing forward/up. Shader/robot/camera sources unchanged by this task."
+}

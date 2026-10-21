@@ -1,0 +1,77 @@
+{
+ "revision": "tennis-series-v1",
+ "progress": 99.19690260297449,
+ "player": {
+  "x": 7.928353207312783,
+  "z": 7.168406105880278,
+  "yaw": 0.4093911396508456
+ },
+ "carried": null,
+ "delivered": [
+  "ball-3"
+ ],
+ "weather": {
+  "enabled": false,
+  "seed": 153638421,
+  "raining": false,
+  "storm": 0,
+  "exposure": 0,
+  "sheltered": false,
+  "remaining": 46.60972796031274
+ },
+ "failed": false,
+ "complete": false,
+ "animation": {
+  "revision": "tennis-series-v1",
+  "phase": "idle",
+  "error": null,
+  "contacts": [
+   {
+    "type": "pickup",
+    "item": "ball-3",
+    "error": 0.0006456836905207827,
+    "revision": "tennis-series-v1"
+   },
+   {
+    "type": "deliver",
+    "item": "ball-3",
+    "error": 0.00011320169141650473,
+    "revision": "tennis-series-v1"
+   }
+  ],
+  "lastResult": {
+   "type": "deliver",
+   "item": "ball-3",
+   "error": 0.00011320169141650473,
+   "revision": "tennis-series-v1"
+  },
+  "crouch": 0,
+  "bend": 0,
+  "walk": {
+   "stage": "settle",
+   "ready": true,
+   "travel": 1.5946450367228302,
+   "waypoints": 2,
+   "feet": [
+    {
+     "side": "left",
+     "error": 0.0013059911097062697,
+     "position": [
+      8.044023824296954,
+      0.03875999644230353,
+      7.0378033957216495
+     ]
+    },
+    {
+     "side": "right",
+     "error": 0.0011874129860554603,
+     "position": [
+      7.701224166278223,
+      0.038817653621300414,
+      7.031365798681238
+     ]
+    }
+   ]
+  }
+ }
+}

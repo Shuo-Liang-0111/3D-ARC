@@ -1,0 +1,25 @@
+[
+  {
+    "file": "robot-action.test.mjs",
+    "exit": 1,
+    "summary": [
+      "not ok 6 - both view renderers consume one pose and one presentation state per frame",
+      "not ok 7 - movement, repeated E, and agent observations respect the action lock",
+      "# tests 8",
+      "# pass 6",
+      "# fail 2"
+    ]
+  },
+  {
+    "file": "shared-movement-controls.test.mjs",
+    "exit": 1,
+    "summary": [
+      "not ok 15 - rf08 supports energy-consuming lateral movement",
+      "not ok 16 - rf08 supports energy-free Q/E turning",
+      "not ok 19 - browser controls map A/D to strafe and Q/E to free turning",
+      "# tests 19",
+      "# pass 16",
+      "# fail 3"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "fullBrowserRouteRevision": "realism-v0.4.2",
+  "releaseRevision": "realism-v0.4.4",
+  "identicalAssets": [
+    "windscreen.glb",
+    "umpire-chair.glb",
+    "collision.glb",
+    "environment.glb",
+    "ball.glb",
+    "court-bench.glb",
+    "ball-hopper.glb",
+    "tennis-bag.glb",
+    "cart.glb"
+  ],
+  "changedAssets": [
+    "plane-tree.glb"
+  ],
+  "added": "daylight.hdr",
+  "gameplayAndCollision": "unchanged; current revision also runs full engine route"
+}

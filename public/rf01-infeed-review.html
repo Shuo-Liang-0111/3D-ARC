@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>小型入口机资产检查</title><style>body{margin:0;background:#9aa0a1}canvas{display:block}</style>
+<script type="module">
+import * as THREE from '/node_modules/three/build/three.module.js';
+import {GLTFLoader} from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import {DRACOLoader} from '/node_modules/three/examples/jsm/loaders/DRACOLoader.js';
+const scene=new THREE.Scene();scene.background=new THREE.Color('#a1a6a9');
+scene.add(new THREE.HemisphereLight(0xffffff,0x5c6770,3));
+const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(2,4,3);scene.add(light);
+const camera=new THREE.PerspectiveCamera(45,innerWidth/innerHeight,.01,20);camera.position.set(2.1,1.4,2.1);camera.lookAt(0,.3,0);
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);document.body.append(renderer.domElement);
+const loader=new GLTFLoader().setDRACOLoader(new DRACOLoader().setDecoderPath('/vendor/draco/'));
+const model=await loader.loadAsync('/local-assets/cardinal/rf01/models/runtime/sorting-v4/compact-infeed.glb');scene.add(model.scene);
+renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+</script></html>

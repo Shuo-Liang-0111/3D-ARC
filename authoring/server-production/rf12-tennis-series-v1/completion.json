@@ -1,0 +1,68 @@
+{
+  "status": "completed",
+  "release": "rf12-tennis-series-v1-r5",
+  "commit": "494dbe103aa5f12433e953d135099af6c007d464",
+  "userAcceptance": "not recorded",
+  "evidence": [
+    {
+      "file": "r4-rain-third.png",
+      "bytes": 163815,
+      "sha256": "8dec5a050cdebdc010ccf050ae2b50f69e18a6897f8de1dafb2d481d7c104b80"
+    },
+    {
+      "file": "r5-sort-third.png",
+      "bytes": 122461,
+      "sha256": "1cd75a1c27b161d397ea8b84db2a6b6433e8dc251dbe982cace076fae8c7ff63"
+    },
+    {
+      "file": "r5-rain-failure.json",
+      "bytes": 593,
+      "sha256": "111c09a46b0e4e90f89c6ca760b6d369d7ffee8130bc192f79cf4c8a808168d1"
+    },
+    {
+      "file": "r5-rain-first.png",
+      "bytes": 138751,
+      "sha256": "2eda039df101aa6143db5e54887e45986c5a5df2b1750db9511975d000505719"
+    },
+    {
+      "file": "r5-carry-first.png",
+      "bytes": 127044,
+      "sha256": "2783a354b44c82111af3453f2aab2d8db959e1eeacf7e138a927fab4702569d9"
+    },
+    {
+      "file": "r5-bin-contact.json",
+      "bytes": 1492,
+      "sha256": "dd26de534a61dfe762c480629ba67cf5e7db35f74f3060a34a8ffcb8d1323149"
+    },
+    {
+      "file": "r5-rain-third.png",
+      "bytes": 167220,
+      "sha256": "85e7539023427e892f8c548cc4276bccc21bcc2478ab31561ed68b640ee7835d"
+    },
+    {
+      "file": "r5-base-third.png",
+      "bytes": 151766,
+      "sha256": "0b191732a83f7a72b45c18342ba08405e2863cdfcf4f60703f015dc52fbd5995"
+    },
+    {
+      "file": "r5-bin-contact-first.png",
+      "bytes": 126489,
+      "sha256": "d38b7843fb39357f392eb253c4e999011121fe3a6ac57475ec581e5b58ccb675"
+    },
+    {
+      "file": "r5-shelter.json",
+      "bytes": 586,
+      "sha256": "ef4078bdbf5b0e86d2222bbc484f767da9c4220ccafa7fe7d766e61be69d6502"
+    },
+    {
+      "file": "r5-sort-result.json",
+      "bytes": 1379,
+      "sha256": "da979e23c568030b3b144a64ff52f4da5e0b5cbfd55a947201bf84433ab9fbc6"
+    },
+    {
+      "file": "r5-rain-failure.png",
+      "bytes": 78117,
+      "sha256": "7b9dda7e821ed4af2f9cb67fe5eaf211abb500a0ec38da56676eaa2a5897b135"
+    }
+  ]
+}

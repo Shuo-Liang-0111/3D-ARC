@@ -1,0 +1,16 @@
+{
+  "allowedHosts": [
+    "127.0.0.1"
+  ],
+  "allowedRoot": "/path/to/arc-workspace",
+  "projectCandidate": ".",
+  "requiresProjectVerification": false,
+  "sshUser": "chenhaoyuan",
+  "credentials": "Private SSH authentication only; no secrets in project",
+  "deploymentScope": "RF-07 series on existing game service",
+  "cardinalSkillCandidate": "/opt/cardinal-aigc-skill",
+  "executionMode": "automatic-after-initial-scope",
+  "qualityPreset": "high-highpoly",
+  "reportCardinalCost": false,
+  "cardinalBatchApprovalRequired": false
+}

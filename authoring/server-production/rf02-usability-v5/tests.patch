@@ -1,0 +1,1275 @@
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -1,53 +1,53 @@
+-import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
+-import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
+-
+-export { CART, CHAIRS };
+-export const REVISION = FURNISHINGS_REVISION;
+-export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
+-
+-export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
+-  const black = color === "black";
+-  return [color, Object.freeze({
+-    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
+-    z: black ? -6.43 : -1.75,
+-    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
+-  })];
+-})));
+-
+-export function shelfPose(color, id) {
+-  const source = SHELF_BOOKS[color];
+-  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
+-  const slot = shelfIndex * 0.36;
+-  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
+-}
+-
+-export function landingPose(color, index) {
+-  return color === "black"
+-    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
+-    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
+-}
+-
+-export const BOOKS = Object.freeze([
+-  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
+-  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
+-  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
+-  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
+-  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
+-    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
+-    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
+-  }))),
+-]);
+-
+-export function seriesLevel(id) {
+-  return Object.freeze({
+-    ...BASE_LEVEL, id, revision: REVISION,
+-    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
+-    dynamic: id === "rf02-3", interactionRange: 1.30,
+-    progress: Object.freeze({
+-      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.38 : 1.45,
+-      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
+-      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, pickupReward: 1, correctBookReward: 1,
+-    }),
+-    fallDuration: 0.95, fallIntervalMin: 60, fallIntervalMax: 90, maximumFalls: 3,
+-  });
+-}
++import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
++import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
++
++export { CART, CHAIRS };
++export const REVISION = FURNISHINGS_REVISION;
++export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
++
++export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
++  const black = color === "black";
++  return [color, Object.freeze({
++    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
++    z: black ? -6.43 : -1.75,
++    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
++  })];
++})));
++
++export function shelfPose(color, id) {
++  const source = SHELF_BOOKS[color];
++  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
++  const slot = shelfIndex * 0.36;
++  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
++}
++
++export function landingPose(color, index) {
++  return color === "black"
++    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
++    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
++}
++
++export const BOOKS = Object.freeze([
++  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
++  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
++    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
++    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
++  }))),
++]);
++
++export function seriesLevel(id) {
++  return Object.freeze({
++    ...BASE_LEVEL, id, revision: REVISION,
++    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
++    dynamic: id === "rf02-3", interactionRange: 1.30,
++    progress: Object.freeze({
++      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.05 : 1.45,
++      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
++      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, pickupReward: 1, correctBookReward: 1,
++    }),
++    fallDuration: 0.95, fallIntervalMin: 60, fallIntervalMax: 90, maximumFalls: 3,
++  });
++}
+--- a/tests/rf02-series.test.mjs
++++ b/tests/rf02-series.test.mjs
+@@ -1,245 +1,174 @@
+-import test from "node:test";
+-import assert from "node:assert/strict";
+-import fs from "node:fs";
+-import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
+-import { BOOKS, BOOKENDS, CART, CHAIRS, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
+-import { furnitureStand } from "../game/levels/rf02/furnishings-layout.js";
+-import { walkRoute, approach, interactionGoal } from "../tools/rf02-series/route.mjs";
+-
+-function stepEnvironment(engine, state, seconds) {
+-  let current = state;
+-  for (let index = 0; index < Math.ceil(seconds / 0.05); index += 1) current = engine.updateEnvironment(current, 0.05);
+-  return current;
+-}
+-
+-function restoredChair(engine, state) {
+-  const chair = Object.values(state.chairs)[0];
+-  const next = structuredClone(state);
+-  Object.assign(next.chairs[chair.id], chair.home);
+-  next.player = furnitureStand(next.chairs[chair.id]);
+-  const gripped = engine.interact(next);
+-  assert.ok(gripped.attachment);
+-  return engine.interact(gripped);
+-}
+-
+-for (const id of ["rf02-2", "rf02-3"]) {
+-  const engine = createArchiveEngine(id);
+-  test(id + " is a furniture task with the shared scene, tabletop pickups and no catalog clues", () => {
+-    const state = engine.createInitialState();
+-    assert.equal(Object.keys(state.books).length, BOOKS.length);
+-    assert.equal(Object.keys(state.chairs).length, 2);
+-    assert.equal(state.cart.parked, false);
+-    assert.equal(engine.getInteraction({ ...state, player: { ...state.player, ...engine.LEVEL.terminal } }), null);
+-    const atDesk = { ...state, player: { x: 0, z: 4, yaw: Math.PI } };
+-    assert.equal(engine.getInteraction(atDesk)?.type, "book");
+-    const picked = engine.interact(atDesk);
+-    assert.ok(picked.carriedBook);
+-    assert.equal(picked.books[picked.carriedBook].location, "carried");
+-    assert.equal(picked.books[picked.carriedBook].support, null);
+-  });
+-  test(id + " requires both chair placements and correct cart parking", () => {
+-    let state = engine.createInitialState();
+-    state = restoredChair(engine, state);
+-    assert.equal(state.complete, false);
+-    state.cart = { ...state.cart, x: CART.parking.x, z: CART.parking.z, yaw: CART.parking.yaw };
+-    state.player = furnitureStand(state.cart);
+-    state = engine.interact(engine.interact(state));
+-    assert.equal(state.cart.parked, true);
+-    assert.equal(state.complete, false);
+-  });
+-  test(id + " grip uses an aligned handle and never snaps furniture on first movement", () => {
+-    const state = engine.createInitialState();
+-    state.player = { ...furnitureStand(state.cart), x: state.cart.x + 0.01 };
+-    const before = { ...state.cart };
+-    const held = engine.interact(state);
+-    assert.ok(held.attachment);
+-    const after = engine.updateMovement(held, {}, 0.05);
+-    assert.ok(Math.abs(after.cart.x - before.x) < 1e-9);
+-    assert.ok(Math.abs(after.cart.z - before.z) < 1e-9);
+-    assert.equal(after.progress, 100);
+-  });
+-  test(id + " cart body blocks at a wall even where the robot alone fits", () => {
+-    const state = engine.createInitialState();
+-    state.cart = { ...state.cart, x: 11.28, z: -3, yaw: 0 };
+-    state.player = furnitureStand(state.cart);
+-    const held = engine.interact(state);
+-    const blocked = engine.updateMovement(held, { strafe: 1 }, 0.05);
+-    assert.equal(blocked.cart.x, held.cart.x);
+-    assert.deepEqual(blocked.player, held.player);
+-    assert.ok(blocked.progress < held.progress);
+-    assert.ok(blocked.blockedTime > 0);
+-  });
+-  test(id + " release outside the bay is allowed but does not award parking or complete", () => {
+-    let state = engine.createInitialState();
+-    state.player = furnitureStand(state.cart);
+-    state = engine.interact(state);
+-    state = engine.interact(state);
+-    assert.equal(state.attachment, null);
+-    assert.equal(state.cart.parked, false);
+-    assert.equal(state.progress, 100);
+-    assert.equal(state.complete, false);
+-  });
+-  test(id + " idle/turn are free, distance and invalid F attempts cost reserve", () => {
+-    const state = engine.createInitialState();
+-    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
+-    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
+-    assert.ok(engine.updateMovement(state, { move: 1, drain: false }, 0.05).progress < 100);
+-    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
+-  });
+-  test(id + " failure is atomic and frozen; reset clears rewards and task objects", () => {
+-    const state = { ...engine.createInitialState(), progress: 0.5 };
+-    const failed = engine.interact(state);
+-    assert.equal(failed.failed, true);
+-    assert.equal(failed.progress, 0);
+-    assert.deepEqual(failed.cart, state.cart);
+-    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
+-    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
+-    assert.deepEqual(engine.interact(failed), failed);
+-    const reset = engine.createInitialState();
+-    assert.equal(reset.progress, 100);
+-    assert.equal(reset.attachment, null);
+-    assert.deepEqual(reset.rewardedActions, {});
+-  });
+-  test(id + " restore rewards cap at 100 and cannot be repeated for the same item", () => {
+-    const state = engine.createInitialState();
+-    const restored = restoredChair(engine, state);
+-    assert.equal(restored.progress, 100);
+-    const chair = Object.values(restored.chairs).find((entry) => entry.restored);
+-    const repeated = structuredClone(restored);
+-    repeated.chairs[chair.id].restored = false;
+-    repeated.progress = 50;
+-    const result = restoredChair(engine, repeated);
+-    assert.equal(result.progress, 50);
+-  });
+-  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
+-    for (const errors of [0, 2]) {
+-      test(id + " complete movement route / random " + sample + " / errors " + errors, () => {
+-        const route = walkRoute(id, sample, errors);
+-        assert.equal(route.state.complete, true);
+-        assert.equal(route.state.failed, false);
+-        assert.ok(route.minimumReserve > 0);
+-        assert.ok(route.finalReserve < 70);
+-        assert.equal(route.blockedTime, 0);
+-        assert.equal(route.state.cart.parked, true);
+-        assert.ok(Object.values(route.state.chairs).every((chair) => chair.restored));
+-        assert.deepEqual(engine.updateMovement(route.state, { move: 1 }, 0.05), route.state);
+-        if (id === "rf02-3") {
+-          assert.equal(route.state.incident.phase, "fixed");
+-          assert.equal(route.state.incident.drops, 3);
+-        }
+-      });
+-    }
+-  }
+-}
+-
+-test("fault activation guarantees a first fall, repeats while loose, and is capped at three", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  for (const [sample, color] of [[0.1, "red"], [0.5, "black"], [0.9, "white"]]) {
+-    let state = restoredChair(engine, engine.createInitialState({ random: () => sample }));
+-    assert.equal(state.incident.color, color);
+-    assert.equal(state.incident.phase, "loose");
+-    assert.equal(state.incident.drops, 1);
+-    assert.equal(state.books["shelf-" + color + "-0"].location, "falling");
+-    state = stepEnvironment(engine, state, 11);
+-    assert.equal(state.incident.drops, 1);
+-    state = stepEnvironment(engine, state, 2);
+-    assert.equal(state.incident.drops, 2);
+-    state = stepEnvironment(engine, state, 100);
+-    assert.equal(state.incident.drops, 3);
+-    assert.equal(Object.values(state.books).filter((book) => book.fallen && book.location === "ground").length, 3);
+-    assert.equal(state.complete, false);
+-  }
+-});
+-
+-test("repair stops subsequent falls but keeps every already-falling or landed book required", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  let state = restoredChair(engine, engine.createInitialState({ random: () => 0.5 }));
+-  state.player = { ...BOOKENDS.black.stand };
+-  assert.equal(engine.getInteraction(state)?.type, "repair");
+-  state = engine.interact(state);
+-  assert.equal(state.incident.phase, "fixed");
+-  state = stepEnvironment(engine, state, 100);
+-  assert.equal(state.incident.drops, 1);
+-  assert.equal(state.books["shelf-black-0"].location, "ground");
+-  assert.equal(state.complete, false);
+-});
+-
+-test("moving the cart can trigger a fault before either chair is restored", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  let state = engine.createInitialState();
+-  state.player = furnitureStand(state.cart);
+-  state = engine.interact(state);
+-  for (let index = 0; index < 30; index += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
+-  assert.equal(state.incident.phase, "loose");
+-  assert.equal(state.incident.drops, 1);
+-  assert.ok(Object.values(state.chairs).every((chair) => !chair.restored));
+-});
+-
+-test("park orientation matters and the collision GLB matches every initial furniture proxy", () => {
+-  const engine = createArchiveEngine("rf02-2");
+-  let state = engine.createInitialState();
+-  state.cart = { ...state.cart, ...CART.parking, yaw: 0 };
+-  state.player = furnitureStand(state.cart);
+-  state = engine.interact(engine.interact(state));
+-  assert.equal(state.cart.parked, false);
+-  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/library-collision.glb");
+-  const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+-  for (const collider of engine.LEVEL.staticColliders) assert.ok(json.nodes.some((node) => node.name === "COLLIDER_" + collider.id));
+-  assert.ok(fs.statSync("public" + ASSET_ROOT + "/closing-fixtures.glb").size > 1000);
+-});
+-
+-test("fault starts without furniture input and produces three visible ground books", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  for (const sample of [0.1, 0.5, 0.9]) {
+-    let state = stepEnvironment(engine, engine.createInitialState({ random: () => sample }), 7);
+-    assert.equal(state.incident.phase, "waiting");
+-    state = stepEnvironment(engine, state, 2);
+-    assert.equal(state.incident.phase, "loose");
+-    assert.equal(state.incident.drops, 1);
+-    state = stepEnvironment(engine, state, 36);
+-    assert.equal(state.incident.drops, 3);
+-    assert.equal(Object.values(state.books).filter(book => book.fallen && book.location === "ground").length, 3);
+-    assert.equal(state.progress, 100);
+-  }
+-});
+-
+-for (const id of ["rf02-2", "rf02-3"]) {
+-  test(id + " supports native cart pushing from both ends and carried cart books stay detached", () => {
+-    const engine = createArchiveEngine(id);
+-    for (const side of [1, -1]) {
+-      let state = engine.createInitialState();
+-      state.player = furnitureStand(state.cart, side);
+-      state = engine.interact(state);
+-      assert.equal(state.attachment?.kind, "cart");
+-      const before = { ...state.cart };
+-      for (let step = 0; step < 8; step += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
+-      assert.ok(Math.hypot(state.cart.x - before.x, state.cart.z - before.z) > 0.3);
+-      assert.equal(state.books["white-cart"].x, state.cart.x);
+-      assert.equal(state.books["white-cart"].z, state.cart.z);
+-      state = engine.interact(state);
+-      state.player = { x: state.cart.x + 0.94, z: state.cart.z, yaw: -Math.PI / 2 };
+-      state = engine.interact(state);
+-      assert.equal(state.carriedBook, "white-cart");
+-      assert.equal(state.books["white-cart"].support, null);
+-    }
+-  });
+-}
+-
+-test("shared fixtures contain no added chair or cart handles", () => {
+-  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/closing-fixtures.glb");
+-  const gltf = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+-  assert.ok(gltf.nodes.every(node => !/^(cart-handle|chair-handle)/.test(node.name ?? "")));
+-});
+-
+-for (const id of ["rf02-2", "rf02-3"]) {
+-  test(id + " all six tabletop books have reachable pickup poses", () => {
+-    const engine = createArchiveEngine(id);
+-    for (const book of BOOKS.filter(entry => entry.location === "table")) {
+-      let state = engine.createInitialState();
+-      const goal = interactionGoal(engine, state, { type: "book", bookId: book.id });
+-      state = approach(engine, state, goal);
+-      state = engine.interact(state);
+-      assert.equal(state.carriedBook, book.id);
+-    }
+-  });
+-}
++import test from "node:test";
++import assert from "node:assert/strict";
++import fs from "node:fs";
++import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
++import { BOOKS, CART, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../game/levels/rf02/furnishings-layout.js";
++import { walkRoute, approach, interactionGoal } from "../tools/rf02-series/route.mjs";
++
++function advance(engine, state, seconds) {
++  let current = state;
++  for (let index = 0; index < Math.ceil(seconds / 0.05); index += 1) current = engine.updateEnvironment(current, 0.05);
++  return current;
++}
++
++for (const id of ["rf02-2", "rf02-3"]) {
++  const engine = createArchiveEngine(id);
++  test(id + " all six tabletop books remain reachable and selectable", () => {
++    for (const book of BOOKS.filter(entry => entry.location === "table")) {
++      let state = engine.createInitialState();
++      state = approach(engine, state, interactionGoal(engine, state, { type: "book", bookId: book.id }));
++      state = engine.interact(state, { type: "book", bookId: book.id });
++      assert.equal(state.carriedBook, book.id);
++      assert.equal(state.books[book.id].support, null);
++    }
++  });
++  test(id + " supports both original cart handles without snapping or losing cart books", () => {
++    for (const side of [1, -1]) {
++      let state = engine.createInitialState();
++      state.player = furnitureStand(state.cart, side);
++      assert.ok(Math.abs(state.player.x - state.cart.x) > 0.9);
++      assert.ok(Math.abs(state.player.z - state.cart.z) < 1e-6);
++      const before = { ...state.cart };
++      state = engine.interact(state);
++      assert.equal(state.attachment?.kind, "cart");
++      state = engine.updateMovement(state, {}, 0.05);
++      assert.ok(Math.hypot(state.cart.x - before.x, state.cart.z - before.z) < 1e-8);
++      for (let index = 0; index < 8; index += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
++      assert.ok(Math.hypot(state.cart.x - before.x, state.cart.z - before.z) > 0.3);
++      assert.equal(state.books["white-cart"].x, state.cart.x);
++      assert.equal(state.books["white-cart"].z, state.cart.z);
++      state = engine.interact(state);
++      assert.equal(state.attachment, null);
++      assert.equal(state.cart.parked, false);
++    }
++  });
++  test(id + " accepts a chair near its table without precise position or heading", () => {
++    let state = engine.createInitialState();
++    const chair = state.chairs["west-north"];
++    Object.assign(chair, { x: chair.home.x + 0.35, z: chair.home.z - 0.27, yaw: 0.38 });
++    assert.ok(engine.chairBesideTable(chair));
++    state.player = furnitureStand(chair);
++    state = engine.interact(state);
++    assert.equal(state.attachment?.id, chair.id);
++    state = engine.interact(state);
++    assert.equal(state.chairs[chair.id].restored, true);
++    assert.equal(engine.chairBesideTable({ ...chair, z: 0.4 }), false);
++  });
++  test(id + " accepts a cart inside the clearly marked bay and rejects distant placement", () => {
++    let state = engine.createInitialState();
++    Object.assign(state.cart, { x: CART.parking.x + 0.30, z: CART.parking.z - 0.20, yaw: Math.PI });
++    state.player = furnitureStand(state.cart);
++    state = engine.interact(engine.interact(state));
++    assert.equal(state.cart.parked, true);
++    assert.equal(state.complete, false);
++  });
++  test(id + " pushing into a wall is blocked and consumes reserve", () => {
++    let state = engine.createInitialState();
++    Object.assign(state.cart, { x: 0, z: 7.47, yaw: Math.PI });
++    state.player = furnitureStand(state.cart);
++    state = engine.interact(state);
++    assert.equal(state.attachment?.kind, "cart");
++    const after = engine.updateMovement(state, { strafe: -1 }, 0.05);
++    assert.deepEqual(after.cart, state.cart);
++    assert.ok(after.progress < state.progress);
++  });
++  test(id + " idle and turn are free; movement and empty F are charged", () => {
++    const state = engine.createInitialState();
++    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
++    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
++    assert.ok(engine.updateMovement(state, { move: 1 }, 0.05).progress < 100);
++    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
++  });
++  test(id + " failure freezes state, and reset clears actions", () => {
++    const state = { ...engine.createInitialState(), progress: 0.5 };
++    const failed = engine.interact(state);
++    assert.equal(failed.failed, true);
++    assert.equal(failed.progress, 0);
++    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
++    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
++    assert.deepEqual(engine.interact(failed), failed);
++    assert.deepEqual(engine.createInitialState().rewardedActions, {});
++  });
++  test(id + " successful furniture rewards are capped and deduplicated", () => {
++    let state = engine.createInitialState();
++    Object.assign(state.chairs["west-north"], state.chairs["west-north"].home);
++    state.player = furnitureStand(state.chairs["west-north"]);
++    state = engine.interact(engine.interact(state));
++    assert.equal(state.progress, 100);
++    state.progress = 50;
++    state.chairs["west-north"].restored = false;
++    state = engine.interact(engine.interact(state));
++    assert.equal(state.progress, 50);
++  });
++  test(id + " has no catalog clues or shelf repair interaction", () => {
++    let state = engine.createInitialState();
++    state = advance(engine, state, 280);
++    for (const point of [{ x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, engine.LEVEL.terminal]) {
++      assert.notEqual(engine.getInteraction({ ...state, player: point })?.type, "repair");
++    }
++  });
++  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) for (const errors of [0, 2]) {
++    test(id + " complete route, random " + sample + ", errors " + errors, () => {
++      const route = walkRoute(id, sample, errors);
++      assert.equal(route.state.complete, true);
++      assert.equal(route.state.failed, false);
++      assert.ok(route.minimumReserve > 0);
++      assert.ok(route.finalReserve < 70);
++      assert.equal(route.blockedTime, 0);
++      assert.ok(Object.values(route.state.chairs).every(chair => chair.restored));
++      assert.equal(route.state.cart.parked, true);
++      if (id === "rf02-3") {
++        assert.equal(route.state.incident.drops, 3);
++        const fallen = Object.values(route.state.books).filter(book => book.fallen);
++        assert.equal(new Set(fallen.map(book => book.color)).size, 3);
++        assert.ok(fallen.every(book => book.location === "shelved"));
++      }
++    });
++  }
++}
++
++test("each scheduled drop is 60–90 seconds after the previous one and from a different shelf", () => {
++  const engine = createArchiveEngine("rf02-3");
++  for (const sample of [0, 0.23, 0.65, 0.999999]) {
++    const initial = engine.createInitialState({ random: () => sample });
++    let previous = 0;
++    for (const event of initial.incident.schedule) {
++      assert.ok(event.at - previous >= 60 && event.at - previous <= 90);
++      previous = event.at;
++    }
++    assert.equal(new Set(initial.incident.schedule.map(event => event.color)).size, 3);
++    let state = advance(engine, initial, 59);
++    assert.equal(state.incident.drops, 0);
++    state = advance(engine, state, 32);
++    assert.equal(state.incident.drops, 1);
++    state = advance(engine, state, 190);
++    assert.equal(state.incident.drops, 3);
++    assert.equal(Object.values(state.books).filter(book => book.fallen && book.location === "ground").length, 3);
++    state = advance(engine, state, 200);
++    assert.equal(state.incident.drops, 3);
++    assert.equal(state.progress, 100);
++  }
++});
++
++test("furniture actions cannot trigger early falls and completion waits for all three recoveries", () => {
++  const engine = createArchiveEngine("rf02-3");
++  let state = engine.createInitialState({ random: () => 0 });
++  for (const chair of Object.values(state.chairs)) Object.assign(chair, chair.home, { restored: true });
++  Object.assign(state.cart, { x: CART.parking.x, z: CART.parking.z, parked: true });
++  state = advance(engine, state, 10);
++  assert.equal(state.incident.drops, 0);
++  assert.equal(state.complete, false);
++  state = advance(engine, state, 190);
++  assert.equal(state.complete, false);
++  for (const book of Object.values(state.books).filter(book => book.fallen)) book.location = "shelved";
++  state = engine.updateEnvironment(state, 0.05);
++  assert.equal(state.complete, true);
++});
++
++test("shared fixtures contain the parking frame but no repair rails or added handles", () => {
++  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/closing-fixtures.glb");
++  const gltf = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
++  assert.ok(gltf.nodes.some(node => node.name === "parking-side-1"));
++  assert.ok(gltf.nodes.every(node => !/^(cart-handle|chair-handle|bookend-|rail-|latch-)/.test(node.name ?? "")));
++});
+--- a/tools/rf02-series/route.mjs
++++ b/tools/rf02-series/route.mjs
+@@ -1,146 +1,142 @@
+-import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
+-import { CART, CHAIRS, BOOKENDS } from "../../game/levels/rf02/series-layout.js";
+-import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
+-
+-const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
+-const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
+-
+-export function pathTo(engine, state, goal, radius = engine.LEVEL.playerRadius + 0.035) {
+-  const pitch = 0.18;
+-  const bounds = engine.LEVEL.bounds;
+-  const columns = Math.ceil((bounds.maxX - bounds.minX) / pitch);
+-  const key = (point) => Math.round((point.x - bounds.minX) / pitch) + "," + Math.round((point.z - bounds.minZ) / pitch);
+-  const clear = (from, to) => {
+-    const steps = Math.max(1, Math.ceil(distance(from, to) / 0.025));
+-    for (let index = 1; index <= steps; index += 1) {
+-      const blend = index / steps;
+-      if (!engine.isWalkable(state, from.x + (to.x - from.x) * blend, from.z + (to.z - from.z) * blend, radius)) return false;
+-    }
+-    return true;
+-  };
+-  if (!engine.isWalkable(state, goal.x, goal.z, radius)) throw new Error("Unwalkable goal " + JSON.stringify({ goal, attachment: state.attachment }));
+-  if ((Math.abs(state.player.x - goal.x) < 0.001 || Math.abs(state.player.z - goal.z) < 0.001) && clear(state.player, goal)) return [state.player, goal];
+-  const queue = [{ ...state.player, previous: null }], seen = new Set([key(state.player)]);
+-  let found = null;
+-  for (let cursor = 0; cursor < queue.length && cursor < columns * 100; cursor += 1) {
+-    const current = queue[cursor];
+-    if (distance(current, goal) < pitch * 2 && clear(current, goal)) { found = current; break; }
+-    for (const [deltaX, deltaZ] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+-      const next = { x: current.x + deltaX * pitch, z: current.z + deltaZ * pitch, previous: current };
+-      const nextKey = key(next);
+-      if (seen.has(nextKey) || !clear(current, next)) continue;
+-      seen.add(nextKey); queue.push(next);
+-    }
+-  }
+-  if (!found) throw new Error("No path " + JSON.stringify({ start: state.player, goal, attachment: state.attachment }));
+-  const route = [goal];
+-  for (let current = found; current; current = current.previous) route.unshift({ x: current.x, z: current.z });
+-  const smooth = [route[0]];
+-  for (let index = 0; index < route.length - 1;) {
+-    let end = route.length - 1;
+-    while (end > index + 1 && ((Math.abs(route[index].x - route[end].x) > 0.001 && Math.abs(route[index].z - route[end].z) > 0.001) || !clear(route[index], route[end]))) end -= 1;
+-    smooth.push(route[end]); index = end;
+-  }
+-  return smooth;
+-}
+-
+-export function walkPath(engine, state, points, environment = true) {
+-  let current = state;
+-  for (const point of points.slice(1)) {
+-    for (let count = 0; distance(current.player, point) > 0.012; count += 1) {
+-      if (count > 8000 || current.failed) throw new Error("Walking failed " + JSON.stringify({ point, state: current.player, reserve: current.progress }));
+-      const dx = point.x - current.player.x, dz = point.z - current.player.z, yaw = current.player.yaw;
+-      const magnitude = Math.hypot(dx, dz);
+-      const speed = Math.min(1, magnitude / (engine.LEVEL.moveSpeed * 0.05));
+-      const next = engine.updateMovement(current, { move: (dx * Math.sin(yaw) + dz * Math.cos(yaw)) / magnitude * speed, strafe: (dx * Math.cos(yaw) - dz * Math.sin(yaw)) / magnitude * speed }, 0.05);
+-      if (distance(next.player, current.player) < 1e-8) throw new Error("Blocked " + JSON.stringify({ point, player: current.player, attachment: current.attachment }));
+-      current = environment ? engine.updateEnvironment(next, 0.05) : next;
+-    }
+-  }
+-  return current;
+-}
+-
+-export function face(engine, state, yaw) {
+-  let current = state;
+-  for (let count = 0; Math.abs(angle(yaw, current.player.yaw)) > 0.005; count += 1) {
+-    if (count > 2000) throw new Error("Cannot turn");
+-    const error = angle(yaw, current.player.yaw);
+-    current = engine.updateEnvironment(engine.updateMovement(current, { turn: Math.max(-1, Math.min(1, error / (engine.LEVEL.turnSpeed * 0.05))) }, 0.05), 0.05);
+-  }
+-  return current;
+-}
+-
+-export function approach(engine, state, goal) {
+-  let current = walkPath(engine, state, pathTo(engine, state, goal));
+-  if (Number.isFinite(goal.yaw)) current = face(engine, current, goal.yaw);
+-  return current;
+-}
+-
+-export function interactionGoal(engine, state, target) {
+-  const center = target.type === "book" ? state.books[target.bookId] : engine.LEVEL.shelves[target.color];
+-  const candidates = [];
+-  for (let ring = 0.6; ring <= 1.35; ring += 0.18) for (let step = 0; step < 32; step += 1) {
+-    const direction = step * Math.PI / 16;
+-    const point = { x: center.x + Math.sin(direction) * ring, z: center.z + Math.cos(direction) * ring, yaw: direction + Math.PI };
+-    if (!engine.isWalkable(state, point.x, point.z, engine.LEVEL.playerRadius + 0.04)) continue;
+-    const action = engine.getInteraction({ ...state, player: point });
+-    if (action?.type === target.type && (target.bookId ? action.bookId === target.bookId : action.color === target.color)) candidates.push(point);
+-  }
+-  candidates.sort((left, right) => distance(left, state.player) - distance(right, state.player));
+-  for (const candidate of candidates) {
+-    try { pathTo(engine, state, candidate); return candidate; } catch {}
+-  }
+-  throw new Error("No interaction approach " + JSON.stringify(target));
+-}
+-
+-export function walkRoute(id, random = 0.5, errors = 0, delayRepair = true) {
+-  const engine = createArchiveEngine(id);
+-  let state = engine.createInitialState({ random: () => random });
+-  const records = [{ operation: "start", state }];
+-  for (let index = 0; index < errors; index += 1) state = engine.interact(state);
+-  for (const definition of CHAIRS.filter((chair) => chair.task)) {
+-    state = approach(engine, state, furnitureStand(state.chairs[definition.id]));
+-    state = engine.interact(state);
+-    if (!state.attachment) throw new Error("Chair grip failed");
+-    const goal = furnitureStand({ ...state.chairs[definition.id], ...definition.home });
+-    state = walkPath(engine, state, pathTo(engine, state, goal, engine.LEVEL.playerRadius));
+-    state = engine.interact(state);
+-    if (!state.chairs[definition.id].restored) throw new Error("Chair not restored");
+-    records.push({ operation: definition.id, state });
+-  }
+-  state = approach(engine, state, furnitureStand(state.cart));
+-  state = engine.interact(state);
+-  if (!state.attachment) throw new Error("Cart grip failed");
+-  const parkingStand = furnitureStand({ ...state.cart, ...CART.parking });
+-  state = walkPath(engine, state, pathTo(engine, state, parkingStand, engine.LEVEL.playerRadius + 0.025));
+-  state = engine.interact(state);
+-  if (!state.cart.parked) throw new Error("Cart not parked");
+-  records.push({ operation: "cart", state });
+-  if (engine.LEVEL.dynamic) {
+-    if (delayRepair) for (let index = 0; index < 500; index += 1) state = engine.updateEnvironment(state, 0.05);
+-    state = approach(engine, state, BOOKENDS[state.incident.color].stand);
+-    if (engine.getInteraction(state)?.type !== "repair") throw new Error("Repair selection failed");
+-    state = engine.interact(state);
+-    for (let index = 0; index < 20; index += 1) state = engine.updateEnvironment(state, 0.05);
+-    records.push({ operation: "repair", state });
+-    for (const book of Object.values(state.books).filter((entry) => entry.fallen && entry.location !== "shelved")) {
+-      state = approach(engine, state, interactionGoal(engine, state, { type: "book", bookId: book.id }));
+-      state = engine.interact(state);
+-      if (state.carriedBook !== book.id) throw new Error("Pickup failed");
+-      state = approach(engine, state, interactionGoal(engine, state, { type: "shelf", color: book.color }));
+-      state = engine.interact(state);
+-      records.push({ operation: book.id, state });
+-    }
+-  }
+-  return { id, state, records, finalReserve: state.progress, minimumReserve: state.minimumProgress, distance: state.distanceTravelled, blockedTime: state.blockedTime };
+-}
+-
+-if (typeof process !== "undefined" && process.argv[1]?.endsWith("route.mjs")) {
+-  const fs = await import("node:fs");
+-  const results = ["rf02-2", "rf02-3"].flatMap((id) => (id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]).map((sample) => {
+-    const route = walkRoute(id, sample);
+-    return { id, color: route.state.incident.color, distance: route.distance, final: route.finalReserve, minimum: route.minimumReserve, complete: route.state.complete, drops: route.state.incident.drops };
+-  }));
+-  console.log(JSON.stringify(results, null, 2));
+-  if (process.argv[2]) fs.writeFileSync(process.argv[2], JSON.stringify(results, null, 2) + "\n");
+-}
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++import { CART, CHAIRS } from "../../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
++
++const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++const angle = (target, current) => Math.atan2(Math.sin(target - current), Math.cos(target - current));
++
++export function pathTo(engine, state, goal, radius = engine.LEVEL.playerRadius + 0.035) {
++  const pitch = 0.18;
++  const bounds = engine.LEVEL.bounds;
++  const columns = Math.ceil((bounds.maxX - bounds.minX) / pitch);
++  const key = (point) => Math.round((point.x - bounds.minX) / pitch) + "," + Math.round((point.z - bounds.minZ) / pitch);
++  const clear = (from, to) => {
++    const steps = Math.max(1, Math.ceil(distance(from, to) / 0.025));
++    for (let index = 1; index <= steps; index += 1) {
++      const blend = index / steps;
++      if (!engine.isWalkable(state, from.x + (to.x - from.x) * blend, from.z + (to.z - from.z) * blend, radius)) return false;
++    }
++    return true;
++  };
++  if (!engine.isWalkable(state, goal.x, goal.z, radius)) throw new Error("Unwalkable goal " + JSON.stringify({ goal, attachment: state.attachment }));
++  if ((Math.abs(state.player.x - goal.x) < 0.001 || Math.abs(state.player.z - goal.z) < 0.001) && clear(state.player, goal)) return [state.player, goal];
++  const queue = [{ ...state.player, previous: null }], seen = new Set([key(state.player)]);
++  let found = null;
++  for (let cursor = 0; cursor < queue.length && cursor < columns * 100; cursor += 1) {
++    const current = queue[cursor];
++    if (distance(current, goal) < pitch * 2 && clear(current, goal)) { found = current; break; }
++    for (const [deltaX, deltaZ] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
++      const next = { x: current.x + deltaX * pitch, z: current.z + deltaZ * pitch, previous: current };
++      const nextKey = key(next);
++      if (seen.has(nextKey) || !clear(current, next)) continue;
++      seen.add(nextKey); queue.push(next);
++    }
++  }
++  if (!found) throw new Error("No path " + JSON.stringify({ start: state.player, goal, attachment: state.attachment }));
++  const route = [goal];
++  for (let current = found; current; current = current.previous) route.unshift({ x: current.x, z: current.z });
++  const smooth = [route[0]];
++  for (let index = 0; index < route.length - 1;) {
++    let end = route.length - 1;
++    while (end > index + 1 && ((Math.abs(route[index].x - route[end].x) > 0.001 && Math.abs(route[index].z - route[end].z) > 0.001) || !clear(route[index], route[end]))) end -= 1;
++    smooth.push(route[end]); index = end;
++  }
++  return smooth;
++}
++
++export function walkPath(engine, state, points, environment = true) {
++  let current = state;
++  for (const point of points.slice(1)) {
++    for (let count = 0; distance(current.player, point) > 0.012; count += 1) {
++      if (count > 8000 || current.failed) throw new Error("Walking failed " + JSON.stringify({ point, state: current.player, reserve: current.progress }));
++      const dx = point.x - current.player.x, dz = point.z - current.player.z, yaw = current.player.yaw;
++      const magnitude = Math.hypot(dx, dz);
++      const speed = Math.min(1, magnitude / (engine.LEVEL.moveSpeed * 0.05));
++      const next = engine.updateMovement(current, { move: (dx * Math.sin(yaw) + dz * Math.cos(yaw)) / magnitude * speed, strafe: (dx * Math.cos(yaw) - dz * Math.sin(yaw)) / magnitude * speed }, 0.05);
++      if (distance(next.player, current.player) < 1e-8) throw new Error("Blocked " + JSON.stringify({ point, player: current.player, attachment: current.attachment }));
++      current = environment ? engine.updateEnvironment(next, 0.05) : next;
++    }
++  }
++  return current;
++}
++
++export function face(engine, state, yaw) {
++  let current = state;
++  for (let count = 0; Math.abs(angle(yaw, current.player.yaw)) > 0.005; count += 1) {
++    if (count > 2000) throw new Error("Cannot turn");
++    const error = angle(yaw, current.player.yaw);
++    current = engine.updateEnvironment(engine.updateMovement(current, { turn: Math.max(-1, Math.min(1, error / (engine.LEVEL.turnSpeed * 0.05))) }, 0.05), 0.05);
++  }
++  return current;
++}
++
++export function approach(engine, state, goal) {
++  let current = walkPath(engine, state, pathTo(engine, state, goal));
++  if (Number.isFinite(goal.yaw)) current = face(engine, current, goal.yaw);
++  return current;
++}
++
++export function interactionGoal(engine, state, target) {
++  const center = target.type === "book" ? state.books[target.bookId] : engine.LEVEL.shelves[target.color];
++  const candidates = [];
++  for (let ring = 0.6; ring <= 1.35; ring += 0.18) for (let step = 0; step < 32; step += 1) {
++    const direction = step * Math.PI / 16;
++    const point = { x: center.x + Math.sin(direction) * ring, z: center.z + Math.cos(direction) * ring, yaw: direction + Math.PI };
++    if (!engine.isWalkable(state, point.x, point.z, engine.LEVEL.playerRadius + 0.04)) continue;
++    const action = engine.getInteraction({ ...state, player: point });
++    if (action?.type === target.type && (target.bookId ? action.bookId === target.bookId : action.color === target.color)) candidates.push(point);
++  }
++  candidates.sort((left, right) => distance(left, state.player) - distance(right, state.player));
++  for (const candidate of candidates) {
++    try { pathTo(engine, state, candidate); return candidate; } catch {}
++  }
++  throw new Error("No interaction approach " + JSON.stringify(target));
++}
++
++export function walkRoute(id, random = 0.5, errors = 0, waitForFalls = true) {
++  const engine = createArchiveEngine(id);
++  let state = engine.createInitialState({ random: () => random });
++  const records = [{ operation: "start", state }];
++  for (let index = 0; index < errors; index += 1) state = engine.interact(state);
++  for (const definition of CHAIRS.filter((chair) => chair.task)) {
++    state = approach(engine, state, furnitureStand(state.chairs[definition.id]));
++    state = engine.interact(state);
++    if (!state.attachment) throw new Error("Chair grip failed");
++    const goal = furnitureStand({ ...state.chairs[definition.id], ...definition.home });
++    state = walkPath(engine, state, pathTo(engine, state, goal, engine.LEVEL.playerRadius));
++    state = engine.interact(state);
++    if (!state.chairs[definition.id].restored) throw new Error("Chair not restored");
++    records.push({ operation: definition.id, state });
++  }
++  state = approach(engine, state, furnitureStand(state.cart));
++  state = engine.interact(state);
++  if (!state.attachment) throw new Error("Cart grip failed");
++  const parkingStand = furnitureStand({ ...state.cart, ...CART.parking });
++  state = walkPath(engine, state, pathTo(engine, state, parkingStand, engine.LEVEL.playerRadius + 0.025));
++  state = engine.interact(state);
++  if (!state.cart.parked) throw new Error("Cart not parked");
++  records.push({ operation: "cart", state });
++  if (engine.LEVEL.dynamic) {
++    for (let index = 0; index < 5500 && state.incident.drops < engine.LEVEL.maximumFalls; index += 1) state = engine.updateEnvironment(state, 0.05);
++    for (let index = 0; index < 20; index += 1) state = engine.updateEnvironment(state, 0.05);
++    for (const book of Object.values(state.books).filter((entry) => entry.fallen && entry.location !== "shelved")) {
++      state = approach(engine, state, interactionGoal(engine, state, { type: "book", bookId: book.id }));
++      state = engine.interact(state);
++      if (state.carriedBook !== book.id) throw new Error("Pickup failed");
++      state = approach(engine, state, interactionGoal(engine, state, { type: "shelf", color: book.color }));
++      state = engine.interact(state);
++      records.push({ operation: book.id, state });
++    }
++  }
++  return { id, state, records, finalReserve: state.progress, minimumReserve: state.minimumProgress, distance: state.distanceTravelled, blockedTime: state.blockedTime };
++}
++
++if (typeof process !== "undefined" && process.argv[1]?.endsWith("route.mjs")) {
++  const fs = await import("node:fs");
++  const results = ["rf02-2", "rf02-3"].flatMap((id) => (id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]).map((sample) => {
++    const route = walkRoute(id, sample);
++    return { id, color: route.state.incident.color, distance: route.distance, final: route.finalReserve, minimum: route.minimumReserve, complete: route.state.complete, drops: route.state.incident.drops };
++  }));
++  console.log(JSON.stringify(results, null, 2));
++  if (process.argv[2]) fs.writeFileSync(process.argv[2], JSON.stringify(results, null, 2) + "\n");
++}
+--- a/tools/rf02-series/browser-qa.js
++++ b/tools/rf02-series/browser-qa.js
+@@ -1,225 +1,225 @@
+-import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
+-import { CHAIRS, CART, BOOKENDS, REVISION } from "../../game/levels/rf02/series-layout.js";
+-import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
+-import { pathTo, interactionGoal } from "./route.mjs";
+-
+-const frame = document.querySelector("#game");
+-const status = document.querySelector("#status");
+-let keyboardNavigation = false;
+-let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
+-const observedFalls = new Set();
+-const api = () => frame.contentWindow.__ARC_AGENT__;
+-const read = () => api().getState();
+-const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+-const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
+-const engine = () => createArchiveEngine(document.querySelector("#level").value);
+-async function key(code, duration) {
+-  const target = frame.contentWindow;
+-  target.dispatchEvent(new target.KeyboardEvent("keydown", { code, key: code.replace("Key", "").toLowerCase(), bubbles: true }));
+-  try { await delay(duration); }
+-  finally { target.dispatchEvent(new target.KeyboardEvent("keyup", { code, bubbles: true })); }
+-  await delay(90);
+-}
+-
+-function capture(label) {
+-  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
+-  const image = document.createElement("img");
+-  image.src = data; image.alt = label;
+-  document.querySelector("#captures").append(image);
+-  images.push({ label, data });
+-}
+-
+-function observeFall() {
+-  for (const book of Object.values(read().books)) {
+-    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
+-    const key = book.id + "-" + book.location;
+-    if (!observedFalls.has(key)) {
+-      observedFalls.add(key);
+-      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
+-      capture(key);
+-    }
+-  }
+-}
+-
+-async function waitFor(predicate, timeout = 45000) {
+-  const started = performance.now();
+-  while (!predicate()) {
+-    if (stopped) throw new Error("Paused");
+-    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
+-    observeFall();
+-    await delay(100);
+-  }
+-  observeFall();
+-}
+-
+-function load() {
+-  stopped = true;
+-  keyboardNavigation = false;
+-  operations = []; records = []; images = []; observedFalls.clear();
+-  document.querySelector("#captures").replaceChildren();
+-  status.removeAttribute("data-report");
+-  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
+-  readyAt = performance.now();
+-  status.value = "加载 " + document.querySelector("#level").value;
+-}
+-
+-async function prepare() {
+-  for (let attempt = 0; attempt < 1200 && !api()?.ready().ready; attempt += 1) await delay(100);
+-  if (!api()?.ready().ready) throw new Error("Assets are not ready");
+-  if (operations.length || records.length) return;
+-  api().reset({ harness: "state" });
+-  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
+-    { type: "grip", kind: "chair", id: chair.id },
+-    { type: "push", kind: "chair", id: chair.id },
+-    { type: "release", kind: "chair", id: chair.id },
+-  ]);
+-  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
+-  if (engine().LEVEL.dynamic) operations.push({ type: "repair" });
+-  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
+-  capture("start");
+-}
+-
+-async function walkTo(goal) {
+-  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.025);
+-  for (const point of points.slice(1)) {
+-    let attempts = 0, blocked = 0;
+-    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.065) {
+-      if (stopped) throw new Error("Paused");
+-      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
+-      const before = read(), yaw = before.player.yaw;
+-      let dx = point.x - before.player.x, dz = point.z - before.player.z;
+-      const previousPoint = points[Math.max(0, points.indexOf(point) - 1)];
+-      if (Math.abs(point.x - previousPoint.x) < 0.001 && Math.abs(dx) > 0.045) dz = 0;
+-      if (Math.abs(point.z - previousPoint.z) < 0.001 && Math.abs(dz) > 0.045) dx = 0;
+-      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
+-      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
+-      const along = Math.abs(forward) >= Math.abs(lateral);
+-      const component = along ? forward : lateral;
+-      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
+-      const speed = read().attachment ? engine().LEVEL.moveSpeed : along ? component >= 0 ? 1 : 0.5 : 0.3;
+-      if (keyboardNavigation || read().attachment) await key("Key" + action, Math.max(18, Math.min(300, Math.abs(component) / speed * 800)));
+-      else await api().act({ action, durationMs: Math.max(40, Math.min(700, Math.abs(component) / speed * 900)), harness: "state" });
+-      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
+-      blocked = travelled < 0.0005 ? blocked + 1 : 0;
+-      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
+-      observeFall();
+-      status.value = "行走 · 余量 " + read().progress.toFixed(1);
+-    }
+-  }
+-}
+-
+-async function interactAndWait(target) {
+-  await key("KeyF", 70);
+-  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
+-  else if (target.type === "release" || target.type === "repair") await waitFor(() => animation().phase === "idle");
+-  await waitFor(() => frame.contentDocument.querySelector("#game-shell").dataset.robotActionActive !== "true");
+-  if (read().failed) throw new Error("Reserve depleted");
+-}
+-
+-async function executeNext() {
+-  await prepare();
+-  const target = operations[0];
+-  if (!target) return;
+-  const state = read();
+-  if (target.type === "grip") {
+-    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+-    await walkTo(furnitureStand(object));
+-  } else if (target.type === "push") {
+-    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
+-    await walkTo(furnitureStand({ ...object, ...(target.kind === "cart" ? CART.parking : object.home) }));
+-  } else if (target.type === "repair") {
+-    await walkTo(BOOKENDS[state.incident.color].stand);
+-  } else if (target.type === "book" || target.type === "shelf") {
+-    await walkTo(interactionGoal(engine(), read(), target));
+-  }
+-  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+-  if (target.type !== "push") await interactAndWait(target);
+-  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
+-  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
+-  if (target.type === "repair") {
+-    if (read().incident.phase !== "fixed") throw new Error("Fault not fixed");
+-    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
+-    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
+-    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
+-  }
+-  if (target.type === "book") {
+-    if (!read().carriedBook || !read().books[read().carriedBook].fallen) throw new Error("No fallen book picked up");
+-    target.pickedBookId = read().carriedBook;
+-  }
+-  if (target.type === "shelf") {
+-    if (read().carriedBook) throw new Error("Book was not returned");
+-    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
+-    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
+-  }
+-  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
+-  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
+-  operations.shift();
+-  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
+-  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+-  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
+-}
+-
+-async function run(all) {
+-  if (busy) return;
+-  busy = true; stopped = false;
+-  try {
+-    do { await executeNext(); } while (all && !stopped && operations.length);
+-    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
+-  } catch (error) {
+-    status.value = error.message;
+-    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
+-  } finally { busy = false; }
+-}
+-
+-document.querySelector("#load").onclick = load;
+-document.querySelector("#next").onclick = () => run(false);
+-document.querySelector("#run").onclick = () => run(true);
+-document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
+-document.querySelector("#capture").onclick = () => capture("manual");
+-document.querySelector("#export").onclick = () => {
+-  const link = document.createElement("a");
+-  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
+-  link.download = document.querySelector("#level").value + "-operations-evidence.json";
+-  link.click();
+-  URL.revokeObjectURL(link.href);
+-};
+-load();
+-
+-const regression = document.createElement("button");
+-regression.id = "regress";
+-regression.textContent = "缺陷回归";
+-document.querySelector("header").append(regression);
+-regression.onclick = async () => {
+-  if (busy) return;
+-  busy = true; stopped = false; keyboardNavigation = true;
+-  try {
+-    await prepare();
+-    await walkTo(interactionGoal(engine(), read(), { type: "book", bookId: "black" }));
+-    await interactAndWait({ type: "book" });
+-    if (!read().carriedBook) throw new Error("Table pickup failed");
+-    capture("table-book-carried");
+-    records.push({ type: "table-pickup", state: read() });
+-    api().reset({ harness: "state" });
+-    const stand = furnitureStand(read().cart, -1);
+-    await walkTo(stand);
+-    await interactAndWait({ type: "grip" });
+-    if (read().attachment?.kind !== "cart" || read().attachment.side !== -1) throw new Error("Front push unavailable");
+-    const before = { ...read().cart };
+-    await key("KeyW", 650);
+-    if (Math.hypot(read().cart.x - before.x, read().cart.z - before.z) < 0.3) throw new Error("Keyboard cannot push cart");
+-    capture("native-cart-push");
+-    records.push({ type: "native-cart-contact", state: read(), animation: animation() });
+-    await interactAndWait({ type: "release" });
+-    records.push({ type: "front-cart-push", before, state: read(), animation: animation() });
+-    if (engine().LEVEL.dynamic) {
+-      await waitFor(() => read().incident.drops === 3 && Object.values(read().books).filter(book => book.fallen).every(book => book.location === "ground"), 60000);
+-      records.push({ type: "three-automatic-falls", state: read() });
+-      capture("three-automatic-falls");
+-    }
+-    status.value = "缺陷回归通过";
+-    status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
+-  } catch (error) {
+-    status.value = error.message;
+-    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: read() });
+-  } finally { busy = false; }
+-};
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++import { CHAIRS, CART, REVISION } from "../../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../../game/levels/rf02/furnishings-layout.js";
++import { pathTo, interactionGoal } from "./route.mjs";
++
++const frame = document.querySelector("#game");
++const status = document.querySelector("#status");
++let keyboardNavigation = false;
++let stopped = true, busy = false, operations = [], records = [], images = [], readyAt = 0;
++const observedFalls = new Set();
++const api = () => frame.contentWindow.__ARC_AGENT__;
++const read = () => api().getState();
++const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
++const animation = () => JSON.parse(frame.contentDocument.querySelector("#game-shell").dataset.furnitureAnimation ?? "{}");
++const engine = () => createArchiveEngine(document.querySelector("#level").value);
++async function key(code, duration) {
++  const target = frame.contentWindow;
++  target.dispatchEvent(new target.KeyboardEvent("keydown", { code, key: code.replace("Key", "").toLowerCase(), bubbles: true }));
++  try { await delay(duration); }
++  finally { target.dispatchEvent(new target.KeyboardEvent("keyup", { code, bubbles: true })); }
++  await delay(90);
++}
++
++function capture(label) {
++  const data = frame.contentWindow.__RELAY_DEMO__.captureFrame();
++  const image = document.createElement("img");
++  image.src = data; image.alt = label;
++  document.querySelector("#captures").append(image);
++  images.push({ label, data });
++}
++
++function observeFall() {
++  for (const book of Object.values(read().books)) {
++    if (!book.fallen || !["falling", "ground"].includes(book.location)) continue;
++    const key = book.id + "-" + book.location;
++    if (!observedFalls.has(key)) {
++      observedFalls.add(key);
++      records.push({ type: "dynamic-event", book: book.id, phase: book.location, at: new Date().toISOString(), state: read() });
++      capture(key);
++    }
++  }
++}
++
++async function waitFor(predicate, timeout = 45000) {
++  const started = performance.now();
++  while (!predicate()) {
++    if (stopped) throw new Error("Paused");
++    if (performance.now() - started > timeout) throw new Error("Action timed out " + JSON.stringify(animation()));
++    observeFall();
++    await delay(100);
++  }
++  observeFall();
++}
++
++function load() {
++  stopped = true;
++  keyboardNavigation = false;
++  operations = []; records = []; images = []; observedFalls.clear();
++  document.querySelector("#captures").replaceChildren();
++  status.removeAttribute("data-report");
++  frame.src = "/?level=" + document.querySelector("#level").value + "&view=third&qa=rf02-operations";
++  readyAt = performance.now();
++  status.value = "加载 " + document.querySelector("#level").value;
++}
++
++async function prepare() {
++  for (let attempt = 0; attempt < 1200 && !api()?.ready().ready; attempt += 1) await delay(100);
++  if (!api()?.ready().ready) throw new Error("Assets are not ready");
++  if (operations.length || records.length) return;
++  api().reset({ harness: "state" });
++  operations = CHAIRS.filter((chair) => chair.task).flatMap((chair) => [
++    { type: "grip", kind: "chair", id: chair.id },
++    { type: "push", kind: "chair", id: chair.id },
++    { type: "release", kind: "chair", id: chair.id },
++  ]);
++  operations.push({ type: "grip", kind: "cart", id: CART.id }, { type: "push", kind: "cart", id: CART.id }, { type: "release", kind: "cart", id: CART.id });
++  if (engine().LEVEL.dynamic) operations.push({ type: "wait-falls" });
++  records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state: read(), revision: REVISION });
++  capture("start");
++}
++
++async function walkTo(goal) {
++  const points = pathTo(engine(), read(), goal, engine().LEVEL.playerRadius + 0.025);
++  for (const point of points.slice(1)) {
++    let attempts = 0, blocked = 0;
++    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.065) {
++      if (stopped) throw new Error("Paused");
++      if (++attempts > 250 || read().failed) throw new Error("Route failed " + JSON.stringify({ point, player: read().player, reserve: read().progress }));
++      const before = read(), yaw = before.player.yaw;
++      let dx = point.x - before.player.x, dz = point.z - before.player.z;
++      const previousPoint = points[Math.max(0, points.indexOf(point) - 1)];
++      if (Math.abs(point.x - previousPoint.x) < 0.001 && Math.abs(dx) > 0.045) dz = 0;
++      if (Math.abs(point.z - previousPoint.z) < 0.001 && Math.abs(dz) > 0.045) dx = 0;
++      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
++      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
++      const along = Math.abs(forward) >= Math.abs(lateral);
++      const component = along ? forward : lateral;
++      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
++      const speed = read().attachment ? engine().LEVEL.moveSpeed : along ? component >= 0 ? 1 : 0.5 : 0.3;
++      if (keyboardNavigation || read().attachment) await key("Key" + action, Math.max(18, Math.min(300, Math.abs(component) / speed * 800)));
++      else await api().act({ action, durationMs: Math.max(40, Math.min(700, Math.abs(component) / speed * 900)), harness: "state" });
++      const travelled = Math.hypot(read().player.x - before.player.x, read().player.z - before.player.z);
++      blocked = travelled < 0.0005 ? blocked + 1 : 0;
++      if (blocked > 6) throw new Error("Collision blocked path " + JSON.stringify({ point, player: read().player, attachment: read().attachment }));
++      observeFall();
++      status.value = "行走 · 余量 " + read().progress.toFixed(1);
++    }
++  }
++}
++
++async function interactAndWait(target) {
++  await key("KeyF", 70);
++  if (target.type === "grip") await waitFor(() => Boolean(read().attachment));
++  else if (target.type === "release" || target.type === "shelf" || target.type === "drop") await waitFor(() => animation().phase === "idle");
++  if (target.type === "book") await waitFor(() => animation().phase === "holding");
++  await waitFor(() => frame.contentDocument.querySelector("#game-shell").dataset.robotActionActive !== "true");
++  if (read().failed) throw new Error("Reserve depleted");
++}
++
++async function executeNext() {
++  await prepare();
++  const target = operations[0];
++  if (!target) return;
++  const state = read();
++  if (target.type === "grip") {
++    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
++    await walkTo(furnitureStand(object));
++  } else if (target.type === "push") {
++    const object = target.kind === "cart" ? state.cart : state.chairs[target.id];
++    await walkTo(furnitureStand({ ...object, ...(target.kind === "cart" ? CART.parking : object.home) }));
++  } else if (target.type === "wait-falls") {
++    await waitFor(() => read().incident.drops === 3 && !Object.values(read().books).some(book => book.location === "falling"), 300000);
++  } else if (target.type === "book" || target.type === "shelf") {
++    await walkTo(interactionGoal(engine(), read(), target));
++  }
++  capture("before-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
++  if (!["push", "wait-falls"].includes(target.type)) await interactAndWait(target);
++  if (target.type === "grip" && read().attachment?.id !== target.id) throw new Error("Wrong furniture gripped");
++  if (target.type === "release" && !(target.kind === "cart" ? read().cart.parked : read().chairs[target.id].restored)) throw new Error("Furniture not restored");
++  if (target.type === "wait-falls") {
++    await waitFor(() => !Object.values(read().books).some((book) => book.location === "falling"));
++    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
++    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
++  }
++  if (target.type === "book") {
++    if (!read().carriedBook || !read().books[read().carriedBook].fallen) throw new Error("No fallen book picked up");
++    target.pickedBookId = read().carriedBook;
++  }
++  if (target.type === "shelf") {
++    if (read().carriedBook) throw new Error("Book was not returned");
++    const book = Object.values(read().books).find((entry) => entry.fallen && entry.location !== "shelved");
++    if (book) operations.push({ type: "book", bookId: book.id }, { type: "shelf", color: book.color });
++  }
++  records.push({ type: "operation", target, at: new Date().toISOString(), state: read(), animation: animation() });
++  capture("after-" + target.type + "-" + (target.id ?? target.bookId ?? target.color ?? ""));
++  operations.shift();
++  status.value = "剩余操作 " + operations.length + " · 余量 " + read().progress.toFixed(1);
++  status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
++  if (!operations.length && !read().complete) throw new Error("Route ended without completion");
++}
++
++async function run(all) {
++  if (busy) return;
++  busy = true; stopped = false;
++  try {
++    do { await executeNext(); } while (all && !stopped && operations.length);
++    if (!operations.length) status.value = read().complete ? "通关成功" : status.value;
++  } catch (error) {
++    status.value = error.message;
++    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: api()?.ready().ready ? read() : null });
++  } finally { busy = false; }
++}
++
++document.querySelector("#load").onclick = load;
++document.querySelector("#next").onclick = () => run(false);
++document.querySelector("#run").onclick = () => run(true);
++document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
++document.querySelector("#capture").onclick = () => capture("manual");
++document.querySelector("#export").onclick = () => {
++  const link = document.createElement("a");
++  link.href = URL.createObjectURL(new Blob([JSON.stringify({ revision: REVISION, records, images, state: read() })], { type: "application/json" }));
++  link.download = document.querySelector("#level").value + "-operations-evidence.json";
++  link.click();
++  URL.revokeObjectURL(link.href);
++};
++load();
++
++const regression = document.createElement("button");
++regression.id = "regress";
++regression.textContent = "缺陷回归";
++document.querySelector("header").append(regression);
++regression.onclick = async () => {
++  if (busy) return;
++  busy = true; stopped = false; keyboardNavigation = true;
++  try {
++    await prepare();
++    await walkTo(interactionGoal(engine(), read(), { type: "book", bookId: "black" }));
++    await interactAndWait({ type: "book" });
++    if (!read().carriedBook) throw new Error("Table pickup failed");
++    capture("table-book-carried");
++    records.push({ type: "table-pickup", state: read() });
++    api().reset({ harness: "state" });
++    const stand = furnitureStand(read().cart, -1);
++    await walkTo(stand);
++    await interactAndWait({ type: "grip" });
++    if (read().attachment?.kind !== "cart" || read().attachment.side !== -1) throw new Error("Native handle side unavailable");
++    const before = { ...read().cart };
++    await key("KeyW", 650);
++    if (Math.hypot(read().cart.x - before.x, read().cart.z - before.z) < 0.3) throw new Error("Keyboard cannot push cart");
++    capture("native-cart-push");
++    records.push({ type: "native-cart-contact", state: read(), animation: animation() });
++    await interactAndWait({ type: "release" });
++    records.push({ type: "front-cart-push", before, state: read(), animation: animation() });
++    if (engine().LEVEL.dynamic) {
++      await waitFor(() => read().incident.drops === 3 && Object.values(read().books).filter(book => book.fallen).every(book => book.location === "ground"), 60000);
++      records.push({ type: "three-automatic-falls", state: read() });
++      capture("three-automatic-falls");
++    }
++    status.value = "缺陷回归通过";
++    status.dataset.report = JSON.stringify({ revision: REVISION, records, state: read() });
++  } catch (error) {
++    status.value = error.message;
++    status.dataset.report = JSON.stringify({ revision: REVISION, error: error.message, records, state: read() });
++  } finally { busy = false; }
++};

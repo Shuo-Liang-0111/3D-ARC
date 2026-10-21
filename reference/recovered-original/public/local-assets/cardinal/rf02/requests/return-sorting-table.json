@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready central book-return sorting table for a contemporary Chinese municipal public library. Real-world size approximately 2.24 m wide x 0.78 m high x 1.06 m deep. Durable warm-oak worktop with softly radiused edges, dark powder-coated steel frame, recessed lower sorting shelf, modest cable-safe corner details, floor-level adjustable feet, realistic joinery, fasteners, and light daily service wear. The top surface must be completely clear and flat so three game-controlled books can be placed on it. X axis along table width, Y axis up, front facing positive Z, centered at world origin, bottom-center pivot. Clean watertight topology and physically based materials. Exactly one isolated table only. No books, chair, cart, bins, room, floor, wall, person, robot, floating parts, animation, neon glow, outline, arrows, UI, readable text, labels, logo, trademark, or baked lighting. Export as GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

@@ -1,0 +1,55 @@
+{
+  "task": "统一所有关卡的选关菜单",
+  "status": "completed",
+  "version": "unified-level-menu-v1",
+  "date": "2026-10-08",
+  "workspace": ".",
+  "deployment": "existing Vite service on port 4173",
+  "sourceOfTruth": "index.html .level-select",
+  "entryCount": 40,
+  "rootCause": "Pinned releases contained archived menus with 24, 32, or 36 entries, and archived link handlers could route newer IDs through old bundles.",
+  "changes": [
+    "Synchronize source/build and public release menus from the current entry",
+    "Normalize level navigation to root while preserving active player preferences",
+    "Keep pinned gameplay bundles and source runtime implementations unchanged"
+  ],
+  "verification": {
+    "unitTests": {
+      "passed": 10,
+      "failed": 0,
+      "log": "tests.log"
+    },
+    "build": {
+      "passed": true,
+      "log": "build.log",
+      "output": "build"
+    },
+    "http": {
+      "mainEntries": 40,
+      "directReleases": 6,
+      "identicalOrderedMenu": true,
+      "pinnedReleasesPreserved": true,
+      "resolvedGameplayScriptUrlsPreserved": true
+    },
+    "browser": {
+      "method": "CUA browser UI and read-only DOM checks; screenshots inspected in tool output",
+      "pages": [
+        "rf09-2",
+        "rf01",
+        "rf13-03",
+        "rf14-3"
+      ],
+      "menuEntriesEach": 40,
+      "clicks": [
+        "RF-01 -> RF-11-03",
+        "RF-01 published direct URL -> RF-12-3, preserving first-person view",
+        "RF-12-3 -> RF-08-2, third-person view"
+      ],
+      "activeLevelHighlight": true,
+      "returnedToOriginalPage": true
+    }
+  },
+  "scope": "Menu and level navigation only; no scene, robot motion, camera, physics or gameplay changes.",
+  "userAcceptance": "optional; not yet supplied",
+  "commit": "166c62031a0269ec1b638429ea3452a3d0ff7537"
+}

@@ -1,0 +1,15 @@
+diff --git a/simulation/g1_simulation.py b/simulation/g1_simulation.py
+--- a/simulation/g1_simulation.py
++++ b/simulation/g1_simulation.py
+@@ -369,1 +369,8 @@
+         joint_vel_policy = self.data.qvel[self.resources.robot_dofs][mapping]
++        observed_action = self.last_action.copy()
++        for side in self.browser_arms.targets:
++            native_indices = self.browser_arms.indices[side]
++            policy_indices = np.flatnonzero(np.isin(mapping, native_indices))
++            joint_pos_policy[policy_indices] = self.resources.default_joint_pos[policy_indices]
++            joint_vel_policy[policy_indices] = 0.0
++            observed_action[policy_indices] = 0.0
+@@ -385,1 +392,1 @@
+-            self.last_action.copy(),
++            observed_action,

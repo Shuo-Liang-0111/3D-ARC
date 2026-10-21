@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="支持第一、第三及双视角的 3D 人形机器人任务环境。" />
+    <title>Robot Archive — 3D Puzzle Demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/operator-console.css" />
+  </head>
+  <body>
+    <main id="game-shell" aria-label="Robot Archive 3D 游戏">
+      <div id="viewport" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="operator-view-layer" aria-hidden="true">
+        <div class="operator-view-caption operator-view-caption-first"><b>01</b><span>G1 / FIRST PERSON</span></div>
+        <div class="operator-view-caption operator-view-caption-third"><b>02</b><span>ARC / TACTICAL OVERVIEW</span><em>滚轮缩放 · 中键旋转</em></div>
+        <div class="operator-third-view-focus"></div>
+        <div class="operator-view-divider"></div>
+      </div>
+
+      <header class="top-hud glass-panel">
+        <div class="identity">
+          <span class="identity-mark"><i></i><i></i><i></i></span>
+          <div><strong id="brand-name">RELAY FACILITY</strong><span id="unit-label">UNIT R-04 · LOCAL SIMULATION</span></div>
+        </div>
+        <div class="progress-state">
+          <div class="progress-heading"><small>MISSION RESERVE</small><strong id="progress-value">100%</strong></div>
+          <div id="progress-meter" class="progress-meter" role="progressbar" aria-label="任务余量" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+            <span id="progress-fill"></span>
+          </div>
+        </div>
+        <div class="system-state">
+          <span class="status-light" id="system-light"></span>
+          <div><small id="system-label">FACILITY POWER</small><strong id="power-label">OFFLINE</strong></div>
+        </div>
+      </header>
+
+      <aside class="mission-panel glass-panel">
+        <span class="section-label">CURRENT DIRECTIVE</span>
+        <h1 id="objective-title">恢复设施供电</h1>
+      </aside>
+
+      <aside class="telemetry-panel glass-panel">
+        <div><span>ROBOT STATE</span><strong id="robot-state">IDLE</strong></div>
+        <div><span id="cargo-label">CARGO</span><strong id="cargo-state">EMPTY</strong></div>
+        <div><span id="gate-label">GATE</span><strong id="gate-state">NO POWER</strong></div>
+      </aside>
+
+      <aside id="operator-console" class="operator-console glass-panel" aria-label="ARC 机器人操控面板">
+        <div class="operator-console-heading">
+          <div><span class="section-label">PILOT CONTROL</span><strong>WASD + Q/E / 直接控制</strong></div>
+          <span id="operator-control-state" class="operator-control-state">STANDBY</span>
+        </div>
+
+        <div class="operator-view-switch" role="group" aria-label="切换游戏视角">
+          <span>VIEW</span>
+          <button data-view-option="first" type="button" aria-pressed="false">第一视角</button>
+          <button data-view-option="third" type="button" aria-pressed="true">第三视角</button>
+          <button data-view-option="dual" type="button" aria-pressed="false">双视角</button>
+        </div>
+
+        <div class="operator-keyboard-deck" aria-label="ARC 移动控制">
+          <section class="operator-keyboard-zone">
+            <div class="operator-zone-label"><strong>TRANSLATE</strong><span>按住移动 · 松开停止</span></div>
+            <div class="operator-wasd-grid">
+              <button class="operator-key operator-key-w" type="button" data-control-code="KeyW"><b>W</b><small>前进</small></button>
+              <button class="operator-key" type="button" data-control-code="KeyA"><b>A</b><small>左移</small></button>
+              <button class="operator-key" type="button" data-control-code="KeyS"><b>S</b><small>后退</small></button>
+              <button class="operator-key" type="button" data-control-code="KeyD"><b>D</b><small>右移</small></button>
+            </div>
+          </section>
+          <section class="operator-keyboard-zone operator-yaw-zone">
+            <div class="operator-zone-label"><strong>YAW</strong><span>Q/E 转向</span></div>
+            <div class="operator-yaw-row">
+              <button class="operator-key" type="button" data-control-code="KeyQ"><b>Q</b><small>左转</small></button>
+              <span>YAW</span>
+              <button class="operator-key" type="button" data-control-code="KeyE"><b>E</b><small>右转</small></button>
+            </div>
+          </section>
+        </div>
+
+        <div class="operator-action-grid">
+          <button type="button" data-control-code="ArrowUp"><kbd>↑</kbd><span><b>D435 抬头</b><small>按住调整视角</small></span></button>
+          <button type="button" data-control-code="ArrowDown"><kbd>↓</kbd><span><b>D435 低头</b><small>按住调整视角</small></span></button>
+          <button type="button" data-operator-action="interact"><kbd>F</kbd><span><b>任务互动</b><small>拾取 / 放置 / 操作</small></span></button>
+          <button type="button" data-operator-action="reset"><kbd>R</kbd><span><b>重置关卡</b><small>恢复任务初始状态</small></span></button>
+        </div>
+
+        <div class="operator-runtime-state">
+          <div><small>ROBOT MOTION</small><strong id="operator-motion-state">IDLE</strong></div>
+          <div><small>MISSION INPUT</small><strong id="operator-input-state">LOCKED</strong></div>
+        </div>
+
+        <button id="operator-stop" class="operator-stop" type="button" disabled>
+          <span>STOP</span><small>立即释放全部移动输入</small>
+        </button>
+      </aside>
+
+      <div class="controls-hint glass-panel">
+        <span><kbd>W</kbd><kbd>S</kbd> 前后 · <kbd>A</kbd><kbd>D</kbd> 平移</span>
+        <span><kbd>Q</kbd><kbd>E</kbd> 转向（不耗余量）</span>
+        <span><kbd>↑</kbd><kbd>↓</kbd> 调整 D435 视角</span>
+        <span><kbd>F</kbd> 互动</span>
+        <span><kbd>R</kbd> 重置</span>
+      </div>
+
+      <div class="operator-feed-strip glass-panel" aria-live="polite">
+        <span class="operator-feed-live"><i id="operator-live-pip"></i><b id="operator-live-label">STANDBY</b></span>
+        <time id="operator-clock">--:--:--</time>
+        <span id="operator-feed-path">ARC → LOCAL SIM → G1</span>
+      </div>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+      <section id="home-overlay" class="full-overlay home-overlay" hidden>
+        <div class="home-card">
+          <div class="home-copy">
+            <span class="section-label">ARC / ROBOT ARCHIVE / LOCAL SIMULATION</span>
+            <h1>让机器人<br /><em>进入任务现场</em></h1>
+            <p>ARC 是一个面向人类与 AI Agent 的 3D 机器人任务环境。先了解项目，再选择亲自操控，或把自己的 Agent 接入同一套游戏画面与动作接口。</p>
+            <div class="home-meta"><span>12 个实验关卡</span><span>统一 W A S D E 协议</span><span>本地 OpenCode</span></div>
+          </div>
+          <div class="entry-grid" aria-label="选择进入方式">
+            <a class="entry-card entry-card-primary" href="/?mode=play">
+              <span class="entry-index">ENTRY 01 / HUMAN</span>
+              <strong>人类游玩</strong>
+              <p>选择关卡，用键盘操控浏览器里的 G1 机器人。</p>
+              <span class="entry-arrow">进入选关 →</span>
+            </a>
+            <a class="entry-card" href="/?mode=agent&amp;level=rf01&amp;view=third">
+              <span class="entry-index">ENTRY 02 / AGENT</span>
+              <strong>Agent 接入</strong>
+              <p>进入与人类完全一致的游戏界面，预览 Agent 使用的同一套关卡与 HUD。</p>
+              <span class="entry-arrow">进入 Agent 预览 →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="start-overlay" class="full-overlay" hidden>
+        <div class="start-card">
+          <span id="start-kicker" class="section-label">LEVEL RF-01 / INDUSTRIAL LAB</span>
+          <h2 id="start-title">RELAY<br />FACILITY</h2>
+          <p id="start-copy">控制类人机器人进入废弃实验设施。</p>
+          <nav class="level-select" aria-label="选择关卡">
+            <a data-level-option="rf01" href="/?mode=play&amp;level=rf01"><span>RF-01</span><strong>工业园区</strong></a>
+            <a data-level-option="rf01-2" href="/?mode=play&amp;level=rf01-2"><span>RF-01-2</span><strong>厂房照明</strong></a>
+            <a data-level-option="rf01-3" href="/?mode=play&amp;level=rf01-3"><span>RF-01-3</span><strong>动态检修台</strong></a>
+            <a data-level-option="rf02" href="/?mode=play&amp;level=rf02"><span>RF-02</span><strong>图书馆归档</strong></a>
+            <a data-level-option="rf03" href="/?mode=play&amp;level=rf03"><span>RF-03</span><strong>快递分拣线</strong></a>
+            <a data-level-option="rf04" href="/?mode=play&amp;level=rf04"><span>RF-04</span><strong>家庭洗衣</strong></a>
+            <a data-level-option="rf05" href="/?mode=play&amp;level=rf05"><span>RF-05</span><strong>酒店整理</strong></a>
+            <a data-level-option="rf06" href="/?mode=play&amp;level=rf06"><span>RF-06</span><strong>家庭漏水</strong></a>
+            <a data-level-option="rf07" href="/?mode=play&amp;level=rf07"><span>RF-07</span><strong>冷链转运</strong></a>
+            <a data-level-option="rf08" href="/?mode=play&amp;level=rf08"><span>RF-08</span><strong>办公室灰盒</strong></a>
+            <a data-level-option="rf09" href="/?mode=play&amp;level=rf09"><span>RF-09</span><strong>会议准备</strong></a>
+            <a data-level-option="rf10" href="/?mode=play&amp;level=rf10"><span>RF-10</span><strong>会议室自由探索</strong></a>
+            <a data-level-option="rf11" href="/?mode=play&amp;level=rf11"><span>RF-11</span><strong>双机器人协作搬运</strong></a>
+            <a data-level-option="rf12" href="/?mode=play&amp;level=rf12"><span>RF-12</span><strong>中国家庭厨房</strong></a>
+            <a data-level-option="rf13" href="/?mode=play&amp;level=rf13"><span>RF-13</span><strong>社区诊所开诊</strong></a>
+            <a data-level-option="rf14" href="/?mode=play&amp;level=rf14"><span>RF-14</span><strong>网球场捡球归筐</strong></a>
+            <a data-level-option="rf15" href="/?mode=play&amp;level=rf15"><span>RF-15</span><strong>农产品冷链装运</strong></a>
+            <a data-level-option="rf15-1" href="/?mode=play&amp;level=rf15-1"><span>RF-15-1</span><strong>手推车归位</strong></a>
+            <a data-level-option="rf15-2" href="/?mode=play&amp;level=rf15-2"><span>RF-15-2</span><strong>田间收割入筐</strong></a>
+            <a data-level-option="rf15-3" href="/?mode=play&amp;level=rf15-3"><span>RF-15-3</span><strong>动态称重装车</strong></a>
+            <a data-level-option="test_zpf" href="/?mode=play&amp;level=test_zpf"><span>TEST-ZPF</span><strong>小办公室巡检</strong></a>
+            <a data-level-option="test_zpf2" href="/?mode=play&amp;level=test_zpf2"><span>TEST-ZPF2</span><strong>小办公室实景</strong></a>
+          </nav>
+          <div class="robot-select" role="group" aria-label="选择机器人">
+            <button data-robot-option="g1" type="button"><span>G1 EDU2 · MuJoCo 29DOF</span><small>官方 MuJoCo 网格与关节</small></button>
+            <button data-robot-option="r1" type="button"><span>R1 EDU</span><small>官方 MuJoCo 模型</small></button>
+          </div>
+          <div class="robot-select control-mode-select" role="group" aria-label="选择控制模式">
+            <button data-control-option="velocity" type="button"><span>速度策略</span><small>WASD + Q/E 人工驾驶</small></button>
+            <button data-control-option="joint" type="button"><span>29DOF AGENT</span><small>VLA / Agent 关节目标</small></button>
+          </div>
+          <div class="view-mode-select" role="group" aria-label="选择游戏视角">
+            <button data-view-option="first" type="button" aria-pressed="false">第一视角</button>
+            <button data-view-option="third" type="button" aria-pressed="true">第三视角</button>
+            <button data-view-option="dual" type="button" aria-pressed="false">双视角</button>
+          </div>
+          <button id="start-button" type="button">开始任务 <span>→</span></button>
+          <div class="start-meta"><span>固定同步视角</span><span>连续移动</span><span>统一 F 键互动</span><a href="/agent-guide.html">AGENT 接入指南 ↗</a></div>
+        </div>
+      </section>
+
+      <section id="terminal-overlay" class="dialog-overlay" hidden>
+        <article class="terminal-card">
+          <div class="terminal-heading"><span id="terminal-heading-text">MAINTENANCE TERMINAL / T-03</span><i></i></div>
+          <div class="terminal-screen">
+            <span class="terminal-kicker">FACILITY DIAGNOSTICS</span>
+            <h2 id="terminal-title">主电网离线</h2>
+            <p id="terminal-copy"></p>
+            <dl>
+              <div><dt id="terminal-label-1">ENERGY MODULE</dt><dd id="terminal-battery">NOT DETECTED</dd></div>
+              <div><dt id="terminal-label-2">POWER BUS</dt><dd id="terminal-power">OFFLINE</dd></div>
+              <div><dt id="terminal-label-3">SECURITY GATE</dt><dd id="terminal-door">LOCKED</dd></div>
+            </dl>
+          </div>
+          <button id="terminal-close" type="button"><kbd>F</kbd> 关闭终端</button>
+        </article>
+      </section>
+
+      <section id="complete-overlay" class="dialog-overlay" hidden>
+        <article class="complete-card">
+          <span class="complete-signal"></span>
+          <span id="complete-kicker" class="section-label">OBJECTIVE COMPLETE</span>
+          <h2 id="complete-title">撤离成功</h2>
+          <p id="complete-copy">办公区物品已归位，设备状态检查完成。</p>
+          <button id="restart-button" type="button">重新开始</button>
+          <a href="./legacy/">打开保留的 2D 原型</a>
+        </article>
+      </section>
+
+      <section id="failure-overlay" class="dialog-overlay" hidden>
+        <article class="failure-card">
+          <span class="failure-signal"></span>
+          <span class="section-label">MISSION FAILED</span>
+          <h2>行动终止</h2>
+          <p>任务余量已经耗尽。规划更短的路线，并通过完成关键目标补充余量。</p>
+          <button id="failure-restart-button" type="button">重新开始</button>
+        </article>
+      </section>
+
+      <a class="legacy-link" href="./legacy/">LEGACY 2D ↗</a>
+      <button id="return-to-levels" class="return-to-levels" type="button">← 返回选关</button>
+    </main>
+    <script type="module" src="/game/app.js"></script>
+  </body>
+</html>

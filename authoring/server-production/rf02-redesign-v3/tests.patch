@@ -1,0 +1,613 @@
+diff --git a/tests/rf02-series.test.mjs b/tests/rf02-series.test.mjs
+--- a/tests/rf02-series.test.mjs
++++ b/tests/rf02-series.test.mjs
+@@ -1,118 +1,185 @@
+-import test from "node:test";
+-import assert from "node:assert/strict";
+-import fs from "node:fs";
+-import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
+-import { BOOKS, SHELF_BOOKS, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
+-import { walkRoute, routeToInteraction, walkPath } from "../tools/rf02-series/route.mjs";
+-
+-for (const id of ["rf02-2", "rf02-3"]) {
+-  const engine = createArchiveEngine(id);
+-  const initial = () => engine.createInitialState({ random: () => 0.1 });
+-  test(id + " starts with shared nine-book scene and no catalog interaction", () => {
+-    const state = initial();
+-    assert.equal(Object.keys(state.books).length, BOOKS.length);
+-    assert.equal(BOOKS.length, 9);
+-    assert.equal(Object.values(state.books).filter((book) => !book.background).length, 6);
+-    assert.equal(engine.getInteraction({ ...state, player: { ...state.player, ...engine.LEVEL.terminal } }), null);
+-  });
+-  test(id + " idle/rotation are free; blocked movement and drain:false cannot bypass costs", () => {
+-    const state = initial();
+-    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
+-    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
+-    assert.ok(engine.updateMovement(state, { move: 1, drain: false }, 0.05).progress < 100);
+-    const wall = { ...state, player: { x: 0, z: 7.36, yaw: 0 } };
+-    const moved = engine.updateMovement(wall, { move: 1 }, 0.05);
+-    assert.deepEqual(moved.player, wall.player);
+-    assert.ok(moved.progress < wall.progress);
+-    assert.equal(engine.updateMovement(state, { move: 1 }, NaN).progress, 100);
+-  });
+-  test(id + " errors cost reserve and low-reserve failure is atomic and frozen", () => {
+-    const state = initial();
+-    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
+-    const low = { ...state, progress: engine.LEVEL.progress.errorCost };
+-    const failed = engine.interact(low);
+-    assert.equal(failed.progress, 0);
+-    assert.equal(failed.failed, true);
+-    assert.deepEqual(failed.books, low.books);
+-    assert.deepEqual(engine.interact(failed), failed);
+-    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
+-    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
+-    assert.deepEqual(initial().rewardedActions, {});
+-  });
+-  test(id + " low-positive-reserve rewards cap and cannot be farmed by dropping", () => {
+-    let state = initial();
+-    state = walkPath(engine, state, routeToInteraction(engine, state, { type: "book", bookId: "red" }));
+-    const atBook = state;
+-    const capped = engine.interact({ ...state, progress: 99.9 });
+-    assert.equal(capped.progress, 100);
+-    assert.ok(capped.rewardedActions["pickup:red"]);
+-    state = engine.interact({ ...atBook, progress: 0.01, minimumProgress: 0.01 });
+-    assert.ok(state.progress > 1);
+-    assert.equal(state.failed, false);
+-    state = { ...capped, player: { x: 0, z: 5.4, yaw: Math.PI / 2 } };
+-    state = engine.interact(state);
+-    assert.equal(state.books.red.location, "ground");
+-    state = engine.interact(state);
+-    assert.equal(state.carriedBook, "red");
+-    assert.equal(state.progress, 98);
+-  });
+-  test(id + " wrong shelf and blocked drop preserve cargo and charge once", () => {
+-    let state = initial();
+-    state.books.red.location = "carried";
+-    state.carriedBook = "red";
+-    state.carriedItem = "red";
+-    state.player = { ...state.player, ...engine.LEVEL.shelves.black };
+-    const wrong = engine.interact(state);
+-    assert.equal(wrong.lastEvent, "wrong_shelf");
+-    assert.equal(wrong.carriedBook, "red");
+-    assert.equal(wrong.progress, 100 - engine.LEVEL.progress.errorCost);
+-    state.player = { x: 11.3, z: 3.8, yaw: Math.PI / 2 };
+-    const blocked = engine.interact(state);
+-    assert.equal(blocked.lastEvent, "blocked_drop");
+-    assert.equal(blocked.carriedBook, "red");
+-    assert.equal(blocked.progress, 100 - engine.LEVEL.progress.errorCost);
+-  });
+-  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
+-    for (const errors of [0, 2]) {
+-      test(id + " full engine route, random " + sample + ", injected errors " + errors, () => {
+-        const route = walkRoute(id, sample, errors);
+-        assert.equal(route.state.complete, true);
+-        assert.equal(route.state.failed, false);
+-        assert.ok(route.minimumReserve > 0);
+-        assert.ok(route.finalReserve < 70);
+-        assert.equal(route.blockedTime, 0);
+-        assert.deepEqual(engine.updateMovement(route.state, { move: 1 }, 0.05), route.state);
+-        assert.deepEqual(engine.interact(route.state), route.state);
+-      });
+-    }
+-  }
+-}
+-
+-test("dynamic shelf branches are reachable, fall before becoming grabbable, and reset cleanly", () => {
+-  const engine = createArchiveEngine("rf02-3");
+-  for (const [sample, color] of [[0.1, "red"], [0.5, "black"], [0.9, "white"]]) {
+-    let state = engine.createInitialState({ random: () => sample });
+-    assert.equal(state.incident.color, color);
+-    assert.ok(engine.isWalkable(state, SHELF_BOOKS[color].landing.x, SHELF_BOOKS[color].landing.z));
+-    state.incident.phase = "falling";
+-    state.books[state.incident.bookId].location = "falling";
+-    state.player = { ...state.player, ...SHELF_BOOKS[color].landing };
+-    assert.equal(engine.getInteraction(state), null);
+-    for (let frame = 0; frame < 20; frame += 1) state = engine.updateEnvironment(state, 0.05);
+-    assert.equal(state.incident.phase, "ground");
+-    assert.equal(state.books[state.incident.bookId].y, 0.012);
+-    assert.equal(engine.getInteraction(state).bookId, state.incident.bookId);
+-    assert.equal(engine.createInitialState({ random: () => sample }).incident.phase, "waiting");
+-  }
+-});
+-
+-test("all new shared scene assets exist with collision extras and exact collider names", () => {
+-  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/library-collision.glb");
+-  assert.equal(bytes.toString("ascii", 0, 4), "glTF");
+-  const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+-  const engine = createArchiveEngine("rf02-2");
+-  for (const collider of engine.LEVEL.staticColliders) {
+-    const node = json.nodes.find((entry) => entry.name === "COLLIDER_" + collider.id);
+-    assert.ok(node?.extras?.collision);
+-  }
+-});
++import test from "node:test";
++import assert from "node:assert/strict";
++import fs from "node:fs";
++import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
++import { BOOKS, BOOKENDS, CART, CHAIRS, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
++import { furnitureStand } from "../game/levels/rf02/furnishings-layout.js";
++import { walkRoute, approach } from "../tools/rf02-series/route.mjs";
++
++function stepEnvironment(engine, state, seconds) {
++  let current = state;
++  for (let index = 0; index < Math.ceil(seconds / 0.05); index += 1) current = engine.updateEnvironment(current, 0.05);
++  return current;
++}
++
++function restoredChair(engine, state) {
++  const chair = Object.values(state.chairs)[0];
++  const next = structuredClone(state);
++  Object.assign(next.chairs[chair.id], chair.home);
++  next.player = furnitureStand(next.chairs[chair.id]);
++  const gripped = engine.interact(next);
++  assert.ok(gripped.attachment);
++  return engine.interact(gripped);
++}
++
++for (const id of ["rf02-2", "rf02-3"]) {
++  const engine = createArchiveEngine(id);
++  test(id + " is a furniture task with the shared scene, no return-desk pickups or catalog clues", () => {
++    const state = engine.createInitialState();
++    assert.equal(Object.keys(state.books).length, BOOKS.length);
++    assert.equal(Object.keys(state.chairs).length, 2);
++    assert.equal(state.cart.parked, false);
++    assert.equal(engine.getInteraction({ ...state, player: { ...state.player, ...engine.LEVEL.terminal } }), null);
++    const atDesk = { ...state, player: { x: 0, z: 4, yaw: Math.PI } };
++    assert.notEqual(engine.getInteraction(atDesk)?.type, "book");
++  });
++  test(id + " requires both chair placements and correct cart parking", () => {
++    let state = engine.createInitialState();
++    state = restoredChair(engine, state);
++    assert.equal(state.complete, false);
++    state.cart = { ...state.cart, ...CART.parking };
++    state.player = furnitureStand(state.cart);
++    state = engine.interact(engine.interact(state));
++    assert.equal(state.cart.parked, true);
++    assert.equal(state.complete, false);
++  });
++  test(id + " grip uses an aligned handle and never snaps furniture on first movement", () => {
++    const state = engine.createInitialState();
++    state.player = { ...furnitureStand(state.cart), x: state.cart.x + 0.01 };
++    const before = { ...state.cart };
++    const held = engine.interact(state);
++    assert.ok(held.attachment);
++    const after = engine.updateMovement(held, {}, 0.05);
++    assert.ok(Math.abs(after.cart.x - before.x) < 1e-9);
++    assert.ok(Math.abs(after.cart.z - before.z) < 1e-9);
++    assert.equal(after.progress, 100);
++  });
++  test(id + " cart body blocks at a wall even where the robot alone fits", () => {
++    const state = engine.createInitialState();
++    state.cart = { ...state.cart, x: 11.28, z: -3, yaw: 0 };
++    state.player = furnitureStand(state.cart);
++    const held = engine.interact(state);
++    const blocked = engine.updateMovement(held, { strafe: 1 }, 0.05);
++    assert.equal(blocked.cart.x, held.cart.x);
++    assert.deepEqual(blocked.player, held.player);
++    assert.ok(blocked.progress < held.progress);
++    assert.ok(blocked.blockedTime > 0);
++  });
++  test(id + " release outside the bay is allowed but does not award parking or complete", () => {
++    let state = engine.createInitialState();
++    state.player = furnitureStand(state.cart);
++    state = engine.interact(state);
++    state = engine.interact(state);
++    assert.equal(state.attachment, null);
++    assert.equal(state.cart.parked, false);
++    assert.equal(state.progress, 100);
++    assert.equal(state.complete, false);
++  });
++  test(id + " idle/turn are free, distance and invalid F attempts cost reserve", () => {
++    const state = engine.createInitialState();
++    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
++    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
++    assert.ok(engine.updateMovement(state, { move: 1, drain: false }, 0.05).progress < 100);
++    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
++  });
++  test(id + " failure is atomic and frozen; reset clears rewards and task objects", () => {
++    const state = { ...engine.createInitialState(), progress: 0.5 };
++    const failed = engine.interact(state);
++    assert.equal(failed.failed, true);
++    assert.equal(failed.progress, 0);
++    assert.deepEqual(failed.cart, state.cart);
++    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
++    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
++    assert.deepEqual(engine.interact(failed), failed);
++    const reset = engine.createInitialState();
++    assert.equal(reset.progress, 100);
++    assert.equal(reset.attachment, null);
++    assert.deepEqual(reset.rewardedActions, {});
++  });
++  test(id + " restore rewards cap at 100 and cannot be repeated for the same item", () => {
++    const state = engine.createInitialState();
++    const restored = restoredChair(engine, state);
++    assert.equal(restored.progress, 100);
++    const chair = Object.values(restored.chairs).find((entry) => entry.restored);
++    const repeated = structuredClone(restored);
++    repeated.chairs[chair.id].restored = false;
++    repeated.progress = 50;
++    const result = restoredChair(engine, repeated);
++    assert.equal(result.progress, 50);
++  });
++  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
++    for (const errors of [0, 2]) {
++      test(id + " complete movement route / random " + sample + " / errors " + errors, () => {
++        const route = walkRoute(id, sample, errors);
++        assert.equal(route.state.complete, true);
++        assert.equal(route.state.failed, false);
++        assert.ok(route.minimumReserve > 0);
++        assert.ok(route.finalReserve < 70);
++        assert.equal(route.blockedTime, 0);
++        assert.equal(route.state.cart.parked, true);
++        assert.ok(Object.values(route.state.chairs).every((chair) => chair.restored));
++        assert.deepEqual(engine.updateMovement(route.state, { move: 1 }, 0.05), route.state);
++        if (id === "rf02-3") {
++          assert.equal(route.state.incident.phase, "fixed");
++          assert.equal(route.state.incident.drops, 3);
++        }
++      });
++    }
++  }
++}
++
++test("fault activation guarantees a first fall, repeats while loose, and is capped at three", () => {
++  const engine = createArchiveEngine("rf02-3");
++  for (const [sample, color] of [[0.1, "red"], [0.5, "black"], [0.9, "white"]]) {
++    let state = restoredChair(engine, engine.createInitialState({ random: () => sample }));
++    assert.equal(state.incident.color, color);
++    assert.equal(state.incident.phase, "loose");
++    assert.equal(state.incident.drops, 1);
++    assert.equal(state.books["shelf-" + color + "-0"].location, "falling");
++    state = stepEnvironment(engine, state, 11);
++    assert.equal(state.incident.drops, 1);
++    state = stepEnvironment(engine, state, 2);
++    assert.equal(state.incident.drops, 2);
++    state = stepEnvironment(engine, state, 100);
++    assert.equal(state.incident.drops, 3);
++    assert.equal(Object.values(state.books).filter((book) => book.fallen && book.location === "ground").length, 3);
++    assert.equal(state.complete, false);
++  }
++});
++
++test("repair stops subsequent falls but keeps every already-falling or landed book required", () => {
++  const engine = createArchiveEngine("rf02-3");
++  let state = restoredChair(engine, engine.createInitialState({ random: () => 0.5 }));
++  state.player = { ...BOOKENDS.black.stand };
++  assert.equal(engine.getInteraction(state)?.type, "repair");
++  state = engine.interact(state);
++  assert.equal(state.incident.phase, "fixed");
++  state = stepEnvironment(engine, state, 100);
++  assert.equal(state.incident.drops, 1);
++  assert.equal(state.books["shelf-black-0"].location, "ground");
++  assert.equal(state.complete, false);
++});
++
++test("moving the cart can trigger a fault before either chair is restored", () => {
++  const engine = createArchiveEngine("rf02-3");
++  let state = engine.createInitialState();
++  state.player = furnitureStand(state.cart);
++  state = engine.interact(state);
++  for (let index = 0; index < 30; index += 1) state = engine.updateMovement(state, { move: 1 }, 0.05);
++  assert.equal(state.incident.phase, "loose");
++  assert.equal(state.incident.drops, 1);
++  assert.ok(Object.values(state.chairs).every((chair) => !chair.restored));
++});
++
++test("park orientation matters and the collision GLB matches every initial furniture proxy", () => {
++  const engine = createArchiveEngine("rf02-2");
++  let state = engine.createInitialState();
++  state.cart = { ...state.cart, ...CART.parking, yaw: 0 };
++  state.player = furnitureStand(state.cart);
++  state = engine.interact(engine.interact(state));
++  assert.equal(state.cart.parked, false);
++  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/library-collision.glb");
++  const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
++  for (const collider of engine.LEVEL.staticColliders) assert.ok(json.nodes.some((node) => node.name === "COLLIDER_" + collider.id));
++  assert.ok(fs.statSync("public" + ASSET_ROOT + "/closing-fixtures.glb").size > 1000);
++});
+diff --git a/tools/rf02-series/measure-routes.mjs b/tools/rf02-series/measure-routes.mjs
+--- a/tools/rf02-series/measure-routes.mjs
++++ b/tools/rf02-series/measure-routes.mjs
+@@ -1,15 +1,14 @@
+-import fs from "node:fs";
+-import { walkRoute } from "./route.mjs";
+-
+-const results = [];
+-for (const id of ["rf02-2", "rf02-3"]) {
+-  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
+-    for (const errors of [0, 2]) {
+-      const route = walkRoute(id, sample, errors);
+-      results.push(route);
+-      console.log(JSON.stringify({ id, shelf: route.incident.color, errors, distance: route.distance, finalReserve: route.finalReserve, minimumReserve: route.minimumReserve }));
+-    }
+-  }
+-}
+-const output = process.argv[2];
+-if (output) fs.writeFileSync(output, JSON.stringify(results, null, 2) + "\n");
++import fs from "node:fs";
++import { walkRoute } from "./route.mjs";
++
++const records = [];
++for (const id of ["rf02-2", "rf02-3"]) {
++  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
++    for (const errors of [0, 2]) {
++      const result = walkRoute(id, sample, errors);
++      records.push({ id, color: result.state.incident.color, errors, distance: result.distance, finalReserve: result.finalReserve, minimumReserve: result.minimumReserve, complete: result.state.complete, drops: result.state.incident.drops });
++    }
++  }
++}
++if (process.argv[2]) fs.writeFileSync(process.argv[2], JSON.stringify(records, null, 2) + "\n");
++console.log(JSON.stringify(records, null, 2));
+diff --git a/game/levels/rf02/series-layout.js b/game/levels/rf02/series-layout.js
+--- a/game/levels/rf02/series-layout.js
++++ b/game/levels/rf02/series-layout.js
+@@ -1,59 +1,59 @@
+-import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
+-import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
+-
+-export { CART, CHAIRS };
+-export const REVISION = FURNISHINGS_REVISION;
+-export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
+-
+-export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
+-  const black = color === "black";
+-  return [color, Object.freeze({
+-    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
+-    z: black ? -6.43 : -1.75,
+-    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
+-  })];
+-})));
+-
+-export const BOOKENDS = Object.freeze({
+-  red: { x: -10.26, y: 1.16, z: -1.05, rotation: Math.PI / 2, stand: { x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, handle: { x: -10.26, y: 1.26, z: 0.32 } },
+-  black: { x: 0, y: 1.16, z: -6.25, rotation: 0, stand: { x: 1.32, z: -5.65, yaw: Math.PI }, handle: { x: 1.32, y: 1.26, z: -6.25 } },
+-  white: { x: 10.26, y: 1.16, z: -1.05, rotation: -Math.PI / 2, stand: { x: 9.65, z: 0.32, yaw: Math.PI / 2 }, handle: { x: 10.26, y: 1.26, z: 0.32 } },
+-});
+-
+-export function shelfPose(color, id) {
+-  const source = SHELF_BOOKS[color];
+-  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
+-  const slot = shelfIndex * 0.36;
+-  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
+-}
+-
+-export function landingPose(color, index) {
+-  return color === "black"
+-    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
+-    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
+-}
+-
+-export const BOOKS = Object.freeze([
+-  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
+-  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
+-  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
+-  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
+-  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
+-    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
+-    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
+-  }))),
+-]);
+-
+-export function seriesLevel(id) {
+-  return Object.freeze({
+-    ...BASE_LEVEL, id, revision: REVISION,
+-    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
+-    dynamic: id === "rf02-3", interactionRange: 1.30,
+-    progress: Object.freeze({
+-      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.30 : 1.45,
+-      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
+-      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, repairReward: 3, pickupReward: 1, correctBookReward: 1,
+-    }),
+-    fallDuration: 0.95, fallInterval: 12, maximumFalls: 3,
+-  });
+-}
++import { BOOK_COLORS, LEVEL as BASE_LEVEL } from "./level.js";
++import { CART, CHAIRS, FURNISHINGS_REVISION } from "./furnishings-layout.js";
++
++export { CART, CHAIRS };
++export const REVISION = FURNISHINGS_REVISION;
++export const ASSET_ROOT = "/local-assets/cardinal/rf02/models/runtime/" + REVISION;
++
++export const SHELF_BOOKS = Object.freeze(Object.fromEntries(BOOK_COLORS.map((color) => {
++  const black = color === "black";
++  return [color, Object.freeze({
++    x: black ? -0.70 : color === "red" ? -10.43 : 10.43,
++    z: black ? -6.43 : -1.75,
++    y: 1.16, rotation: BASE_LEVEL.shelves[color].rotation,
++  })];
++})));
++
++export const BOOKENDS = Object.freeze({
++  red: { x: -10.26, y: 1.16, z: -1.05, rotation: Math.PI / 2, stand: { x: -9.65, z: 0.32, yaw: -Math.PI / 2 }, handle: { x: -10.26, y: 1.26, z: 0.32 } },
++  black: { x: 0, y: 1.16, z: -6.25, rotation: 0, stand: { x: 1.32, z: -5.65, yaw: Math.PI }, handle: { x: 1.32, y: 1.26, z: -6.25 } },
++  white: { x: 10.26, y: 1.16, z: -1.05, rotation: -Math.PI / 2, stand: { x: 9.65, z: 0.32, yaw: Math.PI / 2 }, handle: { x: 10.26, y: 1.26, z: 0.32 } },
++});
++
++export function shelfPose(color, id) {
++  const source = SHELF_BOOKS[color];
++  const shelfIndex = id.startsWith("shelf-") ? Number(id.split("-").at(-1)) || 0 : id === color ? 3 : 4;
++  const slot = shelfIndex * 0.36;
++  return { x: source.x + (color === "black" ? slot : 0), y: source.y, z: source.z + (color === "black" ? 0 : slot), rotation: source.rotation };
++}
++
++export function landingPose(color, index) {
++  return color === "black"
++    ? { x: -0.75 + index * 0.66, y: 0.012, z: -5.18 }
++    : { x: color === "red" ? -9.22 : 9.22, y: 0.012, z: -1.85 + index * 0.60 };
++}
++
++export const BOOKS = Object.freeze([
++  ...BOOK_COLORS.map((color) => Object.freeze({ id: color, color, ...BASE_LEVEL.books[color], y: color === "black" ? 0.681 : 0.677, support: "return-table", location: "table" })),
++  Object.freeze({ id: "red-reading", color: "red", x: -5.82, z: 2.35, y: 0.686, support: "west-reading-zone", location: "table" }),
++  Object.freeze({ id: "black-reading", color: "black", x: 6.12, z: 2.35, y: 0.686, support: "east-reading-zone", location: "table" }),
++  Object.freeze({ id: "white-cart", color: "white", x: CART.x, z: CART.z, y: 1.01, support: "return-cart", location: "table" }),
++  ...BOOK_COLORS.flatMap((color) => [0, 1, 2].map((index) => Object.freeze({
++    id: "shelf-" + color + "-" + index, color, ...shelfPose(color, "shelf-" + color + "-" + index),
++    landing: landingPose(color, index), support: color + "-target-shelf", location: "shelved", background: true, shelfIndex: index,
++  }))),
++]);
++
++export function seriesLevel(id) {
++  return Object.freeze({
++    ...BASE_LEVEL, id, revision: REVISION,
++    title: id === "rf02-3" ? "Closing Patrol" : "Closing Reset",
++    dynamic: id === "rf02-3", interactionRange: 1.30,
++    progress: Object.freeze({
++      initial: 100, maximum: 100, movementDrainPerMeter: id === "rf02-3" ? 1.38 : 1.45,
++      blockedDrainPerSecond: id === "rf02-3" ? 1.4 : 1, errorCost: id === "rf02-3" ? 5 : 3,
++      repeatCost: 1, chairReward: id === "rf02-3" ? 3 : 5, cartReward: id === "rf02-3" ? 5 : 8, repairReward: 3, pickupReward: 1, correctBookReward: 1,
++    }),
++    fallDuration: 0.95, fallInterval: 12, maximumFalls: 3,
++  });
++}
+diff --git a/tools/rf02-series/prepare-browser-qa.mjs b/tools/rf02-series/prepare-browser-qa.mjs
+--- a/tools/rf02-series/prepare-browser-qa.mjs
++++ b/tools/rf02-series/prepare-browser-qa.mjs
+@@ -1,18 +1,18 @@
+-import fs from "node:fs";
+-import path from "node:path";
+-
+-const copies = [
+-  ["public/rf02-series-qa.html", "dist/rf02-series-qa.html"],
+-  ["public/rf02-performance-qa.html", "dist/rf02-performance-qa.html"],
+-  ["tools/rf02-series/browser-qa.js", "dist/tools/rf02-series/browser-qa.js"],
+-  ["tools/rf02-series/route.mjs", "dist/tools/rf02-series/route.js"],
+-  ...["series-engine.js", "series-layout.js", "level.js"].map((name) => ["game/levels/rf02/" + name, "dist/game/levels/rf02/" + name]),
+-  ...["movement.js", "g1-locomotion.js"].map((name) => ["game/" + name, "dist/game/" + name]),
+-];
+-for (const [source, relative] of copies) {
+-  const target = process.argv[2] ? path.join(process.argv[2], relative.slice(5)) : relative;
+-  fs.mkdirSync(path.dirname(target), { recursive: true });
+-  const text = fs.readFileSync(source, "utf8").replace('from "./route.mjs"', 'from "./route.js"');
+-  fs.writeFileSync(target, text);
+-}
+-console.log("Browser QA copied into the production build; no hot reload.");
++import fs from "node:fs";
++import path from "node:path";
++
++const copies = [
++  ["public/rf02-series-qa.html", "dist/rf02-series-qa.html"],
++  ["public/rf02-performance-qa.html", "dist/rf02-performance-qa.html"],
++  ["tools/rf02-series/browser-qa.js", "dist/tools/rf02-series/browser-qa.js"],
++  ["tools/rf02-series/route.mjs", "dist/tools/rf02-series/route.js"],
++  ...["series-engine.js", "series-layout.js", "furnishings-layout.js", "level.js"].map((name) => ["game/levels/rf02/" + name, "dist/game/levels/rf02/" + name]),
++  ...["movement.js", "g1-locomotion.js"].map((name) => ["game/" + name, "dist/game/" + name]),
++];
++for (const [source, relative] of copies) {
++  const target = process.argv[2] ? path.join(process.argv[2], relative.slice(5)) : relative;
++  fs.mkdirSync(path.dirname(target), { recursive: true });
++  const text = fs.readFileSync(source, "utf8").replace('from "./route.mjs"', 'from "./route.js"');
++  fs.writeFileSync(target, text);
++}
++console.log("Browser QA copied into the production build; no hot reload.");
+diff --git a/tools/rf02-series/write-manifest.mjs b/tools/rf02-series/write-manifest.mjs
+--- a/tools/rf02-series/write-manifest.mjs
++++ b/tools/rf02-series/write-manifest.mjs
+@@ -1,53 +1,54 @@
+-import fs from "node:fs";
+-import { createHash } from "node:crypto";
+-import { ASSETS } from "../../game/levels/rf02/scene.js";
+-import { ASSET_ROOT, BOOKS, REVISION, seriesLevel } from "../../game/levels/rf02/series-layout.js";
+-
+-const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
+-const releaseRoot = process.argv[2] ?? "dist";
+-const publicBase = (process.argv[3] ?? "http://127.0.0.1:4173").replace(/\/$/, "");
+-const previous = JSON.parse(fs.readFileSync("public/local-assets/cardinal/rf02/manifests/vertical-slice.json", "utf8"));
+-const records = [];
+-for (const [id, url] of Object.entries({
+-  ...ASSETS,
+-  collision: ASSET_ROOT + "/library-collision.glb",
+-  fixtures: ASSET_ROOT + "/ceiling-fixtures.glb",
+-  impact: ASSET_ROOT + "/book-impact.flac",
+-})) {
+-  const publicPath = url.split("?")[0];
+-  const sourcePath = "public" + publicPath;
+-  const buildPath = releaseRoot + publicPath;
+-  const bytes = fs.readFileSync(sourcePath);
+-  const buildBytes = fs.readFileSync(buildPath);
+-  const served = await fetch(publicBase + publicPath);
+-  if (!served.ok) throw new Error("Unserved asset " + id);
+-  const digest = hash(bytes);
+-  const servedHash = hash(Buffer.from(await served.arrayBuffer()));
+-  if ([hash(buildBytes), servedHash].some((value) => value !== digest)) throw new Error("Byte mismatch: " + id);
+-  const origin = previous.assets.find((entry) => entry.path === publicPath);
+-  let glb = null;
+-  if (publicPath.endsWith(".glb")) {
+-    if (bytes.toString("ascii", 0, 4) !== "glTF" || bytes.readUInt32LE(4) !== 2 || bytes.readUInt32LE(8) !== bytes.length) throw new Error("Invalid GLB " + id);
+-    const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+-    if ((json.images ?? []).some((image) => image.uri || !Number.isInteger(image.bufferView))) throw new Error("External texture " + id);
+-    glb = { meshes: json.meshes?.length ?? 0, materials: json.materials?.length ?? 0, embeddedImages: json.images?.length ?? 0, nodes: json.nodes?.length ?? 0 };
+-  }
+-  records.push({
+-    id, role: id === "collision" ? "collision" : id === "impact" ? "sound-effect" : ["red", "black", "white"].includes(id) ? "interactive" : "static",
+-    provider: origin?.sourceType ?? (id === "impact" ? "Cardinal" : ["collision", "fixtures"].includes(id) ? "Three.js GLTFExporter, precise shared layout" : "retained validated RF-02 asset"),
+-    taskId: origin?.taskId ?? (id === "impact" ? "aigc_de47994684c44a6d92e4bf0f0af17d06" : null),
+-    sourcePath, runtimePath: sourcePath, buildPath, deployedUrl: publicBase + publicPath,
+-    bytes: bytes.length, sha256: digest, sourceBuildServedMatch: true, reused: Boolean(origin || ["black", "white"].includes(id)), glb,
+-  });
+-}
+-const manifest = {
+-  schema: "arc-shared-library/v1", revision: REVISION,
+-  levels: ["rf02", "rf02-2", "rf02-3"], units: "meters", upAxis: "Y",
+-  assets: records, books: BOOKS,
+-  rules: Object.fromEntries(["rf02-2", "rf02-3"].map((id) => [id, seriesLevel(id).progress])),
+-  totalRuntimeBytes: records.reduce((sum, asset) => sum + asset.bytes, 0),
+-  generationTasks: [{ asset: "impact", provider: "Cardinal", taskId: "aigc_de47994684c44a6d92e4bf0f0af17d06", status: "completed", regenerations: 0, actualFormat: "FLAC", request: "tools/rf02-series/book-impact-request.json" }],
+-  measuredAt: new Date().toISOString(),
+-};
+-fs.writeFileSync("docs/levels/rf02-series-assets.json", JSON.stringify(manifest, null, 2) + "\n");
+-console.log(JSON.stringify({ revision: REVISION, assets: records.length, totalRuntimeBytes: manifest.totalRuntimeBytes, byteCorrespondence: "passed" }));
++import fs from "node:fs";
++import { createHash } from "node:crypto";
++import { ASSETS } from "../../game/levels/rf02/scene.js";
++import { ASSET_ROOT, BOOKS, REVISION, seriesLevel } from "../../game/levels/rf02/series-layout.js";
++
++const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
++const releaseRoot = process.argv[2] ?? "dist";
++const publicBase = (process.argv[3] ?? "http://127.0.0.1:4173").replace(/\/$/, "");
++const previous = JSON.parse(fs.readFileSync("public/local-assets/cardinal/rf02/manifests/vertical-slice.json", "utf8"));
++const records = [];
++for (const [id, url] of Object.entries({
++  ...ASSETS,
++  collision: ASSET_ROOT + "/library-collision.glb",
++  fixtures: ASSET_ROOT + "/ceiling-fixtures.glb",
++  closingFixtures: ASSET_ROOT + "/closing-fixtures.glb",
++  impact: ASSET_ROOT + "/book-impact.flac",
++})) {
++  const publicPath = url.split("?")[0];
++  const sourcePath = "public" + publicPath;
++  const buildPath = releaseRoot + publicPath;
++  const bytes = fs.readFileSync(sourcePath);
++  const buildBytes = fs.readFileSync(buildPath);
++  const served = await fetch(publicBase + publicPath);
++  if (!served.ok) throw new Error("Unserved asset " + id);
++  const digest = hash(bytes);
++  const servedHash = hash(Buffer.from(await served.arrayBuffer()));
++  if ([hash(buildBytes), servedHash].some((value) => value !== digest)) throw new Error("Byte mismatch: " + id);
++  const origin = previous.assets.find((entry) => entry.path === publicPath);
++  let glb = null;
++  if (publicPath.endsWith(".glb")) {
++    if (bytes.toString("ascii", 0, 4) !== "glTF" || bytes.readUInt32LE(4) !== 2 || bytes.readUInt32LE(8) !== bytes.length) throw new Error("Invalid GLB " + id);
++    const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
++    if ((json.images ?? []).some((image) => image.uri || !Number.isInteger(image.bufferView))) throw new Error("External texture " + id);
++    glb = { meshes: json.meshes?.length ?? 0, materials: json.materials?.length ?? 0, embeddedImages: json.images?.length ?? 0, nodes: json.nodes?.length ?? 0 };
++  }
++  records.push({
++    id, role: id === "collision" ? "collision" : id === "impact" ? "sound-effect" : ["red", "black", "white"].includes(id) ? "interactive" : "static",
++    provider: origin?.sourceType ?? (id === "impact" ? "Cardinal" : ["collision", "fixtures", "closingFixtures"].includes(id) ? "Three.js GLTFExporter, precise shared layout" : "retained validated RF-02 asset"),
++    taskId: origin?.taskId ?? (id === "impact" ? "aigc_de47994684c44a6d92e4bf0f0af17d06" : null),
++    sourcePath, runtimePath: sourcePath, buildPath, deployedUrl: publicBase + publicPath,
++    bytes: bytes.length, sha256: digest, sourceBuildServedMatch: true, reused: Boolean(origin || ["black", "white"].includes(id)), glb,
++  });
++}
++const manifest = {
++  schema: "arc-shared-library/v1", revision: REVISION,
++  levels: ["rf02", "rf02-2", "rf02-3"], units: "meters", upAxis: "Y",
++  assets: records, books: BOOKS,
++  rules: Object.fromEntries(["rf02-2", "rf02-3"].map((id) => [id, seriesLevel(id).progress])),
++  totalRuntimeBytes: records.reduce((sum, asset) => sum + asset.bytes, 0),
++  generationTasks: [{ asset: "impact", provider: "Cardinal", taskId: "aigc_de47994684c44a6d92e4bf0f0af17d06", status: "completed", regenerations: 0, actualFormat: "FLAC", request: "tools/rf02-series/book-impact-request.json" }],
++  measuredAt: new Date().toISOString(),
++};
++fs.writeFileSync("docs/levels/rf02-series-assets.json", JSON.stringify(manifest, null, 2) + "\n");
++console.log(JSON.stringify({ revision: REVISION, assets: records.length, totalRuntimeBytes: manifest.totalRuntimeBytes, byteCorrespondence: "passed" }));

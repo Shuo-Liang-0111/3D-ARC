@@ -1,0 +1,227 @@
+[
+  {
+    "name": "rf04-door-bathroom-casing--1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-bathroom-casing--1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-bathroom-casing-1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-bathroom-casing-1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-bathroom-crown--1",
+    "closed": true,
+    "volume": 0.005899365165487516
+  },
+  {
+    "name": "rf04-door-bathroom-crown-1",
+    "closed": true,
+    "volume": 0.005899365165487516
+  },
+  {
+    "name": "rf04-door-bathroom-head",
+    "closed": true,
+    "volume": 0.06508106070026465
+  },
+  {
+    "name": "rf04-door-bathroom-jamb--1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-bathroom-jamb-1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-dining-hall-casing--1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-dining-hall-casing--1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-dining-hall-casing-1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-dining-hall-casing-1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-dining-hall-crown--1",
+    "closed": true,
+    "volume": 0.006274748601844606
+  },
+  {
+    "name": "rf04-door-dining-hall-crown-1",
+    "closed": true,
+    "volume": 0.006274748601844606
+  },
+  {
+    "name": "rf04-door-dining-hall-head",
+    "closed": true,
+    "volume": 0.06933952599693355
+  },
+  {
+    "name": "rf04-door-dining-hall-jamb--1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-dining-hall-jamb-1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-east-bedroom-casing--1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-east-bedroom-casing--1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-east-bedroom-casing-1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-east-bedroom-casing-1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-east-bedroom-crown--1",
+    "closed": true,
+    "volume": 0.006467105136290188
+  },
+  {
+    "name": "rf04-door-east-bedroom-crown-1",
+    "closed": true,
+    "volume": 0.006467105136290188
+  },
+  {
+    "name": "rf04-door-east-bedroom-head",
+    "closed": true,
+    "volume": 0.07145948317006114
+  },
+  {
+    "name": "rf04-door-east-bedroom-jamb--1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-east-bedroom-jamb-1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-laundry-dining-casing--1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-laundry-dining-casing--1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-laundry-dining-casing-1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-laundry-dining-casing-1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-laundry-dining-crown--1",
+    "closed": true,
+    "volume": 0.006654958216703604
+  },
+  {
+    "name": "rf04-door-laundry-dining-crown-1",
+    "closed": true,
+    "volume": 0.006654958216703604
+  },
+  {
+    "name": "rf04-door-laundry-dining-head",
+    "closed": true,
+    "volume": 0.07358129863942513
+  },
+  {
+    "name": "rf04-door-laundry-dining-jamb--1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-laundry-dining-jamb-1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-west-bedroom-casing--1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-west-bedroom-casing--1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-west-bedroom-casing-1--1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-west-bedroom-casing-1-1",
+    "closed": true,
+    "volume": 0.0072403142117253684
+  },
+  {
+    "name": "rf04-door-west-bedroom-crown--1",
+    "closed": true,
+    "volume": 0.006274748601844606
+  },
+  {
+    "name": "rf04-door-west-bedroom-crown-1",
+    "closed": true,
+    "volume": 0.006274748601844606
+  },
+  {
+    "name": "rf04-door-west-bedroom-head",
+    "closed": true,
+    "volume": 0.06933952599693355
+  },
+  {
+    "name": "rf04-door-west-bedroom-jamb--1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  },
+  {
+    "name": "rf04-door-west-bedroom-jamb-1",
+    "closed": true,
+    "volume": 0.08471004547649852
+  }
+]

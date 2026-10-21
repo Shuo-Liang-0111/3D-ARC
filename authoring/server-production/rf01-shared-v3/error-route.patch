@@ -1,0 +1,283 @@
+diff --git a/tests/rf01-shared-yard.test.mjs b/tests/rf01-shared-yard.test.mjs
+--- a/tests/rf01-shared-yard.test.mjs
++++ b/tests/rf01-shared-yard.test.mjs
+@@ -1,135 +1,144 @@
+-import test from "node:test";
+-import assert from "node:assert/strict";
+-import { createParkEngine } from "../game/rf01-shared-engine.js";
+-import { levelFor, WORKSHOP, DISPATCH } from "../game/rf01-shared-level.js";
+-
+-export function routeHarness(id) {
+-  const level = levelFor(id), engine = createParkEngine(level);
+-  let state = engine.createInitialState();
+-  function tick(input, duration=.02) {
+-    state = engine.updateMovement(state,input,duration);
+-    state = engine.updateEnvironment(state,duration);
+-    assert.equal(state.failed,false,"depleted at "+JSON.stringify(state.player));
+-  }
+-  function walk(x,z) {
+-    for(let frame=0;frame<5000;frame+=1){
+-      const dx=x-state.player.x,dz=z-state.player.z,remaining=Math.hypot(dx,dz),yaw=state.player.yaw;
+-      if(remaining<.025)return;
+-      tick({move:(dx*Math.sin(yaw)+dz*Math.cos(yaw))/remaining,strafe:(dx*Math.cos(yaw)-dz*Math.sin(yaw))/remaining},Math.min(.02,remaining/level.moveSpeed));
+-      if(state.complete) return;
+-    }
+-    assert.fail("blocked "+JSON.stringify(state.player)+" target "+x+","+z);
+-  }
+-  function face(yaw) {
+-    for(let frame=0;frame<400;frame+=1){
+-      const delta=Math.atan2(Math.sin(yaw-state.player.yaw),Math.cos(yaw-state.player.yaw));
+-      if(Math.abs(delta)<.015)return;
+-      tick({turn:Math.sign(delta)},Math.min(.02,Math.abs(delta)/level.turnSpeed));
+-    }
+-    assert.fail("rotation blocked "+JSON.stringify(state.player));
+-  }
+-  function act(type) {
+-    assert.equal(engine.getInteraction(state)?.type,type,"interaction at "+JSON.stringify(state.player));
+-    state=engine.interact(state); assert.equal(state.failed,false);
+-  }
+-  function waitOpen() { for(let frame=0;frame<200&&state.shutterLift<WORKSHOP.clearance;frame+=1)tick({}); assert.ok(state.shutterLift>=WORKSHOP.clearance); }
+-  function shutter() {
+-    if(state.shutterPhase === "open" && state.shutterHold < 6) {
+-      for(let frame=0;frame<600 && state.shutterPhase === "open";frame+=1) tick({});
+-    }
+-    if(["closed","closing"].includes(state.shutterPhase)) act("shutter");
+-    waitOpen();
+-  }
+-  function supply() {
+-    walk(-6.8,1.25); face(Math.PI);act("battery");
+-    walk(-6.8,2.1);walk(6.15,2.1);act("slot");
+-  }
+-  function enter() {
+-    walk(-.68,0);face(Math.PI);shutter();
+-    walk(1.6,0);walk(1.6,-3.1);
+-  }
+-  function light() { walk(3.8,-3.1);walk(3.8,-5.5);face(Math.PI);act("lights"); }
+-  function ship(index) {
+-    walk(1.6,-3.1);walk(-1.9,-3.1);
+-    const crate=state.crates[index];walk(-2.35,crate.z);face(-Math.PI/2);act("crate");
+-    face(0);walk(-.68,-3.3);shutter();walk(1.6,-3.3);walk(1.6,.15);
+-    walk(1.8,DISPATCH.bays[index].z);face(Math.PI/2);act("deliver");
+-  }
+-  return { engine,level,tick,walk,face,act,enter,light,supply,ship,get state(){return state;} };
+-}
+-test("all RF-01 variants share initial objects, collision and mechanics",()=>{
+-  const variants=["rf01","rf01-2","rf01-3"].map(id=>({level:levelFor(id),engine:createParkEngine(levelFor(id))}));
+-  for(const variant of variants.slice(1)){
+-    assert.deepEqual(variant.engine.createInitialState(),variants[0].engine.createInitialState());
+-    assert.deepEqual(variant.level.staticColliders,variants[0].level.staticColliders);
+-    assert.deepEqual(variant.level.progress,variants[0].level.progress);
+-  }
+-});
+-test("RF-01 can open its factory and light it without completing the power mission",()=>{
+-  const route=routeHarness("rf01");route.enter();route.light();
+-  assert.equal(route.state.lightsOn,true);assert.equal(route.state.complete,false);
+-});
+-test("RF-01-2 can collect the battery and restore power without completing lighting",()=>{
+-  const route=routeHarness("rf01-2");route.supply();
+-  assert.equal(route.state.powered,true);assert.equal(route.state.complete,false);
+-});
+-test("RF-01 power and exit route still completes",()=>{
+-  const route=routeHarness("rf01");route.supply();route.walk(0,5.3);route.face(0);route.act("door");route.walk(0,7.5);
+-  assert.equal(route.state.complete,true);
+-  console.log(JSON.stringify({route:"rf01",distance:route.state.distanceMoved,reserve:route.state.progress,minimum:route.state.minimumReserve}));
+-});
+-test("RF-01-3 continuous powered two-crate dispatch uses the timed door",()=>{
+-  const route=routeHarness("rf01-3");route.supply();route.enter();route.light();
+-  assert.equal(route.state.complete,false);
+-  route.ship(0);route.enter();route.ship(1);
+-  route.walk(1.8,5.25);route.walk(4.15,5.25);route.face(Math.atan2(.95,-1));route.act("terminal");
+-  assert.equal(route.state.dispatchConfirmed,true);assert.equal(route.state.complete,true);
+-  assert.ok(route.state.progress>15&&route.state.progress<70);
+-  console.log(JSON.stringify({route:"rf01-3",distance:route.state.distanceMoved,reserve:route.state.progress,minimum:route.state.minimumReserve}));
+-});
+-test("shutter closes on a timer, protects bodies and held crates, and reopens inside",()=>{
+-  const engine=createParkEngine(levelFor("rf01-3"));
+-  let state=engine.createInitialState();
+-  state.player={x:-.68,z:0,yaw:Math.PI};state=engine.interact(state);
+-  for(let frame=0;frame<1000;frame+=1)state=engine.updateEnvironment(state,.02);
+-  assert.equal(state.shutterPhase,"closed");assert.equal(state.shutterLift,0);
+-  state.player={x:-.68,z:-3.2,yaw:0};state.enteredWorkshop=true;
+-  assert.equal(engine.getInteraction(state).type,"shutter");
+-  state=engine.interact(state);
+-  for(let frame=0;frame<160;frame+=1)state=engine.updateEnvironment(state,.02);
+-  state.shutterPhase="closing";state.player={x:1.6,z:-1.4,yaw:0};
+-  const lift=state.shutterLift;state=engine.updateEnvironment(state,.1);
+-  assert.equal(state.shutterLift,lift);assert.equal(state.shutterBlocked,true);
+-  state.player.z=-2.7;state.carriedItem="crate-0";state.crates[0].location="carried";
+-  state=engine.updateEnvironment(state,.1);
+-  assert.equal(state.shutterLift,lift);assert.equal(state.shutterBlocked,true);
+-  state.player.z=-3.3;state=engine.updateEnvironment(state,.1);assert.ok(state.shutterLift<lift);
+-});
+-test("dynamic crate collision follows pickup, delivery and reset",()=>{
+-  const engine=createParkEngine(levelFor("rf01-3"));let state=engine.createInitialState();
+-  state.player={x:-2.35,z:-4.8,yaw:-Math.PI/2};
+-  assert.equal(engine.isWalkable(state,-3.55,-4.8),false);
+-  state=engine.interact(state);assert.equal(state.carriedItem,"crate-0");
+-  assert.equal(engine.getColliders(state).some(rect=>rect.id==="crate-0"),false);
+-  state.player={x:1.8,z:2.75,yaw:Math.PI/2};state=engine.interact(state);
+-  assert.equal(state.crates[0].location,"delivered");assert.equal(state.carriedItem,null);
+-  assert.equal(engine.isWalkable(state,3.25,2.75),false);
+-  assert.equal(engine.createInitialState().crates[0].location,"ground");
+-});
+-test("carried envelope blocks narrow clearance and unsafe crate drops",()=>{
+-  const engine=createParkEngine(levelFor("rf01-3"));let state=engine.createInitialState();
+-  state.player={x:1.6,z:-2.8,yaw:0};state.shutterLift=WORKSHOP.height;
+-  assert.equal(engine.isWalkable(state,1.6,-2.8),true);
+-  state.carriedItem="crate-0";state.crates[0].location="carried";state.shutterLift=0;
+-  assert.equal(engine.isWalkable(state,1.6,-2.8),false);
+-  const rejected=engine.interact(state);assert.equal(rejected.carriedItem,"crate-0");assert.equal(rejected.progress,95);
+-});
+-test("dispatch cannot complete early and delivery rewards cannot be repeated",()=>{
+-  const engine=createParkEngine(levelFor("rf01-3"));let state=engine.createInitialState();
+-  state.player={x:4.15,z:5.25,yaw:Math.atan2(.95,-1)};state=engine.interact(state);
+-  assert.equal(state.terminalOpen,true);assert.equal(state.complete,false);state=engine.closeTerminal(state);
+-  state.progress=50;state.player={x:1.8,z:2.75,yaw:Math.PI/2};state.carriedItem="crate-0";state.crates[0].location="carried";
+-  state=engine.interact(state);const progress=state.progress;
+-  state.player.x=2;state=engine.interact(state);assert.equal(state.carriedItem,"crate-0");
+-  state=engine.interact(state);assert.equal(state.progress,progress);
+-});
++import test from "node:test";
++import assert from "node:assert/strict";
++import { createParkEngine } from "../game/rf01-shared-engine.js";
++import { levelFor, WORKSHOP, DISPATCH } from "../game/rf01-shared-level.js";
++
++export function routeHarness(id) {
++  const level = levelFor(id), engine = createParkEngine(level);
++  let state = engine.createInitialState();
++  function tick(input, duration=.02) {
++    state = engine.updateMovement(state,input,duration);
++    state = engine.updateEnvironment(state,duration);
++    assert.equal(state.failed,false,"depleted at "+JSON.stringify(state.player));
++  }
++  function walk(x,z) {
++    for(let frame=0;frame<5000;frame+=1){
++      const dx=x-state.player.x,dz=z-state.player.z,remaining=Math.hypot(dx,dz),yaw=state.player.yaw;
++      if(remaining<.025)return;
++      tick({move:(dx*Math.sin(yaw)+dz*Math.cos(yaw))/remaining,strafe:(dx*Math.cos(yaw)-dz*Math.sin(yaw))/remaining},Math.min(.02,remaining/level.moveSpeed));
++      if(state.complete) return;
++    }
++    assert.fail("blocked "+JSON.stringify(state.player)+" target "+x+","+z);
++  }
++  function face(yaw) {
++    for(let frame=0;frame<400;frame+=1){
++      const delta=Math.atan2(Math.sin(yaw-state.player.yaw),Math.cos(yaw-state.player.yaw));
++      if(Math.abs(delta)<.015)return;
++      tick({turn:Math.sign(delta)},Math.min(.02,Math.abs(delta)/level.turnSpeed));
++    }
++    assert.fail("rotation blocked "+JSON.stringify(state.player));
++  }
++  function act(type) {
++    assert.equal(engine.getInteraction(state)?.type,type,"interaction at "+JSON.stringify(state.player));
++    state=engine.interact(state); assert.equal(state.failed,false);
++  }
++  function waitOpen() { for(let frame=0;frame<200&&state.shutterLift<WORKSHOP.clearance;frame+=1)tick({}); assert.ok(state.shutterLift>=WORKSHOP.clearance); }
++  function shutter() {
++    if(state.shutterPhase === "open" && state.shutterHold < 6) {
++      for(let frame=0;frame<600 && state.shutterPhase === "open";frame+=1) tick({});
++    }
++    if(["closed","closing"].includes(state.shutterPhase)) act("shutter");
++    waitOpen();
++  }
++  function supply() {
++    walk(-6.8,1.25); face(Math.PI);act("battery");
++    walk(-6.8,2.1);walk(6.15,2.1);act("slot");
++  }
++  function enter() {
++    walk(-.68,0);face(Math.PI);shutter();
++    walk(1.6,0);walk(1.6,-3.1);
++  }
++  function light() { walk(3.8,-3.1);walk(3.8,-5.5);face(Math.PI);act("lights"); }
++  function ship(index) {
++    walk(1.6,-3.1);walk(-1.9,-3.1);
++    const crate=state.crates[index];walk(-2.35,crate.z);face(-Math.PI/2);act("crate");
++    face(0);walk(-.68,-3.3);shutter();walk(1.6,-3.3);walk(1.6,.15);
++    walk(1.8,DISPATCH.bays[index].z);face(Math.PI/2);act("deliver");
++  }
++  return { engine,level,tick,walk,face,act,enter,light,supply,ship,actInvalid:()=>{state=engine.interact(state);},get state(){return state;} };
++}
++test("all RF-01 variants share initial objects, collision and mechanics",()=>{
++  const variants=["rf01","rf01-2","rf01-3"].map(id=>({level:levelFor(id),engine:createParkEngine(levelFor(id))}));
++  for(const variant of variants.slice(1)){
++    assert.deepEqual(variant.engine.createInitialState(),variants[0].engine.createInitialState());
++    assert.deepEqual(variant.level.staticColliders,variants[0].level.staticColliders);
++    assert.deepEqual(variant.level.progress,variants[0].level.progress);
++  }
++});
++test("RF-01 can open its factory and light it without completing the power mission",()=>{
++  const route=routeHarness("rf01");route.enter();route.light();
++  assert.equal(route.state.lightsOn,true);assert.equal(route.state.complete,false);
++});
++test("RF-01-2 can collect the battery and restore power without completing lighting",()=>{
++  const route=routeHarness("rf01-2");route.supply();
++  assert.equal(route.state.powered,true);assert.equal(route.state.complete,false);
++});
++test("RF-01 power and exit route still completes",()=>{
++  const route=routeHarness("rf01");route.supply();route.walk(0,5.3);route.face(0);route.act("door");route.walk(0,7.5);
++  assert.equal(route.state.complete,true);
++  console.log(JSON.stringify({route:"rf01",distance:route.state.distanceMoved,reserve:route.state.progress,minimum:route.state.minimumReserve}));
++});
++test("RF-01-3 continuous powered two-crate dispatch uses the timed door",()=>{
++  const route=routeHarness("rf01-3");route.supply();route.enter();route.light();
++  assert.equal(route.state.complete,false);
++  route.ship(0);route.enter();route.ship(1);
++  route.walk(1.8,5.25);route.walk(4.15,5.25);route.face(Math.atan2(.95,-1));route.act("terminal");
++  assert.equal(route.state.dispatchConfirmed,true);assert.equal(route.state.complete,true);
++  assert.ok(route.state.progress>15&&route.state.progress<70);
++  console.log(JSON.stringify({route:"rf01-3",distance:route.state.distanceMoved,reserve:route.state.progress,minimum:route.state.minimumReserve}));
++});
++test("shutter closes on a timer, protects bodies and held crates, and reopens inside",()=>{
++  const engine=createParkEngine(levelFor("rf01-3"));
++  let state=engine.createInitialState();
++  state.player={x:-.68,z:0,yaw:Math.PI};state=engine.interact(state);
++  for(let frame=0;frame<1000;frame+=1)state=engine.updateEnvironment(state,.02);
++  assert.equal(state.shutterPhase,"closed");assert.equal(state.shutterLift,0);
++  state.player={x:-.68,z:-3.2,yaw:0};state.enteredWorkshop=true;
++  assert.equal(engine.getInteraction(state).type,"shutter");
++  state=engine.interact(state);
++  for(let frame=0;frame<160;frame+=1)state=engine.updateEnvironment(state,.02);
++  state.shutterPhase="closing";state.player={x:1.6,z:-1.4,yaw:0};
++  const lift=state.shutterLift;state=engine.updateEnvironment(state,.1);
++  assert.equal(state.shutterLift,lift);assert.equal(state.shutterBlocked,true);
++  state.player.z=-2.7;state.carriedItem="crate-0";state.crates[0].location="carried";
++  state=engine.updateEnvironment(state,.1);
++  assert.equal(state.shutterLift,lift);assert.equal(state.shutterBlocked,true);
++  state.player.z=-3.3;state=engine.updateEnvironment(state,.1);assert.ok(state.shutterLift<lift);
++});
++test("dynamic crate collision follows pickup, delivery and reset",()=>{
++  const engine=createParkEngine(levelFor("rf01-3"));let state=engine.createInitialState();
++  state.player={x:-2.35,z:-4.8,yaw:-Math.PI/2};
++  assert.equal(engine.isWalkable(state,-3.55,-4.8),false);
++  state=engine.interact(state);assert.equal(state.carriedItem,"crate-0");
++  assert.equal(engine.getColliders(state).some(rect=>rect.id==="crate-0"),false);
++  state.player={x:1.8,z:2.75,yaw:Math.PI/2};state=engine.interact(state);
++  assert.equal(state.crates[0].location,"delivered");assert.equal(state.carriedItem,null);
++  assert.equal(engine.isWalkable(state,3.25,2.75),false);
++  assert.equal(engine.createInitialState().crates[0].location,"ground");
++});
++test("carried envelope blocks narrow clearance and unsafe crate drops",()=>{
++  const engine=createParkEngine(levelFor("rf01-3"));let state=engine.createInitialState();
++  state.player={x:1.6,z:-2.8,yaw:0};state.shutterLift=WORKSHOP.height;
++  assert.equal(engine.isWalkable(state,1.6,-2.8),true);
++  state.carriedItem="crate-0";state.crates[0].location="carried";state.shutterLift=0;
++  assert.equal(engine.isWalkable(state,1.6,-2.8),false);
++  const rejected=engine.interact(state);assert.equal(rejected.carriedItem,"crate-0");assert.equal(rejected.progress,95);
++});
++test("dispatch cannot complete early and delivery rewards cannot be repeated",()=>{
++  const engine=createParkEngine(levelFor("rf01-3"));let state=engine.createInitialState();
++  state.player={x:4.15,z:5.25,yaw:Math.atan2(.95,-1)};state=engine.interact(state);
++  assert.equal(state.terminalOpen,true);assert.equal(state.complete,false);state=engine.closeTerminal(state);
++  state.progress=50;state.player={x:1.8,z:2.75,yaw:Math.PI/2};state.carriedItem="crate-0";state.crates[0].location="carried";
++  state=engine.interact(state);const progress=state.progress;
++  state.player.x=2;state=engine.interact(state);assert.equal(state.carriedItem,"crate-0");
++  state=engine.interact(state);assert.equal(state.progress,progress);
++});
++
++test("three wrong attempts retain a finite RF-01-3 completion reserve",()=>{
++  const route=routeHarness("rf01-3");
++  for(let count=0;count<3;count+=1) route.actInvalid();
++  route.supply();route.enter();route.light();route.ship(0);route.enter();route.ship(1);
++  route.walk(1.8,5.25);route.walk(4.15,5.25);route.face(Math.atan2(.95,-1));route.act("terminal");
++  assert.equal(route.state.complete,true);assert.ok(route.state.minimumReserve>10);
++  console.log(JSON.stringify({route:"rf01-3-three-errors",reserve:route.state.progress,minimum:route.state.minimumReserve}));
++});

@@ -1,0 +1,45 @@
+{
+  "errors": [],
+  "samples": [
+    {
+      "clock": 0.4902000002861023,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 1.1987000002861024,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 1.859,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 2.4974000000953684,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 3.138700000286103,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 3.7746000003814713,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 4.416700000286105,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    },
+    {
+      "clock": 5.055700000286107,
+      "alarm": "active",
+      "system": "\n          \n          SYSTEMNORMAL\n        "
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/index.html",
+    "sha256": "64d5ba6ba1b8d42802afd8b98caa84abd53853af3563077cb8658acb83c9c92b"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/assets/series-runtime-C7m2vsMs.js",
+    "sha256": "8b158e6d56a787b52ef9eceec6c379d261bbbdbfaa248e867a32c2cfbfad07df"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/assets/series-qa-CYFU_Wq1.js",
+    "sha256": "e802b5580ab04aba2cbf4574e1084ea7f7f1c43f5cd4410783d2116f97d0ad82"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/assets/series-runtime-CSKIUP_T.js",
+    "sha256": "d0410aa80caf3f06bfd7056c2232cf8213ff82eea3f4ab30551fe7ed1a9e20b9"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/assets/series-entry-BgdWfYmi.js",
+    "sha256": "5e00ecf50ff478599f954fecc502ec9ebac32487e2d1e01f458fce2be850221f"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/assets/series-qa-Dl2rUW1v.js",
+    "sha256": "921baddcc0b99956093f525b555038817e207b890afb90db41d987493cc77833"
+  },
+  {
+    "url": "http://127.0.0.1:4173/rf04-series-v2-r17/assets/series-runtime-CcSvLUZn.js",
+    "sha256": "e808e66d78042ba4b3e8cadc67259d93b18d13956f17e006e2e25c79049dbbac"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "enablePbr": true,
+  "texture": true,
+  "faceLimit": 40000,
+  "pivotToCenterBottom": true,
+  "prompt": "A single realistic Chinese home stovetop water kettle, stainless steel, 2 litre capacity. Squat round brushed steel body with flat circular bottom, short open pouring spout angled upward on left, black heat-resistant arched overhead handle with real open grip space, open circular filling neck at top with no lid, dark hollow interior. Body diameter 22 cm, total height including handle 28 cm, spout makes overall width 30 cm. Upright normal use orientation. Subtle metal machining and soft reflections, clean domestic kitchen utensil. Physically based textured asset, isolated object only, no water no steam no room no platform no stove no text. Handle sturdy smooth black plastic with metal pivots. All openings must have real hollow geometry.",
+  "negativePrompt": "electric kettle, cable, power base, lid covering opening, solid filled handle, scene, kitchen, stove, floor, water, flames, text, people"
+}

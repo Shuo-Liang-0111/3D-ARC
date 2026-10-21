@@ -1,0 +1,28 @@
+{
+  "release": "build-r9",
+  "checked": [
+    "public/local-assets/cardinal/rf05/models/runtime/bathroom_vanity.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/bedside_table.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/ceiling_light.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/cleaning_cart.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/curtain_window_module.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/desk_chair.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/drinking_cup.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/laundry_basket.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/luggage_bench.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/paper_trash.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/shower_fixture.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/television_console.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/toilet.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/towel.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/trash_bin.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/twin_bed.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/wardrobe.glb",
+    "public/local-assets/cardinal/rf05/models/runtime/writing_desk.glb",
+    "public/local-assets/cardinal/rf05/textures/source/bathroom_floor_tile.png",
+    "public/local-assets/cardinal/rf05/textures/source/bathroom_wall_tile.png",
+    "public/local-assets/cardinal/rf05/textures/source/guestroom_wood_floor.png",
+    "public/local-assets/cardinal/rf05/textures/source/warm_gray_wall.png"
+  ],
+  "matched": 22
+}

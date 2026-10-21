@@ -1,0 +1,100 @@
+diff --git a/public/level-preview/rf01-shared-qa.html b/public/level-preview/rf01-shared-qa.html
+new file mode 100644
+--- /dev/null
++++ b/public/level-preview/rf01-shared-qa.html
+@@ -0,0 +1,4 @@
++<!doctype html><html lang="zh"><meta charset="utf-8"><title>RF-01 共享交互正式验收</title>
++<style>body{margin:0;background:#14201b;color:#eee;font:13px sans-serif}nav{display:flex;gap:8px;padding:8px;align-items:center}button{padding:8px}iframe{width:100%;height:calc(100vh - 140px);border:0}pre{max-height:80px;overflow:auto;white-space:pre-wrap}</style>
++<nav><button id="reset">重置</button><button id="supply">供电</button><button id="enter">开门进入</button><button id="light">开启照明</button><button id="first">运输第一箱</button><button id="second">运输第二箱</button><button id="confirm">确认出库</button><button id="full">完整路线</button><button id="save">保存证据</button><span id="status">加载中</span></nav>
++<iframe id="game"></iframe><pre id="result"></pre><script type="module" src="/game/levels/rf01-3/qa.js"></script></html>
+diff --git a/game/levels/rf01-3/qa.js b/game/levels/rf01-3/qa.js
+new file mode 100644
+--- /dev/null
++++ b/game/levels/rf01-3/qa.js
+@@ -0,0 +1,86 @@
++const selected = new URLSearchParams(location.search).get("level") || "rf01-3";
++const frame = document.querySelector("#game");
++frame.src = "/?mode=play&level=" + selected + "&view=third&robot=g1&control=velocity";
++const status = document.querySelector("#status"), result = document.querySelector("#result");
++const trace = [], captures = [];
++const agent = () => frame.contentWindow.__ARC_AGENT__;
++const pause = milliseconds => new Promise(resolve=>setTimeout(resolve,milliseconds));
++async function ready() {
++  for(let attempt=0;attempt<300;attempt+=1){if(agent()?.ready().ready)return;await pause(200);}
++  throw Error("Formal game not ready");
++}
++function report(label) {
++  const state=agent().getState();
++  const shell=frame.contentDocument.querySelector("#game-shell");
++  const toast=frame.contentDocument.querySelector("#toast");
++  const entry={label,state,revision:shell.dataset.revision,toastVisible:toast.classList.contains("visible"),toast:toast.textContent};
++  trace.push(entry);result.textContent=JSON.stringify(entry);status.textContent=label;
++  captures.push({label,image:frame.contentWindow.__RELAY_DEMO__.captureFrame()});
++}
++async function act(action,durationMs) {
++  const before=agent().getState();
++  await agent().act({action,durationMs,harness:"state"});
++  if(agent().getState().failed)throw Error("Reserve depleted: "+JSON.stringify(before.player));
++}
++async function walk(x,z) {
++  for(let attempt=0;attempt<300;attempt+=1) {
++    const state=agent().getState(),dx=x-state.player.x,dz=z-state.player.z;
++    if(Math.hypot(dx,dz)<.09)return;
++    const forward=dx*Math.sin(state.player.yaw)+dz*Math.cos(state.player.yaw);
++    const lateral=dx*Math.cos(state.player.yaw)-dz*Math.sin(state.player.yaw);
++    const useForward=Math.abs(forward)>=Math.abs(lateral);
++    await act(useForward?(forward>0?"W":"S"):(lateral>0?"A":"D"),Math.max(50,Math.min(300,Math.abs(useForward?forward:lateral)/1.4*1000)));
++    if(state.complete)return;
++  }
++  throw Error("Blocked at "+JSON.stringify(agent().getState().player)+" target "+x+","+z);
++}
++async function face(yaw) {
++  for(let attempt=0;attempt<100;attempt+=1) {
++    const current=agent().getState().player.yaw,delta=Math.atan2(Math.sin(yaw-current),Math.cos(yaw-current));
++    if(Math.abs(delta)<.08)return;
++    await act(delta>0?"TURN_RIGHT":"TURN_LEFT",Math.max(50,Math.min(220,Math.abs(delta)/2.4*1000)));
++  }
++  throw Error("Rotation blocked");
++}
++async function interact() { await act("E",0); }
++async function shutter() {
++  let state=agent().getState();
++  while(state.shutterPhase==="open"&&state.shutterHold<7){await act("WAIT",300);state=agent().getState();}
++  if(["closed","closing"].includes(state.shutterPhase))await interact();
++  for(let attempt=0;attempt<80&&agent().getState().shutterLift<2.1;attempt+=1)await act("WAIT",100);
++  if(agent().getState().shutterLift<2.1)throw Error("Shutter unavailable");
++}
++const actions={
++ reset:async()=>{await ready();agent().reset();report("reset");},
++ supply:async()=>{await walk(-6.8,1.25);await face(Math.PI);await interact();report("battery");await walk(-6.8,2.1);await walk(6.15,2.1);await face(Math.PI);await interact();report("power");},
++ enter:async()=>{await walk(-.68,0);await face(Math.PI);await shutter();report("shutter-open");await walk(1.6,0);await walk(1.6,-3.15);report("inside-dark");},
++ light:async()=>{await walk(3.8,-3.15);await walk(3.8,-5.45);await face(Math.PI);await interact();report("lights");},
++ first:async()=>{await ship(0);},
++ second:async()=>{await actions.enter();await ship(1);},
++ confirm:async()=>{await walk(1.75,5.25);await walk(4.15,5.25);await face(Math.atan2(.95,-1));await interact();report("dispatch");},
++ full:async()=>{
++  await actions.reset();
++  if(selected!=="rf01-2")await actions.supply();
++  await actions.enter();await actions.light();
++  if(selected==="rf01-3"){await actions.first();await actions.second();await actions.confirm();}
++  status.textContent="路线结束 complete="+agent().getState().complete;
++ },
++ save:async()=>{
++  for(const capture of captures){const link=document.createElement("a");link.href=capture.image;link.download=selected+"-v3-"+capture.label+".jpg";link.click();}
++  const link=document.createElement("a");link.href=URL.createObjectURL(new Blob([JSON.stringify(trace,null,2)],{type:"application/json"}));link.download=selected+"-v3-trace.json";link.click();
++ },
++};
++async function ship(index) {
++ await walk(1.6,-3.15);await walk(-1.9,-3.15);
++ const crate=agent().getState().crates[index];await walk(-2.35,crate.z);await face(-Math.PI/2);await interact();report("carry-"+index);
++ await face(0);await walk(-.68,-3.3);await shutter();await walk(1.6,-3.3);await walk(1.6,.15);
++ const bayZ=index===0?2.75:4.05;await walk(1.75,bayZ);await face(Math.PI/2);await interact();report("delivered-"+index);
++}
++for(const[name,action]of Object.entries(actions)){
++ document.getElementById(name).onclick=async()=>{
++  const buttons=[...document.querySelectorAll("button")];buttons.forEach(button=>button.disabled=true);
++  try{status.textContent="执行中";await action();}catch(error){status.textContent=error.message;report("error");status.textContent=error.message;}
++  finally{buttons.forEach(button=>button.disabled=false);}
++ };
++}
++await ready();status.textContent="正式关卡 "+selected+" 已就绪";

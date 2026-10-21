@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "level": "RF-09",
+  "surfaces": {
+    "carpet_floor": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/textures/source/carpet_floor-basecolor.png",
+      "sourceSha256": "b2e390c5a2b6639c9adfff1f5cde24c38ee1bf0c252f123b79df97955fc5e797",
+      "sourceSizePixels": [
+        4096,
+        4096
+      ],
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/textures/runtime/carpet_floor-basecolor.webp",
+      "runtimeSha256": "ea99d23d153b5c5df2af827b0cf4302cbc1ee713fb6c9496ff1d974699679272",
+      "runtimeSizePixels": [
+        2048,
+        2048
+      ],
+      "runtimeBytes": 1983530,
+      "colorSpace": "sRGB",
+      "wrap": "repeat",
+      "review": {
+        "status": "pending"
+      }
+    },
+    "painted_wall": {
+      "sourceArtifact": "public/local-assets/cardinal/rf09/textures/source/painted_wall-basecolor.png",
+      "sourceSha256": "9295c0a7d999fc997554e0fd262cc54119023fca20902eab0002c8b75c68c32d",
+      "sourceSizePixels": [
+        4096,
+        4096
+      ],
+      "runtimeArtifact": "public/local-assets/cardinal/rf09/textures/runtime/painted_wall-basecolor.webp",
+      "runtimeSha256": "dfadb455652ecf3d05784979715e118256c06dfd38c224bf3c3730efe08a4c62",
+      "runtimeSizePixels": [
+        2048,
+        2048
+      ],
+      "runtimeBytes": 351932,
+      "colorSpace": "sRGB",
+      "wrap": "repeat",
+      "review": {
+        "status": "pending"
+      }
+    }
+  }
+}

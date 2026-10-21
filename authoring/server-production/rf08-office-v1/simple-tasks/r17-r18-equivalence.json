@@ -1,0 +1,10 @@
+{
+  "from": "r17",
+  "to": "r18",
+  "officeGameplayUnchanged": {
+    "office-runtime-*.js": true,
+    "office-entry-*.js": true
+  },
+  "qaChanged": "phone viewing station and existing D435 look input only",
+  "normalization": "release paths and generated eight-character chunk imports"
+}

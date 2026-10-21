@@ -1,0 +1,107 @@
+{
+  "level": "rf12",
+  "version": "v2",
+  "status": "pending-browser-visual-review",
+  "assets": [
+    {
+      "id": "range_hood",
+      "dimensions": [
+        1.8,
+        0.55,
+        0.48
+      ],
+      "bytes": 2004264,
+      "sha256": "946135f9c53a57626e16e79fe59d3549e873876976e3174f13e8b03e73cba28f"
+    },
+    {
+      "id": "gas_knob",
+      "dimensions": [
+        0.12,
+        0.12,
+        0.08
+      ],
+      "bytes": 2372452,
+      "sha256": "eb57f93c161788ec1373d6bf6fabdda133729475fb306fa61ee05e0069e61d23"
+    },
+    {
+      "id": "gas_valve",
+      "dimensions": [
+        0.28,
+        0.24,
+        0.2
+      ],
+      "bytes": 2221892,
+      "sha256": "fb0d8a93b12a71bad697705fea7648ce6df0df66d3f462df2f798d481139f2a5"
+    },
+    {
+      "id": "wet_cloth",
+      "dimensions": [
+        0.42,
+        0.04,
+        0.32
+      ],
+      "bytes": 2309904,
+      "sha256": "8d54c55c0b958da88a7dd5b1862f98f64ff25b177e0ae4b9f9474ec59ea4d8a6"
+    },
+    {
+      "id": "kitchen_window",
+      "dimensions": [
+        1.35,
+        1.25,
+        0.12
+      ],
+      "bytes": 1948940,
+      "sha256": "61b31a98388fd73564637fd46e388c800616713789df8390e0dd980435346003"
+    },
+    {
+      "id": "safety_terminal",
+      "dimensions": [
+        0.72,
+        1.08,
+        0.45
+      ],
+      "bytes": 2088648,
+      "sha256": "f1c4ed2fea84bab4d7e84792e3a16331a76f1bc6b60ce8d4f77c12f240009018"
+    },
+    {
+      "id": "refrigerator",
+      "dimensions": [
+        0.92,
+        1.9,
+        0.68
+      ],
+      "bytes": 1880168,
+      "sha256": "e8029542c37abb08b2751c74990ca0a0ff84d7225d548556c0aecb5993e1bd17"
+    },
+    {
+      "id": "kitchen_sink",
+      "dimensions": [
+        0.9,
+        0.42,
+        0.68
+      ],
+      "bytes": 2132164,
+      "sha256": "d04522fbf7c37eddc1095fe2a59842158745e9fad5dc59f3236e039085a22bdb"
+    },
+    {
+      "id": "stove_module",
+      "dimensions": [
+        0.9,
+        0.12,
+        0.65
+      ],
+      "bytes": 1994964,
+      "sha256": "48549f66c68d7e615fd33a3953249a01f9af910fc7cbca9cc8e9ac198e61f2b5"
+    },
+    {
+      "id": "kitchen_door_handle",
+      "dimensions": [
+        0.08,
+        0.6,
+        0.06
+      ],
+      "bytes": 1842164,
+      "sha256": "e2142ab6a77e0776004fd6402049f9c1c6e051e6b9e0dcf63dc264978eb2c690"
+    }
+  ]
+}

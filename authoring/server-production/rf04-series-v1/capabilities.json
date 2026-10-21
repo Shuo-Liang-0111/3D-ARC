@@ -1,0 +1,153 @@
+{
+  "apiVersion": "v1",
+  "capabilities": [
+    {
+      "enabled": true,
+      "key": "image",
+      "operations": [
+        "generate",
+        "transparent-background"
+      ],
+      "options": {
+        "aspectRatios": [
+          "1:1",
+          "3:4",
+          "4:3",
+          "9:16",
+          "16:9"
+        ],
+        "defaultAspectRatio": "4:3",
+        "defaultResolution": "2k",
+        "modes": [
+          {
+            "enabled": true,
+            "id": "text-to-image",
+            "referenceImageRequired": false
+          },
+          {
+            "enabled": true,
+            "id": "image-to-image",
+            "referenceImageField": "sourceImageId",
+            "referenceImageRequired": true
+          }
+        ],
+        "resolutions": [
+          "1k",
+          "2k",
+          "4k"
+        ],
+        "sourceImageUpload": {
+          "acceptedFormats": [
+            "jpg",
+            "jpeg",
+            "png",
+            "webp"
+          ],
+          "contentType": "multipart/form-data",
+          "endpoint": "/api/aigc/v1/images/source-images",
+          "field": "file",
+          "maximumBytes": 52428800
+        },
+        "transparentBackgroundMaximumResolution": "2k",
+        "transparentBackgroundResolutions": [
+          "1k",
+          "2k"
+        ]
+      }
+    },
+    {
+      "enabled": true,
+      "key": "model3d",
+      "operations": [
+        "text-to-3d",
+        "image-to-3d",
+        "rig-check",
+        "rig",
+        "retarget"
+      ],
+      "options": {
+        "negativePrompt": {
+          "maximumLength": 255,
+          "overflowBehavior": "truncate"
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "key": "animation",
+      "operations": [
+        "generate"
+      ],
+      "options": {
+        "defaultLoop": false,
+        "defaultQualityPreset": "standard",
+        "durationSeconds": {
+          "defaultValue": 5,
+          "maximum": 30,
+          "minimum": 1
+        },
+        "motionStrength": {
+          "defaultValue": 50,
+          "maximum": 100,
+          "minimum": 0
+        },
+        "qualityPresets": [
+          "standard",
+          "high"
+        ]
+      }
+    },
+    {
+      "enabled": true,
+      "key": "music",
+      "operations": [
+        "generate"
+      ],
+      "options": {
+        "targetDurationSeconds": {
+          "defaultValue": 60,
+          "maximum": 300,
+          "minimum": 10
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "key": "sound-effect",
+      "operations": [
+        "generate"
+      ],
+      "options": {
+        "defaultGenerationType": "sound_effect",
+        "durationSeconds": {
+          "defaultValue": 20,
+          "maximum": 300,
+          "minimum": 1
+        },
+        "generationTypes": [
+          "sound_effect",
+          "one_shot"
+        ]
+      }
+    },
+    {
+      "enabled": true,
+      "key": "voice",
+      "operations": [
+        "synthesize",
+        "batch",
+        "upload",
+        "clone",
+        "design",
+        "list",
+        "delete"
+      ],
+      "options": {
+        "cloneAudioDurationSeconds": {
+          "maximum": 300,
+          "minimum": 10
+        }
+      }
+    }
+  ]
+}

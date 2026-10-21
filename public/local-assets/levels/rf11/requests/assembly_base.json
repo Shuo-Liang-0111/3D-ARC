@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic isolated precision manufacturing assembly base for a servo pump installation cell. Real-world size approximately 3.4 m wide × 0.18 m high × 1.8 m deep. Low steel fixture plate anchored to the epoxy floor, dark blue-gray powder-coated steel, recessed locating rails, two raised end stops, four countersunk mounting bolts, central keyed alignment channel and a shallow service connector recess. Engineered symmetric footprint with all parts resting on the bottom plane. Bottom-center pivot, Y axis up, front facing positive Z. Clean watertight topology, physically based embedded PBR materials, restrained industrial wear. One isolated object only. No floor, wall, robot, hands, cargo case, dolly, floating parts, animation, text, logo, arrows, UI or baked lighting. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

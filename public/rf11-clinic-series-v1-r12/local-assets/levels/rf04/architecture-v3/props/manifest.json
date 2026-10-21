@@ -1,0 +1,37 @@
+[
+  {
+    "asset": "shirt",
+    "before": 112496,
+    "after": 18000
+  },
+  {
+    "asset": "pants",
+    "before": 117956,
+    "after": 17999
+  },
+  {
+    "asset": "towel",
+    "before": 115557,
+    "after": 18000
+  },
+  {
+    "asset": "wet-bundle",
+    "before": 117310,
+    "after": 25000
+  },
+  {
+    "asset": "bed",
+    "before": 156247,
+    "after": 34999
+  },
+  {
+    "asset": "washer",
+    "before": 224092,
+    "after": 55000
+  },
+  {
+    "asset": "drying-rack",
+    "before": 155792,
+    "after": 39999
+  }
+]

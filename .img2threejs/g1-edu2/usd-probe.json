@@ -1,0 +1,1900 @@
+{
+  "source": "./.tooling/unitree-assets/extracted/assets/robots/g1-29dof_wholebody_dex1/g1_29dof_with_dex1_rev_1_0.usd",
+  "importResult": [
+    "FINISHED"
+  ],
+  "counts": {
+    "EMPTY": 206,
+    "MESH": 47
+  },
+  "materials": [
+    "DefaultMaterial",
+    "DefaultMaterial_0",
+    "material_4C4C4C",
+    "material_CAD1EE"
+  ],
+  "bounds": {
+    "min": [
+      -0.07909033447504044,
+      -0.1921396702528,
+      -0.7922728657722473
+    ],
+    "max": [
+      0.3886156678199768,
+      0.1921946406364441,
+      0.5305725932121277
+    ],
+    "size": [
+      0.46770600229501724,
+      0.3843343108892441,
+      1.322845458984375
+    ]
+  },
+  "objects": [
+    {
+      "name": "collisions",
+      "type": "EMPTY",
+      "parent": "right_knee_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.001",
+      "type": "EMPTY",
+      "parent": "left_wrist_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.002",
+      "type": "EMPTY",
+      "parent": "left_elbow_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.003",
+      "type": "EMPTY",
+      "parent": "left_shoulder_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.004",
+      "type": "EMPTY",
+      "parent": "left_shoulder_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.005",
+      "type": "EMPTY",
+      "parent": "left_shoulder_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.006",
+      "type": "EMPTY",
+      "parent": "imu_in_torso",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.007",
+      "type": "EMPTY",
+      "parent": "head_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.008",
+      "type": "EMPTY",
+      "parent": "d435_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.009",
+      "type": "EMPTY",
+      "parent": "torso_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.010",
+      "type": "EMPTY",
+      "parent": "waist_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.011",
+      "type": "EMPTY",
+      "parent": "waist_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.012",
+      "type": "EMPTY",
+      "parent": "right_ankle_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.013",
+      "type": "EMPTY",
+      "parent": "right_ankle_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.014",
+      "type": "EMPTY",
+      "parent": "left_wrist_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.015",
+      "type": "EMPTY",
+      "parent": "right_hip_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.016",
+      "type": "EMPTY",
+      "parent": "right_hip_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.017",
+      "type": "EMPTY",
+      "parent": "right_hip_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.018",
+      "type": "EMPTY",
+      "parent": "pelvis_contour_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.019",
+      "type": "EMPTY",
+      "parent": "left_ankle_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.020",
+      "type": "EMPTY",
+      "parent": "left_ankle_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.021",
+      "type": "EMPTY",
+      "parent": "left_knee_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.022",
+      "type": "EMPTY",
+      "parent": "left_hip_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.023",
+      "type": "EMPTY",
+      "parent": "left_hip_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.024",
+      "type": "EMPTY",
+      "parent": "pelvis",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.025",
+      "type": "EMPTY",
+      "parent": "left_hip_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.026",
+      "type": "EMPTY",
+      "parent": "imu_in_pelvis",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.027",
+      "type": "EMPTY",
+      "parent": "left_hand_base_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.028",
+      "type": "EMPTY",
+      "parent": "right_hand_Link2_3",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.029",
+      "type": "EMPTY",
+      "parent": "right_hand_Link2_2",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.030",
+      "type": "EMPTY",
+      "parent": "right_hand_Link2_1",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.031",
+      "type": "EMPTY",
+      "parent": "right_hand_Link1_3",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.032",
+      "type": "EMPTY",
+      "parent": "right_hand_Link1_2",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.033",
+      "type": "EMPTY",
+      "parent": "right_hand_Link1_1",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.034",
+      "type": "EMPTY",
+      "parent": "right_hand_base_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.035",
+      "type": "EMPTY",
+      "parent": "right_wrist_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.036",
+      "type": "EMPTY",
+      "parent": "right_wrist_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.037",
+      "type": "EMPTY",
+      "parent": "right_wrist_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.038",
+      "type": "EMPTY",
+      "parent": "right_elbow_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.039",
+      "type": "EMPTY",
+      "parent": "right_shoulder_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.040",
+      "type": "EMPTY",
+      "parent": "right_shoulder_roll_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.041",
+      "type": "EMPTY",
+      "parent": "right_shoulder_pitch_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.042",
+      "type": "EMPTY",
+      "parent": "mid360_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.043",
+      "type": "EMPTY",
+      "parent": "logo_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.044",
+      "type": "EMPTY",
+      "parent": "left_hand_Link2_3",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.045",
+      "type": "EMPTY",
+      "parent": "left_hand_Link2_2",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.046",
+      "type": "EMPTY",
+      "parent": "left_hand_Link2_1",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.047",
+      "type": "EMPTY",
+      "parent": "left_hand_Link1_3",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.048",
+      "type": "EMPTY",
+      "parent": "left_hand_Link1_2",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.049",
+      "type": "EMPTY",
+      "parent": "left_hand_Link1_1",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "collisions.050",
+      "type": "EMPTY",
+      "parent": "left_wrist_yaw_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "d435_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "d435_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "g1_29dof_with_hand_rev_1_0",
+      "type": "EMPTY",
+      "parent": null,
+      "children": 53,
+      "materials": []
+    },
+    {
+      "name": "head_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "head_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "imu_in_pelvis",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "imu_in_pelvis_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "imu_in_torso",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "imu_in_torso_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "joints",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 50,
+      "materials": []
+    },
+    {
+      "name": "left_ankle_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_ankle_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_ankle_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_ankle_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_elbow_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_elbow_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_base_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Joint1_1",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Joint1_2",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Joint1_3",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Joint2_1",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Joint2_2",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Joint2_3",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Link1_1",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Link1_2",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Link1_3",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Link2_1",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Link2_2",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_Link2_3",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hand_palm_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hip_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hip_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hip_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hip_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_hip_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_hip_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_knee_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_knee_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_shoulder_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_shoulder_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_shoulder_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_shoulder_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_shoulder_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_shoulder_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_wrist_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_wrist_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_wrist_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_wrist_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "left_wrist_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "left_wrist_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "logo_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "logo_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "Looks",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "mesh",
+      "type": "MESH",
+      "parent": "visuals.024",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.001",
+      "type": "MESH",
+      "parent": "visuals.002",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.002",
+      "type": "MESH",
+      "parent": "visuals.005",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.003",
+      "type": "MESH",
+      "parent": "visuals.012",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.004",
+      "type": "MESH",
+      "parent": "visuals.049",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.005",
+      "type": "MESH",
+      "parent": "visuals.027",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.006",
+      "type": "MESH",
+      "parent": "visuals.050",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.007",
+      "type": "MESH",
+      "parent": "visuals.037",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.008",
+      "type": "MESH",
+      "parent": "visuals.026",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.009",
+      "type": "MESH",
+      "parent": "visuals.015",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.010",
+      "type": "MESH",
+      "parent": "visuals.036",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.011",
+      "type": "MESH",
+      "parent": "visuals.041",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.012",
+      "type": "MESH",
+      "parent": "visuals.010",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.013",
+      "type": "MESH",
+      "parent": "visuals.035",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.014",
+      "type": "MESH",
+      "parent": "visuals.007",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.015",
+      "type": "MESH",
+      "parent": "visuals.025",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.016",
+      "type": "MESH",
+      "parent": "visuals.023",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.017",
+      "type": "MESH",
+      "parent": "visuals.022",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.018",
+      "type": "MESH",
+      "parent": "visuals.009",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.019",
+      "type": "MESH",
+      "parent": "visuals.017",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.020",
+      "type": "MESH",
+      "parent": "visuals.018",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.021",
+      "type": "MESH",
+      "parent": "visuals.021",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.022",
+      "type": "MESH",
+      "parent": "visuals.019",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.023",
+      "type": "MESH",
+      "parent": "visuals",
+      "children": 0,
+      "materials": [
+        "material_4C4C4C"
+      ]
+    },
+    {
+      "name": "mesh.024",
+      "type": "MESH",
+      "parent": "visuals.020",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.025",
+      "type": "MESH",
+      "parent": "visuals.047",
+      "children": 0,
+      "materials": [
+        "material_4C4C4C"
+      ]
+    },
+    {
+      "name": "mesh.026",
+      "type": "MESH",
+      "parent": "visuals.014",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.027",
+      "type": "MESH",
+      "parent": "visuals.034",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.028",
+      "type": "MESH",
+      "parent": "visuals.040",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial_0"
+      ]
+    },
+    {
+      "name": "mesh.029",
+      "type": "MESH",
+      "parent": "visuals.038",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.030",
+      "type": "MESH",
+      "parent": "visuals.011",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.031",
+      "type": "MESH",
+      "parent": "visuals.033",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.032",
+      "type": "MESH",
+      "parent": "visuals.042",
+      "children": 0,
+      "materials": [
+        "material_4C4C4C"
+      ]
+    },
+    {
+      "name": "mesh.033",
+      "type": "MESH",
+      "parent": "visuals.043",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.034",
+      "type": "MESH",
+      "parent": "visuals.004",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.035",
+      "type": "MESH",
+      "parent": "visuals.032",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.036",
+      "type": "MESH",
+      "parent": "visuals.006",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.037",
+      "type": "MESH",
+      "parent": "visuals.008",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.038",
+      "type": "MESH",
+      "parent": "visuals.003",
+      "children": 0,
+      "materials": [
+        "material_4C4C4C"
+      ]
+    },
+    {
+      "name": "mesh.039",
+      "type": "MESH",
+      "parent": "visuals.031",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.040",
+      "type": "MESH",
+      "parent": "visuals.013",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.041",
+      "type": "MESH",
+      "parent": "visuals.044",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.042",
+      "type": "MESH",
+      "parent": "visuals.016",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.043",
+      "type": "MESH",
+      "parent": "visuals.045",
+      "children": 0,
+      "materials": [
+        "DefaultMaterial"
+      ]
+    },
+    {
+      "name": "mesh.044",
+      "type": "MESH",
+      "parent": "visuals.046",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.045",
+      "type": "MESH",
+      "parent": "visuals.048",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mesh.046",
+      "type": "MESH",
+      "parent": "visuals.029",
+      "children": 0,
+      "materials": [
+        "material_CAD1EE"
+      ]
+    },
+    {
+      "name": "mid360_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "mid360_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "pelvis",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "pelvis_contour_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "pelvis_contour_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_ankle_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_ankle_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_ankle_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_ankle_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_elbow_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_elbow_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_base_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Joint1_1",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Joint1_2",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Joint1_3",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Joint2_1",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Joint2_2",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Joint2_3",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Link1_1",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Link1_2",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Link1_3",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Link2_1",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Link2_2",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_Link2_3",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hand_palm_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hip_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hip_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hip_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hip_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_hip_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_hip_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_knee_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_knee_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_shoulder_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_shoulder_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_shoulder_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_shoulder_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_shoulder_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_shoulder_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_wrist_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_wrist_pitch_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_wrist_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_wrist_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "right_wrist_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "right_wrist_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "torso_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "visuals",
+      "type": "EMPTY",
+      "parent": "right_hand_Link1_3",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.001",
+      "type": "EMPTY",
+      "parent": "imu_in_pelvis",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "visuals.002",
+      "type": "EMPTY",
+      "parent": "right_ankle_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.003",
+      "type": "EMPTY",
+      "parent": "right_hand_Link2_3",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.004",
+      "type": "EMPTY",
+      "parent": "left_hip_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.005",
+      "type": "EMPTY",
+      "parent": "right_hand_Link2_2",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.006",
+      "type": "EMPTY",
+      "parent": "right_wrist_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.007",
+      "type": "EMPTY",
+      "parent": "right_hand_Link2_1",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.008",
+      "type": "EMPTY",
+      "parent": "right_wrist_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.009",
+      "type": "EMPTY",
+      "parent": "left_hip_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.010",
+      "type": "EMPTY",
+      "parent": "right_hand_Link1_2",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.011",
+      "type": "EMPTY",
+      "parent": "pelvis",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.012",
+      "type": "EMPTY",
+      "parent": "right_hand_Link1_1",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.013",
+      "type": "EMPTY",
+      "parent": "right_hand_base_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.014",
+      "type": "EMPTY",
+      "parent": "right_wrist_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.015",
+      "type": "EMPTY",
+      "parent": "left_shoulder_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.016",
+      "type": "EMPTY",
+      "parent": "right_elbow_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.017",
+      "type": "EMPTY",
+      "parent": "right_hip_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.018",
+      "type": "EMPTY",
+      "parent": "left_wrist_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.019",
+      "type": "EMPTY",
+      "parent": "left_wrist_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.020",
+      "type": "EMPTY",
+      "parent": "right_hip_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.021",
+      "type": "EMPTY",
+      "parent": "left_wrist_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.022",
+      "type": "EMPTY",
+      "parent": "left_elbow_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.023",
+      "type": "EMPTY",
+      "parent": "right_hip_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.024",
+      "type": "EMPTY",
+      "parent": "left_shoulder_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.025",
+      "type": "EMPTY",
+      "parent": "left_hand_base_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.026",
+      "type": "EMPTY",
+      "parent": "right_knee_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.027",
+      "type": "EMPTY",
+      "parent": "left_shoulder_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.028",
+      "type": "EMPTY",
+      "parent": "imu_in_torso",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "visuals.029",
+      "type": "EMPTY",
+      "parent": "head_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.030",
+      "type": "EMPTY",
+      "parent": "d435_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "visuals.031",
+      "type": "EMPTY",
+      "parent": "torso_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.032",
+      "type": "EMPTY",
+      "parent": "waist_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.033",
+      "type": "EMPTY",
+      "parent": "waist_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.034",
+      "type": "EMPTY",
+      "parent": "right_ankle_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.035",
+      "type": "EMPTY",
+      "parent": "left_hip_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.036",
+      "type": "EMPTY",
+      "parent": "right_shoulder_yaw_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.037",
+      "type": "EMPTY",
+      "parent": "right_shoulder_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.038",
+      "type": "EMPTY",
+      "parent": "right_shoulder_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.039",
+      "type": "EMPTY",
+      "parent": "mid360_link",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "visuals.040",
+      "type": "EMPTY",
+      "parent": "logo_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.041",
+      "type": "EMPTY",
+      "parent": "left_hand_Link1_1",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.042",
+      "type": "EMPTY",
+      "parent": "left_hand_Link2_3",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.043",
+      "type": "EMPTY",
+      "parent": "left_knee_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.044",
+      "type": "EMPTY",
+      "parent": "left_hand_Link2_2",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.045",
+      "type": "EMPTY",
+      "parent": "left_ankle_pitch_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.046",
+      "type": "EMPTY",
+      "parent": "left_hand_Link2_1",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.047",
+      "type": "EMPTY",
+      "parent": "left_hand_Link1_3",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.048",
+      "type": "EMPTY",
+      "parent": "left_ankle_roll_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.049",
+      "type": "EMPTY",
+      "parent": "left_hand_Link1_2",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "visuals.050",
+      "type": "EMPTY",
+      "parent": "pelvis_contour_link",
+      "children": 1,
+      "materials": []
+    },
+    {
+      "name": "waist_pitch_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "waist_roll_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "waist_roll_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    },
+    {
+      "name": "waist_yaw_joint",
+      "type": "EMPTY",
+      "parent": "joints",
+      "children": 0,
+      "materials": []
+    },
+    {
+      "name": "waist_yaw_link",
+      "type": "EMPTY",
+      "parent": "g1_29dof_with_hand_rev_1_0",
+      "children": 2,
+      "materials": []
+    }
+  ]
+}

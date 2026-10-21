@@ -1,0 +1,80 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "953035a62979a99234f795c42fa761465b29fc4e40375f5933882f52ccdb9a44",
+    "httpSha256": "953035a62979a99234f795c42fa761465b29fc4e40375f5933882f52ccdb9a44",
+    "match": true
+  },
+  {
+    "path": "assets/GLTFLoader-BkTNv51B.js",
+    "sha256": "2068fbe0e9dab608f81eff95e3856038a9faf5fb23352d04d15c2e860c902fa3",
+    "httpSha256": "2068fbe0e9dab608f81eff95e3856038a9faf5fb23352d04d15c2e860c902fa3",
+    "match": true
+  },
+  {
+    "path": "assets/animation-qa-CtBInpbr.js",
+    "sha256": "b0f3cb52766384f5ae16aff48c092fb87ed41cbe39b4ad74b7fd4e19b7adb54c",
+    "httpSha256": "b0f3cb52766384f5ae16aff48c092fb87ed41cbe39b4ad74b7fd4e19b7adb54c",
+    "match": true
+  },
+  {
+    "path": "assets/g1-articulated-collision-fN2Hq_y-.js",
+    "sha256": "b07eef76c9dcece836b125f39e389cec2a27cf0dad3edfa2550412174dd7260a",
+    "httpSha256": "b07eef76c9dcece836b125f39e389cec2a27cf0dad3edfa2550412174dd7260a",
+    "match": true
+  },
+  {
+    "path": "assets/index-CZDc2QqC.css",
+    "sha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5",
+    "httpSha256": "ed099a3fb3ab702c33c79a684bb5e6b8b0f8e703eb8b661e2b419699b108d9b5",
+    "match": true
+  },
+  {
+    "path": "assets/index-D-ahEOr2.js",
+    "sha256": "2da03e57cdb02b001a3480c5e6abcdfaa51b0e1fb0471e7a042bfd590d000192",
+    "httpSha256": "2da03e57cdb02b001a3480c5e6abcdfaa51b0e1fb0471e7a042bfd590d000192",
+    "match": true
+  },
+  {
+    "path": "assets/interaction-animation-BuGCFNgx.js",
+    "sha256": "9ec96fe4327c54470d0eb4660cd5fa321bdd3a700f93f24c9e7ade4d72025985",
+    "httpSha256": "9ec96fe4327c54470d0eb4660cd5fa321bdd3a700f93f24c9e7ade4d72025985",
+    "match": true
+  },
+  {
+    "path": "assets/interaction-walk-DKnOBfMl.js",
+    "sha256": "ed4d19a8e332a618d16c2391b659fea7e77f5dc7e3aed2f2d86eee58c1af434c",
+    "httpSha256": "ed4d19a8e332a618d16c2391b659fea7e77f5dc7e3aed2f2d86eee58c1af434c",
+    "match": true
+  },
+  {
+    "path": "assets/runtime-BcIxtDTG.js",
+    "sha256": "8593c5293172a07f156d7a3bb8bda7c25f2fbdac3ec5af5f968c7b3e7c5cc6e2",
+    "httpSha256": "8593c5293172a07f156d7a3bb8bda7c25f2fbdac3ec5af5f968c7b3e7c5cc6e2",
+    "match": true
+  },
+  {
+    "path": "assets/runtime-D62P4UW0.js",
+    "sha256": "df9d04e52914e4a18414f7ab8395ba9d16ec1138a37677aef4b1023ff6e457f2",
+    "httpSha256": "df9d04e52914e4a18414f7ab8395ba9d16ec1138a37677aef4b1023ff6e457f2",
+    "match": true
+  },
+  {
+    "path": "assets/series-entry-CByIq0Z3.js",
+    "sha256": "216f1cd3997d1c8d3fc6e5afc598cada44bd8997c65393e0e472680e10820463",
+    "httpSha256": "216f1cd3997d1c8d3fc6e5afc598cada44bd8997c65393e0e472680e10820463",
+    "match": true
+  },
+  {
+    "path": "assets/series-qa-CVHXoheW.js",
+    "sha256": "91b3b9c8495d6ad340942504c741e2efb1e57a9ba323c91f03153669b098958e",
+    "httpSha256": "91b3b9c8495d6ad340942504c741e2efb1e57a9ba323c91f03153669b098958e",
+    "match": true
+  },
+  {
+    "path": "assets/series-runtime-El3v9TaP.js",
+    "sha256": "95fd7f41ee6e446206016dbd097362805492ad057629469fda0898070ae91558",
+    "httpSha256": "95fd7f41ee6e446206016dbd097362805492ad057629469fda0898070ae91558",
+    "match": true
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "commit": "1c025549c42b7230966e12d8a5f219d90a13839b",
+  "files": [
+    "game/app.js",
+    "index.html",
+    "vite.config.js",
+    "game/levels/rf13/series-scene.js",
+    "game/levels/rf13/series-entry.js",
+    "game/levels/rf13/series-animation.js",
+    "game/levels/rf13/series-engine.js",
+    "game/levels/rf13/series-qa.js",
+    "game/levels/rf13/series-runtime.js",
+    "game/levels/rf13-02/runtime.js",
+    "game/levels/rf13-03/runtime.js",
+    "tests/rf11-clinic-series.test.mjs",
+    "tools/rf11-clinic-series/request-chime.json",
+    "docs/levels/rf11-clinic-series.md",
+    "docs/levels/rf11-clinic-series-acceptance.md"
+  ],
+  "pushed": false
+}

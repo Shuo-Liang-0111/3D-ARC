@@ -1,0 +1,32 @@
+[
+  {
+    "asset": "oil_bottle",
+    "bytes": 444576,
+    "sha256": "61c730b926e56a905b75531273865a3e3ddc8cd05f5ea39371ddac6f61a8df06",
+    "sourceDistReleaseHttpMatch": true
+  },
+  {
+    "asset": "frying_pan",
+    "bytes": 435108,
+    "sha256": "b47efba1daf5bcd046cbbb7ae205ea5325ba77db43a70cc1a6d5654c3ee49436",
+    "sourceDistReleaseHttpMatch": true
+  },
+  {
+    "asset": "extinguisher",
+    "bytes": 624040,
+    "sha256": "08322059f794b9fa7bf88cf39981078cab8c1bbe104e08069fe8542624c4bc9a",
+    "sourceDistReleaseHttpMatch": true
+  },
+  {
+    "asset": "stove-precision",
+    "bytes": 1150936,
+    "sha256": "7551da040cfde492816677a6d8430c8b882a64109593d66d0b6fdc6b686ce11c",
+    "sourceDistReleaseHttpMatch": true
+  },
+  {
+    "asset": "gas-knob-precision",
+    "bytes": 65180,
+    "sha256": "941c67753b8c95a38cdcab2b7aa396212d6b8740a424a7baf8ada784324af163",
+    "sourceDistReleaseHttpMatch": true
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "game/levels/rf04/scene.js": {
+    "expected": "bb9650c60713b2fa269dd17fcc8d6237dddf390617a4cee47b8768e5b746e524",
+    "actual": "bb9650c60713b2fa269dd17fcc8d6237dddf390617a4cee47b8768e5b746e524",
+    "match": true
+  },
+  "game/levels/rf04/engine.js": {
+    "expected": "3909d0cbe60c01657da760bd3ed4a49bf7b2276f36269de3406977de5c76cb7b",
+    "actual": "3909d0cbe60c01657da760bd3ed4a49bf7b2276f36269de3406977de5c76cb7b",
+    "match": true
+  },
+  "game/unitree-g1-edu2.js": {
+    "expected": "dd76838ff6a38d84b9ea118061e457974ecb9094add5f17aec8d096cf8ffb9f4",
+    "actual": "dd76838ff6a38d84b9ea118061e457974ecb9094add5f17aec8d096cf8ffb9f4",
+    "match": true
+  },
+  "game/operator-controls.js": {
+    "expected": "b8aa70691ceebfaae5e12075db40255c39737003dfb1d33ecb173c08df1b4a58",
+    "actual": "b8aa70691ceebfaae5e12075db40255c39737003dfb1d33ecb173c08df1b4a58",
+    "match": true
+  },
+  "game/scene.js": {
+    "expected": "d9285555be20a769fbab7ae23e6698cc09223a6857e354cdc179d2654fb507f1",
+    "actual": "d9285555be20a769fbab7ae23e6698cc09223a6857e354cdc179d2654fb507f1",
+    "match": true
+  },
+  "game/g1-locomotion.js": {
+    "expected": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+    "actual": "d503755d6e24bc0154d58591178221bd6af3fe9acae6b6b69024c8d9d4bc7e08",
+    "match": true
+  },
+  "game/movement.js": {
+    "expected": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+    "actual": "1797813dc84b60374edec4cc41a06d658f8133c55adebcbf1aab357c1133c16b",
+    "match": true
+  }
+}

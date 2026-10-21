@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic game-ready Chinese precision manufacturing workshop interior, one coherent static environment, 24 m wide x 16 m deep x 4.2 m high, Y up, floor-center origin. Continuous gray epoxy floor with subtle scuffs and yellow safety lanes; light gray insulated sandwich-panel walls with seams, corner trims and base rails; centered open south safety door 3.2 m wide x 3 m high; blue-gray servo workcells against west and east walls; north steel rack with a few cartons; overhead linear LED lights; wall electrical cabinet and fire station. All geometry is correctly constructed: floor and walls meet, equipment stands on floor, lights attach to ceiling, no stretched or floating objects, no intersections. Detailed watertight topology, embedded PBR textures, stable semantic node names. No robots, cargo, dolly, people, extra floor, pedestal, text, logo, neon or UI. Export GLB.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

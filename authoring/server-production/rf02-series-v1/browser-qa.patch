@@ -1,0 +1,149 @@
+diff --git a/public/rf02-series-qa.html b/public/rf02-series-qa.html
+new file mode 100644
+--- /dev/null
++++ b/public/rf02-series-qa.html
+@@ -0,0 +1,11 @@
++<!doctype html>
++<html lang="zh-CN">
++<meta charset="utf-8">
++<title>RF-02 series browser route verification</title>
++<style>
++body{margin:0;background:#111;color:#eee;font:14px system-ui}header{height:44px;display:flex;align-items:center;gap:12px;padding:0 12px}button,select{font:inherit}iframe{border:0;width:100%;height:calc(100vh - 44px)}#captures{display:none}output{white-space:pre}
++</style>
++<header><select id="level"><option>rf02-2</option><option>rf02-3</option></select><button id="load">加载关卡</button><button id="next">下一次交互</button><button id="run">完整路线</button><button id="pause">暂停路线</button><button id="capture">保存画面</button><button id="export">下载证据</button><output id="status">等待加载</output></header>
++<iframe id="game" title="正式 ARC 游戏"></iframe><section id="captures"></section>
++<script type="module" src="/tools/rf02-series/browser-qa.js"></script>
++</html>
+diff --git a/tools/rf02-series/browser-qa.js b/tools/rf02-series/browser-qa.js
+new file mode 100644
+--- /dev/null
++++ b/tools/rf02-series/browser-qa.js
+@@ -0,0 +1,128 @@
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++import { routeToInteraction } from "./route.mjs";
++
++const frame = document.querySelector("#game");
++const status = document.querySelector("#status");
++let stopped = true;
++let busy = false;
++let operations = [];
++let records = [];
++let images = [];
++let readyAt = 0;
++const api = () => frame.contentWindow.__ARC_AGENT__;
++const read = () => api().getState();
++const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
++
++function capture(label) {
++  const gameWindow = frame.contentWindow;
++  const data = gameWindow.__RELAY_DEMO__.captureFrame();
++  const image = document.createElement("img");
++  image.src = data;
++  image.alt = label;
++  document.querySelector("#captures").append(image);
++  images.push({ label, data });
++  return label;
++}
++
++function load() {
++  stopped = true;
++  operations = [];
++  records = [];
++  images = [];
++  document.querySelector("#captures").replaceChildren();
++  const id = document.querySelector("#level").value;
++  frame.src = "/?level=" + id + "&view=third&revision=shared-library-v1";
++  readyAt = performance.now();
++  status.value = "加载 " + id;
++}
++
++async function prepare() {
++  for (let attempt = 0; attempt < 200; attempt += 1) {
++    if (api()?.ready().ready) break;
++    await delay(200);
++  }
++  if (!api()?.ready().ready) throw new Error("Asset gate did not pass");
++  if (!operations.length) {
++    api().reset({ harness: "state" });
++    const state = read();
++    records.push({ type: "start", at: new Date().toISOString(), loadMs: performance.now() - readyAt, state });
++    const order = ["red", "red-reading", "black", "black-reading", "white", "white-cart"];
++    operations = order.flatMap((bookId) => [{ type: "book", bookId }, { type: "shelf", color: state.books[bookId].color }]);
++    if (document.querySelector("#level").value === "rf02-3") operations.push({ type: "book", bookId: state.incident.bookId }, { type: "shelf", color: state.incident.color });
++    capture("start");
++  }
++}
++
++async function executeNext() {
++  await prepare();
++  const target = operations[0];
++  if (!target) return;
++  const engine = createArchiveEngine(document.querySelector("#level").value);
++  const points = routeToInteraction(engine, read(), target);
++  for (const point of points.slice(1)) {
++    let attempts = 0;
++    while (Math.hypot(point.x - read().player.x, point.z - read().player.z) > 0.035) {
++      if (stopped) return;
++      const state = read();
++      if (state.failed) throw new Error("Mission reserve depleted");
++      if (++attempts > 300) throw new Error("Route movement stuck at " + JSON.stringify(point));
++      const dx = point.x - state.player.x, dz = point.z - state.player.z, yaw = state.player.yaw;
++      const forward = dx * Math.sin(yaw) + dz * Math.cos(yaw);
++      const lateral = dx * Math.cos(yaw) - dz * Math.sin(yaw);
++      const along = Math.abs(forward) >= Math.abs(lateral);
++      const component = along ? forward : lateral;
++      const action = along ? component >= 0 ? "W" : "S" : component >= 0 ? "A" : "D";
++      const speed = along ? component >= 0 ? 1 : 0.5 : 0.3;
++      const durationMs = Math.max(50, Math.min(900, Math.abs(component) / speed * 1000));
++      await api().act({ action, durationMs, harness: "state" });
++      status.value = "导航 " + (14 - operations.length) + " / 余量 " + read().progress.toFixed(1);
++    }
++  }
++  const before = read();
++  const actual = engine.getInteraction(before);
++  if (actual?.type !== target.type || (target.bookId ? actual.bookId !== target.bookId : actual.color !== target.color)) {
++    throw new Error("Unexpected interaction " + JSON.stringify({ target, actual }));
++  }
++  capture("before-" + (target.bookId || target.color));
++  await api().act({ action: "E", durationMs: 50, harness: "state" });
++  const after = read();
++  records.push({ type: "interaction", target, before, after });
++  operations.shift();
++  capture("after-" + (target.bookId || target.color));
++  if (after.incident.phase === "falling") {
++    await delay(250);
++    capture("falling-" + after.incident.color);
++    await delay(850);
++    capture("landed-" + after.incident.color);
++  }
++  status.value = (after.complete ? "PASS 通关" : "交互完成") + " / 余量 " + after.progress.toFixed(1) + " / 最低 " + after.minimumProgress.toFixed(1);
++}
++
++async function run(all) {
++  if (busy) return;
++  busy = true;
++  stopped = false;
++  try {
++    await executeNext();
++    while (all && !stopped && operations.length) await executeNext();
++  } catch (error) {
++    status.value = "FAIL " + error.message;
++    records.push({ type: "error", message: error.message });
++  } finally {
++    busy = false;
++  }
++}
++
++document.querySelector("#load").onclick = load;
++document.querySelector("#next").onclick = () => run(false);
++document.querySelector("#run").onclick = () => run(true);
++document.querySelector("#pause").onclick = () => { stopped = true; status.value = "已暂停"; };
++document.querySelector("#capture").onclick = () => capture("manual-" + images.length);
++document.querySelector("#export").onclick = () => {
++  const blob = new Blob([JSON.stringify({ revision: "shared-library-v1", records, images }, null, 2)], { type: "application/json" });
++  const anchor = document.createElement("a");
++  anchor.href = URL.createObjectURL(blob);
++  anchor.download = document.querySelector("#level").value + "-browser-evidence.json";
++  anchor.click();
++};
++load();

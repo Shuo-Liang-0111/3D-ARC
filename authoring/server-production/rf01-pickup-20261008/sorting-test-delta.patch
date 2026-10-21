@@ -1,0 +1,11 @@
+--- a/tests/rf01-sorting.test.mjs
++++ b/tests/rf01-sorting.test.mjs
+@@ -84,7 +84,7 @@
+ 
+ test("unsafe drop is rejected; ground cargo becomes a collider and pickup removes it", () => {
+   let state = carrying();
+-  state.player = { x: .65, z: -3.95, yaw: Math.PI };
++  state.player = { x: .65, z: -4.3, yaw: Math.PI };
+   const blocked = engine.interact(state);
+   assert.equal(blocked.carriedItem, "parcel-red");
+   assert.equal(blocked.progress, 55);

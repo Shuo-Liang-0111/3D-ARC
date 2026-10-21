@@ -1,0 +1,32 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf14",
+  "revision": "graybox-v0.1",
+  "units": "meters",
+  "upAxis": "Y",
+  "budgetMiB": 60,
+  "environment": {
+    "visual": "/local-assets/levels/rf14/graybox-v0.1/environment.glb",
+    "collision": "/local-assets/levels/rf14/graybox-v0.1/collision.glb"
+  },
+  "interactables": [
+    {
+      "id": "ball",
+      "path": "/local-assets/levels/rf14/graybox-v0.1/ball.glb"
+    },
+    {
+      "id": "cart",
+      "path": "/local-assets/levels/rf14/graybox-v0.1/cart.glb"
+    }
+  ],
+  "compression": {
+    "geometry": "none",
+    "decoderPath": "/vendor/draco/"
+  },
+  "hashes": {
+    "collision.glb": "aad0871cd0a9875882ef2e66af229162571820aa1d3264fd724a9a1318a0f710",
+    "environment.glb": "1f8ded1708dac0daa9fac85db9c2182f19236f44b1343ffcf26dd75a4753f8f3",
+    "ball.glb": "7ff80558319f78f6269da5d54f5e7b3cddc26c07e127116975f50c4278b567e9",
+    "cart.glb": "aceec895ca61864555bebc6f5fd959dd18428b8dab22d4e170d466cc49a3dbbb"
+  }
+}

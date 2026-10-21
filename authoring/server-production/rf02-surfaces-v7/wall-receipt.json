@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-09-21T07:13:16.3409183Z",
+  "estimatedWaitSeconds": 30,
+  "id": "aigc_359afaf902d444e6a982d405c1ef6b61",
+  "idempotentReplay": false,
+  "normalizations": [],
+  "normalizedInput": {
+    "aspectRatio": "1:1",
+    "mode": "text-to-image",
+    "quality": null,
+    "referenceImageSource": null,
+    "resolution": "2k",
+    "style": null,
+    "transparentBackground": null
+  },
+  "queuePosition": 1,
+  "queueReason": "scheduled",
+  "requestId": "aigc_359afaf902d444e6a982d405c1ef6b61",
+  "retryAfterSeconds": 30,
+  "status": "queued",
+  "taskId": "aigc_359afaf902d444e6a982d405c1ef6b61",
+  "type": "image"
+}

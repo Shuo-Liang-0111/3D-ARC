@@ -1,0 +1,1 @@
+<robot name="plane-tree"><link name="base"><visual><geometry><mesh filename="mesh/plane-tree.glb"/></geometry></visual><collision><geometry><mesh filename="mesh/plane-tree_collision.obj"/></geometry></collision></link></robot>

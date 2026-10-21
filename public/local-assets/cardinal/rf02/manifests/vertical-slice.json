@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "rfId": "RF-02",
+  "productionStatus": "runtime_candidate",
+  "visualReview": "approved_by_user",
+  "units": "meters",
+  "upAxis": "Y",
+  "frontAxis": "+Z",
+  "toolchain": {
+    "blender": "4.5.9 LTS",
+    "gltfTransform": "4.4.2",
+    "geometryCompression": "draco",
+    "textureCompression": "webp"
+  },
+  "assets": [
+    {
+      "id": "static_shell",
+      "role": "static_environment",
+      "sourceType": "server_blender_meter_scale_shell",
+      "path": "/local-assets/cardinal/rf02/models/runtime/rf02-static-shell.glb",
+      "bytes": 771272,
+      "sha256": "b165994e3a057125876ff78ea2658e8a8b40946892ed1658470b21897bb506af",
+      "dimensions": [24.22, 3.77981, 16.22058],
+      "pivot": "world_origin",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 12,
+      "buildCommand": "blender -b --python tools/rf02-build-realistic-library-assets.py -- --output-root /tmp/rf02-cardinal-shell-v7 --omit-cardinal-slice",
+      "review": {
+        "status": "approved_after_browser_review",
+        "screenshots": []
+      }
+    },
+    {
+      "id": "reading_table",
+      "role": "repeatable_static_furniture",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/reading-table.json",
+      "taskId": "aigc_171623076557402280aab088e16abf01",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/reading-table.highpoly.glb",
+      "sourceBytes": 56950412,
+      "sourceSha256": "9f431e2fd592ee70909dc9763c68a5f431e6aaed29cff8d4781c0b7082091c53",
+      "path": "/local-assets/cardinal/rf02/models/runtime/reading-table.glb",
+      "bytes": 249896,
+      "sha256": "f5d7ade0263c1b62ae0822391ed1a290e55799c01e1238c74e607854a7949cb2",
+      "dimensions": [2.4, 0.75, 1.05],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 0 },
+      "optimization": { "simplifyRatio": 0.02, "simplifyError": 0.0025, "textureSize": 1024 },
+      "placements": [
+        { "position": [-5, 0, 2.35], "rotationY": 0 },
+        { "position": [5.4, 0, 2.35], "rotationY": 0 }
+      ],
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/reading-table.png"]
+      }
+    },
+    {
+      "id": "reading_chair",
+      "role": "repeatable_static_furniture",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/reading-chair.json",
+      "taskId": "aigc_3b951865d2ca4303a63512cb08fd55c0",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/reading-chair.highpoly.glb",
+      "sourceBytes": 57037748,
+      "sourceSha256": "248278a68ffc0f2949be638aaec91017044fcdbafea1eec52a72b7db0a4b8d1a",
+      "path": "/local-assets/cardinal/rf02/models/runtime/reading-chair.glb",
+      "bytes": 615216,
+      "sha256": "79fd24a11caf6a65b7c430934a664fe471bc0598322732761b93d225e528b310",
+      "dimensions": [0.52, 0.88, 0.55],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 0 },
+      "modelForwardAxis": "+X",
+      "optimization": { "simplifyRatio": 0.025, "simplifyError": 0.002, "textureSize": 1024 },
+      "placements": [
+        { "position": [-5.76, 0, 1.49], "rotationY": -1.5707963267948966 },
+        { "position": [-4.24, 0, 1.49], "rotationY": -1.5707963267948966 },
+        { "position": [-5.76, 0, 3.21], "rotationY": 1.5707963267948966 },
+        { "position": [-4.24, 0, 3.21], "rotationY": 1.5707963267948966 },
+        { "position": [4.64, 0, 1.49], "rotationY": -1.5707963267948966 },
+        { "position": [6.16, 0, 1.49], "rotationY": -1.5707963267948966 },
+        { "position": [4.64, 0, 3.21], "rotationY": 1.5707963267948966 },
+        { "position": [6.16, 0, 3.21], "rotationY": 1.5707963267948966 }
+      ],
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/reading-chair.png"]
+      }
+    },
+    {
+      "id": "red_book",
+      "role": "interactive_object",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/red-book.json",
+      "taskId": "aigc_a5ffcbe5c4a94808893e455daf33ea90",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/red-book.highpoly.glb",
+      "sourceBytes": 55023952,
+      "sourceSha256": "2e4bafaa607250e2e20b0e57c8df6403e7396da9d973e0992e99c10c20e37c38",
+      "path": "/local-assets/cardinal/rf02/models/runtime/red-book.glb",
+      "bytes": 400112,
+      "sha256": "ab888776c902a23cf7da0194cabe7bfe98b33f5f9cd9273838e90ff10d6b804e",
+      "dimensions": [0.172, 0.041, 0.245],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 0 },
+      "optimization": { "simplifyRatio": 0.035, "simplifyError": 0.002, "textureSize": 1024 },
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/red-book.png"]
+      }
+    },
+    {
+      "id": "return_sorting_table",
+      "role": "static_interaction_surface",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/return-sorting-table.json",
+      "taskId": "aigc_38d0f593f3b2489d920932a6bf61287e",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/return-sorting-table.highpoly.glb",
+      "sourceBytes": 55271164,
+      "sourceSha256": "dfd4d5c545b074f6c02d12d399e3e18810d059f7e9a51c87a89204c9f7f88a2b",
+      "path": "/local-assets/cardinal/rf02/models/runtime/return-sorting-table.glb",
+      "bytes": 362640,
+      "sha256": "115072d15670c6711773ff8599100a7fb873351f7369c57b5a3a38c7635c0bde",
+      "dimensions": [2.24, 0.78, 1.06],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 90 },
+      "optimization": { "simplifyRatio": 0.025, "simplifyError": 0.003, "textureSize": 1024 },
+      "placement": { "position": [0, 0, 2.75], "rotationY": 0 },
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/return-sorting-table.png"]
+      }
+    },
+    {
+      "id": "catalog_terminal",
+      "role": "static_interactive_facility",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/catalog-terminal.json",
+      "taskId": "aigc_67a99cf00ad54fa49932651e9e1dc12b",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/catalog-terminal.highpoly.glb",
+      "sourceBytes": 57358324,
+      "sourceSha256": "ec49fe4641bc7c4d9f7115123af691e17f55be41848f5c0bf747826a1ea4972d",
+      "path": "/local-assets/cardinal/rf02/models/runtime/catalog-terminal.glb",
+      "bytes": 372416,
+      "sha256": "78373d734886b78b8db28044ce030c9cc84b3711673a11e0d691004a513bcebd",
+      "dimensions": [0.86, 1.35, 0.8],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 0 },
+      "optimization": { "simplifyRatio": 0.025, "simplifyError": 0.003, "textureSize": 1024 },
+      "placement": { "position": [-10.35, 0, 4.45], "rotationY": 1.5707963267948966 },
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/catalog-terminal.png"]
+      }
+    },
+    {
+      "id": "security_gate_module",
+      "role": "repeatable_static_module",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/security-gate-module.json",
+      "taskId": "aigc_1038bae225f14ebb80a3f29bf68e15df",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/security-gate-module.highpoly.glb",
+      "sourceBytes": 54382272,
+      "sourceSha256": "f958e1facdb08608f83ea26df7be6d02867718eacf89150c1bfb798565167c2b",
+      "path": "/local-assets/cardinal/rf02/models/runtime/security-gate-module.glb",
+      "bytes": 353968,
+      "sha256": "c9d950e4d9766a96d702942c7ac8913b6e8bb69cae7af64558075746fe1be2eb",
+      "dimensions": [0.3, 1.56, 0.75],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 90 },
+      "optimization": { "simplifyRatio": 0.025, "simplifyError": 0.0025, "textureSize": 1024 },
+      "placements": [
+        { "position": [-1.1, 0, 6.75], "rotationY": 0 },
+        { "position": [1.1, 0, 6.75], "rotationY": 0 }
+      ],
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/security-gate-module.png"]
+      }
+    },
+    {
+      "id": "circulation_desk",
+      "role": "static_facility",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/circulation-desk.json",
+      "taskId": "aigc_c1ff3fe42fa844feaf08aac6d900a8f0",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/circulation-desk.highpoly.glb",
+      "sourceBytes": 57070284,
+      "sourceSha256": "ce2ab800ea96ff559ea132b1287761ac725077427b7c944a13e2fe4b70a994cf",
+      "path": "/local-assets/cardinal/rf02/models/runtime/circulation-desk.glb",
+      "bytes": 325028,
+      "sha256": "a9194c120762c5ab01a36fe195461c2e9d4e2dd33f89d6bd3a01c5b22dc53c43",
+      "dimensions": [5.15, 1.07, 1.06],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 0 },
+      "optimization": { "simplifyRatio": 0.02, "simplifyError": 0.003, "textureSize": 1024 },
+      "placement": { "position": [-7.075, 0, 5.45], "rotationY": 0 },
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/circulation-desk.png"]
+      }
+    },
+    {
+      "id": "return_cart",
+      "role": "static_furniture",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/return-cart.json",
+      "taskId": "aigc_1dc239b1e9df44f4ad8e56b8b50e916d",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/return-cart.highpoly.glb",
+      "sourceBytes": 56482468,
+      "sourceSha256": "8459b1205c188648c741f97d215950eb78a97d7022aafe5f7d4f63be84f7767e",
+      "path": "/local-assets/cardinal/rf02/models/runtime/return-cart.glb",
+      "bytes": 388288,
+      "sha256": "94ebfb9ecd6a0277674abe42fedbb30d7688114db5f63e86846cb58c06a66338",
+      "dimensions": [0.86, 1.12, 0.54],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 90 },
+      "optimization": { "simplifyRatio": 0.025, "simplifyError": 0.0025, "textureSize": 1024 },
+      "placement": { "position": [2.45, 0, 4.55], "rotationY": 0 },
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/return-cart.png"]
+      }
+    },
+    {
+      "id": "indoor_planter",
+      "role": "repeatable_static_decor",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/indoor-planter.json",
+      "taskId": "aigc_f3f08eff328a4e899d1ef98a171100b9",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/indoor-planter.highpoly.glb",
+      "sourceBytes": 55070816,
+      "sourceSha256": "59d4f0e2f8123315e2fcde8b969dbbc4de3466ca6aadcf1f790adaff28e6e46a",
+      "path": "/local-assets/cardinal/rf02/models/runtime/indoor-planter.glb",
+      "bytes": 398868,
+      "sha256": "dd0a1aae5039c572a261e9209772da073dc93983b97cc2bca50664806824d162",
+      "dimensions": [0.62, 1.45, 0.62],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 0 },
+      "optimization": { "simplifyRatio": 0.035, "simplifyError": 0.0015, "textureSize": 1024 },
+      "placements": [
+        { "position": [-10.7, 0, 6.65], "rotationY": 0 },
+        { "position": [10.7, 0, 6.65], "rotationY": 0 },
+        { "position": [-9.7, 0, -6.8], "rotationY": 0 },
+        { "position": [9.7, 0, -6.8], "rotationY": 0 }
+      ],
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/indoor-planter.png"]
+      }
+    },
+    {
+      "id": "suspended_linear_light",
+      "role": "repeatable_static_fixture",
+      "sourceType": "cardinal_text_to_model",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/suspended-linear-light.json",
+      "taskId": "aigc_11d454acd22047acac41c54729909cff",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/models/source/suspended-linear-light.highpoly.glb",
+      "sourceBytes": 54452448,
+      "sourceSha256": "c0ee3d3ffa8c09e5f0c2b2d74b09e71dd98c702866174ea81b4e405f52929e11",
+      "path": "/local-assets/cardinal/rf02/models/runtime/suspended-linear-light.glb",
+      "bytes": 237372,
+      "sha256": "66555b46fc48ae6fe096b96d42467739007cd0cef797aa27e0a15c4eb52ca027",
+      "dimensions": [2.2, 0.32, 0.35],
+      "pivot": "bottom_center",
+      "texturesEmbedded": true,
+      "draco": true,
+      "webp": true,
+      "primitiveCount": 1,
+      "normalization": { "rotateYDegrees": 90 },
+      "optimization": { "simplifyRatio": 0.025, "simplifyError": 0.002, "textureSize": 1024 },
+      "placements": [
+        { "position": [-9, 3.24, -4.8], "rotationY": 0 },
+        { "position": [-9, 3.24, 0.2], "rotationY": 0 },
+        { "position": [-9, 3.24, 5.2], "rotationY": 0 },
+        { "position": [-3, 3.24, -4.8], "rotationY": 0 },
+        { "position": [-3, 3.24, 0.2], "rotationY": 0 },
+        { "position": [-3, 3.24, 5.2], "rotationY": 0 },
+        { "position": [3, 3.24, -4.8], "rotationY": 0 },
+        { "position": [3, 3.24, 0.2], "rotationY": 0 },
+        { "position": [3, 3.24, 5.2], "rotationY": 0 },
+        { "position": [9, 3.24, -4.8], "rotationY": 0 },
+        { "position": [9, 3.24, 0.2], "rotationY": 0 },
+        { "position": [9, 3.24, 5.2], "rotationY": 0 }
+      ],
+      "review": {
+        "status": "approved_by_user",
+        "screenshots": ["public/local-assets/cardinal/rf02/review/suspended-linear-light.png"]
+      }
+    }
+  ],
+  "materials": [
+    {
+      "id": "library_terrazzo_floor",
+      "role": "static_environment_surface",
+      "sourceType": "cardinal_image_generation",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/library-terrazzo-floor.json",
+      "taskId": "aigc_e838989a1db147f5a3461f5f3188e295",
+      "sourceArtifact": "public/local-assets/cardinal/rf02/textures/source/library-terrazzo-floor.png",
+      "sourceBytes": 7987453,
+      "sourceSha256": "fbcd25b58d6999015527fd068773f0b8d50abf22528e489d31988410335e0594",
+      "resolution": [2048, 2048],
+      "usage": "embedded_in_static_shell",
+      "review": { "status": "approved_by_user" }
+    }
+  ],
+  "generationAttempts": [
+    {
+      "id": "red_target_shelf",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/red-target-shelf.json",
+      "taskId": "aigc_661cb817fae548b084652f8bcff9c7b3",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed",
+      "fallback": "retained meter-scale shelf in static shell"
+    },
+    {
+      "id": "wall_shelf_module",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/wall-shelf-module.json",
+      "taskId": "aigc_cb2b1269ec144ac0bbcae704f465ef15",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed",
+      "fallback": "retained meter-scale wall shelves in static shell"
+    },
+    {
+      "id": "freestanding_stack_module",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/freestanding-stack-module.json",
+      "taskId": "aigc_9bec7e32630e44739bee6426c56ccb00",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed",
+      "fallback": "retained meter-scale freestanding stacks in static shell"
+    },
+    {
+      "id": "reading_table_set",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/reading-table-set.json",
+      "taskId": "aigc_4f9b4da70a934828812eb8102cb58547",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed",
+      "fallback": "retained meter-scale reading tables and chairs in static shell"
+    },
+    {
+      "id": "reading_table_retry",
+      "requestFile": "public/local-assets/cardinal/rf02/requests/reading-table-retry.json",
+      "taskId": "aigc_42d8ab5a31c8470f9601b92e46744d76",
+      "status": "failed",
+      "errorCode": "model3d_generation_failed",
+      "fallback": "reused approved earlier Cardinal reading table asset"
+    }
+  ],
+  "totalBytes": 4475076
+}

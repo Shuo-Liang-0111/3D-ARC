@@ -1,0 +1,25 @@
+{
+  "createdAt": "2026-09-21T02:39:52.4666185Z",
+  "estimatedWaitSeconds": 30,
+  "id": "aigc_87d9148e67d34f60884ad8c7f2eaceb1",
+  "idempotentReplay": false,
+  "normalizations": [],
+  "normalizedInput": {
+    "enableImageAutofix": false,
+    "enablePbr": true,
+    "faceLimit": null,
+    "geometryQuality": "detailed",
+    "outputFormat": "glb",
+    "qualityPreset": "high-highpoly",
+    "taskType": "text_to_model",
+    "texture": true,
+    "textureResolution": null
+  },
+  "queuePosition": 1,
+  "queueReason": "scheduled",
+  "requestId": "aigc_87d9148e67d34f60884ad8c7f2eaceb1",
+  "retryAfterSeconds": 30,
+  "status": "queued",
+  "taskId": "aigc_87d9148e67d34f60884ad8c7f2eaceb1",
+  "type": "model3d"
+}

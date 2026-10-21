@@ -1,0 +1,66 @@
+{
+  "sourcePath": "public/local-assets/cardinal/rf01/models/runtime/rf01_factory_workshop.glb",
+  "sha256": "2953346dbe3b710997f2b65dd1665f7581fca941fc55bbbf243171645f3f009f",
+  "results": [
+    {
+      "shellTriangles": 407409,
+      "shutterTriangles": 28901,
+      "probes": [
+        {
+          "x": 0.2,
+          "y": 0.5,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 0.2,
+          "y": 1.5,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 0.2,
+          "y": 2,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 1.6,
+          "y": 0.5,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 1.6,
+          "y": 1.5,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 1.6,
+          "y": 2,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 3.2,
+          "y": 0.5,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 3.2,
+          "y": 1.5,
+          "closedHits": 1,
+          "openHits": 0
+        },
+        {
+          "x": 3.2,
+          "y": 2,
+          "closedHits": 1,
+          "openHits": 0
+        }
+      ]
+    }
+  ]
+}

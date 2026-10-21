@@ -1,0 +1,20 @@
+{
+  "schema": "arc-level-assets/v1",
+  "level": "rf13",
+  "revision": "graybox-v0.2",
+  "units": "meters",
+  "environment": {"visual":"models/runtime/rf13_final.glb","collision":"models/runtime/rf13_collision.glb"},
+  "interactables": [
+    {"id":"gloves","path":"models/runtime/interactables/gloves.glb","dimensions":[0.38,0.22,0.28],"support":"shelf"},
+    {"id":"gauze","path":"models/runtime/interactables/gauze.glb","dimensions":[0.38,0.22,0.28],"support":"shelf"},
+    {"id":"dressings","path":"models/runtime/interactables/dressings.glb","dimensions":[0.38,0.22,0.28],"support":"shelf"},
+    {"id":"forms","path":"models/runtime/interactables/forms.glb","dimensions":[0.38,0.22,0.28],"support":"shelf"},
+    {"id":"empty-box","path":"models/runtime/interactables/empty-box.glb","dimensions":[0.38,0.22,0.28],"support":"station"},
+    {"id":"chair","path":"models/runtime/interactables/chair.glb","dimensions":[0.6,0.9,0.65],"support":"floor"},
+    {"id":"trolley","path":"models/runtime/interactables/trolley.glb","dimensions":[0.65,0.9,0.55],"support":"floor"}
+  ],
+  "optional": [],
+  "compression": {"geometry":"none","decoderPath":"/vendor/draco/"},
+  "validation": {"embeddedTextures":true,"stableNodeNames":true,"collisionReviewed":false},
+  "approvals": {"proposal":{"status":"approved","revision":"proposal-v0.2"},"graybox":{"status":"pending","revision":null},"final":{"status":"pending","revision":null}}
+}

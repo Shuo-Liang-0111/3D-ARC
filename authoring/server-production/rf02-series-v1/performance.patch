@@ -1,0 +1,54 @@
+diff --git a/public/rf02-performance-qa.html b/public/rf02-performance-qa.html
+new file mode 100644
+--- /dev/null
++++ b/public/rf02-performance-qa.html
+@@ -0,0 +1,49 @@
++<!doctype html>
++<html lang="zh-CN">
++<meta charset="utf-8">
++<title>RF-02 steady frame measurement</title>
++<style>body{margin:0;background:#111;color:white;font:14px system-ui}header{height:40px;display:flex;align-items:center;gap:12px;padding:0 12px}iframe{width:100%;height:calc(100vh - 40px);border:0}output{white-space:pre-wrap}button{font:inherit}</style>
++<header><button id="first">第一视角采样</button><button id="third">第三视角采样</button><button id="dual">双视角采样</button><output id="result">等待资源</output></header>
++<iframe id="game" src="/?level=rf02-3&amp;view=third" title="正式游戏性能测量"></iframe>
++<script type="module">
++const frame = document.querySelector("#game");
++const output = document.querySelector("#result");
++const begun = performance.now();
++let loadMs = 0;
++const samples = [];
++const timer = setInterval(() => {
++  const api = frame.contentWindow.__ARC_AGENT__;
++  if (api?.ready().ready) {
++    loadMs = performance.now() - begun;
++    clearInterval(timer);
++    frame.contentDocument.querySelector("#start-button").click();
++    output.textContent = "资源就绪，首次加载 " + loadMs.toFixed(0) + " ms";
++  }
++}, 100);
++async function measure(view) {
++  frame.contentDocument.querySelector('#operator-console [data-view-option="' + view + '"]').click();
++  const timestamps = [];
++  await new Promise((resolve) => {
++    function step(now) {
++      timestamps.push(now);
++      if (timestamps.length < 181) frame.contentWindow.requestAnimationFrame(step);
++      else resolve();
++    }
++    frame.contentWindow.requestAnimationFrame(step);
++  });
++  const canvas = frame.contentDocument.querySelector("#viewport canvas");
++  const context = canvas.getContext("webgl2");
++  const extension = context.getExtension("WEBGL_debug_renderer_info");
++  const record = {
++    view, fps: 180000 / (timestamps[180] - timestamps[0]), samples: 180, loadMs,
++    viewport: [frame.clientWidth, frame.clientHeight],
++    renderer: extension ? context.getParameter(extension.UNMASKED_RENDERER_WEBGL) : context.getParameter(context.RENDERER),
++    assetGate: frame.contentDocument.querySelector("#game-shell").dataset.requiredAssetsReady,
++  };
++  samples.push(record);
++  output.textContent = JSON.stringify(record);
++  output.dataset.results = JSON.stringify(samples);
++}
++for (const view of ["first", "third", "dual"]) document.querySelector("#" + view).onclick = () => measure(view);
++</script>
++</html>

@@ -1,0 +1,16 @@
+{
+  "release": "rf08-office-v1-r23",
+  "testMethod": "Robot station setup via isolated qa=office, real ringing timer and formal F animation",
+  "phone": {
+    "ringAt": 76.65278182996684,
+    "deadline": 106.6633999999293,
+    "answeredAt": 84.55430000002423,
+    "status": "answered"
+  },
+  "animation": {
+    "phase": "idle",
+    "event": "phone_answered",
+    "contactErrorMeters": 0.00035174653495207786
+  },
+  "visual": "First-person front-desk support and third-person scene actually viewed in CUA screenshots"
+}

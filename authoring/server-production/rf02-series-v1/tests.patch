@@ -1,0 +1,234 @@
+diff --git a/tools/rf02-series/route.mjs b/tools/rf02-series/route.mjs
+new file mode 100644
+--- /dev/null
++++ b/tools/rf02-series/route.mjs
+@@ -0,0 +1,86 @@
++import { createArchiveEngine } from "../../game/levels/rf02/series-engine.js";
++
++const GRID = 0.24;
++const distance = (left, right) => Math.hypot(left.x - right.x, left.z - right.z);
++
++export function routeToInteraction(engine, state, target) {
++  const origin = state.player;
++  const queue = [{ x: origin.x, z: origin.z, column: 0, row: 0, parent: -1 }];
++  const visited = new Set(["0,0"]);
++  const desired = (point) => {
++    const interaction = engine.getInteraction({ ...state, player: { ...state.player, ...point } });
++    return interaction?.type === target.type && (target.bookId ? interaction.bookId === target.bookId : interaction.color === target.color);
++  };
++  let found = -1;
++  for (let head = 0; head < queue.length && head < 24000; head += 1) {
++    const current = queue[head];
++    if (desired(current)) { found = head; break; }
++    for (const [stepX, stepZ] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
++      const column = current.column + stepX;
++      const row = current.row + stepZ;
++      const key = column + "," + row;
++      if (visited.has(key)) continue;
++      visited.add(key);
++      const point = { x: origin.x + column * GRID, z: origin.z + row * GRID };
++      if (!engine.isWalkable(state, point.x, point.z) || !engine.isWalkable(state, (point.x + current.x) / 2, (point.z + current.z) / 2)) continue;
++      queue.push({ ...point, column, row, parent: head });
++    }
++  }
++  if (found < 0) throw new Error("No reachable interaction: " + JSON.stringify(target));
++  const path = [];
++  for (let index = found; index >= 0; index = queue[index].parent) path.unshift({ x: queue[index].x, z: queue[index].z });
++  const compact = [path[0]];
++  for (let index = 1; index < path.length - 1; index += 1) {
++    const before = path[index - 1], current = path[index], after = path[index + 1];
++    if (Math.abs((current.x - before.x) * (after.z - current.z) - (current.z - before.z) * (after.x - current.x)) > 1e-6) compact.push(current);
++  }
++  if (path.length > 1) compact.push(path.at(-1));
++  return compact;
++}
++
++export function walkPath(engine, initial, points, samples = []) {
++  let state = initial;
++  for (const point of points) {
++    let frames = 0;
++    while (distance(state.player, point) > 0.0001) {
++      if (state.failed) throw new Error("Reserve depleted: " + JSON.stringify({ level: engine.LEVEL.id, travelled: state.distanceTravelled, target: point }));
++      const dx = point.x - state.player.x, dz = point.z - state.player.z;
++      const length = Math.hypot(dx, dz);
++      const dt = Math.min(0.05, length / engine.LEVEL.moveSpeed);
++      const yaw = state.player.yaw;
++      const input = { move: (dx * Math.sin(yaw) + dz * Math.cos(yaw)) / length, strafe: (dx * Math.cos(yaw) - dz * Math.sin(yaw)) / length, turn: 0 };
++      state = engine.updateMovement(state, input, dt);
++      state = engine.updateEnvironment(state, dt);
++      if (++frames > 10000) throw new Error("Movement blocked on engine route");
++    }
++    samples.push({ x: state.player.x, z: state.player.z, reserve: state.progress, minimum: state.minimumProgress });
++  }
++  return state;
++}
++
++export function walkRoute(id, randomValue = 0.1, errors = 0) {
++  const engine = createArchiveEngine(id);
++  let state = engine.createInitialState({ random: () => randomValue });
++  const samples = [], segments = [];
++  for (let index = 0; index < errors; index += 1) state = engine.interact(state);
++  const order = ["red", "red-reading", "black", "black-reading", "white", "white-cart"];
++  function action(target) {
++    const path = routeToInteraction(engine, state, target);
++    state = walkPath(engine, state, path, samples);
++    segments.push({ target, path, before: { ...state.player } });
++    const previous = state;
++    state = engine.interact(state);
++    if (state.failed || previous.interactions === state.interactions) throw new Error("Interaction failed");
++  }
++  for (const bookId of order) {
++    action({ type: "book", bookId });
++    action({ type: "shelf", color: state.books[bookId].color });
++  }
++  if (engine.LEVEL.dynamic) {
++    while (state.incident.phase === "falling") state = engine.updateEnvironment(state, 0.05);
++    action({ type: "book", bookId: state.incident.bookId });
++    action({ type: "shelf", color: state.incident.color });
++  }
++  if (!state.complete) throw new Error("Route did not complete");
++  return { id, randomValue, errors, distance: state.distanceTravelled, blockedTime: state.blockedTime, finalReserve: state.progress, minimumReserve: state.minimumProgress, interactions: state.interactions, incident: state.incident, samples, segments, state };
++}
+diff --git a/tests/rf02-series.test.mjs b/tests/rf02-series.test.mjs
+new file mode 100644
+--- /dev/null
++++ b/tests/rf02-series.test.mjs
+@@ -0,0 +1,118 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import fs from "node:fs";
++import { createArchiveEngine } from "../game/levels/rf02/series-engine.js";
++import { BOOKS, SHELF_BOOKS, ASSET_ROOT } from "../game/levels/rf02/series-layout.js";
++import { walkRoute, routeToInteraction, walkPath } from "../tools/rf02-series/route.mjs";
++
++for (const id of ["rf02-2", "rf02-3"]) {
++  const engine = createArchiveEngine(id);
++  const initial = () => engine.createInitialState({ random: () => 0.1 });
++  test(id + " starts with shared nine-book scene and no catalog interaction", () => {
++    const state = initial();
++    assert.equal(Object.keys(state.books).length, BOOKS.length);
++    assert.equal(BOOKS.length, 9);
++    assert.equal(Object.values(state.books).filter((book) => !book.background).length, 6);
++    assert.equal(engine.getInteraction({ ...state, player: { ...state.player, ...engine.LEVEL.terminal } }), null);
++  });
++  test(id + " idle/rotation are free; blocked movement and drain:false cannot bypass costs", () => {
++    const state = initial();
++    assert.equal(engine.updateMovement(state, {}, 0.05).progress, 100);
++    assert.equal(engine.updateMovement(state, { turn: 1 }, 0.05).progress, 100);
++    assert.ok(engine.updateMovement(state, { move: 1, drain: false }, 0.05).progress < 100);
++    const wall = { ...state, player: { x: 0, z: 7.36, yaw: 0 } };
++    const moved = engine.updateMovement(wall, { move: 1 }, 0.05);
++    assert.deepEqual(moved.player, wall.player);
++    assert.ok(moved.progress < wall.progress);
++    assert.equal(engine.updateMovement(state, { move: 1 }, NaN).progress, 100);
++  });
++  test(id + " errors cost reserve and low-reserve failure is atomic and frozen", () => {
++    const state = initial();
++    assert.equal(engine.interact(state).progress, 100 - engine.LEVEL.progress.errorCost);
++    const low = { ...state, progress: engine.LEVEL.progress.errorCost };
++    const failed = engine.interact(low);
++    assert.equal(failed.progress, 0);
++    assert.equal(failed.failed, true);
++    assert.deepEqual(failed.books, low.books);
++    assert.deepEqual(engine.interact(failed), failed);
++    assert.deepEqual(engine.updateMovement(failed, { move: 1 }, 0.05), failed);
++    assert.deepEqual(engine.updateEnvironment(failed, 0.05), failed);
++    assert.deepEqual(initial().rewardedActions, {});
++  });
++  test(id + " low-positive-reserve rewards cap and cannot be farmed by dropping", () => {
++    let state = initial();
++    state = walkPath(engine, state, routeToInteraction(engine, state, { type: "book", bookId: "red" }));
++    const atBook = state;
++    const capped = engine.interact({ ...state, progress: 99.9 });
++    assert.equal(capped.progress, 100);
++    assert.ok(capped.rewardedActions["pickup:red"]);
++    state = engine.interact({ ...atBook, progress: 0.01, minimumProgress: 0.01 });
++    assert.ok(state.progress > 1);
++    assert.equal(state.failed, false);
++    state = { ...capped, player: { x: 0, z: 5.4, yaw: Math.PI / 2 } };
++    state = engine.interact(state);
++    assert.equal(state.books.red.location, "ground");
++    state = engine.interact(state);
++    assert.equal(state.carriedBook, "red");
++    assert.equal(state.progress, 98);
++  });
++  test(id + " wrong shelf and blocked drop preserve cargo and charge once", () => {
++    let state = initial();
++    state.books.red.location = "carried";
++    state.carriedBook = "red";
++    state.carriedItem = "red";
++    state.player = { ...state.player, ...engine.LEVEL.shelves.black };
++    const wrong = engine.interact(state);
++    assert.equal(wrong.lastEvent, "wrong_shelf");
++    assert.equal(wrong.carriedBook, "red");
++    assert.equal(wrong.progress, 100 - engine.LEVEL.progress.errorCost);
++    state.player = { x: 11.3, z: 3.8, yaw: Math.PI / 2 };
++    const blocked = engine.interact(state);
++    assert.equal(blocked.lastEvent, "blocked_drop");
++    assert.equal(blocked.carriedBook, "red");
++    assert.equal(blocked.progress, 100 - engine.LEVEL.progress.errorCost);
++  });
++  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
++    for (const errors of [0, 2]) {
++      test(id + " full engine route, random " + sample + ", injected errors " + errors, () => {
++        const route = walkRoute(id, sample, errors);
++        assert.equal(route.state.complete, true);
++        assert.equal(route.state.failed, false);
++        assert.ok(route.minimumReserve > 0);
++        assert.ok(route.finalReserve < 70);
++        assert.equal(route.blockedTime, 0);
++        assert.deepEqual(engine.updateMovement(route.state, { move: 1 }, 0.05), route.state);
++        assert.deepEqual(engine.interact(route.state), route.state);
++      });
++    }
++  }
++}
++
++test("dynamic shelf branches are reachable, fall before becoming grabbable, and reset cleanly", () => {
++  const engine = createArchiveEngine("rf02-3");
++  for (const [sample, color] of [[0.1, "red"], [0.5, "black"], [0.9, "white"]]) {
++    let state = engine.createInitialState({ random: () => sample });
++    assert.equal(state.incident.color, color);
++    assert.ok(engine.isWalkable(state, SHELF_BOOKS[color].landing.x, SHELF_BOOKS[color].landing.z));
++    state.incident.phase = "falling";
++    state.books[state.incident.bookId].location = "falling";
++    state.player = { ...state.player, ...SHELF_BOOKS[color].landing };
++    assert.equal(engine.getInteraction(state), null);
++    for (let frame = 0; frame < 20; frame += 1) state = engine.updateEnvironment(state, 0.05);
++    assert.equal(state.incident.phase, "ground");
++    assert.equal(state.books[state.incident.bookId].y, 0.012);
++    assert.equal(engine.getInteraction(state).bookId, state.incident.bookId);
++    assert.equal(engine.createInitialState({ random: () => sample }).incident.phase, "waiting");
++  }
++});
++
++test("all new shared scene assets exist with collision extras and exact collider names", () => {
++  const bytes = fs.readFileSync("public" + ASSET_ROOT + "/library-collision.glb");
++  assert.equal(bytes.toString("ascii", 0, 4), "glTF");
++  const json = JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
++  const engine = createArchiveEngine("rf02-2");
++  for (const collider of engine.LEVEL.staticColliders) {
++    const node = json.nodes.find((entry) => entry.name === "COLLIDER_" + collider.id);
++    assert.ok(node?.extras?.collision);
++  }
++});
+diff --git a/tools/rf02-series/measure-routes.mjs b/tools/rf02-series/measure-routes.mjs
+new file mode 100644
+--- /dev/null
++++ b/tools/rf02-series/measure-routes.mjs
+@@ -0,0 +1,15 @@
++import fs from "node:fs";
++import { walkRoute } from "./route.mjs";
++
++const results = [];
++for (const id of ["rf02-2", "rf02-3"]) {
++  for (const sample of id === "rf02-3" ? [0.1, 0.5, 0.9] : [0.1]) {
++    for (const errors of [0, 2]) {
++      const route = walkRoute(id, sample, errors);
++      results.push(route);
++      console.log(JSON.stringify({ id, shelf: route.incident.color, errors, distance: route.distance, finalReserve: route.finalReserve, minimumReserve: route.minimumReserve }));
++    }
++  }
++}
++const output = process.argv[2];
++if (output) fs.writeFileSync(output, JSON.stringify(results, null, 2) + "\n");

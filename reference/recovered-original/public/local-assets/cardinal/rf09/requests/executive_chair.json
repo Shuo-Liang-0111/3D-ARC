@@ -1,0 +1,11 @@
+{
+  "prompt": "Photorealistic real-world office asset. Ergonomic executive conference chair, 0.62 m wide x 1.12 m high x 0.62 m deep. Charcoal woven upholstery, breathable back, restrained lumbar contour, armrests, gas lift and five-spoke aluminum caster base. Seated user would face positive Z and every caster touches ground. Target dimensions approximately 0.62 m x 1.12 m x 0.62 m. Y axis up, front facing positive Z, metric scale, centered at world origin, bottom-center pivot. One isolated photorealistic game-ready object only. Real construction, believable thickness, manufactured edge radii, fasteners and physically based materials. All supporting feet or the flat base must share one ground plane. No floor, wall, room, pedestal, character, robot, hands, floating parts, baked lighting, neon, arrows, UI, readable text, logo, trademark, watermark or extra objects. Export GLB for Three.js.",
+  "taskType": "text_to_model",
+  "qualityPreset": "high-highpoly",
+  "outputFormat": "glb",
+  "geometryQuality": "detailed",
+  "enablePbr": true,
+  "texture": true,
+  "pivotToCenterBottom": true,
+  "refineAfterGeneration": false
+}

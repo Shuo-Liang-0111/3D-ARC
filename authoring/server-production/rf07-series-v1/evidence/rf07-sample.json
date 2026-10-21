@@ -1,0 +1,156 @@
+{
+  "errors": [],
+  "state": {
+    "player": {
+      "x": 5.987649519817689,
+      "z": 3.8493807677601746,
+      "yaw": 3.3873122735731886
+    },
+    "samples": {
+      "sampleA": {
+        "x": 6,
+        "y": 0,
+        "z": 3.43,
+        "location": "case"
+      },
+      "sampleB": {
+        "location": "storage",
+        "x": -7.35,
+        "y": 0.98,
+        "z": -6.62
+      },
+      "sampleC": {
+        "location": "storage",
+        "x": -5.45,
+        "y": 0.98,
+        "z": -6.62
+      }
+    },
+    "caseSamples": [
+      "sampleA"
+    ],
+    "casePoint": {
+      "x": 1.2,
+      "y": 0.96,
+      "z": 1.78
+    },
+    "modulePoint": {
+      "x": 6,
+      "y": 0,
+      "z": 3.43
+    },
+    "containerPoint": {
+      "x": -6.65,
+      "y": 1.16,
+      "z": -1.98
+    },
+    "containerLocation": "storage",
+    "carriedItem": null,
+    "coolingModuleLocation": "floor",
+    "casePhase": "loading",
+    "cabinetPower": {
+      "cold-01": true,
+      "cold-02": true,
+      "cold-03": true
+    },
+    "alarm": {
+      "type": "container",
+      "device": "bsc-02",
+      "triggerAt": 162.6368973926066,
+      "status": "disabled",
+      "startedAt": null
+    },
+    "clock": 51.54030000066773,
+    "clockStamp": 58701.2999997139,
+    "elapsed": 40.24700000000031,
+    "complete": false,
+    "failed": false,
+    "settling": false,
+    "progress": 94.00054999999999,
+    "motion": "idle",
+    "interactions": 6,
+    "lastEvent": "drop",
+    "rewards": [
+      "pickup-sampleA",
+      "load-sampleA",
+      "pickup-module"
+    ],
+    "delivered": false,
+    "doorOpen": false
+  },
+  "animation": {
+    "fps": 32.19734495435845,
+    "phase": "idle",
+    "error": null,
+    "lastResult": {
+      "type": "drop",
+      "event": "drop",
+      "error": 0.00008430746916496787,
+      "revision": "rf07-series-v1"
+    },
+    "contacts": [
+      {
+        "type": "sample",
+        "event": "sample",
+        "error": 0.020517330141511594,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "drop",
+        "event": "drop",
+        "error": 0.024098535430668193,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "sample",
+        "event": "sample",
+        "error": 0.01813981162688057,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "case-load",
+        "event": "case-load",
+        "error": 0.01669447953807393,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "cooling-module",
+        "event": "cooling-module",
+        "error": 0.013016293658597864,
+        "revision": "rf07-series-v1"
+      },
+      {
+        "type": "drop",
+        "event": "drop",
+        "error": 0.00008430746916496787,
+        "revision": "rf07-series-v1"
+      }
+    ],
+    "walk": {
+      "stage": "settle",
+      "ready": true,
+      "travel": 0.15122455883912608,
+      "waypoints": 1,
+      "feet": [
+        {
+          "side": "left",
+          "error": 0.0009173013887080773,
+          "position": [
+            5.85189569476625,
+            0.03508254983881392,
+            3.9574437765020942
+          ]
+        },
+        {
+          "side": "right",
+          "error": 0.0007723159364425757,
+          "position": [
+            6.189865945669191,
+            0.03514137783644103,
+            4.023504468327941
+          ]
+        }
+      ]
+    }
+  }
+}

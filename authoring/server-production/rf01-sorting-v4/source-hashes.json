@@ -1,0 +1,12 @@
+{
+  "game/rf01-sorting-layout.js": "67dfa555bcecb2a07eec6f2ac655477a3276160f3953cf0b6915fba24226cf7d",
+  "game/rf01-sorting-scene.js": "e593bb88cacab75844b7e51175b6cb2b02b9ee7882e33a022b82e678f251c417",
+  "game/rf01-sorting-assets.js": "25ef18a38377520e6cfea741b0adbc8a33898b628c0ae1a6b3837c43d7cdba73",
+  "game/rf01-shared-engine.js": "95753b3640dba14ea3f683fcf4d5afe8d5439bd1deb04e3392b870853d0c002f",
+  "game/rf01-shared-scene.js": "162fe9f52a3e129c825509f759176d4a6a20e122ce85db6517f7ba4dfbc70379",
+  "game/levels/rf01-3/qa.js": "5f9b1c63bc28ed35abdca71a4d5fa145ba09c6526ee4e5ffef19f9805ebed289",
+  "tools/rf01-infeed-prepare.mjs": "024a71871a55bdb91ab08fee6b8255ff0166bb0545cdf7325746c4405c13d132",
+  "tools/rf01-sorting-audit.mjs": "f9cd29710c54edecbb8836cc6cb8a003692b62f671f819168903068f67176be0",
+  "tests/rf01-sorting.test.mjs": "3dd758a99c3f10a26a54892e87a1f17c6d3fa335c4fa47f99b142e65787278b1",
+  "vite.config.js": "ba4fa89e7db68e25c1dd7bbae6b02fc417457aa735cf42eacb6073db83b1d3b6"
+}

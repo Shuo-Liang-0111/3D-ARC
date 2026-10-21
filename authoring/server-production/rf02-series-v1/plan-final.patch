@@ -1,0 +1,18 @@
+diff --git a/docs/levels/rf02-series-production-plan.md b/docs/levels/rf02-series-production-plan.md
+--- a/docs/levels/rf02-series-production-plan.md
++++ b/docs/levels/rf02-series-production-plan.md
+@@ -7 +7 @@
+-Authoritative host: 127.0.0.1; SSH user: chenhaoyuan; allowed root: /path/to/arc-workspace; verified project: .. Existing public Vite entry: port 4173, PID 1716789, cwd matching the project. Production static server: PID 2978983, localhost 4176, same cwd. Both current source and build are verified at delivery. Existing unrelated changes remain untouched. Task artifacts: ./authoring/server-production/rf02-series-v1.
++Authoritative host: 127.0.0.1; SSH user: chenhaoyuan; allowed root: /path/to/arc-workspace; verified project: .. Fixed playable release: ./authoring/server-production/rf02-series-v1/release, port 4192, PID 3974501, project cwd. Existing dev 4173 and API/static 4176 remain unchanged. Task artifacts and evidence: ./authoring/server-production/rf02-series-v1. See rf02-series-acceptance.md for exact deployed verification and the outstanding performance gate.
+@@ -9 +9 @@
+-## Proposed rules
++## Implemented rules
+@@ -13 +13 @@
+-- RF-02-3: same six books and initial arrangement; after the second correct return, one of three shelf books falls. The shelf is selected randomly each reset. The incident must be recovered before success. One incident per episode is the default pending the optional initial choice.
++- RF-02-3: same six books and initial arrangement; after the second correct return, one of three shelf books falls. The shelf is selected randomly each reset. The incident must be recovered before success. One incident per episode was the announced default after no optional override was received.
+@@ -17 +17 @@
+-- Initial and maximum reserve: 100. Calibrate RF-02-2 to about 30–40 remaining on a verified normal route; RF-02-3 about 18–28 across all random shelf branches. Exact rates follow engine-route measurements, not guesses.
++- Initial and maximum reserve: 100. RF-02-2 costs 0.86/m, errors 3; RF-02-3 costs 0.94/m, errors 5. First pickup/return reward 1/2. Verified engine endpoints are 35.23 and 13.84–29.86; formal browser endpoints are 24.99 and 8.09 (black fall). The dynamic task intentionally leaves little room for detours. Exact minima and error routes are in the acceptance report.
+@@ -21 +21 @@
+-Reuse current 24 × 16 m library, 3.6 m walls, 2 m entrance, 0.78 m return table, 0.75 m reading tables, 1.2+ m aisles, original spawn and three collection shelves. Inherit all camera, robot, socket, body, input, speed and action contracts. Baseline hashes and pre-existing diffs are in the task artifact directory. Existing Cardinal static GLBs and three book GLBs are reused; add a separate authoritative collision GLB sourced from the same layout, if needed. A short book-impact sound may be generated with the authorized Cardinal helper. No new room or robot assets.
++Reuse current 24 × 16 m library, 3.6 m walls, 2 m entrance, original spawn and three collection shelves. Actual Blender-measured supports are 0.6853 m on reading tables, 1.0097 m on the cart and 0.676–0.680 m on the clear return-desk row; use these instead of nominal furniture bounding heights. Inherit all camera, robot, socket, body, input, speed and action contracts. Baseline hashes and pre-existing diffs are in task artifacts. Existing static GLBs and three book GLBs are reused; separate authoritative collision and ceiling fixtures use the same layout. One Cardinal impact sound is complete. No new room or robot assets.
