@@ -57,3 +57,18 @@ RF-08 网页分组对应内部 `rf09`；RF-11 对应 `rf13`，不要按编号直
 | RF-13-1 | `rf15-1` | 手推车归位 | [`game/levels/rf15-1/runtime.js`](../game/levels/rf15-1/runtime.js) | current-source |
 | RF-13-2 | `rf15-2` | 田间收割入筐 | [`game/levels/rf15-2/runtime.js`](../game/levels/rf15-2/runtime.js) | current-source |
 | RF-13-3 | `rf15-3` | 动态称重装车 | [`game/levels/rf15-3/runtime.js`](../game/levels/rf15-3/runtime.js) | current-source |
+
+## 冻结目录的实际来源
+
+`original-project` 表示原 arc-game 根目录，`original-production` 表示原 production 根目录。归档时展开符号链接，运行时不依赖服务器上的原目录。
+
+| 归档中的路径 | 原目录对应关系 |
+|---|---|
+| `public/rf01-restored-carry-v1/` | `original-project/public/rf01-restored-carry-v1/` |
+| `public/rf06-series-v1-r16/` | `original-production/rf06-series-v1/rf06-series-v1-r16/` |
+| `public/rf073-pickup-finish-r1/` | `original-production/rf073-pickup-finish/release-r1/` |
+| `public/rf08-office-v1-r30/` | `original-production/rf08-office-v1/build/r30/` |
+| `public/rf11-clinic-series-v1-r12/` | `original-production/rf11-clinic-series-v1/release-r12/` |
+| `public/rf12-tennis-series-v1-r7/` | `original-production/rf12-tennis-series-v1/rf12-tennis-series-v1-r7/` |
+
+原项目 HEAD 为 `2fd164bc2f5bb24805a81ce9d29f2e576a0907bd`。此次导出包含经核对的原工作树修改与未跟踪制作资料，不只包含这个提交。为避免泄露已删除的历史凭据，未推送原 `.git` 全历史；相关历史源码快照、可恢复制作文件和原 SHA-256 另行保存。

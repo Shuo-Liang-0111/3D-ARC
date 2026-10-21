@@ -97,6 +97,8 @@ def main():
         dest.parent.mkdir(parents=True, exist_ok=True)
         # Independent copies keep current assets and frozen releases independently editable.
         shutil.copyfile(objects/row['sha256'], dest)
+        if row.get('executable'):
+            dest.chmod(0o755)
         count += 1
     if args.fixtures:
         for row in json.loads((ROOT/'archive/fixture-aliases.json').read_text()):

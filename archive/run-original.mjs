@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { createServer, connect } from 'node:net';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import WebSocket from 'ws';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const env = process.env;
@@ -36,6 +37,17 @@ async function available(port) {
 async function ready(port) {
   for (let n = 0; n < 120; n++) {
     if (closing) throw new Error('A child process stopped');
+    if (port === ports.sim) {
+      const connected = await new Promise(ok => {
+        const socket = new WebSocket(`ws://127.0.0.1:${port}/ws`);
+        const timer = setTimeout(() => { socket.terminate(); ok(false); }, 1000);
+        socket.once('open', () => { clearTimeout(timer); socket.close(); ok(true); });
+        socket.once('error', () => { clearTimeout(timer); ok(false); });
+      });
+      if (connected) return;
+      await new Promise(ok => setTimeout(ok, 500));
+      continue;
+    }
     const result = await new Promise(ok => {
       const socket = connect({ host: '127.0.0.1', port });
       socket.setTimeout(500);
