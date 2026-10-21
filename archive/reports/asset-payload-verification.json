@@ -1,0 +1,18 @@
+{
+  "changedUniqueAssetsInspected": 3,
+  "allVisualPayloadsUnchanged": true,
+  "details": [
+    {
+      "path": "authoring/server-production/rf05-series-v06/repair-r9/cart-native.png",
+      "visualPayloadUnchanged": true
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/leak.glb",
+      "visualPayloadUnchanged": true
+    },
+    {
+      "path": "public/local-assets/embodiedgen/rf06/models/runtime/interactables/valve.glb",
+      "visualPayloadUnchanged": true
+    }
+  ]
+}

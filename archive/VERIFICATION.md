@@ -1,42 +1,78 @@
-# 归档验证记录
+# 上传、下载与运行验证
 
-## 发布前检查
+本次验证对象是学长原工程归档，**不是修复后的新基准**。结论：源码和全部配套数据可以从 GitHub 下载并恢复；35 个正式入口可进入任务，RF03 保留原实现的加载判定缺陷。没有宣称 36 关均通关，也没有以软件渲染下短按测试作为机器人控制质量认证。
 
-- 8,134 个原文件在导出前逐一核对 SHA-256，与审计清单一致。
-- 七个数据包实际解包恢复成功，脱敏后的 8,134 个文件逐项校验通过。
-- Node 22.18 / npm ci 按原 package-lock 安装成功；npm run build 成功。
-- 独立 Python 3.12 环境安装 simulation/requirements.txt 成功，原 G1 MuJoCo、原 API、原 Vite 在隔离端口启动。
-- 针对原主机、私人目录、常见密钥/私钥格式、新增项目名称的最终内容扫描无命中；排除 .codex/.claude/凭据目录与运行数据库。模式扫描不构成数学上的零泄露保证。
-- 根 README、.gitignore、.gitattributes 保留原件到 archive/original-*，新文件仅服务于归档说明、资产分发和字节一致性。
+## 文件与来源
 
-## 原自动测试
+- 导出前及最终复查均核对 8,134 个原文件，源文件内容全部未变。
+- 8,134 个逻辑路径均有归档内容、原始 SHA-256 和脱敏后 SHA-256；来源见 `provenance.json`。
+- 六个实际冻结版本和四组关联历史源码保留；63 个原 Git 可恢复制作文件、外部 G1 模型/策略/配置/许可补齐。
+- 发布采用新建 Git 历史；原 `.git`、`.codex`、`.claude`、凭据、会话、运行数据库与后续新增工程未上传。
+- 原脚本的可执行标志保留。三个根说明/配置文件的原件另存 `archive/original-*`。
+- 内容扫描未发现原服务器地址、私人目录、常见密钥/私钥格式或新增工程名称。扫描属于模式与来源核验，不是绝对无泄露的证明。
+- 脱敏变更中涉及的 3 个独立 GLB/PNG 资产，其二进制几何/纹理或图像像素负载逐项一致。8 份 Blender 文件均能重新打开，图像已打包，无缺失外部库。
 
-在另一个只读取原文件建立的未脱敏副本上运行：738 项，708 通过，15 失败，15 跳过。归档副本完整运行：738 项，707 通过，16 失败，15 跳过。共同失败项见下方；额外一次失败为旧 Agent 命令超时测试的时序波动，单独复测该测试文件与 RF06 资产完整性文件合计 19 项全部通过。
+## GitHub 下载验证
 
-初次脱敏曾使 RF06 校验清单中的大小/哈希与 GLB 新字节不一致，已同步 8 份引用清单。原始哈希仍保留在 provenance.json。没有修改测试断言或关卡规则以掩盖失败。
+从公开 GitHub 仓库重新克隆提交 `0812060ddf277646e6ab639557fd1eb01ebf25b7`，并从 GitHub 完整回读全部 7 个包，共 4,717,825,856 字节。为与上传并行，部分内容使用仓库账户认证的草稿资产 API 下载，跳转 CDN 时明确不转发 GitHub 凭据；剩余内容在发布后通过匿名 Release 地址续传。发布后另对全部公开下载地址使用匿名范围请求，核对可访问性、总大小和数据前缀。没有从原站复制资产补齐下载副本。
 
-共同失败既包括原逻辑/测试与当前实现不一致，也包括按本次范围排除的扫描实验数据；不能称为全套测试通过。初始基线仅复制获准归档的文件，因此实验数据缺失导致的失败也会出现在基线。
+- GitHub 上传端逐包返回的 SHA-256 与清单一致。
+- 下载端逐包再次核对 SHA-256，再使用仓库内 `archive/restore.py` 解包恢复；8,134/8,134 文件校验通过。
+- 全新目录中 `npm ci` 和 Python 3.12 的五项锁定模拟依赖安装成功。服务器缺少 ensurepip，因此虚拟环境用独立 pip 安装工具引导；安装后的环境独立运行。普通 Linux/WSL 用户需预先具备 venv 支持。
+- 原 MuJoCo、API 和 Vite 使用第二组隔离端口重新启动。下载副本中的 RF01、RF02、RF06、RF07-3、RF09、RF13、RF14 均通过浏览器加载检查，覆盖六种冻结部署路由及当前源码路由。
+- 原 G1 模型和策略通过 WebSocket 服务测试，连续前进指令产生约 1.43 米位移。软件渲染浏览器中部分短按位移为零或很小，因此本报告不把短按结果视为控制正确性的完整证明。
 
-- RF-01 Cardinal pass avoids tactile paving and duplicate facade layers
-- RF-01 installs collision bounds from the loaded GLB nodes
-- RF-08 static GLB embeds textures and contains no Gaussian extensions
-- RF-08 uses full scan physics and retains free exploration semantics
-- RF-12 resolves the five kitchen hazards and completes at the terminal
-- a carried battery can be dropped on ordinary walkable ground
-- bin pickup, relocation, collision, blocked placement and reset
-- browser controls map A/D to strafe and Q/E to free turning
-- cyan light guide is attached in head-link local space
-- entry remains blocked until the shared official robot loads
-- first-person view renders the actual full robot from the D435 optical pose
-- rf08 supports energy-consuming lateral movement
-- rf08 supports energy-free Q/E turning
-- test_zpf2 is registered as the twelfth scene across the app, HUD and agent entry points
-- tests/office-scan-physics.test.mjs
+## 构建与原自动测试
 
-## 浏览器与上传后检查
+`npm run build` 成功。原构建复制列表没有包含全部线上冻结资源，完整运行方式仍是 README 中的 `node archive/run-original.mjs`。
 
-归档副本的全部 36 个人工入口检查已完成：35 个可进入任务，RF03 显示加载失败。RF03 的 23 个叶子资产实际均成功加载，但 4 个嵌套数组被主程序误判；未脱敏基线副本也复现。详情见 `KNOWN_LIMITS.md`。未发现任务资产 404 或未捕获页面异常，仅两次 `/favicon.ico` 404。
+原范围内未脱敏基线副本：738 项，708 通过、15 失败、15 跳过。脱敏副本完整运行：707 通过、16 失败、15 跳过。15 项共同失败包含原逻辑/测试不一致，以及本次明确排除的扫描实验依赖；额外一次为旧 Agent 10 ms 命令租约测试的时序波动。单独复测该测试文件和 RF06 资产校验文件，19/19 通过。详见 `reports/original-tests.json`。
 
-G1 模型与策略通过独立 WebSocket 服务测试，连续前进指令产生约 1.43 米位移。部分软件渲染下网页短按位移很小或为零，不将此检查解释为控制质量或任务通关认证。8 份 Blender 文件都能重新打开，图像已打包且无缺失外部库；变更的 GLB/PNG 视觉负载保持一致。
+初次脱敏导致两份 GLB 的字节改变，相关 8 份资产清单已同步大小和哈希，原值保存在来源清单。没有修改原测试断言来掩盖失败。
 
-当前资产包仍在向 Release 上传。上传后将从 GitHub 重新下载全部数据、恢复校验，并在新副本启动检查；此部分尚未完成，最终结果会更新到本文件。
+## 36 个人工入口
+
+在完整归档副本上用第三人称 G1 打开全部 36 关，35 关进入任务；RF03 的 23 个叶子资产实际都已加载，但 4 个嵌套数组被主程序误判。未脱敏基线副本也复现，详见 `KNOWN_LIMITS.md`。
+
+所有检查未出现未捕获页面脚本异常或请求原服务器的资源依赖。仅两次出现非关卡资源 `/favicon.ico` 的 404。测试使用隔离 Chrome，常规页面资源限定访问对应本机端口。
+
+| 内部关卡 ID | HTTP | 检查结果 | 实际入口版本 |
+|---|---|---|---|
+| `rf01` | 200 | 进入任务 | rf01-restored-carry-v1 |
+| `rf01-2` | 200 | 进入任务 | rf01-restored-carry-v1 |
+| `rf01-3` | 200 | 进入任务 | rf01-restored-carry-v1 |
+| `rf02` | 200 | 进入任务 | 当前源码 |
+| `rf02-2` | 200 | 进入任务 | 当前源码 |
+| `rf02-3` | 200 | 进入任务 | 当前源码 |
+| `rf03` | 200 | 原始加载判定错误 | 当前源码 |
+| `rf04` | 200 | 进入任务 | 当前源码 |
+| `rf04-2` | 200 | 进入任务 | 当前源码 |
+| `rf04-3` | 200 | 进入任务 | 当前源码 |
+| `rf05` | 200 | 进入任务 | 当前源码 |
+| `rf05-2` | 200 | 进入任务 | 当前源码 |
+| `rf05-3` | 200 | 进入任务 | 当前源码 |
+| `rf06` | 200 | 进入任务 | rf06-series-v1-r16 |
+| `rf06-2` | 200 | 进入任务 | rf06-series-v1-r16 |
+| `rf06-3` | 200 | 进入任务 | rf06-series-v1-r16 |
+| `rf07` | 200 | 进入任务 | rf073-pickup-finish-r1 |
+| `rf07-2` | 200 | 进入任务 | rf073-pickup-finish-r1 |
+| `rf07-3` | 200 | 进入任务 | rf073-pickup-finish-r1 |
+| `rf09` | 200 | 进入任务 | rf08-office-v1-r30 |
+| `rf09-2` | 200 | 进入任务 | rf08-office-v1-r30 |
+| `rf09-3` | 200 | 进入任务 | rf08-office-v1-r30 |
+| `rf11` | 200 | 进入任务 | 当前源码 |
+| `rf12` | 200 | 进入任务 | 当前源码 |
+| `rf12-2` | 200 | 进入任务 | 当前源码 |
+| `rf12-3` | 200 | 进入任务 | 当前源码 |
+| `rf13` | 200 | 进入任务 | rf11-clinic-series-v1-r12 |
+| `rf13-02` | 200 | 进入任务 | rf11-clinic-series-v1-r12 |
+| `rf13-03` | 200 | 进入任务 | rf11-clinic-series-v1-r12 |
+| `rf14` | 200 | 进入任务 | rf12-tennis-series-v1-r7 |
+| `rf14-2` | 200 | 进入任务 | rf12-tennis-series-v1-r7 |
+| `rf14-3` | 200 | 进入任务 | rf12-tennis-series-v1-r7 |
+| `rf15` | 200 | 进入任务 | 当前源码 |
+| `rf15-1` | 200 | 进入任务 | 当前源码 |
+| `rf15-2` | 200 | 进入任务 | 当前源码 |
+| `rf15-3` | 200 | 进入任务 | 当前源码 |
+
+机器可读结果保存在 `reports/`。没有测试逐关通关、模型成功率、原排行榜可靠性，也没有重新生成历史缺失的制作输入。

@@ -1,0 +1,58 @@
+{
+  "baseline": {
+    "tests": 738,
+    "pass": 708,
+    "fail": 15,
+    "skipped": 15,
+    "failures": [
+      "a carried battery can be dropped on ordinary walkable ground",
+      "tests/office-scan-physics.test.mjs",
+      "bin pickup, relocation, collision, blocked placement and reset",
+      "RF-08 uses full scan physics and retains free exploration semantics",
+      "RF-08 static GLB embeds textures and contains no Gaussian extensions",
+      "RF-12 resolves the five kitchen hazards and completes at the terminal",
+      "first-person view renders the actual full robot from the D435 optical pose",
+      "cyan light guide is attached in head-link local space",
+      "entry remains blocked until the shared official robot loads",
+      "rf08 supports energy-consuming lateral movement",
+      "rf08 supports energy-free Q/E turning",
+      "browser controls map A/D to strafe and Q/E to free turning",
+      "test_zpf2 is registered as the twelfth scene across the app, HUD and agent entry points",
+      "RF-01 Cardinal pass avoids tactile paving and duplicate facade layers",
+      "RF-01 installs collision bounds from the loaded GLB nodes"
+    ]
+  },
+  "sanitizedFullRun": {
+    "tests": 738,
+    "pass": 707,
+    "fail": 16,
+    "skipped": 15,
+    "failures": [
+      "agent platform redelivers expired commands and accepts duplicate results",
+      "a carried battery can be dropped on ordinary walkable ground",
+      "tests/office-scan-physics.test.mjs",
+      "bin pickup, relocation, collision, blocked placement and reset",
+      "RF-08 uses full scan physics and retains free exploration semantics",
+      "RF-08 static GLB embeds textures and contains no Gaussian extensions",
+      "RF-12 resolves the five kitchen hazards and completes at the terminal",
+      "first-person view renders the actual full robot from the D435 optical pose",
+      "cyan light guide is attached in head-link local space",
+      "entry remains blocked until the shared official robot loads",
+      "rf08 supports energy-consuming lateral movement",
+      "rf08 supports energy-free Q/E turning",
+      "browser controls map A/D to strafe and Q/E to free turning",
+      "test_zpf2 is registered as the twelfth scene across the app, HUD and agent entry points",
+      "RF-01 Cardinal pass avoids tactile paving and duplicate facade layers",
+      "RF-01 installs collision bounds from the loaded GLB nodes"
+    ]
+  },
+  "focusedRerun": {
+    "tests": 19,
+    "pass": 19,
+    "fail": 0,
+    "files": [
+      "tests/agent-platform.test.mjs",
+      "tests/rf06-leak.test.mjs"
+    ]
+  }
+}

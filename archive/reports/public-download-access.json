@@ -1,0 +1,51 @@
+[
+  {
+    "name": "original-data-01-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 679311392,
+    "prefixBytesVerified": 65536
+  },
+  {
+    "name": "original-data-02-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 672064974,
+    "prefixBytesVerified": 65536
+  },
+  {
+    "name": "original-data-03-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 660012202,
+    "prefixBytesVerified": 65536
+  },
+  {
+    "name": "original-data-04-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 697293322,
+    "prefixBytesVerified": 65536
+  },
+  {
+    "name": "original-data-05-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 683584630,
+    "prefixBytesVerified": 65536
+  },
+  {
+    "name": "original-data-06-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 707759459,
+    "prefixBytesVerified": 65536
+  },
+  {
+    "name": "original-data-07-of-07.tar.gz",
+    "authenticated": false,
+    "status": 206,
+    "totalBytes": 617799877,
+    "prefixBytesVerified": 65536
+  }
+]

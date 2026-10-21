@@ -1,0 +1,810 @@
+[
+  {
+    "level": "rf01",
+    "expectedRelease": "rf01-restored-carry-v1",
+    "actualRelease": "rf01-restored-carry-v1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf01",
+      "view": "third"
+    },
+    "stateFrames": 583,
+    "displacement": 0,
+    "httpErrors": [
+      {
+        "status": 404,
+        "url": "/favicon.ico"
+      }
+    ],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf01-2",
+    "expectedRelease": "rf01-restored-carry-v1",
+    "actualRelease": "rf01-restored-carry-v1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf01-2",
+      "view": "third"
+    },
+    "stateFrames": 544,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf01-3",
+    "expectedRelease": "rf01-restored-carry-v1",
+    "actualRelease": "rf01-restored-carry-v1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf01-3",
+      "view": "third"
+    },
+    "stateFrames": 668,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf02",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf02",
+      "view": "third"
+    },
+    "stateFrames": 590,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf02-2",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf02-2",
+      "view": "third"
+    },
+    "stateFrames": 604,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf02-3",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "seeded",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf02-3",
+      "view": "third"
+    },
+    "stateFrames": 604,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf03",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": false,
+    "error": "Waiting failed: 90000ms exceeded",
+    "ready": null,
+    "stateFrames": 0,
+    "displacement": null,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf04",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf04",
+      "view": "third"
+    },
+    "stateFrames": 466,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf04-2",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf04-2",
+      "view": "third"
+    },
+    "stateFrames": 464,
+    "displacement": 0.0035534290439558497,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf04-3",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf04-3",
+      "view": "third"
+    },
+    "stateFrames": 455,
+    "displacement": 0.003484825113445184,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf05",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf05",
+      "view": "third"
+    },
+    "stateFrames": 221,
+    "displacement": 0.1865612160334893,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf05-2",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf05-2",
+      "view": "third"
+    },
+    "stateFrames": 216,
+    "displacement": 0.1271454621071136,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf05-3",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "seeded",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf05-3",
+      "view": "third"
+    },
+    "stateFrames": 230,
+    "displacement": 0.13894144735233827,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf06",
+    "expectedRelease": "rf06-series-v1-r16",
+    "actualRelease": "rf06-series-v1-r16",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf06",
+      "view": "third"
+    },
+    "stateFrames": 293,
+    "displacement": 0.0683553502118018,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf06-2",
+    "expectedRelease": "rf06-series-v1-r16",
+    "actualRelease": "rf06-series-v1-r16",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf06-2",
+      "view": "third"
+    },
+    "stateFrames": 268,
+    "displacement": 0.001561966988486523,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf06-3",
+    "expectedRelease": "rf06-series-v1-r16",
+    "actualRelease": "rf06-series-v1-r16",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf06-3",
+      "view": "third"
+    },
+    "stateFrames": 298,
+    "displacement": 0.06871644947056252,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf07",
+    "expectedRelease": "rf073-pickup-finish-r1",
+    "actualRelease": "rf073-pickup-finish-r1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf07",
+      "view": "third"
+    },
+    "stateFrames": 781,
+    "displacement": 0.010257295215250492,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf07-2",
+    "expectedRelease": "rf073-pickup-finish-r1",
+    "actualRelease": "rf073-pickup-finish-r1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf07-2",
+      "view": "third"
+    },
+    "stateFrames": 780,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf07-3",
+    "expectedRelease": "rf073-pickup-finish-r1",
+    "actualRelease": "rf073-pickup-finish-r1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf07-3",
+      "view": "third"
+    },
+    "stateFrames": 780,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf09",
+    "expectedRelease": "rf08-office-v1-r30",
+    "actualRelease": "rf08-office-v1-r30",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf09",
+      "view": "third"
+    },
+    "stateFrames": 590,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf09-2",
+    "expectedRelease": "rf08-office-v1-r30",
+    "actualRelease": "rf08-office-v1-r30",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf09-2",
+      "view": "third"
+    },
+    "stateFrames": 620,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf09-3",
+    "expectedRelease": "rf08-office-v1-r30",
+    "actualRelease": "rf08-office-v1-r30",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf09-3",
+      "view": "third"
+    },
+    "stateFrames": 620,
+    "displacement": 0.007572383947771653,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf11",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf11",
+      "view": "third"
+    },
+    "stateFrames": 0,
+    "displacement": 0.07750000000000012,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf12",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf12",
+      "view": "third"
+    },
+    "stateFrames": 356,
+    "displacement": 0.002494331787247753,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf12-2",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf12-2",
+      "view": "third"
+    },
+    "stateFrames": 358,
+    "displacement": 0.0025263029287502887,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf12-3",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf12-3",
+      "view": "third"
+    },
+    "stateFrames": 346,
+    "displacement": 0.0024590276122930218,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf13",
+    "expectedRelease": "rf11-clinic-series-v1-r12",
+    "actualRelease": "rf11-clinic-series-v1-r12",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf13",
+      "view": "third"
+    },
+    "stateFrames": 517,
+    "displacement": 0.006421279951075176,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf13-02",
+    "expectedRelease": "rf11-clinic-series-v1-r12",
+    "actualRelease": "rf11-clinic-series-v1-r12",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf13-02",
+      "view": "third"
+    },
+    "stateFrames": 520,
+    "displacement": 0.006907804033392787,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf13-03",
+    "expectedRelease": "rf11-clinic-series-v1-r12",
+    "actualRelease": "rf11-clinic-series-v1-r12",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf13-03",
+      "view": "third"
+    },
+    "stateFrames": 506,
+    "displacement": 0,
+    "httpErrors": [
+      {
+        "status": 404,
+        "url": "/favicon.ico"
+      }
+    ],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf14",
+    "expectedRelease": "rf12-tennis-series-v1-r7",
+    "actualRelease": "rf12-tennis-series-v1-r7",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf14",
+      "view": "third"
+    },
+    "stateFrames": 350,
+    "displacement": 0.0027711114463552533,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf14-2",
+    "expectedRelease": "rf12-tennis-series-v1-r7",
+    "actualRelease": "rf12-tennis-series-v1-r7",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf14-2",
+      "view": "third"
+    },
+    "stateFrames": 349,
+    "displacement": 0.0027731297597158584,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf14-3",
+    "expectedRelease": "rf12-tennis-series-v1-r7",
+    "actualRelease": "rf12-tennis-series-v1-r7",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf14-3",
+      "view": "third"
+    },
+    "stateFrames": 354,
+    "displacement": 0.00237964273605975,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf15",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf15",
+      "view": "third"
+    },
+    "stateFrames": 382,
+    "displacement": 0.06732650848097473,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf15-1",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf15-1",
+      "view": "third"
+    },
+    "stateFrames": 510,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf15-2",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf15-2",
+      "view": "third"
+    },
+    "stateFrames": 583,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf15-3",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf15-3",
+      "view": "third"
+    },
+    "stateFrames": 580,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  }
+]

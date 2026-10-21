@@ -1,0 +1,39 @@
+{
+  "source": "GitHub clone and GitHub asset downloads; completed draft assets used the authenticated API with credentials stripped before CDN redirects; interrupted remaining downloads resumed from anonymous public Release URLs",
+  "commit": "0812060ddf277646e6ab639557fd1eb01ebf25b7",
+  "bundles": 7,
+  "bytes": 4717825856,
+  "restoreExit": 0,
+  "restoredFiles": 8134,
+  "downloadRecovery": [
+    {
+      "name": "original-data-01-of-07.tar.gz",
+      "previouslyComplete": true
+    },
+    {
+      "name": "original-data-02-of-07.tar.gz",
+      "previouslyComplete": true
+    },
+    {
+      "name": "original-data-03-of-07.tar.gz",
+      "previouslyComplete": true
+    },
+    {
+      "name": "original-data-04-of-07.tar.gz",
+      "previouslyComplete": true
+    },
+    {
+      "name": "original-data-05-of-07.tar.gz",
+      "previouslyComplete": true
+    },
+    {
+      "name": "original-data-06-of-07.tar.gz",
+      "anonymousResumedFromBytes": 289406976,
+      "publicRanges": 13
+    },
+    {
+      "name": "original-data-07-of-07.tar.gz",
+      "previouslyComplete": true
+    }
+  ]
+}

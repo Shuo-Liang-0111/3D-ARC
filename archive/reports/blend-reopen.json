@@ -1,0 +1,66 @@
+[
+  {
+    "file": "authoring/server-production/rf05-series-v06/repair-r9/cart-inspect.blend",
+    "objects": 3,
+    "meshes": 1,
+    "images": 4,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "authoring/server-production/rf12-tennis-series-v1/shelter-source.blend",
+    "objects": 47,
+    "meshes": 47,
+    "images": 2,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "production/rf13/realism-v0.3/environment.blend",
+    "objects": 420,
+    "meshes": 388,
+    "images": 5,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "production/rf13/realism-v0.3/environment.blend1",
+    "objects": 16,
+    "meshes": 16,
+    "images": 1,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "production/rf13/realism-v0.4.1/environment.blend",
+    "objects": 100,
+    "meshes": 50,
+    "images": 18,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "production/rf13/realism-v0.4.2/environment.blend",
+    "objects": 104,
+    "meshes": 52,
+    "images": 18,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "production/rf13/realism-v0.4.3/environment.blend",
+    "objects": 104,
+    "meshes": 52,
+    "images": 18,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  },
+  {
+    "file": "production/rf13/realism-v0.4/environment.blend",
+    "objects": 100,
+    "meshes": 50,
+    "images": 18,
+    "unpackedImages": [],
+    "externalLibraries": 0
+  }
+]

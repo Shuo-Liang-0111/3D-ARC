@@ -1,0 +1,147 @@
+[
+  {
+    "level": "rf01",
+    "expectedRelease": "rf01-restored-carry-v1",
+    "actualRelease": "rf01-restored-carry-v1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf01",
+      "view": "third"
+    },
+    "stateFrames": 550,
+    "displacement": 0,
+    "httpErrors": [
+      {
+        "status": 404,
+        "url": "/favicon.ico"
+      }
+    ],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf02",
+    "expectedRelease": "current-source",
+    "actualRelease": null,
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "environment": {
+        "protocolVersion": "arc-seed-v1",
+        "seed": null,
+        "seedPolicy": "fixed",
+        "seedApplied": false,
+        "initialStateFingerprint": null
+      },
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf02",
+      "view": "third"
+    },
+    "stateFrames": 611,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf06",
+    "expectedRelease": "rf06-series-v1-r16",
+    "actualRelease": "rf06-series-v1-r16",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf06",
+      "view": "third"
+    },
+    "stateFrames": 286,
+    "displacement": 0.06814927571230829,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf07-3",
+    "expectedRelease": "rf073-pickup-finish-r1",
+    "actualRelease": "rf073-pickup-finish-r1",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf07-3",
+      "view": "third"
+    },
+    "stateFrames": 901,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf09",
+    "expectedRelease": "rf08-office-v1-r30",
+    "actualRelease": "rf08-office-v1-r30",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf09",
+      "view": "third"
+    },
+    "stateFrames": 606,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf13",
+    "expectedRelease": "rf11-clinic-series-v1-r12",
+    "actualRelease": "rf11-clinic-series-v1-r12",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf13",
+      "view": "third"
+    },
+    "stateFrames": 529,
+    "displacement": 0,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  },
+  {
+    "level": "rf14",
+    "expectedRelease": "rf12-tennis-series-v1-r7",
+    "actualRelease": "rf12-tennis-series-v1-r7",
+    "status": 200,
+    "loaded": true,
+    "error": null,
+    "ready": {
+      "ready": true,
+      "assetState": "ready",
+      "level": "rf14",
+      "view": "third"
+    },
+    "stateFrames": 350,
+    "displacement": 0.002688985592115099,
+    "httpErrors": [],
+    "pageErrors": [],
+    "blockedExternalRequests": []
+  }
+]
